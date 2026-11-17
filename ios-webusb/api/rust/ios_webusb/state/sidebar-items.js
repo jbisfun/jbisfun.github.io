@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["DeviceCommand","Transport","UiEvent"],"struct":["DeviceEntry","Inner","LiveSession","Paths","PendingRequest","Session","SessionHandle","Snapshot","State"]};
+window.SIDEBAR_ITEMS = {"enum":["DeviceCommand","Transport","UiEvent"],"struct":["DeviceEntry","Paths","Snapshot","State"]};

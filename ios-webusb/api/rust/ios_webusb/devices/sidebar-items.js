@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["entry","run","spawn"]};
+window.SIDEBAR_ITEMS = {"constant":["LABEL"],"enum":["Event"],"fn":["device_name","entry","listen","pair","run","spawn","watch"]};

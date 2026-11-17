@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["DEFAULT_BRIDGE"],"fn":["main","paths","wait_for_socket"],"mod":["bridge","devices","state","tray","ui"]};
+window.SIDEBAR_ITEMS = {"fn":["main","paths","wait_for_socket"],"mod":["devices","state","tray","ui"]};

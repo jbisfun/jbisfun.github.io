@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["MAX_HEADER","PROMPT_TIMEOUT"],"fn":["ask","handle","peek_origin","pump","serve"]};
