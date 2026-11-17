@@ -136,32 +136,34 @@ zig build                     # builds ./zig-out/bin/idl (Zig 0.14.1)
 zig build actool              # optional: .xcassets compiler (needs swift)
 ./zig-out/bin/idl build --strict -c release  # preflight, then build every example
 </code></pre>
-<p data-line="24">Install on a phone through the running Jimpactor tray app:</p>
-<pre data-line="26"><code>idl devices list
-idl install &quot;JPs iPhone&quot; MyApp
+<p data-line="24">Install on a phone through <a href="https://github.com/jpdagostin0/jimpactor">Jimpactor</a>,
+a sideloading tray app that signs the IPA with your Apple account (other
+options in <a href="docs/workflows.html#install-on-a-device-through-jimpactor">workflows</a>):</p>
+<pre data-line="28"><code>idl devices list
+idl install &quot;My iPhone&quot; MyApp
 </code></pre>
-<p data-line="29">Start a new app:</p>
-<pre data-line="31"><code>idl init MyApp --lang swift --bundle-id com.example.myapp
+<p data-line="31">Start a new app:</p>
+<pre data-line="33"><code>idl init MyApp --lang swift --bundle-id com.example.myapp
 cd MyApp &amp;&amp; idl build
 </code></pre>
-<h2 id="build-automation" data-line="34"><a class="header-anchor" href="#build-automation">Build automation</a></h2>
-<pre data-line="36"><code>idl check --strict -c release
+<h2 id="build-automation" data-line="36"><a class="header-anchor" href="#build-automation">Build automation</a></h2>
+<pre data-line="38"><code>idl check --strict -c release
 idl build --strict -c debug MyApp
 idl build --strict -c release MyApp
 </code></pre>
-<p data-line="40">YAML <code>configurations:</code> overrides flags, bundle identity, metadata and entitlements.
+<p data-line="42">YAML <code>configurations:</code> overrides flags, bundle identity, metadata and entitlements.
 Debug/release artifacts are isolated. Direct builds cache resource compilation,
 bundling, signing and packaging; concurrent build/gen/clean operations are locked.
 See <a href="docs/workflows.html#strict-preflight-and-build-profiles">workflows</a>.</p>
-<h2 id="code-quality" data-line="45"><a class="header-anchor" href="#code-quality">Code quality</a></h2>
-<pre data-line="47"><code>idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
+<h2 id="code-quality" data-line="47"><a class="header-anchor" href="#code-quality">Code quality</a></h2>
+<pre data-line="49"><code>idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
 idl lint [--analyze]   # clang -Wall, swiftc -typecheck, clang-tidy, analyzer, all with the real build flags
 idl test               # bundle checks (arm64/iOS/signed, @rpath resolution, plists) + `tests:` commands
 </code></pre>
-<p data-line="51">idl only orchestrates installed tools and merges their diagnostics into one
+<p data-line="53">idl only orchestrates installed tools and merges their diagnostics into one
 report. See <a href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">configuration</a>.</p>
-<h2 id="layout" data-line="54"><a class="header-anchor" href="#layout">Layout</a></h2>
-<pre data-line="56"><code>idlproj.yml        configuration for the examples in this repository
+<h2 id="layout" data-line="56"><a class="header-anchor" href="#layout">Layout</a></h2>
+<pre data-line="58"><code>idlproj.yml        configuration for the examples in this repository
 build.zig(.zon)    Zig build; pulls zig-clap, zig-yaml, zig-xml and libplist
 src/               the idl tool (see docs/architecture.md)
 tools/idl-actool/  Swift wrapper around AssetKit for .xcassets
@@ -169,20 +171,20 @@ examples/          ObjC, Swift, storyboard/XIB/asset-catalog and xtool/SwiftPM
                    apps, plus xcconfig patterns
 docs/              documentation
 </code></pre>
-<h2 id="documentation" data-line="64"><a class="header-anchor" href="#documentation">Documentation</a></h2>
-<ul data-line="66">
-<li data-line="66"><a href="docs/getting-started.html">Getting started</a></li>
-<li data-line="67"><a href="docs/configuration.html">idlproj.yml reference</a></li>
-<li data-line="68"><a href="docs/workflows.html">Common workflows</a></li>
-<li data-line="69"><a href="docs/limitations.html">Known limitations</a></li>
-<li data-line="70"><a href="docs/architecture.html">Architecture</a></li>
+<h2 id="documentation" data-line="66"><a class="header-anchor" href="#documentation">Documentation</a></h2>
+<ul data-line="68">
+<li data-line="68"><a href="docs/getting-started.html">Getting started</a></li>
+<li data-line="69"><a href="docs/configuration.html">idlproj.yml reference</a></li>
+<li data-line="70"><a href="docs/workflows.html">Common workflows</a></li>
+<li data-line="71"><a href="docs/limitations.html">Known limitations</a></li>
+<li data-line="72"><a href="docs/architecture.html">Architecture</a></li>
 </ul>
-<h2 id="tests" data-line="72"><a class="header-anchor" href="#tests">Tests</a></h2>
-<pre data-line="74"><code>zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
+<h2 id="tests" data-line="74"><a class="header-anchor" href="#tests">Tests</a></h2>
+<pre data-line="76"><code>zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
 zig build check      # idl check
 zig build examples   # idl build --gen for every example (real arm64 builds)
 </code></pre>
-<p data-line="78">Ad-hoc <code>ldid</code> signatures are not provisioning. Re-sign an IPA with your usual
+<p data-line="80">Ad-hoc <code>ldid</code> signatures are not provisioning. Re-sign an IPA with your usual
 signing or sideloading tool before you install it.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

@@ -141,7 +141,7 @@ cleaned. xtool still manages its own incremental build and packaging.</p>
 <pre data-line="30"><code>idl check --strict -c release MyApp  # tools + inputs + resources, no app compile
 idl build --strict -c debug MyApp
 idl build --strict -c release --gen
-idl install &quot;JPs iPhone&quot; -c debug MyApp
+idl install &quot;My iPhone&quot; -c debug MyApp
 idl gen -c debug MyApp
 </code></pre>
 <p data-line="36">Before compiling any application source, idl checks tools for <em>all selected
@@ -257,44 +257,45 @@ idl ibtool Some.nib --dump --types    # dump any NIBArchive, even Xcode's
 supported.</p>
 <h2 id="install-on-a-device-(through-jimpactor)" data-line="154"><a class="header-anchor" href="#install-on-a-device-(through-jimpactor)">Install on a device (through Jimpactor)</a></h2>
 <p data-line="156"><code>idl</code>’s ad-hoc <code>ldid</code> signature is not a provisioning profile. With the
-Jimpactor tray app running, <code>idl</code> can hand IPAs to it, and Jimpactor signs
-them with your account and installs them:</p>
-<pre data-line="160"><code>idl devices list                   # devices Jimpactor can reach
-idl install &quot;JPs iPhone&quot;           # build every target, then install each IPA
+<a href="https://github.com/jpdagostin0/jimpactor">Jimpactor</a> tray app running, <code>idl</code>
+can hand IPAs to it, and Jimpactor signs them with your account and installs
+them:</p>
+<pre data-line="161"><code>idl devices list                   # devices Jimpactor can reach
+idl install &quot;My iPhone&quot;            # build every target, then install each IPA
 idl install 00008130 MyApp         # device by UDID prefix, one target
 idl install 00008130-... --no-build MyApp   # install the last build
 idl install 00008130-... --ipa ~/Downloads/Other.ipa
 </code></pre>
-<p data-line="166"><code>&lt;device&gt;</code> is a UDID, a unique UDID prefix (4+ characters), or a device name
+<p data-line="167"><code>&lt;device&gt;</code> is a UDID, a unique UDID prefix (4+ characters), or a device name
 (case-insensitive). <code>idl</code> resolves the device before building, so a closed
 Jimpactor or an unknown device fails early. Install progress from Jimpactor
 is printed as it arrives.</p>
-<p data-line="171">Jimpactor’s IPC protocol (version 1): <code>idl</code> connects to 127.0.0.1 on the port
+<p data-line="172">Jimpactor’s IPC protocol (version 1): <code>idl</code> connects to 127.0.0.1 on the port
 in <code>&lt;data&gt;/relaunch.port</code> and sends the token from <code>&lt;data&gt;/ipc.token</code>. <code>&lt;data&gt;</code>
 is <code>$XDG_CONFIG_HOME/Jimpactor</code> or <code>~/.config/Jimpactor</code>, or
 <code>toolchain.jimpactor_dir</code> when that’s set.</p>
-<p data-line="176">Without Jimpactor, re-sign the IPA with any other tool (AltStore, Sideloadly,
+<p data-line="177">Without Jimpactor, re-sign the IPA with any other tool (AltStore, Sideloadly,
 <code>xtool dev build --sign</code>, …).</p>
-<h2 id="check-an-ipa-from-anywhere" data-line="179"><a class="header-anchor" href="#check-an-ipa-from-anywhere">Check an IPA from anywhere</a></h2>
-<pre data-line="181"><code>idl verify Some.ipa --bundle-id com.example.app
+<h2 id="check-an-ipa-from-anywhere" data-line="180"><a class="header-anchor" href="#check-an-ipa-from-anywhere">Check an IPA from anywhere</a></h2>
+<pre data-line="182"><code>idl verify Some.ipa --bundle-id com.example.app
 idl verify unsigned.ipa --allow-unsigned
 </code></pre>
-<h2 id="standalone-plist-and-string-catalog-tools" data-line="184"><a class="header-anchor" href="#standalone-plist-and-string-catalog-tools">Standalone plist and string-catalog tools</a></h2>
-<pre data-line="186"><code>idl plist -i Info.plist -o out.plist \
+<h2 id="standalone-plist-and-string-catalog-tools" data-line="185"><a class="header-anchor" href="#standalone-plist-and-string-catalog-tools">Standalone plist and string-catalog tools</a></h2>
+<pre data-line="187"><code>idl plist -i Info.plist -o out.plist \
     --var PRODUCT_BUNDLE_IDENTIFIER=com.example.app \
     --set CFBundleVersion=42 --set UIRequiredDeviceCapabilities='[&quot;arm64&quot;]' \
     --default LSRequiresIPhoneOS=true --delete NSExampleKey
 idl xcstrings Localizable.xcstrings build/strings   # -&gt; &lt;lang&gt;.lproj/Localizable.strings(dict)
 </code></pre>
-<p data-line="192"><code>--set</code> and <code>--default</code> treat <code>[..]</code>, <code>{..}</code>, <code>true</code>, <code>false</code> and integers as
+<p data-line="193"><code>--set</code> and <code>--default</code> treat <code>[..]</code>, <code>{..}</code>, <code>true</code>, <code>false</code> and integers as
 JSON (parsed by libplist). Everything else is a string.</p>
-<h2 id="clean" data-line="195"><a class="header-anchor" href="#clean">Clean</a></h2>
-<pre data-line="197"><code>idl clean          # direct: build/; xtool: .build .bsp xtool/; plus a generated .xcodeproj
+<h2 id="clean" data-line="196"><a class="header-anchor" href="#clean">Clean</a></h2>
+<pre data-line="198"><code>idl clean          # direct: build/; xtool: .build .bsp xtool/; plus a generated .xcodeproj
 idl clean MyApp
 </code></pre>
-<h2 id="use-from-zig-build" data-line="200"><a class="header-anchor" href="#use-from-zig-build">Use from zig build</a></h2>
-<p data-line="202">The repository’s <code>build.zig</code> has wrappers around the CLI:</p>
-<pre data-line="204"><code>zig build run -- build MyApp
+<h2 id="use-from-zig-build" data-line="201"><a class="header-anchor" href="#use-from-zig-build">Use from zig build</a></h2>
+<p data-line="203">The repository’s <code>build.zig</code> has wrappers around the CLI:</p>
+<pre data-line="205"><code>zig build run -- build MyApp
 zig build check
 zig build examples
 </code></pre>

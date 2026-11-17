@@ -190,7 +190,7 @@ session_kill                   stateful terminals (the sessions below); a human 
 job                            start/stop/restart/unload pullfile jobs
 </code></pre>
 <p data-line="106">Register it with an agent, e.g. Hermes:</p>
-<pre data-line="108"><code>hermes mcp add pull --command pull --args mcp --root ~/jbisfun
+<pre data-line="108"><code>hermes mcp add pull --command pull --args mcp --root /path/to/workspace
 </code></pre>
 <h2 id="jobs-and-sessions-(launchd)" data-line="110"><a class="header-anchor" href="#jobs-and-sessions-(launchd)">Jobs and sessions (launchd)</a></h2>
 <p data-line="112">pull ports launchd’s job model (Apple’s launchd, <code>liblaunch/launch.h</code>) to the workspace.
