@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["ACCENT","BACKGROUND","DANGER","MUTED","SURFACE","TEXT"],"fn":["button","empty","open","row","run","section"],"struct":["Panel"]};

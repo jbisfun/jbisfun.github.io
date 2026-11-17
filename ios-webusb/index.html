@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ios-webusb · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ios-webusb</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ios-webusb">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api/rust/ios_webusb/index.html">ios_webusb</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="ios-webusb"><a class="header-anchor" href="#ios-webusb">ios-webusb</a></h1>
+<p>WebUSB-style access to iPhones and iPads. It runs a userland USB driver and lets web apps reach the device after you approve them. A gpui tray handles the devices and permissions.</p>
+<ul>
+<li><strong>Driver</strong>: <a href="https://github.com/abdullah-albanna/rusbmux">rusbmux</a>, vendored in <code>vendor/rusbmux</code>. It reaches devices over nusb, so the kernel and system <code>usbmuxd</code> aren’t involved. It serves a usbmuxd-compatible socket at <code>$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code>.</li>
+<li><strong>Device stack</strong>: Jimpactor’s <code>plume_utils</code> and <code>idevice</code> (path dependency on <code>~/projs/jimpactor</code>). They handle discovery, device names and pairing.</li>
+<li><strong>Web bridge</strong>: <code>ws://127.0.0.1:27150</code>. One WebSocket is one usbmuxd connection, and the usbmuxd protocol travels in binary frames. The first time a browser origin connects, the tray asks you to allow it, like WebUSB’s device chooser. Approved origins are stored in <code>~/.config/ios-webusb/origins.json</code> and can be revoked from the tray. Clients that send no <code>Origin</code> header (local programs) are let through.</li>
+<li><strong>Tray</strong>: a StatusNotifierItem (<code>ksni</code>) with devices, Pair, pending requests and allowed sites. Clicking it opens the gpui window.</li>
+</ul>
+<h2 id="setup"><a class="header-anchor" href="#setup">Setup</a></h2>
+<pre><code class="language-sh"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> udev/70-ios-webusb.rules /etc/udev/rules.d/ &amp;&amp; <span class="hljs-built_in">sudo</span> udevadm control --reload
+<span class="hljs-built_in">sudo</span> systemctl mask --now usbmuxd   <span class="hljs-comment"># only one driver can own the device</span>
+cargo run --release                 <span class="hljs-comment"># --show opens the window at startup</span>
+</code></pre>
+<p>Pair records are kept in <code>~/.local/share/ios-webusb/lockdown</code>. To point Jimpactor or other usbmuxd clients at this driver, set <code>USBMUXD_SOCKET_ADDRESS=$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code>.</p>
+<p>Environment overrides: <code>IOS_WEBUSB_ADDRESS</code> (bridge <code>host:port</code>) and <code>IOS_WEBUSB_SOCKET</code>.</p>
+<h2 id="web-client"><a class="header-anchor" href="#web-client">Web client</a></h2>
+<p><code>web/</code> is an npm package (<code>ios-webusb</code>, depends on <code>plist</code>):</p>
+<pre><code class="language-js"><span class="hljs-keyword">import</span> { <span class="hljs-title class_">Usbmux</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ios-webusb&quot;</span>;
+<span class="hljs-keyword">const</span> mux = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Usbmux</span>();                     <span class="hljs-comment">// ws://127.0.0.1:27150</span>
+<span class="hljs-keyword">const</span> [device] = <span class="hljs-keyword">await</span> mux.<span class="hljs-title function_">listDevices</span>();     <span class="hljs-comment">// { deviceId, udid, connectionType, properties }</span>
+<span class="hljs-keyword">const</span> lockdown = <span class="hljs-keyword">await</span> mux.<span class="hljs-title function_">connect</span>(device.<span class="hljs-property">deviceId</span>, <span class="hljs-number">62078</span>); <span class="hljs-comment">// raw TCP tunnel: read(n), write(bytes)</span>
+</code></pre>
+<h2 id="vendored-rusbmux-changes"><a class="header-anchor" href="#vendored-rusbmux-changes">Vendored rusbmux changes</a></h2>
+<ul>
+<li><code>idevice</code> is pinned to <code>=0.1.68</code> (Jimpactor’s pin) instead of <code>=0.1.65</code>.</li>
+<li>The lockdown directory can be set with <code>rusbmux::handler::set_lockdown_path</code>, so the daemon runs unprivileged.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ios-webusb/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
