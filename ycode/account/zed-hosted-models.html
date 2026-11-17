@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zed-Hosted Models - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a class="active" aria-current="page" href="zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="zed-hosted-models"><a class="header-anchor" href="#zed-hosted-models">Zed-Hosted Models</a></h1>
+<p>Zed’s plans offer hosted versions of major LLMs with higher rate limits than direct API access. Model availability is updated regularly. To use your own API keys instead, see <a href="../ai/llm-providers.html">LLM Providers</a>. For general setup, see <a href="../ai/quick-start.html">AI Quick Start</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> Zed Pro and Zed Business include all models listed below. The Student plan does not include Claude Fable, Claude Opus, GPT-6 Astra, GPT-5.5 pro, or GPT-5.4 pro. The Zed Pro trial includes GPT-6 Luna only.</p>
+</blockquote>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Model</th>
+<th>Provider</th>
+<th>Token Type</th>
+<th>Provider Price per 1M tokens</th>
+<th>Zed Price per 1M tokens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Fable 5.2</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$8.00</td>
+<td>$8.80</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$40.00</td>
+<td>$44.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$50.00</td>
+<td>$55.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$12.50</td>
+<td>$13.75</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.25</td>
+<td>$0.275</td>
+</tr>
+<tr>
+<td>Claude Fable 5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$50.00</td>
+<td>$55.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$12.50</td>
+<td>$13.75</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$1.00</td>
+<td>$1.10</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$4.00</td>
+<td>$4.40</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$20.00</td>
+<td>$22.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>Claude Opus 5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$25.00</td>
+<td>$27.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$6.25</td>
+<td>$6.875</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>Claude Opus 4.5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$25.00</td>
+<td>$27.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$6.25</td>
+<td>$6.875</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$25.00</td>
+<td>$27.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$6.25</td>
+<td>$6.875</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>Claude Opus 4.7</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$25.00</td>
+<td>$27.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$6.25</td>
+<td>$6.875</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>Claude Opus 4.8</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$25.00</td>
+<td>$27.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$6.25</td>
+<td>$6.875</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$3.00</td>
+<td>$3.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$15.00</td>
+<td>$16.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$3.75</td>
+<td>$4.125</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.30</td>
+<td>$0.33</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.6</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$3.00</td>
+<td>$3.30</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$15.00</td>
+<td>$16.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$3.75</td>
+<td>$4.125</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.30</td>
+<td>$0.33</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>Anthropic</td>
+<td>Input</td>
+<td>$1.00</td>
+<td>$1.10</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Output</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Write</td>
+<td>$1.25</td>
+<td>$1.375</td>
+</tr>
+<tr>
+<td></td>
+<td>Anthropic</td>
+<td>Input - Cache Read</td>
+<td>$0.10</td>
+<td>$0.11</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$50.00</td>
+<td>$55.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$12.50</td>
+<td>$13.75</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$1.00</td>
+<td>$1.10</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.10</td>
+<td>$0.11</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$0.10</td>
+<td>$0.11</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$0.125</td>
+<td>$0.1375</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.01</td>
+<td>$0.011</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$4.00</td>
+<td>$4.40</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$20.00</td>
+<td>$22.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.40</td>
+<td>$0.44</td>
+</tr>
+<tr>
+<td>GPT-5.6 Terra</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$12.00</td>
+<td>$13.20</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$0.20</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$1.20</td>
+<td>$1.32</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Input - Cache Write</td>
+<td>$0.25</td>
+<td>$0.275</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.02</td>
+<td>$0.022</td>
+</tr>
+<tr>
+<td>GPT-5.5 pro</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$30.00</td>
+<td>$33.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$180.00</td>
+<td>$198.00</td>
+</tr>
+<tr>
+<td>GPT-5.5</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$5.00</td>
+<td>$5.50</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$30.00</td>
+<td>$33.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td>GPT-5.4 pro</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$30.00</td>
+<td>$33.00</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$180.00</td>
+<td>$198.00</td>
+</tr>
+<tr>
+<td>GPT-5.4</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$2.50</td>
+<td>$2.75</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$15.00</td>
+<td>$16.50</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.25</td>
+<td>$0.275</td>
+</tr>
+<tr>
+<td>GPT-5.3-Codex</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$1.75</td>
+<td>$1.925</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$14.00</td>
+<td>$15.40</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.175</td>
+<td>$0.1925</td>
+</tr>
+<tr>
+<td>GPT-5.2</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$1.75</td>
+<td>$1.925</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$14.00</td>
+<td>$15.40</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.175</td>
+<td>$0.1925</td>
+</tr>
+<tr>
+<td>GPT-5.2-Codex</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$1.75</td>
+<td>$1.925</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$14.00</td>
+<td>$15.40</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.175</td>
+<td>$0.1925</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$0.25</td>
+<td>$0.275</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.025</td>
+<td>$0.0275</td>
+</tr>
+<tr>
+<td>GPT-5 nano</td>
+<td>OpenAI</td>
+<td>Input</td>
+<td>$0.05</td>
+<td>$0.055</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Output</td>
+<td>$0.40</td>
+<td>$0.44</td>
+</tr>
+<tr>
+<td></td>
+<td>OpenAI</td>
+<td>Cached Input</td>
+<td>$0.005</td>
+<td>$0.0055</td>
+</tr>
+<tr>
+<td>Gemini 4 Argon</td>
+<td>Google</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>Google</td>
+<td>Output</td>
+<td>$10.00</td>
+<td>$11.00</td>
+</tr>
+<tr>
+<td></td>
+<td>Google</td>
+<td>Cached Input</td>
+<td>$0.10</td>
+<td>$0.11</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>Google</td>
+<td>Input</td>
+<td>$2.00</td>
+<td>$2.20</td>
+</tr>
+<tr>
+<td></td>
+<td>Google</td>
+<td>Output</td>
+<td>$12.00</td>
+<td>$13.20</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash</td>
+<td>Google</td>
+<td>Input</td>
+<td>$1.50</td>
+<td>$1.65</td>
+</tr>
+<tr>
+<td></td>
+<td>Google</td>
+<td>Output</td>
+<td>$9.00</td>
+<td>$9.90</td>
+</tr>
+<tr>
+<td>Gemini 3 Flash</td>
+<td>Google</td>
+<td>Input</td>
+<td>$0.50</td>
+<td>$0.55</td>
+</tr>
+<tr>
+<td></td>
+<td>Google</td>
+<td>Output</td>
+<td>$3.00</td>
+<td>$3.30</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Warn:</strong> Anthropic retains prompts and outputs sent to Claude Fable 5.2, Claude Fable 5.1, and Claude Fable 5 for at least 30 days for trust and safety purposes. The no-training commitment still applies, and Zed does not retain your prompts or outputs. See <a href="../ai/privacy-and-security.html#provider-safety-retention">Provider Safety Retention for Designated Models</a>.</p>
+</blockquote>
+<h2 id="recent-model-retirements"><a class="header-anchor" href="#recent-model-retirements">Recent Model Retirements</a></h2>
+<p>Zed no longer offers the models below:</p>
+<ul>
+<li>Claude Opus 4.1 → Claude Opus 4.5, Claude Opus 4.6, Claude Opus 4.7, or Claude Opus 4.8</li>
+<li>Claude Sonnet 4 → Claude Sonnet 4.5 or Claude Sonnet 4.6</li>
+<li>Claude Sonnet 3.7 (retired February 19, 2026) → Claude Sonnet 4.5 or Claude Sonnet 4.6</li>
+<li>GPT-5.1 and GPT-5 → GPT-5.2 or GPT-5.2-Codex</li>
+<li>Gemini 2.5 Pro → Gemini 3.1 Pro</li>
+<li>Gemini 3 Pro (retired March 26, 2026) → Gemini 3.1 Pro</li>
+<li>Gemini 2.5 Flash → Gemini 3 Flash or Gemini 3.5 Flash</li>
+<li>Grok 4, Grok 4 Fast, Grok 4 Fast (Non-Reasoning), and Grok Code Fast 1 (<a href="https://docs.x.ai/developers/migration/may-15-retirement">retired May 15, 2026</a>). Zed no longer offers hosted xAI models.</li>
+</ul>
+<h2 id="usage"><a class="header-anchor" href="#usage">Usage</a></h2>
+<p>Any usage of a Zed-hosted model will be billed at the Zed Price (rightmost column above). See <a href="plans-and-pricing.html">Plans &amp; Pricing</a> for details on Zed’s plans and limits for use of hosted models.</p>
+<p>For Claude Fable 5.2, the cache-write rate above is for the 5-minute cache. The 1-hour cache costs $16.00 per 1M tokens from Anthropic, or $17.60 through Zed. Fast mode doubles all Fable 5.2 token rates, including cache writes and reads.</p>
+<p>Gemini 4 Argon bills implicit cache hits at the cached-input rate above. Gemini 3 models do not use Google context caching and are billed only as input and output tokens, which preserves zero-data-retention behavior for those requests. For background, see Google’s Vertex AI documentation on <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview">context caching</a> and <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/vertex-ai-zero-data-retention">zero data retention</a>.</p>
+<blockquote>
+<p>LLMs can enter unproductive loops that require user intervention. Monitor longer-running tasks and interrupt if needed.</p>
+</blockquote>
+<h2 id="context-windows"><a class="header-anchor" href="#context-windows">Context Windows</a></h2>
+<p>A context window is the maximum span of text and code an LLM can consider at once, including both the input prompt and output generated by the model.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Model</th>
+<th>Provider</th>
+<th>Zed-Hosted Context Window</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Fable 5.2</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Fable 5.1</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Fable 5</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Opus 5.5</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Opus 5</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Opus 4.5</td>
+<td>Anthropic</td>
+<td>200k</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Opus 4.7</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Opus 4.8</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5.5</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Sonnet 5</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.5</td>
+<td>Anthropic</td>
+<td>200k</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.6</td>
+<td>Anthropic</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>Anthropic</td>
+<td>200k</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-6 Sol</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.6 Terra</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.6 Luna</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.5 pro</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.5</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.4 pro</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.4</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.3-Codex</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.2</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5.2-Codex</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5 mini</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>GPT-5 nano</td>
+<td>OpenAI</td>
+<td>272k input / 400k total</td>
+</tr>
+<tr>
+<td>Gemini 4 Argon</td>
+<td>Google</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Pro</td>
+<td>Google</td>
+<td>200k</td>
+</tr>
+<tr>
+<td>Gemini 3.5 Flash</td>
+<td>Google</td>
+<td>1M</td>
+</tr>
+<tr>
+<td>Gemini 3 Flash</td>
+<td>Google</td>
+<td>1M</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Zed currently limits hosted Gemini 3.1 Pro requests to 200k tokens because pricing changes above that context size.</p>
+</blockquote>
+<p>Each Agent thread in Zed maintains its own context window.
+The more prompts, attached files, and responses included in a session, the larger the context window grows.</p>
+<p>Start a new thread for each distinct task to keep context focused.</p>
+<h2 id="tool-calls"><a class="header-anchor" href="#tool-calls">Tool Calls</a></h2>
+<p>Models can use <a href="../ai/tools.html">tools</a> to interface with your code, search the web, and perform other useful functions.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/account/zed-hosted-models.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

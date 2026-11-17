@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model Context Protocol (MCP) in Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="quick-start.html">AI Quick Start</a></li>
+<li><a href="by-company.html">AI by Company</a></li>
+<li><a href="agents.html">Agents</a>
+<ul>
+<li><a href="zed-agent.html">Zed Agent</a></li>
+<li><a href="external-agents.html">External Agents</a></li>
+<li><a href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="agent-settings.html">Agent Settings</a></li>
+<li><a href="agent-profiles.html">Agent Profiles</a></li>
+<li><a href="tools.html">Tools</a>
+<ul>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a href="sandboxing.html">Agent Sandboxing</a></li>
+<li><a class="active" aria-current="page" href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="parallel-agents.html">Parallel Agents</a></li>
+<li><a href="inline-assistant.html">Inline Assistant</a></li>
+<li><a href="llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="use-api-access.html">Use API Access</a></li>
+<li><a href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="edit-prediction.html">Edit Prediction</a></li>
+<li><a href="privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="model-context-protocol"><a class="header-anchor" href="#model-context-protocol">Model Context Protocol</a></h1>
+<p>Zed uses the <a href="https://modelcontextprotocol.io/">Model Context Protocol</a> to interact with context servers.</p>
+<blockquote>
+<p>The Model Context Protocol (MCP) is an open protocol for connecting LLM applications to external tools and data sources through a standard interface.</p>
+</blockquote>
+<h2 id="supported-features"><a class="header-anchor" href="#supported-features">Supported Features</a></h2>
+<p>Zed currently supports MCP’s <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">Tools</a> and <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/prompts">Prompts</a> features.
+We welcome contributions that help advance Zed’s MCP feature coverage (Discovery, Sampling, Elicitation, etc).</p>
+<p>Zed also handles the <code>notifications/tools/list_changed</code> notification from MCP servers. When a server adds, removes, or modifies its available tools at runtime, Zed automatically reloads the tool list without requiring a server restart.</p>
+<h2 id="agent-path-support"><a class="header-anchor" href="#agent-path-support">Agent Path Support</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Agent path</th>
+<th>MCP behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="zed-agent.html">Zed Agent</a></td>
+<td>Uses Zed-configured MCP servers directly</td>
+</tr>
+<tr>
+<td><a href="external-agents.html">External Agents</a></td>
+<td>Zed can forward configured MCP servers over ACP; agents may also read native MCP config</td>
+</tr>
+<tr>
+<td><a href="terminal-threads.html">Terminal Threads</a></td>
+<td>Native CLIs/TUIs read their own MCP configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="installing-mcp-servers"><a class="header-anchor" href="#installing-mcp-servers">Installing MCP Servers</a></h2>
+<h3 id="as-extensions"><a class="header-anchor" href="#as-extensions">As Extensions</a></h3>
+<p>One of the ways you can use MCP servers in Zed is by exposing them as an extension.
+Check out the <a href="../extensions/mcp-extensions.html">MCP Server Extensions</a> page to learn how to create your own.</p>
+<p>Many MCP servers are available as extensions. Find them via:</p>
+<ol>
+<li><a href="https://zed.dev/extensions?filter=context-servers">the Zed website</a></li>
+<li>in the app, open the Command Palette and run the <code>zed::Extensions</code> action</li>
+<li>in the app, open <strong>Settings → AI → MCP Servers</strong>, click <code>Add Server</code>, and choose <code>Install from Extensions</code></li>
+</ol>
+<p>Popular servers available as an extension include:</p>
+<ul>
+<li><a href="https://zed.dev/extensions/mcp-server-context7">Context7</a></li>
+<li><a href="https://zed.dev/extensions/mcp-server-github">GitHub</a></li>
+<li><a href="https://zed.dev/extensions/mcp-server-puppeteer">Puppeteer</a></li>
+<li><a href="https://zed.dev/extensions/gem">Gem</a></li>
+<li><a href="https://zed.dev/extensions/mcp-server-brave-search">Brave Search</a></li>
+<li><a href="https://github.com/aqrln/prisma-mcp-zed">Prisma</a></li>
+<li><a href="https://zed.dev/extensions/mcp-server-figma">Framelink Figma</a></li>
+<li><a href="https://zed.dev/extensions/mcp-server-resend">Resend</a></li>
+</ul>
+<h3 id="as-custom-servers"><a class="header-anchor" href="#as-custom-servers">As Custom Servers</a></h3>
+<p>Creating an extension is not the only way to use MCP servers in Zed.
+You can connect both local and remote MCP servers from <strong><a href="agent-settings.html">Settings → AI → MCP Servers</a></strong> (also accessible via the <code>agent::OpenSettings</code> action, then selecting <code>MCP Servers</code>). Click <code>Add Server</code> in the page header, then choose <code>Add Local Server</code> or <code>Add Remote Server</code>. Your specified configuration will create entries in your settings file (which you can open with <code>zed::OpenSettingsFile</code>) similar to the ones below:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;context_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;local-mcp-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;some-command&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;arg-1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;arg-2&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;remote-mcp-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://example.com/mcp&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;headers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;Authorization&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bearer &lt;token&gt;&quot;</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;remote-mcp-server-with-oauth&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://mcp.example.com/mcp&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Note: When a remote MCP server has no configured <code>&quot;Authorization&quot;</code> header, Zed will prompt you to authenticate yourself against the MCP server using the standard MCP OAuth flow.</p>
+</blockquote>
+<h2 id="using-mcp-servers"><a class="header-anchor" href="#using-mcp-servers">Using MCP Servers</a></h2>
+<h3 id="configuration-check"><a class="header-anchor" href="#configuration-check">Configuration Check</a></h3>
+<p>Most MCP servers require configuration after installation.</p>
+<p>In the case of an extension, after installing it, Zed will pop up a modal displaying what is required for you to properly set it up.
+For example, the GitHub MCP extension requires you to add a <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">Personal Access Token</a>.</p>
+<p>In the case of custom servers, make sure you check the provider documentation to determine what type of command, arguments, and environment variables need to be added to the JSON.</p>
+<p>To check if your MCP server is properly configured, open <strong>Settings → AI → MCP Servers</strong> and watch the indicator dot next to its name.
+If it’s running correctly, the indicator will be green and its tooltip will say “Server is active”.
+If not, other colors and tooltip messages will indicate what is happening.</p>
+<h3 id="agent-panel-usage"><a class="header-anchor" href="#agent-panel-usage">Agent Panel Usage</a></h3>
+<p>Once installation is complete, you can return to the Agent Panel and start prompting.</p>
+<p>How reliably MCP tools get called can vary from model to model.
+Mentioning the MCP server by name can help the model pick tools from that server.</p>
+<p>However, if you want to <em>ensure</em> a given MCP server will be used, you can create <a href="agent-profiles.html">a custom profile</a> where all built-in tools (or the ones that could cause conflicts with the server’s tools) are turned off and only the tools coming from the MCP server are turned on.</p>
+<p>As an example, <a href="https://container-use.com/agent-integrations#zed">the Dagger team suggests</a> doing that with their <a href="https://zed.dev/extensions/mcp-server-container-use">Container Use MCP server</a>:</p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;profiles&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;container-use&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Container Use&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;tools&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;fetch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;copy_path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;find_path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;delete_path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;create_directory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;list_directory&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;diagnostics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;read_file&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;move_path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;grep&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;edit_file&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;terminal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;enable_all_context_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;context_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;container-use&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;tools&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;environment_create&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_add_service&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_update&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_run_cmd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_open&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_file_write&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_file_read&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_file_list&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_file_delete&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+            <span class="hljs-attr">&quot;environment_checkpoint&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+          <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="tool-permissions"><a class="header-anchor" href="#tool-permissions">Tool Permissions</a></h3>
+<blockquote>
+<p><strong>Note:</strong> In Zed v0.224.0 and above, tool approval is controlled by <code>agent.tool_permissions.default</code>.
+In earlier versions, it was controlled by the <code>agent.always_allow_tool_actions</code> boolean (default <code>false</code>).</p>
+</blockquote>
+<p>Zed’s Agent Panel provides the <code>agent.tool_permissions.default</code> setting to control tool approval behavior for the native Zed agent:</p>
+<ul>
+<li><code>&quot;confirm&quot;</code> (default) — Prompts for approval before running any tool action, including MCP tool calls</li>
+<li><code>&quot;allow&quot;</code> — Auto-approves tool actions without prompting</li>
+<li><code>&quot;deny&quot;</code> — Blocks all tool actions</li>
+</ul>
+<p>For granular control over specific MCP tools, you can configure per-tool permission rules.
+MCP tools use the key format <code>mcp:&lt;server&gt;:&lt;tool_name&gt;</code> — for example, <code>mcp:github:create_issue</code>.
+The <code>default</code> key on a per-tool entry is the primary mechanism for MCP tools, since pattern-based rules match against an empty string for MCP tools and most patterns won’t match.</p>
+<p>Learn more about <a href="tool-permissions.html">how tool permissions work</a>, how to further customize them, and other details.</p>
+<h3 id="external-agents"><a class="header-anchor" href="#external-agents">External Agents</a></h3>
+<p>MCP servers configured in Zed are forwarded to <a href="external-agents.html">External Agents</a> via the <a href="https://agentclientprotocol.com/">Agent Client Protocol</a>. External Agents can also access MCP servers from their own native configuration files.</p>
+<p>For details on what configuration is shared between Zed and External Agents, see <a href="external-agents.html#configuration-boundaries">Configuration Boundaries</a>.</p>
+<h3 id="error-handling"><a class="header-anchor" href="#error-handling">Error Handling</a></h3>
+<p>When an MCP server encounters an error while processing a tool call, the agent receives the error message directly and the operation fails.
+Common error scenarios include:</p>
+<ul>
+<li>Invalid parameters passed to the tool</li>
+<li>Server-side failures (database connection issues, rate limits)</li>
+<li>Unsupported operations or missing resources</li>
+</ul>
+<p>The error message from the context server will be shown in the agent’s response, allowing you to diagnose and correct the issue.
+Check the context server’s logs or documentation for details about specific error codes.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/ai/mcp.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

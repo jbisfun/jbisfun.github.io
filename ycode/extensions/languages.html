@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language Extensions · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="installing-extensions.html">Installing Extensions</a></li>
+<li><a href="developing-extensions.html">Developing Extensions</a></li>
+<li><a href="publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="capabilities.html">Extension Capabilities</a></li>
+<li><a class="active" aria-current="page" href="languages.html">Language Extensions</a></li>
+<li><a href="debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="themes.html">Theme Extensions</a></li>
+<li><a href="icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="snippets.html">Snippets Extensions</a></li>
+<li><a href="mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="language-extensions"><a class="header-anchor" href="#language-extensions">Language Extensions</a></h1>
+<p>Language support in Zed has several components:</p>
+<ul>
+<li>Language metadata and configuration</li>
+<li>Grammar</li>
+<li>Queries</li>
+<li>Language servers</li>
+</ul>
+<h2 id="language-metadata"><a class="header-anchor" href="#language-metadata">Language Metadata</a></h2>
+<p>Each language supported by Zed must be defined in a subdirectory inside the <code>languages</code> directory of your extension.</p>
+<p>This subdirectory must contain a file called <code>config.toml</code> file with the following structure:</p>
+<pre><code class="language-toml"><span class="hljs-attr">name</span> = <span class="hljs-string">&quot;My Language&quot;</span>
+<span class="hljs-attr">grammar</span> = <span class="hljs-string">&quot;my-language&quot;</span>
+<span class="hljs-attr">path_suffixes</span> = [<span class="hljs-string">&quot;myl&quot;</span>]
+<span class="hljs-attr">line_comments</span> = [<span class="hljs-string">&quot;# &quot;</span>]
+</code></pre>
+<ul>
+<li><code>name</code> (required) is the human readable name that will show up in the Select Language dropdown.</li>
+<li><code>grammar</code> (required) is the name of a grammar. Grammars are registered separately, described below.</li>
+<li><code>path_suffixes</code> is an array of file suffixes that should be associated with this language. Unlike <code>file_types</code> in settings, this does not support glob patterns.</li>
+<li><code>line_comments</code> is an array of strings that are used to identify line comments in the language. This is used for the <code>editor::ToggleComments</code> keybind: <code>editor::ToggleComments</code> for toggling lines of code.</li>
+<li><code>tab_size</code> defines the indentation/tab size used for this language (default is <code>4</code>).</li>
+<li><code>hard_tabs</code> whether to indent with tabs (<code>true</code>) or spaces (<code>false</code>, the default).</li>
+<li><code>first_line_pattern</code> is a regular expression that can be used alongside <code>path_suffixes</code> (above) or <code>file_types</code> in settings to match files that should use this language. For example, Zed uses this to identify Shell Scripts by matching <a href="https://github.com/zed-industries/zed/blob/main/crates/grammars/src/bash/config.toml">shebang lines</a> in the first line of a script.</li>
+<li><code>debuggers</code> is an array of strings that are used to identify debuggers in the language. When launching a debugger’s <code>New Process Modal</code>, Zed will order available debuggers by the order of entries in this array.</li>
+</ul>
+<!--
+TBD: Document `language_name/config.toml` keys
+
+- autoclose_before
+- brackets (start, end, close, newline, not_in: ["comment", "string"])
+- word_characters
+- prettier_parser_name
+- opt_into_language_servers
+- code_fence_block_name
+- scope_opt_in_language_servers
+- collapsed_placeholder
+- auto_indent_on_paste, auto_indent_using_last_non_empty_line
+- overrides: `[overrides.element]`, `[overrides.string]`
+-->
+<h2 id="grammar"><a class="header-anchor" href="#grammar">Grammar</a></h2>
+<p>Zed uses the <a href="https://tree-sitter.github.io">Tree-sitter</a> parsing library to provide built-in language-specific features. There are grammars available for many languages, and you can also <a href="https://tree-sitter.github.io/tree-sitter/creating-parsers/3-writing-the-grammar.html">develop your own grammar</a>. A growing list of Zed features are built using pattern matching over syntax trees with Tree-sitter queries. As mentioned above, every language that is defined in an extension must specify the name of a Tree-sitter grammar that is used for parsing. These grammars are then registered separately in extensions’ <code>extension.toml</code> file, like this:</p>
+<pre><code class="language-toml"><span class="hljs-section">[grammars.gleam]</span>
+<span class="hljs-attr">repository</span> = <span class="hljs-string">&quot;https://github.com/gleam-lang/tree-sitter-gleam&quot;</span>
+<span class="hljs-attr">rev</span> = <span class="hljs-string">&quot;58b7cac8fc14c92b0677c542610d8738c373fa81&quot;</span>
+</code></pre>
+<p>The <code>repository</code> field must specify a repository where the Tree-sitter grammar should be loaded from, and the <code>rev</code> field must contain a Git revision to use, such as the SHA of a Git commit. If you’re developing an extension locally and want to load a grammar from the local filesystem, you can use a <code>file://</code> URL for <code>repository</code>. An extension can provide multiple grammars by referencing multiple tree-sitter repositories.</p>
+<h2 id="tree-sitter-queries"><a class="header-anchor" href="#tree-sitter-queries">Tree-sitter Queries</a></h2>
+<p>Zed uses the syntax tree produced by the <a href="https://tree-sitter.github.io">Tree-sitter</a> query language to implement
+several features:</p>
+<ul>
+<li>Syntax highlighting</li>
+<li>Bracket matching</li>
+<li>Code outline/structure</li>
+<li>Auto-indentation</li>
+<li>Code injections</li>
+<li>Syntax overrides</li>
+<li>Text redactions</li>
+<li>Runnable code detection</li>
+<li>Selecting classes, functions, etc.</li>
+</ul>
+<p>The following sections elaborate on how <a href="https://tree-sitter.github.io/tree-sitter/using-parsers/queries/index.html">Tree-sitter queries</a> enable these
+features in Zed, using <a href="https://www.json.org/json-en.html">JSON syntax</a> as a guiding example.</p>
+<h3 id="syntax-highlighting"><a class="header-anchor" href="#syntax-highlighting">Syntax highlighting</a></h3>
+<p>In Tree-sitter, the <code>highlights.scm</code> file defines syntax highlighting rules for a particular syntax.</p>
+<p>Here’s an example from a <code>highlights.scm</code> for JSON:</p>
+<pre><code class="language-scheme">(<span class="hljs-name"><span class="hljs-built_in">string</span></span>) @string
+
+(<span class="hljs-name">pair</span>
+  key: (<span class="hljs-name"><span class="hljs-built_in">string</span></span>) @property.json_key)
+
+(<span class="hljs-name">number</span>) @number
+</code></pre>
+<p>This query marks strings, object keys, and numbers for highlighting. The following is the full list of captures supported by themes:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@attribute</td>
+<td>Captures attributes</td>
+</tr>
+<tr>
+<td>@boolean</td>
+<td>Captures boolean values</td>
+</tr>
+<tr>
+<td>@comment</td>
+<td>Captures comments</td>
+</tr>
+<tr>
+<td>@comment.doc</td>
+<td>Captures documentation comments</td>
+</tr>
+<tr>
+<td>@constant</td>
+<td>Captures constants</td>
+</tr>
+<tr>
+<td>@constant.builtin</td>
+<td>Captures built-in constants</td>
+</tr>
+<tr>
+<td>@constructor</td>
+<td>Captures constructors</td>
+</tr>
+<tr>
+<td>@embedded</td>
+<td>Captures embedded content</td>
+</tr>
+<tr>
+<td>@emphasis</td>
+<td>Captures emphasized text</td>
+</tr>
+<tr>
+<td>@emphasis.strong</td>
+<td>Captures strongly emphasized text</td>
+</tr>
+<tr>
+<td>@enum</td>
+<td>Captures enumerations</td>
+</tr>
+<tr>
+<td>@function</td>
+<td>Captures functions</td>
+</tr>
+<tr>
+<td>@hint</td>
+<td>Captures hints</td>
+</tr>
+<tr>
+<td>@keyword</td>
+<td>Captures keywords</td>
+</tr>
+<tr>
+<td>@label</td>
+<td>Captures labels</td>
+</tr>
+<tr>
+<td>@link_text</td>
+<td>Captures link text</td>
+</tr>
+<tr>
+<td>@link_uri</td>
+<td>Captures link URIs</td>
+</tr>
+<tr>
+<td>@number</td>
+<td>Captures numeric values</td>
+</tr>
+<tr>
+<td>@operator</td>
+<td>Captures operators</td>
+</tr>
+<tr>
+<td>@predictive</td>
+<td>Captures predictive text</td>
+</tr>
+<tr>
+<td>@preproc</td>
+<td>Captures preprocessor directives</td>
+</tr>
+<tr>
+<td>@primary</td>
+<td>Captures primary elements</td>
+</tr>
+<tr>
+<td>@property</td>
+<td>Captures properties</td>
+</tr>
+<tr>
+<td>@punctuation</td>
+<td>Captures punctuation</td>
+</tr>
+<tr>
+<td>@punctuation.bracket</td>
+<td>Captures brackets</td>
+</tr>
+<tr>
+<td>@punctuation.delimiter</td>
+<td>Captures delimiters</td>
+</tr>
+<tr>
+<td>@punctuation.list_marker</td>
+<td>Captures list markers</td>
+</tr>
+<tr>
+<td>@punctuation.special</td>
+<td>Captures special punctuation</td>
+</tr>
+<tr>
+<td>@string</td>
+<td>Captures string literals</td>
+</tr>
+<tr>
+<td>@string.escape</td>
+<td>Captures escaped characters in strings</td>
+</tr>
+<tr>
+<td>@string.regex</td>
+<td>Captures regular expressions</td>
+</tr>
+<tr>
+<td>@string.special</td>
+<td>Captures special strings</td>
+</tr>
+<tr>
+<td>@string.special.symbol</td>
+<td>Captures special symbols</td>
+</tr>
+<tr>
+<td>@tag</td>
+<td>Captures tags</td>
+</tr>
+<tr>
+<td>@tag.doctype</td>
+<td>Captures doctypes (e.g., in HTML)</td>
+</tr>
+<tr>
+<td>@text.literal</td>
+<td>Captures literal text</td>
+</tr>
+<tr>
+<td>@title</td>
+<td>Captures titles</td>
+</tr>
+<tr>
+<td>@type</td>
+<td>Captures types</td>
+</tr>
+<tr>
+<td>@type.builtin</td>
+<td>Captures built-in types</td>
+</tr>
+<tr>
+<td>@variable</td>
+<td>Captures variables</td>
+</tr>
+<tr>
+<td>@variable.special</td>
+<td>Captures special variables</td>
+</tr>
+<tr>
+<td>@variable.parameter</td>
+<td>Captures function/method parameters</td>
+</tr>
+<tr>
+<td>@variant</td>
+<td>Captures variants</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fallback-captures"><a class="header-anchor" href="#fallback-captures">Fallback captures</a></h4>
+<p>A single Tree-sitter pattern can specify multiple captures on the same node to define fallback highlights.
+Zed resolves them right-to-left: It first tries the rightmost capture, and if the current theme has no style for it, falls back to the next capture to the left, and so on.</p>
+<p>For example:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">type_identifier</span>) @type @variable
+</code></pre>
+<p>Here Zed will first try to resolve <code>@variable</code> from the theme. If the theme defines a style for <code>@variable</code>, that style is used. Otherwise, Zed falls back to <code>@type</code>.</p>
+<p>This is useful when a language wants to provide a preferred highlight that not all themes may support, while still falling back to a more common capture that most themes define.</p>
+<h3 id="bracket-matching"><a class="header-anchor" href="#bracket-matching">Bracket matching</a></h3>
+<p>The <code>brackets.scm</code> file defines matching brackets.</p>
+<p>Here’s an example from a <code>brackets.scm</code> file for JSON:</p>
+<pre><code class="language-scheme">(<span class="hljs-string">&quot;[&quot;</span> @open <span class="hljs-string">&quot;]&quot;</span> @close)
+(<span class="hljs-string">&quot;{&quot;</span> @open <span class="hljs-string">&quot;}&quot;</span> @close)
+(<span class="hljs-string">&quot;\&quot;&quot;</span> @open <span class="hljs-string">&quot;\&quot;&quot;</span> @close)
+</code></pre>
+<p>This query identifies opening and closing brackets, braces, and quotation marks.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@open</td>
+<td>Captures opening brackets, braces, and quotes</td>
+</tr>
+<tr>
+<td>@close</td>
+<td>Captures closing brackets, braces, and quotes</td>
+</tr>
+</tbody>
+</table>
+<p>Zed uses these to highlight matching brackets: painting each bracket pair with a different color (“rainbow brackets”) and highlighting the brackets if the cursor is inside the bracket pair.</p>
+<p>To opt out of rainbow brackets colorization, add the following to the corresponding <code>brackets.scm</code> entry:</p>
+<pre><code class="language-scheme">((<span class="hljs-string">&quot;\&quot;&quot;</span> @open <span class="hljs-string">&quot;\&quot;&quot;</span> @close) (#set! rainbow.exclude))
+</code></pre>
+<h3 id="code-outline%2Fstructure"><a class="header-anchor" href="#code-outline%2Fstructure">Code outline/structure</a></h3>
+<p>The <code>outline.scm</code> file defines the structure for the code outline.</p>
+<p>Here’s an example from an <code>outline.scm</code> file for JSON:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">pair</span>
+  key: (<span class="hljs-name"><span class="hljs-built_in">string</span></span> (<span class="hljs-name">string_content</span>) @name)) @item
+</code></pre>
+<p>This query captures object keys for the outline structure.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@name</td>
+<td>Captures the content of object keys</td>
+</tr>
+<tr>
+<td>@item</td>
+<td>Captures the entire key-value pair</td>
+</tr>
+<tr>
+<td>@context</td>
+<td>Captures elements that provide context for the outline item</td>
+</tr>
+<tr>
+<td>@context.extra</td>
+<td>Captures additional contextual information for the outline item</td>
+</tr>
+<tr>
+<td>@annotation</td>
+<td>Captures nodes that annotate outline item (doc comments, attributes, decorators)[^1]</td>
+</tr>
+</tbody>
+</table>
+<p>[^1]: These annotations are used by Assistant when generating code modification steps.</p>
+<h3 id="auto-indentation"><a class="header-anchor" href="#auto-indentation">Auto-indentation</a></h3>
+<p>The <code>indents.scm</code> file defines indentation rules.</p>
+<h4 id="indenting-and-outdenting-based-on-syntax"><a class="header-anchor" href="#indenting-and-outdenting-based-on-syntax">Indenting and outdenting based on syntax</a></h4>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@indent</td>
+<td>Defines an indentation range using the captured node</td>
+</tr>
+<tr>
+<td>@start</td>
+<td>Moves the start of an <code>@indent</code> range to the end of the captured node</td>
+</tr>
+<tr>
+<td>@end</td>
+<td>Moves the end of an <code>@indent</code> range to the start of the captured node</td>
+</tr>
+<tr>
+<td>@outdent</td>
+<td>Ends the innermost indentation range at the start of the captured node</td>
+</tr>
+</tbody>
+</table>
+<p>For example, to indent all of an <code>if_statement</code> node’s contents:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">if_statement</span>) @indent
+</code></pre>
+<p>The indentation range runs from the start of the node to its end.</p>
+<p>An HTML element includes its opening and closing tags. To indent only the
+content between them:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">element</span>
+  (<span class="hljs-name">start_tag</span>) @start <span class="hljs-comment">; Begin indentation after the opening tag</span>
+  (<span class="hljs-name">end_tag</span>)? @end) @indent <span class="hljs-comment">; End indentation before the closing tag</span>
+</code></pre>
+<p>A subsequent case label must outdent from the preceding case body so that
+sibling labels stay aligned:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">compound_statement</span>
+  (<span class="hljs-name">case_statement</span>
+    <span class="hljs-string">&quot;:&quot;</span> @start) <span class="hljs-comment">; Begin indenting the case body</span>
+  <span class="hljs-string">&quot;}&quot;</span> @end) @indent
+
+(<span class="hljs-name">compound_statement</span>
+  (<span class="hljs-name">case_statement</span>)
+  (<span class="hljs-name">case_statement</span>) @outdent) <span class="hljs-comment">; Align subsequent case labels</span>
+</code></pre>
+<h4 id="indenting-and-outdenting-based-on-line-patterns"><a class="header-anchor" href="#indenting-and-outdenting-based-on-line-patterns">Indenting and outdenting based on line patterns</a></h4>
+<p>Use these <code>config.toml</code> options for indentation rules that match line contents
+instead of syntax nodes:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>increase_indent_pattern</code></td>
+<td>A matching line indents the following line by one level</td>
+</tr>
+<tr>
+<td><code>decrease_indent_pattern</code></td>
+<td>A matching line outdents by one level without considering syntax context</td>
+</tr>
+<tr>
+<td><code>decrease_indent_patterns</code></td>
+<td>A matching line aligns with an allowed earlier syntax construct</td>
+</tr>
+</tbody>
+</table>
+<p>For example, to indent after a line ending in <code>:</code>:</p>
+<pre><code class="language-toml"><span class="hljs-attr">increase_indent_pattern</span> = <span class="hljs-string">&quot;:\\s*$&quot;</span>
+</code></pre>
+<p>For example, to outdent lines beginning with <code>end</code>:</p>
+<pre><code class="language-toml"><span class="hljs-attr">decrease_indent_pattern</span> = <span class="hljs-string">&quot;^\\s*end\\b&quot;</span>
+</code></pre>
+<h4 id="aligning-clauses-with-related-blocks"><a class="header-anchor" href="#aligning-clauses-with-related-blocks">Aligning clauses with related blocks</a></h4>
+<p>Use <code>decrease_indent_patterns</code> when a line should align with a related block
+instead of always moving left by one level. In <code>indents.scm</code>, mark the block
+start with a named <code>@start.&lt;name&gt;</code> capture:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">if_statement</span>) @start.if
+</code></pre>
+<p>In <code>config.toml</code>, list the capture suffix in <code>valid_after</code>:</p>
+<pre><code class="language-toml"><span class="hljs-attr">decrease_indent_patterns</span> = [
+  { pattern = <span class="hljs-string">&quot;^\\s*else\\b&quot;</span>, valid_after = [<span class="hljs-string">&quot;if&quot;</span>] },
+]
+</code></pre>
+<p>A line beginning with <code>else</code> aligns with the most recent <code>@start.if</code> at the same
+or a lower indentation level. If Zed finds no matching block, it leaves the
+indentation unchanged.</p>
+<p>Named captures such as <code>@start.if</code> mark blocks for these rules. Unlike
+<code>@start</code>, they do not change an <code>@indent</code> range.</p>
+<p>Zed checks rules in order and stops after the first matching <code>pattern</code>. Put
+more specific patterns before overlapping general patterns.</p>
+<h3 id="code-injections"><a class="header-anchor" href="#code-injections">Code injections</a></h3>
+<p>The <code>injections.scm</code> file defines rules for embedding one language within another, such as code blocks in Markdown or SQL queries in Python strings.</p>
+<p>Here’s an example from an <code>injections.scm</code> file for Markdown:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">fenced_code_block</span>
+  (<span class="hljs-name">info_string</span>
+    (<span class="hljs-name">language</span>) @injection.language)
+  (<span class="hljs-name">code_fence_content</span>) @injection.content)
+
+((<span class="hljs-name">inline</span>) @content
+ (#set! injection.language <span class="hljs-string">&quot;markdown-inline&quot;</span>))
+</code></pre>
+<p>This query identifies fenced code blocks, capturing the language specified in the info string and the content within the block. It also captures inline content and sets its language to “markdown-inline”.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@injection.language</td>
+<td>Captures the language identifier for a code block</td>
+</tr>
+<tr>
+<td>@injection.content</td>
+<td>Captures the content to be treated as a different language</td>
+</tr>
+</tbody>
+</table>
+<p>Note that we couldn’t use JSON as an example here because it doesn’t support language injections.</p>
+<h3 id="syntax-overrides"><a class="header-anchor" href="#syntax-overrides">Syntax overrides</a></h3>
+<p>The <code>overrides.scm</code> file defines syntactic <em>scopes</em> that can be used to override certain editor settings within specific language constructs.</p>
+<p>For example, there is a language-specific setting called <code>word_characters</code> that controls which non-alphabetic characters are considered part of a word, for example when you double click to select a variable. In JavaScript, “$” and “#” are considered word characters.</p>
+<p>There is also a language-specific setting called <code>completion_query_characters</code> that controls which characters trigger autocomplete suggestions. In JavaScript, when your cursor is within a <em>string</em>, <code>-</code> should be considered a completion query character. To achieve this, the JavaScript <code>overrides.scm</code> file contains the following pattern:</p>
+<pre><code class="language-scheme">[
+  (<span class="hljs-name"><span class="hljs-built_in">string</span></span>)
+  (<span class="hljs-name">template_string</span>)
+] @string
+</code></pre>
+<p>And the JavaScript <code>config.toml</code> contains this setting:</p>
+<pre><code class="language-toml"><span class="hljs-attr">word_characters</span> = [<span class="hljs-string">&quot;#&quot;</span>, <span class="hljs-string">&quot;$&quot;</span>]
+
+<span class="hljs-section">[overrides.string]</span>
+<span class="hljs-attr">completion_query_characters</span> = [<span class="hljs-string">&quot;-&quot;</span>]
+</code></pre>
+<p>You can also disable certain auto-closing brackets in a specific scope. For example, to prevent auto-closing <code>'</code> within strings, you could put the following in the JavaScript <code>config.toml</code>:</p>
+<pre><code class="language-toml"><span class="hljs-attr">brackets</span> = [
+  { start = <span class="hljs-string">&quot;&#x27;&quot;</span>, end = <span class="hljs-string">&quot;&#x27;&quot;</span>, close = <span class="hljs-literal">true</span>, newline = <span class="hljs-literal">false</span>, not_in = [<span class="hljs-string">&quot;string&quot;</span>] },
+  <span class="hljs-comment"># other pairs...</span>
+]
+</code></pre>
+<h4 id="range-inclusivity"><a class="header-anchor" href="#range-inclusivity">Range inclusivity</a></h4>
+<p>By default, the ranges defined in <code>overrides.scm</code> are <em>exclusive</em>. So in the case above, if your cursor was <em>outside</em> the quotation marks delimiting the string, the <code>string</code> scope would not take effect. Sometimes, you may want to make the range <em>inclusive</em>. You can do this by adding the <code>.inclusive</code> suffix to the capture name in the query.</p>
+<p>For example, in JavaScript, we also disable auto-closing of single quotes within comments. And the comment scope must extend all the way to the newline after a line comment. To achieve this, the JavaScript <code>overrides.scm</code> contains the following pattern:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">comment</span>) @comment.inclusive
+</code></pre>
+<h3 id="text-objects"><a class="header-anchor" href="#text-objects">Text objects</a></h3>
+<p>The <code>textobjects.scm</code> file defines rules for navigating by text objects. This was added in Zed v0.165 and is currently used only in <a href="../vim.html">Vim mode</a>.</p>
+<p>Vim provides two levels of granularity for navigating around files. Section-by-section with <code>[]</code> etc., and method-by-method with <code>]m</code> etc. Even languages that don’t support functions and classes can work well by defining similar concepts. For example CSS defines a rule-set as a method, and a media-query as a class.</p>
+<p>For languages with closures, these typically should not count as functions in Zed. This is best-effort, however, because languages like JavaScript do not syntactically differentiate between closures and top-level function declarations.</p>
+<p>For languages with declarations like C, provide queries that match <code>@class.around</code> or <code>@function.around</code>. The <code>if</code> and <code>ic</code> text objects will default to these if there is no inside.</p>
+<p>If you are not sure what to put in textobjects.scm, both <a href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects">nvim-treesitter-textobjects</a>, and the <a href="https://github.com/helix-editor/helix">Helix editor</a> have queries for many languages. You can refer to the Zed <a href="https://github.com/zed-industries/zed/tree/main/crates/grammars/src">built-in languages</a> to see how to adapt these.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+<th>Vim mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@function.around</td>
+<td>An entire function definition or equivalent small section of a file.</td>
+<td><code>[m</code>, <code>]m</code>, <code>[M</code>,<code>]M</code> motions. <code>af</code> text object</td>
+</tr>
+<tr>
+<td>@function.inside</td>
+<td>The function body (the stuff within the braces).</td>
+<td><code>if</code> text object</td>
+</tr>
+<tr>
+<td>@class.around</td>
+<td>An entire class definition or equivalent large section of a file.</td>
+<td><code>[[</code>, <code>]]</code>, <code>[]</code>, <code>][</code> motions. <code>ac</code> text object</td>
+</tr>
+<tr>
+<td>@class.inside</td>
+<td>The contents of a class definition.</td>
+<td><code>ic</code> text object</td>
+</tr>
+<tr>
+<td>@comment.around</td>
+<td>An entire comment (e.g. all adjacent line comments, or a block comment)</td>
+<td><code>gc</code> text object</td>
+</tr>
+<tr>
+<td>@comment.inside</td>
+<td>The contents of a comment</td>
+<td><code>igc</code> text object (rarely supported)</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<pre><code class="language-scheme"><span class="hljs-comment">; include only the content of the method in the function</span>
+(<span class="hljs-name">method_definition</span>
+    body: (<span class="hljs-name">_</span>
+        <span class="hljs-string">&quot;{&quot;</span>
+        (<span class="hljs-name">_</span>)* @function.inside
+        <span class="hljs-string">&quot;}&quot;</span>)) @function.around
+
+<span class="hljs-comment">; match function.around for declarations with no body</span>
+(<span class="hljs-name">function_signature_item</span>) @function.around
+
+<span class="hljs-comment">; join all adjacent comments into one</span>
+(<span class="hljs-name">comment</span>)+ @comment.around
+</code></pre>
+<h3 id="text-redactions"><a class="header-anchor" href="#text-redactions">Text redactions</a></h3>
+<p>The <code>redactions.scm</code> file defines text redaction rules. When collaborating and sharing your screen, it makes sure that certain syntax nodes are rendered in a redacted mode to avoid them from leaking.</p>
+<p>Here’s an example from a <code>redactions.scm</code> file for JSON:</p>
+<pre><code class="language-scheme">(<span class="hljs-name">pair</span> value: (<span class="hljs-name">number</span>) @redact)
+(<span class="hljs-name">pair</span> value: (<span class="hljs-name"><span class="hljs-built_in">string</span></span>) @redact)
+(<span class="hljs-name">array</span> (<span class="hljs-name">number</span>) @redact)
+(<span class="hljs-name">array</span> (<span class="hljs-name"><span class="hljs-built_in">string</span></span>) @redact)
+</code></pre>
+<p>This query marks number and string values in key-value pairs and arrays for redaction.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@redact</td>
+<td>Captures values to be redacted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runnable-code-detection"><a class="header-anchor" href="#runnable-code-detection">Runnable code detection</a></h3>
+<p>The <code>runnables.scm</code> file defines rules for detecting runnable code.</p>
+<p>Here’s an example from a <code>runnables.scm</code> file for JSON:</p>
+<pre><code class="language-scheme">(
+    (<span class="hljs-name">document</span>
+        (<span class="hljs-name">object</span>
+            (<span class="hljs-name">pair</span>
+                key: (<span class="hljs-name"><span class="hljs-built_in">string</span></span>
+                    (<span class="hljs-name">string_content</span>) @_name
+                    (#eq? @_name <span class="hljs-string">&quot;scripts&quot;</span>)
+                )
+                value: (<span class="hljs-name">object</span>
+                    (<span class="hljs-name">pair</span>
+                        key: (<span class="hljs-name"><span class="hljs-built_in">string</span></span> (<span class="hljs-name">string_content</span>) @run @script)
+                    )
+                )
+            )
+        )
+    )
+    (#set! tag package-script)
+    (#set! tag composer-script)
+)
+</code></pre>
+<p>This query detects runnable scripts in package.json and composer.json files.</p>
+<p>The <code>@run</code> capture specifies where the run button should appear in the editor. Other captures, except those prefixed with an underscore, are exposed as environment variables with a prefix of <code>ZED_CUSTOM_$(capture_name)</code> when running the code.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@_name</td>
+<td>Captures the “scripts” key</td>
+</tr>
+<tr>
+<td>@run</td>
+<td>Captures the script name</td>
+</tr>
+<tr>
+<td>@script</td>
+<td>Also captures the script name (for different purposes)</td>
+</tr>
+</tbody>
+</table>
+<!--
+TBD: `#set! tag`
+-->
+<h2 id="language-servers"><a class="header-anchor" href="#language-servers">Language Servers</a></h2>
+<p>Zed uses the <a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a> to provide advanced language support.</p>
+<p>An extension may provide any number of language servers. To provide a language server from your extension, add an entry to your <code>extension.toml</code> with the name of your language server and the language(s) it applies to. The entry in the list of <code>languages</code> has to match the <code>name</code> field from the <code>config.toml</code> file for that language:</p>
+<pre><code class="language-toml"><span class="hljs-section">[language_servers.my-language-server]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;My Language LSP&quot;</span>
+<span class="hljs-attr">languages</span> = [<span class="hljs-string">&quot;My Language&quot;</span>]
+</code></pre>
+<p>Then, in the Rust code for your extension, implement the <code>language_server_command</code> method on your extension:</p>
+<pre><code class="language-rust"><span class="hljs-keyword">impl</span> <span class="hljs-title class_">zed</span>::Extension <span class="hljs-keyword">for</span> <span class="hljs-title class_">MyExtension</span> {
+    <span class="hljs-keyword">fn</span> <span class="hljs-title function_">language_server_command</span>(
+        &amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>,
+        language_server_id: &amp;LanguageServerId,
+        worktree: &amp;zed::Worktree,
+    ) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;zed::Command&gt; {
+        <span class="hljs-title function_ invoke__">Ok</span>(zed::Command {
+            command: <span class="hljs-title function_ invoke__">get_path_to_language_server_executable</span>()?,
+            args: <span class="hljs-title function_ invoke__">get_args_for_language_server</span>()?,
+            env: <span class="hljs-title function_ invoke__">get_env_for_language_server</span>()?,
+        })
+    }
+}
+</code></pre>
+<h3 id="opt-in-language-servers"><a class="header-anchor" href="#opt-in-language-servers">Opt-In Language Servers</a></h3>
+<p>If your extension ships a language server that users should only run when they opt in (for example, an alternative to the primary language server), list the languages it should not start for by default in <code>opt_in_languages</code>. Every language listed there must also be listed in <code>languages</code>:</p>
+<pre><code class="language-toml"><span class="hljs-section">[language_servers.my-alternative-server]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;My Alternative LSP&quot;</span>
+<span class="hljs-attr">languages</span> = [<span class="hljs-string">&quot;My Language&quot;</span>, <span class="hljs-string">&quot;My Other Language&quot;</span>]
+<span class="hljs-attr">opt_in_languages</span> = [<span class="hljs-string">&quot;My Language&quot;</span>]
+</code></pre>
+<p>For the languages listed in <code>opt_in_languages</code>, the language server is not covered by the <code>&quot;...&quot;</code> wildcard in the <a href="../configuring-languages.html#choosing-language-servers"><code>language_servers</code></a> setting. Users enable it by naming it explicitly:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;My Language&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;my-alternative-server&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;...&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Versions of Zed that do not support <code>opt_in_languages</code> ignore it and start the language server for all of its <code>languages</code>.</p>
+</blockquote>
+<p>You can customize the handling of the language server using several optional methods in the <code>Extension</code> trait. For example, you can control how completions are styled using the <code>label_for_completion</code> method. For a complete list of methods, see the <a href="https://docs.rs/zed_extension_api">API docs for the Zed extension API</a>.</p>
+<h3 id="syntax-highlighting-with-semantic-tokens"><a class="header-anchor" href="#syntax-highlighting-with-semantic-tokens">Syntax Highlighting with Semantic Tokens</a></h3>
+<p>Zed supports syntax highlighting using <a href="../semantic-tokens.html">semantic tokens</a> from the attached language servers. This is currently disabled by default, but can be enabled in your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// Enable semantic tokens globally, backed by tree-sitter highlights for each language:</span>
+  <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;combined&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Or, specify per-language:</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;Rust&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// No tree-sitter, only LSP semantic tokens:</span>
+      <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;full&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The <code>semantic_tokens</code> setting accepts the following values:</p>
+<ul>
+<li><code>&quot;off&quot;</code> (default): Do not request semantic tokens from language servers.</li>
+<li><code>&quot;combined&quot;</code>: Use LSP semantic tokens together with tree-sitter highlighting.</li>
+<li><code>&quot;full&quot;</code>: Use LSP semantic tokens exclusively, replacing tree-sitter highlighting.</li>
+</ul>
+<h4 id="extension-provided-semantic-token-rules"><a class="header-anchor" href="#extension-provided-semantic-token-rules">Extension-Provided Semantic Token Rules</a></h4>
+<p>Language extensions can ship default semantic token rules for their language server’s custom token types. To do this, place a <code>semantic_token_rules.json</code> file in the language directory alongside <code>config.toml</code>:</p>
+<pre><code>my-extension/
+  languages/
+    my-language/
+      config.toml
+      highlights.scm
+      semantic_token_rules.json
+</code></pre>
+<p>The file uses the same format as the <code>semantic_token_rules</code> array in user settings — a JSON array of rule objects:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;lifetime&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;lifetime&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;builtinType&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;type&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;selfKeyword&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;variable.special&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>This is useful when a language server reports custom (non-standard) semantic token types that aren’t covered by Zed’s built-in default rules. Extension-provided rules act as sensible defaults for that language — users can always override them via <code>semantic_token_rules</code> in their settings file, and built-in default rules are only used when neither user nor extension rules match.</p>
+<h4 id="customizing-semantic-token-styles"><a class="header-anchor" href="#customizing-semantic-token-styles">Customizing Semantic Token Styles</a></h4>
+<p>Zed supports customizing the styles used for semantic tokens. You can define rules in your settings file, which customize how semantic tokens get mapped to styles in your theme.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;semantic_token_rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Highlight macros as keywords.</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;macro&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;syntax.keyword&quot;</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Highlight unresolved references in bold red.</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unresolvedReference&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;foreground_color&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;#c93f3f&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bold&quot;</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-comment">// Underline all mutable variables/references/etc.</span>
+        <span class="hljs-attr">&quot;token_modifiers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;mutable&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;underline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>All rules that match a given <code>token_type</code> and <code>token_modifiers</code> are applied. Earlier rules take precedence. If no rules match, the token is not highlighted.</p>
+<p>Rules are applied in the following priority order (highest to lowest):</p>
+<ol>
+<li><strong>User settings</strong> — rules from <code>semantic_token_rules</code> in your settings file.</li>
+<li><strong>Extension rules</strong> — rules from <code>semantic_token_rules.json</code> in extension language directories.</li>
+<li><strong>Default rules</strong> — Zed’s built-in rules for standard LSP token types.</li>
+</ol>
+<p>Each rule in the <code>semantic_token_rules</code> array is defined as follows:</p>
+<ul>
+<li><code>token_type</code>: The semantic token type as defined by the <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens">LSP specification</a>. If omitted, the rule matches all token types.</li>
+<li><code>token_modifiers</code>: A list of semantic token modifiers to match. All modifiers must be present to match.</li>
+<li><code>style</code>: A list of styles from the current syntax theme to use. The first style found is used. Any settings below override that style.</li>
+<li><code>foreground_color</code>: The foreground color to use for the token type, in hex format (e.g., <code>&quot;#ff0000&quot;</code>).</li>
+<li><code>background_color</code>: The background color to use for the token type, in hex format (e.g., <code>&quot;#ff0000&quot;</code>).</li>
+<li><code>underline</code>: A boolean or color to underline with, in hex format. If <code>true</code>, then the token will be underlined with the text color.</li>
+<li><code>strikethrough</code>: A boolean or color to strikethrough with, in hex format. If <code>true</code>, then the token will have a strikethrough with the text color.</li>
+<li><code>font_weight</code>: One of <code>&quot;normal&quot;</code>, <code>&quot;bold&quot;</code>.</li>
+<li><code>font_style</code>: One of <code>&quot;normal&quot;</code>, <code>&quot;italic&quot;</code>.</li>
+</ul>
+<h3 id="multi-language-support"><a class="header-anchor" href="#multi-language-support">Multi-Language Support</a></h3>
+<p>If your language server supports additional languages, you can use <code>language_ids</code> to map Zed <code>languages</code> to the desired <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocumentItem">LSP-specific <code>languageId</code></a> identifiers:</p>
+<pre><code class="language-toml">
+<span class="hljs-section">[language-servers.my-language-server]</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">&quot;Whatever LSP&quot;</span>
+<span class="hljs-attr">languages</span> = [<span class="hljs-string">&quot;JavaScript&quot;</span>, <span class="hljs-string">&quot;HTML&quot;</span>, <span class="hljs-string">&quot;CSS&quot;</span>]
+
+<span class="hljs-section">[language-servers.my-language-server.language_ids]</span>
+<span class="hljs-attr">&quot;JavaScript&quot;</span> = <span class="hljs-string">&quot;javascript&quot;</span>
+<span class="hljs-attr">&quot;TSX&quot;</span> = <span class="hljs-string">&quot;typescriptreact&quot;</span>
+<span class="hljs-attr">&quot;HTML&quot;</span> = <span class="hljs-string">&quot;html&quot;</span>
+<span class="hljs-attr">&quot;CSS&quot;</span> = <span class="hljs-string">&quot;css&quot;</span>
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/extensions/languages.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

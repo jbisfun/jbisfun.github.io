@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wiki · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="templating.html">Templating</a>
+
+
+  </li>
+
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="wiki"><a class="header-anchor" href="#wiki">wiki</a></h1>
+<p><code>wiki</code> turns the <code>docs/</code> folder of every repo in a <a href="https://github.com/jbisfun/pull">pull</a> workspace into one static site, published at <a href="https://jbisfun.github.io">https://jbisfun.github.io</a>.</p>
+<h2 id="how-it-works"><a class="header-anchor" href="#how-it-works">How it works</a></h2>
+<ol>
+<li><code>bin/collect.sh</code> runs <code>pull status --json</code> and, with <code>jq</code>, writes a manifest of every cloned repo that has a <code>docs/</code> folder.</li>
+<li><code>src/render.js</code> renders each page into <code>.build/site/&lt;repo&gt;/...</code>. mdBook projects (a <code>docs/book.toml</code>) use the book’s <code>src</code> folder.
+<ul>
+<li><code>*.md</code> with <a href="https://github.com/markdown-it/markdown-it">markdown-it</a> (front matter via gray-matter, <code>{#id}</code> heading attributes, highlight.js at build time).</li>
+<li><code>*.ejs</code> with <a href="https://ejs.co">EJS</a>: PHP-style <code>&lt;% code %&gt;</code> / <code>&lt;%= escaped %&gt;</code> / <code>&lt;%- raw %&gt;</code> tags.</li>
+<li>Every other file is copied as an asset.</li>
+<li>Links to <code>.md</code> files become <code>.html</code>; links to files outside <code>docs/</code> go to GitHub.</li>
+</ul>
+</li>
+<li><a href="https://parceljs.org">Parcel</a> bundles Bootstrap 5 and the one small JS module (mobile sidebar toggle) into <code>dist/_assets</code>.</li>
+<li><code>bin/publish.sh</code> mirrors <code>dist/</code> into the <code>jbisfun.github.io</code> repo with rsync and stages it.</li>
+</ol>
+<h2 id="commands"><a class="header-anchor" href="#commands">Commands</a></h2>
+<pre><code class="language-sh">just build     <span class="hljs-comment"># pnpm install, collect, render, bundle into dist/</span>
+just publish   <span class="hljs-comment"># build, then copy into ../jbisfun.github.io and git add</span>
+just serve     <span class="hljs-comment"># build and serve dist/ on http://localhost:8000</span>
+just clean
+</code></pre>
+<p>Environment: <code>PULL_ROOT</code> (workspace root, default <code>..</code>), <code>WIKI_SKIP</code> (comma-separated repos to leave out, default <code>jbisfun.github.io</code>), <code>WIKI_TITLE</code>, <code>WIKI_PUBLISH_DIR</code>.</p>
+<h2 id="pull-hook"><a class="header-anchor" href="#pull-hook">pull hook</a></h2>
+<p>The workspace <code>pullfile.plist</code> runs <code>just publish</code> as a <code>precommit</code> hook, so <code>pull commit</code> lands the regenerated site in <code>jbisfun.github.io</code> in the same commit and <code>pull push</code> deploys it to GitHub Pages.</p>
+<p>See <a href="https://github.com/jbisfun/wiki/blob/main/docs/templating.md">Templating</a> for writing pages.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/wiki/blob/main/docs/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

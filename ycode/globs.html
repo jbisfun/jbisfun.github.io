@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glob Patterns - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="globs"><a class="header-anchor" href="#globs">Globs</a></h1>
+<p>Zed supports the use of <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob</a> patterns that are the formal name for Unix shell-style path matching wildcards like <code>*.md</code> or <code>docs/src/**/*.md</code> supported by sh, bash, zsh, etc. A glob is similar but distinct from a <a href="https://en.wikipedia.org/wiki/Regular_expression">regex (regular expression)</a>. In Zed, globs are commonly used when matching filenames.</p>
+<h2 id="glob-flavor"><a class="header-anchor" href="#glob-flavor">Glob Flavor</a></h2>
+<p>Zed uses two different rust crates for matching glob patterns:</p>
+<ul>
+<li><a href="https://docs.rs/ignore/latest/ignore/">ignore crate</a> for matching glob patterns stored in <code>.gitignore</code> files</li>
+<li><a href="https://docs.rs/glob/latest/glob/">glob crate</a> for matching file paths in Zed</li>
+</ul>
+<p>While simple expressions are portable across environments (e.g. running <code>ls *.py</code> or <code>*.tmp</code> in a gitignore) there is significant divergence in the support for and syntax of more advanced features (character classes, exclusions, <code>**</code>, etc) across implementations. For the rest of this document we will be describing globs as supported in Zed via the <code>glob</code> crate implementation. Please see <a href="#references">References</a> below for documentation links for glob pattern syntax for <code>.gitignore</code>, shells and other programming languages.</p>
+<p>The <code>glob</code> crate is implemented entirely in rust and does not rely on the <code>glob</code> / <code>fnmatch</code> interfaces provided by your platform’s libc. This means that globs in Zed should behave similarly across platforms.</p>
+<h2 id="introduction"><a class="header-anchor" href="#introduction">Introduction</a></h2>
+<p>A glob “pattern” is used to match a file name or complete file path. For example, when using “Search all files” <code>project_search::ToggleFocus</code> you can click the funnel shaped Toggle Filters&quot; button or <code>project_search::ToggleFilters</code> and it will show additional search fields for “Include” and “Exclude” which support specifying glob patterns for matching file paths and file names.</p>
+<h3 id="multiple-patterns"><a class="header-anchor" href="#multiple-patterns">Multiple Patterns</a></h3>
+<p>You can specify multiple glob patterns in Project Search filters by separating them with commas. When using comma-separated patterns, Zed correctly handles braces within individual patterns:</p>
+<ul>
+<li><code>*.ts, *.tsx</code> — Match TypeScript and TSX files</li>
+<li><code>src/{components,utils}/**/*.ts, tests/**/*.test.ts</code> — Match TypeScript files in specific directories plus test files</li>
+</ul>
+<p>Each pattern is evaluated independently. Commas inside braces (like <code>{a,b}</code>) are treated as part of the pattern, not as separators.</p>
+<p><strong>Important:</strong> While braces are preserved in patterns, Zed does not expand them into multiple patterns. The pattern <code>src/{a,b}/*.ts</code> matches the literal path structure, not <code>src/a/*.ts</code> OR <code>src/b/*.ts</code>. This differs from shell behavior.</p>
+<p>When creating a glob pattern you can use one or multiple special characters:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Special Character</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>?</code></td>
+<td>Matches any single character</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Matches any (possibly empty) sequence of characters</td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>Matches the current directory and arbitrary subdirectories</td>
+</tr>
+<tr>
+<td><code>[abc]</code></td>
+<td>Matches any one character in the brackets</td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>Matches any of a range of characters (ordered by Unicode)</td>
+</tr>
+<tr>
+<td><code>[!...]</code></td>
+<td>The negation of <code>[...]</code> (matches a character not in the brackets)</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ol>
+<li>Brace characters <code>{</code> and <code>}</code> are literal pattern characters, not expansion operators. The pattern <code>src/{a,b}/*.ts</code> matches paths containing the literal text <code>{a,b}</code>, not paths matching either <code>src/a/*.ts</code> or <code>src/b/*.ts</code> as in shell globbing.</li>
+<li>To match a literal <code>-</code> character inside brackets it must come first <code>[-abc]</code> or last <code>[abc-]</code>.</li>
+<li>To match the literal <code>[</code> character use <code>[[]</code> or put it as the first character in the group <code>[[abc]</code>.</li>
+<li>To match the literal <code>]</code> character use <code>[]]</code> or put it as the last character in the group <code>[abc]]</code>.</li>
+</ol>
+<h2 id="examples"><a class="header-anchor" href="#examples">Examples</a></h2>
+<h3 id="matching-file-extensions"><a class="header-anchor" href="#matching-file-extensions">Matching file extensions</a></h3>
+<p>If you wanted to only search Markdown files add <code>*.md</code> to the “Include” search field.</p>
+<h3 id="case-insensitive-matching"><a class="header-anchor" href="#case-insensitive-matching">Case insensitive matching</a></h3>
+<p>Globs in Zed are case-sensitive, so <code>*.c</code> will not match <code>main.C</code> (even on case-insensitive filesystems like HFS+/APFS on macOS). Instead use brackets to match characters. So instead of <code>*.c</code> use <code>*.[cC]</code>.</p>
+<h3 id="matching-directories"><a class="header-anchor" href="#matching-directories">Matching directories</a></h3>
+<p>If you wanted to search the <a href="https://github.com/zed-industries/zed">zed repository</a> for examples of <a href="https://zed.dev/docs/configuring-languages#configuring-language-servers">Configuring Language Servers</a> (under <code>&quot;lsp&quot;</code> in Zed settings.json) you could search for <code>&quot;lsp&quot;</code> and in the “Include” filter specify <code>docs/**/*.md</code>. This would only match files whose path was under the <code>docs</code> directory or any nested subdirectories <code>**/</code> of that folder with a filename that ends in <code>.md</code>.</p>
+<p>If instead you wanted to restrict yourself only to <a href="https://zed.dev/docs/languages">Zed Language-Specific Documentation</a> pages you could define a narrower pattern of: <code>docs/src/languages/*.md</code> this would match <a href="https://github.com/zed-industries/zed/blob/main/docs/src/languages/rust.md"><code>docs/src/languages/rust.md</code></a> and <a href="https://github.com/zed-industries/zed/blob/main/docs/src/languages/cpp.md"><code>docs/src/languages/cpp.md</code></a> but not <a href="https://github.com/zed-industries/zed/blob/main/docs/src/configuring-languages.md"><code>docs/src/configuring-languages.md</code></a>.</p>
+<h3 id="implicit-wildcards"><a class="header-anchor" href="#implicit-wildcards">Implicit Wildcards</a></h3>
+<p>When using the “Include” / “Exclude” filters on a Project Search each glob is wrapped in implicit wildcards. For example to exclude any files with license in the path or filename from your search just type <code>license</code> in the exclude box. Behind the scenes Zed transforms <code>license</code> to <code>**license**</code>. This means that files named <code>license.*</code>, <code>*.license</code> or inside a <code>license</code> subdirectory will all be filtered out. This enables users to easily filter for <code>*.ts</code> without having to remember to type <code>**/*.ts</code> every time.</p>
+<p>Alternatively, if in your Zed settings you wanted a <a href="reference/all-settings.html#file-types"><code>file_types</code></a> override which only applied to a certain directory you must explicitly include the wildcard globs. For example, if you had a directory of template files with the <code>html</code> extension that you wanted to recognize as a Jinja2 template you could use the following:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;file_types&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;C++&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;[cC]&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;Jinja2&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;**/templates/*.html&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="references"><a class="header-anchor" href="#references">References</a></h2>
+<p>While globs in Zed are implemented as described above, when writing code using globs in other languages, please reference your platform’s glob documentation:</p>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/fnmatch.3.html">macOS fnmatch</a> (BSD C Standard Library)</li>
+<li><a href="https://www.gnu.org/software/libc/manual/html_node/Wildcard-Matching.html">Linux fnmatch</a> (GNU C Standard Library)</li>
+<li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/functions/fnmatch.html">POSIX fnmatch</a> (POSIX Specification)</li>
+<li><a href="https://github.com/isaacs/node-glob">node-glob</a> (Node.js <code>glob</code> package)</li>
+<li><a href="https://docs.python.org/3/library/glob.html">Python glob</a> (Python Standard Library)</li>
+<li><a href="https://pkg.go.dev/path/filepath#Match">Golang glob</a> (Go Standard Library)</li>
+<li><a href="https://git-scm.com/docs/gitignore">gitignore patterns</a> (Gitignore Pattern Format)</li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_wildcards">PowerShell: About Wildcards</a> (Wildcards in PowerShell)</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/globs.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

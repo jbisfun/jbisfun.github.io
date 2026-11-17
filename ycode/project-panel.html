@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Panel - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a class="active" aria-current="page" href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="project-panel"><a class="header-anchor" href="#project-panel">Project Panel</a></h1>
+<p>The project panel shows a tree view of your workspace’s files and directories.
+Toggle it with <code>project_panel::ToggleFocus</code> (<code>project_panel::ToggleFocus</code>), or click the <strong>Project Panel</strong> button in the
+status bar.</p>
+<p><img src="https://images.zed.dev/docs/project-panel/panel.png" alt="Project Panel"></p>
+<h2 id="navigating"><a class="header-anchor" href="#navigating">Navigating</a></h2>
+<p>Use the arrow keys to move through entries. <code>project_panel::ExpandSelectedEntry</code> expands a directory and <code>project_panel::CollapseSelectedEntry</code> collapses it. <code>project_panel::CollapseAllEntries</code> collapses every directory at once. <code>project_panel::ExpandAllEntries</code> expands every directory at once. Press <code>project_panel::Open</code> or click to preview a selected file, without giving it a
+permanent tab. Editing the file or double-clicking it promotes it to a permanent tab.
+Middle-clicking a file skips the preview and opens it in a permanent, focused tab
+right away.</p>
+<p>Set <a href="reference/all-settings.html#enable-preview-from-project-panel"><code>preview_tabs.enable_preview_from_project_panel</code></a>
+to <code>false</code> to open permanent tabs with a single click or <code>project_panel::Open</code>
+(<code>project_panel::Open</code>).</p>
+<h3 id="auto-reveal"><a class="header-anchor" href="#auto-reveal">Auto-reveal</a></h3>
+<p>By default, switching to a file in the editor will automatically highlight it in the
+project panel and scroll it into view. This
+<a href="reference/all-settings.html#auto-reveal-entries">auto-reveal behavior</a> can be
+disabled with the <code>project_panel.auto_reveal_entries</code> setting.</p>
+<h3 id="sticky-scroll"><a class="header-anchor" href="#sticky-scroll">Sticky Scroll</a></h3>
+<p>When <code>project_panel.sticky_scroll</code> is enabled (the default), ancestor directories pin themselves to the top
+of the panel as you scroll, so you always know which directory you’re on.</p>
+<p><img src="https://images.zed.dev/docs/project-panel/sticky-scroll-true.png" alt="Project Panel: Sticky Scroll Enabled"></p>
+<p><img src="https://images.zed.dev/docs/project-panel/sticky-scroll-false.png" alt="Project Panel: Sticky Scroll Disabled"></p>
+<h3 id="directory-folding"><a class="header-anchor" href="#directory-folding">Directory Folding</a></h3>
+<p>When <code>project_panel.auto_fold_dirs</code> is enabled (the default), chains of directories that each contain a
+single child directory are collapsed into one row (for example,
+<code>src/utils/helpers</code> instead of three separate levels). Right-click a folded
+directory and choose <strong>Unfold Directory</strong> to expand the chain, or <strong>Fold
+Directory</strong> to collapse it again.</p>
+<p><img src="https://images.zed.dev/docs/project-panel/auto-fold-dirs-true.png" alt="Project Panel: Auto Fold Directories Enabled"></p>
+<p><img src="https://images.zed.dev/docs/project-panel/auto-fold-dirs-false.png" alt="Project Panel: Auto Fold Directories Disabled"></p>
+<h2 id="selecting-multiple-entries"><a class="header-anchor" href="#selecting-multiple-entries">Selecting Multiple Entries</a></h2>
+<p>Hold <code>shift</code> while pressing the up/down arrow keys to mark additional entries.
+Most file operations, like cut, copy, trash, delete and drag, apply to the full
+set of marked entries.</p>
+<p>When exactly two files are marked, <code>project_panel::CompareMarkedFiles</code>
+(<code>project_panel::CompareMarkedFiles</code>) opens a diff view comparing them.</p>
+<p><img src="https://images.zed.dev/docs/project-panel/compare-marked-files.png" alt="Project Panel: Compare Marked Files"></p>
+<h2 id="file-operations"><a class="header-anchor" href="#file-operations">File Operations</a></h2>
+<p>Right-click an entry to see the full list of available operations, or use the
+keybindings below.</p>
+<h3 id="creating-files-and-directories"><a class="header-anchor" href="#creating-files-and-directories">Creating Files and Directories</a></h3>
+<ul>
+<li><code>project_panel::NewFile</code> (<code>project_panel::NewFile</code>) creates a new
+file inside the selected directory.</li>
+<li><code>project_panel::NewDirectory</code> (<code>project_panel::NewDirectory</code>)
+creates a new directory.</li>
+</ul>
+<p>An inline editor appears so you can type the name. Press <code>enter</code> to
+confirm or <code>escape</code> to cancel.</p>
+<h3 id="renaming"><a class="header-anchor" href="#renaming">Renaming</a></h3>
+<p>Press <code>project_panel::Rename</code> to rename the selected entry. The filename
+stem is pre-selected so you can type a new name without accidentally changing
+the extension. Press <code>enter</code> to confirm or <code>escape</code> to
+cancel.</p>
+<h3 id="cut%2C-copy%2C-and-paste"><a class="header-anchor" href="#cut%2C-copy%2C-and-paste">Cut, Copy, and Paste</a></h3>
+<ul>
+<li><code>project_panel::Cut</code> (<code>project_panel::Cut</code>) marks entries for
+moving.</li>
+<li><code>project_panel::Copy</code> (<code>project_panel::Copy</code>) marks entries for
+copying.</li>
+<li><code>project_panel::Paste</code> (<code>project_panel::Paste</code>) places them in the
+selected directory.</li>
+</ul>
+<p>When pasting would create a name conflict, Zed appends a “copy” suffix (e.g.,
+<code>file copy.txt</code>, <code>file copy 2.txt</code>). If a single file is pasted with a generated
+suffix, the rename editor opens automatically so you can adjust the name.</p>
+<h3 id="duplicate"><a class="header-anchor" href="#duplicate">Duplicate</a></h3>
+<p><code>project_panel::Duplicate</code> (<code>project_panel::Duplicate</code>) duplicates
+the selected entries without changing the clipboard.</p>
+<h3 id="trash-and-delete"><a class="header-anchor" href="#trash-and-delete">Trash and Delete</a></h3>
+<ul>
+<li><code>project_panel::Trash</code> (<code>project_panel::Trash</code>) moves entries to
+the system trash.</li>
+<li><code>project_panel::Delete</code> (<code>project_panel::Delete</code>) permanently
+deletes entries.</li>
+</ul>
+<p>Both actions show a confirmation prompt listing the affected files. If any of
+the files have unsaved changes, the prompt warns you.</p>
+<h3 id="drag-and-drop"><a class="header-anchor" href="#drag-and-drop">Drag and Drop</a></h3>
+<p>Drag entries within the panel to move them. Hold <code>alt</code> while dropping to copy
+instead of move. You can also drag files from your operating system’s file
+manager into the project panel to copy them into the project. Drag and drop can
+be disabled with the <code>project_panel.drag_and_drop</code> setting.</p>
+<h2 id="git-integration"><a class="header-anchor" href="#git-integration">Git Integration</a></h2>
+<p>When <code>project_panel.git_status</code> is enabled (the default), file and directory names are tinted
+to reflect their git status—modified, added, deleted, untracked, or conflicting.
+In projects that are not rooted at a git repository, status is shown only for
+<a href="git.html#repository-activation">active repositories</a>.</p>
+<p>Setting <code>project_panel.git_status_indicator</code> to <code>true</code> (disabled by default) adds a letter badge next
+to each name: <strong>M</strong> (modified), <strong>A</strong> (added), <strong>D</strong> (deleted), <strong>U</strong>
+(untracked) or <strong>!</strong> (conflict).</p>
+<p><img src="https://images.zed.dev/docs/project-panel/git-status.png" alt="Project Panel: Git Integration"></p>
+<p>Use <code>project_panel::SelectNextGitEntry</code> and <code>project_panel::SelectPrevGitEntry</code> to jump between tracked files with
+uncommitted changes. The right-click menu also offers <strong>Restore File</strong> to
+discard changes and <strong>View File History</strong> to browse a file’s commit log.</p>
+<h2 id="diagnostics"><a class="header-anchor" href="#diagnostics">Diagnostics</a></h2>
+<p>The <code>project_panel.show_diagnostics</code> setting controls whether error and warning
+indicators appear on file and folder icons. Set it to <code>&quot;all&quot;</code> to see both errors
+and warnings, <code>&quot;errors&quot;</code> for errors only, or <code>&quot;off&quot;</code> to hide them. Diagnostics
+propagate upward—if a file deep in a directory has an error, its ancestor
+folders show an indicator too.</p>
+<p>Enable <code>project_panel.diagnostic_badges</code> (disabled by default) to display numeric error and warning
+counts next to each entry. Use <code>project_panel::SelectNextDiagnostic</code> and
+<code>project_panel::SelectPrevDiagnostic</code> to navigate between files that
+have diagnostics.</p>
+<p>See also <a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a> for editor and tab diagnostic settings.</p>
+<h2 id="filtering-and-sorting"><a class="header-anchor" href="#filtering-and-sorting">Filtering and Sorting</a></h2>
+<h3 id="hiding-files"><a class="header-anchor" href="#hiding-files">Hiding Files</a></h3>
+<ul>
+<li><code>project_panel.hide_gitignore</code> hides files matched by <code>.gitignore</code>. Toggle
+this with <code>project_panel::ToggleHideGitIgnore</code>.</li>
+<li><code>project_panel.hide_hidden</code> hides entries matching <a href="reference/all-settings.html#hidden-files"><code>hidden_files</code></a> (dotfiles and dotfolders by default). Toggle with <code>project_panel::ToggleHideHidden</code>.</li>
+</ul>
+<h3 id="sorting"><a class="header-anchor" href="#sorting">Sorting</a></h3>
+<p>The <code>project_panel.sort_mode</code> setting controls grouping:</p>
+<ul>
+<li><code>&quot;directories_first&quot;</code> (default) — directories appear before files at each
+level.</li>
+<li><code>&quot;files_first&quot;</code> — files appear before directories.</li>
+<li><code>&quot;mixed&quot;</code> — directories and files are sorted together.</li>
+</ul>
+<p>The <code>project_panel.sort_order</code> setting controls name comparison:</p>
+<ul>
+<li><code>&quot;default&quot;</code> — case-insensitive natural sort (<code>file2</code> before <code>file10</code>).</li>
+<li><code>&quot;upper&quot;</code> — uppercase names grouped first, then lowercase.</li>
+<li><code>&quot;lower&quot;</code> — lowercase names grouped first, then uppercase.</li>
+<li><code>&quot;unicode&quot;</code> — raw Unicode codepoint order with no case folding.</li>
+<li><code>&quot;extension&quot;</code> — files grouped by extension (case-insensitive, last suffix
+only), with extensionless files, including dotfiles such as <code>.gitignore</code>,
+first. Dotfiles with a further suffix, such as <code>.config.json</code>, keep that
+extension. Files with the same extension are sorted by name.</li>
+</ul>
+<h2 id="other-actions"><a class="header-anchor" href="#other-actions">Other Actions</a></h2>
+<ul>
+<li><code>project_panel::RevealInFileManager</code> (<code>project_panel::RevealInFileManager</code>) reveals the selected entry in Finder /
+File Explorer.</li>
+<li><code>project_panel::NewSearchInDirectory</code> (<code>project_panel::NewSearchInDirectory</code>) opens a project search scoped to the
+selected directory.</li>
+<li><code>project_panel::RemoveFromProject</code> removes a workspace root folder
+from the project.</li>
+</ul>
+<h2 id="undo-and-redo"><a class="header-anchor" href="#undo-and-redo">Undo and Redo</a></h2>
+<p>The Project Panel keeps a history of the file operations you perform through it,
+letting you undo (<code>project_panel::Undo</code> / <code>project_panel::Undo</code>) and
+redo (<code>project_panel::Redo</code> / <code>project_panel::Redo</code>) these
+operations, with support for local and remote projects.</p>
+<p>The following operations are tracked:</p>
+<ul>
+<li><code>project_panel::NewFile</code></li>
+<li><code>project_panel::NewDirectory</code></li>
+<li><code>project_panel::Rename</code></li>
+<li><code>project_panel::Trash</code></li>
+<li><code>project_panel::Paste</code></li>
+<li><code>project_panel::Duplicate</code></li>
+</ul>
+<p>Besides these actions, moving items within the panel using drag and drop, as
+well as dragging files into the panel from outside Zed, are also tracked.</p>
+<p>Undoing a move or rename (for example <code>project_panel::Rename</code>, a
+<code>project_panel::Cut</code> followed by paste, or a drag within the panel)
+returns the item to its original name or location.</p>
+<p>Undoing an operation that creates a file or directory (for example
+<code>project_panel::NewFile</code>, <code>project_panel::NewDirectory</code>,
+<code>project_panel::Duplicate</code>, a <code>project_panel::Copy</code> followed by
+paste, or a drag from outside Zed) moves the new item to your system trash
+rather than deleting it. This keeps it recoverable and lets redo restore it, but
+it also means you may notice these items appear in your trash.</p>
+<p>When you batch several of these together, for example, selecting multiple files
+and moving them to another folder, the whole batch is undone or redone as a
+single step, and a failure in one of the operations does not block the rest.</p>
+<h3 id="limitations"><a class="header-anchor" href="#limitations">Limitations</a></h3>
+<ul>
+<li>Undo and redo are not available when collaborating in a project shared by
+someone else. The same applies to <code>project_panel::Trash</code>, so when
+working as a guest in a shared project, files can only be permanently
+deleted, and file operations cannot be undone.</li>
+<li>Operations whose result is a path excluded from the project via the
+<code>file_scan_exclusions</code> setting are not recorded. For example, with
+<code>**/*.secret</code> excluded, creating a file named <code>token.secret</code>, or renaming an
+existing file to <code>token.secret</code>, succeeds on disk, but the operation cannot
+be undone from the panel.</li>
+<li>Permanently deleting an item (<code>project_panel::Delete</code>) is not tracked
+and cannot be undone.</li>
+<li>Undoing a <code>project_panel::Trash</code> restores the item from your system’s
+trash. If you empty the trash, the item can no longer be restored.</li>
+<li>Undo and redo act on the current state of the filesystem. If something changed
+outside Zed, for example, a conflicting file now exists at the destination, or
+the item was moved or deleted by another program, the operation may no longer
+be undoable, and Zed will show a notification accordingly.</li>
+<li>On remote hosts without system trash support, <code>project_panel::Trash</code>
+will fail when used, along with anything that relies on it, such as undoing a
+trash or undoing an operation that creates a file or directory. At the time of
+writing, Zed does not reliably detect trash support ahead of time, so the
+action is always available but may report an error.</li>
+<li>The undo history is not persisted across sessions, so quitting Zed clears it.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/project-panel.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

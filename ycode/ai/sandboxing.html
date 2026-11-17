@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandboxing · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="quick-start.html">AI Quick Start</a></li>
+<li><a href="by-company.html">AI by Company</a></li>
+<li><a href="agents.html">Agents</a>
+<ul>
+<li><a href="zed-agent.html">Zed Agent</a></li>
+<li><a href="external-agents.html">External Agents</a></li>
+<li><a href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="agent-settings.html">Agent Settings</a></li>
+<li><a href="agent-profiles.html">Agent Profiles</a></li>
+<li><a href="tools.html">Tools</a>
+<ul>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a class="active" aria-current="page" href="sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="parallel-agents.html">Parallel Agents</a></li>
+<li><a href="inline-assistant.html">Inline Assistant</a></li>
+<li><a href="llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="use-api-access.html">Use API Access</a></li>
+<li><a href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="edit-prediction.html">Edit Prediction</a></li>
+<li><a href="privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="sandboxing"><a class="header-anchor" href="#sandboxing">Sandboxing</a></h1>
+<p>You can restrict what operations the <a href="zed-agent.html">Zed Agent</a> can run in multiple ways. One way to restrict them is
+<a href="tool-permissions.html">Tool Permissions</a>, but these are of limited use when the agent wants to do things like run a
+complicated script in a terminal.</p>
+<p>Sandboxing instead uses OS features to forcibly restrict which resources a tool
+call has access to. This does <em>not</em> rely on an agent following a particular set
+of instructions. If the agent attempts to access a resource that is restricted
+by the sandbox, the OS will block it. See <a href="#trust">How much can I trust the
+sandbox?</a> for more details.</p>
+<p><a href="tool-permissions.html">Tool Permissions</a> can be used in addition to sandboxing:</p>
+<ul>
+<li>Tool permissions restrict the agent’s ability to run certain tool actions in the first place</li>
+<li>Once a tool action is actually running, sandboxing restricts what it can do</li>
+</ul>
+<p>Sandboxing applies only to Zed Agent. It does not sandbox Zed itself, language servers, extensions, tasks, your normal
+terminal tabs, <a href="external-agents.html">External Agents</a>, or <a href="terminal-threads.html">Terminal Threads</a>.</p>
+<blockquote>
+<p><strong>Note</strong>: Under some conditions, sandboxes on Windows are weaker than those on
+Linux and MacOS, and may not prevent all escape attempts. See
+<a href="#windows">Windows</a> for more detail.</p>
+</blockquote>
+<h2 id="sandboxed-tools"><a class="header-anchor" href="#sandboxed-tools">Sandboxed Tools</a></h2>
+<p>Zed Agent sandboxing currently applies to the <code>terminal</code> and <code>fetch</code> tools.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Tool</th>
+<th>What sandboxing limits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>terminal</code></td>
+<td>Filesystem writes and outbound network access for commands the agent runs; Git metadata is protected.</td>
+</tr>
+<tr>
+<td><code>fetch</code></td>
+<td>Hosts which can be accessed.</td>
+</tr>
+</tbody>
+</table>
+<p>Tools are still governed by <a href="tool-permissions.html">Tool Permissions</a>, <a href="agent-profiles.html">Agent
+Profiles</a>, and project trust, but they are not currently
+run inside this OS sandbox.</p>
+<h2 id="requirements"><a class="header-anchor" href="#requirements">Requirements</a></h2>
+<p>Sandboxing is supported, in some form, on all platforms. In order to sandbox a
+<code>terminal</code> tool call, the following is required:</p>
+<ul>
+<li>On Linux, a runnable, non-setuid <code>bwrap</code> binary must be on the <code>$PATH</code>. See <a href="#installing-bubblewrap">Installing Bubblewrap</a>.</li>
+<li>On Windows, WSL must be available.</li>
+</ul>
+<p>There are no extra requirements on MacOS.</p>
+<p>The <code>fetch</code> tool has no extra requirements on any platform.</p>
+<h2 id="default-access"><a class="header-anchor" href="#default-access">Default Access</a></h2>
+<p>By default, sandboxed Zed Agent tool actions have these restrictions:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Access type</th>
+<th>Default behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filesystem reads</td>
+<td>Terminal commands can read most of the filesystem, including protected Git metadata.</td>
+</tr>
+<tr>
+<td>Project writes</td>
+<td>Terminal commands can write inside open project directories, except for protected Git metadata.</td>
+</tr>
+<tr>
+<td>Git metadata</td>
+<td><code>.git</code> directories and linked worktree Git metadata remain readable but are not writable while sandboxed.</td>
+</tr>
+<tr>
+<td>Temporary files</td>
+<td>Terminal commands receive a writable temporary location. The exact behavior differs by platform.</td>
+</tr>
+<tr>
+<td>Other writes</td>
+<td>Writes outside the default writable locations are blocked unless you approve a broader sandbox request.</td>
+</tr>
+<tr>
+<td>Outbound networking</td>
+<td>Network access is blocked unless you approve a host-specific or unrestricted network sandbox request. Host-specific enforcement is not available on every platform.</td>
+</tr>
+<tr>
+<td>Local IPC sockets</td>
+<td>Sandboxed commands cannot open Unix-domain sockets (for example, to the desktop session bus or a container daemon), which could otherwise be used to run commands outside the sandbox.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trust"><a class="header-anchor" href="#trust">How much can I trust the sandbox?</a></h2>
+<p>Enabling sandboxing dramatically reduces the risk of various kinds of attacks.
+However, it does not fully eliminate them.</p>
+<p>Firstly, sandboxing relies on OS-level features, which may contain bugs.
+Operating systems have historically had bugs in security features. And while we
+have tested thoroughly, there may also be bugs in Zed’s implementation. These
+could allow privilege escalation - for example, allow an agent to write to a
+file that it should only have read access to.</p>
+<p>Sandboxing also only applies the restrictions that the user requested. If an
+agent requests write access to your home directory, sandboxing will not (and
+should not!) do anything to prevent an agent adding a malicious key to
+<code>$HOME/.ssh</code>.</p>
+<p>Be careful with what you grant the agent. At any point in time, you can view the
+state of the sandbox by hovering the padlock icon in the top right of the
+thread. If an agent is requesting an overly broad permission, deny it, and ask
+it to use a smaller grant. When requesting elevated privileges, agents must
+provide a <code>reason</code>, which is displayed in the prompt. Read it, and decide
+whether it makes sense before approving.</p>
+<p>Also, sandboxing restricts <strong>only</strong> what the <code>terminal</code> and <code>fetch</code> tools in the
+Zed agent can do. It has <strong>no effect</strong> on other parts of Zed, including:</p>
+<ul>
+<li>Language servers</li>
+<li>The built-in git client</li>
+<li>The regular terminal</li>
+<li>And more…</li>
+</ul>
+<p>Even when sandboxing is enabled, you should remain vigilant. A malicious or
+unaligned agent may use these side channels to escalate privileges. For example:</p>
+<ul>
+<li>An agent may add a malicious Rust procedural macro to your codebase, which
+will be automatically executed by <code>rust-analyzer</code> <strong>outside the sandbox</strong>.</li>
+<li>An agent may modify a <code>Makefile</code> to inject a malicious script, which is
+executed <strong>outside the sandbox</strong> when you next run <code>make</code> in the built-in
+terminal.</li>
+<li>The agent cannot write to your repository’s protected <code>.git</code> directory, but it
+can create a submodule under your project whose Git metadata (including config
+such as <code>core.fsmonitor</code>) it fully controls. That metadata may then be executed
+<strong>outside the sandbox</strong> when you subsequently run Git commands in a regular
+terminal. Your shell prompt may even execute Git commands every time it
+renders!</li>
+</ul>
+<p>There are steps you can take to mitigate these issues. For example:</p>
+<ul>
+<li>disable language servers that execute user-defined code from the project (such
+as Rust procedural macros).</li>
+<li>use a shell prompt that reports Git status without executing
+repository-defined programs.</li>
+<li>review the diff before running <code>git commit</code></li>
+</ul>
+<p>But none of this changes the fundamental principle: <strong>a sandbox is not a
+substitute for good security practices</strong>. It is one layer in a defense-in-depth
+strategy.</p>
+<p>Zed’s default profile aims to strike a balance between security and convenience,
+but we encourage you to tune your settings based on your own security
+requirements and risk profile. A disabled sandbox is not a very effective
+sandbox.</p>
+<h2 id="approval-prompts"><a class="header-anchor" href="#approval-prompts">Approval Prompts</a></h2>
+<p>When the agent needs access outside the default sandbox, Zed shows a sandbox approval prompt before the tool action runs.
+Depending on what the tool requested, the prompt can ask you to allow:</p>
+<ul>
+<li>network access to specific hosts, such as <code>github.com</code> or <code>*.npmjs.org</code></li>
+<li>network access to any host</li>
+<li>write access to specific filesystem paths</li>
+<li>unrestricted filesystem writes, except protected Git metadata</li>
+<li>running a terminal command without the sandbox</li>
+</ul>
+<p>You can grant a sandbox request for:</p>
+<ul>
+<li>one tool action</li>
+<li>the rest of the current thread</li>
+<li>always</li>
+</ul>
+<p>Approvals for the rest of the thread are remembered only for that thread. Approvals granted with “always” are saved in
+<code>settings.json</code> under <code>agent.sandbox_permissions</code>.</p>
+<h2 id="persistent-sandbox-permissions"><a class="header-anchor" href="#persistent-sandbox-permissions">Persistent Sandbox Permissions</a></h2>
+<p>If you want to pre-approve common sandbox requests, add persistent permissions to your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;sandbox_permissions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;network_hosts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;github.com&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;*.npmjs.org&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;write_paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;/Users/you/.cache/my-tool&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The available options are:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>network_hosts</code></td>
+<td>Hosts that sandboxed tools may reach without prompting. Entries can be exact hostnames or leading-<code>*.</code> wildcards.</td>
+</tr>
+<tr>
+<td><code>allow_all_hosts</code></td>
+<td>Allow sandboxed tools to reach any host without prompting.</td>
+</tr>
+<tr>
+<td><code>write_paths</code></td>
+<td>Directory subtrees that sandboxed terminal commands may write to without prompting. Paths are absolute.</td>
+</tr>
+<tr>
+<td><code>allow_fs_write_all</code></td>
+<td>Allow sandboxed terminal commands to write anywhere except protected Git metadata without prompting.</td>
+</tr>
+<tr>
+<td><code>allow_unsandboxed</code></td>
+<td>Turn sandboxing off entirely for Zed Agent terminal commands. The fetch tool will have no restrictions.</td>
+</tr>
+</tbody>
+</table>
+<p>Prefer narrow grants, such as a specific host or write path, over <code>allow_all_hosts</code>, <code>allow_fs_write_all</code>, or
+<code>allow_unsandboxed</code>.</p>
+<h2 id="git-metadata"><a class="header-anchor" href="#git-metadata">Git Metadata</a></h2>
+<p>Git metadata writes are not grantable while a terminal command is sandboxed. This includes writes to <code>.git</code> directories,
+linked worktree metadata, refs, the index, hooks, local Git config, and other Git-controlled metadata files. Approving a
+specific writable path or <code>allow_fs_write_all</code> does not make Git metadata writable.</p>
+<h2 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h2>
+<p>Sandboxing uses different operating system mechanisms on each platform. The user-facing prompts are similar, but the
+enforcement details vary.</p>
+<h3 id="macos"><a class="header-anchor" href="#macos">macOS</a></h3>
+<p>On macOS, Zed uses Apple’s Seatbelt sandbox through <code>sandbox-exec</code>.</p>
+<p>Sandboxed terminal commands:</p>
+<ul>
+<li>can read the filesystem</li>
+<li>can write inside open project directories, except protected Git metadata</li>
+<li>can write to a per-thread temporary directory exposed through <code>$TMPDIR</code>, <code>$TMP</code>, and <code>$TEMP</code></li>
+<li>can read protected Git metadata</li>
+<li>cannot write protected Git metadata, even if you approve broader write access</li>
+<li>cannot write elsewhere unless you approve additional paths or broader write access</li>
+<li>cannot reach the network unless you approve network access</li>
+<li>can reach only an allowlist of macOS system (Mach) services that developer tooling needs; services that could be abused to escape the sandbox (LaunchServices and launchd, which can launch processes outside it), read the clipboard (the pasteboard), or capture audio are not reachable</li>
+</ul>
+<p>When network access is approved on macOS, Zed uses an HTTP/HTTPS proxy so access can be limited to approved hosts.
+Tools that do not honor proxy environment variables, such as SSH, FTP, and raw socket clients, may not work even after host-specific network access is approved.
+For networked terminal commands, prefer HTTPS URLs over SSH URLs when possible.</p>
+<h3 id="linux"><a class="header-anchor" href="#linux">Linux</a></h3>
+<p>On Linux, Zed uses <a href="https://github.com/containers/bubblewrap">Bubblewrap</a> (<code>bwrap</code>) for sandboxing.</p>
+<p>Zed only uses a non-setuid <code>bwrap</code> binary. Its sandbox is built entirely on unprivileged user namespaces, so a setuid-root
+<code>bwrap</code> provides no extra functionality, and running one would mean executing root-privileged setup with arguments partly
+derived from model-influenced input. If the only <code>bwrap</code> found on your <code>PATH</code> is setuid-root, Zed refuses to run it;
+install a non-setuid Bubblewrap to enable sandboxing.</p>
+<p>Sandboxed terminal commands:</p>
+<ul>
+<li>can read the filesystem, including protected Git metadata contents</li>
+<li>can write inside open project directories, except protected Git metadata</li>
+<li>can write to <code>/tmp</code>, which is backed by a fresh temporary filesystem and is cleared between terminal tool calls (when you approve unrestricted filesystem writes, <code>/tmp</code> is instead your real host <code>/tmp</code> rather than a fresh temporary filesystem)</li>
+<li>cannot write protected Git metadata</li>
+<li>cannot write elsewhere unless you approve additional paths or broader write access</li>
+<li>cannot reach the network unless you approve network access</li>
+</ul>
+<p>When host-specific network access is approved on Linux, Zed uses an HTTP/HTTPS proxy so access can be limited to approved
+hosts. Tools that do not honor proxy environment variables, such as SSH, FTP, and raw socket clients, may not work even
+after host-specific network access is approved.</p>
+<p>If Bubblewrap is unavailable or cannot create a sandbox in the current environment, Zed may run the command without the OS
+sandbox and show a warning in the tool output.</p>
+<blockquote>
+<p><strong>Warning</strong>: On Linux and WSL, restrictions on filesystem objects are
+determined at <em>sandbox creation time</em>. Among other things, this means that an
+agent given access to a non-Git-repo directory <code>/foo</code> could create
+<code>/foo/.git</code>. See <a href="#trust">How much can I trust the sandbox?</a> for more
+information on the implications of this.</p>
+</blockquote>
+<h4 id="installing-bubblewrap"><a class="header-anchor" href="#installing-bubblewrap">Installing Bubblewrap</a></h4>
+<p>Zed needs a runnable, non-setuid <code>bwrap</code> binary on your <code>$PATH</code>. Installing
+<code>bubblewrap</code> from your distribution’s package manager is usually all you need.</p>
+<p>You can test whether it’s working with:</p>
+<pre><code class="language-sh">bwrap --ro-bind / / -- <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;working&quot;</span>
+</code></pre>
+<p>“Non-setuid” here refers to the <a href="https://en.wikipedia.org/wiki/Setuid">setuid bit</a>. Historically,
+bubblewrap has shipped both a setuid and non-setuid binary. The setuid binary is
+being phased out for security concerns, and so Zed’s sandbox <em>explicitly rejects
+setuid <code>bwrap</code> binaries</em>.</p>
+<h5 id="installing-bubblewrap-ubuntu"><a class="header-anchor" href="#installing-bubblewrap-ubuntu">Ubuntu-specific requirements</a></h5>
+<blockquote>
+<p><strong>Note:</strong> The following does not affect Ubuntu on WSL.</p>
+</blockquote>
+<p>Bubblewrap relies on a Linux kernel feature known as “namespaces”. Unprivileged
+users on many systems can create namespaces, but historically, this feature has
+been used for a variety of attacks.</p>
+<p>In response to this, in Ubuntu 23.10, Canonical <a href="https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces">added a security
+measure</a> that restricts unprivileged user namespaces. These
+restrictions are enforced by AppArmor.</p>
+<p>Because of this, you may also need to install an AppArmor profile for bubblewrap
+after you install it. This is a configuration file that gives bubblewrap the
+ability to create namespaces without needing <code>sudo</code>.</p>
+<pre><code class="language-sh"><span class="hljs-built_in">sudo</span> apt install bubblewrap
+
+<span class="hljs-comment"># On Ubuntu 25.04 and later, `apparmor` ships with a profile for bubblewrap by default.</span>
+<span class="hljs-comment"># Make sure you&#x27;re up-to-date</span>
+<span class="hljs-built_in">sudo</span> apt install --only-upgrade apparmor
+
+<span class="hljs-comment"># On older versions, manually install the profile</span>
+<span class="hljs-built_in">sudo</span> apt update
+<span class="hljs-built_in">sudo</span> apt install apparmor-profiles apparmor-utils
+<span class="hljs-built_in">sudo</span> install -m 0644 \
+  /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
+  /etc/apparmor.d/bwrap-userns-restrict
+<span class="hljs-built_in">sudo</span> apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict
+</code></pre>
+<h3 id="windows"><a class="header-anchor" href="#windows">Windows</a></h3>
+<p>On Windows, Zed Agent sandboxing is supported only when the agent action runs inside WSL.</p>
+<blockquote>
+<p><strong>Warning</strong>: Due to limitations in WSL’s implementation, it is possible that a
+terminal command may write outside sandbox grants when the user has given
+write access to any path that resides on the NTFS drive. This includes the
+current-project grant for projects stored on NTFS. Zed will show a warning
+when this happens. In practice, we believe this is difficult to exploit, but
+security cannot be guaranteed. See <a href="#why-ntfs-compromise">below</a> for a more
+technical explanation.</p>
+</blockquote>
+<p>Zed uses the Linux Bubblewrap sandbox inside WSL because WSL provides the Linux process and filesystem primitives that
+Bubblewrap needs. Native Windows processes do not currently have the same sandbox integration in Zed, so a native Windows
+command cannot be confined by Zed Agent’s OS sandbox in the same way.</p>
+<p>When running inside WSL, the Linux sandboxing behavior applies, including the requirement that <code>bwrap</code> not be setuid-root:</p>
+<ul>
+<li>filesystem isolation is provided by Bubblewrap</li>
+<li>protected Git metadata contents remain readable, but writes are blocked</li>
+<li><code>/tmp</code> is temporary for sandboxed terminal calls</li>
+<li>network access is all-or-nothing rather than host-specific, so host-specific network requests are rejected and the agent must request unrestricted network access when network access is needed</li>
+</ul>
+<p>If WSL is not installed, or if you choose to run a command without the sandbox, Zed falls back to the standard terminal
+behavior of running in your native shell. It selects the shell using the usual preference order: a bash (scoop’s bash or
+Git Bash) when one is installed, otherwise PowerShell, and finally <code>cmd.exe</code>. Because the command then runs against native
+Windows paths instead of WSL’s Linux filesystem, path conventions change accordingly (for example <code>C:\...</code> or <code>/c/...</code>
+rather than WSL’s <code>/mnt/c/...</code>), so a command written for the sandboxed WSL shell may behave differently.</p>
+<h4 id="why-ntfs-compromise"><a class="header-anchor" href="#why-ntfs-compromise">Why do NTFS objects compromise the sandbox?</a></h4>
+<p>In general, the security of the filesystem sandbox relies on two things
+matching:</p>
+<ul>
+<li>The path that the user was presented when they approved</li>
+<li>The filesystem object to which access was granted</li>
+</ul>
+<p>If a user believes they granted access to <code>/foo/hello</code>, but they actually granted
+access to <code>/bar/world</code>, then the sandbox has failed.</p>
+<p>On Linux, this “filesystem object” is called an <strong>inode</strong>.</p>
+<p>But <code>/foo/hello</code> doesn’t refer to an inode. Loosely, it refers to a location
+where an inode might exist. It may refer to one inode at one point in time,
+and another inode later.</p>
+<p>And because of symlinks, it’s possible for an agent with write access to <code>/foo</code>
+to change <code>/foo/bar</code> to point to <code>/secret</code>, even if they have no write access to
+<code>/secret</code>. If this happens, even though the agent has access to <code>/foo</code>, we
+cannot also grant access to <code>/foo/bar</code>, since that would grant access to
+<code>/secret</code>.</p>
+<p>This means that we must only refer to paths which are:</p>
+<ul>
+<li>canonical (i.e. contain no symlinks)</li>
+<li>absolute</li>
+<li>unchanged since we validated the above</li>
+</ul>
+<p>On non-WSL-Linux, we can do this by simply opening the path to get a “file
+descriptor”, which identifies the <strong>inode</strong> directly, so holding the file
+descriptor allows us to “pin” the correct inode. This also works just fine on
+WSL when the path in question refers to an object in the Linux filesystem.</p>
+<p>However, WSL allows accessing files stored in the Windows drive. For example,
+the file <code>C:\foo\bar.txt</code> can be accessed from Linux at <code>/mnt/c/foo/bar.txt</code>,
+using a mechanism similar to a network drive. Unfortunately, inode pinning is
+not guaranteed to work for these. While we can still pin the inode for
+<code>/mnt/c/foo/bar.txt</code>, this doesn’t pin the underlying Windows filesystem object,
+and so it’s possible for this to change during the lifetime of a sandbox, which
+could potentially allow writes outside the confines of the sandbox.</p>
+<h4 id="how-big-a-risk"><a class="header-anchor" href="#how-big-a-risk">How big a risk is this in practice?</a></h4>
+<p><strong>In our testing, we have not been able to exploit this issue to escape the
+sandbox.</strong></p>
+<p>In practice, the mapping tends to be quite stable. This is because the inode
+that gets generated in the Linux filesystem is derived from the <em>file reference</em>
+(very loosely, a “Windows inode”), which has similar stability to a Linux inode.
+The standard “rename a subcomponent” attack seems to produce a different inode
+number, and so the in-sandbox check would fail-closed.</p>
+<p>But, crucially, <em>it is not guaranteed</em>. This is the behaviour we observed in
+testing, but could not find documentation guaranteeing this behaviour in all
+circumstances, for all Windows/WSL versions past and present, regardless of
+configuration options.</p>
+<p>Zed’s sandbox has been designed with the aim of being totally unbreakable, even
+in the presence of a motivated attacker with full control over the files in your
+project running as a standard user. It does <em>not</em> assume a
+mostly-benevolent-but-sometimes-careless agent.</p>
+<p>Given this, we cannot give the same guarantees about sandbox security as we do
+for more standard cases. However, even with this weakened guarantee, the sandbox
+still helps keep you much safer than without it, so it’s worth keeping enabled.</p>
+<h2 id="choosing-what-to-approve"><a class="header-anchor" href="#choosing-what-to-approve">Choosing What to Approve</a></h2>
+<p>When reviewing a sandbox prompt, prefer the narrowest permission that lets the task proceed:</p>
+<ul>
+<li>approve a specific host instead of all hosts when the destination is known</li>
+<li>approve a specific write path instead of unrestricted filesystem writes</li>
+<li>approve unsandboxed execution only when the command cannot work inside the sandbox</li>
+<li>use one-time approvals for unfamiliar commands</li>
+<li>use thread or always approvals only for access you expect to reuse</li>
+</ul>
+<p>If a command fails because the sandbox blocked access, ask the agent why it needs that access before approving a broader
+request.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/ai/sandboxing.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

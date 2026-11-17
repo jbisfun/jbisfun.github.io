@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semantic Tokens and Syntax Highlighting - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a class="active" aria-current="page" href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="semantic-tokens"><a class="header-anchor" href="#semantic-tokens">Semantic Tokens</a></h1>
+<p>Semantic tokens provide richer syntax highlighting by using information from language servers. Unlike tree-sitter highlighting, which is based purely on syntax, semantic tokens understand the meaning of your code—distinguishing between local variables and parameters, or between a class definition and a class reference.</p>
+<h2 id="enabling-semantic-tokens"><a class="header-anchor" href="#enabling-semantic-tokens">Enabling Semantic Tokens</a></h2>
+<p>Semantic tokens are controlled by the <code>semantic_tokens</code> setting. By default, semantic tokens are disabled.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;combined&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>This setting accepts three values:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;off&quot;</code></td>
+<td>Do not request semantic tokens from language servers. Uses tree-sitter highlighting only. (Default)</td>
+</tr>
+<tr>
+<td><code>&quot;combined&quot;</code></td>
+<td>Use LSP semantic tokens together with tree-sitter highlighting. Tree-sitter provides base highlighting, and semantic tokens overlay additional information.</td>
+</tr>
+<tr>
+<td><code>&quot;full&quot;</code></td>
+<td>Use LSP semantic tokens exclusively. Tree-sitter highlighting is disabled entirely for buffers with semantic token support.</td>
+</tr>
+</tbody>
+</table>
+<p>You can configure this globally or per-language:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;off&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;Rust&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;combined&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;TypeScript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;semantic_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;full&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Changing the <code>semantic_tokens</code> mode may require a language server restart to take effect. Use the <code>editor::RestartLanguageServer</code> command from the command palette if highlighting doesn’t update immediately.</p>
+</blockquote>
+<h2 id="customizing-token-colors"><a class="header-anchor" href="#customizing-token-colors">Customizing Token Colors</a></h2>
+<p>Semantic tokens are styled using rules that map LSP token types and modifiers to theme styles or custom colors. Zed provides sensible defaults, but you can customize these in your settings.json: add rules under <code>global_lsp_settings.semantic_token_rules</code> key.</p>
+<p>Rules are matched in order, and the first matching rule wins.
+User-defined rules take highest precedence, followed by extension-provided language rules, then Zed defaults.</p>
+<h3 id="rule-structure"><a class="header-anchor" href="#rule-structure">Rule Structure</a></h3>
+<p>Each rule can specify:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>token_type</code></td>
+<td>The LSP semantic token type to match (e.g., <code>&quot;variable&quot;</code>, <code>&quot;function&quot;</code>, <code>&quot;class&quot;</code>). If omitted, matches all types.</td>
+</tr>
+<tr>
+<td><code>token_modifiers</code></td>
+<td>A list of modifiers that must all be present (e.g., <code>[&quot;declaration&quot;]</code>, <code>[&quot;readonly&quot;, &quot;static&quot;]</code>).</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>A list of theme style names to try. The first one found in the current theme is used.</td>
+</tr>
+<tr>
+<td><code>foreground_color</code></td>
+<td>Override foreground color in hex format (e.g., <code>&quot;#ff0000&quot;</code>).</td>
+</tr>
+<tr>
+<td><code>background_color</code></td>
+<td>Override background color in hex format.</td>
+</tr>
+<tr>
+<td><code>underline</code></td>
+<td>Boolean or hex color. If <code>true</code>, underlines with the text color.</td>
+</tr>
+<tr>
+<td><code>strikethrough</code></td>
+<td>Boolean or hex color. If <code>true</code>, strikes through with the text color.</td>
+</tr>
+<tr>
+<td><code>font_weight</code></td>
+<td><code>&quot;normal&quot;</code> or <code>&quot;bold&quot;</code>.</td>
+</tr>
+<tr>
+<td><code>font_style</code></td>
+<td><code>&quot;normal&quot;</code> or <code>&quot;italic&quot;</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example%3A-highlighting-unresolved-references"><a class="header-anchor" href="#example%3A-highlighting-unresolved-references">Example: Highlighting Unresolved References</a></h3>
+<p>To make unresolved references stand out:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;semantic_token_rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unresolvedReference&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;foreground_color&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;#c93f3f&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bold&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="example%3A-highlighting-unsafe-code"><a class="header-anchor" href="#example%3A-highlighting-unsafe-code">Example: Highlighting Unsafe Code</a></h3>
+<p>To highlight unsafe operations in Rust:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;semantic_token_rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;punctuation&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;token_modifiers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;unsafe&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;foreground_color&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;#AA1111&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bold&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="example%3A-using-theme-styles"><a class="header-anchor" href="#example%3A-using-theme-styles">Example: Using Theme Styles</a></h3>
+<p>Instead of hardcoding colors, reference styles from your theme:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;semantic_token_rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;variable&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;token_modifiers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;mutable&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;variable.mutable&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;variable&quot;</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The first style found in the current theme is used, providing fallback options.</p>
+<h3 id="example%3A-disabling-a-token-type"><a class="header-anchor" href="#example%3A-disabling-a-token-type">Example: Disabling a Token Type</a></h3>
+<p>To disable highlighting for a specific token type, add an empty rule that matches it:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;semantic_token_rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;token_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;comment&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Since user rules take highest precedence and the first match wins, this empty rule prevents any styling from being applied to comment tokens.</p>
+<h2 id="default-rules"><a class="header-anchor" href="#default-rules">Default Rules</a></h2>
+<p>Zed’s default semantic token rules map standard LSP token types to common theme styles. For example:</p>
+<ul>
+<li><code>function</code> → <code>function</code> style</li>
+<li><code>variable</code> with <code>constant</code> modifier → <code>constant</code> style</li>
+<li><code>class</code> → <code>type.class</code>, <code>class</code>, or <code>type</code> style (first found)</li>
+<li><code>comment</code> with <code>documentation</code> modifier → <code>comment.documentation</code> or <code>comment.doc</code> style</li>
+</ul>
+<p>The full default configuration can be shown in Zed with the <code>zed::ShowDefaultSemanticTokenRules</code> command.</p>
+<h2 id="standard-token-types"><a class="header-anchor" href="#standard-token-types">Standard Token Types</a></h2>
+<p>Language servers report tokens using standardized types. Common types include:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>namespace</code></td>
+<td>Namespace or module names</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Type names</td>
+</tr>
+<tr>
+<td><code>class</code></td>
+<td>Class names</td>
+</tr>
+<tr>
+<td><code>enum</code></td>
+<td>Enum type names</td>
+</tr>
+<tr>
+<td><code>interface</code></td>
+<td>Interface names</td>
+</tr>
+<tr>
+<td><code>struct</code></td>
+<td>Struct names</td>
+</tr>
+<tr>
+<td><code>typeParameter</code></td>
+<td>Generic type parameters</td>
+</tr>
+<tr>
+<td><code>parameter</code></td>
+<td>Function/method parameters</td>
+</tr>
+<tr>
+<td><code>variable</code></td>
+<td>Variable names</td>
+</tr>
+<tr>
+<td><code>property</code></td>
+<td>Object properties or struct fields</td>
+</tr>
+<tr>
+<td><code>enumMember</code></td>
+<td>Enum variants</td>
+</tr>
+<tr>
+<td><code>function</code></td>
+<td>Function names</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>Method names</td>
+</tr>
+<tr>
+<td><code>macro</code></td>
+<td>Macro names</td>
+</tr>
+<tr>
+<td><code>keyword</code></td>
+<td>Language keywords</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td>Comments</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>String literals</td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td>Numeric literals</td>
+</tr>
+<tr>
+<td><code>operator</code></td>
+<td>Operators</td>
+</tr>
+</tbody>
+</table>
+<p>Common modifiers include: <code>declaration</code>, <code>definition</code>, <code>readonly</code>, <code>static</code>, <code>deprecated</code>, <code>async</code>, <code>documentation</code>, <code>defaultLibrary</code>, and language-specific modifiers like <code>unsafe</code> (Rust) or <code>abstract</code> (TypeScript).</p>
+<p>For the complete specification, see the <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#semanticTokenTypes">LSP Semantic Tokens documentation</a>.</p>
+<h2 id="inspecting-semantic-tokens"><a class="header-anchor" href="#inspecting-semantic-tokens">Inspecting Semantic Tokens</a></h2>
+<p>To see semantic tokens applied to your code in real-time, use the <code>dev::OpenHighlightsTreeView</code> command from the command palette. This opens a panel showing all highlights (including semantic tokens) for the current buffer, making it easier to understand which tokens are being applied and debug your custom rules.</p>
+<h2 id="troubleshooting"><a class="header-anchor" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="semantic-highlighting-not-appearing"><a class="header-anchor" href="#semantic-highlighting-not-appearing">Semantic highlighting not appearing</a></h3>
+<ol>
+<li>Ensure <code>semantic_tokens</code> is set to <code>&quot;combined&quot;</code> or <code>&quot;full&quot;</code> for the language</li>
+<li>Verify the language server supports semantic tokens (not all do)</li>
+<li>Try restarting the language server with <code>editor::RestartLanguageServer</code></li>
+<li>Check the LSP logs (<code>dev::OpenLanguageServerLogs</code>) for errors</li>
+</ol>
+<h3 id="colors-not-updating-after-changing-settings"><a class="header-anchor" href="#colors-not-updating-after-changing-settings">Colors not updating after changing settings</a></h3>
+<p>Changes to <code>semantic_tokens</code> mode may require a language server restart. Use <code>editor::RestartLanguageServer</code> from the command palette.</p>
+<h3 id="theme-styles-not-being-applied"><a class="header-anchor" href="#theme-styles-not-being-applied">Theme styles not being applied</a></h3>
+<p>Ensure the style names in your rules match styles defined in your theme. The <code>style</code> array provides fallback options—if the first style isn’t found, Zed tries the next one.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/semantic-tokens.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

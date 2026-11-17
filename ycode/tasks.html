@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tasks - Run Commands in Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a class="active" aria-current="page" href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="tasks"><a class="header-anchor" href="#tasks">Tasks</a></h1>
+<p>Zed supports ways to spawn (and rerun) commands using its integrated <a href="terminal.html">terminal</a> to output the results. These commands can read a limited subset of Zed state (such as a path to the file currently being edited or selected text).</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Example task&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;for i in {1..5}; do echo \&quot;Hello $i/5\&quot;; sleep 1; done&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">//&quot;args&quot;: [],</span>
+    <span class="hljs-comment">// Env overrides for the command, will be appended to the terminal&#x27;s environment from the settings.</span>
+    <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;foo&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bar&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Current working directory to spawn the command into, defaults to current project root.</span>
+    <span class="hljs-comment">//&quot;cwd&quot;: &quot;/path/to/working/directory&quot;,</span>
+    <span class="hljs-comment">// Whether to use a new terminal tab or reuse the existing one to spawn the process, defaults to `false`.</span>
+    <span class="hljs-attr">&quot;use_new_terminal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to allow multiple instances of the same task to be run, or rather wait for the existing ones to finish, defaults to `false`.</span>
+    <span class="hljs-attr">&quot;allow_concurrent_runs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// What to do with the terminal pane and tab, after the command was started:</span>
+    <span class="hljs-comment">// * `always` — always show the task&#x27;s pane, and focus the corresponding tab in it (default)</span>
+    <span class="hljs-comment">// * `no_focus` — always show the task&#x27;s pane, add the task&#x27;s tab in it, but don&#x27;t focus it</span>
+    <span class="hljs-comment">// * `never` — do not alter focus, but still add/reuse the task&#x27;s tab in its pane</span>
+    <span class="hljs-attr">&quot;reveal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;always&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// What to do with the terminal pane and tab, after the command has finished:</span>
+    <span class="hljs-comment">// * `never` — Do nothing when the command finishes (default)</span>
+    <span class="hljs-comment">// * `always` — always hide the terminal tab, hide the pane also if it was the last tab in it</span>
+    <span class="hljs-comment">// * `on_success` — hide the terminal tab on task success only, otherwise behaves similar to `always`</span>
+    <span class="hljs-attr">&quot;hide&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;never&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Which shell to use when running a task inside the terminal.</span>
+    <span class="hljs-comment">// May take 3 values:</span>
+    <span class="hljs-comment">// 1. (default) Use the system&#x27;s default terminal configuration in /etc/passwd</span>
+    <span class="hljs-comment">//      &quot;shell&quot;: &quot;system&quot;</span>
+    <span class="hljs-comment">// 2. A program:</span>
+    <span class="hljs-comment">//      &quot;shell&quot;: {</span>
+    <span class="hljs-comment">//        &quot;program&quot;: &quot;sh&quot;</span>
+    <span class="hljs-comment">//      }</span>
+    <span class="hljs-comment">// 3. A program with arguments:</span>
+    <span class="hljs-comment">//     &quot;shell&quot;: {</span>
+    <span class="hljs-comment">//         &quot;with_arguments&quot;: {</span>
+    <span class="hljs-comment">//           &quot;program&quot;: &quot;/bin/bash&quot;,</span>
+    <span class="hljs-comment">//           &quot;args&quot;: [&quot;--login&quot;]</span>
+    <span class="hljs-comment">//         }</span>
+    <span class="hljs-comment">//     }</span>
+    <span class="hljs-attr">&quot;shell&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;system&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to show the task line in the output of the spawned task, defaults to `true`.</span>
+    <span class="hljs-attr">&quot;show_summary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to show the command line in the output of the spawned task, defaults to `true`.</span>
+    <span class="hljs-attr">&quot;show_command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Which edited buffers to save before running the task:</span>
+    <span class="hljs-comment">// * `all` — save all edited buffers</span>
+    <span class="hljs-comment">// * `current` — save currently active buffer only</span>
+    <span class="hljs-comment">// * `none` — don&#x27;t save any buffers</span>
+    <span class="hljs-attr">&quot;save&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;none&quot;</span>
+    <span class="hljs-comment">// Represents the tags for inline runnable indicators, or spawning multiple tasks at once.</span>
+    <span class="hljs-comment">// &quot;tags&quot;: []</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>There are two actions that drive the workflow of using tasks: <code>task::Spawn</code> and <code>task::Rerun</code>.
+<code>task::Spawn</code> opens a modal with all available tasks in the current file.
+<code>task::Rerun</code> reruns the most recently spawned task. You can also rerun tasks from the task modal.</p>
+<p>By default, rerunning tasks reuses the same terminal (due to the <code>&quot;use_new_terminal&quot;: false</code> default) but waits for the previous task to finish before starting (due to the <code>&quot;allow_concurrent_runs&quot;: false</code> default).</p>
+<p>Keep <code>&quot;use_new_terminal&quot;: false</code> and set <code>&quot;allow_concurrent_runs&quot;: true</code> to allow cancelling previous tasks on rerun.</p>
+<h2 id="task-templates"><a class="header-anchor" href="#task-templates">Task templates</a></h2>
+<p>Tasks can be defined:</p>
+<ul>
+<li>in the global <code>tasks.json</code> file; such tasks are available in all Zed projects you work on. This file is usually located in <code>~/.config/zed/tasks.json</code>. You can edit them by using the <code>zed::OpenTasks</code> action.</li>
+<li>in the worktree-specific (local) <code>.zed/tasks.json</code> file; such tasks are available only when working on a project with that worktree included. You can edit worktree-specific tasks by using the <code>zed::OpenProjectTasks</code> action.</li>
+<li>on the fly with <a href="#oneshot-tasks">oneshot tasks</a>. These tasks are project-specific and do not persist across sessions.</li>
+<li>by language extension.</li>
+</ul>
+<h2 id="variables"><a class="header-anchor" href="#variables">Variables</a></h2>
+<p>Zed tasks act just like your shell; that also means that you can reference environmental variables via sh-esque <code>$VAR_NAME</code> syntax. A couple of additional environmental variables are set for your convenience.
+These variables allow you to pull information from the current editor and use it in your tasks. The following variables are available:</p>
+<ul>
+<li><code>ZED_COLUMN</code>: current line column</li>
+<li><code>ZED_ROW</code>: current line row</li>
+<li><code>ZED_FILE</code>: absolute path of the currently opened file (e.g. <code>/Users/my-user/path/to/project/src/main.rs</code>)</li>
+<li><code>ZED_FILENAME</code>: filename of the currently opened file (e.g. <code>main.rs</code>)</li>
+<li><code>ZED_DIRNAME</code>: absolute path of the currently opened file with file name stripped (e.g. <code>/Users/my-user/path/to/project/src</code>)</li>
+<li><code>ZED_RELATIVE_FILE</code>: path of the currently opened file, relative to <code>ZED_WORKTREE_ROOT</code> (e.g. <code>src/main.rs</code>)</li>
+<li><code>ZED_RELATIVE_DIR</code>: path of the currently opened file’s directory, relative to <code>ZED_WORKTREE_ROOT</code> (e.g. <code>src</code>)</li>
+<li><code>ZED_STEM</code>: stem (filename without extension) of the currently opened file (e.g. <code>main</code>)</li>
+<li><code>ZED_SYMBOL</code>: currently selected symbol; should match the last symbol shown in a symbol breadcrumb (e.g. <code>mod tests &gt; fn test_task_contexts</code>)</li>
+<li><code>ZED_SELECTED_TEXT</code>: currently selected text</li>
+<li><code>ZED_LANGUAGE</code>: language of the currently opened buffer (e.g. <code>Rust</code>, <code>Python</code>, <code>Shell Script</code>)</li>
+<li><code>ZED_WORKTREE_ROOT</code>: absolute path to the root of the current worktree. (e.g. <code>/Users/my-user/path/to/project</code>)</li>
+<li><code>ZED_MAIN_GIT_WORKTREE</code>: absolute path to the main git worktree’s working directory. For normal checkouts this equals <code>ZED_WORKTREE_ROOT</code>; for linked git worktrees this is the original repository’s working directory.</li>
+<li><code>ZED_CUSTOM_RUST_PACKAGE</code>: (Rust-specific) name of the parent package of $ZED_FILE source file.</li>
+</ul>
+<p>To use a variable in a task, prefix it with a dollar sign (<code>$</code>):</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo current file&#x27;s path&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo $ZED_FILE&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>You can also use verbose syntax that allows specifying a default if a given variable is not available: <code>${ZED_FILE:default_value}</code></p>
+<p>These environmental variables can also be used in tasks’ <code>cwd</code>, <code>args</code>, and <code>label</code> fields.</p>
+<h3 id="variable-quoting"><a class="header-anchor" href="#variable-quoting">Variable Quoting</a></h3>
+<p>When working with paths containing spaces or other special characters, please ensure variables are properly escaped.</p>
+<p>For example, instead of this (which will fail if the path has a space):</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat current file&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat $ZED_FILE&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Provide the following:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat current file&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;$ZED_FILE&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Or explicitly include escaped quotes like so:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat current file&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;stat \&quot;$ZED_FILE\&quot;&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="task-filtering-based-on-variables"><a class="header-anchor" href="#task-filtering-based-on-variables">Task filtering based on variables</a></h3>
+<p>Task definitions with variables which are not present at the moment the task list is determined are filtered out.
+For example, the following task will appear in the spawn modal only if there is a text selection:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;selected text&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo \&quot;$ZED_SELECTED_TEXT\&quot;&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Set default values to such variables to have such tasks always displayed:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;selected text with default&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo \&quot;${ZED_SELECTED_TEXT:no text selected}\&quot;&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="oneshot-tasks"><a class="header-anchor" href="#oneshot-tasks">Oneshot tasks</a></h2>
+<p>The same task modal opened via <code>task::Spawn</code> supports arbitrary bash-like command execution: type a command inside the modal text field, and use <code>opt-enter</code> to spawn it.</p>
+<p>The task modal persists these ad-hoc commands for the duration of the session, <code>task::Rerun</code> will also rerun such tasks if they were the last ones spawned.</p>
+<p>You can also adjust the currently selected task in a modal (<code>tab</code> is the default key binding). Doing so will put its command into a prompt that can then be edited &amp; spawned as a oneshot task.</p>
+<h3 id="ephemeral-tasks"><a class="header-anchor" href="#ephemeral-tasks">Ephemeral tasks</a></h3>
+<p>You can use the <code>cmd</code> modifier when spawning a task via a modal; tasks spawned this way will not have their usage count increased (thus, they will not be respawned with <code>task::Rerun</code> and they won’t have a high rank in the task modal).
+The intended use of ephemeral tasks is to stay in the flow with continuous <code>task::Rerun</code> usage.</p>
+<h3 id="more-task-rerun-control"><a class="header-anchor" href="#more-task-rerun-control">More task rerun control</a></h3>
+<p>By default, tasks capture their variables into a context once, and this “resolved task” is being rerun always.</p>
+<p>This can be controlled with the <code>&quot;reevaluate_context&quot;</code> argument to the task: setting it to <code>true</code> will force the task to be reevaluated before each run.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;context&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Workspace&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;alt-t&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;task::Rerun&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;reevaluate_context&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="custom-keybindings-for-tasks"><a class="header-anchor" href="#custom-keybindings-for-tasks">Custom keybindings for tasks</a></h2>
+<p>You can define your own keybindings for your tasks via an additional argument to <code>task::Spawn</code>. If you wanted to bind the aforementioned <code>echo current file's path</code> task to <code>alt-g</code>, you would add the following snippet in your <a href="key-bindings.html"><code>keymap.json</code></a> file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;context&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Workspace&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;alt-g&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;task::Spawn&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;task_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo current file&#x27;s path&quot;</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Note that these tasks can also have a ‘target’ specified to control where the spawned task should show up.
+This could be useful for launching a terminal application that you want to use in the center area:</p>
+<pre><code class="language-json"><span class="hljs-comment">// In tasks.json</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;start lazygit&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;lazygit -p $ZED_WORKTREE_ROOT&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<pre><code class="language-json"><span class="hljs-comment">// In keymap.json</span>
+<span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;context&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Workspace&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;alt-g&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-string">&quot;task::Spawn&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;task_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;start lazygit&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;reveal_target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;center&quot;</span> <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="hooks"><a class="header-anchor" href="#hooks">Hooks</a></h2>
+<p>In addition to being spawned manually, tasks can be configured to run automatically in response to certain Zed events by adding a hook to the <code>hooks</code> field on a task template. A task with a matching hook will be resolved and spawned when that event fires.</p>
+<p>The following hooks are currently supported:</p>
+<ul>
+<li><code>create_worktree</code> — runs after Zed creates a new linked Git worktree, either directly through the CLI or from the <a href="git.html#git-worktrees">worktree picker</a>. The task is spawned with <code>ZED_WORKTREE_ROOT</code> pointing at the newly created worktree and <code>ZED_MAIN_GIT_WORKTREE</code> pointing at the original repository’s working directory, which makes these hooks well-suited to copying untracked files (such as <code>.env</code> files) or running per-worktree setup commands.</li>
+</ul>
+<p>Hook tasks are resolved from the same global and worktree-local <code>tasks.json</code> files as manually spawned tasks, and multiple tasks may register for the same hook; they all run when the hook fires. A hook task still benefits from the usual task configuration fields — <code>cwd</code>, <code>env</code>, <code>reveal</code>, <code>hide</code>, and so on — so you can control how much of the terminal UI is shown while it runs.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;copy .env into new worktree&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cp&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;$ZED_MAIN_GIT_WORKTREE/.env&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;$ZED_WORKTREE_ROOT/.env&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hooks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;create_worktree&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;reveal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;no_focus&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hide&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;on_success&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>Tasks that define <code>hooks</code> are still available from the task modal like any other task, so the same template can be reused for manual runs.</p>
+<h2 id="custom-git-commands"><a class="header-anchor" href="#custom-git-commands">Custom Git Commands</a></h2>
+<p>The Git Graph supports running custom Git command tasks from the commit context menu.
+To add a command, define a task in your global <code>tasks.json</code> file with the <code>git-command</code> tag (worktree-local tasks are not supported yet).
+When shown from a commit’s context menu, the task is resolved against the selected commit and repository, and runs from the selected repository root by default.
+Right-clicking a ref label (a branch, remote ref, or tag) opens a ref-specific context menu, where the task is additionally resolved against the clicked ref via <code>ZED_GIT_REF</code>.</p>
+<p>Git Graph command tasks support the Git-specific task variables below.
+These variables are provided only when resolving Git Graph command tasks.
+Other task variables, such as <code>ZED_FILE</code>, <code>ZED_SELECTED_TEXT</code>, <code>ZED_WORKTREE_ROOT</code>, and <code>ZED_MAIN_GIT_WORKTREE</code>, are not provided to Git Graph command tasks unless they use default values.</p>
+<ul>
+<li><code>ZED_GIT_SHA</code>: full SHA of the selected commit.</li>
+<li><code>ZED_GIT_SHA_SHORT</code>: short SHA of the selected commit.</li>
+<li><code>ZED_GIT_REPOSITORY_NAME</code>: name of the selected Git repository.</li>
+<li><code>ZED_GIT_REPOSITORY_PATH</code>: absolute path to the selected Git repository’s working directory.</li>
+<li><code>ZED_GIT_REF</code>: name of the clicked ref (a branch, remote ref, or tag). Only provided when the menu is opened from a ref label.</li>
+</ul>
+<p>For example:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Branches containing commit: $ZED_GIT_SHA_SHORT&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;git&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;branch&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;-a&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;--contains&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;$ZED_GIT_SHA&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;git-command&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Check out $ZED_GIT_REF&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;git&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;checkout&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;$ZED_GIT_REF&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;git-command&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h2 id="vs-code-task-format"><a class="header-anchor" href="#vs-code-task-format">VS Code Task Format</a></h2>
+<p>When importing VS Code tasks from <code>.vscode/tasks.json</code>, you can omit the <code>label</code> field. Zed automatically generates labels based on the task type:</p>
+<ul>
+<li><strong>npm tasks</strong>: <code>npm: &lt;script&gt;</code> (e.g., <code>npm: start</code>)</li>
+<li><strong>gulp tasks</strong>: <code>gulp: &lt;task&gt;</code> (e.g., <code>gulp: build</code>)</li>
+<li><strong>shell tasks</strong>: Uses the <code>command</code> string directly (e.g., <code>echo hello</code>), or <code>shell</code> if the command is empty</li>
+<li><strong>Tasks without type</strong>: <code>Untitled Task</code></li>
+</ul>
+<p>Example task file with auto-generated labels:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2.0.0&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;tasks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;script&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;start&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;shell&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;cargo build --release&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>These tasks appear in the task picker as “npm: start” and “cargo build --release”. You can override the generated label by providing an explicit <code>label</code> field.</p>
+<h2 id="binding-runnable-tags-to-task-templates"><a class="header-anchor" href="#binding-runnable-tags-to-task-templates">Binding runnable tags to task templates</a></h2>
+<p>Zed supports overriding the default action for inline runnable indicators via workspace-local and global <code>tasks.json</code> file with the following precedence hierarchy:</p>
+<ol>
+<li>Workspace <code>tasks.json</code></li>
+<li>Global <code>tasks.json</code></li>
+<li>Language-provided tag bindings (default).</li>
+</ol>
+<p>To tag a task, add the runnable tag name to the <code>tags</code> field on the task template:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo current file&#x27;s path&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;echo $ZED_FILE&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;rust-test&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>In doing so, you can change which task is shown in the runnables indicator.</p>
+<h2 id="keybindings-to-run-tasks-bound-to-runnables"><a class="header-anchor" href="#keybindings-to-run-tasks-bound-to-runnables">Keybindings to run tasks bound to runnables</a></h2>
+<p>When you have a task definition that is bound to the runnable, you can quickly run it using <a href="https://zed.dev/docs/configuring-languages?#code-actions">Code Actions</a> that you can trigger either via <code>editor::ToggleCodeActions</code> command or by the <code>cmd-.</code>/<code>ctrl-.</code> shortcut. Your task will be the first in the dropdown. The task will run immediately if there are no additional Code Actions for this line.</p>
+<h2 id="running-bash-scripts"><a class="header-anchor" href="#running-bash-scripts">Running Bash Scripts</a></h2>
+<p>You can run bash scripts directly from Zed. When you open a <code>.sh</code> or <code>.bash</code> file, Zed automatically detects the script as runnable and makes it available in the task picker.</p>
+<p>To run a bash script:</p>
+<ol>
+<li>Open the command palette with <code>command_palette::Toggle</code></li>
+<li>Search for “task” and select <strong>task: spawn</strong></li>
+<li>Select the script from the list</li>
+</ol>
+<p>Bash scripts are tagged with <code>bash-script</code>, allowing you to filter or reference them in task configurations.</p>
+<p>If you need to pass arguments or customize the execution environment, add a task configuration in your <code>.zed/tasks.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;run my-script.sh with args&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./my-script.sh&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;--verbose&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;--output=results.txt&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;bash-script&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h2 id="shell-initialization"><a class="header-anchor" href="#shell-initialization">Shell Initialization</a></h2>
+<p>When Zed runs a task, it launches the command in a login shell. This ensures your shell’s initialization files (<code>.bash_profile</code>, <code>.zshrc</code>, etc.) are sourced before the task executes.</p>
+<p>This behavior gives tasks access to the same environment variables, aliases, and PATH modifications you’ve configured in your shell profile. If a task fails to find a command that works in your terminal, verify your shell configuration files are properly set up.</p>
+<p>To override the shell used for tasks, configure the <code>terminal.shell</code> setting:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;terminal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;shell&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/bin/zsh&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>See <a href="terminal.html">Terminal configuration</a> for complete shell options.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/tasks.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

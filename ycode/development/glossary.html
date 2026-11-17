@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zed Development: Glossary · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="linux.html">Linux</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="freebsd.html">FreeBSD</a></li>
+<li><a href="debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="ui-checklist.html">UI/UX Checklist</a></li>
+<li><a class="active" aria-current="page" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="release-notes.html">Release Notes</a></li>
+<li><a href="debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="zed-development%3A-glossary"><a class="header-anchor" href="#zed-development%3A-glossary">Zed Development: Glossary</a></h1>
+<p>This page defines terms and structures used throughout the Zed codebase.</p>
+<p>It is a best-effort list and a work in progress.</p>
+<!--
+TBD: Glossary Improvement
+
+Questions:
+
+- Can we generate this list from doc comments throughout zed?
+- We should have a section that shows the various UI parts and their names. (Can't do that in the channel.)
+-->
+<h2 id="naming-conventions"><a class="header-anchor" href="#naming-conventions">Naming conventions</a></h2>
+<p>These are common naming patterns across the codebase. <code>Name</code> is a placeholder
+for any type name, such as <code>AnyElement</code> or <code>LspStore</code>.</p>
+<ul>
+<li><code>AnyName</code>: A type-erased version of <em>name</em>. Think <code>Box&lt;dyn NameTrait&gt;</code>.</li>
+<li><code>NameStore</code>: A wrapper type which abstracts over whether operations are running locally or on a remote.</li>
+</ul>
+<h2 id="gpui"><a class="header-anchor" href="#gpui">GPUI</a></h2>
+<h3 id="state-management"><a class="header-anchor" href="#state-management">State management</a></h3>
+<ul>
+<li><code>App</code>: A singleton that holds full application state, including all entities. <code>App</code> is not <code>Send</code>, so it exists only on the thread that created it (usually the main/UI thread). If you see <code>&amp;mut App</code>, you are on the UI thread.</li>
+<li><code>Context</code>: A wrapper around <code>App</code> with specialized behavior for a specific <code>Entity</code>. You can think of it as <code>(&amp;mut App, Entity&lt;V&gt;)</code>. For example, <code>App::spawn</code> takes <code>AsyncFnOnce(AsyncApp) -&gt; Ret</code>, while <code>Context::spawn</code> takes <code>AsyncFnOnce(WeakEntity&lt;V&gt;, AsyncApp) -&gt; Ret</code>.</li>
+<li><code>AsyncApp</code>: An owned version of <code>App</code> for async contexts. It is still not <code>Send</code>, so it still runs on the main thread, and operations may fail if the <code>App</code> has already terminated.
+<code>AsyncApp</code> exists because <code>App</code> is usually accessed as <code>&amp;mut App</code>, which is awkward to hold across async boundaries.</li>
+<li><code>AppContext</code>: A trait that abstracts over <code>App</code>, <code>AsyncApp</code>, <code>Context</code>, and their test variants.</li>
+<li><code>Task</code>: A future running (or scheduled to run) on a background or foreground executor. Unlike regular futures, tasks do not need <code>.await</code> to start. You still need to await them to read their result.</li>
+<li><code>Executor</code>: Used to spawn tasks that run either on the foreground or background thread. Try to run the tasks on the background thread.
+<ul>
+<li><code>BackgroundExecutor</code>: A threadpool running <code>Task</code>s.</li>
+<li><code>ForegroundExecutor</code>: The main thread running <code>Task</code>s.</li>
+</ul>
+</li>
+<li><code>Entity</code>: A strong, well-typed reference to a struct which is managed by gpui. Effectively a pointer/map key into the <code>App::EntityMap</code>.</li>
+<li><code>WeakEntity</code>: A runtime checked reference to an <code>Entity</code> which may no longer exist. Similar to <a href="https://doc.rust-lang.org/std/rc/struct.Weak.html"><code>std::rc::Weak</code></a>.</li>
+<li><code>Global</code>: A singleton type which has only one value, that is stored in the <code>App</code>.</li>
+<li><code>Event</code>: A data type that can be sent by an <code>Entity</code> to subscribers.</li>
+<li><code>Action</code>: An event that represents a user’s keyboard input that can be handled by listeners
+Example: <code>file_finder::Toggle</code></li>
+<li><code>Observing</code>: Reacting to notifications that entities have changed.</li>
+<li><code>Subscription</code>: An event handler that is used to react to the changes of state in the application.
+<ol>
+<li>Emitted event handling</li>
+<li>Observing <code>{new,release,on notify}</code> of an entity</li>
+</ol>
+</li>
+</ul>
+<h3 id="ui"><a class="header-anchor" href="#ui">UI</a></h3>
+<ul>
+<li><code>View</code>: An <code>Entity</code> which can produce an <code>Element</code> through its implementation of <code>Render</code>.</li>
+<li><code>Element</code>: A type that can be laid out and painted to the screen.</li>
+<li><code>element expression</code>: An expression that builds an element tree, example:</li>
+</ul>
+<pre><code class="language-rust"><span class="hljs-title function_ invoke__">h_flex</span>()
+    .<span class="hljs-title function_ invoke__">id</span>(text[i])
+    .<span class="hljs-title function_ invoke__">relative</span>()
+    .<span class="hljs-title function_ invoke__">when</span>(selected, |this| {
+        this.<span class="hljs-title function_ invoke__">child</span>(
+            <span class="hljs-title function_ invoke__">div</span>()
+                .<span class="hljs-title function_ invoke__">h_4</span>()
+                .<span class="hljs-title function_ invoke__">absolute</span>()
+                etc etc
+</code></pre>
+<ul>
+<li><code>Component</code>: A builder which can be rendered turning it into an <code>Element</code>.</li>
+<li><code>Dispatch tree</code>: TODO</li>
+<li><code>Focus</code>: The place where keystrokes are handled first</li>
+<li><code>Focus tree</code>: Path from the place that has the current focus to the UI Root. Example <img> TODO</li>
+</ul>
+<h2 id="zed-ui"><a class="header-anchor" href="#zed-ui">Zed UI</a></h2>
+<ul>
+<li><code>Window</code>: A struct representing a Zed window in your desktop environment (see image below). You can have multiple windows open. This is mostly passed around for rendering.</li>
+<li><code>Modal</code>: A UI element that floats on top of the rest of the UI</li>
+<li><code>Picker</code>: A struct representing a list of items floating on top of the UI (Modal). You can select an item and confirm. What happens on select or confirm is determined by the picker’s delegate. (The ‘Modal’ in the image below is a picker.)</li>
+<li><code>PickerDelegate</code>: A trait used to specialize behavior for a <code>Picker</code>. The <code>Picker</code> stores the <code>PickerDelegate</code> in the field delegate.</li>
+<li><code>Center</code>: The middle of the zed window, the center is split into multiple <code>Pane</code>s. In the codebase this is a field on the <code>Workspace</code> struct. (see image below).</li>
+<li><code>Pane</code>: An area in the <code>Center</code> where we can place items, such as an editor, multi-buffer or terminal (see image below).</li>
+<li><code>Panel</code>: An <code>Entity</code> implementing the <code>Panel</code> trait. Panels can be placed in a <code>Dock</code>. In the image below: <code>ProjectPanel</code> is in the left dock, <code>DebugPanel</code> is in the bottom dock, and <code>AgentPanel</code> is in the right dock. <code>Editor</code> does not implement <code>Panel</code>.</li>
+<li><code>Dock</code>: A UI element similar to a <code>Pane</code> that can be opened and hidden. Up to three docks can be open at once: left, right, and bottom. A dock contains one or more <code>Panel</code>s, not <code>Pane</code>s.</li>
+</ul>
+<img width="1921" height="auto" alt="Screenshot for the Pane and Dock features" src="https://github.com/user-attachments/assets/2cb1170e-2850-450d-89bb-73622b5d07b2">
+<ul>
+<li><code>Project</code>: One or more <code>Worktree</code>s</li>
+<li><code>Worktree</code>: Represents either local or remote files.</li>
+</ul>
+<img width="552" height="auto" alt="Screenshot for the Worktree feature" src="https://github.com/user-attachments/assets/da5c58e4-b02e-4038-9736-27e3509fdbfa">
+<ul>
+<li><a href="https://zed.dev/docs/multibuffers">Multibuffer</a>: A list of Editors, a multi-buffer allows editing multiple files simultaneously. A multi-buffer opens when an operation in Zed returns multiple locations, examples: <em>search</em> or <em>go to definition</em>. See project search in the image below.</li>
+</ul>
+<img width="800" height="auto" alt="Screenshot for the MultiBuffer feature" src="https://github.com/user-attachments/assets/d59dcecd-8ab6-4172-8fb6-b1fc3c3eaf9d">
+<h2 id="editor"><a class="header-anchor" href="#editor">Editor</a></h2>
+<ul>
+<li><code>Editor</code>: The text editor type. Most editable surfaces in Zed are an <code>Editor</code>, including single-line inputs. Each pane in the image above contains one or more <code>Editor</code> instances.</li>
+<li><code>Workspace</code>: The root of the window</li>
+<li><code>Entry</code>: A file, dir, pending dir or unloaded dir.</li>
+<li><code>Buffer</code>: The in-memory representation of a ‘file’ together with relevant data such as syntax trees, git status and diagnostics.</li>
+<li><code>pending selection</code>: You have mouse down and you’re dragging but you have not yet released.</li>
+</ul>
+<h2 id="collab"><a class="header-anchor" href="#collab">Collab</a></h2>
+<ul>
+<li><code>Collab session</code>: Multiple users working in a shared <code>Project</code></li>
+<li><code>Upstream client</code>: The zed client which has shared their workspace</li>
+<li><code>Downstream client</code>: The zed client joining a shared workspace</li>
+</ul>
+<h2 id="debugger"><a class="header-anchor" href="#debugger">Debugger</a></h2>
+<ul>
+<li><code>DapStore</code>: Is an entity that manages debugger sessions</li>
+<li><code>debugger::Session</code>: An entity that manages the lifecycle of a debug session and communication with DAPs.</li>
+<li><code>BreakpointStore</code>: Is an entity that manages breakpoint states in local and remote instances of Zed</li>
+<li><code>DebugSession</code>: Manages a debug session’s UI and running state</li>
+<li><code>RunningState</code>: Directly manages all the views of a debug session</li>
+<li><code>VariableList</code>: The variable and watch list view of a debug session</li>
+<li><code>Console</code>: TODO</li>
+<li><code>Terminal</code>: TODO</li>
+<li><code>BreakpointList</code>: TODO</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/development/glossary.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

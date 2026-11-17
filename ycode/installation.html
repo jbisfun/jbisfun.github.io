@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install Zed - macOS, Linux, Windows · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a class="active" aria-current="page" href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="installing-zed"><a class="header-anchor" href="#installing-zed">Installing Zed</a></h1>
+<h2 id="download-zed"><a class="header-anchor" href="#download-zed">Download Zed</a></h2>
+<h3 id="macos"><a class="header-anchor" href="#macos">macOS</a></h3>
+<p>Get the latest stable builds via <a href="https://zed.dev/download">the download page</a>. If you want to download our preview build, you can find it on its <a href="https://zed.dev/releases/preview">releases page</a>. After the first manual installation, Zed will periodically check for install updates.</p>
+<p>You can also install Zed stable via Homebrew:</p>
+<pre><code class="language-sh">brew install --cask zed
+</code></pre>
+<p>As well as Zed preview:</p>
+<pre><code class="language-sh">brew install --cask zed@preview
+</code></pre>
+<h3 id="windows"><a class="header-anchor" href="#windows">Windows</a></h3>
+<p>Get the latest stable builds via <a href="https://zed.dev/download">the download page</a>. If you want to download our preview build, you can find it on its <a href="https://zed.dev/releases/preview">releases page</a>. After the first manual installation, Zed will periodically check for install updates.</p>
+<p>Additionally, you can install Zed using winget:</p>
+<pre><code class="language-sh">winget install -e --<span class="hljs-built_in">id</span> ZedIndustries.Zed
+</code></pre>
+<h3 id="linux"><a class="header-anchor" href="#linux">Linux</a></h3>
+<p>For most Linux users, the easiest way to install Zed is through our installation script:</p>
+<pre><code class="language-sh">curl -f https://zed.dev/install.sh | sh
+</code></pre>
+<p>You can now optionally specify a <strong>version</strong> of Zed to install using the <code>ZED_VERSION</code> environment variable:</p>
+<pre><code class="language-sh"><span class="hljs-comment"># Install the latest stable version (default)</span>
+curl -f https://zed.dev/install.sh | sh
+
+<span class="hljs-comment"># Install a specific version</span>
+curl -f https://zed.dev/install.sh | ZED_VERSION=0.216.0 sh
+</code></pre>
+<p>To install the preview build, which receives updates about a week ahead of stable:</p>
+<pre><code class="language-sh">curl -f https://zed.dev/install.sh | ZED_CHANNEL=preview sh
+</code></pre>
+<p>This script supports <code>x86_64</code> and <code>AArch64</code>, as well as common Linux distributions: Ubuntu, Arch, Debian, RedHat, CentOS, Fedora, and more.</p>
+<p>If Zed is installed using this installation script, it can be uninstalled at any time by running the shell command <code>zed --uninstall</code>. The shell will then prompt you whether you’d like to keep your preferences or delete them. After making a choice, you should see a message that Zed was successfully uninstalled.</p>
+<p>If this script is insufficient for your use case, you run into problems running Zed, or there are errors in uninstalling Zed, please see our <a href="linux.html">Linux-specific documentation</a>.</p>
+<h2 id="system-requirements"><a class="header-anchor" href="#system-requirements">System Requirements</a></h2>
+<h3 id="macos-1"><a class="header-anchor" href="#macos-1">macOS</a></h3>
+<p>Zed requires macOS 12.0 (Monterey) or later.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Version</th>
+<th>Codename</th>
+<th>Apple Status</th>
+<th>Zed Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS 27.x</td>
+<td>Golden Gate</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 26.x</td>
+<td>Tahoe</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 15.x</td>
+<td>Sequoia</td>
+<td>Supported</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 14.x</td>
+<td>Sonoma</td>
+<td>EOL 2026-09-14</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 13.x</td>
+<td>Ventura</td>
+<td>EOL 2025-09-15</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 12.x (12.3+)</td>
+<td>Monterey</td>
+<td>EOL 2024-09-16</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>macOS 12.0–12.2</td>
+<td>Monterey</td>
+<td>EOL 2024-09-16</td>
+<td>Partially Supported</td>
+</tr>
+</tbody>
+</table>
+<p>The macOS releases labelled “Partially Supported” (Monterey 12.0–12.2) do not support screen sharing via Zed Collaboration.
+Screen sharing uses <a href="https://developer.apple.com/documentation/screencapturekit/">ScreenCaptureKit.framework</a>, which is available on macOS 12.3 and newer.</p>
+<p>Apple support status and EOL dates are from <a href="https://endoflife.date/macos">endoflife.date</a>.</p>
+<h4 id="mac-hardware"><a class="header-anchor" href="#mac-hardware">Mac Hardware</a></h4>
+<p>Zed supports machines with Intel (x86_64) or Apple (aarch64) processors that meet the above macOS requirements:</p>
+<ul>
+<li>MacBook Pro (Early 2015 and newer)</li>
+<li>MacBook Air (Early 2015 and newer)</li>
+<li>MacBook (Early 2016 and newer)</li>
+<li>Mac Mini (Late 2014 and newer)</li>
+<li>Mac Pro (Late 2013 or newer)</li>
+<li>iMac (Late 2015 and newer)</li>
+<li>iMac Pro (all models)</li>
+<li>Mac Studio (all models)</li>
+</ul>
+<h3 id="linux-1"><a class="header-anchor" href="#linux-1">Linux</a></h3>
+<p>Zed supports 64-bit Intel/AMD (x86_64) and 64-bit Arm (aarch64) processors.</p>
+<p>Zed requires a Vulkan 1.3 driver and the following desktop portals:</p>
+<ul>
+<li><code>org.freedesktop.portal.FileChooser</code></li>
+<li><code>org.freedesktop.portal.OpenURI</code></li>
+<li><code>org.freedesktop.portal.Secret</code> or <code>org.freedesktop.Secrets</code></li>
+</ul>
+<h3 id="windows-1"><a class="header-anchor" href="#windows-1">Windows</a></h3>
+<p>Zed supports the following Windows releases:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Version</th>
+<th>Zed Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows 11, version 22H2 and later</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>Windows 10, version 1903 and later</td>
+<td>Supported</td>
+</tr>
+</tbody>
+</table>
+<p>A 64-bit operating system is required to run Zed.</p>
+<h4 id="windows-hardware"><a class="header-anchor" href="#windows-hardware">Windows Hardware</a></h4>
+<p>Zed supports machines with x64 (Intel, AMD) or Arm64 (Qualcomm) processors that meet the following requirements:</p>
+<ul>
+<li>Graphics: A GPU that supports DirectX 11 (most PCs from 2012+).</li>
+<li>Driver: Current NVIDIA/AMD/Intel/Qualcomm driver (not the Microsoft Basic Display Adapter).</li>
+</ul>
+<h3 id="freebsd"><a class="header-anchor" href="#freebsd">FreeBSD</a></h3>
+<p>Not yet available as an official download. Can be built <a href="development/freebsd.html">from source</a>.</p>
+<h3 id="web"><a class="header-anchor" href="#web">Web</a></h3>
+<p>Not supported at this time. See our <a href="https://github.com/zed-industries/zed/issues/5391">Platform Support issue</a>.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/installation.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

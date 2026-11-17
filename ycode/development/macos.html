@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building Zed for macOS · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a class="active" aria-current="page" href="macos.html">macOS</a></li>
+<li><a href="linux.html">Linux</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="freebsd.html">FreeBSD</a></li>
+<li><a href="debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="release-notes.html">Release Notes</a></li>
+<li><a href="debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="building-zed-for-macos"><a class="header-anchor" href="#building-zed-for-macos">Building Zed for macOS</a></h1>
+<h2 id="repository"><a class="header-anchor" href="#repository">Repository</a></h2>
+<p>Clone the <a href="https://github.com/zed-industries/zed">Zed repository</a>.</p>
+<h2 id="dependencies"><a class="header-anchor" href="#dependencies">Dependencies</a></h2>
+<ul>
+<li>
+<p>Install <a href="https://www.rust-lang.org/tools/install">rustup</a></p>
+</li>
+<li>
+<p>Install <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> from the macOS App Store or from the <a href="https://developer.apple.com/download/all/">Apple Developer</a> website. The Apple Developer download requires a developer account.</p>
+</li>
+</ul>
+<blockquote>
+<p>Launch Xcode after installation and install the macOS components (the default option).</p>
+</blockquote>
+<ul>
+<li>
+<p>Install <a href="https://developer.apple.com/xcode/resources/">Xcode command line tools</a></p>
+<pre><code class="language-sh">xcode-select --install
+</code></pre>
+</li>
+<li>
+<p>Ensure that the Xcode command line tools are using your newly installed copy of Xcode:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">sudo</span> xcode-select --switch /Applications/Xcode.app/Contents/Developer
+<span class="hljs-built_in">sudo</span> xcodebuild -license accept
+</code></pre>
+</li>
+<li>
+<p>Install <code>cmake</code> (required by <a href="https://docs.rs/wasmtime-c-api-impl/latest/wasmtime_c_api/">a dependency</a>)</p>
+<pre><code class="language-sh">brew install cmake
+</code></pre>
+</li>
+</ul>
+<p>Release bundling with <code>script/bundle-mac</code> requires the macOS 26 SDK or newer, provided by Xcode 26 or newer.
+The bundled app requires macOS 12.0 (Monterey) or later.</p>
+<h2 id="building-zed-from-source"><a class="header-anchor" href="#building-zed-from-source">Building Zed from Source</a></h2>
+<p>Once you have the dependencies installed, you can build Zed using <a href="https://doc.rust-lang.org/cargo/">Cargo</a>.</p>
+<p>For a debug build:</p>
+<pre><code class="language-sh">cargo run
+</code></pre>
+<p>For a release build:</p>
+<pre><code class="language-sh">cargo run --release
+</code></pre>
+<p>And to run the tests:</p>
+<pre><code class="language-sh">cargo <span class="hljs-built_in">test</span> --workspace
+</code></pre>
+<h2 id="visual-regression-tests"><a class="header-anchor" href="#visual-regression-tests">Visual Regression Tests</a></h2>
+<p>Zed includes visual regression tests that capture screenshots of real Zed windows and compare them against baseline images. These tests require macOS with Screen Recording permission.</p>
+<h3 id="prerequisites"><a class="header-anchor" href="#prerequisites">Prerequisites</a></h3>
+<p>You must grant Screen Recording permission to your terminal:</p>
+<ol>
+<li>Run the visual test runner once - macOS will prompt for permission</li>
+<li>Or manually: System Settings &gt; Privacy &amp; Security &gt; Screen Recording</li>
+<li>Enable your terminal app (e.g., Terminal.app, iTerm2, Ghostty)</li>
+<li>Restart your terminal after granting permission</li>
+</ol>
+<h3 id="running-visual-tests"><a class="header-anchor" href="#running-visual-tests">Running Visual Tests</a></h3>
+<pre><code class="language-sh">cargo run -p zed --bin zed-visual-test-runner --features visual-tests
+</code></pre>
+<h3 id="baseline-images"><a class="header-anchor" href="#baseline-images">Baseline Images</a></h3>
+<p>Baseline images are stored in <code>crates/zed/test_fixtures/visual_tests/</code> but are
+<strong>gitignored</strong> to avoid bloating the repository. You must generate them locally
+before running tests.</p>
+<h4 id="initial-setup"><a class="header-anchor" href="#initial-setup">Initial Setup</a></h4>
+<p>Before making any UI changes, generate baseline images from a known-good state:</p>
+<pre><code class="language-sh">git checkout origin/main
+UPDATE_BASELINE=1 cargo run -p zed --bin zed-visual-test-runner --features visual-tests
+git checkout -
+</code></pre>
+<p>This creates baselines that reflect the current expected UI.</p>
+<h4 id="updating-baselines"><a class="header-anchor" href="#updating-baselines">Updating Baselines</a></h4>
+<p>When UI changes are intentional, update the baseline images after your changes:</p>
+<pre><code class="language-sh">UPDATE_BASELINE=1 cargo run -p zed --bin zed-visual-test-runner --features visual-tests
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> In the future, baselines may be stored externally. For now, they
+remain local-only to keep the git repository lightweight.</p>
+</blockquote>
+<h2 id="sampling-released-builds"><a class="header-anchor" href="#sampling-released-builds">Sampling released builds</a></h2>
+<p>How to get a symbolicated CPU profile from a released (non-dev) Zed instance.
+Use this when Zed is using a lot of CPU.</p>
+<p>Released macOS binaries are stripped of local symbols, so <code>sample</code> and Instruments show raw addresses for most frames.
+The debug symbols for every release are archived: <code>script/bundle-mac</code> uploads <code>zed.dwarf</code> to Sentry before stripping.</p>
+<h3 id="during-the-incident"><a class="header-anchor" href="#during-the-incident">During the incident</a></h3>
+<ul>
+<li>Run <code>sample Zed 10 -f zed-sample.txt</code> (adjust the process name for Preview or Nightly).</li>
+<li>Get the exact build: type <code>zed::About</code> in the command palette and copy the version and commit.</li>
+</ul>
+<p>The <code>zed-sample.txt</code> file can be sent to Zed together with the exact version.</p>
+<h3 id="later"><a class="header-anchor" href="#later">Later</a></h3>
+<p>This can be done by Zed staff.</p>
+<ul>
+<li>Find the binary UUID in the <code>Binary Images</code> section at the bottom of the sample output.</li>
+<li>Download the matching <code>zed.dwarf</code> from the Sentry project’s Debug Files page by searching for that UUID.</li>
+<li>Resolve the addresses:
+<code>atos -o zed.dwarf -l &lt;load address&gt; &lt;address...&gt;</code>
+Each unresolved frame in the sample output prints its <code>load address</code> and absolute address.</li>
+</ul>
+<p>To profile a released build on your own machine with full symbols, download the matching <code>zed.dwarf</code>, convert it into a <code>.dSYM</code> bundle Spotlight can index, and re-run <code>sample</code>:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">mkdir</span> -p Zed.dSYM/Contents/Resources/DWARF
+<span class="hljs-built_in">cp</span> zed.dwarf Zed.dSYM/Contents/Resources/DWARF/zed
+</code></pre>
+<p>Frames then resolve automatically, including file and line information.</p>
+<h2 id="troubleshooting"><a class="header-anchor" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="error-compiling-metal-shaders"><a class="header-anchor" href="#error-compiling-metal-shaders">Error compiling metal shaders</a></h3>
+<pre><code class="language-sh">error: failed to run custom build <span class="hljs-built_in">command</span> <span class="hljs-keyword">for</span> gpui v0.1.0 (/Users/path/to/zed)`**
+
+xcrun: error: unable to find utility <span class="hljs-string">&quot;metal&quot;</span>, not a developer tool or <span class="hljs-keyword">in</span> PATH
+</code></pre>
+<p>Try <code>sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code></p>
+<p>If you’re on macOS 26, try <code>xcodebuild -downloadComponent MetalToolchain</code>.
+If that command fails, run <code>xcodebuild -runFirstLaunch</code> and try downloading the toolchain again.</p>
+<h3 id="cargo-errors-claiming-that-a-dependency-is-using-unstable-features"><a class="header-anchor" href="#cargo-errors-claiming-that-a-dependency-is-using-unstable-features">Cargo errors claiming that a dependency is using unstable features</a></h3>
+<p>Try <code>cargo clean</code> and <code>cargo build</code>.</p>
+<h3 id="error%3A-%E2%80%98dispatch%2Fdispatch.h%E2%80%99-file-not-found"><a class="header-anchor" href="#error%3A-%E2%80%98dispatch%2Fdispatch.h%E2%80%99-file-not-found">Error: ‘dispatch/dispatch.h’ file not found</a></h3>
+<p>If you encounter an error similar to:</p>
+<pre><code class="language-sh">src/platform/mac/dispatch.h:1:10: fatal error: <span class="hljs-string">&#x27;dispatch/dispatch.h&#x27;</span> file not found
+
+Caused by:
+  process didn<span class="hljs-string">&#x27;t exit successfully
+
+  --- stdout
+  cargo:rustc-link-lib=framework=System
+  cargo:rerun-if-changed=src/platform/mac/dispatch.h
+  cargo:rerun-if-env-changed=TARGET
+  cargo:rerun-if-env-changed=BINDGEN_EXTRA_CLANG_ARGS_aarch64-apple-darwin
+  cargo:rerun-if-env-changed=BINDGEN_EXTRA_CLANG_ARGS_aarch64_apple_darwin
+  cargo:rerun-if-env-changed=BINDGEN_EXTRA_CLANG_ARGS
+</span></code></pre>
+<p>This file is part of Xcode. Make sure the Xcode command line tools are installed and the path is set correctly:</p>
+<pre><code class="language-sh">xcode-select --install
+<span class="hljs-built_in">sudo</span> xcode-select --switch /Applications/Xcode.app/Contents/Developer
+</code></pre>
+<p>Additionally, set the <code>BINDGEN_EXTRA_CLANG_ARGS</code> environment variable:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">export</span> BINDGEN_EXTRA_CLANG_ARGS=<span class="hljs-string">&quot;--sysroot=<span class="hljs-subst">$(xcrun --show-sdk-path)</span>&quot;</span>
+</code></pre>
+<p>Then clean and rebuild the project:</p>
+<pre><code class="language-sh">cargo clean
+cargo run
+</code></pre>
+<h3 id="tests-failing-due-to-too-many-open-files-(os-error-24)"><a class="header-anchor" href="#tests-failing-due-to-too-many-open-files-(os-error-24)">Tests failing due to <code>Too many open files (os error 24)</code></a></h3>
+<p>This error seems to be caused by OS resource constraints. Installing and running tests with <code>cargo-nextest</code> should resolve the issue.</p>
+<ul>
+<li><code>cargo install cargo-nextest --locked</code></li>
+<li><code>cargo nextest run --workspace --no-fail-fast</code></li>
+</ul>
+<h2 id="tips-%26-tricks"><a class="header-anchor" href="#tips-%26-tricks">Tips &amp; Tricks</a></h2>
+<h3 id="avoiding-continual-rebuilds"><a class="header-anchor" href="#avoiding-continual-rebuilds">Avoiding continual rebuilds</a></h3>
+<p>If Zed continually rebuilds root crates, you may be opening the Zed codebase itself in your development build.</p>
+<p>This causes problems because <code>cargo run</code> exports a bunch of environment
+variables which are picked up by the <code>rust-analyzer</code> that runs in the development
+build of Zed. These environment variables are in turn passed to <code>cargo check</code>, which
+invalidates the build cache of some of the crates we depend on.</p>
+<p>To avoid this, run the built binary against a different project, for example <code>cargo run ~/path/to/other/project</code>.</p>
+<h3 id="speeding-up-verification"><a class="header-anchor" href="#speeding-up-verification">Speeding up verification</a></h3>
+<p>If you build Zed frequently, macOS may keep verifying new builds, which can add a few seconds to each iteration.</p>
+<p>To fix this, you can:</p>
+<ul>
+<li>Run <code>sudo spctl developer-mode enable-terminal</code> to enable the Developer Tools panel in System Settings.</li>
+<li>In System Settings, search for “Developer Tools” and add your terminal (e.g. iTerm or Ghostty) to the list under “Allow applications to use developer tools”</li>
+<li>Restart your terminal.</li>
+</ul>
+<p>Thanks to the nextest developers for publishing <a href="https://nexte.st/docs/installation/macos/#gatekeeper">this</a>.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/development/macos.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

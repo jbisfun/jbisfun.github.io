@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Skills - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <h1 id="summary"><a class="header-anchor" href="#summary">Summary</a></h1>
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="quick-start.html">AI Quick Start</a></li>
+<li><a href="by-company.html">AI by Company</a></li>
+<li><a href="agents.html">Agents</a>
+<ul>
+<li><a href="zed-agent.html">Zed Agent</a></li>
+<li><a href="external-agents.html">External Agents</a></li>
+<li><a href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="agent-settings.html">Agent Settings</a></li>
+<li><a href="agent-profiles.html">Agent Profiles</a></li>
+<li><a href="tools.html">Tools</a>
+<ul>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a href="sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a class="active" aria-current="page" href="skills.html">Skills</a></li>
+<li><a href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="parallel-agents.html">Parallel Agents</a></li>
+<li><a href="inline-assistant.html">Inline Assistant</a></li>
+<li><a href="llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="use-api-access.html">Use API Access</a></li>
+<li><a href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="edit-prediction.html">Edit Prediction</a></li>
+<li><a href="privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="skills"><a class="header-anchor" href="#skills">Skills</a></h1>
+<p>Skills are reusable instruction packages that give the agent specialized knowledge for specific tasks: test-driven development workflows, document processing, database integrations, or your team’s internal coding standards.</p>
+<p>A skill is a folder containing a <code>SKILL.md</code> file with metadata and instructions. The agent sees a catalog of all installed skills and can load one on demand, or you can invoke any skill directly from the message editor with a slash command.</p>
+<h2 id="adding-skills"><a class="header-anchor" href="#adding-skills">Adding Skills</a></h2>
+<h3 id="create-your-own"><a class="header-anchor" href="#create-your-own">Create your own</a></h3>
+<p>Zed includes a built-in <code>create-skill</code> skill — invoke it with <code>/create-skill</code> and the agent walks you through the process.</p>
+<p>You can also open the Skills Manager from the Agent Panel using <code>agent::ManageSkills</code>, or by clicking <code>...</code> and selecting <strong>Skills</strong>. Outside the panel, use the <code>agent::OpenSkillCreator</code> action from the command palette, or click <strong>Create Skill</strong> on the <strong>AI &gt; Skills</strong> settings page. The creator opens as a page in the settings window where you fill in the skill’s name, description, body, and optionally toggle <code>disable-model-invocation</code>. The skill is saved to the scope of the settings file selected in the settings window — the <strong>User</strong> tab creates a global skill, while a <strong>Project</strong> tab creates a project-local skill — and the form shows exactly where the file will be written.</p>
+<p>Lastly, it’s also possible to add a skill through importing it from an existing GitHub Markdown file. Open the command palette and look for the <code>agent::CreateSkillFromUrl</code> action. If your clipboard contains a supported GitHub <code>.md</code> URL, Zed pre-fills and fetches it automatically.</p>
+<p>See <a href="#skill-format">Skill format</a> below for the full format reference.</p>
+<h3 id="from-the-registry"><a class="header-anchor" href="#from-the-registry">From the skills.sh Registry</a></h3>
+<p><a href="https://skills.sh">skills.sh</a> is a community registry of open-source skills. You’ll find skills for popular frameworks, tools, workflows, and more:</p>
+<ul>
+<li><a href="https://skills.sh/vercel-labs/skills/find-skills"><code>find-skills</code></a>: discover and install skills from the open ecosystem</li>
+<li><a href="https://skills.sh/anthropics/skills/frontend-design"><code>frontend-design</code></a>: production-grade frontend interfaces with design polish</li>
+<li><a href="https://skills.sh/anthropics/skills/pdf"><code>pdf</code></a>: PDF text extraction, merging, splitting, form filling, and OCR</li>
+</ul>
+<p>To install a skill, copy the skill’s folder into <code>~/.agents/skills/</code> for global use, or into your project’s <code>.agents/skills/</code> folder for project-local use.</p>
+<h2 id="managing-skills"><a class="header-anchor" href="#managing-skills">Managing Skills</a></h2>
+<p>Open the Settings Editor (<code>Cmd+,</code> on macOS, <code>Ctrl+,</code> on Linux/Windows) and navigate to <strong>AI &gt; Skills</strong>, or go directly to <a href="zed://settings/agent.skills">agent.skills</a>.</p>
+<p>The <strong>User</strong> tab shows your global skills, and each <strong>Project</strong> tab shows the skills for that project.</p>
+<p>For each skill you can:</p>
+<ul>
+<li><strong>Copy Share Link</strong> — copies a <code>zed://skill</code> link that embeds the skill, ready to send to someone else (see <a href="#sharing-skills">Sharing Skills</a>)</li>
+<li><strong>Open</strong> — opens the skill’s <code>SKILL.md</code> file in the editor</li>
+<li><strong>Delete</strong> — removes the skill folder from disk</li>
+</ul>
+<p>In the skills page, you’ll see a <strong>Create Skill</strong> button that opens the settings window, providing the ability to create a skill directly through the UI.</p>
+<h2 id="sharing-skills"><a class="header-anchor" href="#sharing-skills">Sharing Skills</a></h2>
+<p>You can hand a skill to a teammate without hosting it anywhere. In the Skills settings page, click the <strong>link</strong> icon on a skill row to copy a <code>zed://skill?data=…</code> link to your clipboard.
+The link is self-contained: it embeds the full <code>SKILL.md</code> contents (base64url-encoded), so the recipient doesn’t need access to your project or any registry.</p>
+<p>When someone opens that link (for example by pasting it into their browser or clicking it in a chat), Zed opens the “Create Skill” page in the settings window, pre-filled with the shared skill.
+The recipient can review the name, description, and full body, choose a scope by selecting the <strong>User</strong> tab (global) or a <strong>Project</strong> tab, and click <strong>Save</strong> to install it.
+Nothing is written to disk until they explicitly save, so a shared link can never silently install instructions into someone’s agent.</p>
+<h2 id="using-skills"><a class="header-anchor" href="#using-skills">Using Skills</a></h2>
+<p>By default, the agent picks up skills autonomously. It sees a catalog of every installed skill (name and description) in its system prompt, and calls the <code>skill</code> tool when a task matches a skill’s description.</p>
+<p>When the agent invokes a skill you created or installed, Zed prompts you to allow or deny it, using the same permission flow as other tools. Skills built into Zed do not prompt. You can set per-skill defaults in <a href="tool-permissions.html">Tool Permissions</a> so you’re not prompted for skills you always trust.</p>
+<h3 id="manual-invocation"><a class="header-anchor" href="#manual-invocation">Manual Invocation</a></h3>
+<p>You can also load a skill manually:</p>
+<ul>
+<li><strong>Slash command</strong>: type <code>/</code> in the message editor and select a skill by name</li>
+<li><strong>@-mention</strong>: type <code>@skill</code> in the message editor and select a skill from the completion menu</li>
+</ul>
+<p>Both inject the skill’s instructions as context. The loaded skill appears as a crease button in the thread, which you can click to open the skill file.</p>
+<h3 id="disable-model-invocation"><a class="header-anchor" href="#disable-model-invocation">Preventing Autonomous Invocation</a></h3>
+<p>Add <code>disable-model-invocation: true</code> to a skill’s frontmatter to stop the agent from picking it up autonomously.
+The skill still appears as a slash command, so you stay in control of when it runs.</p>
+<p>This is useful for workflows you don’t want the agent triggering automatically, like deploy or release procedures.</p>
+<pre><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">deploy</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">the</span> <span class="hljs-string">current</span> <span class="hljs-string">branch</span> <span class="hljs-string">to</span> <span class="hljs-string">production.</span>
+<span class="hljs-attr">disable-model-invocation:</span> <span class="hljs-literal">true</span>
+<span class="hljs-meta">---
+</span></code></pre>
+<h2 id="skill-format"><a class="header-anchor" href="#skill-format">Skill Format</a></h2>
+<h3 id="folder-structure"><a class="header-anchor" href="#folder-structure">Folder Structure</a></h3>
+<p>A skill is a named folder containing a <code>SKILL.md</code> file:</p>
+<pre><code>my-skill/
+├── SKILL.md          # Required: metadata and instructions
+├── scripts/          # Optional: scripts the agent can run
+├── references/       # Optional: additional documentation
+└── assets/           # Optional: templates and static files
+</code></pre>
+<p>By convention, the folder name should match the <code>name</code> field in <code>SKILL.md</code>.</p>
+<h3 id="skill-md-format"><a class="header-anchor" href="#skill-md-format">SKILL.md format</a></h3>
+<p><code>SKILL.md</code> starts with YAML frontmatter, followed by Markdown instructions.</p>
+<p><strong>Minimal example:</strong></p>
+<pre><code class="language-markdown">---
+name: my-skill
+<span class="hljs-section">description: What this skill does and when to use it.
+---</span>
+
+<span class="hljs-section">## Instructions</span>
+
+Step-by-step instructions for the agent...
+</code></pre>
+<h4 id="frontmatter-fields"><a class="header-anchor" href="#frontmatter-fields">Frontmatter Fields</a></h4>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Yes</td>
+<td>Lowercase letters, numbers, and hyphens only. Max 64 characters. Should match the folder name.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Yes</td>
+<td>What the skill does and when to use it. Keep it at most 1024 characters; skills with longer descriptions still load, but with a warning.</td>
+</tr>
+<tr>
+<td><code>disable-model-invocation</code></td>
+<td>No</td>
+<td>Set to <code>true</code> to hide from the agent’s catalog (invocable via slash command or @-mention only).</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> Write descriptions that help the agent recognize when a skill is relevant. Include specific task types and trigger phrases: “Use when handling PDFs, extracting text, or filling forms” is better than “Helps with PDFs.”</p>
+</blockquote>
+<p>We plan to include other fields promoted by <a href="https://agentskills.io/specification">the Agent Skills specification</a> in the near future.</p>
+<h4 id="name-validation"><a class="header-anchor" href="#name-validation">Name Validation</a></h4>
+<p>The <code>name</code> field must:</p>
+<ul>
+<li>Contain only lowercase letters (<code>a-z</code>), numbers, and hyphens</li>
+<li>Not start or end with a hyphen</li>
+<li>Not contain consecutive hyphens (<code>--</code>)</li>
+<li>Be 1 to 64 characters</li>
+</ul>
+<p>Skills with invalid names fail to load and surface an error in the UI.</p>
+<h3 id="bundled-resources"><a class="header-anchor" href="#bundled-resources">Bundled Resources</a></h3>
+<p>Keep the body of <code>SKILL.md</code> under 500 lines. Move detailed material to reference files and link to them from the body:</p>
+<pre><code class="language-markdown">See [<span class="hljs-string">reference guide</span>](<span class="hljs-link">references/REFERENCE.md</span>) for complete API details.
+
+Run the extraction script:
+scripts/extract.py
+</code></pre>
+<p>The agent loads these files on demand using the <code>read_file</code> and <code>list_directory</code> tools. Global skills under <code>~/.agents/skills/</code> are accessible to the agent even though they’re outside your project.</p>
+<h3 id="writing-instructions"><a class="header-anchor" href="#writing-instructions">Writing Effective Instructions</a></h3>
+<p>Skills use <a href="https://agentskills.io/specification#progressive-disclosure">progressive disclosure</a>: the agent sees only the name and description until it activates a skill, then loads the full body. Structure your skill to take advantage of this:</p>
+<ul>
+<li>Put the most important instructions near the top of the body</li>
+<li>Keep <code>SKILL.md</code> under 500 lines; move detailed references to <code>references/</code></li>
+<li>Scripts that the agent needs to run go in <code>scripts/</code></li>
+</ul>
+<p>See the <a href="https://agentskills.io/specification">Agent Skills specification</a> for the full format reference.</p>
+<h2 id="where-skills-live"><a class="header-anchor" href="#where-skills-live">Where Skills Live</a></h2>
+<p>Zed loads skills from two locations:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Scope</th>
+<th>Path</th>
+<th>When it applies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global</td>
+<td><code>~/.agents/skills/</code></td>
+<td>Every project</td>
+</tr>
+<tr>
+<td>Project-local</td>
+<td><code>&lt;worktree&gt;/.agents/skills/</code></td>
+<td>Only the current project</td>
+</tr>
+</tbody>
+</table>
+<p>Each skill is a direct child of the skills root. Nesting skills inside subfolders is not supported.</p>
+<h3 id="project-local-trust"><a class="header-anchor" href="#project-local-trust">Project-local Skills and Trust</a></h3>
+<p>Project-local skills only load from <a href="../worktree-trust.html">trusted worktrees</a>. Skills from a freshly cloned or untrusted project are excluded from the catalog and slash commands until you grant trust.</p>
+<p>This prevents a malicious project from injecting instructions into your agent’s system prompt before you’ve reviewed what the project ships.</p>
+<h3 id="override-behavior"><a class="header-anchor" href="#override-behavior">Override Behavior</a></h3>
+<p>If a global and a project-local skill share the same name, the project-local skill takes precedence. This lets a project customize or replace a global skill for its own context.</p>
+<h3 id="editing-skill-files"><a class="header-anchor" href="#editing-skill-files">Editing Skill Files</a></h3>
+<p>The agent cannot edit <code>SKILL.md</code> files or their bundled resources without your explicit authorization, even in a trusted project. This prevents a compromised conversation from modifying the skills that govern future conversations.</p>
+<h2 id="agent-path-boundaries"><a class="header-anchor" href="#agent-path-boundaries">Agent Path Boundaries</a></h2>
+<p>Zed Skills apply to the Zed Agent. <a href="external-agents.html">External Agents</a> and Terminal Threads may have their own native skills, prompts, or instruction systems. Configure those in the External Agent or CLI.</p>
+<h2 id="limitations"><a class="header-anchor" href="#limitations">Limitations</a></h2>
+<ul>
+<li><strong>Flat layout only.</strong> Skills must be direct children of the skills root. Nested folders like <code>~/.agents/skills/group/my-skill/</code> are not discovered.</li>
+<li><strong>50KB catalog budget.</strong> The total size of all skill names and descriptions is capped at 50KB. Skills that don’t fit are dropped from the catalog with a warning in the UI. Keep descriptions concise.</li>
+<li><strong>No remote registry.</strong> Zed does not discover or load skills from remote locations at runtime, and custom search paths are not supported. (You can still import a skill once from a GitHub URL — see <a href="#create-your-own">Create your own</a>.) Skills are loaded from <code>~/.agents/skills/</code> and <code>&lt;worktree&gt;/.agents/skills/</code> only. Use a symlink if you need to point at another location.</li>
+<li><strong>Live reload.</strong> Adding, removing, or editing a <code>SKILL.md</code> takes effect immediately without restarting your session. Changes to a skill’s <code>name</code> or <code>description</code> invalidate the model’s prompt cache for the current session.</li>
+</ul>
+<h2 id="see-also"><a class="header-anchor" href="#see-also">See also</a></h2>
+<ul>
+<li><a href="agent-panel.html">Agent Panel</a></li>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a href="https://agentskills.io/specification">Agent Skills specification</a></li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/ai/skills.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
