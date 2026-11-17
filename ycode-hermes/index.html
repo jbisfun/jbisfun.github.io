@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
 
@@ -68,43 +72,43 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode-hermes" data-radar-file="README.md">
 
-      <h1 id="ycode-hermes"><a class="header-anchor" href="#ycode-hermes">ycode-hermes</a></h1>
-<p>ycode Lua plugin that makes <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>
+      <h1 id="ycode-hermes" data-line="1"><a class="header-anchor" href="#ycode-hermes">ycode-hermes</a></h1>
+<p data-line="3">ycode Lua plugin that makes <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>
 ycode’s agent, over ACP (Agent Client Protocol).</p>
-<p>It registers <code>hermes acp</code> as an external agent (<code>agent_servers.hermes</code>) through ycode’s
+<p data-line="6">It registers <code>hermes acp</code> as an external agent (<code>agent_servers.hermes</code>) through ycode’s
 in-memory plugin settings layer. Threads you start with the “hermes” agent in the agent
 panel run inside Hermes, so they are Hermes sessions (saved in Hermes’ <code>state.db</code>), with
 Hermes’ memory, skills, tools and model providers, including OAuth ones. ycode holds no
 credentials; change the model with <code>hermes model</code>.</p>
-<p>Command palette:</p>
-<ul>
-<li><strong>hermes: new thread</strong>: new agent-panel thread with Hermes</li>
-<li><strong>hermes: status</strong>: ACP check (<code>hermes acp --check</code>), version and Hermes’ default model</li>
-<li><strong>hermes: sync threads</strong>: show Hermes sessions in the sidebar now</li>
+<p data-line="12">Command palette:</p>
+<ul data-line="14">
+<li data-line="14"><strong>hermes: new thread</strong>: new agent-panel thread with Hermes</li>
+<li data-line="15"><strong>hermes: status</strong>: ACP check (<code>hermes acp --check</code>), version and Hermes’ default model</li>
+<li data-line="16"><strong>hermes: sync threads</strong>: show Hermes sessions in the sidebar now</li>
 </ul>
-<h2 id="hermes-plugin"><a class="header-anchor" href="#hermes-plugin">Hermes plugin</a></h2>
-<p><code>hermes-plugin/</code> adds <code>hermes ycode-acp</code>: the stock ACP adapter, except that <code>session/list</code>
+<h2 id="hermes-plugin" data-line="18"><a class="header-anchor" href="#hermes-plugin">Hermes plugin</a></h2>
+<p data-line="20"><code>hermes-plugin/</code> adds <code>hermes ycode-acp</code>: the stock ACP adapter, except that <code>session/list</code>
 and <code>session/load</code> include CLI, TUI/desktop and gateway sessions (stock <code>hermes acp</code> only
 shows sessions an editor created). Subagent, cron and one-shot sessions stay hidden.
 Install it once:</p>
-<pre><code>ln -s ~/jbisfun/ycode-hermes/hermes-plugin ~/.hermes/plugins/ycode-hermes
+<pre data-line="25"><code>ln -s ~/jbisfun/ycode-hermes/hermes-plugin ~/.hermes/plugins/ycode-hermes
 hermes plugins enable ycode-hermes
 </code></pre>
-<h2 id="sidebar"><a class="header-anchor" href="#sidebar">Sidebar</a></h2>
-<p>Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
+<h2 id="sidebar" data-line="28"><a class="header-anchor" href="#sidebar">Sidebar</a></h2>
+<p data-line="30">Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
 (<code>session/list</code>) and shown as threads in the sidebar, 5 seconds after startup and then
 every 2 minutes, through ycode’s <code>agent::SyncAgentThreads</code> action. Only sessions whose
 working directory is an open folder or below it are shown; Hermes threads from other
 directories are taken out of the sidebar (they stay in Hermes and return when their folder
 is open). Opening one
 loads it from Hermes (<code>session/load</code>).</p>
-<p>At startup the plugin resolves <code>hermes</code> on PATH and runs the ACP check in the background.</p>
-<h2 id="install"><a class="header-anchor" href="#install">Install</a></h2>
-<pre><code>ln -s ~/jbisfun/ycode-hermes ~/.config/zed/hooks/ycode-hermes
+<p data-line="38">At startup the plugin resolves <code>hermes</code> on PATH and runs the ACP check in the background.</p>
+<h2 id="install" data-line="40"><a class="header-anchor" href="#install">Install</a></h2>
+<pre data-line="42"><code>ln -s ~/jbisfun/ycode-hermes ~/.config/zed/hooks/ycode-hermes
 </code></pre>
-<p>then “ycode: reload hooks”.</p>
+<p data-line="44">then “ycode: reload hooks”.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
@@ -116,5 +120,15 @@ loads it from Hermes (<code>session/load</code>).</p>
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

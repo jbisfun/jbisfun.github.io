@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
 
@@ -68,27 +72,27 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode-offline" data-radar-file="README.md">
 
-      <h1 id="ycode-offline"><a class="header-anchor" href="#ycode-offline">ycode-offline</a></h1>
-<p>ycode Lua plugin that turns off the account and online features:</p>
-<ul>
-<li>no automatic sign-in at startup (<code>%hookf client::authenticate</code> that never calls <code>%orig</code>)</li>
-<li>swallows <code>client::*</code>, <code>collab::*</code>, <code>collab_panel::*</code>, <code>channel_modal::*</code>,
+      <h1 id="ycode-offline" data-line="1"><a class="header-anchor" href="#ycode-offline">ycode-offline</a></h1>
+<p data-line="3">ycode Lua plugin that turns off the account and online features:</p>
+<ul data-line="5">
+<li data-line="5">no automatic sign-in at startup (<code>%hookf client::authenticate</code> that never calls <code>%orig</code>)</li>
+<li data-line="6">swallows <code>client::*</code>, <code>collab::*</code>, <code>collab_panel::*</code>, <code>channel_modal::*</code>,
 <code>onboarding::SignIn</code>/<code>OpenAccount</code>, <code>zed::OpenAccountSettings</code>, <code>auto_update::Check</code></li>
-<li>hides the sign-in button, user menu/avatar, collab panel button and onboarding banner</li>
-<li>telemetry off, auto-update off, edit predictions provider <code>none</code></li>
-<li>dismisses the upsell/ad banners (“Welcome to Zed AI — Sign In to Try GPT Luna”, trial
+<li data-line="8">hides the sign-in button, user menu/avatar, collab panel button and onboarding banner</li>
+<li data-line="9">telemetry off, auto-update off, edit predictions provider <code>none</code></li>
+<li data-line="10">dismisses the upsell/ad banners (“Welcome to Zed AI — Sign In to Try GPT Luna”, trial
 ended, edit-prediction upsell, update announcement) via <code>ycode.kv_set</code>, and blocks the
 edit-prediction onboarding modal</li>
-<li>hides the account/collab namespaces from the command palette (<code>ycode.palette_hide</code>)</li>
+<li data-line="13">hides the account/collab namespaces from the command palette (<code>ycode.palette_hide</code>)</li>
 </ul>
-<p>Settings go into ycode’s in-memory plugin layer (<code>ycode.settings{}</code>), above settings.json
+<p data-line="15">Settings go into ycode’s in-memory plugin layer (<code>ycode.settings{}</code>), above settings.json
 and never written to disk.</p>
-<h2 id="install"><a class="header-anchor" href="#install">Install</a></h2>
-<pre><code>ln -s ~/jbisfun/ycode-offline ~/.config/zed/hooks/ycode-offline
+<h2 id="install" data-line="18"><a class="header-anchor" href="#install">Install</a></h2>
+<pre data-line="20"><code>ln -s ~/jbisfun/ycode-offline ~/.config/zed/hooks/ycode-offline
 </code></pre>
-<p>then “ycode: reload hooks”. To undo, remove the link and reload (banner dismissals are
+<p data-line="22">then “ycode: reload hooks”. To undo, remove the link and reload (banner dismissals are
 stored like clicking “dismiss” and stay). The startup sign-in veto
 only takes effect from the next launch.</p>
 
@@ -102,5 +106,15 @@ only takes effect from the next launch.</p>
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../../tool/index.html">tool</a></li>
 
@@ -110,14 +114,14 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idl" data-radar-file="docs/architecture.md">
 
-      <h1 id="architecture"><a class="header-anchor" href="#architecture">Architecture</a></h1>
-<p><code>idl</code> is a single Zig executable (libplist is compiled in; only libc is linked dynamically). It reads <code>idlproj.yml</code> and
+      <h1 id="architecture" data-line="1"><a class="header-anchor" href="#architecture">Architecture</a></h1>
+<p data-line="3"><code>idl</code> is a single Zig executable (libplist is compiled in; only libc is linked dynamically). It reads <code>idlproj.yml</code> and
 either generates files or runs external compilers. It contains no
 general-purpose task language: it tracks compiler dependencies, prepares a
 collision-checked resource plan, and caches resource and bundle outputs.</p>
-<pre><code>idlproj.yml ──► config ──► codegen ─► .xcodeproj, xtool.yml, Package.swift, compile_commands.json
+<pre><code data-line="8">idlproj.yml ──► config ──► codegen ─► .xcodeproj, xtool.yml, Package.swift, compile_commands.json
                   │
                   └──► builder ─► clang / clang++ / swiftc ─► ld64.lld (xtool SDK)
                          │            (parallel, incremental)
@@ -128,157 +132,157 @@ collision-checked resource plan, and caches resource and bundle outputs.</p>
                          ├─► zip writer ─► .ipa
                          └─► verify: zip reader + plist + Mach-O parser
 </code></pre>
-<h2 id="source-map"><a class="header-anchor" href="#source-map">Source map</a></h2>
+<h2 id="source-map" data-line="21"><a class="header-anchor" href="#source-map">Source map</a></h2>
 <table class="table table-sm table-striped">
-<thead>
-<tr>
+<thead data-line="23">
+<tr data-line="23">
 <th>File</th>
 <th>Responsibility</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody data-line="25">
+<tr data-line="25">
 <td><code>src/main.zig</code></td>
 <td>CLI: zig-clap top-level command plus a parser per subcommand</td>
 </tr>
-<tr>
+<tr data-line="26">
 <td><code>src/config.zig</code></td>
 <td><code>idlproj.yml</code> schema, merging <code>defaults</code>, validation, upward file search</td>
 </tr>
-<tr>
+<tr data-line="27">
 <td><code>src/ynode.zig</code></td>
 <td>lossless YAML view on zig-yaml’s parse tree (keeps scalar text; strips comments)</td>
 </tr>
-<tr>
+<tr data-line="28">
 <td><code>src/toolchain.zig</code></td>
 <td>SDK/compiler/ldid discovery, compiler and linker flag sets, <code>idl check</code></td>
 </tr>
-<tr>
+<tr data-line="29">
 <td><code>src/resources.zig</code></td>
 <td>resource cache, strict validation, output collision plan and storyboard/nib reference checks</td>
 </tr>
-<tr>
+<tr data-line="30">
 <td><code>src/buildstate.zig</code></td>
 <td>SHA-256 tree fingerprints, cache records/output integrity and per-directory OS locks</td>
 </tr>
-<tr>
+<tr data-line="31">
 <td><code>src/builder.zig</code></td>
 <td>parallel incremental compile, link, bundle assembly, signing, packaging, xtool runs, clean</td>
 </tr>
-<tr>
+<tr data-line="32">
 <td><code>src/codegen.zig</code></td>
 <td><code>xtool.yml</code>, <code>Package.swift</code>, <code>compile_commands.json</code>, protection against overwriting non-generated files</td>
 </tr>
-<tr>
+<tr data-line="33">
 <td><code>src/pbxproj.zig</code></td>
 <td>deterministic Xcode project + scheme; atomic, symlink-safe publishing</td>
 </tr>
-<tr>
+<tr data-line="34">
 <td><code>src/metadata.zig</code></td>
 <td>YAML-driven Info.plist and entitlements, shared by direct, Xcode and xtool builds</td>
 </tr>
-<tr>
+<tr data-line="35">
 <td><code>src/plist.zig</code></td>
 <td>libplist wrapper, Xcode <code>$(VAR)</code> expansion, CLI value parsing</td>
 </tr>
-<tr>
+<tr data-line="36">
 <td><code>src/xcstrings.zig</code></td>
 <td>String Catalog to <code>.strings</code> / <code>.stringsdict</code></td>
 </tr>
-<tr>
+<tr data-line="37">
 <td><code>src/zip.zig</code></td>
 <td>deterministic ZIP writer (std.compress.flate) and CRC-checking reader</td>
 </tr>
-<tr>
+<tr data-line="38">
 <td><code>src/macho.zig</code></td>
 <td>Mach-O header and load-command inspection</td>
 </tr>
-<tr>
+<tr data-line="39">
 <td><code>src/verify.zig</code></td>
 <td>IPA validation used by <code>build</code> and <code>verify</code></td>
 </tr>
-<tr>
+<tr data-line="40">
 <td><code>src/ibtool.zig</code></td>
 <td><code>.xib</code> / <code>.storyboard</code> to nib object graphs (port of davidquesada/ibtool)</td>
 </tr>
-<tr>
+<tr data-line="41">
 <td><code>src/nib.zig</code></td>
 <td>NIBArchive object model, encoder and decoder (<code>idl ibtool --dump</code>)</td>
 </tr>
-<tr>
+<tr data-line="42">
 <td><code>src/xmldom.zig</code></td>
 <td>small DOM over zig-xml’s streaming reader</td>
 </tr>
-<tr>
+<tr data-line="43">
 <td><code>tools/idl-actool</code></td>
 <td>Swift wrapper around AssetKit; separate executable, built by <code>zig build actool</code></td>
 </tr>
-<tr>
+<tr data-line="44">
 <td><code>src/jimpactor.zig</code></td>
 <td>client for Jimpactor’s local IPC protocol v1 (<code>devices</code>, <code>install</code>)</td>
 </tr>
-<tr>
+<tr data-line="45">
 <td><code>src/scaffold.zig</code></td>
 <td><code>idl init</code> (sources are embedded from <code>examples/</code> by <code>build.zig</code>)</td>
 </tr>
-<tr>
+<tr data-line="46">
 <td><code>src/fsutil.zig</code></td>
 <td>discovery rules shared with Xcode, path validation, symlink checks</td>
 </tr>
-<tr>
+<tr data-line="47">
 <td><code>src/diag.zig</code></td>
 <td>the single user-facing error message channel</td>
 </tr>
 </tbody>
 </table>
-<h2 id="dependencies"><a class="header-anchor" href="#dependencies">Dependencies</a></h2>
-<p>All dependencies are pinned in <code>build.zig.zon</code>:</p>
-<ul>
-<li><strong>zig-clap</strong>: argument parsing and help text.</li>
-<li><strong>zig-yaml</strong>: YAML tokenizer and parser. <code>idl</code> walks its <code>Tree</code> directly
+<h2 id="dependencies" data-line="49"><a class="header-anchor" href="#dependencies">Dependencies</a></h2>
+<p data-line="51">All dependencies are pinned in <code>build.zig.zon</code>:</p>
+<ul data-line="53">
+<li data-line="53"><strong>zig-clap</strong>: argument parsing and help text.</li>
+<li data-line="54"><strong>zig-yaml</strong>: YAML tokenizer and parser. <code>idl</code> walks its <code>Tree</code> directly
 rather than using <code>Yaml.parse</code>, because the typed parser coerces <code>16.10</code> to
 a float and drops quoting.</li>
-<li><strong>libplist</strong> (libimobiledevice): reads and writes XML, binary, JSON and
+<li data-line="57"><strong>libplist</strong> (libimobiledevice): reads and writes XML, binary, JSON and
 OpenStep plists. It is fetched as <code>git+https://…#2.8.1</code> (pinned to a commit)
 and compiled from C source by <code>buildLibplist</code> in <code>build.zig</code> instead of its
 autotools build. Only the C core is built, not libplist++.</li>
-<li><strong>zig-xml</strong> (ianprime0509): XML reader for Interface Builder documents.
+<li data-line="61"><strong>zig-xml</strong> (ianprime0509): XML reader for Interface Builder documents.
 Pinned to the last commit that supports Zig 0.14.</li>
-<li><strong>AssetKit</strong> (xtool-org): <code>.xcassets</code> to <code>Assets.car</code>, used only by
+<li data-line="63"><strong>AssetKit</strong> (xtool-org): <code>.xcassets</code> to <code>Assets.car</code>, used only by
 <code>tools/idl-actool</code> (Swift package, pinned to 1.0.0). It is not linked into
 <code>idl</code>.</li>
-<li><strong>Zig std</strong>: deflate, CRC-32, SHA-1, JSON and processes. <code>idl</code> makes no
+<li data-line="66"><strong>Zig std</strong>: deflate, CRC-32, SHA-1, JSON and processes. <code>idl</code> makes no
 network requests except to Jimpactor on 127.0.0.1.</li>
 </ul>
-<h2 id="design-notes"><a class="header-anchor" href="#design-notes">Design notes</a></h2>
-<ul>
-<li><strong>Deterministic codegen.</strong> Xcode object IDs are
+<h2 id="design-notes" data-line="69"><a class="header-anchor" href="#design-notes">Design notes</a></h2>
+<ul data-line="71">
+<li data-line="71"><strong>Deterministic codegen.</strong> Xcode object IDs are
 <code>SHA1(&quot;pbxprojgen:&lt;section&gt;:&lt;key&gt;&quot;)[0..12]</code>, so the same input always gives
 the same <code>project.pbxproj</code>. Low-level IDs retain compatibility with the earlier
 Python generator; profile-specific settings intentionally extend the output.</li>
-<li><strong>Safe publishing.</strong> A new <code>.xcodeproj</code> is written to a private sibling
+<li data-line="75"><strong>Safe publishing.</strong> A new <code>.xcodeproj</code> is written to a private sibling
 directory and moved into place with directory-FD-relative, no-follow
 operations (<code>fstatat(AT_SYMLINK_NOFOLLOW)</code>, <code>openat(O_NOFOLLOW)</code>,
 <code>renameat</code>). A symlink swapped in at the last moment can therefore not
 redirect the write. Unit tests cover this.</li>
-<li><strong>Never overwrite hand-written files.</strong> Generated source-tree files carry a
+<li data-line="80"><strong>Never overwrite hand-written files.</strong> Generated source-tree files carry a
 marker, and files without it are left alone.</li>
-<li><strong>Preflight before compilation.</strong> All selected tools are probed before any
+<li data-line="82"><strong>Preflight before compilation.</strong> All selected tools are probed before any
 resource compiler runs; all resource plans are prepared before application
 compilation starts. Strict mode rejects unsupported/omitted inputs.</li>
-<li><strong>Incremental builds.</strong> Each object has a <code>.cmd</code> command/tool fingerprint and
+<li data-line="85"><strong>Incremental builds.</strong> Each object has a <code>.cmd</code> command/tool fingerprint and
 clang’s <code>-MMD</code> depfile lists headers. Resources use SHA-256 content-addressed
 cache entries and verify their output tree on hits. Bundling/signing/ZIP skip
 only if input fingerprints and both the payload and IPA integrity match.</li>
-<li><strong>Locking.</strong> Build/check/gen/clean hold OS advisory locks in <code>.idl/build.lock</code>.
+<li data-line="89"><strong>Locking.</strong> Build/check/gen/clean hold OS advisory locks in <code>.idl/build.lock</code>.
 Lock files are never unlinked during cleanup; closing the descriptor releases
 the lock. Builds acquire every selected lock before modifying outputs.</li>
-<li><strong>Profile generation.</strong> YAML maps deep-merge into resolved debug/release
+<li data-line="92"><strong>Profile generation.</strong> YAML maps deep-merge into resolved debug/release
 targets. Metadata for each is written under <code>.idl/&lt;profile&gt;/</code>; Xcode receives
 both profiles, while xtool’s manifests describe the selected profile.</li>
-<li><strong>Reproducible IPAs.</strong> Entries are sorted, timestamps are fixed and Unix
+<li data-line="95"><strong>Reproducible IPAs.</strong> Entries are sorted, timestamps are fixed and Unix
 modes are preserved. Deflate is used only when it makes an entry smaller.</li>
-<li><strong>Scoped environment.</strong> The swiftly bin directory is appended to <code>PATH</code>, not
+<li data-line="97"><strong>Scoped environment.</strong> The swiftly bin directory is appended to <code>PATH</code>, not
 prepended, and only in the environment passed to child processes. Host
 tools keep priority.</li>
 </ul>
@@ -293,5 +297,15 @@ tools keep priority.</li>
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

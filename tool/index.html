@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link active" href="index.html">tool</a></li>
 
@@ -75,39 +79,39 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="tool" data-radar-file="README.md">
 
-      <h1 id="tool"><a class="header-anchor" href="#tool">tool</a></h1>
-<p>Declarative Homebrew packages per project, a little like a nix profile.</p>
-<ul>
-<li><strong>Package list</strong>: Brewfile-shaped (<code>tap</code>, <code>brew</code>). Standalone <code>tool</code> reads a <code>Brewfile</code>;
+      <h1 id="tool" data-line="1"><a class="header-anchor" href="#tool">tool</a></h1>
+<p data-line="3">Declarative Homebrew packages per project, a little like a nix profile.</p>
+<ul data-line="5">
+<li data-line="5"><strong>Package list</strong>: Brewfile-shaped (<code>tap</code>, <code>brew</code>). Standalone <code>tool</code> reads a <code>Brewfile</code>;
 in a pull workspace the list lives in the pullfile <code>tool</code> section (<code>pull tool</code>).</li>
-<li><strong>Store</strong>: one shared Homebrew-layout prefix (<code>Cellar/&lt;name&gt;/&lt;version&gt;</code>, <code>opt/&lt;name&gt;</code>) in
+<li data-line="7"><strong>Store</strong>: one shared Homebrew-layout prefix (<code>Cellar/&lt;name&gt;/&lt;version&gt;</code>, <code>opt/&lt;name&gt;</code>) in
 <code>$TOOL_HOME</code> (default <code>~/.local/share/tool</code>). Kegs are Linuxbrew bottles from
 <code>formulae.brew.sh</code> / ghcr.io, poured and relocated into the store (ELF interpreter -&gt; the
 system loader, RUNPATHs -&gt; <code>opt/&lt;dep&gt;/lib</code>, via <code>patchelf</code>). Bottles are cached in
 <code>$TOOL_CACHE</code> (default <code>~/.cache/tool</code>).</li>
-<li><strong>Profiles</strong>: a directory of symlinks to the requested formulae (<code>bin/</code>, <code>lib/</code>, <code>share/</code>
+<li data-line="12"><strong>Profiles</strong>: a directory of symlinks to the requested formulae (<code>bin/</code>, <code>lib/</code>, <code>share/</code>
 …), rebuilt and swapped in atomically on every sync. Every profile is a GC root;
 <code>tool gc</code> deletes kegs no live profile uses.</li>
 </ul>
-<p>Requires <code>patchelf</code>. Only homebrew/core formulae; casks/mas/vscode entries are ignored.
+<p data-line="16">Requires <code>patchelf</code>. Only homebrew/core formulae; casks/mas/vscode entries are ignored.
 Building bottles from source is planned; for now everything is poured from Linuxbrew bottles.</p>
-<h2 id="standalone"><a class="header-anchor" href="#standalone">Standalone</a></h2>
-<pre><code class="language-sh"><span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n&#x27;</span> &gt; Brewfile
+<h2 id="standalone" data-line="19"><a class="header-anchor" href="#standalone">Standalone</a></h2>
+<pre><code data-line="21" class="language-sh"><span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n&#x27;</span> &gt; Brewfile
 tool <span class="hljs-built_in">sync</span>            <span class="hljs-comment"># pour into the store, link ./.tool</span>
 <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tool env)</span>&quot;</span>   <span class="hljs-comment"># .tool/bin on PATH</span>
 tool list
 tool gc
 </code></pre>
-<h2 id="in-a-pull-workspace"><a class="header-anchor" href="#in-a-pull-workspace">In a pull workspace</a></h2>
-<pre><code class="language-sh">pull tool add jq ripgrep      <span class="hljs-comment"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
+<h2 id="in-a-pull-workspace" data-line="29"><a class="header-anchor" href="#in-a-pull-workspace">In a pull workspace</a></h2>
+<pre><code data-line="31" class="language-sh">pull tool add jq ripgrep      <span class="hljs-comment"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
 pull tool import Brewfile     <span class="hljs-comment"># merge an existing Brewfile into the pullfile</span>
 pull tool <span class="hljs-built_in">sync</span>                <span class="hljs-comment"># links $PULL_ROOT/.pull/tool</span>
 pull <span class="hljs-built_in">env</span>                      <span class="hljs-comment"># PATH includes $PULL_ROOT/.pull/tool/bin</span>
 </code></pre>
-<p>Pullfile section:</p>
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>tool<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<p data-line="38">Pullfile section:</p>
+<pre><code data-line="40" class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>tool<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>brew<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
@@ -116,7 +120,7 @@ pull <span class="hljs-built_in">env</span>                      <span class="hl
   <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
 </code></pre>
-<p>Built on the stout crates (stout-bundle, stout-fetch, stout-install, stout-resolve).</p>
+<p data-line="51">Built on the stout crates (stout-bundle, stout-fetch, stout-install, stout-resolve).</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
@@ -128,5 +132,15 @@ pull <span class="hljs-built_in">env</span>                      <span class="hl
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

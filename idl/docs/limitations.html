@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../../tool/index.html">tool</a></li>
 
@@ -110,37 +114,37 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idl" data-radar-file="docs/limitations.md">
 
-      <h1 id="known-limitations"><a class="header-anchor" href="#known-limitations">Known limitations</a></h1>
-<h2 id="signing-and-installing"><a class="header-anchor" href="#signing-and-installing">Signing and installing</a></h2>
-<ul>
-<li>Signatures are ad-hoc <code>ldid</code> signatures. They make the bundle structurally
+      <h1 id="known-limitations" data-line="1"><a class="header-anchor" href="#known-limitations">Known limitations</a></h1>
+<h2 id="signing-and-installing" data-line="3"><a class="header-anchor" href="#signing-and-installing">Signing and installing</a></h2>
+<ul data-line="5">
+<li data-line="5">Signatures are ad-hoc <code>ldid</code> signatures. They make the bundle structurally
 complete but are not Apple provisioning. Re-sign before installing.</li>
-<li>No IPA built here has been installed or run on a device by this tooling. The
+<li data-line="7">No IPA built here has been installed or run on a device by this tooling. The
 checks are structural: ZIP, plist and Mach-O load commands.</li>
-<li>xtool targets are unsigned unless <code>sign: true</code>, which passes <code>--sign</code> to
+<li data-line="9">xtool targets are unsigned unless <code>sign: true</code>, which passes <code>--sign</code> to
 xtool and needs an xtool login.</li>
 </ul>
-<h2 id="xcode-only-build-steps"><a class="header-anchor" href="#xcode-only-build-steps">Xcode-only build steps</a></h2>
-<p>These tools have no Linux replacement here. Permissive builds warn and skip
+<h2 id="xcode-only-build-steps" data-line="12"><a class="header-anchor" href="#xcode-only-build-steps">Xcode-only build steps</a></h2>
+<p data-line="14">These tools have no Linux replacement here. Permissive builds warn and skip
 their inputs; <code>--strict</code> rejects them before app compilation:</p>
-<ul>
-<li>Core Data models (<code>.xcdatamodeld</code>, <code>momc</code>).</li>
-<li>Metal shaders (<code>.metal</code>) are listed in generated Xcode projects but are not
+<ul data-line="17">
+<li data-line="17">Core Data models (<code>.xcdatamodeld</code>, <code>momc</code>).</li>
+<li data-line="18">Metal shaders (<code>.metal</code>) are listed in generated Xcode projects but are not
 compiled by <code>direct</code> builds.</li>
 </ul>
-<p>String Catalogs (<code>.xcstrings</code>), storyboards, XIBs and asset catalogs are
+<p data-line="21">String Catalogs (<code>.xcstrings</code>), storyboards, XIBs and asset catalogs are
 compiled on Linux, with the limits below.</p>
-<h2 id="storyboards-and-xibs-(idl-ibtool)"><a class="header-anchor" href="#storyboards-and-xibs-(idl-ibtool)">Storyboards and XIBs (<code>idl ibtool</code>)</a></h2>
-<p>The compiler is a Zig port of
+<h2 id="storyboards-and-xibs-(idl-ibtool)" data-line="24"><a class="header-anchor" href="#storyboards-and-xibs-(idl-ibtool)">Storyboards and XIBs (<code>idl ibtool</code>)</a></h2>
+<p data-line="26">The compiler is a Zig port of
 <a href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a>, a
 reverse-engineered NIB writer. Apple’s format is undocumented, so:</p>
-<ul>
-<li><strong>Not verified on a device yet.</strong> The output decodes with idl’s own reader and
+<ul data-line="30">
+<li data-line="30"><strong>Not verified on a device yet.</strong> The output decodes with idl’s own reader and
 has the same NIBArchive layout as Xcode’s nibs, but no nib from <code>idl</code> has
 been loaded by UIKit on a device. Test before relying on it.</li>
-<li><strong>A subset of UIKit.</strong> Supported elements: view controllers (plain,
+<li data-line="33"><strong>A subset of UIKit.</strong> Supported elements: view controllers (plain,
 navigation, table), <code>view</code>, <code>label</code>, <code>button</code> (title per state), <code>imageView</code>,
 <code>textView</code>, <code>searchBar</code>, <code>navigationBar</code>/<code>navigationItem</code>/<code>barButtonItem</code>,
 <code>visualEffectView</code> with blur/vibrancy, <code>tableView</code> with prototype cells,
@@ -153,42 +157,42 @@ views, collection views, tab bar controllers, images, gesture recognizers,
 user-defined runtime attributes, trait variations, localization) is skipped
 with diagnostics in permissive builds; strict builds reject unsupported nodes
 and attributes before app compilation.</li>
-<li><strong>Safe-area layout guides</strong> are treated as the view that owns them, so a
+<li data-line="46"><strong>Safe-area layout guides</strong> are treated as the view that owns them, so a
 constraint to the safe area pins to the view’s edge instead.</li>
-<li>Constraints that refer to unsupported objects are dropped with a warning.</li>
-<li>Named colors (<code>systemColor</code> / <code>name</code>) resolve through the document’s own
+<li data-line="48">Constraints that refer to unsupported objects are dropped with a warning.</li>
+<li data-line="49">Named colors (<code>systemColor</code> / <code>name</code>) resolve through the document’s own
 <code>&lt;resources&gt;</code> section, so they become fixed colors and do not follow dark
 mode. Text styles become fixed-size system fonts.</li>
-<li>Only iOS documents (<code>targetRuntime=&quot;iOS.CocoaTouch&quot;</code>). Each document produces
+<li data-line="52">Only iOS documents (<code>targetRuntime=&quot;iOS.CocoaTouch&quot;</code>). Each document produces
 one nib per view controller and view; there are no per-device-idiom
 variants.</li>
 </ul>
-<h2 id="asset-catalogs-(.xcassets%2C-assetkit)"><a class="header-anchor" href="#asset-catalogs-(.xcassets%2C-assetkit)">Asset catalogs (<code>.xcassets</code>, AssetKit)</a></h2>
-<p>Asset catalogs are compiled by <code>idl-actool</code>, a small Swift wrapper around
+<h2 id="asset-catalogs-(.xcassets%2C-assetkit)" data-line="56"><a class="header-anchor" href="#asset-catalogs-(.xcassets%2C-assetkit)">Asset catalogs (<code>.xcassets</code>, AssetKit)</a></h2>
+<p data-line="58">Asset catalogs are compiled by <code>idl-actool</code>, a small Swift wrapper around
 <a href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a>. It is a separate
 binary because AssetKit is a Swift library.</p>
-<ul>
-<li>Build it with <code>zig build actool</code>. This needs <code>swift</code> on PATH. By default it
+<ul data-line="62">
+<li data-line="62">Build it with <code>zig build actool</code>. This needs <code>swift</code> on PATH. By default it
 uses the toolchain’s shared Swift runtime (about 1.2 MB here). Swift embeds
 a runtime search path pointing at that toolchain: if you remove it, rebuild
 <code>idl-actool</code>. Use <code>zig build actool -Dactool-static=true</code> for a standalone
 Swift runtime (about 59 MB here). xtool’s private embedded runtime cannot
 be shared with another executable.</li>
-<li>Only image sets, color sets and one app icon are supported, as far as AssetKit
+<li data-line="68">Only image sets, color sets and one app icon are supported, as far as AssetKit
 supports them. Data sets, symbol sets, sprite atlases, on-demand resource tags
 and named app icon alternates are not.</li>
-<li>App icons need an explicit <code>scale</code> for every image, e.g. iPhone <code>60x60</code> @2x
+<li data-line="71">App icons need an explicit <code>scale</code> for every image, e.g. iPhone <code>60x60</code> @2x
 and @3x. Xcode’s single 1024 pt “universal” icon has no scale and AssetKit
 rejects it. The <code>app_icon</code> setting is not passed on: AssetKit uses whichever
 <code>.appiconset</code> the catalog has.</li>
-<li>One <code>.xcassets</code> per target. Merge catalogs if you have several.</li>
-<li>SVG images need <code>rsvg-convert</code> (librsvg) on PATH.</li>
-<li>Catalogs, storyboards, XIBs and strings are cached by input content and compiler
+<li data-line="75">One <code>.xcassets</code> per target. Merge catalogs if you have several.</li>
+<li data-line="76">SVG images need <code>rsvg-convert</code> (librsvg) on PATH.</li>
+<li data-line="77">Catalogs, storyboards, XIBs and strings are cached by input content and compiler
 identity. Direct-target bundling/signing/packaging also skip unchanged outputs.</li>
 </ul>
-<h2 id="project-model"><a class="header-anchor" href="#project-model">Project model</a></h2>
-<ul>
-<li><code>direct</code> targets can be apps, dynamic frameworks, dylibs, app extensions or
+<h2 id="project-model" data-line="80"><a class="header-anchor" href="#project-model">Project model</a></h2>
+<ul data-line="82">
+<li data-line="82"><code>direct</code> targets can be apps, dynamic frameworks, dylibs, app extensions or
 static (objects + Swift module) targets; see “Products” in the configuration
 reference. Only apps are packaged; the other kinds are built for an app’s
 <code>link</code>/<code>embed</code> lists. Watch apps, test bundles, XCFrameworks and real <code>.a</code>
@@ -196,96 +200,96 @@ archives are not supported, and the generated Xcode project and xtool
 builder only handle app targets. Prebuilt <code>.framework</code> resources are copied
 to <code>Frameworks/</code> (without Headers, Modules or _CodeSignature) and ad-hoc
 signed, and <code>@executable_path/Frameworks</code> is always an rpath.</li>
-<li>Debug/release profiles are supported. Arbitrary additional configurations and
+<li data-line="90">Debug/release profiles are supported. Arbitrary additional configurations and
 profile-dependent source/dependency graphs are not. Omitting <code>-c</code> preserves
 the legacy unprofiled flags/output paths.</li>
-<li>Debug symbols stay in object files; no <code>.dSYM</code> archive/export is produced.</li>
-<li>C-family incremental compilation remains mtime/depfile-based; content-based
+<li data-line="93">Debug symbols stay in object files; no <code>.dSYM</code> archive/export is produced.</li>
+<li data-line="94">C-family incremental compilation remains mtime/depfile-based; content-based
 caching applies to resources and final bundle/IPA state. This is a local cache,
 not a cross-machine hermetic/reproducible build guarantee.</li>
-<li>Resources are flattened into the bundle root like Xcode does, except that
+<li data-line="97">Resources are flattened into the bundle root like Xcode does, except that
 <code>*.lproj/</code> folders and package directories (<code>.bundle</code>, <code>.framework</code>,
 <code>.mlmodelc</code>) are kept. Two resources with the same file name are an error.
 A <code>.xcstrings</code> file and an <code>.lproj/Localizable.strings</code> resource that
 produce the same language file will conflict.</li>
-<li>Swift uses whole-module compilation, so changing a Swift source recompiles
+<li data-line="102">Swift uses whole-module compilation, so changing a Swift source recompiles
 all Swift in the target. Debug compilation and linking are separate steps.</li>
-<li>Swift compiles before the target’s C-family sources. If a target mixes them,
+<li data-line="104">Swift compiles before the target’s C-family sources. If a target mixes them,
 idl generates <code>&lt;Module&gt;-Swift.h</code> and puts it on the include path, so
 Objective-C can <code>#import &quot;&lt;Name&gt;-Swift.h&quot;</code>. Swift calls Objective-C through
 <code>bridging_header</code>.</li>
-<li>Swift <code>defines</code> must be plain flags. <code>NAME=VALUE</code> only applies to C-family
+<li data-line="108">Swift <code>defines</code> must be plain flags. <code>NAME=VALUE</code> only applies to C-family
 code.</li>
-<li>Only <code>arm64</code> device builds are tested. There is no simulator SDK.</li>
+<li data-line="110">Only <code>arm64</code> device builds are tested. There is no simulator SDK.</li>
 </ul>
-<h2 id="xtool-builder"><a class="header-anchor" href="#xtool-builder">xtool builder</a></h2>
-<ul>
-<li>
-<p>xtool targets pass <code>resources:</code> to xtool.yml, which copies them verbatim into
+<h2 id="xtool-builder" data-line="112"><a class="header-anchor" href="#xtool-builder">xtool builder</a></h2>
+<ul data-line="114">
+<li data-line="114">
+<p data-line="114">xtool targets pass <code>resources:</code> to xtool.yml, which copies them verbatim into
 the app root (<code>.lproj</code> folders, plain files). Resources that need a compiler
 (<code>.xcassets</code>, storyboards, XIBs, <code>.xcstrings</code>, Core Data, Metal, Core ML) are
 rejected; use <code>builder: direct</code> for those. xtool manages its own build and
 packaging cache.</p>
 </li>
-<li>
-<p>SwiftPM cannot mix Swift and C-family files in one target, so an xtool
+<li data-line="120">
+<p data-line="120">SwiftPM cannot mix Swift and C-family files in one target, so an xtool
 target is either all Swift or all C/Objective-C. Use <code>builder: direct</code> for
 mixed code.</p>
 </li>
-<li>
-<p>An xtool target with Objective-C must not name its <code>main()</code> file <code>main.m</code>:
+<li data-line="123">
+<p data-line="123">An xtool target with Objective-C must not name its <code>main()</code> file <code>main.m</code>:
 SwiftPM would treat it as an executable target. The example uses
 <code>appmain.m</code>.</p>
 </li>
-<li>
-<p>The generated <code>Package.swift</code> has one library target. For anything more
+<li data-line="126">
+<p data-line="126">The generated <code>Package.swift</code> has one library target. For anything more
 complex, write your own and set <code>package_swift: false</code>.</p>
 </li>
 </ul>
-<h2 id="toolchain"><a class="header-anchor" href="#toolchain">Toolchain</a></h2>
-<ul>
-<li>
-<p><code>idl-actool</code> must support <code>--version</code>; rebuild it with <code>zig build actool</code> when
+<h2 id="toolchain" data-line="129"><a class="header-anchor" href="#toolchain">Toolchain</a></h2>
+<ul data-line="131">
+<li data-line="131">
+<p data-line="131"><code>idl-actool</code> must support <code>--version</code>; rebuild it with <code>zig build actool</code> when
 upgrading idl from a version whose helper lacked that command.</p>
 </li>
-<li>
-<p>xtool’s entitlement-rewrite path can drop executable ZIP permission bits.
+<li data-line="133">
+<p data-line="133">xtool’s entitlement-rewrite path can drop executable ZIP permission bits.
 idl normalizes the main executable’s ZIP metadata without changing its code
 bytes or signature, then performs normal IPA verification.</p>
 </li>
-<li>
-<p>xtool’s <code>ld64.lld</code> prints <code>This version of lld does not support linking for platform iOS</code>. The output is correct: the Mach-O has <code>LC_BUILD_VERSION</code>
+<li data-line="137">
+<p data-line="137">xtool’s <code>ld64.lld</code> prints <code>This version of lld does not support linking for platform iOS</code>. The output is correct: the Mach-O has <code>LC_BUILD_VERSION</code>
 platform iOS. <code>idl verify</code> checks this.</p>
 </li>
-<li>
-<p>File and header paths are case-sensitive on Linux, unlike a default macOS
+<li data-line="140">
+<p data-line="140">File and header paths are case-sensitive on Linux, unlike a default macOS
 volume.</p>
 </li>
-<li>
-<p><code>idl</code> does not install or download tools. Install the Swift toolchain,
+<li data-line="142">
+<p data-line="142"><code>idl</code> does not install or download tools. Install the Swift toolchain,
 Darwin SDK, ldid and xtool yourself. <code>idl check</code> lists what is missing.
 <code>idl-actool</code> is built from this repository with <code>zig build actool</code>.</p>
 </li>
 </ul>
-<h2 id="configuration-parsing-(zig-yaml-0.1.x)"><a class="header-anchor" href="#configuration-parsing-(zig-yaml-0.1.x)">Configuration parsing (zig-yaml 0.1.x)</a></h2>
-<p><code>idl</code> uses the subset of YAML that config files need. Known issues with the
+<h2 id="configuration-parsing-(zig-yaml-0.1.x)" data-line="146"><a class="header-anchor" href="#configuration-parsing-(zig-yaml-0.1.x)">Configuration parsing (zig-yaml 0.1.x)</a></h2>
+<p data-line="148"><code>idl</code> uses the subset of YAML that config files need. Known issues with the
 library:</p>
-<ul>
-<li>A key with an empty value followed by a sibling key (<code>key:</code> then
+<ul data-line="151">
+<li data-line="151">A key with an empty value followed by a sibling key (<code>key:</code> then
 <code>other: x</code>) is parsed as a nested mapping. Write <code>key: ~</code> or leave the key
 out.</li>
-<li>Comments and trailing whitespace are removed before parsing, so
+<li data-line="154">Comments and trailing whitespace are removed before parsing, so
 <code>key: value  # note</code> works. A <code>#</code> inside quotes or one not preceded by
 whitespace (<code>url: http://x/#frag</code>) is kept. Multi-line quoted strings and
 block scalars (<code>|</code>, <code>&gt;</code>) are not supported.</li>
-<li>Anchors, aliases and tags are not supported.</li>
+<li data-line="158">Anchors, aliases and tags are not supported.</li>
 </ul>
-<h2 id="packaging"><a class="header-anchor" href="#packaging">Packaging</a></h2>
-<ul>
-<li>The IPA writer does not support ZIP64, so an IPA and each file in it must be
+<h2 id="packaging" data-line="160"><a class="header-anchor" href="#packaging">Packaging</a></h2>
+<ul data-line="162">
+<li data-line="162">The IPA writer does not support ZIP64, so an IPA and each file in it must be
 smaller than 4 GiB. Timestamps are fixed at 1980-01-01 so output is
 reproducible.</li>
-<li>Symlinks are rejected in sources, resources, package directories and Xcode
+<li data-line="165">Symlinks are rejected in sources, resources, package directories and Xcode
 project output, and are never written into an IPA.</li>
 </ul>
 
@@ -299,5 +303,15 @@ project output, and are never written into an IPA.</li>
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

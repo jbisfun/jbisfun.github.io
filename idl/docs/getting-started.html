@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../../tool/index.html">tool</a></li>
 
@@ -110,70 +114,70 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idl" data-radar-file="docs/getting-started.md">
 
-      <h1 id="getting-started"><a class="header-anchor" href="#getting-started">Getting started</a></h1>
-<h2 id="requirements"><a class="header-anchor" href="#requirements">Requirements</a></h2>
+      <h1 id="getting-started" data-line="1"><a class="header-anchor" href="#getting-started">Getting started</a></h1>
+<h2 id="requirements" data-line="3"><a class="header-anchor" href="#requirements">Requirements</a></h2>
 <table class="table table-sm table-striped">
-<thead>
-<tr>
+<thead data-line="5">
+<tr data-line="5">
 <th>Tool</th>
 <th>Purpose</th>
 <th>Install</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody data-line="7">
+<tr data-line="7">
 <td>Zig 0.14.1</td>
 <td>builds <code>idl</code></td>
 <td>distro package or ziglang.org</td>
 </tr>
-<tr>
+<tr data-line="8">
 <td>Swift toolchain (clang, clang++, swiftc)</td>
 <td>compiles for <code>arm64-apple-ios</code></td>
 <td><a href="https://www.swift.org/install/linux/">swiftly</a></td>
 </tr>
-<tr>
+<tr data-line="9">
 <td>xtool + Darwin SDK</td>
 <td>iPhoneOS SDK, <code>ld64.lld</code>, compiler-rt, Swift resources</td>
 <td><a href="https://github.com/xtool-org/xtool">xtool</a>, then <code>xtool setup</code></td>
 </tr>
-<tr>
+<tr data-line="10">
 <td>ldid</td>
 <td>ad-hoc signing</td>
 <td><a href="https://github.com/ProcursusTeam/ldid">ProcursusTeam/ldid</a> release binary or distro package</td>
 </tr>
 </tbody>
 </table>
-<p><code>idl</code> never installs anything. It looks for these tools, and <code>idl check</code> (and
+<p data-line="12"><code>idl</code> never installs anything. It looks for these tools, and <code>idl check</code> (and
 every build) stops with an error that names whatever is missing. You do not
 need Python, Make, <code>zip</code>, <code>unzip</code> or <code>llvm-objdump</code>: <code>idl</code> writes ZIPs, parses
 Mach-O files and handles plists (with libplist) itself.</p>
-<h2 id="build-idl"><a class="header-anchor" href="#build-idl">Build idl</a></h2>
-<pre><code>zig build                         # Debug build in ./zig-out/bin/idl
+<h2 id="build-idl" data-line="17"><a class="header-anchor" href="#build-idl">Build idl</a></h2>
+<pre data-line="19"><code>zig build                         # Debug build in ./zig-out/bin/idl
 zig build -Doptimize=ReleaseSafe  # optimized build
 zig build test                    # unit tests
 </code></pre>
-<p><code>zig build</code> downloads its dependencies, which are pinned in <code>build.zig.zon</code>:</p>
-<ul>
-<li><a href="https://github.com/Hejsil/zig-clap">zig-clap</a> 0.10.0: command-line parsing</li>
-<li><a href="https://github.com/kubkon/zig-yaml">zig-yaml</a> 0.1.1: <code>idlproj.yml</code> parsing</li>
-<li><a href="https://github.com/libimobiledevice/libplist">libplist</a> 2.8.1: property
+<p data-line="23"><code>zig build</code> downloads its dependencies, which are pinned in <code>build.zig.zon</code>:</p>
+<ul data-line="25">
+<li data-line="25"><a href="https://github.com/Hejsil/zig-clap">zig-clap</a> 0.10.0: command-line parsing</li>
+<li data-line="26"><a href="https://github.com/kubkon/zig-yaml">zig-yaml</a> 0.1.1: <code>idlproj.yml</code> parsing</li>
+<li data-line="27"><a href="https://github.com/libimobiledevice/libplist">libplist</a> 2.8.1: property
 lists. It is fetched from git and compiled from C source by <code>build.zig</code>.</li>
 </ul>
-<p>To use <code>idl</code> anywhere, copy <code>zig-out/bin/idl</code> into a directory on your <code>PATH</code>,
+<p data-line="30">To use <code>idl</code> anywhere, copy <code>zig-out/bin/idl</code> into a directory on your <code>PATH</code>,
 or use <code>zig build -p ~/.local</code>.</p>
-<p><code>idl init</code> creates only app source, <code>.gitignore</code> and <code>idlproj.yml</code>. Info.plist
+<p data-line="33"><code>idl init</code> creates only app source, <code>.gitignore</code> and <code>idlproj.yml</code>. Info.plist
 and entitlements are generated from YAML; configure arbitrary keys under
 <code>info:</code> and <code>entitlements:</code>. No source XML is required.</p>
-<p>For asset catalogs, also run <code>zig build actool</code> with the Swift toolchain on
+<p data-line="37">For asset catalogs, also run <code>zig build actool</code> with the Swift toolchain on
 PATH. This helper uses shared Swift runtime libraries by default; use
 <code>-Dactool-static=true</code> when distributing it independently of that toolchain.</p>
-<h2 id="check-the-toolchain"><a class="header-anchor" href="#check-the-toolchain">Check the toolchain</a></h2>
-<pre><code>idl check
+<h2 id="check-the-toolchain" data-line="41"><a class="header-anchor" href="#check-the-toolchain">Check the toolchain</a></h2>
+<pre data-line="43"><code>idl check
 </code></pre>
-<p>Example output:</p>
-<pre><code>sdk              ~/.swiftpm/.../iPhoneOS27.2.sdk
+<p data-line="45">Example output:</p>
+<pre data-line="47"><code>sdk              ~/.swiftpm/.../iPhoneOS27.2.sdk
 sdk version      27.2
 swift resources  ~/.swiftpm/.../usr/lib/swift
 ld64.lld         ~/.swiftpm/.../toolset/bin/orig/ld64.lld
@@ -181,30 +185,30 @@ compiler-rt      ~/.swiftpm/.../libclang_rt.ios.a
 clang            ~/.local/share/swiftly/bin/clang
 ...
 </code></pre>
-<p>If an entry says <code>missing</code>, install that tool, or set its location under
+<p data-line="55">If an entry says <code>missing</code>, install that tool, or set its location under
 <code>toolchain:</code> in <code>idlproj.yml</code>. xtool is only required for <code>builder: xtool</code>
 targets.</p>
-<h2 id="build-the-examples"><a class="header-anchor" href="#build-the-examples">Build the examples</a></h2>
-<pre><code>idl build                 # all targets
+<h2 id="build-the-examples" data-line="59"><a class="header-anchor" href="#build-the-examples">Build the examples</a></h2>
+<pre data-line="61"><code>idl build                 # all targets
 idl build ObjCExample     # one target
 idl -v build              # print every compiler/linker command
 </code></pre>
-<p>Outputs:</p>
-<pre><code>examples/objc-app/build/ObjCExample.ipa
+<p data-line="65">Outputs:</p>
+<pre data-line="67"><code>examples/objc-app/build/ObjCExample.ipa
 examples/swift-app/build/SwiftExample.ipa
 examples/xtool-swiftpm/xtool/XtoolExample.ipa
 </code></pre>
-<p>After every build, <code>idl verify</code> checks the IPA: ZIP CRCs, Info.plist keys, the
+<p data-line="71">After every build, <code>idl verify</code> checks the IPA: ZIP CRCs, Info.plist keys, the
 executable’s mode, a thin arm64 <code>MH_EXECUTE</code> binary, <code>LC_MAIN</code>, the iOS
 platform in <code>LC_BUILD_VERSION</code>, <code>LC_CODE_SIGNATURE</code> (unless the target is
 unsigned), and that it depends only on system or bundled dylibs.</p>
-<h2 id="start-your-own-app"><a class="header-anchor" href="#start-your-own-app">Start your own app</a></h2>
-<pre><code>idl init MyApp --lang objc --bundle-id com.example.myapp
+<h2 id="start-your-own-app" data-line="76"><a class="header-anchor" href="#start-your-own-app">Start your own app</a></h2>
+<pre data-line="78"><code>idl init MyApp --lang objc --bundle-id com.example.myapp
 cd MyApp
 idl build
 idl gen         # MyApp.xcodeproj + compile_commands.json
 </code></pre>
-<p><code>idl</code> searches the current directory and its parents for <code>idlproj.yml</code>. Pass
+<p data-line="83"><code>idl</code> searches the current directory and its parents for <code>idlproj.yml</code>. Pass
 <code>-f path/to/idlproj.yml</code> to use a different file.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
@@ -217,5 +221,15 @@ idl gen         # MyApp.xcodeproj + compile_commands.json
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

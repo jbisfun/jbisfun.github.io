@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link active" href="index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
 
@@ -75,16 +79,16 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ios-webusb" data-radar-file="README.md">
 
-      <h1 id="ios-webusb"><a class="header-anchor" href="#ios-webusb">ios-webusb</a></h1>
-<p>A WebUSB driver for iPhones and iPads. The web page claims the device through <code>navigator.usb</code> and runs the driver itself in wasm: <a href="https://github.com/abdullah-albanna/rusbmux">rusbmux</a> (vendored, ported to WebUSB) for the usbmux protocol, and <a href="https://github.com/jkcoxson/idevice">idevice</a> for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
-<p>There’s also a native build of the same driver with a gpui tray, for local tools.</p>
-<h2 id="web"><a class="header-anchor" href="#web">Web</a></h2>
-<pre><code class="language-sh">just web     <span class="hljs-comment"># -&gt; web/pkg (wasm-bindgen --target web)</span>
+      <h1 id="ios-webusb" data-line="1"><a class="header-anchor" href="#ios-webusb">ios-webusb</a></h1>
+<p data-line="3">A WebUSB driver for iPhones and iPads. The web page claims the device through <code>navigator.usb</code> and runs the driver itself in wasm: <a href="https://github.com/abdullah-albanna/rusbmux">rusbmux</a> (vendored, ported to WebUSB) for the usbmux protocol, and <a href="https://github.com/jkcoxson/idevice">idevice</a> for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
+<p data-line="5">There’s also a native build of the same driver with a gpui tray, for local tools.</p>
+<h2 id="web" data-line="7"><a class="header-anchor" href="#web">Web</a></h2>
+<pre><code data-line="9" class="language-sh">just web     <span class="hljs-comment"># -&gt; web/pkg (wasm-bindgen --target web)</span>
 just serve   <span class="hljs-comment"># demo page on http://localhost:8000</span>
 </code></pre>
-<pre><code class="language-js"><span class="hljs-keyword">import</span> init, { <span class="hljs-title class_">IosDevice</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./pkg/ios_webusb_web.js&quot;</span>;
+<pre><code data-line="14" class="language-js"><span class="hljs-keyword">import</span> init, { <span class="hljs-title class_">IosDevice</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./pkg/ios_webusb_web.js&quot;</span>;
 <span class="hljs-keyword">await</span> <span class="hljs-title function_">init</span>();
 
 <span class="hljs-keyword">const</span> device = <span class="hljs-keyword">await</span> <span class="hljs-title class_">IosDevice</span>.<span class="hljs-title function_">request</span>();          <span class="hljs-comment">// browser chooser; call from a click</span>
@@ -98,18 +102,18 @@ just serve   <span class="hljs-comment"># demo page on http://localhost:8000</sp
 <span class="hljs-keyword">await</span> afc.<span class="hljs-title function_">write</span>(bytes); <span class="hljs-keyword">const</span> reply = <span class="hljs-keyword">await</span> afc.<span class="hljs-title function_">read</span>(<span class="hljs-number">65536</span>);
 <span class="hljs-keyword">const</span> lockdownd = <span class="hljs-keyword">await</span> device.<span class="hljs-title function_">connect</span>(<span class="hljs-number">62078</span>);             <span class="hljs-comment">// raw TCP; sendPlist/readPlist frame plists</span>
 </code></pre>
-<p>Linux needs the udev rule so the browser can open the device, and nothing else may hold the device:</p>
-<pre><code class="language-sh"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> udev/70-ios-webusb.rules /etc/udev/rules.d/ &amp;&amp; <span class="hljs-built_in">sudo</span> udevadm control --reload
+<p data-line="30">Linux needs the udev rule so the browser can open the device, and nothing else may hold the device:</p>
+<pre><code data-line="32" class="language-sh"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> udev/70-ios-webusb.rules /etc/udev/rules.d/ &amp;&amp; <span class="hljs-built_in">sudo</span> udevadm control --reload
 <span class="hljs-built_in">sudo</span> systemctl mask --now usbmuxd
 </code></pre>
-<h2 id="native-tray"><a class="header-anchor" href="#native-tray">Native tray</a></h2>
-<p><code>just tray</code> (<code>--show</code> opens the window). It serves a usbmuxd socket at <code>$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code> (point tools at it with <code>USBMUXD_SOCKET_ADDRESS</code>), lists devices, pairs them, and can <strong>release</strong> a device so a web page can claim it. Only one driver can own a device at a time. Pair records are stored in <code>~/.local/share/ios-webusb/lockdown</code>.</p>
-<h2 id="vendored-rusbmux-changes"><a class="header-anchor" href="#vendored-rusbmux-changes">Vendored rusbmux changes</a></h2>
-<ul>
-<li>Builds for <code>wasm32-unknown-unknown</code> with nusb’s WebUSB backend. On that target, the daemon, Wi-Fi and filesystem parts are compiled out. Tasks run on the page’s event loop (<code>rt.rs</code>). WebUSB handles are marked <code>Send</code> because wasm without atomics is single-threaded.</li>
-<li><code>preflight_with_buid</code> lets the host supply its own SystemBUID.</li>
-<li><code>idevice</code> is pinned to <code>=0.1.68</code> (Jimpactor’s pin).</li>
-<li>The lockdown directory can be set with <code>rusbmux::handler::set_lockdown_path</code>, so the native daemon runs unprivileged.</li>
+<h2 id="native-tray" data-line="37"><a class="header-anchor" href="#native-tray">Native tray</a></h2>
+<p data-line="39"><code>just tray</code> (<code>--show</code> opens the window). It serves a usbmuxd socket at <code>$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code> (point tools at it with <code>USBMUXD_SOCKET_ADDRESS</code>), lists devices, pairs them, and can <strong>release</strong> a device so a web page can claim it. Only one driver can own a device at a time. Pair records are stored in <code>~/.local/share/ios-webusb/lockdown</code>.</p>
+<h2 id="vendored-rusbmux-changes" data-line="41"><a class="header-anchor" href="#vendored-rusbmux-changes">Vendored rusbmux changes</a></h2>
+<ul data-line="43">
+<li data-line="43">Builds for <code>wasm32-unknown-unknown</code> with nusb’s WebUSB backend. On that target, the daemon, Wi-Fi and filesystem parts are compiled out. Tasks run on the page’s event loop (<code>rt.rs</code>). WebUSB handles are marked <code>Send</code> because wasm without atomics is single-threaded.</li>
+<li data-line="44"><code>preflight_with_buid</code> lets the host supply its own SystemBUID.</li>
+<li data-line="45"><code>idevice</code> is pinned to <code>=0.1.68</code> (Jimpactor’s pin).</li>
+<li data-line="46">The lockdown directory can be set with <code>rusbmux::handler::set_lockdown_path</code>, so the native daemon runs unprivileged.</li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
@@ -122,5 +126,15 @@ just serve   <span class="hljs-comment"># demo page on http://localhost:8000</sp
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

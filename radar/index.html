@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>radar · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../idl/index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">radar</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/radar">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api/rust/radar/index.html">radar</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="radar" data-radar-file="README.md">
+
+      <h1 id="radar" data-line="1"><a class="header-anchor" href="#radar">radar</a></h1>
+<p data-line="3">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. Radar is a stateless CLI: every run opens the PoloDB database at <code>&lt;workspace&gt;/issues/radar.db</code>, does its work and exits.</p>
+<pre><code data-line="5" class="language-sh">radar add pull src/main.rs 42 --note <span class="hljs-string">&quot;panics on an empty pullfile&quot;</span>   <span class="hljs-comment"># the line text is read from the file</span>
+radar list [--all] [--json]
+radar close 3 / radar reopen 3 / radar <span class="hljs-built_in">rm</span> 3
+radar <span class="hljs-built_in">export</span>        <span class="hljs-comment"># issues/docs/NNNN.md + issues/docs/index.md</span>
+</code></pre>
+<p data-line="12">The workspace root is <code>$PULL_ROOT</code>, or the nearest directory above the current one that contains <code>pullfile.plist</code>.</p>
+<ul data-line="14">
+<li data-line="14"><strong>Pull:</strong> the precommit hook runs <code>radar export</code> and stages <code>issues/</code>, so every <code>pull commit</code> publishes the reports. The wiki renders them under <code>issues</code>.</li>
+<li data-line="15"><strong>Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code>radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/radar/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
+</body>
+</html>

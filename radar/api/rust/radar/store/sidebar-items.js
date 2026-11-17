@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Status"],"fn":["filed_at","index_page","issues_dir","location","read_line","report_page","write_if_changed"],"struct":["NewReport","Report","Store"]};

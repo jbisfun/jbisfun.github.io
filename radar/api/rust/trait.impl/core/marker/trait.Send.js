@@ -1,0 +1,9 @@
+(function() {
+    const implementors = Object.fromEntries([["radar",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"struct\" href=\"radar/struct.Cli.html\" title=\"struct radar::Cli\">Cli</a>",0,1,["radar::Cli"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"enum\" href=\"radar/enum.Command.html\" title=\"enum radar::Command\">Command</a>",0,1,["radar::Command"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"struct\" href=\"radar/store/struct.NewReport.html\" title=\"struct radar::store::NewReport\">NewReport</a>",0,1,["radar::store::NewReport"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"struct\" href=\"radar/store/struct.Report.html\" title=\"struct radar::store::Report\">Report</a>",0,1,["radar::store::Report"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"enum\" href=\"radar/store/enum.Status.html\" title=\"enum radar::store::Status\">Status</a>",0,1,["radar::store::Status"]],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/marker/trait.Send.html\" title=\"trait core::marker::Send\">Send</a> for <a class=\"struct\" href=\"radar/store/struct.Store.html\" title=\"struct radar::store::Store\">Store</a>",0,1,["radar::store::Store"]]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":59,"fragment_lengths":[1663]}

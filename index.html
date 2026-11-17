@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="tool/index.html">tool</a></li>
 
@@ -65,7 +69,7 @@
         <p class="card-text">pull workspace environment (pullfile)</p>
 
         <p class="card-text small text-body-secondary mb-0">
-          <code>dotenv</code> @ 4cd00b2
+          <code>dotenv</code> @ f92461f
 
 
         </p>
@@ -108,12 +112,44 @@
   <div class="col">
     <div class="card h-100">
       <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="issues/index.html">issues</a></h2>
+
+        <p class="card-text">Reports filed with radar. Each one records a repo, file, line, the line’s text, a note and when it was filed.</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>issues</code> @ cd74fc8
+ · 1 doc pages
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
         <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="pull/index.html">pull</a></h2>
 
         <p class="card-text">A multi-repo git wrapper. pullfile.plist lists the repos, their upstreams and pinned commits. Each repo is cloned to {pullfile-root}/{repo-name}. A single pull commit writes one commit, with the same message, identity and signature, to every repo that has changes, then records the new pins.</p>
 
         <p class="card-text small text-body-secondary mb-0">
           <code>pull</code> @ c189219
+
+ · <span class="badge text-bg-secondary">Rust API</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="radar/index.html">radar</a></h2>
+
+        <p class="card-text">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. Radar is a stateless CLI: every run opens the PoloDB database at &lt;workspace&gt;/issues/radar.db, does its work and exits.</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>radar</code> @ 27416f0
 
  · <span class="badge text-bg-secondary">Rust API</span>
         </p>
@@ -243,5 +279,6 @@
     </main>
   </div>
 </div>
+
 </body>
 </html>

@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../../tool/index.html">tool</a></li>
 
@@ -110,44 +114,44 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idl" data-radar-file="docs/workflows.md">
 
-      <h1 id="common-workflows"><a class="header-anchor" href="#common-workflows">Common workflows</a></h1>
-<p>All commands accept <code>--help</code>, e.g. <code>idl build --help</code>.</p>
-<h2 id="build%2C-then-rebuild-only-what-changed"><a class="header-anchor" href="#build%2C-then-rebuild-only-what-changed">Build, then rebuild only what changed</a></h2>
-<pre><code>idl build              # every target
+      <h1 id="common-workflows" data-line="1"><a class="header-anchor" href="#common-workflows">Common workflows</a></h1>
+<p data-line="3">All commands accept <code>--help</code>, e.g. <code>idl build --help</code>.</p>
+<h2 id="build%2C-then-rebuild-only-what-changed" data-line="5"><a class="header-anchor" href="#build%2C-then-rebuild-only-what-changed">Build, then rebuild only what changed</a></h2>
+<pre data-line="7"><code>idl build              # every target
 idl build MyApp -j 8   # one target, 8 parallel compile jobs
 idl -v build           # print every command (or: idl build -v)
 </code></pre>
-<p>C-family objects reuse clang’s <code>.d</code> header dependencies, input mtimes and a
+<p data-line="11">C-family objects reuse clang’s <code>.d</code> header dependencies, input mtimes and a
 command/tool-version fingerprint in <code>&lt;object&gt;.cmd</code>. Linking reruns when its
 inputs or command/tool fingerprint change.</p>
-<p>For direct targets, compiled resources use SHA-256 content fingerprints,
+<p data-line="15">For direct targets, compiled resources use SHA-256 content fingerprints,
 including directory membership, deployment target, strictness, idl and external
 resource compiler identities. Same-size edits with preserved mtimes, additions,
 deletions and changed compiler versions invalidate the cache. Cached output
 content is checked too: missing or corrupted files are rebuilt.</p>
-<p>If the executable, resource outputs, generated metadata, entitlements and signer
+<p data-line="21">If the executable, resource outputs, generated metadata, entitlements and signer
 are unchanged, the bundle, signature and IPA are reused. Otherwise a new payload
 is assembled in <code>Payload.partial</code>, signed and packaged; deleted resources cannot
 linger. <code>idl build -v</code> reports cache hits. <code>idl clean MyApp -c debug</code> clears that
 profile’s artifacts/cache. Old content-addressed resource entries remain until
 cleaned. xtool still manages its own incremental build and packaging.</p>
-<h2 id="strict-preflight-and-build-profiles"><a class="header-anchor" href="#strict-preflight-and-build-profiles">Strict preflight and build profiles</a></h2>
-<pre><code>idl check --strict -c release MyApp  # tools + inputs + resources, no app compile
+<h2 id="strict-preflight-and-build-profiles" data-line="28"><a class="header-anchor" href="#strict-preflight-and-build-profiles">Strict preflight and build profiles</a></h2>
+<pre data-line="30"><code>idl check --strict -c release MyApp  # tools + inputs + resources, no app compile
 idl build --strict -c debug MyApp
 idl build --strict -c release --gen
 idl install &quot;JPs iPhone&quot; -c debug MyApp
 idl gen -c debug MyApp
 </code></pre>
-<p>Before compiling any application source, idl checks tools for <em>all selected
+<p data-line="36">Before compiling any application source, idl checks tools for <em>all selected
 targets</em>, executes compiler/helper version probes (including <code>idl-actool</code>, so
 missing shared-runtime libraries are caught), processes metadata, prepares
 resources and checks their complete bundle-output plan. A bad later target
 therefore cannot cause an earlier target to be compiled first. Resource
 preparation may run resource compilers and populate caches during <code>idl check</code>.
 Nothing is installed or downloaded.</p>
-<p><code>--strict</code> (or <code>strict: true</code> in YAML) rejects unsupported IB elements/attributes,
+<p data-line="44"><code>--strict</code> (or <code>strict: true</code> in YAML) rejects unsupported IB elements/attributes,
 unresolved references and compiler warnings; unsupported Core Data, Metal and
 Core ML inputs; and unsupported asset package types. Missing storyboard/nib
 resources (including scene-manifest references), duplicate generated/raw outputs,
@@ -155,34 +159,34 @@ reserved-output collisions and inconsistent bundle identities always fail.
 Permissive mode diagnoses unsupported inputs instead of silently ignoring them.
 Strictness does not certify UIKit runtime compatibility or eliminate documented
 safe-area/color approximations.</p>
-<p>Builds, preflight, project generation and clean hold a nonblocking OS lock at
+<p data-line="53">Builds, preflight, project generation and clean hold a nonblocking OS lock at
 <code>&lt;target&gt;/.idl/build.lock</code>. Conflicts fail with a <code>build directory busy</code> message;
 there is no stale PID file to remove. The lock is per target directory, across
 profiles, because xtool and generated project files share paths. Do not delete
 <code>.idl/</code> while an operation is running. Different target directories can build
 concurrently. See <a href="configuration.html#configurations">configuration</a> for profile
 merging and output paths.</p>
-<h2 id="regenerate-project-files"><a class="header-anchor" href="#regenerate-project-files">Regenerate project files</a></h2>
-<pre><code>idl gen                # all targets
+<h2 id="regenerate-project-files" data-line="61"><a class="header-anchor" href="#regenerate-project-files">Regenerate project files</a></h2>
+<pre data-line="63"><code>idl gen                # all targets
 idl gen MyApp
 idl build --gen        # regenerate, then build
 </code></pre>
-<p><code>gen</code> writes whatever the target asks for: <code>.xcodeproj</code>,
+<p data-line="67"><code>gen</code> writes whatever the target asks for: <code>.xcodeproj</code>,
 <code>compile_commands.json</code>, and for xtool targets <code>xtool.yml</code> and <code>Package.swift</code>.
 The output is deterministic, so running it twice gives identical files and
 version-control diffs only show real changes.</p>
-<p>To write a single Xcode project somewhere else:</p>
-<pre><code>idl xcodeproj MyApp --output /tmp/MyApp.xcodeproj
+<p data-line="72">To write a single Xcode project somewhere else:</p>
+<pre data-line="74"><code>idl xcodeproj MyApp --output /tmp/MyApp.xcodeproj
 </code></pre>
-<p>Generated projects use paths relative to the project’s location and get a
+<p data-line="76">Generated projects use paths relative to the project’s location and get a
 shared scheme, so they open directly in Xcode on a Mac.</p>
-<h2 id="editor-support-on-linux"><a class="header-anchor" href="#editor-support-on-linux">Editor support on Linux</a></h2>
-<p>Set <code>compile_commands: true</code> (for all targets, put it under <code>defaults:</code>) and
+<h2 id="editor-support-on-linux" data-line="79"><a class="header-anchor" href="#editor-support-on-linux">Editor support on Linux</a></h2>
+<p data-line="81">Set <code>compile_commands: true</code> (for all targets, put it under <code>defaults:</code>) and
 run <code>idl gen</code>. clangd reads <code>compile_commands.json</code> from the target
 directory, and the Swift entries contain the full swiftc command for
 sourcekit-lsp. Run <code>idl build</code> once so <code>build/ModuleCache</code> exists.</p>
-<h2 id="add-a-new-app-to-an-existing-idlproj.yml"><a class="header-anchor" href="#add-a-new-app-to-an-existing-idlproj.yml">Add a new app to an existing idlproj.yml</a></h2>
-<pre><code class="language-yaml"><span class="hljs-attr">targets:</span>
+<h2 id="add-a-new-app-to-an-existing-idlproj.yml" data-line="86"><a class="header-anchor" href="#add-a-new-app-to-an-existing-idlproj.yml">Add a new app to an existing idlproj.yml</a></h2>
+<pre><code data-line="88" class="language-yaml"><span class="hljs-attr">targets:</span>
   <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Second</span>
     <span class="hljs-attr">dir:</span> <span class="hljs-string">apps/second</span>
     <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.second</span>
@@ -190,107 +194,107 @@ sourcekit-lsp. Run <code>idl build</code> once so <code>build/ModuleCache</code>
     <span class="hljs-attr">entitlements:</span>
       <span class="hljs-attr">get-task-allow:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<p>To get starter files, run <code>idl init Second --dir apps/second</code> and then move
+<p data-line="98">To get starter files, run <code>idl init Second --dir apps/second</code> and then move
 its target entry into your main <code>idlproj.yml</code>.</p>
-<h2 id="mix-swift%2C-objective-c-and-c%2B%2B"><a class="header-anchor" href="#mix-swift%2C-objective-c-and-c%2B%2B">Mix Swift, Objective-C and C++</a></h2>
-<pre><code class="language-yaml"><span class="hljs-attr">sources:</span> [<span class="hljs-string">Sources</span>]                 <span class="hljs-comment"># .swift, .m, .mm, .cpp all together</span>
+<h2 id="mix-swift%2C-objective-c-and-c%2B%2B" data-line="101"><a class="header-anchor" href="#mix-swift%2C-objective-c-and-c%2B%2B">Mix Swift, Objective-C and C++</a></h2>
+<pre><code data-line="103" class="language-yaml"><span class="hljs-attr">sources:</span> [<span class="hljs-string">Sources</span>]                 <span class="hljs-comment"># .swift, .m, .mm, .cpp all together</span>
 <span class="hljs-attr">bridging_header:</span> <span class="hljs-string">Sources/Bridge.h</span>  <span class="hljs-comment"># Objective-C declarations Swift can see</span>
 <span class="hljs-attr">include_dirs:</span> [<span class="hljs-string">Sources</span>]
 </code></pre>
-<p>clang compiles every C-family file to an object. swiftc then compiles all Swift
+<p data-line="109">clang compiles every C-family file to an object. swiftc then compiles all Swift
 files in one module and links the objects. C++ adds <code>-lc++</code>.</p>
-<h2 id="info.plist-values-per-build"><a class="header-anchor" href="#info.plist-values-per-build">Info.plist values per build</a></h2>
-<pre><code class="language-yaml"><span class="hljs-attr">plist_vars:</span>
+<h2 id="info.plist-values-per-build" data-line="112"><a class="header-anchor" href="#info.plist-values-per-build">Info.plist values per build</a></h2>
+<pre><code data-line="114" class="language-yaml"><span class="hljs-attr">plist_vars:</span>
   <span class="hljs-attr">ENV_NAME:</span> <span class="hljs-string">staging</span>
 <span class="hljs-attr">info:</span>
   <span class="hljs-attr">CFBundleDisplayName:</span> <span class="hljs-string">MyApp</span> <span class="hljs-string">$(ENV_NAME)</span>
 </code></pre>
-<p>For a value that differs between machines or CI runs, reference an
+<p data-line="121">For a value that differs between machines or CI runs, reference an
 environment variable directly: an unknown <code>$(VAR)</code> falls back to the process
 environment.</p>
-<h2 id="storyboards%2C-xibs-and-asset-catalogs"><a class="header-anchor" href="#storyboards%2C-xibs-and-asset-catalogs">Storyboards, XIBs and asset catalogs</a></h2>
-<p>List them as resources like any other file. <code>idl build</code> compiles them into the
+<h2 id="storyboards%2C-xibs-and-asset-catalogs" data-line="125"><a class="header-anchor" href="#storyboards%2C-xibs-and-asset-catalogs">Storyboards, XIBs and asset catalogs</a></h2>
+<p data-line="127">List them as resources like any other file. <code>idl build</code> compiles them into the
 bundle:</p>
 <table class="table table-sm table-striped">
-<thead>
-<tr>
+<thead data-line="130">
+<tr data-line="130">
 <th>Resource</th>
 <th>Bundle output</th>
 <th>Compiled by</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody data-line="132">
+<tr data-line="132">
 <td><code>Main.storyboard</code></td>
 <td><code>Main.storyboardc/</code></td>
 <td><code>idl</code> (ibtool port)</td>
 </tr>
-<tr>
+<tr data-line="133">
 <td><code>Banner.xib</code></td>
 <td><code>Banner.nib</code></td>
 <td><code>idl</code> (ibtool port)</td>
 </tr>
-<tr>
+<tr data-line="134">
 <td><code>Assets.xcassets</code></td>
 <td><code>Assets.car</code>, app icon PNGs, Info.plist icon keys</td>
 <td><code>idl-actool</code> (AssetKit)</td>
 </tr>
 </tbody>
 </table>
-<p>Asset catalogs need <code>idl-actool</code>, which is built once:</p>
-<pre><code>zig build actool             # installs zig-out/bin/idl-actool next to idl
+<p data-line="136">Asset catalogs need <code>idl-actool</code>, which is built once:</p>
+<pre data-line="138"><code>zig build actool             # installs zig-out/bin/idl-actool next to idl
 zig build actool -p zig-out/release   # if you use the release build
 </code></pre>
-<p><code>idl</code> looks for <code>toolchain.actool</code> on PATH, then next to its own executable.
+<p data-line="141"><code>idl</code> looks for <code>toolchain.actool</code> on PATH, then next to its own executable.
 Set <code>info.UIMainStoryboardFile</code> / <code>info.UILaunchStoryboardName</code> in YAML to the
 storyboard names (without extension). <code>examples/ib-app</code> uses all three.</p>
-<p>To compile or inspect a single file:</p>
-<pre><code>idl ibtool Main.storyboard -o /tmp/Main.storyboardc
+<p data-line="145">To compile or inspect a single file:</p>
+<pre data-line="147"><code>idl ibtool Main.storyboard -o /tmp/Main.storyboardc
 idl ibtool Banner.xib --dump          # compile and print the objects
 idl ibtool Some.nib --dump --types    # dump any NIBArchive, even Xcode's
 </code></pre>
-<p>See <a href="limitations.html#storyboards-and-xibs-idl-ibtool">limitations</a> for what is
+<p data-line="151">See <a href="limitations.html#storyboards-and-xibs-idl-ibtool">limitations</a> for what is
 supported.</p>
-<h2 id="install-on-a-device-(through-jimpactor)"><a class="header-anchor" href="#install-on-a-device-(through-jimpactor)">Install on a device (through Jimpactor)</a></h2>
-<p><code>idl</code>’s ad-hoc <code>ldid</code> signature is not a provisioning profile. With the
+<h2 id="install-on-a-device-(through-jimpactor)" data-line="154"><a class="header-anchor" href="#install-on-a-device-(through-jimpactor)">Install on a device (through Jimpactor)</a></h2>
+<p data-line="156"><code>idl</code>’s ad-hoc <code>ldid</code> signature is not a provisioning profile. With the
 Jimpactor tray app running, <code>idl</code> can hand IPAs to it, and Jimpactor signs
 them with your account and installs them:</p>
-<pre><code>idl devices list                   # devices Jimpactor can reach
+<pre data-line="160"><code>idl devices list                   # devices Jimpactor can reach
 idl install &quot;JPs iPhone&quot;           # build every target, then install each IPA
 idl install 00008130 MyApp         # device by UDID prefix, one target
 idl install 00008130-... --no-build MyApp   # install the last build
 idl install 00008130-... --ipa ~/Downloads/Other.ipa
 </code></pre>
-<p><code>&lt;device&gt;</code> is a UDID, a unique UDID prefix (4+ characters), or a device name
+<p data-line="166"><code>&lt;device&gt;</code> is a UDID, a unique UDID prefix (4+ characters), or a device name
 (case-insensitive). <code>idl</code> resolves the device before building, so a closed
 Jimpactor or an unknown device fails early. Install progress from Jimpactor
 is printed as it arrives.</p>
-<p>Jimpactor’s IPC protocol (version 1): <code>idl</code> connects to 127.0.0.1 on the port
+<p data-line="171">Jimpactor’s IPC protocol (version 1): <code>idl</code> connects to 127.0.0.1 on the port
 in <code>&lt;data&gt;/relaunch.port</code> and sends the token from <code>&lt;data&gt;/ipc.token</code>. <code>&lt;data&gt;</code>
 is <code>$XDG_CONFIG_HOME/Jimpactor</code> or <code>~/.config/Jimpactor</code>, or
 <code>toolchain.jimpactor_dir</code> when that’s set.</p>
-<p>Without Jimpactor, re-sign the IPA with any other tool (AltStore, Sideloadly,
+<p data-line="176">Without Jimpactor, re-sign the IPA with any other tool (AltStore, Sideloadly,
 <code>xtool dev build --sign</code>, …).</p>
-<h2 id="check-an-ipa-from-anywhere"><a class="header-anchor" href="#check-an-ipa-from-anywhere">Check an IPA from anywhere</a></h2>
-<pre><code>idl verify Some.ipa --bundle-id com.example.app
+<h2 id="check-an-ipa-from-anywhere" data-line="179"><a class="header-anchor" href="#check-an-ipa-from-anywhere">Check an IPA from anywhere</a></h2>
+<pre data-line="181"><code>idl verify Some.ipa --bundle-id com.example.app
 idl verify unsigned.ipa --allow-unsigned
 </code></pre>
-<h2 id="standalone-plist-and-string-catalog-tools"><a class="header-anchor" href="#standalone-plist-and-string-catalog-tools">Standalone plist and string-catalog tools</a></h2>
-<pre><code>idl plist -i Info.plist -o out.plist \
+<h2 id="standalone-plist-and-string-catalog-tools" data-line="184"><a class="header-anchor" href="#standalone-plist-and-string-catalog-tools">Standalone plist and string-catalog tools</a></h2>
+<pre data-line="186"><code>idl plist -i Info.plist -o out.plist \
     --var PRODUCT_BUNDLE_IDENTIFIER=com.example.app \
     --set CFBundleVersion=42 --set UIRequiredDeviceCapabilities='[&quot;arm64&quot;]' \
     --default LSRequiresIPhoneOS=true --delete NSExampleKey
 idl xcstrings Localizable.xcstrings build/strings   # -&gt; &lt;lang&gt;.lproj/Localizable.strings(dict)
 </code></pre>
-<p><code>--set</code> and <code>--default</code> treat <code>[..]</code>, <code>{..}</code>, <code>true</code>, <code>false</code> and integers as
+<p data-line="192"><code>--set</code> and <code>--default</code> treat <code>[..]</code>, <code>{..}</code>, <code>true</code>, <code>false</code> and integers as
 JSON (parsed by libplist). Everything else is a string.</p>
-<h2 id="clean"><a class="header-anchor" href="#clean">Clean</a></h2>
-<pre><code>idl clean          # direct: build/; xtool: .build .bsp xtool/; plus a generated .xcodeproj
+<h2 id="clean" data-line="195"><a class="header-anchor" href="#clean">Clean</a></h2>
+<pre data-line="197"><code>idl clean          # direct: build/; xtool: .build .bsp xtool/; plus a generated .xcodeproj
 idl clean MyApp
 </code></pre>
-<h2 id="use-from-zig-build"><a class="header-anchor" href="#use-from-zig-build">Use from zig build</a></h2>
-<p>The repository’s <code>build.zig</code> has wrappers around the CLI:</p>
-<pre><code>zig build run -- build MyApp
+<h2 id="use-from-zig-build" data-line="200"><a class="header-anchor" href="#use-from-zig-build">Use from zig build</a></h2>
+<p data-line="202">The repository’s <code>build.zig</code> has wrappers around the CLI:</p>
+<pre data-line="204"><code>zig build run -- build MyApp
 zig build check
 zig build examples
 </code></pre>
@@ -305,5 +309,15 @@ zig build examples
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>

@@ -27,7 +27,11 @@
 
       <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
 
+      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+
       <li class="nav-item"><a class="nav-link active" href="index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
 
@@ -95,17 +99,17 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="pull" data-radar-file="README.md">
 
-      <h1 id="pull"><a class="header-anchor" href="#pull">pull</a></h1>
-<p>A multi-repo git wrapper. <code>pullfile.plist</code> lists the repos, their upstreams and pinned
+      <h1 id="pull" data-line="1"><a class="header-anchor" href="#pull">pull</a></h1>
+<p data-line="3">A multi-repo git wrapper. <code>pullfile.plist</code> lists the repos, their upstreams and pinned
 commits. Each repo is cloned to <code>{pullfile-root}/{repo-name}</code>. A single <code>pull commit</code> writes
 one commit, with the same message, identity and signature, to every repo that has changes,
 then records the new pins.</p>
-<h2 id="crates-and-features"><a class="header-anchor" href="#crates-and-features">Crates and features</a></h2>
-<p>pull is a cargo workspace. The core is always built; everything else is an optional
+<h2 id="crates-and-features" data-line="8"><a class="header-anchor" href="#crates-and-features">Crates and features</a></h2>
+<p data-line="10">pull is a cargo workspace. The core is always built; everything else is an optional
 crate behind a cargo feature of the <code>pull</code> binary, and no feature requires another:</p>
-<pre><code>crate          feature        what
+<pre data-line="13"><code>crate          feature        what
 pull-core      (always)       pullfile.plist / local.toml model, identity, path routing
 pull-git       (always)       clone/sync, status, stage, commit across repos, push
                https, ssh     git transports (git2 features)
@@ -118,19 +122,19 @@ pull-worktree  worktree       pull worktree
 pull-launchd   launchd        pullfile `jobs`; pull launchctl / pull session
 pull-mcp       mcp            pull mcp (session/job tools only with `launchd`)
 </code></pre>
-<p>All features are on by default. Build a smaller pull with e.g.</p>
-<pre><code>cargo install --path . --no-default-features --features https,env,hooks
+<p data-line="26">All features are on by default. Build a smaller pull with e.g.</p>
+<pre data-line="28"><code>cargo install --path . --no-default-features --features https,env,hooks
 </code></pre>
-<p>Features meet only in the binary (<code>src/workspace.rs</code>): without <code>env</code>, hooks, jobs, <code>each</code>
+<p data-line="30">Features meet only in the binary (<code>src/workspace.rs</code>): without <code>env</code>, hooks, jobs, <code>each</code>
 and MCP <code>exec</code> get just PULL_ROOT; without <code>hooks</code> or <code>lint</code>, commits skip them; without
 <code>launchd</code>, the MCP server has no session tools. Only <code>identity</code> and <code>repos</code> are core
 pullfile keys: every other top-level key is a section owned by its feature crate, kept
 verbatim (and reported as ignored) when that feature isn’t built, so a lean build never
 drops another build’s settings. <code>pull --version</code> and <code>pull status --json</code> (<code>features</code>)
 list what a binary was built with.</p>
-<h2 id="files"><a class="header-anchor" href="#files">Files</a></h2>
-<p><code>pullfile.plist</code> (shared, committed):</p>
-<pre><code>identity: org (selects [orgs.&lt;org&gt;] in local.toml), email = none|local, require_signing
+<h2 id="files" data-line="38"><a class="header-anchor" href="#files">Files</a></h2>
+<p data-line="40"><code>pullfile.plist</code> (shared, committed):</p>
+<pre data-line="42"><code>identity: org (selects [orgs.&lt;org&gt;] in local.toml), email = none|local, require_signing
 repos:    [{name, upstream, branch, commit}]
 env:      path, vars                    (feature env)
 lint:     no_description, max_subject_length, conventional, no_trailing_period
@@ -140,9 +144,9 @@ hooks:    precommit, postcommit, pull   (feature hooks; arrays of `sh -c` comman
 ignore:   [patterns]                    (feature ignore)
 jobs:     [launchd jobs]                (feature launchd)
 </code></pre>
-<p>Hook env: PULL_ROOT, PULL_HOOK, PULL_REPOS (space-separated), PULL_MESSAGE (commit hooks).</p>
-<p><code>local.toml</code> (per machine, gitignored; falls back to ~/.config/pull/local.toml):</p>
-<pre><code>name = &quot;jp&quot;
+<p data-line="52">Hook env: PULL_ROOT, PULL_HOOK, PULL_REPOS (space-separated), PULL_MESSAGE (commit hooks).</p>
+<p data-line="54"><code>local.toml</code> (per machine, gitignored; falls back to ~/.config/pull/local.toml):</p>
+<pre data-line="56"><code>name = &quot;jp&quot;
 # email = &quot;...&quot;          # only used if the pullfile says email = &quot;local&quot;
 signing_key = &quot;FPR&quot;      # gpg key; omit to use gpg's default key
 sign = true
@@ -152,9 +156,9 @@ sign = true
 name = &quot;jp@acme&quot;
 signing_key = &quot;FPR&quot;
 </code></pre>
-<p>With the default <code>email = none</code>, commits are written as <code>name &lt;&gt;</code>, so no email gets published.</p>
-<h2 id="commands"><a class="header-anchor" href="#commands">Commands</a></h2>
-<pre><code>pull init [--org X]            create pullfile.plist and local.toml
+<p data-line="66">With the default <code>email = none</code>, commits are written as <code>name &lt;&gt;</code>, so no email gets published.</p>
+<h2 id="commands" data-line="68"><a class="header-anchor" href="#commands">Commands</a></h2>
+<pre data-line="70"><code>pull init [--org X]            create pullfile.plist and local.toml
 pull repo add URL [--name] [--branch]   |  repo rm NAME  |  repo list
 pull sync                      clone missing repos, fetch, fast-forward to the pins
 pull update                    fast-forward to upstream branches and re-pin
@@ -166,17 +170,17 @@ pull commit -m MSG [-a] [PATHS...] [--no-verify]
 pull push
 pull lint MSG  |  pull whoami  |  pull each CMD...
 </code></pre>
-<p>If the root is itself a git repo, <code>pull commit</code> also commits the updated pullfile.plist
+<p data-line="82">If the root is itself a git repo, <code>pull commit</code> also commits the updated pullfile.plist
 there with the same message.</p>
-<h2 id="ignore"><a class="header-anchor" href="#ignore">Ignore</a></h2>
-<p>The pullfile’s <code>ignore</code> array holds gitignore patterns for every repo, e.g.
+<h2 id="ignore" data-line="85"><a class="header-anchor" href="#ignore">Ignore</a></h2>
+<p data-line="87">The pullfile’s <code>ignore</code> array holds gitignore patterns for every repo, e.g.
 <code>__pycache__/</code>, <code>*.pyc</code>, <code>.DS_Store</code>. pull keeps them in each repo’s <code>.git/info/exclude</code>
 (between <code># &gt;&gt;&gt; pull ignore</code> markers) on every command, so repos don’t need their own
 .gitignore entries and nothing is committed for it. Patterns don’t untrack files that are
 already committed; <code>git rm --cached</code> those.</p>
-<h2 id="mcp-server"><a class="header-anchor" href="#mcp-server">MCP server</a></h2>
-<p><code>pull mcp [--root DIR]</code> serves the workspace to agents over MCP (stdio):</p>
-<pre><code>workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
+<h2 id="mcp-server" data-line="93"><a class="header-anchor" href="#mcp-server">MCP server</a></h2>
+<p data-line="95"><code>pull mcp [--root DIR]</code> serves the workspace to agents over MCP (stdio):</p>
+<pre data-line="97"><code>workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
 status / diff / log            per repo or across all repos
 grep / list_files / read_file  ripgrep's engine, .gitignore-aware, confined to the root
 exec                           run a command to completion with the workspace env
@@ -185,28 +189,28 @@ session_kill                   stateful terminals (the sessions below); a human 
                                `pull session attach` to the same one
 job                            start/stop/restart/unload pullfile jobs
 </code></pre>
-<p>Register it with an agent, e.g. Hermes:</p>
-<pre><code>hermes mcp add pull --command pull --args mcp --root ~/jbisfun
+<p data-line="106">Register it with an agent, e.g. Hermes:</p>
+<pre data-line="108"><code>hermes mcp add pull --command pull --args mcp --root ~/jbisfun
 </code></pre>
-<h2 id="jobs-and-sessions-(launchd)"><a class="header-anchor" href="#jobs-and-sessions-(launchd)">Jobs and sessions (launchd)</a></h2>
-<p>pull ports launchd’s job model (Apple’s launchd, <code>liblaunch/launch.h</code>) to the workspace.
+<h2 id="jobs-and-sessions-(launchd)" data-line="110"><a class="header-anchor" href="#jobs-and-sessions-(launchd)">Jobs and sessions (launchd)</a></h2>
+<p data-line="112">pull ports launchd’s job model (Apple’s launchd, <code>liblaunch/launch.h</code>) to the workspace.
 Jobs use launchd plist keys, either in the pullfile’s <code>jobs</code> array or in standalone
 <code>.plist</code> files:</p>
-<pre><code>Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
+<pre data-line="116"><code>Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
 KeepAlive (bool or {SuccessfulExit}), StartInterval, ThrottleInterval,
 StandardOutPath, Disabled, LaunchOnlyOnce
 </code></pre>
-<p>A per-workspace daemon (<code>pull launchd</code>, started automatically, socket <code>.pull/launchd.sock</code>)
+<p data-line="120">A per-workspace daemon (<code>pull launchd</code>, started automatically, socket <code>.pull/launchd.sock</code>)
 supervises them. Every job runs in a pseudo-terminal with the workspace env (<code>pull env</code>)
 plus its own EnvironmentVariables and <code>PULL_JOB</code>, so every job is also a session.</p>
-<pre><code>pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
+<pre data-line="124"><code>pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
 pull launchctl list | print LABEL     (--json for agents)
 pull launchctl start|stop|unload LABEL
 pull launchctl kickstart [-k] LABEL   start, or kill and restart
 pull launchctl shutdown               stop all jobs and the daemon
 </code></pre>
-<p>tmux-style sessions, for humans and agents:</p>
-<pre><code>pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
+<p data-line="130">tmux-style sessions, for humans and agents:</p>
+<pre data-line="132"><code>pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
 pull session attach NAME              detach with ctrl-\
 pull session ls [--json]              running program + its directory per session
 pull session send NAME [-e] TEXT      type into it (-e: press enter)
@@ -215,7 +219,7 @@ pull session run NAME CMD...          agents: type CMD, wait for output to settl
                                       print the screen
 pull session kill NAME
 </code></pre>
-<p>StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
+<p data-line="141">StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
 StandardOutPath.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
@@ -228,5 +232,15 @@ StandardOutPath.</p>
     </main>
   </div>
 </div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+
 </body>
 </html>
