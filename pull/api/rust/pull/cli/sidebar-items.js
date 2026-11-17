@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["LONG_VERSION"],"enum":["Cmd","LaunchctlCmd","RepoCmd","SessionCmd","WorktreeCmd"],"struct":["Cli"]};
+window.SIDEBAR_ITEMS = {"constant":["LONG_VERSION"],"enum":["Cmd","LaunchctlCmd","RepoCmd","SessionCmd","ToolCmd","WorktreeCmd"],"struct":["Cli"]};

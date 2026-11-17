@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tool · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">tool</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/tool">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api/rust/tool/index.html">tool</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="tool"><a class="header-anchor" href="#tool">tool</a></h1>
+<p>Declarative Homebrew packages per project, a little like a nix profile.</p>
+<ul>
+<li><strong>Package list</strong>: Brewfile-shaped (<code>tap</code>, <code>brew</code>). Standalone <code>tool</code> reads a <code>Brewfile</code>;
+in a pull workspace the list lives in the pullfile <code>tool</code> section (<code>pull tool</code>).</li>
+<li><strong>Store</strong>: one shared Homebrew-layout prefix (<code>Cellar/&lt;name&gt;/&lt;version&gt;</code>, <code>opt/&lt;name&gt;</code>) in
+<code>$TOOL_HOME</code> (default <code>~/.local/share/tool</code>). Kegs are Linuxbrew bottles from
+<code>formulae.brew.sh</code> / ghcr.io, poured and relocated into the store (ELF interpreter -&gt; the
+system loader, RUNPATHs -&gt; <code>opt/&lt;dep&gt;/lib</code>, via <code>patchelf</code>). Bottles are cached in
+<code>$TOOL_CACHE</code> (default <code>~/.cache/tool</code>).</li>
+<li><strong>Profiles</strong>: a directory of symlinks to the requested formulae (<code>bin/</code>, <code>lib/</code>, <code>share/</code>
+…), rebuilt and swapped in atomically on every sync. Every profile is a GC root;
+<code>tool gc</code> deletes kegs no live profile uses.</li>
+</ul>
+<p>Requires <code>patchelf</code>. Only homebrew/core formulae; casks/mas/vscode entries are ignored.
+Building bottles from source is planned; for now everything is poured from Linuxbrew bottles.</p>
+<h2 id="standalone"><a class="header-anchor" href="#standalone">Standalone</a></h2>
+<pre><code class="language-sh"><span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n&#x27;</span> &gt; Brewfile
+tool <span class="hljs-built_in">sync</span>            <span class="hljs-comment"># pour into the store, link ./.tool</span>
+<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tool env)</span>&quot;</span>   <span class="hljs-comment"># .tool/bin on PATH</span>
+tool list
+tool gc
+</code></pre>
+<h2 id="in-a-pull-workspace"><a class="header-anchor" href="#in-a-pull-workspace">In a pull workspace</a></h2>
+<pre><code class="language-sh">pull tool add jq ripgrep      <span class="hljs-comment"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
+pull tool import Brewfile     <span class="hljs-comment"># merge an existing Brewfile into the pullfile</span>
+pull tool <span class="hljs-built_in">sync</span>                <span class="hljs-comment"># links $PULL_ROOT/.pull/tool</span>
+pull <span class="hljs-built_in">env</span>                      <span class="hljs-comment"># PATH includes $PULL_ROOT/.pull/tool/bin</span>
+</code></pre>
+<p>Pullfile section:</p>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>tool<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>brew<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>jq<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>name<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>openssl@3<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>link<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">false</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
+</code></pre>
+<p>Built on the stout crates (stout-bundle, stout-fetch, stout-install, stout-resolve).</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/tool/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

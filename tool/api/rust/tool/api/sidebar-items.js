@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["bottle_tag","fetch"],"struct":["BottleFile","BottleSpec","Bottles","Formula","Variation","Versions"]};

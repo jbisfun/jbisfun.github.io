@@ -1,2 +1,2 @@
-window.ALL_CRATES = ["pull","pull_core","pull_env","pull_git","pull_hooks","pull_ignore","pull_launchd","pull_lint","pull_mcp","pull_worktree"];
-//{"start":21,"fragment_lengths":[6,12,11,11,13,14,15,12,11,16]}
+window.ALL_CRATES = ["pull","pull_core","pull_env","pull_git","pull_hooks","pull_ignore","pull_launchd","pull_lint","pull_mcp","pull_tool","pull_worktree"];
+//{"start":21,"fragment_lengths":[6,12,11,11,13,14,15,12,11,12,16]}

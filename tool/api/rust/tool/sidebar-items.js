@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["MANIFEST"],"enum":["Brew"],"fn":["gc","path_entries","roots","sync"],"mod":["api"],"struct":["Manifest","Packages","Store"]};

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["commit","init","main","mcp","run","status_json","sync","worktree"],"mod":["cli","launchd","workspace"]};
+window.SIDEBAR_ITEMS = {"fn":["commit","init","main","mcp","run","status_json","sync","tool","worktree"],"mod":["cli","launchd","workspace"]};

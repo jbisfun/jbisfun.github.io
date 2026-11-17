@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":["SECTIONS"],"enum":["Hook"],"fn":["apply_ignores","env","env_provider","features","lint","run_hook","warn_unsupported"]};
+window.SIDEBAR_ITEMS = {"constant":["SECTIONS"],"enum":["Hook"],"fn":["apply_ignores","env","env_provider","features","lint","run_hook","tool_paths","warn_unsupported"]};

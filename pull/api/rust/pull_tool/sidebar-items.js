@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["PROFILE","SECTION"],"fn":["edit","gc","manifest","packages","path_entries","profile","read_brewfile","sync"],"struct":["Manifest","Packages","Store"]};
