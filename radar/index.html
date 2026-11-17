@@ -86,11 +86,11 @@
 <pre><code data-line="5" class="language-sh">radar add pull src/main.rs 42 --note <span class="hljs-string">&quot;panics on an empty pullfile&quot;</span>   <span class="hljs-comment"># the line text is read from the file</span>
 radar list [--all] [--json]
 radar close 3 / radar reopen 3 / radar <span class="hljs-built_in">rm</span> 3
-radar <span class="hljs-built_in">export</span>        <span class="hljs-comment"># issues/docs/NNNN.md + issues/docs/index.md</span>
+radar <span class="hljs-built_in">export</span>        <span class="hljs-comment"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
 </code></pre>
 <p data-line="12">The workspace root is <code>$PULL_ROOT</code>, or the nearest directory above the current one that contains <code>pullfile.plist</code>.</p>
 <ul data-line="14">
-<li data-line="14"><strong>Pull:</strong> the precommit hook runs <code>radar export</code> and stages <code>issues/</code>, so every <code>pull commit</code> publishes the reports. The wiki renders them under <code>issues</code>.</li>
+<li data-line="14"><strong>Pull:</strong> the precommit hook runs <code>radar export</code> and stages <code>issues/radar.db</code>. <code>issues/docs</code> is gitignored, and the wiki publishes it under <code>issues</code>.</li>
 <li data-line="15"><strong>Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code>radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>
 </ul>
 
