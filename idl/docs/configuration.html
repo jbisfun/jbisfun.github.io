@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>idlproj.yml reference · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../tool/index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/idl">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="architecture.html">Architecture</a>
+
+
+  </li>
+
+  <li>
+
+    <a class="active" aria-current="page" href="configuration.html">idlproj.yml reference</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="getting-started.html">Getting started</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="limitations.html">Known limitations</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workflows.html">Common workflows</a>
+
+
+  </li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="idlproj.yml-reference"><a class="header-anchor" href="#idlproj.yml-reference">idlproj.yml reference</a></h1>
+<p><code>idlproj.yml</code> is the only configuration file. It has four top-level keys:</p>
+<pre><code class="language-yaml"><span class="hljs-attr">toolchain:</span> { <span class="hljs-string">...</span> }   <span class="hljs-comment"># optional: where the compilers and SDK live</span>
+<span class="hljs-attr">defaults:</span>  { <span class="hljs-string">...</span> }   <span class="hljs-comment"># optional: target keys applied to every target</span>
+<span class="hljs-attr">configurations:</span> { <span class="hljs-string">...</span> } <span class="hljs-comment"># optional: debug/release overrides</span>
+<span class="hljs-attr">targets:</span>   [ <span class="hljs-string">...</span> ]   <span class="hljs-comment"># required: one entry per app</span>
+</code></pre>
+<p><code>idl</code> rejects unknown keys, so a typo such as <code>sorces:</code> is an error instead of
+being ignored. Write version numbers as text and quote them when you like:
+<code>min_ios: 16.0</code> and <code>min_ios: &quot;16.0&quot;</code> both mean the string <code>16.0</code>, and
+<code>16.10</code> is never read as a float.</p>
+<h2 id="toolchain"><a class="header-anchor" href="#toolchain">toolchain</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sdk_bundle</code></td>
+<td><code>~/.swiftpm/swift-sdks/darwin.artifactbundle</code></td>
+<td>Darwin SDK bundle from <code>xtool setup</code></td>
+</tr>
+<tr>
+<td><code>sdk</code></td>
+<td>newest <code>iPhoneOS*.sdk</code> in the bundle</td>
+<td>explicit SDK path</td>
+</tr>
+<tr>
+<td><code>swiftly_bin</code></td>
+<td><code>~/.local/share/swiftly/bin</code></td>
+<td>added to the end of <code>PATH</code> for every tool idl runs</td>
+</tr>
+<tr>
+<td><code>cc</code> / <code>cxx</code> / <code>swiftc</code></td>
+<td><code>clang</code> / <code>clang++</code> / <code>swiftc</code></td>
+<td>compilers, looked up by name on <code>PATH</code> or given as paths</td>
+</tr>
+<tr>
+<td><code>xtool</code></td>
+<td><code>xtool</code></td>
+<td>xtool executable (needed for <code>builder: xtool</code>)</td>
+</tr>
+<tr>
+<td><code>ldid</code></td>
+<td><code>ldid</code></td>
+<td>ldid path or command name (needed when a target signs)</td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td><code>0</code></td>
+<td>number of parallel compile jobs (<code>0</code> = number of CPUs)</td>
+</tr>
+<tr>
+<td><code>actool</code></td>
+<td><code>idl-actool</code></td>
+<td>asset catalog compiler (<code>zig build actool</code>); a path, or a name looked up on PATH and next to <code>idl</code></td>
+</tr>
+<tr>
+<td><code>jimpactor_dir</code></td>
+<td><code>$XDG_CONFIG_HOME/Jimpactor</code> or <code>~/.config/Jimpactor</code></td>
+<td>Jimpactor data dir, used by <code>idl devices</code> and <code>idl install</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>~</code> is expanded in paths.</p>
+<h2 id="targets"><a class="header-anchor" href="#targets">targets</a></h2>
+<p>Each target is a mapping. Paths inside a target are relative to its <code>dir</code>, and
+they must stay inside it (no absolute paths, no <code>..</code>).</p>
+<h3 id="identity"><a class="header-anchor" href="#identity">Identity</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>required</td>
+<td>product name, executable name, and Xcode target name</td>
+</tr>
+<tr>
+<td><code>bundle_id</code></td>
+<td>required</td>
+<td><code>CFBundleIdentifier</code></td>
+</tr>
+<tr>
+<td><code>dir</code></td>
+<td><code>.</code></td>
+<td>target directory, relative to <code>idlproj.yml</code></td>
+</tr>
+<tr>
+<td><code>builder</code></td>
+<td><code>direct</code></td>
+<td><code>direct</code> (idl runs clang/swiftc) or <code>xtool</code> (idl runs <code>xtool dev build</code>)</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>1.0</code></td>
+<td><code>MARKETING_VERSION</code> / <code>CFBundleShortVersionString</code></td>
+</tr>
+<tr>
+<td><code>build_number</code></td>
+<td><code>1</code></td>
+<td><code>CURRENT_PROJECT_VERSION</code> / <code>CFBundleVersion</code></td>
+</tr>
+<tr>
+<td><code>min_ios</code></td>
+<td><code>16.0</code></td>
+<td>deployment target, triple suffix and <code>MinimumOSVersion</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sources-and-compilation"><a class="header-anchor" href="#sources-and-compilation">Sources and compilation</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sources</code></td>
+<td><code>[Sources]</code></td>
+<td>files or directories, scanned recursively. Supported: <code>.c .m .mm .cc .cpp .cxx .s .S .swift</code></td>
+</tr>
+<tr>
+<td><code>arch</code></td>
+<td><code>arm64</code></td>
+<td>target architecture</td>
+</tr>
+<tr>
+<td><code>opt</code></td>
+<td><code>-Os</code></td>
+<td>optimization flag for C-family code</td>
+</tr>
+<tr>
+<td><code>swift_opt</code></td>
+<td><code>-O</code></td>
+<td>optimization flag for Swift</td>
+</tr>
+<tr>
+<td><code>debug_symbols</code></td>
+<td><code>false</code></td>
+<td>emit DWARF in C-family and Swift objects</td>
+</tr>
+<tr>
+<td><code>strict</code></td>
+<td><code>false</code></td>
+<td>reject unsupported resources and IB features rather than warn/skip</td>
+</tr>
+<tr>
+<td><code>swift_version</code></td>
+<td><code>5.0</code></td>
+<td>written to the Xcode project</td>
+</tr>
+<tr>
+<td><code>defines</code></td>
+<td><code>[]</code></td>
+<td><code>NAME</code> or <code>NAME=VALUE</code>. Both forms go to C-family code; only <code>NAME</code> goes to Swift</td>
+</tr>
+<tr>
+<td><code>include_dirs</code></td>
+<td><code>[]</code></td>
+<td><code>-I</code> for clang and swiftc</td>
+</tr>
+<tr>
+<td><code>bridging_header</code></td>
+<td>none</td>
+<td>Objective-C header that Swift imports (<code>-import-objc-header</code>)</td>
+</tr>
+<tr>
+<td><code>quote_include_dirs</code></td>
+<td><code>[]</code></td>
+<td><code>-iquote</code> dirs (clang, and swiftc via <code>-Xcc</code>): only <code>#include &quot;...&quot;</code> sees them, like Xcode’s header map</td>
+</tr>
+<tr>
+<td><code>framework_dirs</code></td>
+<td><code>[]</code></td>
+<td><code>-F</code> dirs for clang, swiftc and the linker</td>
+</tr>
+<tr>
+<td><code>dead_strip</code></td>
+<td><code>true</code></td>
+<td>pass <code>-dead_strip</code> to the linker</td>
+</tr>
+<tr>
+<td><code>cflags</code> / <code>swiftflags</code></td>
+<td><code>[]</code></td>
+<td>extra compiler flags</td>
+</tr>
+<tr>
+<td><code>ldflags</code></td>
+<td><code>[]</code></td>
+<td>extra linker arguments, each passed as <code>-Xlinker &lt;arg&gt;</code></td>
+</tr>
+<tr>
+<td><code>frameworks</code></td>
+<td><code>[UIKit, Foundation]</code></td>
+<td>SDK frameworks (<code>X</code> or <code>X.framework</code>)</td>
+</tr>
+<tr>
+<td><code>weak_frameworks</code></td>
+<td><code>[]</code></td>
+<td>weakly linked frameworks</td>
+</tr>
+<tr>
+<td><code>libraries</code></td>
+<td><code>[]</code></td>
+<td><code>-l</code> libraries, e.g. <code>[z, sqlite3]</code></td>
+</tr>
+<tr>
+<td><code>build_dir</code></td>
+<td><code>build</code></td>
+<td>where objects, the app bundle and the IPA go</td>
+</tr>
+</tbody>
+</table>
+<p>If a target has any <code>.swift</code> file, swiftc compiles all Swift sources in one
+whole-module compilation and links the clang-compiled objects. Debug builds
+compile Swift to a persistent <code>.swift.o</code> and link separately, retaining DWARF
+without requiring <code>dsymutil</code>. Otherwise clang links. C++ sources add <code>-lc++</code>.</p>
+<h3 id="bundle"><a class="header-anchor" href="#bundle">Bundle</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>info_plist</code></td>
+<td>none</td>
+<td>optional base Info.plist (XML, binary, JSON or OpenStep); otherwise generated entirely from YAML</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td>none</td>
+<td>keys merged into Info.plist (see below)</td>
+</tr>
+<tr>
+<td><code>plist_vars</code></td>
+<td>none</td>
+<td>extra <code>$(VAR)</code> values for Info.plist and entitlements</td>
+</tr>
+<tr>
+<td><code>entitlements</code></td>
+<td>none</td>
+<td>YAML mapping of entitlement keys, or an explicit legacy plist path; no capabilities are added implicitly</td>
+</tr>
+<tr>
+<td><code>resources</code></td>
+<td><code>[]</code></td>
+<td>files or directories copied into the bundle (see <a href="limitations.html">limitations</a>)</td>
+</tr>
+<tr>
+<td><code>sign</code></td>
+<td><code>true</code> for <code>direct</code>, <code>false</code> for <code>xtool</code></td>
+<td>ad-hoc sign with ldid / pass <code>--sign</code> to xtool</td>
+</tr>
+<tr>
+<td><code>app_icon</code></td>
+<td><code>AppIcon</code></td>
+<td>asset-catalog icon name in the Xcode project</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>none</td>
+<td>xtool targets only: a PNG copied to the app root and set as <code>CFBundleIconFile</code> (xtool <code>iconPath</code>)</td>
+</tr>
+<tr>
+<td><code>device_family</code></td>
+<td><code>1,2</code></td>
+<td>generated <code>UIDeviceFamily</code> and Xcode <code>TARGETED_DEVICE_FAMILY</code></td>
+</tr>
+</tbody>
+</table>
+<p>Info.plist processing, in order:</p>
+<ol>
+<li>Start with an empty dictionary (or the explicit <code>info_plist</code> base). Add any missing standard keys: <code>CFBundleExecutable</code>, <code>CFBundleIdentifier</code>,
+<code>CFBundleName</code>, <code>CFBundlePackageType</code>, <code>CFBundleInfoDictionaryVersion</code>,
+<code>CFBundleShortVersionString</code>, <code>CFBundleVersion</code>. Also default display name
+to the target name, development region to <code>en</code>, <code>LSRequiresIPhoneOS</code> to true,
+device family to <code>device_family</code>, orientations to portrait, and <code>UILaunchScreen</code>
+to an empty dictionary unless a launch storyboard is configured.</li>
+<li>Merge the <code>info:</code> mapping. Unquoted <code>true</code>/<code>false</code> become booleans,
+unquoted integers become <code>&lt;integer&gt;</code>, lists become arrays, mappings become
+dictionaries, and quoted values stay strings. Version keys such as
+<code>CFBundleVersion</code> always stay strings.</li>
+<li>Set <code>MinimumOSVersion</code> to <code>min_ios</code>.</li>
+<li>For direct builds, merge the asset compiler’s generated icon keys.</li>
+<li>Expand <code>$(VAR)</code>, <code>${VAR}</code> and <code>$(VAR:modifier)</code> in every string. Values
+come from <code>plist_vars</code>, then the built-in variables, then the environment.
+Unknown variables become empty strings. The modifier is ignored.</li>
+</ol>
+<p>Built-in variables: <code>EXECUTABLE_NAME</code>, <code>PRODUCT_NAME</code>, <code>TARGET_NAME</code>,
+<code>PRODUCT_MODULE_NAME</code>, <code>PRODUCT_BUNDLE_IDENTIFIER</code>,
+<code>PRODUCT_BUNDLE_PACKAGE_TYPE</code>, <code>MARKETING_VERSION</code>, <code>CURRENT_PROJECT_VERSION</code>,
+<code>IPHONEOS_DEPLOYMENT_TARGET</code>, <code>DEVELOPMENT_LANGUAGE</code>.</p>
+<p>No hand-written XML is required:</p>
+<pre><code class="language-yaml"><span class="hljs-attr">targets:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">MyApp</span>
+    <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.myapp</span>
+    <span class="hljs-attr">version:</span> <span class="hljs-string">&quot;1.0&quot;</span>
+    <span class="hljs-attr">build_number:</span> <span class="hljs-string">&quot;1&quot;</span>
+    <span class="hljs-attr">info:</span>
+      <span class="hljs-attr">CFBundleDisplayName:</span> <span class="hljs-string">My</span> <span class="hljs-string">App</span>
+      <span class="hljs-attr">NSCameraUsageDescription:</span> <span class="hljs-string">Take</span> <span class="hljs-string">a</span> <span class="hljs-string">profile</span> <span class="hljs-string">photo</span>
+      <span class="hljs-attr">UIMainStoryboardFile:</span> <span class="hljs-string">Main</span>
+      <span class="hljs-attr">UILaunchStoryboardName:</span> <span class="hljs-string">LaunchScreen</span>
+      <span class="hljs-attr">UIBackgroundModes:</span> [<span class="hljs-string">audio</span>]
+    <span class="hljs-attr">entitlements:</span>
+      <span class="hljs-attr">get-task-allow:</span> <span class="hljs-literal">true</span>
+      <span class="hljs-attr">com.apple.security.application-groups:</span> [<span class="hljs-string">&quot;group.com.example.myapp&quot;</span>]
+</code></pre>
+<p>Omit storyboard keys for a programmatic UI. Omit <code>entitlements</code> when no
+capabilities are needed; <code>get-task-allow</code> is opt-in, not a release default.
+Entitlements support the same YAML types and variable expansion as <code>info</code>.
+They are requests, not provisioning: Apple capabilities still need an
+appropriate signing identity/profile. An explicit <code>info_plist</code> or string-valued
+<code>entitlements: Support/App.entitlements</code> remains supported. Missing explicit
+files are errors, never silently ignored.</p>
+<p><code>idl gen</code> and <code>idl xcodeproj</code> write <code>.idl/Info.plist</code> and, when configured,
+<code>.idl/Entitlements.plist</code> inside each target directory. Xcode and xtool reference
+these generated files. Run <code>idl gen</code> after editing YAML before building in
+Xcode. Both <code>.idl/debug/</code> and <code>.idl/release/</code> metadata sets are also generated;
+Xcode configurations reference their matching set. Variables are expanded at
+generation time using each profile, not re-evaluated from YAML by Xcode.
+Direct builds generate bundle metadata themselves; xtool metadata is regenerated
+before each xtool build. <code>.idl/</code> is disposable and should be gitignored.</p>
+<h3 id="products"><a class="header-anchor" href="#products">Products</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>app</code></td>
+<td><code>app</code>, <code>framework</code>, <code>dylib</code>, <code>appex</code> or <code>static</code></td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td><code>[]</code></td>
+<td>project <code>framework</code>/<code>dylib</code>/<code>static</code> targets to link against</td>
+</tr>
+<tr>
+<td><code>embed</code></td>
+<td><code>[]</code></td>
+<td>apps only: project <code>framework</code>/<code>dylib</code>/<code>appex</code> targets to copy into the bundle</td>
+</tr>
+<tr>
+<td><code>post_build</code></td>
+<td><code>[]</code></td>
+<td>apps only: command (argv list) or list of commands run in order after the IPA is built and verified; skip with <code>idl build --no-post-build</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>idl build X</code> builds X plus every target it links or embeds, with dependencies
+first. Cycles are an error. Each kind produces:</p>
+<ul>
+<li><code>framework</code>: <code>&lt;build&gt;/products/&lt;name&gt;.framework</code> (binary, generated Info.plist
+with <code>FMWK</code>, resources), install name <code>@rpath/&lt;name&gt;.framework/&lt;name&gt;</code>, bundle
+signed with ldid. Dependents link with <code>-F &lt;build&gt;/link -framework &lt;name&gt;</code>.
+Apps embed it under <code>Frameworks/</code>.</li>
+<li><code>dylib</code>: <code>&lt;build&gt;/products/&lt;name&gt;.dylib</code>, install name <code>@rpath/&lt;name&gt;.dylib</code>,
+embedded under <code>Frameworks/</code>. No <code>bundle_id</code>, Info.plist or resources.</li>
+<li><code>appex</code>: <code>&lt;build&gt;/products/&lt;name&gt;.appex</code> (Info.plist with <code>XPC!</code>, entitlements,
+signed with <code>-I&lt;bundle_id&gt;</code>), built with <code>-fapplication-extension</code> /
+<code>-application-extension</code>. Rpaths include <code>@executable_path/../../Frameworks</code>.
+Apps embed it under <code>PlugIns/</code>. The entry point comes from <code>ldflags</code> (e.g.
+<code>[-e, _NSExtensionMain]</code>) or a Swift <code>@main</code>.</li>
+<li><code>static</code>: compiled objects plus <code>&lt;name&gt;.swiftmodule</code> and <code>&lt;name&gt;-Swift.h</code>. A
+linking target receives the objects in its link, <code>-I</code> for the module, and the
+header dir. Not signed. No <code>bundle_id</code>.</li>
+</ul>
+<p>Swift in non-app targets is compiled with <code>-parse-as-library</code> and module name
+<code>&lt;name&gt;</code>. <code>post_build</code> runs in the target directory with <code>IDL_IPA</code>, <code>IDL_APP</code>,
+<code>IDL_BUILD_DIR</code>, <code>IDL_TARGET</code>, <code>IDL</code> (path of the running idl) and, with <code>-c</code>,
+<code>IDL_CONFIGURATION</code> set. A command that exits non-zero fails the build.</p>
+<p>In <code>info:</code>, <code>Key: ~</code> removes a key inherited from <code>info_plist</code>. Info.plist and
+entitlement expansion can also use <code>$(GIT_BRANCH)</code> and <code>$(GIT_COMMIT)</code> from the
+project root’s git checkout (environment variables override them). Source and
+resource entries may use <code>*</code> in their last path component, e.g.
+<code>Resources/*.lproj</code>.</p>
+<h3 id="formatting%2C-linting-and-tests-(idl-fmt%2C-idl-lint%2C-idl-test)"><a class="header-anchor" href="#formatting%2C-linting-and-tests-(idl-fmt%2C-idl-lint%2C-idl-test)">Formatting, linting and tests (<code>idl fmt</code>, <code>idl lint</code>, <code>idl test</code>)</a></h3>
+<p>idl only orchestrates the tools. It generates their configurations from YAML
+into <code>.idl/quality/&lt;target&gt;/</code>, so no hand-written <code>.clang-format</code> or
+<code>.swift-format</code> files are needed. It passes the configs explicitly, runs the
+tools in parallel, and merges their output into one de-duplicated report:
+<code>file:line:col: severity: message [flag] (tool)</code>, followed by a per-tool
+summary and the most frequent flags/checks.</p>
+<p><code>format:</code> (maps merge with <code>defaults:</code>):</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>indent</code></td>
+<td><code>4</code></td>
+<td>indent width (clang-format <code>IndentWidth</code>/<code>ObjCBlockIndentWidth</code>, swift-format <code>indentation.spaces</code>)</td>
+</tr>
+<tr>
+<td><code>line_length</code></td>
+<td><code>0</code></td>
+<td>0 = never re-wrap (clang-format <code>ColumnLimit: 0</code>)</td>
+</tr>
+<tr>
+<td><code>clang_format</code></td>
+<td>none</td>
+<td>extra clang-format keys; they override the generated ones (nested maps allowed)</td>
+</tr>
+<tr>
+<td><code>swift_format</code></td>
+<td>none</td>
+<td>extra swift-format JSON keys, deep-merged (e.g. <code>rules:</code>)</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td><code>[]</code></td>
+<td>source paths or directories never formatted (<code>*</code> per path component)</td>
+</tr>
+<tr>
+<td><code>editor_configs</code></td>
+<td><code>false</code></td>
+<td><code>idl gen</code> also writes <code>.clang-format</code>, <code>.clang-tidy</code> and <code>.swift-format</code> for clangd/sourcekit-lsp</td>
+</tr>
+</tbody>
+</table>
+<p><code>idl fmt [--check] [target...]</code> formats C, Objective-C, C++, Objective-C++ and
+headers with clang-format, and Swift with swift-format. <code>--check</code> changes
+nothing and exits 1 if any file would change.</p>
+<p><code>lint:</code>:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>warnings</code></td>
+<td><code>[-Wall]</code></td>
+<td>clang warning flags added to the compiler pass</td>
+</tr>
+<tr>
+<td><code>swift_flags</code></td>
+<td><code>[]</code></td>
+<td>extra swiftc flags for the Swift type-check</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td><code>[]</code></td>
+<td>paths not linted; diagnostics located there are dropped too</td>
+</tr>
+<tr>
+<td><code>clang_tidy</code></td>
+<td>auto</td>
+<td>run clang-tidy (auto = when installed)</td>
+</tr>
+<tr>
+<td><code>clang_tidy_checks</code></td>
+<td>idl’s set</td>
+<td>clang-tidy <code>Checks</code>; default is clang-analyzer, bugprone and performance checks minus noisy ones</td>
+</tr>
+<tr>
+<td><code>analyze</code></td>
+<td><code>false</code></td>
+<td>also run the clang static analyzer (<code>clang --analyze</code>)</td>
+</tr>
+<tr>
+<td><code>swift_format</code></td>
+<td><code>false</code></td>
+<td>also run <code>swift-format lint</code> with the generated style</td>
+</tr>
+</tbody>
+</table>
+<p><code>idl lint [target...]</code> first builds the targets and their dependencies
+incrementally, so that Swift modules and generated <code>&lt;Module&gt;-Swift.h</code> headers
+exist. It then re-runs each compiler with the target’s exact build flags. Every
+C-family file gets <code>clang -fsyntax-only</code>, with the target’s <code>-w</code>, <code>-Werror</code>
+and depfile flags removed and <code>lint.warnings</code> added. Each Swift module gets
+<code>swiftc -typecheck</code> with warnings enabled. clang-tidy, the static analyzer and
+<code>swift-format lint</code> reuse the same flags. Diagnostics from the SDK, from
+excluded paths, and duplicates of the same header warning across translation
+units are dropped. Options: <code>--werror</code>, <code>--analyze</code>, <code>--tidy</code>/<code>--no-tidy</code>,
+<code>-q</code> (summary only) and <code>--max N</code>. Errors exit 1, and so do warnings with
+<code>--werror</code>.</p>
+<p><code>tests:</code> (apps only) is a list of commands (argv lists). <code>idl test [target...]</code>
+builds the targets without running <code>post_build</code> (unless <code>--no-build</code>). It then
+checks each app’s built bundle:</p>
+<ul>
+<li>Every Mach-O must be arm64, built for iOS, and signed. Embedded code must
+not require a newer iOS than the app’s MinimumOSVersion; extensions are
+exempt.</li>
+<li>Every <code>@rpath</code>/<code>@loader_path</code>/<code>@executable_path</code> dependency must resolve
+inside the bundle, using the image’s own rpaths. System libraries must exist
+in the SDK. Private frameworks and weak links only produce warnings.</li>
+<li>Every framework and extension needs an Info.plist and an executable, with
+string version keys.</li>
+<li>Every extension’s bundle ID must be prefixed by the app’s, and it must have
+<code>NSExtension</code>/<code>EXAppExtensionAttributes</code>.</li>
+</ul>
+<p>After the checks, the <code>tests:</code> commands run in the target directory with
+<code>IDL_IPA</code>, <code>IDL_APP</code>, <code>IDL_BUILD_DIR</code>, <code>IDL_TARGET</code> and <code>IDL</code> set. Output is
+one PASS/FAIL line per check or command, then a summary.</p>
+<p>Tool paths can be set under <code>toolchain:</code> as <code>clang_format</code>, <code>clang_tidy</code> and
+<code>swift_format</code> (swift-format ships with the swiftly toolchain). A missing
+optional tool is skipped with a note.</p>
+<h3 id="code-generation"><a class="header-anchor" href="#code-generation">Code generation</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Generates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xcodeproj</code></td>
+<td><code>false</code></td>
+<td><code>&lt;dir&gt;/&lt;name&gt;.xcodeproj</code> (project + shared scheme)</td>
+</tr>
+<tr>
+<td><code>compile_commands</code></td>
+<td><code>false</code></td>
+<td><code>&lt;dir&gt;/compile_commands.json</code> (direct targets only)</td>
+</tr>
+<tr>
+<td><code>package_swift</code></td>
+<td><code>true</code></td>
+<td><code>&lt;dir&gt;/Package.swift</code> (xtool targets only)</td>
+</tr>
+<tr>
+<td><code>configuration</code></td>
+<td><code>release</code></td>
+<td>xtool build configuration (<code>debug</code>/<code>release</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>xtool targets always get a generated <code>xtool.yml</code>. Generated files start with a
+<code>Generated by idl from idlproj.yml</code> marker, and <code>idl</code> refuses to overwrite a
+file without that marker. To keep a hand-written <code>Package.swift</code>, set
+<code>package_swift: false</code>.</p>
+<p>An xtool target must have exactly one <code>sources</code> entry: the SwiftPM target
+directory.</p>
+<h2 id="configurations"><a class="header-anchor" href="#configurations">configurations</a></h2>
+<p>Select with <code>-c debug</code> / <code>--configuration release</code> on <code>build</code>, <code>install</code>,
+<code>check</code>, <code>gen</code>, <code>xcodeproj</code>, <code>list</code> and <code>clean</code>:</p>
+<pre><code class="language-yaml"><span class="hljs-attr">configurations:</span>
+  <span class="hljs-attr">debug:</span>
+    <span class="hljs-attr">info:</span>
+      <span class="hljs-attr">CFBundleDisplayName:</span> <span class="hljs-string">My</span> <span class="hljs-string">App</span> <span class="hljs-string">Debug</span>
+  <span class="hljs-attr">release:</span>
+    <span class="hljs-attr">defines:</span> [<span class="hljs-string">PRODUCTION</span>]
+    <span class="hljs-attr">entitlements:</span>
+      <span class="hljs-attr">get-task-allow:</span> <span class="hljs-literal">false</span>
+
+<span class="hljs-attr">targets:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">MyApp</span>
+    <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.myapp</span>
+    <span class="hljs-attr">configurations:</span>
+      <span class="hljs-attr">debug:</span>
+        <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.myapp.debug</span>
+        <span class="hljs-attr">entitlements:</span>
+          <span class="hljs-attr">get-task-allow:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<p>Built-in debug settings: <code>opt: -O0</code>, <code>swift_opt: -Onone</code>, <code>debug_symbols: true</code>,
+and an additional <code>DEBUG</code> define. Built-in release settings: <code>-Os</code>, <code>-O</code>, no
+DWARF; an inherited YAML <code>get-task-allow</code> is set to false. Profile overrides
+can explicitly change those defaults. No entitlement file is manufactured
+for an app that requested no capabilities. For a legacy entitlement-file
+input, explicitly override entitlements in the release profile if needed.</p>
+<p>Precedence, lowest first: <code>defaults</code> -&gt; target -&gt; built-in profile -&gt; global
+<code>configurations.&lt;name&gt;</code> -&gt; target <code>configurations.&lt;name&gt;</code>. Mappings merge
+recursively, lists replace rather than append, and <code>~</code> clears an optional
+value. <code>DEBUG</code> is appended after merging for debug builds.</p>
+<p>Supported profile overrides: <code>bundle_id</code>, <code>opt</code>, <code>swift_opt</code>, <code>debug_symbols</code>,
+<code>defines</code>, <code>info</code>, <code>entitlements</code>, <code>plist_vars</code>, <code>build_dir</code>, <code>cflags</code>,
+<code>swiftflags</code>, <code>ldflags</code>, <code>strict</code>, <code>sign</code>. Targets, source lists and dependencies
+are not profile-dependent. Unknown profile names/keys are errors.</p>
+<p>Profile output paths are <code>&lt;build_dir&gt;/debug/</code> and <code>&lt;build_dir&gt;/release/</code>, for
+both builders (xtool’s IPA is copied to that profile path). Xcode receives
+matching optimization, defines, debug-symbol, signing and metadata settings.
+With no <code>-c</code>, legacy flags and output paths are preserved; the old target
+<code>configuration:</code> key still chooses xtool’s underlying configuration.</p>
+<h2 id="defaults"><a class="header-anchor" href="#defaults">defaults</a></h2>
+<p><code>defaults:</code> accepts any target key except <code>name</code>, <code>dir</code> and <code>bundle_id</code>. A
+target overrides defaults recursively for mappings (<code>info</code>, <code>entitlements</code>, etc.);
+lists are replaced, not merged, and <code>~</code> clears an optional mapping/value.</p>
+<h2 id="complete-example"><a class="header-anchor" href="#complete-example">Complete example</a></h2>
+<pre><code class="language-yaml"><span class="hljs-attr">toolchain:</span>
+  <span class="hljs-attr">jobs:</span> <span class="hljs-number">8</span>
+
+<span class="hljs-attr">defaults:</span>
+  <span class="hljs-attr">min_ios:</span> <span class="hljs-string">&quot;16.0&quot;</span>
+  <span class="hljs-attr">compile_commands:</span> <span class="hljs-literal">true</span>
+
+<span class="hljs-attr">targets:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">MyApp</span>
+    <span class="hljs-attr">dir:</span> <span class="hljs-string">app</span>
+    <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.myapp</span>
+    <span class="hljs-attr">version:</span> <span class="hljs-string">&quot;2.1&quot;</span>
+    <span class="hljs-attr">build_number:</span> <span class="hljs-string">&quot;37&quot;</span>
+    <span class="hljs-attr">sources:</span> [<span class="hljs-string">Sources</span>]
+    <span class="hljs-attr">resources:</span> [<span class="hljs-string">Resources</span>]
+    <span class="hljs-attr">bridging_header:</span> <span class="hljs-string">Sources/MyApp-Bridging-Header.h</span>
+    <span class="hljs-attr">defines:</span> [<span class="hljs-string">ENABLE_LOGGING</span>, <span class="hljs-string">&#x27;API_HOST=&quot;api.example.com&quot;&#x27;</span>]
+    <span class="hljs-attr">frameworks:</span> [<span class="hljs-string">UIKit</span>, <span class="hljs-string">Foundation</span>, <span class="hljs-string">AVFoundation</span>]
+    <span class="hljs-attr">libraries:</span> [<span class="hljs-string">z</span>]
+    <span class="hljs-attr">entitlements:</span>
+      <span class="hljs-attr">get-task-allow:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">plist_vars:</span>
+      <span class="hljs-attr">APP_GROUP:</span> <span class="hljs-string">group.com.example.myapp</span>
+    <span class="hljs-attr">info:</span>
+      <span class="hljs-attr">CFBundleDisplayName:</span> <span class="hljs-string">My</span> <span class="hljs-string">App</span>
+      <span class="hljs-attr">UIFileSharingEnabled:</span> <span class="hljs-literal">true</span>
+      <span class="hljs-attr">UIBackgroundModes:</span> [<span class="hljs-string">audio</span>]
+    <span class="hljs-attr">xcodeproj:</span> <span class="hljs-literal">true</span>
+
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Companion</span>
+    <span class="hljs-attr">builder:</span> <span class="hljs-string">xtool</span>
+    <span class="hljs-attr">dir:</span> <span class="hljs-string">companion</span>
+    <span class="hljs-attr">bundle_id:</span> <span class="hljs-string">com.example.companion</span>
+    <span class="hljs-attr">sources:</span> [<span class="hljs-string">Sources/Companion</span>]
+    <span class="hljs-attr">info:</span>
+      <span class="hljs-attr">CFBundleDisplayName:</span> <span class="hljs-string">My</span> <span class="hljs-string">App</span>
+    <span class="hljs-attr">frameworks:</span> [<span class="hljs-string">UIKit</span>]
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/idl/blob/main/docs/configuration.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iOS development on Linux · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/idl">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs/architecture.html">Architecture</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="docs/configuration.html">idlproj.yml reference</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="docs/getting-started.html">Getting started</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="docs/limitations.html">Known limitations</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="docs/workflows.html">Common workflows</a>
+
+
+  </li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="ios-development-on-linux"><a class="header-anchor" href="#ios-development-on-linux">iOS development on Linux</a></h1>
+<p><code>idl</code> is a small Zig tool that builds Objective-C, Swift, C and C++ iOS apps
+on Linux. One file, <code>idlproj.yml</code>, configures the toolchain and every app.
+From that file <code>idl</code>:</p>
+<ul>
+<li>generates code: deterministic <code>.xcodeproj</code> projects with a shared scheme,
+<code>xtool.yml</code> + <code>Package.swift</code> for xtool, and <code>compile_commands.json</code> for
+clangd / sourcekit-lsp</li>
+<li>runs builds: it calls clang, swiftc, xtool’s <code>ld64.lld</code> and <code>ldid</code>,
+processes Info.plist, compiles storyboards, XIBs and asset catalogs, copies
+resources, ad-hoc signs, writes the IPA, and checks the result</li>
+</ul>
+<p>The build steps come from the Linux build used by LiveContainer.</p>
+<h2 id="quick-start"><a class="header-anchor" href="#quick-start">Quick start</a></h2>
+<pre><code>xtool setup                   # Darwin SDK -&gt; ~/.swiftpm/swift-sdks/darwin.artifactbundle
+zig build                     # builds ./zig-out/bin/idl (Zig 0.14.1)
+./zig-out/bin/idl check       # verify the toolchain
+zig build actool              # optional: .xcassets compiler (needs swift)
+./zig-out/bin/idl build --strict -c release  # preflight, then build every example
+</code></pre>
+<p>Install on a phone through the running Jimpactor tray app:</p>
+<pre><code>idl devices list
+idl install &quot;JPs iPhone&quot; MyApp
+</code></pre>
+<p>Start a new app:</p>
+<pre><code>idl init MyApp --lang swift --bundle-id com.example.myapp
+cd MyApp &amp;&amp; idl build
+</code></pre>
+<h2 id="build-automation"><a class="header-anchor" href="#build-automation">Build automation</a></h2>
+<pre><code>idl check --strict -c release
+idl build --strict -c debug MyApp
+idl build --strict -c release MyApp
+</code></pre>
+<p>YAML <code>configurations:</code> overrides flags, bundle identity, metadata and entitlements.
+Debug/release artifacts are isolated. Direct builds cache resource compilation,
+bundling, signing and packaging; concurrent build/gen/clean operations are locked.
+See <a href="docs/workflows.html#strict-preflight-and-build-profiles">workflows</a>.</p>
+<h2 id="code-quality"><a class="header-anchor" href="#code-quality">Code quality</a></h2>
+<pre><code>idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
+idl lint [--analyze]   # clang -Wall, swiftc -typecheck, clang-tidy, analyzer, all with the real build flags
+idl test               # bundle checks (arm64/iOS/signed, @rpath resolution, plists) + `tests:` commands
+</code></pre>
+<p>idl only orchestrates installed tools and merges their diagnostics into one
+report. See <a href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">configuration</a>.</p>
+<h2 id="layout"><a class="header-anchor" href="#layout">Layout</a></h2>
+<pre><code>idlproj.yml        configuration for the examples in this repository
+build.zig(.zon)    Zig build; pulls zig-clap, zig-yaml, zig-xml and libplist
+src/               the idl tool (see docs/architecture.md)
+tools/idl-actool/  Swift wrapper around AssetKit for .xcassets
+examples/          ObjC, Swift, storyboard/XIB/asset-catalog and xtool/SwiftPM
+                   apps, plus xcconfig patterns
+docs/              documentation
+</code></pre>
+<h2 id="documentation"><a class="header-anchor" href="#documentation">Documentation</a></h2>
+<ul>
+<li><a href="docs/getting-started.html">Getting started</a></li>
+<li><a href="docs/configuration.html">idlproj.yml reference</a></li>
+<li><a href="docs/workflows.html">Common workflows</a></li>
+<li><a href="docs/limitations.html">Known limitations</a></li>
+<li><a href="docs/architecture.html">Architecture</a></li>
+</ul>
+<h2 id="tests"><a class="header-anchor" href="#tests">Tests</a></h2>
+<pre><code>zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
+zig build check      # idl check
+zig build examples   # idl build --gen for every example (real arm64 builds)
+</code></pre>
+<p>Ad-hoc <code>ldid</code> signatures are not provisioning. Re-sign an IPA with your usual
+signing or sideloading tool before you install it.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/idl/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
