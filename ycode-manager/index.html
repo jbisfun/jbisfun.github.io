@@ -82,9 +82,10 @@ its hook file), where it links to, and whether it is enabled.</p>
 <p data-line="8">Disable moves a mod into <code>hooks/.disabled/</code> (the loader skips dot-directories); Enable
 moves it back. “Reload hooks” applies the changes and reopens the manager.</p>
 <h2 id="install" data-line="11"><a class="header-anchor" href="#install">Install</a></h2>
-<pre data-line="13"><code>ln -s ~/jbisfun/ycode-manager ~/.config/zed/hooks/ycode-manager
+<pre data-line="13"><code># from the ycode-manager clone
+ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-manager
 </code></pre>
-<p data-line="15">then “ycode: reload hooks”. Needs ycode with <code>ycode.status_button</code>.</p>
+<p data-line="16">then “ycode: reload hooks”. Needs ycode with <code>ycode.status_button</code>.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

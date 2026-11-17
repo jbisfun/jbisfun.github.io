@@ -112,7 +112,7 @@ just serve   <span class="hljs-comment"># demo page on http://localhost:8000</sp
 <ul data-line="43">
 <li data-line="43">Builds for <code>wasm32-unknown-unknown</code> with nusb’s WebUSB backend. On that target, the daemon, Wi-Fi and filesystem parts are compiled out. Tasks run on the page’s event loop (<code>rt.rs</code>). WebUSB handles are marked <code>Send</code> because wasm without atomics is single-threaded.</li>
 <li data-line="44"><code>preflight_with_buid</code> lets the host supply its own SystemBUID.</li>
-<li data-line="45"><code>idevice</code> is pinned to <code>=0.1.68</code> (Jimpactor’s pin).</li>
+<li data-line="45"><code>idevice</code> is pinned to <code>=0.1.68</code> exactly (<code>=</code>), because the vendored code is written against that release.</li>
 <li data-line="46">The lockdown directory can be set with <code>rusbmux::handler::set_lockdown_path</code>, so the native daemon runs unprivileged.</li>
 </ul>
 

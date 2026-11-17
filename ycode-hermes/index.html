@@ -93,22 +93,24 @@ credentials; change the model with <code>hermes model</code>.</p>
 and <code>session/load</code> include CLI, TUI/desktop and gateway sessions (stock <code>hermes acp</code> only
 shows sessions an editor created). Subagent, cron and one-shot sessions stay hidden.
 Install it once:</p>
-<pre data-line="25"><code>ln -s ~/jbisfun/ycode-hermes/hermes-plugin ~/.hermes/plugins/ycode-hermes
+<pre data-line="25"><code># from the ycode-hermes clone
+ln -s &quot;$PWD/hermes-plugin&quot; ~/.hermes/plugins/ycode-hermes
 hermes plugins enable ycode-hermes
 </code></pre>
-<h2 id="sidebar" data-line="28"><a class="header-anchor" href="#sidebar">Sidebar</a></h2>
-<p data-line="30">Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
+<h2 id="sidebar" data-line="29"><a class="header-anchor" href="#sidebar">Sidebar</a></h2>
+<p data-line="31">Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
 (<code>session/list</code>) and shown as threads in the sidebar, 5 seconds after startup and then
 every 2 minutes, through ycode’s <code>agent::SyncAgentThreads</code> action. Only sessions whose
 working directory is an open folder or below it are shown; Hermes threads from other
 directories are taken out of the sidebar (they stay in Hermes and return when their folder
 is open). Opening one
 loads it from Hermes (<code>session/load</code>).</p>
-<p data-line="38">At startup the plugin resolves <code>hermes</code> on PATH and runs the ACP check in the background.</p>
-<h2 id="install" data-line="40"><a class="header-anchor" href="#install">Install</a></h2>
-<pre data-line="42"><code>ln -s ~/jbisfun/ycode-hermes ~/.config/zed/hooks/ycode-hermes
+<p data-line="39">At startup the plugin resolves <code>hermes</code> on PATH and runs the ACP check in the background.</p>
+<h2 id="install" data-line="41"><a class="header-anchor" href="#install">Install</a></h2>
+<pre data-line="43"><code># from the ycode-hermes clone
+ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-hermes
 </code></pre>
-<p data-line="44">then “ycode: reload hooks”.</p>
+<p data-line="46">then “ycode: reload hooks”.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

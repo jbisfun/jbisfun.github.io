@@ -88,36 +88,32 @@ ycode’s <code>lua_hooks</code> (<code>gpui.open_window</code>).</p>
 ctrl-enter commits through <code>pull commit</code>, so pullfile lint rules and hooks apply), and
 workspace worktrees. Commands run in the background and stream their output.</p>
 <h2 id="install" data-line="10"><a class="header-anchor" href="#install">Install</a></h2>
-<pre data-line="12"><code>ln -s ~/jbisfun/ycode-pull ~/.config/zed/hooks/ycode-pull
+<pre data-line="12"><code># from the ycode-pull clone
+ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-pull
 </code></pre>
-<p data-line="14">then “ycode: reload hooks”. Open it with</p>
-<pre data-line="16"><code>ycode.dispatch(&quot;pull::Open&quot;)                       -- executor
+<p data-line="15">then “ycode: reload hooks”. Open it with</p>
+<pre data-line="17"><code>ycode.dispatch(&quot;pull::Open&quot;)                       -- executor
 &quot;ctrl-alt-p&quot;: [&quot;ycode::Run&quot;, { &quot;name&quot;: &quot;pull::Open&quot; }]   -- keymap.json
 </code></pre>
-<p data-line="19">The workspace root is <code>$PULL_ROOT</code> (set by <code>pull shell</code> / <code>pull env</code>), else the nearest
+<p data-line="20">The workspace root is <code>$PULL_ROOT</code> (set by <code>pull shell</code> / <code>pull env</code>), else the nearest
 <code>pullfile.plist</code> above a folder open in ycode (active window first), else above ycode’s
 working directory; it can be changed in
 the window. <code>pull</code> must be on ycode’s PATH.</p>
-<h2 id="changes-panel" data-line="24"><a class="header-anchor" href="#changes-panel">Changes panel</a></h2>
-<p data-line="26">A “Pull” dock panel (left dock, branch icon; “pull: changes” toggles it) shows every
-repo’s changes in one list, grouped by repo, with branch and ahead/behind. Click a file to
-open it; click its box to stage or unstage it (<code>pull add</code> / <code>pull unstage</code>), or stage a
-whole repo. The commit box sends one message to every repo with staged changes through
-<code>pull commit</code> (all tracked changes, <code>-a</code>, when nothing is staged), so the pullfile’s lint
-rules and hooks apply; the character counter uses the pullfile’s subject limit.
-Sync, Update and Push run for the whole workspace. In a pull workspace, Zed’s git panel
-(one repository at a time) is hidden.</p>
-<h2 id="jobs-panel" data-line="35"><a class="header-anchor" href="#jobs-panel">Jobs panel</a></h2>
-<p data-line="37">“pull: jobs” (or the Jobs button in the pull window) toggles a bottom-dock panel listing
-the pullfile’s <code>jobs</code> (including ones not loaded yet) and ad-hoc terminal sessions
-(<code>pull launchctl</code> / <code>pull session</code>), with what each terminal is running, its directory,
-pid and last exit. The inspector shows the selected terminal’s live screen: type into it
-(Run presses enter), send ctrl-c, start / stop / restart, load and start an unloaded job,
-unload a job or remove a session, or open it in your terminal (<code>$TERMINAL</code>, else
-<code>xdg-terminal-exec</code>, else <code>x-terminal-emulator</code>; runs <code>pull session attach</code>). New sessions
-start with a shell or a command.</p>
-<h2 id="mcp" data-line="46"><a class="header-anchor" href="#mcp">MCP</a></h2>
-<p data-line="48">In a pull workspace the plugin registers <code>pull mcp --root &lt;root&gt;</code> as an MCP server
+<h2 id="changes-panel" data-line="25"><a class="header-anchor" href="#changes-panel">Changes panel</a></h2>
+<p data-line="27">“pull: changes” toggles a left-dock panel with every repo’s changes, branch and ahead/behind.</p>
+<ul data-line="29">
+<li data-line="29">Click a file to open it; tick it (or a repo) to stage via <code>pull add</code> / <code>pull unstage</code>.</li>
+<li data-line="30">Commit runs <code>pull commit</code> (<code>-a</code> if nothing is staged), with the pullfile’s lint and hooks.</li>
+<li data-line="31">Sync, Update and Push act on the whole workspace. Zed’s git panel is hidden.</li>
+</ul>
+<h2 id="jobs-panel" data-line="33"><a class="header-anchor" href="#jobs-panel">Jobs panel</a></h2>
+<p data-line="35">“pull: jobs” toggles a bottom-dock panel with the pullfile’s <code>jobs</code> and ad-hoc sessions. The inspector shows the selected terminal live:</p>
+<ul data-line="37">
+<li data-line="37">type into it, send ctrl-c, start/stop/restart, load or unload a job, remove a session</li>
+<li data-line="38">open it in <code>$TERMINAL</code> (via <code>pull session attach</code>)</li>
+</ul>
+<h2 id="mcp" data-line="40"><a class="header-anchor" href="#mcp">MCP</a></h2>
+<p data-line="42">In a pull workspace the plugin registers <code>pull mcp --root &lt;root&gt;</code> as an MCP server
 (<code>context_servers.pull</code>, in-memory settings layer), so ycode’s agent gets pull’s
 workspace, search, exec and terminal-session tools; ycode forwards it to ACP agents such
 as Hermes too.</p>
