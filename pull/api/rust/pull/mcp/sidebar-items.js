@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["MAX_OUTPUT"],"fn":["blocking","err","format_time","serve","truncate"],"struct":["DiffArgs","ExecArgs","FilesArgs","GrepArgs","JobArgs","LogArgs","NameArg","PullMcp","ReadArgs","RepoArg","RunArgs","SendArgs","SessionNewArgs"],"type":["ToolResult"]};

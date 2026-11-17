@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["serve"],"struct":["DiffArgs","ExecArgs","FilesArgs","GrepArgs","LogArgs","PullMcp","ReadArgs","RepoArg"],"type":["EnvProvider"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["SECTION"],"enum":["KeepAlive","Request","Response"],"fn":["socket_path","state_dir"],"mod":["client","daemon","procinfo"],"struct":["Job","JobStatus"]};

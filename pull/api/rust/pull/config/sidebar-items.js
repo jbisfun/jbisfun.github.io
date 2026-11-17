@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["LOCAL","PULLFILE"],"enum":["EmailPolicy"],"fn":["default_branch","find_root","resolve_identity"],"struct":["Env","Hooks","Identity","IdentityPolicy","Lint","Local","OrgIdentity","Pullfile","Repo"]};

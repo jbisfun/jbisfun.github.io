@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["COLS","FRAME_DATA","FRAME_RESIZE","ROWS","SCROLLBACK"],"fn":["expand","job_cwd","run","workspace_env"],"struct":["Daemon","Entry","Proc"]};

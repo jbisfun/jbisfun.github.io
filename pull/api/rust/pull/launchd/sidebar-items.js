@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["KeepAlive","Request","Response"],"fn":["socket_path","state_dir"],"mod":["client","daemon","procinfo"],"struct":["Job","JobStatus"]};
+window.SIDEBAR_ITEMS = {"fn":["daemon","launchctl","pullfile_jobs","session"]};
