@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["call_point","hooks_dir","init","install"],"mod":["panel","preprocess","runtime","status","ui"],"struct":["ReloadHooks","Run","TogglePanel"]};

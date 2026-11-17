@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Building Zed for Linux · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a class="active" aria-current="page" href="linux.html">Linux</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="freebsd.html">FreeBSD</a></li>
+<li><a href="debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="release-notes.html">Release Notes</a></li>
+<li><a href="debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="building-zed-for-linux"><a class="header-anchor" href="#building-zed-for-linux">Building Zed for Linux</a></h1>
+<h2 id="repository"><a class="header-anchor" href="#repository">Repository</a></h2>
+<p>Clone the <a href="https://github.com/zed-industries/zed">Zed repository</a>.</p>
+<h2 id="dependencies"><a class="header-anchor" href="#dependencies">Dependencies</a></h2>
+<ul>
+<li>
+<p>Install <a href="https://www.rust-lang.org/tools/install">rustup</a></p>
+</li>
+<li>
+<p>Install the necessary system libraries:</p>
+<pre><code class="language-sh">script/linux
+</code></pre>
+<p>If you prefer to install the system libraries manually, you can find the list of required packages in the <code>script/linux</code> file.</p>
+</li>
+</ul>
+<h2 id="building-from-source"><a class="header-anchor" href="#building-from-source">Building from source</a></h2>
+<p>Once the dependencies are installed, you can build Zed using <a href="https://doc.rust-lang.org/cargo/">Cargo</a>.</p>
+<p>For a debug build of the editor:</p>
+<pre><code class="language-sh">cargo run
+</code></pre>
+<p>And to run the tests:</p>
+<pre><code class="language-sh">cargo <span class="hljs-built_in">test</span> --workspace
+</code></pre>
+<p>In release mode, the primary user interface is the <code>cli</code> crate. You can run it in development with:</p>
+<pre><code class="language-sh">cargo run -p cli
+</code></pre>
+<h2 id="installing-a-development-build"><a class="header-anchor" href="#installing-a-development-build">Installing a development build</a></h2>
+<p>You can install a local build on your machine with:</p>
+<pre><code class="language-sh">./script/install-linux
+</code></pre>
+<p>This builds <code>zed</code> and the <code>cli</code> in release mode, installs the binary at <code>~/.local/bin/zed</code>, and installs <code>.desktop</code> files to <code>~/.local/share</code>.</p>
+<h2 id="wayland-%26-x11"><a class="header-anchor" href="#wayland-%26-x11">Wayland &amp; X11</a></h2>
+<p>Zed supports both X11 and Wayland. By default, we pick whichever we can find at runtime. If you’re on Wayland and want to run in X11 mode, use the environment variable <code>WAYLAND_DISPLAY=''</code>.</p>
+<h2 id="notes-for-packaging-zed"><a class="header-anchor" href="#notes-for-packaging-zed">Notes for packaging Zed</a></h2>
+<p>This section is for distribution maintainers packaging Zed.</p>
+<h3 id="technical-requirements"><a class="header-anchor" href="#technical-requirements">Technical requirements</a></h3>
+<p>Zed has two main binaries:</p>
+<ul>
+<li>You will need to build <code>crates/cli</code> and make its binary available in <code>$PATH</code> with the name <code>zed</code>.</li>
+<li>You will need to build <code>crates/zed</code> and put it at <code>$PATH/to/cli/../../libexec/zed-editor</code>. For example, if you are going to put the cli at <code>~/.local/bin/zed</code> put zed at <code>~/.local/libexec/zed-editor</code>. As some linux distributions (notably Arch) discourage the use of <code>libexec</code>, you can also put this binary at <code>$PATH/to/cli/../../lib/zed/zed-editor</code> (e.g. <code>~/.local/lib/zed/zed-editor</code>) instead.</li>
+<li>If you are going to provide a <code>.desktop</code> file you can find a template in <code>crates/zed/resources/zed.desktop.in</code>, and use <code>envsubst</code> to populate it with the values required. This file should also be renamed to <code>$APP_ID.desktop</code> so that the file <a href="https://github.com/zed-industries/zed/issues/12707#issuecomment-2168742761">follows the FreeDesktop standards</a>. You should also make this desktop file executable (<code>chmod 755</code>).</li>
+<li>You will need to ensure that the necessary libraries are installed. You can get the current list by <a href="https://github.com/zed-industries/zed/blob/935cf542aebf55122ce6ed1c91d0fe8711970c82/script/bundle-linux#L65-L67">inspecting the built binary</a> on your system.</li>
+<li>For an example of a complete build script, see <a href="https://github.com/zed-industries/zed/blob/935cf542aebf55122ce6ed1c91d0fe8711970c82/script/bundle-linux">script/bundle-linux</a>.</li>
+<li>You can disable Zed’s auto updates and provide instructions for users who try to update Zed manually by building (or running) Zed with the environment variable <code>ZED_UPDATE_EXPLANATION</code>. For example: <code>ZED_UPDATE_EXPLANATION=&quot;Please use flatpak to update zed.&quot;</code>.</li>
+<li>Make sure to update the contents of the <code>crates/zed/RELEASE_CHANNEL</code> file to ‘nightly’, ‘preview’, or ‘stable’, with no newline. This will cause Zed to use the credentials manager to remember a user’s login.</li>
+</ul>
+<h3 id="other-things-to-note"><a class="header-anchor" href="#other-things-to-note">Other things to note</a></h3>
+<p>Zed moves quickly, and distribution maintainers often have different constraints and priorities. The points below describe current trade-offs:</p>
+<ul>
+<li>Zed is a fast-moving project. We typically publish 2-3 builds per week to address reported issues and ship larger changes.</li>
+<li>There are a couple of other <code>zed</code> binaries that may be present on Linux systems (<a href="https://openzfs.github.io/openzfs-docs/man/v2.2/8/zed.8.html">1</a>, <a href="https://zed.brimdata.io/docs/commands/zed">2</a>). If you want to rename our CLI binary because of these issues, we suggest <code>zedit</code>, <code>zeditor</code>, or <code>zed-cli</code>.</li>
+<li>Zed automatically installs versions of common developer tools, similar to rustup/rbenv/pyenv. This behavior is discussed <a href="https://github.com/zed-industries/zed/issues/12589">here</a>.</li>
+<li>Users can install extensions locally and from <a href="https://github.com/zed-industries/extensions">zed-industries/extensions</a>. Extensions may install additional tools such as language servers. Planned safety improvements are tracked <a href="https://github.com/zed-industries/zed/issues/12358">here</a>.</li>
+<li>Zed connects to several online services by default (AI, telemetry, collaboration). AI and our telemetry can be disabled by your users with their zed settings or by patching our <a href="https://github.com/zed-industries/zed/blob/main/assets/settings/default.json">default settings file</a>.</li>
+<li>Because of the points above, Zed currently does not work well with sandboxes. See <a href="https://github.com/zed-industries/zed/pull/12006#issuecomment-2130421220">this discussion</a>.</li>
+</ul>
+<h2 id="flatpak"><a class="header-anchor" href="#flatpak">Flatpak</a></h2>
+<blockquote>
+<p>Zed’s current Flatpak integration exits the sandbox on startup. Workflows that rely on Flatpak’s sandboxing may not work as expected.</p>
+</blockquote>
+<p>To build &amp; install the Flatpak package locally follow the steps below:</p>
+<ol>
+<li>Install Flatpak for your distribution as outlined <a href="https://flathub.org/setup">here</a>.</li>
+<li>Run the <code>script/flatpak/deps</code> script to install the required dependencies.</li>
+<li>Run <code>script/flatpak/bundle-flatpak</code>.</li>
+<li>Now the package has been installed and has a bundle available at <code>target/release/{app-id}.flatpak</code>.</li>
+</ol>
+<h2 id="memory-profiling"><a class="header-anchor" href="#memory-profiling">Memory profiling</a></h2>
+<p><a href="https://github.com/KDE/heaptrack"><code>heaptrack</code></a> is quite useful for diagnosing memory leaks. To install it:</p>
+<pre><code class="language-sh">$ <span class="hljs-built_in">sudo</span> apt install heaptrack heaptrack-gui
+$ cargo install cargo-heaptrack
+</code></pre>
+<p>Then, to build and run Zed with the profiler attached:</p>
+<pre><code class="language-sh">$ cargo heaptrack -b zed
+</code></pre>
+<p>When this zed instance is exited, terminal output will include a command to run <code>heaptrack_interpret</code> to convert the <code>*.raw.zst</code> profile to a <code>*.zst</code> file which can be passed to <code>heaptrack_gui</code> for viewing.</p>
+<h2 id="perf-recording"><a class="header-anchor" href="#perf-recording">Perf recording</a></h2>
+<p>How to get a flamegraph with resolved symbols from a running Zed instance.
+Use this when Zed is using a lot of CPU. It is not useful for hangs.</p>
+<h3 id="during-the-incident"><a class="header-anchor" href="#during-the-incident">During the incident</a></h3>
+<ul>
+<li>
+<p>Find the PID (process ID) using:
+<code>ps -eo size,pid,comm | grep zed | sort | head -n 1 | cut -d ' ' -f 2</code>
+Or find the PID of <code>zed-editor</code> with the highest RAM usage in something
+like htop/btop/top.</p>
+</li>
+<li>
+<p>Install perf:
+On Ubuntu (derivatives) run <code>sudo apt install linux-tools</code>.</p>
+</li>
+<li>
+<p>Perf record:
+Run <code>sudo perf record -g --call-graph dwarf -p &lt;pid you just found&gt;</code>, wait a few seconds to gather data, then press Ctrl+C. You should now have a <code>perf.data</code> file.
+The <code>--call-graph dwarf</code> option records callers of every sampled function and unwinds through the <code>.eh_frame</code> data kept in stripped release binaries; plain <code>-g</code> does not work without frame pointers.</p>
+</li>
+<li>
+<p>Make the output file user owned:
+run <code>sudo chown $USER:$USER perf.data</code></p>
+</li>
+<li>
+<p>Get build info:
+Run zed again and type <code>zed::About</code> in the command pallet to get the exact commit.</p>
+</li>
+</ul>
+<p>The <code>perf.data</code> file can be sent to Zed together with the exact commit.</p>
+<h3 id="later"><a class="header-anchor" href="#later">Later</a></h3>
+<p>This can be done by Zed staff.</p>
+<p>Released Linux binaries are stripped, but the unstripped binary for every release is archived in Sentry (uploaded by <code>script/bundle-linux</code>).
+Download it from the Sentry project’s Debug Files page (search by the release version or the binary’s build id), then continue with the <code>perf buildid-cache</code> step below.
+Stripping preserves the build id, so the downloaded binary matches the user’s <code>perf.data</code>.</p>
+<p>Alternatively, rebuild the binary with symbols:</p>
+<ul>
+<li>Check out the commit found previously and modify <code>Cargo.toml</code>.
+Apply the following diff, then make a release build.</li>
+</ul>
+<pre><code class="language-diff">[profile.release]
+<span class="hljs-deletion">-debug = &quot;limited&quot;</span>
+<span class="hljs-addition">+debug = &quot;full&quot;</span>
+</code></pre>
+<ul>
+<li>
+<p>Add the symbols to the perf database:
+<code>perf buildid-cache -v -a &lt;path to release zed binary&gt;</code></p>
+</li>
+<li>
+<p>Resolve the symbols from the db:
+<code>perf inject -i perf.data -o perf_with_symbols.data</code></p>
+</li>
+<li>
+<p>Install flamegraph:
+<code>cargo install cargo-flamegraph</code></p>
+</li>
+<li>
+<p>Render the flamegraph:
+<code>flamegraph --perfdata perf_with_symbols.data</code></p>
+</li>
+</ul>
+<h2 id="troubleshooting"><a class="header-anchor" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="cargo-errors-claiming-that-a-dependency-is-using-unstable-features"><a class="header-anchor" href="#cargo-errors-claiming-that-a-dependency-is-using-unstable-features">Cargo errors claiming that a dependency is using unstable features</a></h3>
+<p>Try <code>cargo clean</code> and <code>cargo build</code>.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/development/linux.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

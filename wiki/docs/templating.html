@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Templating · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/wiki">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/js/index.html">wiki</a> <span class="badge text-bg-light">JavaScript</span></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+<ul class="list-unstyled"><li><a href="index.html">wiki</a></li></ul>
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a class="active" aria-current="page" href="templating.html">Templating</a>
+
+
+  </li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1>Templating</h1>
+<p>Any <code>.ejs</code> file in a repo's <code>docs/</code> (or in <code>wiki/pages/</code>) is a page, rendered like a PHP file: HTML with embedded code. This page is <code>wiki/docs/templating.ejs</code>.</p>
+
+<h2>Tags</h2>
+<table class="table table-sm">
+  <tr><td><code>&lt;% code %&gt;</code></td><td>run JavaScript (loops, ifs)</td></tr>
+  <tr><td><code>&lt;%= value %&gt;</code></td><td>print, HTML-escaped</td></tr>
+  <tr><td><code>&lt;%- html %&gt;</code></td><td>print raw HTML</td></tr>
+  <tr><td><code>&lt;%- include('partials/footer') %&gt;</code></td><td>include a template from <code>wiki/templates</code> or a relative path</td></tr>
+</table>
+
+<h2>Variables</h2>
+<ul>
+  <li><code>site</code>: <code>title</code>, <code>repos</code>, <code>pages</code></li>
+  <li><code>repo</code>: the current repo (<code>name</code>, <code>pages</code>, <code>readmePage</code>, <code>docPages</code>, <code>apis</code> (<code>{tool, title, label, out}</code>), <code>description</code>, <code>web</code>, <code>head</code>, ...)</li>
+  <li><code>page</code>: <code>title</code>, <code>out</code>, front matter as <code>page.data</code></li>
+  <li><code>url(path)</code>: site-relative path to a link from this page</li>
+  <li><code>md(source)</code>: render markdown</li>
+</ul>
+<p>Front matter <code>layout: false</code> skips <code>templates/layout.ejs</code>; <code>layout: other.ejs</code> picks another one. Markdown pages can opt in to EJS with <code>ejs: true</code>.</p>
+
+<h2>Live example</h2>
+<p>This workspace has 8 repos and 209 pages:</p>
+<ul>
+
+  <li><a href="../../pull/index.html">pull</a>: 0 doc pages, 1 code references</li>
+
+  <li><a href="../../ycode/index.html">ycode</a>: 198 doc pages, 1 code references</li>
+
+  <li><a href="../../dotenv/index.html">dotenv</a>: 0 doc pages, 0 code references</li>
+
+  <li><a href="../../ycode-pull/index.html">ycode-pull</a>: 0 doc pages, 1 code references</li>
+
+  <li><a href="../../ycode-offline/index.html">ycode-offline</a>: 0 doc pages, 0 code references</li>
+
+  <li><a href="../../ycode-hermes/index.html">ycode-hermes</a>: 0 doc pages, 0 code references</li>
+
+  <li><a href="../../ycode-manager/index.html">ycode-manager</a>: 0 doc pages, 0 code references</li>
+
+  <li><a href="../index.html">wiki</a>: 2 doc pages, 1 code references</li>
+
+</ul>
+<p>Rendered by <code>md()</code> from <strong>markdown</strong> inside a template.</p>
+
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/wiki/blob/main/docs/templating.ejs">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

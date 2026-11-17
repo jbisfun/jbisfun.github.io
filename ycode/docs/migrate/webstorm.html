@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Migrate from WebStorm to Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="vs-code.html">VS Code</a></li>
+<li><a href="intellij.html">IntelliJ IDEA</a></li>
+<li><a href="pycharm.html">PyCharm</a></li>
+<li><a class="active" aria-current="page" href="webstorm.html">WebStorm</a></li>
+<li><a href="rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="how-to-migrate-from-webstorm-to-zed"><a class="header-anchor" href="#how-to-migrate-from-webstorm-to-zed">How to Migrate from WebStorm to Zed</a></h1>
+<p>This guide covers how to set up Zed if you’re coming from WebStorm, including keybindings, settings, and the differences you should expect as a JavaScript/TypeScript developer.</p>
+<h2 id="install-zed"><a class="header-anchor" href="#install-zed">Install Zed</a></h2>
+<p>Zed is available on macOS, Windows, and Linux.</p>
+<p>For macOS, you can download it from zed.dev/download, or install via Homebrew:</p>
+<pre><code class="language-sh">brew install --cask zed
+</code></pre>
+<p>For Windows, download the installer from zed.dev/download, or install via winget:</p>
+<pre><code class="language-sh">winget install Zed.Zed
+</code></pre>
+<p>For most Linux users, the easiest way to install Zed is through our installation script:</p>
+<pre><code class="language-sh">curl -f https://zed.dev/install.sh | sh
+</code></pre>
+<p>After installation, you can launch Zed from your Applications folder (macOS), Start menu (Windows), or directly from the terminal using:
+<code>zed .</code>
+This opens the current directory in Zed.</p>
+<h2 id="set-up-the-jetbrains-keymap"><a class="header-anchor" href="#set-up-the-jetbrains-keymap">Set Up the JetBrains Keymap</a></h2>
+<p>If you’re coming from WebStorm, the fastest way to feel at home is to use the JetBrains keymap. During onboarding, you can select it as your base keymap. If you missed that step, you can change it anytime:</p>
+<ol>
+<li>Open Settings with <code>zed::OpenSettings</code></li>
+<li>Search for <code>Base Keymap</code></li>
+<li>Select <code>JetBrains</code></li>
+</ol>
+<p>This maps familiar shortcuts like {#kb:jetbrains project_symbols::Toggle} for Go to Class and {#kb:jetbrains command_palette::Toggle} for Find Action.</p>
+<p>In editors, the JetBrains keymap also makes <code>Alt+Left</code> / <code>Alt+Right</code> and <code>Shift+Alt+Left</code> / <code>Shift+Alt+Right</code> move and select by subword, so identifiers like <code>camelCase</code> and <code>snake_case</code> behave like WebStorm’s CamelHumps navigation.</p>
+<h2 id="set-up-editor-preferences"><a class="header-anchor" href="#set-up-editor-preferences">Set Up Editor Preferences</a></h2>
+<p>You can configure most settings in the Settings Editor (<code>zed::OpenSettings</code>). For advanced settings, run <code>zed::OpenSettingsFile</code> from the Command Palette to edit your settings file directly.</p>
+<p>Settings WebStorm users typically configure first:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Zed Setting</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format_on_save</code></td>
+<td>Auto-format when saving. Set to <code>&quot;on&quot;</code> to enable.</td>
+</tr>
+<tr>
+<td><code>soft_wrap</code></td>
+<td>Wrap long lines. Options: <code>&quot;none&quot;</code>, <code>&quot;editor_width&quot;</code>, <code>&quot;preferred_line_length&quot;</code></td>
+</tr>
+<tr>
+<td><code>preferred_line_length</code></td>
+<td>Column width for wrapping and rulers. Default is 80.</td>
+</tr>
+<tr>
+<td><code>inlay_hints</code></td>
+<td>Show parameter names and type hints inline, like WebStorm’s hints.</td>
+</tr>
+<tr>
+<td><code>relative_line_numbers</code></td>
+<td>Useful if you’re coming from IdeaVim.</td>
+</tr>
+</tbody>
+</table>
+<p>Zed also supports per-project settings. Create a <code>.zed/settings.json</code> file in your project root to override global settings for that project, similar to how you might use <code>.idea</code> folders in WebStorm.</p>
+<blockquote>
+<p><strong>Tip:</strong> If you’re joining an existing project, check <code>format_on_save</code> before making your first commit. Otherwise you might accidentally reformat an entire file when you only meant to change one line.</p>
+</blockquote>
+<h2 id="open-or-create-a-project"><a class="header-anchor" href="#open-or-create-a-project">Open or Create a Project</a></h2>
+<p>After setup, use {#kb:jetbrains file_finder::Toggle} to open a folder. This becomes your workspace in Zed. Unlike WebStorm, there’s no project configuration wizard, no framework selection dialog, and no project structure setup required.</p>
+<p>To start a new project, create a directory using your terminal or file manager, then open it in Zed. The editor will treat that folder as the root of your project. For new projects, you’d typically run <code>npm init</code>, <code>pnpm create</code>, or your framework’s CLI tool first, then open the resulting folder in Zed.</p>
+<p>You can also launch Zed from the terminal inside any folder with:
+<code>zed .</code></p>
+<p>Once inside a project:</p>
+<ul>
+<li>Use {#kb:jetbrains file_finder::Toggle} to jump between files quickly (like WebStorm’s “Recent Files”)</li>
+<li>Use {#kb:jetbrains command_palette::Toggle} to open the Command Palette (like WebStorm’s “Search Everywhere”)</li>
+<li>Use {#kb:jetbrains project_symbols::Toggle} to search for symbols (like WebStorm’s “Go to Symbol”)</li>
+</ul>
+<p>Open buffers appear as tabs across the top. The Project Panel shows your file tree and Git status. Toggle it with {#kb:jetbrains project_panel::ToggleFocus} (just like WebStorm’s Project tool window).</p>
+<h2 id="differences-in-keybindings"><a class="header-anchor" href="#differences-in-keybindings">Differences in Keybindings</a></h2>
+<p>If you chose the JetBrains keymap during onboarding, most of your shortcuts should already feel familiar. Here’s a quick reference of common actions and their keybindings with the JetBrains keymap active.</p>
+<h3 id="common-shared-keybindings"><a class="header-anchor" href="#common-shared-keybindings">Common Shared Keybindings</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Action</th>
+<th>Zed Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search Everywhere</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Find Action / Command Palette</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Go to File</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Go to Symbol</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Recent Files</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Go to Definition</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Find Usages</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Rename Symbol</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Reformat Code</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Toggle Project Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Toggle Terminal</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Duplicate Line</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Delete Line</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Move Line Up/Down</td>
+<td id="kb:jetbrains">{#kb:jetbrains editor::MoveLineUp} /</td>
+</tr>
+<tr>
+<td>Expand/Shrink Selection</td>
+<td id="kb:jetbrains">{#kb:jetbrains editor::SelectLargerSyntaxNode} /</td>
+</tr>
+<tr>
+<td>Move by subword</td>
+<td id="kb:jetbrains">{#kb:jetbrains editor::MoveToPreviousSubwordStart} /</td>
+</tr>
+<tr>
+<td>Select by subword</td>
+<td id="kb:jetbrains">{#kb:jetbrains editor::SelectToPreviousSubwordStart} /</td>
+</tr>
+<tr>
+<td>Comment Line</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Go Back / Forward</td>
+<td id="kb:jetbrains">{#kb:jetbrains pane::GoBack} /</td>
+</tr>
+<tr>
+<td>Toggle Breakpoint</td>
+<td id="kb:jetbrains"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="different-keybindings-(webstorm-%E2%86%92-zed)"><a class="header-anchor" href="#different-keybindings-(webstorm-%E2%86%92-zed)">Different Keybindings (WebStorm → Zed)</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Action</th>
+<th>WebStorm</th>
+<th>Zed (JetBrains keymap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File Structure</td>
+<td><code>Cmd + F12</code></td>
+<td><code>Cmd + F12</code> (outline)</td>
+</tr>
+<tr>
+<td>Navigate to Next Error</td>
+<td><code>F2</code></td>
+<td><code>F2</code></td>
+</tr>
+<tr>
+<td>Run</td>
+<td><code>Ctrl + R</code></td>
+<td><code>Ctrl + Alt + R</code> (tasks)</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td><code>Ctrl + D</code></td>
+<td><code>Alt + Shift + F9</code></td>
+</tr>
+<tr>
+<td>Stop</td>
+<td><code>Cmd + F2</code></td>
+<td><code>Ctrl + F2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="unique-to-zed"><a class="header-anchor" href="#unique-to-zed">Unique to Zed</a></h3>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Action</th>
+<th>Keybinding</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Toggle Right Dock</td>
+<td><code>workspace::ToggleRightDock</code></td>
+<td>Agent panel, notifications</td>
+</tr>
+<tr>
+<td>Split Pane Right</td>
+<td><code>pane::SplitRight</code></td>
+<td>Use other arrow keys to create splits in different directions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-customize-keybindings"><a class="header-anchor" href="#how-to-customize-keybindings">How to Customize Keybindings</a></h3>
+<ul>
+<li>Open the Command Palette ({#kb:jetbrains command_palette::Toggle})</li>
+<li>Run <code>zed::OpenKeymap</code></li>
+</ul>
+<p>This opens a list of all available bindings. You can override individual shortcuts or remove conflicts.</p>
+<p>Zed also supports key sequences (multi-key shortcuts).</p>
+<h2 id="differences-in-user-interfaces"><a class="header-anchor" href="#differences-in-user-interfaces">Differences in User Interfaces</a></h2>
+<h3 id="no-indexing"><a class="header-anchor" href="#no-indexing">No Indexing</a></h3>
+<p>If you’ve used WebStorm on large projects, you know the wait. Opening a project with many dependencies can mean watching “Indexing…” for anywhere from 30 seconds to several minutes. WebStorm indexes your entire codebase and <code>node_modules</code> to power its code intelligence, and re-indexes when dependencies change.</p>
+<p>Zed doesn’t index. You open a folder and start coding immediately—no progress bars, no “Indexing paused” banners. File search and navigation stay fast regardless of project size or how many <code>node_modules</code> dependencies you have.</p>
+<p>WebStorm’s index enables features like finding all usages across your entire codebase, tracking import hierarchies, and flagging unused exports project-wide. Zed relies on language servers for this analysis, which may not cover as much ground.</p>
+<p><strong>How to adapt:</strong></p>
+<ul>
+<li>Search symbols across the project with {#kb:jetbrains project_symbols::Toggle} (powered by the TypeScript language server)</li>
+<li id="kb:jetbrains">Find files by name with</li>
+<li>Use <code>pane::DeploySearch</code> for text search—it stays fast even in large monorepos</li>
+<li>Run <code>tsc --noEmit</code> or <code>eslint .</code> from the terminal when you need deeper project-wide analysis</li>
+</ul>
+<h3 id="lsp-vs.-native-language-intelligence"><a class="header-anchor" href="#lsp-vs.-native-language-intelligence">LSP vs. Native Language Intelligence</a></h3>
+<p>WebStorm has its own JavaScript and TypeScript analysis engine built by JetBrains. This engine understands your code deeply: it resolves types, tracks data flow, knows about framework-specific patterns, and offers specialized refactorings.</p>
+<p>Zed uses the Language Server Protocol (LSP) for code intelligence. For JavaScript and TypeScript, Zed supports:</p>
+<ul>
+<li><strong>vtsls</strong> (default) — Fast TypeScript language server with excellent performance</li>
+<li><strong>typescript-language-server</strong> — The standard TypeScript LSP implementation</li>
+<li><strong>ESLint</strong> — Linting integration</li>
+<li><strong>Prettier</strong> — Code formatting (built-in)</li>
+</ul>
+<p>The TypeScript LSP experience is well-supported. You get accurate completions, type checking, go-to-definition, and find-references. The experience is comparable to VS Code, which uses the same underlying TypeScript services.</p>
+<p>Where you might notice differences:</p>
+<ul>
+<li>Framework-specific intelligence (Angular templates, Vue SFCs) may be less integrated</li>
+<li>Some complex refactorings (extract component with proper imports) may be less sophisticated</li>
+<li>Auto-import suggestions depend on what the language server knows about your project</li>
+</ul>
+<p><strong>How to adapt:</strong></p>
+<ul>
+<li>Use {#kb:jetbrains editor::ToggleCodeActions} for available code actions—the list will vary by language server</li>
+<li>Ensure your <code>tsconfig.json</code> is properly configured so the language server understands your project structure</li>
+<li>Use Prettier for consistent formatting (it’s enabled by default for JS/TS)</li>
+<li>For code inspection similar to WebStorm’s “Inspect Code,” check the Diagnostics panel ({#kb:jetbrains diagnostics::Deploy})—ESLint and TypeScript together catch many of the same issues</li>
+</ul>
+<h3 id="no-project-model"><a class="header-anchor" href="#no-project-model">No Project Model</a></h3>
+<p>WebStorm manages projects through <code>.idea</code> folders containing XML configuration files, framework detection, and run configurations. This model lets WebStorm remember your project settings, manage npm scripts through the UI, and persist run/debug setups.</p>
+<p>Zed takes a different approach: a project is just a folder. There’s no setup wizard, no framework detection dialog, no project structure to configure.</p>
+<p>What this means in practice:</p>
+<ul>
+<li>Run configurations aren’t a thing. Define reusable commands in <code>tasks.json</code> instead. Note that your existing <code>.idea/</code> configurations won’t carry over—you’ll set up the ones you need fresh.</li>
+<li>npm scripts live in the terminal. Run <code>npm run dev</code>, <code>pnpm build</code>, or <code>yarn test</code> directly—there’s no dedicated npm panel.</li>
+<li>No framework detection. Zed treats React, Angular, Vue, and vanilla JS/TS the same way.</li>
+</ul>
+<p><strong>How to adapt:</strong></p>
+<ul>
+<li>Create a <code>.zed/settings.json</code> in your project root for project-specific settings</li>
+<li>Define common commands in <code>tasks.json</code> (open via Command Palette: <code>zed::OpenTasks</code>):</li>
+</ul>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dev&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm run dev&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;build&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm run build&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm test&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test current file&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm test -- $ZED_FILE&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<ul>
+<li>Use {#kb:jetbrains task::Spawn} to run tasks quickly</li>
+<li>Lean on your terminal ({#kb:jetbrains terminal_panel::Toggle}) for anything tasks don’t cover</li>
+</ul>
+<h3 id="no-framework-integration"><a class="header-anchor" href="#no-framework-integration">No Framework Integration</a></h3>
+<p>WebStorm’s value for web development comes largely from its framework integration. React components get special treatment. Angular has dedicated tooling. Vue single-file components are fully understood. The npm tool window shows all your scripts.</p>
+<p>Zed has none of this built-in. The TypeScript language server sees your code as TypeScript—it doesn’t understand that a function is a React component or that a file is an Angular service.</p>
+<p><strong>How to adapt:</strong></p>
+<ul>
+<li>Use grep and file search liberally. <code>pane::DeploySearch</code> with a regex can find component definitions, route configurations, or API endpoints.</li>
+<li>Rely on your language server’s “find references” ({#kb:jetbrains editor::FindAllReferences}) for navigation—it works, just without framework context</li>
+<li>Consider using framework-specific CLI tools (<code>ng</code>, <code>next</code>, <code>vite</code>) from Zed’s terminal</li>
+<li>For React, JSX/TSX syntax and TypeScript types still provide good intelligence</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> For projects with complex configurations, keep your framework’s documentation handy. Zed’s speed comes with less hand-holding for framework-specific features.</p>
+</blockquote>
+<h3 id="tool-windows-vs.-docks"><a class="header-anchor" href="#tool-windows-vs.-docks">Tool Windows vs. Docks</a></h3>
+<p>WebStorm organizes auxiliary views into numbered tool windows. Zed uses a similar concept called “docks”:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>WebStorm Tool Window</th>
+<th>Zed Equivalent</th>
+<th>Zed Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project</td>
+<td>Project Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Git Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Terminal</td>
+<td>Terminal Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>Outline Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Problems</td>
+<td>Diagnostics</td>
+<td id="kb:jetbrains"></td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>Debug Panel</td>
+<td id="kb:jetbrains"></td>
+</tr>
+</tbody>
+</table>
+<p>Zed has three dock positions: left, bottom, and right. Panels can be moved between docks by dragging or through settings.</p>
+<p>Note that there’s no dedicated npm tool window in Zed. Use the terminal or define tasks for your common npm scripts.</p>
+<h3 id="debugging"><a class="header-anchor" href="#debugging">Debugging</a></h3>
+<p>Both WebStorm and Zed offer integrated debugging for JavaScript and TypeScript:</p>
+<ul>
+<li>Zed uses <code>vscode-js-debug</code> (the same debug adapter that VS Code uses)</li>
+<li id="kb:jetbrains">Set breakpoints with</li>
+<li id="kb:jetbrains">Start debugging with</li>
+<li>Step through code with {#kb:jetbrains debugger::StepInto} (step into), {#kb:jetbrains debugger::StepOver} (step over), {#kb:jetbrains debugger::StepOut} (step out)</li>
+<li id="kb:jetbrains">Continue execution with</li>
+</ul>
+<p>Zed can debug:</p>
+<ul>
+<li>Node.js applications and scripts</li>
+<li>Chrome/browser JavaScript</li>
+<li>Jest, Mocha, Vitest, and other test frameworks</li>
+<li>Next.js (both server and client-side)</li>
+</ul>
+<p>For more control, create a <code>.zed/debug.json</code> file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Debug Current File&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;JavaScript&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$ZED_FILE&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Debug Node Server&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;JavaScript&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;${workspaceFolder}/src/server.js&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Attach to Chrome&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;JavaScript&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;attach&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">9222</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>Zed also recognizes <code>.vscode/launch.json</code> configurations, so existing VS Code debug setups often work out of the box.</p>
+<h3 id="running-tests"><a class="header-anchor" href="#running-tests">Running Tests</a></h3>
+<p>WebStorm has a dedicated test runner with a visual interface showing pass/fail status for each test. Zed provides test running through:</p>
+<ul>
+<li><strong>Gutter icons</strong> — Click the play button next to test functions or describe blocks</li>
+<li><strong>Tasks</strong> — Define test commands in <code>tasks.json</code></li>
+<li><strong>Terminal</strong> — Run <code>npm test</code>, <code>jest</code>, <code>vitest</code>, etc. directly</li>
+</ul>
+<p>Zed supports auto-detection for common test frameworks:</p>
+<ul>
+<li>Jest</li>
+<li>Mocha</li>
+<li>Vitest</li>
+<li>Jasmine</li>
+<li>Bun test</li>
+<li>Node.js test runner</li>
+</ul>
+<p>The test output appears in the terminal panel. For Jest, use <code>--verbose</code> for detailed output or <code>--watch</code> for continuous testing during development.</p>
+<h3 id="extensions-vs.-plugins"><a class="header-anchor" href="#extensions-vs.-plugins">Extensions vs. Plugins</a></h3>
+<p>WebStorm has a plugin catalog covering additional language support, themes, and tool integrations.</p>
+<p>Zed’s extension catalog is smaller and more focused:</p>
+<ul>
+<li>Language support and syntax highlighting</li>
+<li>Themes</li>
+<li>Context servers</li>
+</ul>
+<p>Several features that require plugins in WebStorm are built into Zed:</p>
+<ul>
+<li>Real-time collaboration with voice chat</li>
+<li>AI coding assistance</li>
+<li>Built-in terminal</li>
+<li>Task runner</li>
+<li>LSP-based code intelligence</li>
+<li>Prettier formatting</li>
+<li>ESLint integration</li>
+</ul>
+<h3 id="what%E2%80%99s-not-in-zed"><a class="header-anchor" href="#what%E2%80%99s-not-in-zed">What’s Not in Zed</a></h3>
+<p>To set expectations clearly, here’s what WebStorm offers that Zed doesn’t have:</p>
+<ul>
+<li><strong>npm tool window</strong> — Use the terminal or tasks instead</li>
+<li><strong>HTTP Client</strong> — Use tools like Postman, Insomnia, or curl</li>
+<li><strong>Database tools</strong> — Use DataGrip, DBeaver, or TablePlus</li>
+<li><strong>Framework-specific tooling</strong> (Angular schematics, React refactorings) — Use CLI tools</li>
+<li><strong>Visual package.json editor</strong> — Edit the file directly</li>
+<li><strong>Built-in REST client</strong> — Use external tools or extensions</li>
+<li><strong>Profiler integration</strong> — Use Chrome DevTools or Node.js profiling tools</li>
+</ul>
+<h2 id="collaboration-in-zed-vs.-webstorm"><a class="header-anchor" href="#collaboration-in-zed-vs.-webstorm">Collaboration in Zed vs. WebStorm</a></h2>
+<p>WebStorm offers Code With Me as a separate feature for collaboration. Zed has collaboration built into the core experience.</p>
+<ul>
+<li>Open the Collab Panel in the left dock</li>
+<li>Create a channel and <a href="https://zed.dev/docs/collaboration#inviting-a-collaborator">invite your collaborators</a> to join</li>
+<li><a href="https://zed.dev/docs/collaboration#share-a-project">Share your screen or your codebase</a> directly</li>
+</ul>
+<p>Once connected, you’ll see each other’s cursors, selections, and edits in real time. Voice chat is included. There’s no need for separate tools or third-party logins.</p>
+<h2 id="using-ai-in-zed"><a class="header-anchor" href="#using-ai-in-zed">Using AI in Zed</a></h2>
+<p>If you’re used to AI assistants in WebStorm (like GitHub Copilot, JetBrains AI Assistant, or Junie), Zed offers similar capabilities with more flexibility.</p>
+<h3 id="configuring-github-copilot"><a class="header-anchor" href="#configuring-github-copilot">Configuring GitHub Copilot</a></h3>
+<ol>
+<li>Open Settings with <code>zed::OpenSettings</code></li>
+<li>Navigate to <strong>AI → Edit Predictions</strong></li>
+<li>Click <strong>Configure</strong> next to “Configure Providers”</li>
+<li>Under <strong>GitHub Copilot</strong>, click <strong>Sign in to GitHub</strong></li>
+</ol>
+<p>Once signed in, just start typing. Zed will offer suggestions inline for you to accept.</p>
+<h3 id="additional-ai-options"><a class="header-anchor" href="#additional-ai-options">Additional AI Options</a></h3>
+<p>To use other AI models in Zed, you have several options:</p>
+<ul>
+<li>Use Zed’s hosted models, with higher rate limits. Requires <a href="https://zed.dev/docs/authentication">authentication</a> and access through <a href="https://zed.dev/docs/account/zed-hosted-models.html">Zed Pro</a>.</li>
+<li>Bring your own <a href="https://zed.dev/docs/ai/use-api-access.html">API keys</a>, no authentication needed</li>
+<li>Use <a href="https://zed.dev/docs/ai/external-agents.html">External Agents like Claude Agent</a></li>
+</ul>
+<h2 id="advanced-config-and-productivity-tweaks"><a class="header-anchor" href="#advanced-config-and-productivity-tweaks">Advanced Config and Productivity Tweaks</a></h2>
+<p>Zed exposes advanced settings for power users who want to fine-tune their environment.</p>
+<p>Here are a few useful tweaks for JavaScript/TypeScript developers:</p>
+<p><strong>Format on Save:</strong></p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;format_on_save&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;on&quot;</span>
+</code></pre>
+<p><strong>Configure Prettier as the default formatter</strong> (requires manual JSON editing):</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;formatter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;external&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;prettier&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;--stdin-filepath&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;{buffer_path}&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Enable ESLint code actions</strong> (requires manual JSON editing):</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;eslint&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;codeActionOnSave&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;rules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;import/order&quot;</span><span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Configure TypeScript strict mode hints:</strong></p>
+<p>In your <code>tsconfig.json</code>, enable strict mode for better type checking:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;strict&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;noUncheckedIndexedAccess&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Enable direnv support (useful for projects using direnv for environment variables):</strong></p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;load_direnv&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;shell_hook&quot;</span>
+</code></pre>
+<h2 id="next-steps"><a class="header-anchor" href="#next-steps">Next Steps</a></h2>
+<p>Now that you’re set up, here are some resources to help you get the most out of Zed:</p>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a> — Customize settings, themes, and editor behavior</li>
+<li><a href="../key-bindings.html">Key Bindings</a> — Learn how to customize and extend your keymap</li>
+<li><a href="../tasks.html">Tasks</a> — Set up build and run commands for your projects</li>
+<li><a href="../ai/overview.html">AI Features</a> — Explore Zed’s AI capabilities beyond code completion</li>
+<li><a href="../collaboration/overview.html">Collaboration</a> — Share your projects and code together in real time</li>
+<li><a href="../languages/javascript.html">JavaScript in Zed</a> — JavaScript-specific setup and configuration</li>
+<li><a href="../languages/typescript.html">TypeScript in Zed</a> — TypeScript-specific setup and configuration</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/migrate/webstorm.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

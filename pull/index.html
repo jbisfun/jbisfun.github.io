@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pull · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/pull">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api/rust/pull/index.html">pull</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="pull"><a class="header-anchor" href="#pull">pull</a></h1>
+<p>A multi-repo git wrapper. <code>pullfile.plist</code> lists the repos, their upstreams and pinned
+commits. Each repo is cloned to <code>{pullfile-root}/{repo-name}</code>. A single <code>pull commit</code> writes
+one commit, with the same message, identity and signature, to every repo that has changes,
+then records the new pins.</p>
+<h2 id="files"><a class="header-anchor" href="#files">Files</a></h2>
+<p><code>pullfile.plist</code> (shared, committed):</p>
+<pre><code>identity: org (selects [orgs.&lt;org&gt;] in local.toml), email = none|local, require_signing
+lint:     no_description, max_subject_length, conventional, no_trailing_period
+hooks:    precommit, postcommit, pull   (arrays of `sh -c` commands, run in the root)
+repos:    [{name, upstream, branch, commit}]
+</code></pre>
+<p>Hook env: PULL_ROOT, PULL_HOOK, PULL_REPOS (space-separated), PULL_MESSAGE (commit hooks).</p>
+<p><code>local.toml</code> (per machine, gitignored; falls back to ~/.config/pull/local.toml):</p>
+<pre><code>name = &quot;jp&quot;
+# email = &quot;...&quot;          # only used if the pullfile says email = &quot;local&quot;
+signing_key = &quot;FPR&quot;      # gpg key; omit to use gpg's default key
+sign = true
+# gpg_program = &quot;gpg&quot;
+
+[orgs.acme]              # overrides used when the pullfile sets org = &quot;acme&quot;
+name = &quot;jp@acme&quot;
+signing_key = &quot;FPR&quot;
+</code></pre>
+<p>With the default <code>email = none</code>, commits are written as <code>name &lt;&gt;</code>, so no email gets published.</p>
+<h2 id="commands"><a class="header-anchor" href="#commands">Commands</a></h2>
+<pre><code>pull init [--org X]            create pullfile.plist and local.toml
+pull repo add URL [--name] [--branch]   |  repo rm NAME  |  repo list
+pull sync                      clone missing repos, fetch, fast-forward to the pins
+pull update                    fast-forward to upstream branches and re-pin
+pull status [--json]           --json: root, lint rules, per-repo branch/head/pin,
+                               ahead/behind and changed files (for tools)
+pull add PATHS...              each path is staged in the repo that contains it
+pull unstage PATHS...          back to HEAD, routed the same way
+pull commit -m MSG [-a] [PATHS...] [--no-verify]
+pull push
+pull lint MSG  |  pull whoami  |  pull each CMD...
+</code></pre>
+<p>If the root is itself a git repo, <code>pull commit</code> also commits the updated pullfile.plist
+there with the same message.</p>
+<h2 id="ignore"><a class="header-anchor" href="#ignore">Ignore</a></h2>
+<p>The pullfile’s <code>ignore</code> array holds gitignore patterns for every repo, e.g.
+<code>__pycache__/</code>, <code>*.pyc</code>, <code>.DS_Store</code>. pull keeps them in each repo’s <code>.git/info/exclude</code>
+(between <code># &gt;&gt;&gt; pull ignore</code> markers) on every command, so repos don’t need their own
+.gitignore entries and nothing is committed for it. Patterns don’t untrack files that are
+already committed; <code>git rm --cached</code> those.</p>
+<h2 id="mcp-server"><a class="header-anchor" href="#mcp-server">MCP server</a></h2>
+<p><code>pull mcp [--root DIR]</code> serves the workspace to agents over MCP (stdio):</p>
+<pre><code>workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
+status / diff / log            per repo or across all repos
+grep / list_files / read_file  ripgrep's engine, .gitignore-aware, confined to the root
+exec                           run a command to completion with the workspace env
+session_new / session_run / session_send / session_capture / session_list /
+session_kill                   stateful terminals (the sessions below); a human can
+                               `pull session attach` to the same one
+job                            start/stop/restart/unload pullfile jobs
+</code></pre>
+<p>Register it with an agent, e.g. Hermes:</p>
+<pre><code>hermes mcp add pull --command pull --args mcp --root ~/jbisfun
+</code></pre>
+<h2 id="jobs-and-sessions-(launchd)"><a class="header-anchor" href="#jobs-and-sessions-(launchd)">Jobs and sessions (launchd)</a></h2>
+<p>pull ports launchd’s job model (Apple’s launchd, <code>liblaunch/launch.h</code>) to the workspace.
+Jobs use launchd plist keys, either in the pullfile’s <code>jobs</code> array or in standalone
+<code>.plist</code> files:</p>
+<pre><code>Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
+KeepAlive (bool or {SuccessfulExit}), StartInterval, ThrottleInterval,
+StandardOutPath, Disabled, LaunchOnlyOnce
+</code></pre>
+<p>A per-workspace daemon (<code>pull launchd</code>, started automatically, socket <code>.pull/launchd.sock</code>)
+supervises them. Every job runs in a pseudo-terminal with the workspace env (<code>pull env</code>)
+plus its own EnvironmentVariables and <code>PULL_JOB</code>, so every job is also a session.</p>
+<pre><code>pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
+pull launchctl list | print LABEL     (--json for agents)
+pull launchctl start|stop|unload LABEL
+pull launchctl kickstart [-k] LABEL   start, or kill and restart
+pull launchctl shutdown               stop all jobs and the daemon
+</code></pre>
+<p>tmux-style sessions, for humans and agents:</p>
+<pre><code>pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
+pull session attach NAME              detach with ctrl-\
+pull session ls [--json]              running program + its directory per session
+pull session send NAME [-e] TEXT      type into it (-e: press enter)
+pull session capture NAME [-e]        print its screen (-e: keep colours)
+pull session run NAME CMD...          agents: type CMD, wait for output to settle,
+                                      print the screen
+pull session kill NAME
+</code></pre>
+<p>StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
+StandardOutPath.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/pull/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="ansible.html">Ansible</a></li>
+<li><a href="asciidoc.html">AsciiDoc</a></li>
+<li><a href="astro.html">Astro</a></li>
+<li><a href="bash.html">Bash</a></li>
+<li><a href="biome.html">Biome</a></li>
+<li><a href="c.html">C</a></li>
+<li><a href="cpp.html">C++</a></li>
+<li><a href="csharp.html">C#</a></li>
+<li><a href="clojure.html">Clojure</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="dart.html">Dart</a></li>
+<li><a href="deno.html">Deno</a></li>
+<li><a href="diff.html">Diff</a></li>
+<li><a href="docker.html">Docker</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="elm.html">Elm</a></li>
+<li><a href="emmet.html">Emmet</a></li>
+<li><a href="env.html">Env</a></li>
+<li><a href="erlang.html">Erlang</a></li>
+<li><a href="fish.html">Fish</a></li>
+<li><a href="gdscript.html">GDScript</a></li>
+<li><a href="gleam.html">Gleam</a></li>
+<li><a href="glsl.html">GLSL</a></li>
+<li><a class="active" aria-current="page" href="go.html">Go</a></li>
+<li><a href="groovy.html">Groovy</a></li>
+<li><a href="haskell.html">Haskell</a></li>
+<li><a href="helm.html">Helm</a></li>
+<li><a href="html.html">HTML</a></li>
+<li><a href="java.html">Java</a></li>
+<li><a href="javascript.html">JavaScript</a></li>
+<li><a href="julia.html">Julia</a></li>
+<li><a href="json.html">JSON</a></li>
+<li><a href="jsonnet.html">Jsonnet</a></li>
+<li><a href="kotlin.html">Kotlin</a></li>
+<li><a href="lua.html">Lua</a></li>
+<li><a href="luau.html">Luau</a></li>
+<li><a href="makefile.html">Makefile</a></li>
+<li><a href="markdown.html">Markdown</a></li>
+<li><a href="nim.html">Nim</a></li>
+<li><a href="ocaml.html">OCaml</a></li>
+<li><a href="opentofu.html">OpenTofu</a></li>
+<li><a href="php.html">PHP</a></li>
+<li><a href="powershell.html">PowerShell</a></li>
+<li><a href="prisma.html">Prisma</a></li>
+<li><a href="proto.html">Proto</a></li>
+<li><a href="purescript.html">PureScript</a></li>
+<li><a href="python.html">Python</a></li>
+<li><a href="r.html">R</a></li>
+<li><a href="rego.html">Rego</a></li>
+<li><a href="rst.html">ReStructuredText</a></li>
+<li><a href="racket.html">Racket</a></li>
+<li><a href="roc.html">Roc</a></li>
+<li><a href="ruby.html">Ruby</a></li>
+<li><a href="rust.html">Rust</a></li>
+<li><a href="scala.html">Scala</a></li>
+<li><a href="scheme.html">Scheme</a></li>
+<li><a href="sh.html">Shell Script</a></li>
+<li><a href="sql.html">SQL</a></li>
+<li><a href="sml.html">Standard ML</a></li>
+<li><a href="svelte.html">Svelte</a></li>
+<li><a href="swift.html">Swift</a></li>
+<li><a href="tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="terraform.html">Terraform</a></li>
+<li><a href="toml.html">TOML</a></li>
+<li><a href="typescript.html">TypeScript</a></li>
+<li><a href="uiua.html">Uiua</a></li>
+<li><a href="vue.html">Vue</a></li>
+<li><a href="xml.html">XML</a></li>
+<li><a href="yaml.html">YAML</a></li>
+<li><a href="yara.html">YARA</a></li>
+<li><a href="yarn.html">Yarn</a></li>
+<li><a href="zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="go"><a class="header-anchor" href="#go">Go</a></h1>
+<p>Go support is available natively in Zed.</p>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/tree-sitter/tree-sitter-go">tree-sitter/tree-sitter-go</a></li>
+<li>Language Server: <a href="https://github.com/golang/tools/tree/master/gopls">golang/tools/tree/master/gopls</a></li>
+<li>Debug Adapter: <a href="https://github.com/go-delve/delve">delve</a></li>
+</ul>
+<h2 id="setup"><a class="header-anchor" href="#setup">Setup</a></h2>
+<p>We recommend installing gopls via go’s package manager and not via Homebrew or your Linux distribution’s package manager.</p>
+<ol>
+<li>Make sure you have uninstalled any version of gopls you have installed via your package manager:</li>
+</ol>
+<pre><code class="language-sh"><span class="hljs-comment"># MacOS homebrew</span>
+brew remove gopls
+<span class="hljs-comment"># Ubuntu</span>
+<span class="hljs-built_in">sudo</span> apt-get remove gopls
+<span class="hljs-built_in">sudo</span> snap remove gopls
+<span class="hljs-comment"># Arch</span>
+<span class="hljs-built_in">sudo</span> pacman -R gopls
+</code></pre>
+<ol start="2">
+<li>Install/Update <code>gopls</code> to the latest version using the go module tool:</li>
+</ol>
+<pre><code class="language-sh">go install golang.org/x/tools/gopls@latest
+</code></pre>
+<ol start="3">
+<li>Ensure that <code>gopls</code> is in your path:</li>
+</ol>
+<pre><code class="language-sh"><span class="hljs-built_in">which</span> gopls
+gopls version
+</code></pre>
+<p>If <code>gopls</code> is not found you will likely need to add <code>export PATH=&quot;$PATH:$HOME/go/bin&quot;</code> to your <code>.zshrc</code> / <code>.bash_profile</code></p>
+<h2 id="inlay-hints"><a class="header-anchor" href="#inlay-hints">Inlay Hints</a></h2>
+<p>Zed sets the following initialization options for inlay hints:</p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;assignVariableTypes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;compositeLiteralFields&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;compositeLiteralTypes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;constantValues&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;functionTypeParameters&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;parameterNames&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;rangeVariableTypes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>to make the language server send back inlay hints when Zed has them enabled in the settings.</p>
+<p>Use</p>
+<pre><code class="language-json"><span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;gopls&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;initialization_options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+            <span class="hljs-attr">&quot;hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+                <span class="hljs-comment">// ....</span>
+            <span class="hljs-punctuation">}</span>
+        <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>to override these settings.</p>
+<p>See <a href="https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md">gopls inlayHints documentation</a> for more information.</p>
+<h2 id="code-lens"><a class="header-anchor" href="#code-lens">Code Lens</a></h2>
+<p>Zed enables the <code>test</code> code lens for <code>gopls</code> by default. This shows “run test” and “run benchmark” links above <code>Test</code> and <code>Benchmark</code> functions in <code>*_test.go</code> files. To use them, enable the <code>code_lens</code> setting:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;code_lens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;on&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>You can override the default code lens settings in your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;gopls&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;initialization_options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;codelenses&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;generate&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;regenerate_cgo&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;tidy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;upgrade_dependency&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;vendor&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>See <a href="https://go.dev/gopls/codelenses">gopls code lenses documentation</a> for more information.</p>
+<h2 id="debugging"><a class="header-anchor" href="#debugging">Debugging</a></h2>
+<p>Zed supports zero-configuration debugging of Go tests and entry points (<code>func main</code>) using Delve. Run <code>debugger::Start</code> (<code>debugger::Start</code>) to see a contextual list of these preconfigured debug tasks.</p>
+<p>For more control, you can add debug configurations to <code>.zed/debug.json</code>. See below for examples.</p>
+<ul>
+<li><a href="https://github.com/go-delve/delve/blob/master/Documentation/api/dap/README.md#launch-and-attach-configurations">Delve configuration documentation</a></li>
+</ul>
+<h3 id="debug-go-packages"><a class="header-anchor" href="#debug-go-packages">Debug Go Packages</a></h3>
+<p>To debug a specific package, you can do so by setting the Delve mode to “debug”. In this case “program” should be set to the package name.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Go (Delve)&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Delve&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$ZED_FILE&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;debug&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Run server&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Delve&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;debug&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// For Delve, the program can be a package name</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;./cmd/server&quot;</span>
+    <span class="hljs-comment">// &quot;args&quot;: [],</span>
+    <span class="hljs-comment">// &quot;buildFlags&quot;: [],</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h3 id="debug-go-tests"><a class="header-anchor" href="#debug-go-tests">Debug Go Tests</a></h3>
+<p>To debug the tests for a package, set the Delve mode to “test”.
+The “program” is still the package name, and you can use the “buildFlags” to do things like set tags, and the “args” to set args on the test binary. (See <code>go help testflags</code> for more information on doing that).</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Run integration tests&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Delve&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;test&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;buildFlags&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-tags&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;integration&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-comment">// To filter down to just the test your cursor is in:</span>
+    <span class="hljs-comment">// &quot;args&quot;: [&quot;-test.run&quot;, &quot;$ZED_SYMBOL&quot;]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h3 id="build-and-debug-separately"><a class="header-anchor" href="#build-and-debug-separately">Build and debug separately</a></h3>
+<p>If you need to build your application with a specific command, you can use the “exec” mode of Delve. In this case “program” should point to an executable,
+and the “build” command should build that.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Debug Prebuilt Unit Tests&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Delve&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;exec&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;${ZED_WORKTREE_ROOT}/__debug_unit&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-test.v&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;-test.run=${ZED_SYMBOL}&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;go&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;test&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;-c&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;-tags&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;unit&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;-gcflags\&quot;all=-N -l\&quot;&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;-o&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;__debug_unit&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;./pkg/...&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h3 id="attaching-to-an-existing-instance-of-delve"><a class="header-anchor" href="#attaching-to-an-existing-instance-of-delve">Attaching to an existing instance of Delve</a></h3>
+<p>You might find yourself needing to connect to an existing instance of Delve that’s not necessarily running on your machine; in such case, you can use <code>tcp_arguments</code> to instrument Zed’s connection to Delve.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Delve&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Connect to a running Delve instance&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/Users/zed/Projects/language_repositories/golang/hello/hello&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cwd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/Users/zed/Projects/language_repositories/golang/hello&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;exec&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;stopOnEntry&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tcp_connection&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;127.0.0.1&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">53412</span> <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>In such case Zed won’t spawn a new instance of Delve, as it opts to use an existing one. The consequence of this is that <em>there will be no terminal</em> in Zed; you have to interact with the Delve instance directly, as it handles stdin/stdout of the debuggee.</p>
+<h2 id="go-mod"><a class="header-anchor" href="#go-mod">Go Mod</a></h2>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/camdencheek/tree-sitter-go-mod">camdencheek/tree-sitter-go-mod</a></li>
+<li>Language Server: N/A</li>
+</ul>
+<h2 id="go-sum"><a class="header-anchor" href="#go-sum">Go Sum</a></h2>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/amaanq/tree-sitter-go-sum">amaanq/tree-sitter-go-sum</a></li>
+<li>Language Server: N/A</li>
+</ul>
+<h2 id="go-work"><a class="header-anchor" href="#go-work">Go Work</a></h2>
+<ul>
+<li>Tree-sitter:
+<a href="https://github.com/d1y/tree-sitter-go-work">tree-sitter-go-work</a></li>
+<li>Language Server: N/A</li>
+</ul>
+<h2 id="using-the-tailwind-css-language-server-with-templ"><a class="header-anchor" href="#using-the-tailwind-css-language-server-with-templ">Using the Tailwind CSS Language Server with Templ</a></h2>
+<p>To get all the features (autocomplete, linting, etc.) from the <a href="https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme">Tailwind CSS language server</a> in <a href="https://github.com/a-h/templ">Templ</a> files, you need to enable the language server for Templ and configure where it should look for CSS classes by adding the following to your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;Templ&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;tailwindcss-language-server&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;...&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;tailwindcss-language-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;includeLanguages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;templ&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;html&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;experimental&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;classRegex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;class=\&quot;([^\&quot;]*)\&quot;&quot;</span><span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>Note: Unlike other languages, you need to tell Tailwind to treat <code>.templ</code> files as HTML explicitly.</p>
+</blockquote>
+<p>This gives you Tailwind CSS completions inside <code>class=&quot;...&quot;</code> attributes in your <code>.templ</code> files.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/languages/go.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

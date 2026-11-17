@@ -1,0 +1,2 @@
+createSrcSidebar('[["pull",["",[["launchd",[],["client.rs","daemon.rs","mod.rs","procinfo.rs"]]],["config.rs","env.rs","git.rs","hooks.rs","lint.rs","main.rs","mcp.rs","worktree.rs"]]]]');
+//{"start":19,"fragment_lengths":[165]}

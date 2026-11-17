@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>C++ · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="ansible.html">Ansible</a></li>
+<li><a href="asciidoc.html">AsciiDoc</a></li>
+<li><a href="astro.html">Astro</a></li>
+<li><a href="bash.html">Bash</a></li>
+<li><a href="biome.html">Biome</a></li>
+<li><a href="c.html">C</a></li>
+<li><a class="active" aria-current="page" href="cpp.html">C++</a></li>
+<li><a href="csharp.html">C#</a></li>
+<li><a href="clojure.html">Clojure</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="dart.html">Dart</a></li>
+<li><a href="deno.html">Deno</a></li>
+<li><a href="diff.html">Diff</a></li>
+<li><a href="docker.html">Docker</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="elm.html">Elm</a></li>
+<li><a href="emmet.html">Emmet</a></li>
+<li><a href="env.html">Env</a></li>
+<li><a href="erlang.html">Erlang</a></li>
+<li><a href="fish.html">Fish</a></li>
+<li><a href="gdscript.html">GDScript</a></li>
+<li><a href="gleam.html">Gleam</a></li>
+<li><a href="glsl.html">GLSL</a></li>
+<li><a href="go.html">Go</a></li>
+<li><a href="groovy.html">Groovy</a></li>
+<li><a href="haskell.html">Haskell</a></li>
+<li><a href="helm.html">Helm</a></li>
+<li><a href="html.html">HTML</a></li>
+<li><a href="java.html">Java</a></li>
+<li><a href="javascript.html">JavaScript</a></li>
+<li><a href="julia.html">Julia</a></li>
+<li><a href="json.html">JSON</a></li>
+<li><a href="jsonnet.html">Jsonnet</a></li>
+<li><a href="kotlin.html">Kotlin</a></li>
+<li><a href="lua.html">Lua</a></li>
+<li><a href="luau.html">Luau</a></li>
+<li><a href="makefile.html">Makefile</a></li>
+<li><a href="markdown.html">Markdown</a></li>
+<li><a href="nim.html">Nim</a></li>
+<li><a href="ocaml.html">OCaml</a></li>
+<li><a href="opentofu.html">OpenTofu</a></li>
+<li><a href="php.html">PHP</a></li>
+<li><a href="powershell.html">PowerShell</a></li>
+<li><a href="prisma.html">Prisma</a></li>
+<li><a href="proto.html">Proto</a></li>
+<li><a href="purescript.html">PureScript</a></li>
+<li><a href="python.html">Python</a></li>
+<li><a href="r.html">R</a></li>
+<li><a href="rego.html">Rego</a></li>
+<li><a href="rst.html">ReStructuredText</a></li>
+<li><a href="racket.html">Racket</a></li>
+<li><a href="roc.html">Roc</a></li>
+<li><a href="ruby.html">Ruby</a></li>
+<li><a href="rust.html">Rust</a></li>
+<li><a href="scala.html">Scala</a></li>
+<li><a href="scheme.html">Scheme</a></li>
+<li><a href="sh.html">Shell Script</a></li>
+<li><a href="sql.html">SQL</a></li>
+<li><a href="sml.html">Standard ML</a></li>
+<li><a href="svelte.html">Svelte</a></li>
+<li><a href="swift.html">Swift</a></li>
+<li><a href="tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="terraform.html">Terraform</a></li>
+<li><a href="toml.html">TOML</a></li>
+<li><a href="typescript.html">TypeScript</a></li>
+<li><a href="uiua.html">Uiua</a></li>
+<li><a href="vue.html">Vue</a></li>
+<li><a href="xml.html">XML</a></li>
+<li><a href="yaml.html">YAML</a></li>
+<li><a href="yara.html">YARA</a></li>
+<li><a href="yarn.html">Yarn</a></li>
+<li><a href="zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="c%2B%2B"><a class="header-anchor" href="#c%2B%2B">C++</a></h1>
+<p>C++ support is available natively in Zed.</p>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/tree-sitter/tree-sitter-cpp">tree-sitter/tree-sitter-cpp</a></li>
+<li>Language Server: <a href="https://github.com/clangd/clangd">clangd/clangd</a></li>
+</ul>
+<h2 id="binary"><a class="header-anchor" href="#binary">Binary</a></h2>
+<p>You can configure which <code>clangd</code> binary Zed should use.</p>
+<p>By default, Zed will try to find a <code>clangd</code> in your <code>$PATH</code> and try to use that. If that binary successfully executes, it’s used. Otherwise, Zed will fall back to installing its own <code>clangd</code> version and use that.</p>
+<p>If you want to install a pre-release <code>clangd</code> version instead you can instruct Zed to do so by setting <code>pre_release</code> to <code>true</code> in your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;clangd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;fetch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;pre_release&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>If you want to disable Zed looking for a <code>clangd</code> binary, you can set <code>ignore_system_version</code> to <code>true</code> in your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;clangd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;binary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;ignore_system_version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>If you want to use a binary in a custom location, you can specify a <code>path</code> and optional <code>arguments</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;clangd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;binary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/path/to/clangd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>This <code>&quot;path&quot;</code> has to be an absolute path.</p>
+<h2 id="arguments"><a class="header-anchor" href="#arguments">Arguments</a></h2>
+<p>You can pass any number of arguments to clangd. To see a full set of available options, run <code>clangd --help</code> from the command line. For example with <code>--function-arg-placeholders=0</code> completions contain only parentheses for function calls, while the default (<code>--function-arg-placeholders=1</code>) completions also contain placeholders for method parameters.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;clangd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;binary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/path/to/clangd&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;arguments&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;--function-arg-placeholders=0&quot;</span><span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="formatting"><a class="header-anchor" href="#formatting">Formatting</a></h2>
+<p>By default Zed will use the <code>clangd</code> language server for formatting C++ code. Its formatter is the same as the <code>clang-format</code> CLI tool. To configure this you can add a <code>.clang-format</code> file. For example:</p>
+<pre><code class="language-yaml"><span class="hljs-comment"># yaml-language-server: $schema=https://json.schemastore.org/clang-format-21.x.json</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">BasedOnStyle:</span> <span class="hljs-string">LLVM</span>
+<span class="hljs-attr">IndentWidth:</span> <span class="hljs-number">4</span>
+<span class="hljs-meta">---</span>
+<span class="hljs-attr">Language:</span> <span class="hljs-string">Cpp</span>
+<span class="hljs-comment"># Force pointers to the type for C++.</span>
+<span class="hljs-attr">DerivePointerAlignment:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">PointerAlignment:</span> <span class="hljs-string">Left</span>
+<span class="hljs-meta">---
+</span></code></pre>
+<p>See <a href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html">Clang-Format Style Options</a> for a complete list of options.</p>
+<p>You can trigger formatting via <code>editor::Format</code> or the <code>editor::Format</code> action from the command palette or by enabling format on save.</p>
+<p>Configure formatting in Settings (<code>zed::OpenSettings</code>) under Languages &gt; C++, or add to your settings file:</p>
+<pre><code class="language-json">  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;C++&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;format_on_save&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;on&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;tab_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="more-server-configuration"><a class="header-anchor" href="#more-server-configuration">More server configuration</a></h2>
+<p>In the root of your project, it is generally common to create a <code>.clangd</code> file to set extra configuration.</p>
+<pre><code class="language-yaml"><span class="hljs-comment"># yaml-language-server: $schema=https://json.schemastore.org/clangd.json</span>
+<span class="hljs-attr">CompileFlags:</span>
+  <span class="hljs-attr">Add:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;--include-directory=/path/to/include&quot;</span>
+<span class="hljs-attr">Diagnostics:</span>
+  <span class="hljs-attr">MissingIncludes:</span> <span class="hljs-string">Strict</span>
+  <span class="hljs-attr">UnusedIncludes:</span> <span class="hljs-string">Strict</span>
+</code></pre>
+<p>For more advanced usage of clangd configuration file, take a look into their <a href="https://clangd.llvm.org/config.html">official page</a>.</p>
+<h2 id="compile-commands"><a class="header-anchor" href="#compile-commands">Compile Commands</a></h2>
+<p>For some projects Clangd requires a <code>compile_commands.json</code> file to properly analyze your project. This file contains the compilation database that tells clangd how your project should be built.</p>
+<h3 id="cmake-compile-commands"><a class="header-anchor" href="#cmake-compile-commands">CMake Compile Commands</a></h3>
+<p>With CMake, you can generate <code>compile_commands.json</code> automatically by adding the following line to your <code>CMakeLists.txt</code>:</p>
+<pre><code class="language-cmake"><span class="hljs-keyword">set</span>(CMAKE_EXPORT_COMPILE_COMMANDS <span class="hljs-keyword">ON</span>)
+</code></pre>
+<p>After building your project, CMake will generate the <code>compile_commands.json</code> file in the build directory and clangd will automatically pick it up.</p>
+<h2 id="debugging"><a class="header-anchor" href="#debugging">Debugging</a></h2>
+<p>You can use CodeLLDB or GDB to <a href="../debugger.html">debug</a> native binaries. (Make sure that your build process passes <code>-g</code> to the C++ compiler, so that debug information is included in the resulting binary.) See below for examples of debug configurations that you can add to <code>.zed/debug.json</code>.</p>
+<ul>
+<li><a href="https://github.com/vadimcn/codelldb/blob/master/MANUAL.md#starting-a-new-debug-session">CodeLLDB configuration documentation</a></li>
+<li><a href="https://sourceware.org/gdb/current/onlinedocs/gdb.html/Debugger-Adapter-Protocol.html">GDB configuration documentation</a>
+<ul>
+<li>GDB needs to be at least v14.1</li>
+</ul>
+</li>
+</ul>
+<h3 id="build-and-debug-binary"><a class="header-anchor" href="#build-and-debug-binary">Build and Debug Binary</a></h3>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Debug native binary&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;make&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-j8&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;cwd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$ZED_WORKTREE_ROOT&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$ZED_WORKTREE_ROOT/build/prog&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;CodeLLDB&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h2 id="protocol-extensions"><a class="header-anchor" href="#protocol-extensions">Protocol Extensions</a></h2>
+<p>Zed currently implements the following <code>clangd</code> <a href="https://clangd.llvm.org/extensions">extensions</a>:</p>
+<h3 id="inactive-regions"><a class="header-anchor" href="#inactive-regions">Inactive Regions</a></h3>
+<p>Automatically dims inactive sections of code due to preprocessor directives, such as <code>#if</code>, <code>#ifdef</code>, or <code>#ifndef</code> blocks that evaluate to false.</p>
+<h3 id="switch-between-source-and-header-files"><a class="header-anchor" href="#switch-between-source-and-header-files">Switch Between Source and Header Files</a></h3>
+<p>Allows switching between corresponding C++ source files (e.g., <code>.cpp</code>) and header files (e.g., <code>.h</code>)
+by running the command <code>editor::SwitchSourceHeader</code> from the command palette or by setting
+a keybinding for the <code>editor::SwitchSourceHeader</code> action.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;context&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Editor&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;bindings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;alt-enter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;editor::SwitchSourceHeader&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/languages/cpp.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

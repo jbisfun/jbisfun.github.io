@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finding and Navigating Code - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a class="active" aria-current="page" href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="finding-%26-navigating"><a class="header-anchor" href="#finding-%26-navigating">Finding &amp; Navigating</a></h1>
+<p>Zed provides several ways to move around your codebase quickly. Here’s an overview of the main navigation tools.</p>
+<h2 id="command-palette"><a class="header-anchor" href="#command-palette">Command Palette</a></h2>
+<p>The Command Palette (<code>command_palette::Toggle</code>) is your gateway to almost everything in Zed. Type a few characters to filter commands, then press Enter to execute.</p>
+<p><a href="command-palette.html">Learn more about the Command Palette →</a></p>
+<h2 id="project-panel"><a class="header-anchor" href="#project-panel">Project Panel</a></h2>
+<p>The Project Panel (<code>project_panel::ToggleFocus</code>) shows a tree view of your workspace’s files and directories. Browse, create, rename, move, and delete files without leaving the editor. It also surfaces git status and diagnostics at a glance.</p>
+<p><a href="project-panel.html">Learn more about the Project Panel →</a></p>
+<h2 id="file-finder"><a class="header-anchor" href="#file-finder">File Finder</a></h2>
+<p>Open any file in your project with <code>file_finder::Toggle</code>. Type part of the filename or path to narrow results.</p>
+<h2 id="text-finder"><a class="header-anchor" href="#text-finder">Text Finder</a></h2>
+<p>Quickly find any string in your project and open the file with <code>project_search::OpenTextFinder</code>. Changed your mind and want a more detailed search with extra filters? Move to the project search using the button in the Actions menu in the right bottom corner.</p>
+<h2 id="project-search"><a class="header-anchor" href="#project-search">Project Search</a></h2>
+<p>Search across all files with <code>pane::DeploySearch</code>. Type the query in the search field, then press Enter to run the search.</p>
+<p>Results appear in a <a href="multibuffers.html">multibuffer</a>, letting you edit matches in place.</p>
+<h2 id="go-to-definition"><a class="header-anchor" href="#go-to-definition">Go to Definition</a></h2>
+<p>Jump to where a symbol is defined with <code>editor::GoToDefinition</code> (or <code>Cmd+Click</code> / <code>Ctrl+Click</code>). If there are multiple definitions, they open in a multibuffer.</p>
+<h2 id="go-to-symbol"><a class="header-anchor" href="#go-to-symbol">Go to Symbol</a></h2>
+<ul>
+<li><strong>Current file:</strong> <code>outline::Toggle</code> opens an outline of symbols in the active file</li>
+<li><strong>Entire project:</strong> <code>project_symbols::Toggle</code> searches symbols across all files</li>
+</ul>
+<h2 id="project-bookmarks"><a class="header-anchor" href="#project-bookmarks">Project Bookmarks</a></h2>
+<p>Run <code>project_bookmarks::Toggle</code> from the <a href="command-palette.html">command palette</a> to browse bookmarks across your project. Type to search bookmark labels; bookmarks without a label use the bookmarked line’s text. Each result shows the file path and line number. Click the Preview button to toggle the code preview, then confirm a result to jump to its location.</p>
+<p>This command has no default keybinding. You can assign one in your <a href="key-bindings.html">keymap</a>.</p>
+<h2 id="call-hierarchy"><a class="header-anchor" href="#call-hierarchy">Call Hierarchy</a></h2>
+<p>With the cursor on a function, <code>call_hierarchy::ShowIncomingCalls</code> (<code>call_hierarchy::ShowIncomingCalls</code>) lists the functions that call it, and <code>call_hierarchy::ShowOutgoingCalls</code> lists the functions it calls.
+Both open a picker; selecting an entry jumps to the call site, and the secondary confirm opens it in an adjacent pane.
+While the picker is open, <code>call_hierarchy::ToggleDirection</code> switches between callers and callees, <code>menu::SelectChild</code> re-roots the hierarchy at the selected function to explore one level deeper, and <code>menu::SelectParent</code> steps back up; the picker’s footer shows the corresponding key bindings.
+Both actions are also available in the editor’s right-click menu.
+The modal’s width can be changed via the <code>call_hierarchy.modal_max_width</code> setting.
+This requires the language server to support call hierarchy.</p>
+<h2 id="outline-panel"><a class="header-anchor" href="#outline-panel">Outline Panel</a></h2>
+<p>The Outline Panel (<code>outline_panel::ToggleFocus</code>) shows a persistent tree view of symbols in the current file. It’s especially useful with <a href="multibuffers.html">multibuffers</a> for navigating search results or diagnostics.</p>
+<p><a href="outline-panel.html">Learn more about the Outline Panel →</a></p>
+<h2 id="tab-switcher"><a class="header-anchor" href="#tab-switcher">Tab Switcher</a></h2>
+<p>Quickly switch between open tabs with <code>tab_switcher::Toggle</code>. Tabs are sorted by recent use—keep holding Ctrl and press Tab to cycle through them.</p>
+<p><a href="tab-switcher.html">Learn more about the Tab Switcher →</a></p>
+<h2 id="quick-reference"><a class="header-anchor" href="#quick-reference">Quick Reference</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Task</th>
+<th>Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command Palette</td>
+<td><code>command_palette::Toggle</code></td>
+</tr>
+<tr>
+<td>Open file</td>
+<td><code>file_finder::Toggle</code></td>
+</tr>
+<tr>
+<td>Project search</td>
+<td><code>pane::DeploySearch</code></td>
+</tr>
+<tr>
+<td>Text search picker</td>
+<td><code>project_search::OpenTextFinder</code></td>
+</tr>
+<tr>
+<td>Go to definition</td>
+<td><code>editor::GoToDefinition</code></td>
+</tr>
+<tr>
+<td>Find references</td>
+<td><code>editor::FindAllReferences</code></td>
+</tr>
+<tr>
+<td>Symbol in file</td>
+<td><code>outline::Toggle</code></td>
+</tr>
+<tr>
+<td>Symbol in project</td>
+<td><code>project_symbols::Toggle</code></td>
+</tr>
+<tr>
+<td>Outline Panel</td>
+<td><code>outline_panel::ToggleFocus</code></td>
+</tr>
+<tr>
+<td>Tab Switcher</td>
+<td><code>tab_switcher::Toggle</code></td>
+</tr>
+<tr>
+<td>Project Panel</td>
+<td><code>project_panel::ToggleFocus</code></td>
+</tr>
+</tbody>
+</table>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/finding-navigating.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

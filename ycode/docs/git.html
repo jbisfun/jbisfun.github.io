@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zed Editor Git integration documentation · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a class="active" aria-current="page" href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="git"><a class="header-anchor" href="#git">Git</a></h1>
+<p>Zed has built-in Git support that lets you manage version control without leaving the editor. The Git Panel shows your working tree state, staging area, and branch information. Changes you make on the command line are reflected immediately in Zed.</p>
+<p>For operations that Zed doesn’t support natively, you can use the integrated terminal.</p>
+<h2 id="repository-activation"><a class="header-anchor" href="#repository-activation">Repository Activation</a></h2>
+<p>When a project is rooted at a git repository, or at a subdirectory of one, all repositories in it are active immediately.</p>
+<p>When a project is not rooted at a repository (a home directory, a folder of projects), repositories directly inside the project root are also active immediately, and deeper ones activate when a file inside them is opened, in local and remote projects alike.</p>
+<p>Inactive repositories are fully indexed and searchable; only git features (status, diffs, branches) wait for activation.</p>
+<p>This behavior is tied to the <a href="reference/all-settings.html#file-scan-depth"><code>file_scan_depth</code></a> setting, but not to its value: any non-zero <code>file_scan_depth</code> defers activation for repositories that are not directly inside a project root folder, and repositories rooted at or deeper than the limit are not even discovered until their directories are indexed on demand.
+In multi-folder projects, depth and activation are measured from each root folder separately.</p>
+<p>Setting <code>file_scan_depth</code> to <code>0</code> turns deferred activation off: every discovered repository activates immediately.</p>
+<h2 id="git-panel"><a class="header-anchor" href="#git-panel">Git Panel</a></h2>
+<p>The Git Panel shows the state of your working tree and Git’s staging area.</p>
+<p>You can open the Git Panel using <code>git_panel::ToggleFocus</code>, or by clicking the Git icon in the status bar.</p>
+<p>In the panel you can see the state of your project at a glance: which repository and branch are active, what files have changed and the current staging state of each file.</p>
+<p>Zed monitors your repository so that changes you make on the command line are instantly reflected.</p>
+<h3 id="configuration"><a class="header-anchor" href="#configuration">Configuration</a></h3>
+<p>Open the Settings Editor (<code>Cmd+,</code> on macOS, <code>Ctrl+,</code> on Linux/Windows) to customize Git behavior. Settings are spread across two pages:</p>
+<ul>
+<li><strong>Panels &gt; Git Panel</strong>: Panel position, tree vs flat view, status display style</li>
+<li><strong>Version Control</strong>: Gutter indicators, inline blame, hunk styles</li>
+</ul>
+<h4 id="moving-the-git-panel"><a class="header-anchor" href="#moving-the-git-panel">Moving the Git Panel</a></h4>
+<p>By default, the Git Panel docks on the left. Go to <strong>Panels &gt; Git Panel</strong> and change <strong>Git Panel Dock</strong> to move it to the right or bottom.</p>
+<h4 id="switching-to-tree-view"><a class="header-anchor" href="#switching-to-tree-view">Switching to Tree View</a></h4>
+<p>The Git Panel shows a flat list of changed files by default. To see files organized by folder hierarchy instead, toggle <strong>Tree View</strong> in the panel’s context menu, or enable it in <strong>Panels &gt; Git Panel</strong>.</p>
+<h4 id="inline-blame"><a class="header-anchor" href="#inline-blame">Inline Blame</a></h4>
+<p>Zed shows Git blame information on the current line. To turn this off or add a delay before it appears, go to <strong>Version Control &gt; Inline Git Blame</strong>.</p>
+<h4 id="hiding-the-gutter-indicators"><a class="header-anchor" href="#hiding-the-gutter-indicators">Hiding the Gutter Indicators</a></h4>
+<p>The colored bars in the gutter that show added, modified, and deleted lines can be hidden. Go to <strong>Version Control &gt; Git Gutter</strong> and set <strong>Visibility</strong> to “Hide”.</p>
+<h4 id="commit-message-line-length"><a class="header-anchor" href="#commit-message-line-length">Commit Message Line Length</a></h4>
+<p>Zed wraps commit messages at 72 characters (a Git convention). To change this, search for “Git Commit” in Settings and adjust <strong>Preferred Line Length</strong>.</p>
+<h2 id="project-diff"><a class="header-anchor" href="#project-diff">Project Diff</a></h2>
+<p>You can see all of the changes captured by Git in Zed by opening the Project Diff (<code>git::Diff</code>), accessible via the <code>git::Diff</code> action in the Command Palette or the Git Panel.</p>
+<p>All of the changes displayed in the Project Diff behave exactly the same as any other multibuffer: they are all editable excerpts of files.</p>
+<p>You can stage or unstage each hunk as well as a whole file by hitting the buttons on the tab bar or their corresponding keybindings.</p>
+<h3 id="word-diff-highlighting"><a class="header-anchor" href="#word-diff-highlighting">Word Diff Highlighting</a></h3>
+<p>By default, Zed highlights changed words within modified lines to make it easier to spot exactly what changed. To disable this globally, open the Settings Editor and go to <strong>Languages &amp; Tools &gt; Miscellaneous</strong>, then turn off <strong>Word Diff Enabled</strong>.</p>
+<p>To disable word diff for specific languages only, add this to your settings.json:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;Markdown&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;word_diff_enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="diff-view-styles"><a class="header-anchor" href="#diff-view-styles">Diff View Styles</a></h3>
+<p>Zed displays diffs in two modes: <strong>split</strong> (side-by-side comparison) or <strong>unified</strong> (inline changes). Split view is the default.</p>
+<h4 id="changing-the-diff-view"><a class="header-anchor" href="#changing-the-diff-view">Changing the diff view</a></h4>
+<p>Open the Settings Editor (<code>zed::OpenSettings</code>) and search for “diff view style”. Select either <strong>Split</strong> or <strong>Unified</strong>.</p>
+<p>To change the default, add this to your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;diff_view_style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;unified&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>See <a href="configuring-zed.html">Configuring Zed</a> for more about the Settings Editor.</p>
+<h4 id="split-vs-unified"><a class="header-anchor" href="#split-vs-unified">Split vs unified</a></h4>
+<ul>
+<li><strong>Split</strong>: Shows the original and modified versions side by side. Useful for comparing file structure or reviewing large changes.</li>
+<li><strong>Unified</strong>: Shows changes inline with additions and deletions in a single view. Useful for focusing on specific line changes.</li>
+</ul>
+<p>You can switch between modes at any time. Your preference applies to <a href="#project-diff">Project Diff</a>, <a href="#file-history">File History</a>, and <a href="#stash-diff-view">Stash Diff View</a>. These diff views function as <a href="multibuffers.html">multibuffers</a>, allowing you to edit multiple excerpts simultaneously.</p>
+<h2 id="file-history"><a class="header-anchor" href="#file-history">File History</a></h2>
+<p>File History shows the commit history for an individual file. Each entry displays the commit’s author, timestamp, and message. Selecting a commit opens a diff view filtered to show only the changes made to that file in that commit.</p>
+<p>To view File History:</p>
+<ul>
+<li>Right-click on a file in the Project Panel and select “View File History”</li>
+<li>Right-click on a file in the Git Panel and select “View File History”</li>
+<li>Right-click on an editor tab and select “View File History”</li>
+<li>Use the Command Palette and search for “file history”</li>
+</ul>
+<h2 id="tags"><a class="header-anchor" href="#tags">Tags</a></h2>
+<p>To create a lightweight tag at <code>HEAD</code>, use <code>git::CreateTagAtHead</code> from the Command Palette. Tags are created locally and are not pushed automatically.</p>
+<h2 id="fetch%2C-push%2C-and-pull"><a class="header-anchor" href="#fetch%2C-push%2C-and-pull">Fetch, Push, and Pull</a></h2>
+<p>Fetch, push, or pull from your Git repository in Zed via the buttons available on the Git Panel or via the Command Palette by looking at the respective actions: <code>git::Fetch</code>, <code>git::Push</code>, and <code>git::Pull</code>.</p>
+<h3 id="push-configuration"><a class="header-anchor" href="#push-configuration">Push Configuration</a></h3>
+<p>Zed respects Git’s push configuration. When pushing, Zed checks the following in order:</p>
+<ol>
+<li><code>pushRemote</code> configured for the current branch</li>
+<li><code>remote.pushDefault</code> in your Git config</li>
+<li>The branch’s tracking remote</li>
+</ol>
+<p>This matches Git’s standard behavior, so if you’ve configured <code>pushRemote</code> or <code>pushDefault</code> in your <code>.gitconfig</code> or via <code>git config</code>, Zed will use those settings.</p>
+<h2 id="remotes"><a class="header-anchor" href="#remotes">Remotes</a></h2>
+<p>When your repository has multiple remotes, Zed shows a remote selector in the Git Panel. Click the remote button next to push/pull to choose which remote to use for that operation.</p>
+<h2 id="staging-workflow"><a class="header-anchor" href="#staging-workflow">Staging Workflow</a></h2>
+<p>Zed has two primary staging workflows, using either the Project Diff or the panel directly.</p>
+<h3 id="using-the-project-diff"><a class="header-anchor" href="#using-the-project-diff">Using the Project Diff</a></h3>
+<p>In the Project Diff view, you can focus on each hunk and stage them individually by clicking on the tab bar buttons or via the keybindings <code>git::StageAndNext</code> (<code>git::StageAndNext</code>).</p>
+<p>Similarly, stage all hunks at the same time with the <code>git::StageAll</code> (<code>git::StageAll</code>) keybinding and then immediately commit with <code>git::Commit</code> (<code>git::Commit</code>).</p>
+<h3 id="using-the-git-panel"><a class="header-anchor" href="#using-the-git-panel">Using the Git Panel</a></h3>
+<p>From the panel, you can simply type a commit message and hit the commit button, or <code>git::Commit</code>. This will automatically stage all tracked files (indicated by a <code>[·]</code> in the entry’s checkbox) and commit them.</p>
+<!-- Show a set of changes with default staged -->
+<p>Entries can be staged using each individual entry’s checkbox. All changes can be staged using the button at the top of the panel, or <code>git::StageAll</code>.</p>
+<p>Entries are grouped into sections (<strong>Tracked</strong> and <strong>Untracked</strong> by default), and each section can be staged on its own without touching the others. Click the checkbox on a section header, or use <code>git::StageSection</code> / <code>git::UnstageSection</code>, which act on the section containing the selected entry. These are also available by right-clicking an entry. Neither is bound by default; bind them in your keymap under the <code>GitPanel</code> context if you use them often.</p>
+<p>To open a changed file in the editor without a diff view, right-click on the file in the Git Panel and select <strong>View File</strong>. Use <strong>Open Diff</strong> (<code>menu::Confirm</code>) or <strong>Open Diff (File)</strong> to review changes in a diff view instead.</p>
+<!-- Add media -->
+<h2 id="committing"><a class="header-anchor" href="#committing">Committing</a></h2>
+<p>Zed offers two commit textareas:</p>
+<ol>
+<li>The first one is available right at the bottom of the Git Panel. Hitting <code>git::Commit</code> immediately commits all of your staged changes.</li>
+<li>The second is available via the action <code>git::ExpandCommitEditor</code> or via hitting the <code>git::ExpandCommitEditor</code> while focused in the Git Panel commit textarea.</li>
+</ol>
+<h3 id="undoing-a-commit"><a class="header-anchor" href="#undoing-a-commit">Undoing a Commit</a></h3>
+<p>As soon as you commit in Zed, in the Git Panel, you’ll see a bar right under the commit textarea, which will show the recently submitted commit.
+In there, you can use the “Uncommit” button, which performs the <code>git reset HEADˆ--soft</code> command.</p>
+<h3 id="configuring-commit-line-length"><a class="header-anchor" href="#configuring-commit-line-length">Configuring Commit Line Length</a></h3>
+<p>By default, Zed sets the commit line length to <code>72</code> but it can be configured in your local <code>settings.json</code> file.</p>
+<p>Find more information about setting the <code>preferred-line-length</code> in the <a href="#configuration">Configuration</a> section.</p>
+<h2 id="branch-management"><a class="header-anchor" href="#branch-management">Branch Management</a></h2>
+<h3 id="creating-and-switching-branches"><a class="header-anchor" href="#creating-and-switching-branches">Creating and Switching Branches</a></h3>
+<p>Create a new branch using <code>git::Branch</code> or switch to an existing branch using <code>git::Switch</code> or <code>git::CheckoutBranch</code>.</p>
+<p>When you are working in a <a href="#git-worktrees">Git worktree</a>, use the branch picker after switching to the worktree to create or check out the branch you want to use there.</p>
+<h3 id="deleting-branches"><a class="header-anchor" href="#deleting-branches">Deleting Branches</a></h3>
+<p>To delete a branch, open the branch switcher with <code>git::Switch</code>, find the branch you want to delete, and use the delete option. Zed will confirm before deleting to prevent accidental data loss.</p>
+<blockquote>
+<p><strong>Note:</strong> You cannot delete the branch you currently have checked out. Switch to a different branch first.</p>
+</blockquote>
+<h2 id="git-worktrees"><a class="header-anchor" href="#git-worktrees">Git Worktrees</a></h2>
+<p>Git worktrees let you keep multiple checkouts of the same repository on disk at the same time.
+This is useful when you want to work on more than one branch or task without stashing, rebuilding, or disturbing the files in your main checkout.</p>
+<p>Open the worktree picker from the title bar, next to the project picker, or by running <code>git::Worktree</code>.
+Search by worktree name or checked-out branch name to find an existing worktree.
+From the picker, you can:</p>
+<ul>
+<li>Create a new linked worktree either from the current branch or default branch</li>
+<li>Type a name to create a named worktree or let Zed automatically pick one for you</li>
+<li>Switch the current workspace to an existing worktree</li>
+<li>Open an existing worktree in a new window</li>
+<li>Delete linked worktrees that are not currently open in the project</li>
+</ul>
+<h3 id="worktree-management"><a class="header-anchor" href="#worktree-management">Worktree Management</a></h3>
+<p>New worktrees are created in detached HEAD state.
+After switching to the new worktree, use the branch picker next to the worktree picker to create a new branch or check out an existing, unused branch.
+This keeps Zed from accidentally checking out the same branch in multiple worktrees.</p>
+<p>The directory used for new worktrees is controlled by the <code>git.worktree_directory</code> setting.
+By default, Zed creates worktrees under <code>../worktrees</code> relative to the repository’s working directory.</p>
+<p>See <a href="reference/all-settings.html#git-worktree-directory">All Settings</a> for examples.</p>
+<h3 id="init-setup"><a class="header-anchor" href="#init-setup">Init Setup</a></h3>
+<p>To run setup steps after Zed creates a linked worktree, use the <a href="tasks.html#hooks"><code>create_worktree</code> task hook</a>.
+For agent-specific workflows, see <a href="ai/parallel-agents.html#worktree-isolation">Worktree Isolation</a>.</p>
+<h3 id="multi-root-workspaces"><a class="header-anchor" href="#multi-root-workspaces">Multi-root Workspaces</a></h3>
+<p>If your project contains multiple Git repositories (i.e., multi-root folders), Zed creates a linked worktree for each repository when creating a new worktree from the picker.
+Non-Git folders in the same project are included in the new workspace as-is.</p>
+<h2 id="merge-conflicts"><a class="header-anchor" href="#merge-conflicts">Merge Conflicts</a></h2>
+<p>When you encounter merge conflicts after a merge, rebase, or pull, Zed highlights the conflicting regions in your files and displays resolution buttons above each conflict.</p>
+<h3 id="viewing-conflicts"><a class="header-anchor" href="#viewing-conflicts">Viewing Conflicts</a></h3>
+<p>Conflicting files appear in the Git Panel with a warning icon. You can also see conflicts in the Project Diff view, where each conflict region is highlighted:</p>
+<ul>
+<li>Changes from your current branch are highlighted in green</li>
+<li>Changes from the incoming branch are highlighted in blue</li>
+</ul>
+<h3 id="resolving-conflicts"><a class="header-anchor" href="#resolving-conflicts">Resolving Conflicts</a></h3>
+<p>Each conflict shows three buttons:</p>
+<ul>
+<li><strong>Use [branch-name]</strong>: Keep the changes from one branch (shows the actual branch name, like “main”)</li>
+<li><strong>Use [other-branch]</strong>: Keep the changes from the other branch (like “feature-branch”)</li>
+<li><strong>Use Both</strong>: Keep both sets of changes, with your branch’s changes first</li>
+</ul>
+<p>Click a button to resolve that conflict. The conflict markers are removed and replaced with your chosen content. After resolving all conflicts in a file, stage it and commit to complete the merge.</p>
+<blockquote>
+<p><strong>Tip:</strong> For complex conflicts that need manual editing, you can edit the file directly. Remove the conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) and keep the content you want.</p>
+</blockquote>
+<h2 id="stashing"><a class="header-anchor" href="#stashing">Stashing</a></h2>
+<p>Git stash allows you to temporarily save your uncommitted changes and revert your working directory to a clean state. This is particularly useful when you need to quickly switch branches or pull updates without committing incomplete work.</p>
+<h3 id="creating-stashes"><a class="header-anchor" href="#creating-stashes">Creating Stashes</a></h3>
+<p>To stash all your current changes, use the <code>git::StashAll</code> action. This will save both staged and unstaged changes, including untracked files, to a new stash entry and clean your working directory.</p>
+<p>To stash only tracked changes and leave untracked files in place, use the <code>git::StashTracked</code> action. To stash only staged changes and leave unstaged changes in place, use the <code>git::StashStaged</code> action; this requires git 2.35 or newer.</p>
+<p>The Git Panel’s overflow menu offers whichever of these matches the current <strong>Group By</strong> mode: <strong>Stash Tracked</strong> when grouping by Tracked &amp; Untracked, and <strong>Stash Staged</strong> when grouping by Staged &amp; Unstaged. <strong>Stash All</strong> is always available.</p>
+<p>Each of these actions first prompts for an optional stash name. Confirming with an empty prompt lets git generate its usual <code>WIP on ...</code> description.</p>
+<h3 id="managing-stashes"><a class="header-anchor" href="#managing-stashes">Managing Stashes</a></h3>
+<p>Zed provides a stash picker accessible via <code>git::ViewStash</code> or from the Git Panel’s overflow menu. From the stash picker, you can:</p>
+<ul>
+<li><strong>View stash list</strong>: Browse all your saved stashes with their descriptions and timestamps</li>
+<li><strong>Open diffs</strong>: See exactly what changes are stored in each stash</li>
+<li><strong>Apply stashes</strong>: Apply stash changes to your working directory while keeping the stash entry</li>
+<li><strong>Pop stashes</strong>: Apply stash changes and remove the stash entry from the list</li>
+<li><strong>Drop stashes</strong>: Delete unwanted stash entries without applying them</li>
+</ul>
+<h3 id="quick-stash-operations"><a class="header-anchor" href="#quick-stash-operations">Quick Stash Operations</a></h3>
+<p>For faster workflows, Zed provides direct actions to work with the most recent stash:</p>
+<ul>
+<li><strong>Apply latest stash</strong>: Use <code>git::StashApply</code> to apply the most recent stash without removing it</li>
+<li><strong>Pop latest stash</strong>: Use <code>git::StashPop</code> to apply and remove the most recent stash</li>
+</ul>
+<h3 id="stash-diff-view"><a class="header-anchor" href="#stash-diff-view">Stash Diff View</a></h3>
+<p>To view a stash’s contents, select it in the stash picker and press <code>stash_picker::ShowStashItem</code>. From the diff view, you can use these keybindings:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Action</th>
+<th>Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apply stash</td>
+<td><code>git::ApplyCurrentStash</code></td>
+</tr>
+<tr>
+<td>Pop stash (apply and remove)</td>
+<td><code>git::PopCurrentStash</code></td>
+</tr>
+<tr>
+<td>Drop stash (remove without applying)</td>
+<td><code>git::DropCurrentStash</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-support-in-git"><a class="header-anchor" href="#ai-support-in-git">AI Support in Git</a></h2>
+<p>Zed currently supports LLM-powered commit message generation.
+You can ask AI to generate a commit message by focusing on the message editor within the Git Panel and either clicking on the pencil icon in the bottom left, or reaching for the <code>git::GenerateCommitMessage</code>, or through the <code>git::GenerateCommitMessage</code> keybinding.</p>
+<blockquote>
+<p>Note that you need to have an LLM provider configured either via your own API keys or through Zed’s hosted AI models.
+Visit <a href="ai/quick-start.html">AI Quick Start</a> to learn how to configure AI.</p>
+</blockquote>
+<p>You can specify your preferred model for this task by adding a <code>commit_message_model</code> field to your agent settings.
+See <a href="ai/agent-settings.html#feature-specific-models">Feature-specific models</a> for more information.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;commit_message_model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anthropic&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;claude-4-5-haiku&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>To add custom commit instructions for the model, use the global <code>AGENTS.md</code> file located at <code>~/.config/zed/AGENTS.md</code> on macOS and Linux, <code>%APPDATA%\Zed\AGENTS.md</code> on Windows.</p>
+<p>To add custom instructions that apply only to commit message generation, use the <code>commit_message_instructions</code> field in your agent settings:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;commit_message_instructions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Use the Conventional Commits format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;.&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>These instructions are sent to the model in addition to any instruction files, such as <code>.rules</code> or <code>AGENTS.md</code>. To add instructions that apply to both commit messages and the agent more broadly, use the global <code>AGENTS.md</code> file located at <code>~/.config/zed/AGENTS.md</code> on macOS and Linux, <code>%APPDATA%\Zed\AGENTS.md</code> on Windows.</p>
+<blockquote>
+<p>Before Zed v1.4.0, this was done through the Rules Library, which has been removed.
+See <a href="ai/instructions.html#migrating-from-rules">Migrating from Rules</a> for more information.</p>
+</blockquote>
+<h2 id="git-integrations"><a class="header-anchor" href="#git-integrations">Git Integrations</a></h2>
+<p>Zed integrates with popular Git hosting services to ensure that Git commit hashes and references to Issues, Pull Requests, and Merge Requests become clickable links.</p>
+<p>Zed currently supports links to the hosted versions of
+<a href="https://github.com">GitHub</a>,
+<a href="https://gitlab.com">GitLab</a>,
+<a href="https://bitbucket.org">Bitbucket</a>,
+<a href="https://sr.ht">SourceHut</a>,
+<a href="https://tangled.org">Tangled</a> and
+<a href="https://codeberg.org">Codeberg</a>.</p>
+<h3 id="self-hosted-instances"><a class="header-anchor" href="#self-hosted-instances">Self-Hosted Instances</a></h3>
+<p>Zed automatically identifies Git hosting providers by checking for keywords in your Git remote URL. For example, if your self-hosted URL contains <code>gitlab</code>, <code>gitea</code>, or other recognized provider names, Zed will automatically register that hosting provider without any configuration needed.</p>
+<p>However, if your self-hosted Git instance URL doesn’t contain identifying keywords, you can manually configure Zed to create clickable links to your instance by adding a <code>git_hosting_providers</code> setting so commit hashes and permalinks resolve to your domain:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;git_hosting_providers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;gitlab&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Corp GitLab&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;base_url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://git.example.corp&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The <code>provider</code> field specifies which type of hosting service you’re using. Supported <code>provider</code> values are <code>github</code>, <code>gitlab</code>, <code>bitbucket</code>, <code>gitea</code>, <code>forgejo</code>, <code>sourcehut</code>, <code>tangled</code>, and <code>gitiles</code>. The <code>name</code> is optional and used as a display name for your instance, and <code>base_url</code> is the root URL of your self-hosted server. For the <code>gitiles</code> provider, set <code>base_url</code> to the Gitiles browse root (e.g. <code>https://android.googlesource.com</code> or <code>https://git.example.com/plugins/gitiles</code>).</p>
+<p>You can configure multiple custom providers if you work with several self-hosted instances.</p>
+<h3 id="permalinks"><a class="header-anchor" href="#permalinks">Permalinks</a></h3>
+<p>Zed can open or copy a permanent link to a file or code selection on your Git hosting service.
+These links are useful for sharing a specific line or range of lines in a file at a specific commit.</p>
+<p>For the current selection in the editor, use <code>editor::CopyPermalinkToLine</code> or
+<code>editor::OpenPermalinkToLine</code> from the <a href="command-palette.html">Command Palette</a>
+(search for <code>permalink</code>), via <a href="key-bindings.html#keymap-editor">custom key bindings</a>,
+or by right-clicking and selecting <strong>Copy Permalink to Line</strong>.</p>
+<p>From a file tab or the Project Panel, you can also <strong>Open File Permalink</strong> or <strong>Copy File Permalink</strong>
+for the whole file (without a line selection).</p>
+<h2 id="diff-hunk-keyboard-shortcuts"><a class="header-anchor" href="#diff-hunk-keyboard-shortcuts">Diff Hunk Keyboard Shortcuts</a></h2>
+<p>When viewing files with changes, Zed displays diff hunks that can be expanded or collapsed for detailed review:</p>
+<ul>
+<li><strong>Expand all diff hunks</strong>: <code>editor::ExpandAllDiffHunks</code> (<code>editor::ExpandAllDiffHunks</code>)</li>
+<li><strong>Collapse all diff hunks</strong>: Press <code>Escape</code> (bound to <code>editor::Cancel</code>)</li>
+<li><strong>Toggle selected diff hunks</strong>: <code>editor::ToggleSelectedDiffHunks</code> (<code>editor::ToggleSelectedDiffHunks</code>)</li>
+<li><strong>Navigate between hunks</strong>: <code>editor::GoToHunk</code> and <code>editor::GoToPreviousHunk</code></li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> The <code>Escape</code> key is the quickest way to collapse all expanded diff hunks and return to an overview of your changes.</p>
+</blockquote>
+<h2 id="action-reference"><a class="header-anchor" href="#action-reference">Action Reference</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Action</th>
+<th>Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git::Add</code></td>
+<td><code>git::Add</code></td>
+</tr>
+<tr>
+<td><code>git::StageAll</code></td>
+<td><code>git::StageAll</code></td>
+</tr>
+<tr>
+<td><code>git::UnstageAll</code></td>
+<td><code>git::UnstageAll</code></td>
+</tr>
+<tr>
+<td><code>git::StageSection</code></td>
+<td><code>git::StageSection</code></td>
+</tr>
+<tr>
+<td><code>git::UnstageSection</code></td>
+<td><code>git::UnstageSection</code></td>
+</tr>
+<tr>
+<td><code>git::ToggleStaged</code></td>
+<td><code>git::ToggleStaged</code></td>
+</tr>
+<tr>
+<td><code>git::StageAndNext</code></td>
+<td><code>git::StageAndNext</code></td>
+</tr>
+<tr>
+<td><code>git::UnstageAndNext</code></td>
+<td><code>git::UnstageAndNext</code></td>
+</tr>
+<tr>
+<td><code>git::Commit</code></td>
+<td><code>git::Commit</code></td>
+</tr>
+<tr>
+<td><code>git::ExpandCommitEditor</code></td>
+<td><code>git::ExpandCommitEditor</code></td>
+</tr>
+<tr>
+<td><code>git::Push</code></td>
+<td><code>git::Push</code></td>
+</tr>
+<tr>
+<td><code>git::ForcePush</code></td>
+<td><code>git::ForcePush</code></td>
+</tr>
+<tr>
+<td><code>git::Pull</code></td>
+<td><code>git::Pull</code></td>
+</tr>
+<tr>
+<td><code>git::PullRebase</code></td>
+<td><code>git::PullRebase</code></td>
+</tr>
+<tr>
+<td><code>git::Fetch</code></td>
+<td><code>git::Fetch</code></td>
+</tr>
+<tr>
+<td><code>git::Diff</code></td>
+<td><code>git::Diff</code></td>
+</tr>
+<tr>
+<td><code>git::Restore</code></td>
+<td><code>git::Restore</code></td>
+</tr>
+<tr>
+<td><code>git::RestoreFile</code></td>
+<td><code>git::RestoreFile</code></td>
+</tr>
+<tr>
+<td><code>git::Branch</code></td>
+<td><code>git::Branch</code></td>
+</tr>
+<tr>
+<td><code>git::Switch</code></td>
+<td><code>git::Switch</code></td>
+</tr>
+<tr>
+<td><code>git::CheckoutBranch</code></td>
+<td><code>git::CheckoutBranch</code></td>
+</tr>
+<tr>
+<td><code>git::Worktree</code></td>
+<td><code>git::Worktree</code></td>
+</tr>
+<tr>
+<td><code>git::Blame</code></td>
+<td><code>git::Blame</code></td>
+</tr>
+<tr>
+<td><code>git::StashAll</code></td>
+<td><code>git::StashAll</code></td>
+</tr>
+<tr>
+<td><code>git::StashTracked</code></td>
+<td><code>git::StashTracked</code></td>
+</tr>
+<tr>
+<td><code>git::StashStaged</code></td>
+<td><code>git::StashStaged</code></td>
+</tr>
+<tr>
+<td><code>git::StashPop</code></td>
+<td><code>git::StashPop</code></td>
+</tr>
+<tr>
+<td><code>git::StashApply</code></td>
+<td><code>git::StashApply</code></td>
+</tr>
+<tr>
+<td><code>git::ViewStash</code></td>
+<td><code>git::ViewStash</code></td>
+</tr>
+<tr>
+<td><code>editor::ToggleGitBlameInline</code></td>
+<td><code>editor::ToggleGitBlameInline</code></td>
+</tr>
+<tr>
+<td><code>editor::ExpandAllDiffHunks</code></td>
+<td><code>editor::ExpandAllDiffHunks</code></td>
+</tr>
+<tr>
+<td><code>editor::ToggleSelectedDiffHunks</code></td>
+<td><code>editor::ToggleSelectedDiffHunks</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Not all actions have default keybindings, but can be bound by <a href="key-bindings.html#user-keymaps">customizing your keymap</a>.</p>
+</blockquote>
+<h2 id="git-cli-configuration"><a class="header-anchor" href="#git-cli-configuration">Git CLI Configuration</a></h2>
+<p>If you would like to also use Zed for your <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor">git commit message editor</a> when committing from the command line you can use <code>zed --wait</code>:</p>
+<pre><code class="language-sh">git config --global core.editor <span class="hljs-string">&quot;zed --wait&quot;</span>
+</code></pre>
+<p>Or add the following to your shell environment (in <code>~/.zshrc</code>, <code>~/.bashrc</code>, etc):</p>
+<pre><code class="language-sh"><span class="hljs-built_in">export</span> GIT_EDITOR=<span class="hljs-string">&quot;zed --wait&quot;</span>
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/git.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

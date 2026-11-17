@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DIR"],"fn":["add","check_name","list","path","remove"]};

@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual Customization · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a class="active" aria-current="page" href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="visual-customization"><a class="header-anchor" href="#visual-customization">Visual Customization</a></h1>
+<p>Various aspects of Zed’s visual layout can be configured in the Settings Editor (<code>zed::OpenSettings</code>) or in your settings file (<code>zed::OpenSettingsFile</code>).</p>
+<p>See <a href="reference/all-settings.html">All Settings</a> for additional information and other non-visual settings.</p>
+<h2 id="themes"><a class="header-anchor" href="#themes">Themes</a></h2>
+<p>You can install many <a href="themes.html">themes</a> and <a href="icon-themes.html">icon themes</a> in form of <a href="extensions.html">extensions</a> by running <code>zed::Extensions</code> from the command palette.</p>
+<p>You can preview/choose amongst your installed themes and icon themes with <code>theme_selector::Toggle</code> (<code>theme_selector::Toggle</code>) and <code>icon_theme_selector::Toggle</code> which will modify the following settings:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;theme&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;One Dark&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;icon_theme&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Zed (Default)&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>If you would like to use distinct themes for light mode/dark mode that can be set with:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;theme&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dark&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;One Dark&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;light&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;One Light&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Mode to use (dark, light) or &quot;system&quot; to follow the OS&#x27;s light/dark mode (default)</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;system&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;icon_theme&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dark&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Zed (Default)&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;light&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Zed (Default)&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Mode to use (dark, light) or &quot;system&quot; to follow the OS&#x27;s light/dark mode (default)</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;system&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="fonts"><a class="header-anchor" href="#fonts">Fonts</a></h2>
+<pre><code class="language-json">  <span class="hljs-comment">// UI Font. Use &quot;.SystemUIFont&quot; to use the default system font (SF Pro on macOS),</span>
+  <span class="hljs-comment">// or &quot;.ZedSans&quot; for the bundled default (currently IBM Plex)</span>
+  <span class="hljs-attr">&quot;ui_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;.SystemUIFont&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;ui_font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">400</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Font weight in standard CSS units from 100 to 900.</span>
+  <span class="hljs-attr">&quot;ui_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">16</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Buffer Font - Used by editor buffers</span>
+  <span class="hljs-comment">// use &quot;.ZedMono&quot; for the bundled default monospace (currently Lilex)</span>
+  <span class="hljs-attr">&quot;buffer_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Berkeley Mono&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Font name for editor buffers</span>
+  <span class="hljs-attr">&quot;buffer_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>                 <span class="hljs-comment">// Font size for editor buffers</span>
+  <span class="hljs-attr">&quot;buffer_font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">400</span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Font weight in CSS units [100-900]</span>
+  <span class="hljs-comment">// Line height &quot;comfortable&quot; (1.618), &quot;standard&quot; (1.3) or custom: `{ &quot;custom&quot;: 2 }`</span>
+  <span class="hljs-attr">&quot;buffer_line_height&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;comfortable&quot;</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Terminal Font Settings</span>
+  <span class="hljs-attr">&quot;terminal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Terminal line height: comfortable (1.618), standard(1.3) or `{ &quot;custom&quot;: 2 }`</span>
+    <span class="hljs-attr">&quot;line_height&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;standard&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Controls the font family and size for agent responses in the agent panel.</span>
+  <span class="hljs-comment">// If not specified, they fall back to the UI font family and size.</span>
+  <span class="hljs-attr">&quot;agent_ui_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;agent_ui_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Controls the font family and size for the agent panel&#x27;s message editor</span>
+  <span class="hljs-comment">// and user messages.</span>
+  <span class="hljs-comment">// If not specified, the font family falls back to the buffer font family.</span>
+  <span class="hljs-attr">&quot;agent_buffer_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Berkeley Mono&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Controls the font size for the agent panel&#x27;s message editor, user message,</span>
+  <span class="hljs-comment">// and any other snippet of code.</span>
+  <span class="hljs-attr">&quot;agent_buffer_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Controls the font family for Mermaid diagrams in the agent panel and</span>
+  <span class="hljs-comment">// markdown preview. If not specified, it falls back to the UI font family.</span>
+  <span class="hljs-attr">&quot;mermaid_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-attr">&quot;markdown_preview&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Controls the font size for the markdown preview.</span>
+    <span class="hljs-comment">// If not specified, it falls back to the editor font size.</span>
+    <span class="hljs-attr">&quot;font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Controls the font family for the markdown preview.</span>
+    <span class="hljs-comment">// If not specified, it falls back to the UI font family.</span>
+    <span class="hljs-attr">&quot;font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Controls the font family for code blocks in the markdown preview.</span>
+    <span class="hljs-comment">// If not specified, it falls back to the editor font family.</span>
+    <span class="hljs-attr">&quot;code_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Controls the font weight for headings (H1 through H6) in the markdown preview,</span>
+    <span class="hljs-comment">// in CSS units from 100 to 900. Defaults to 600.</span>
+    <span class="hljs-attr">&quot;heading_font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">600</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="font-ligatures"><a class="header-anchor" href="#font-ligatures">Font ligatures</a></h3>
+<p>By default Zed enables font ligatures which will visually combine certain adjacent characters.</p>
+<p>For example <code>=&gt;</code> will be displayed as <code>→</code> and <code>!=</code> will be <code>≠</code>.
+This is purely cosmetic and the individual characters remain unchanged.</p>
+<p>To disable this behavior use:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;buffer_font_features&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;calt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span> <span class="hljs-comment">// Disable ligatures</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="status-bar"><a class="header-anchor" href="#status-bar">Status Bar</a></h3>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// Whether to show full labels in line indicator or short ones</span>
+  <span class="hljs-comment">//   - `short`: &quot;2 s, 15 l, 32 c&quot;</span>
+  <span class="hljs-comment">//   - `long`: &quot;2 selections, 15 lines, 32 characters&quot;</span>
+  <span class="hljs-attr">&quot;line_indicator_format&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;long&quot;</span>
+
+  <span class="hljs-comment">// Individual status bar icons can be hidden:</span>
+  <span class="hljs-comment">// &quot;project_panel&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;outline_panel&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;collaboration_panel&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;git_panel&quot;: {&quot;button&quot;: false },</span>
+
+  <span class="hljs-comment">// &quot;agent&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;debugger&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;diagnostics&quot;: {&quot;button&quot;: false },</span>
+  <span class="hljs-comment">// &quot;search&quot;: {&quot;button&quot;: false },</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="titlebar"><a class="header-anchor" href="#titlebar">Titlebar</a></h3>
+<pre><code class="language-json">  <span class="hljs-comment">// Control which items are shown/hidden in the title bar</span>
+  <span class="hljs-attr">&quot;title_bar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;always&quot;</span><span class="hljs-punctuation">,</span>                <span class="hljs-comment">// When to show: always | never | hide_in_full_screen</span>
+    <span class="hljs-attr">&quot;show_branch_status_icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show git status on branch icon</span>
+    <span class="hljs-attr">&quot;show_branch_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Show/hide branch name</span>
+    <span class="hljs-attr">&quot;show_worktree_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>       <span class="hljs-comment">// Show/hide worktree name</span>
+    <span class="hljs-attr">&quot;show_project_items&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>       <span class="hljs-comment">// Show/hide project host and name</span>
+    <span class="hljs-attr">&quot;show_onboarding_banner&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>   <span class="hljs-comment">// Show/hide onboarding banners</span>
+    <span class="hljs-attr">&quot;show_user_picture&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// Show/hide user avatar</span>
+    <span class="hljs-attr">&quot;show_user_menu&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// Show/hide app user button</span>
+    <span class="hljs-attr">&quot;show_sign_in&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Show/hide sign-in button</span>
+    <span class="hljs-attr">&quot;show_menus&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Show/hide menus</span>
+    <span class="hljs-attr">&quot;open_menus_on_hover&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>      <span class="hljs-comment">// Automatically open menus on hover</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h2 id="workspace"><a class="header-anchor" href="#workspace">Workspace</a></h2>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// Force usage of Zed build in path prompts (file and directory pickers)</span>
+  <span class="hljs-comment">// instead of OS native pickers (false).</span>
+  <span class="hljs-attr">&quot;use_system_path_prompts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Force usage of Zed built in confirmation prompts (&quot;Do you want to save?&quot;)</span>
+  <span class="hljs-comment">// instead of OS native prompts (false). On linux this is ignored (always false).</span>
+  <span class="hljs-attr">&quot;use_system_prompts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Active pane styling settings.</span>
+  <span class="hljs-attr">&quot;active_pane_modifiers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Inset border size of the active pane, in pixels.</span>
+    <span class="hljs-attr">&quot;border_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Opacity of the inactive panes. 0 means transparent, 1 means opaque.</span>
+    <span class="hljs-attr">&quot;inactive_opacity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.0</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Layout mode of the bottom dock: contained, full, left_aligned, right_aligned</span>
+  <span class="hljs-attr">&quot;bottom_dock_layout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;contained&quot;</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Whether to resize all the panels in a dock when resizing the dock.</span>
+  <span class="hljs-comment">// Can be a combination of &quot;left&quot;, &quot;right&quot; and &quot;bottom&quot;.</span>
+  <span class="hljs-attr">&quot;resize_all_panels_in_dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;left&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<!--
+TBD: Centered layout related settings
+```json [settings]
+    "centered_layout": {
+    // The relative width of the left padding of the central pane from the
+    // workspace when the centered layout is used.
+    "left_padding": 0.2,
+    // The relative width of the right padding of the central pane from the
+    // workspace when the centered layout is used.
+    "right_padding": 0.2
+    },
+```
+-->
+<h2 id="editor"><a class="header-anchor" href="#editor">Editor</a></h2>
+<pre><code class="language-json">  <span class="hljs-comment">// Whether the cursor blinks in the editor.</span>
+  <span class="hljs-attr">&quot;cursor_blink&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Cursor shape for the default editor: bar, block, underline, hollow</span>
+  <span class="hljs-attr">&quot;cursor_shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Highlight the current line in the editor: none, gutter, line, all</span>
+  <span class="hljs-attr">&quot;current_line_highlight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;all&quot;</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// When does the mouse cursor hide: never, on_typing, on_typing_and_action</span>
+  <span class="hljs-attr">&quot;hide_mouse&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;on_typing_and_action&quot;</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Whether to highlight all occurrences of the selected text in an editor.</span>
+  <span class="hljs-attr">&quot;selection_highlight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Visually show tabs and spaces  (none, all, selection, boundary, trailing)</span>
+  <span class="hljs-attr">&quot;show_whitespaces&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;selection&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;whitespace_map&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span> <span class="hljs-comment">// Which characters to show when `show_whitespaces` enabled</span>
+    <span class="hljs-attr">&quot;space&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;•&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;tab&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;⟶&quot;</span>       <span class="hljs-comment">// use &quot;→&quot;, for a shorter arrow</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-attr">&quot;unnecessary_code_fade&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.3</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// How much to fade out unused code.</span>
+
+  <span class="hljs-comment">// Hide the values of in variables from visual display in private files</span>
+  <span class="hljs-attr">&quot;redact_private_values&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Soft-wrap and rulers</span>
+  <span class="hljs-attr">&quot;soft_wrap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;none&quot;</span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// none, editor_width, preferred_line_length, bounded</span>
+  <span class="hljs-attr">&quot;preferred_line_length&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// Column to soft-wrap</span>
+  <span class="hljs-attr">&quot;show_wrap_guides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Show/hide wrap guides (vertical rulers)</span>
+  <span class="hljs-attr">&quot;wrap_guides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>            <span class="hljs-comment">// Where to position wrap_guides (character counts)</span>
+
+  <span class="hljs-comment">// Gutter Settings</span>
+  <span class="hljs-attr">&quot;gutter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;line_numbers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Show/hide line numbers in the gutter.</span>
+    <span class="hljs-attr">&quot;runnables&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>            <span class="hljs-comment">// Show/hide runnables buttons in the gutter.</span>
+    <span class="hljs-attr">&quot;breakpoints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// Show/hide show breakpoints in the gutter.</span>
+    <span class="hljs-attr">&quot;folds&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>                <span class="hljs-comment">// Show/hide show fold buttons in the gutter.</span>
+    <span class="hljs-attr">&quot;min_line_number_digits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span>   <span class="hljs-comment">// Reserve space for N digit line numbers</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;relative_line_numbers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;enabled&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show relative line numbers in gutter</span>
+
+  <span class="hljs-comment">// Indent guides</span>
+  <span class="hljs-attr">&quot;indent_guides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;line_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>                  <span class="hljs-comment">// Width of guides in pixels [1-10]</span>
+    <span class="hljs-attr">&quot;active_line_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// Width of active guide in pixels [1-10]</span>
+    <span class="hljs-attr">&quot;coloring&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;fixed&quot;</span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// disabled, fixed, indent_aware</span>
+    <span class="hljs-attr">&quot;background_coloring&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;disabled&quot;</span> <span class="hljs-comment">// disabled, indent_aware</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-attr">&quot;sticky_scroll&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span> <span class="hljs-comment">// Whether to stick scopes to the top of the editor. Disabled by default.</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="editor-blame"><a class="header-anchor" href="#editor-blame">Git Blame</a></h3>
+<pre><code class="language-json">  <span class="hljs-attr">&quot;git&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;inline_blame&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Show/hide inline blame</span>
+      <span class="hljs-attr">&quot;delay_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Show after delay (ms)</span>
+      <span class="hljs-attr">&quot;location&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;inline&quot;</span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// inline, status_bar</span>
+      <span class="hljs-attr">&quot;min_column&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Minimum column to inline display blame</span>
+      <span class="hljs-attr">&quot;padding&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>                <span class="hljs-comment">// Padding between code and inline blame (em)</span>
+      <span class="hljs-attr">&quot;show_commit_summary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span> <span class="hljs-comment">// Show/hide commit summary</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hunk_style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;staged_hollow&quot;</span>  <span class="hljs-comment">// staged_hollow, unstaged_hollow</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="editor-toolbar"><a class="header-anchor" href="#editor-toolbar">Editor Toolbar</a></h3>
+<pre><code class="language-json">  <span class="hljs-comment">// Editor toolbar related settings</span>
+  <span class="hljs-attr">&quot;toolbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;breadcrumbs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Whether to show breadcrumbs.</span>
+    <span class="hljs-attr">&quot;quick_actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Whether to show quick action buttons.</span>
+    <span class="hljs-attr">&quot;selections_menu&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Whether to show the Selections menu</span>
+    <span class="hljs-attr">&quot;agent_review&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Whether to show agent review buttons</span>
+    <span class="hljs-attr">&quot;code_actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span> <span class="hljs-comment">// Whether to show code action buttons</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="editor-scrollbar"><a class="header-anchor" href="#editor-scrollbar">Editor Scrollbar and Minimap</a></h3>
+<pre><code class="language-json">  <span class="hljs-comment">// Scrollbar related settings</span>
+  <span class="hljs-attr">&quot;scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// When to show the scrollbar in the editor (auto, system, always, never)</span>
+    <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;auto&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cursors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// Show cursor positions in the scrollbar.</span>
+    <span class="hljs-attr">&quot;git_diff&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Show git diff indicators in the scrollbar.</span>
+    <span class="hljs-attr">&quot;search_results&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>   <span class="hljs-comment">// Show buffer search results in the scrollbar.</span>
+    <span class="hljs-attr">&quot;selected_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>    <span class="hljs-comment">// Show selected text occurrences in the scrollbar.</span>
+    <span class="hljs-attr">&quot;selected_symbol&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// Show selected symbol occurrences in the scrollbar.</span>
+    <span class="hljs-attr">&quot;diagnostics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;all&quot;</span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Show diagnostics (none, error, warning, information, all)</span>
+    <span class="hljs-attr">&quot;axes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;horizontal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Show/hide the horizontal scrollbar</span>
+      <span class="hljs-attr">&quot;vertical&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>        <span class="hljs-comment">// Show/hide the vertical scrollbar</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Minimap related settings</span>
+  <span class="hljs-attr">&quot;minimap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;never&quot;</span><span class="hljs-punctuation">,</span>                <span class="hljs-comment">// When to show (auto, always, never)</span>
+    <span class="hljs-attr">&quot;display_in&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;active_editor&quot;</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// Where to show (active_editor, all_editors)</span>
+    <span class="hljs-attr">&quot;thumb&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;always&quot;</span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// When to show thumb (always, hover)</span>
+    <span class="hljs-attr">&quot;thumb_border&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;left_open&quot;</span><span class="hljs-punctuation">,</span>    <span class="hljs-comment">// Thumb border (left_open, right_open, full, none)</span>
+    <span class="hljs-attr">&quot;max_width_columns&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// Maximum width of minimap</span>
+    <span class="hljs-attr">&quot;current_line_highlight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>  <span class="hljs-comment">// Highlight current line (null, line, gutter)</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Control Editor scroll beyond the last line: off, one_page, vertical_scroll_margin</span>
+  <span class="hljs-attr">&quot;scroll_beyond_last_line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;one_page&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Lines to keep above/below the cursor when scrolling with the keyboard</span>
+  <span class="hljs-attr">&quot;vertical_scroll_margin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// The number of characters to keep on either side when scrolling with the mouse</span>
+  <span class="hljs-attr">&quot;horizontal_scroll_margin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Scroll sensitivity multiplier</span>
+  <span class="hljs-attr">&quot;scroll_sensitivity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.0</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Scroll sensitivity multiplier for fast scrolling (hold alt while scrolling)</span>
+  <span class="hljs-attr">&quot;fast_scroll_sensitivity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.0</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h3 id="editor-tabs"><a class="header-anchor" href="#editor-tabs">Editor Tabs</a></h3>
+<pre><code class="language-json">  <span class="hljs-comment">// Maximum number of tabs per pane. Unset for unlimited.</span>
+  <span class="hljs-attr">&quot;max_tabs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Customize the tab bar appearance</span>
+  <span class="hljs-attr">&quot;tab_bar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>                     <span class="hljs-comment">// Show/hide the tab bar</span>
+    <span class="hljs-attr">&quot;show_nav_history_buttons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show/hide history buttons on tab bar</span>
+    <span class="hljs-attr">&quot;show_tab_bar_buttons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>      <span class="hljs-comment">// Show hide buttons (new, split, zoom)</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;tabs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;git_status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Color to show git status</span>
+    <span class="hljs-attr">&quot;close_position&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;right&quot;</span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// Close button position (left, right, hidden)</span>
+    <span class="hljs-attr">&quot;show_close_button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;hover&quot;</span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Close button shown (hover, always, hidden)</span>
+    <span class="hljs-attr">&quot;file_icons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Icon showing file type</span>
+    <span class="hljs-comment">// Show diagnostics in file icon (off, errors, all). Requires file_icons=true</span>
+    <span class="hljs-attr">&quot;show_diagnostics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;off&quot;</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="status-bar-1"><a class="header-anchor" href="#status-bar-1">Status Bar</a></h3>
+<pre><code class="language-json">  <span class="hljs-attr">&quot;status_bar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Show/hide a button that displays the active buffer&#x27;s language.</span>
+    <span class="hljs-comment">// Clicking the button brings up the language selector.</span>
+    <span class="hljs-comment">// Defaults to true.</span>
+    <span class="hljs-attr">&quot;active_language_button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Show/hide a button that displays the cursor&#x27;s position.</span>
+    <span class="hljs-comment">// Clicking the button brings up an input for jumping to a line and column.</span>
+    <span class="hljs-comment">// Defaults to true.</span>
+    <span class="hljs-attr">&quot;cursor_position_button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Show/hide a button that displays the buffer&#x27;s line-ending mode.</span>
+    <span class="hljs-comment">// Clicking the button brings up the line-ending selector.</span>
+    <span class="hljs-comment">// Defaults to false.</span>
+    <span class="hljs-attr">&quot;line_endings_button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Show/hide a button that displays the buffer&#x27;s character encoding.</span>
+    <span class="hljs-comment">// If set to &quot;non_utf8&quot;, the button is hidden only for UTF-8 without BOM.</span>
+    <span class="hljs-comment">// Defaults to &quot;non_utf8&quot;.</span>
+    <span class="hljs-attr">&quot;active_encoding_button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;non_utf8&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Show/hide an indicator while multi-stroke input is pending.</span>
+    <span class="hljs-comment">// If the input has a timeout, a countdown is shown and hovering pauses it.</span>
+    <span class="hljs-comment">// Unless the which-key menu is enabled, hovering also lists the bindings</span>
+    <span class="hljs-comment">// that could still match.</span>
+    <span class="hljs-comment">// Defaults to true.</span>
+    <span class="hljs-attr">&quot;pending_keystrokes_indicator&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;global_lsp_settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// Show/hide the LSP button in the status bar.</span>
+    <span class="hljs-comment">// Activity from the LSP is still shown.</span>
+    <span class="hljs-comment">// Button is not shown if &quot;enable_language_server&quot; is false.</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h3 id="multibuffer"><a class="header-anchor" href="#multibuffer">Multibuffer</a></h3>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// The default number of lines to expand excerpts in the multibuffer by.</span>
+  <span class="hljs-attr">&quot;expand_excerpt_lines&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// The default number of lines of context provided for excerpts in the multibuffer by.</span>
+  <span class="hljs-attr">&quot;excerpt_context_lines&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="editor-lsp"><a class="header-anchor" href="#editor-lsp">Editor Completions, Snippets, Actions, Diagnostics</a></h3>
+<pre><code class="language-json">  <span class="hljs-attr">&quot;snippet_sort_order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;inline&quot;</span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// Snippets completions: top, inline, bottom, none</span>
+  <span class="hljs-attr">&quot;show_completions_on_input&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Show completions while typing</span>
+  <span class="hljs-attr">&quot;show_completion_documentation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show documentation in completions</span>
+  <span class="hljs-attr">&quot;auto_signature_help&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// Show method signatures inside parentheses</span>
+
+  <span class="hljs-comment">// Whether to show the signature help after completion or a bracket pair inserted.</span>
+  <span class="hljs-comment">// If `auto_signature_help` is enabled, this setting will be treated as enabled also.</span>
+  <span class="hljs-attr">&quot;show_signature_help_after_edits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Whether to show code action button at start of buffer line.</span>
+  <span class="hljs-attr">&quot;inline_code_actions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Which level to use to filter out diagnostics displayed in the editor:</span>
+  <span class="hljs-attr">&quot;diagnostics_max_severity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span><span class="hljs-punctuation">,</span>      <span class="hljs-comment">// off, error, warning, info, hint, null (all)</span>
+
+  <span class="hljs-comment">// How to render LSP `textDocument/documentColor` colors in the editor.</span>
+  <span class="hljs-attr">&quot;lsp_document_colors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;inlay&quot;</span><span class="hljs-punctuation">,</span>        <span class="hljs-comment">// none, inlay, border, background</span>
+  <span class="hljs-comment">// Whether to query and display LSP document links in the editor.</span>
+  <span class="hljs-attr">&quot;lsp_document_links&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// When to show the scrollbar in the completion menu.</span>
+  <span class="hljs-attr">&quot;completion_menu_scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;never&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// auto, system, always, never</span>
+
+  <span class="hljs-comment">// How to display the LSP item kind (function, method, variable, etc.)</span>
+  <span class="hljs-comment">// of each entry in the completions menu. &quot;symbol&quot; shows a syntax-colored</span>
+  <span class="hljs-comment">// single-letter badge.</span>
+  <span class="hljs-attr">&quot;completion_menu_item_kind&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;off&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// off, symbol</span>
+  <span class="hljs-comment">// Turn on colorization of brackets in editors (configurable per language)</span>
+  <span class="hljs-attr">&quot;colorize_brackets&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h3 id="editor-ai"><a class="header-anchor" href="#editor-ai">Edit Predictions</a></h3>
+<pre><code class="language-json">  <span class="hljs-attr">&quot;edit_predictions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eager&quot;</span>                  <span class="hljs-comment">// Automatically show (eager) or hold-alt (subtle)</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;show_edit_predictions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>     <span class="hljs-comment">// Show/hide predictions in editor</span>
+</code></pre>
+<h3 id="editor-inlay-hints"><a class="header-anchor" href="#editor-inlay-hints">Editor Inlay Hints</a></h3>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;inlay_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Toggle certain types of hints on and off, all switched on by default.</span>
+    <span class="hljs-attr">&quot;show_type_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;show_parameter_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;show_other_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+
+    <span class="hljs-comment">// Whether to show a background for inlay hints (theme `hint.background`)</span>
+    <span class="hljs-attr">&quot;show_background&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">//</span>
+
+    <span class="hljs-comment">// Time to wait after editing before requesting hints (0 to disable debounce)</span>
+    <span class="hljs-attr">&quot;edit_debounce_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">700</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Time to wait after scrolling before requesting hints (0 to disable debounce)</span>
+    <span class="hljs-attr">&quot;scroll_debounce_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">50</span><span class="hljs-punctuation">,</span>
+
+    <span class="hljs-comment">// A set of modifiers which, when pressed, will toggle the visibility of inlay hints.</span>
+    <span class="hljs-attr">&quot;toggle_on_modifiers_press&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;control&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;shift&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;alt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;platform&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;function&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="file-finder"><a class="header-anchor" href="#file-finder">File Finder</a></h2>
+<pre><code class="language-json">  <span class="hljs-comment">// File Finder Settings</span>
+  <span class="hljs-attr">&quot;file_finder&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;file_icons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Show/hide file icons</span>
+    <span class="hljs-attr">&quot;modal_max_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;small&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Horizontal size: small, medium, large, xlarge, full</span>
+    <span class="hljs-attr">&quot;include_ignored&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>     <span class="hljs-comment">// gitignored files in results: true, false, null</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h2 id="project-panel"><a class="header-anchor" href="#project-panel">Project Panel</a></h2>
+<p><a href="project-panel.html">Project panel</a> can be shown/hidden with <code>project_panel::ToggleFocus</code> (<code>project_panel::ToggleFocus</code>) or with <code>pane::RevealInProjectPanel</code> (<code>pane::RevealInProjectPanel</code>).</p>
+<pre><code class="language-json">  <span class="hljs-comment">// Project Panel Settings</span>
+  <span class="hljs-attr">&quot;project_panel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>                 <span class="hljs-comment">// Show/hide button in the status bar</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">240</span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// Default panel width</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;right&quot;</span><span class="hljs-punctuation">,</span>                <span class="hljs-comment">// Position of the dock (left, right)</span>
+    <span class="hljs-attr">&quot;entry_spacing&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;comfortable&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Vertical spacing (comfortable, standard)</span>
+    <span class="hljs-attr">&quot;file_icons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Show/hide file icons</span>
+    <span class="hljs-attr">&quot;folder_indicator&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;icon&quot;</span><span class="hljs-punctuation">,</span>     <span class="hljs-comment">// Dir glyph: icon, chevron, both</span>
+    <span class="hljs-attr">&quot;git_status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Indicate new/updated files</span>
+    <span class="hljs-attr">&quot;indent_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Pixels for each successive indent</span>
+    <span class="hljs-attr">&quot;auto_reveal_entries&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>    <span class="hljs-comment">// Show file in panel when activating its buffer</span>
+    <span class="hljs-attr">&quot;auto_fold_dirs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Fold dirs with single subdir</span>
+    <span class="hljs-attr">&quot;bold_folder_labels&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>    <span class="hljs-comment">// Show folder names with bold text</span>
+    <span class="hljs-attr">&quot;sticky_scroll&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// Stick parent directories at top of the project panel.</span>
+    <span class="hljs-attr">&quot;drag_and_drop&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>          <span class="hljs-comment">// Whether drag and drop is enabled</span>
+    <span class="hljs-attr">&quot;scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>                  <span class="hljs-comment">// Project panel scrollbar settings</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>                  <span class="hljs-comment">// Show/hide: (auto, system, always, never)</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;show_diagnostics&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;all&quot;</span><span class="hljs-punctuation">,</span>      <span class="hljs-comment">//</span>
+    <span class="hljs-comment">// Settings related to indent guides in the project panel.</span>
+    <span class="hljs-attr">&quot;indent_guides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// When to show indent guides in the project panel. (always, never)</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;always&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Sort order for entries (directories_first, mixed, files_first)</span>
+    <span class="hljs-attr">&quot;sort_mode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;directories_first&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to sort file and folder names case-sensitively.</span>
+    <span class="hljs-comment">// &quot;default&quot;: Case-insensitive natural sort, lowercase preferred in ties.</span>
+    <span class="hljs-comment">// &quot;upper&quot;:   Uppercase names grouped before lowercase, natural sort within.</span>
+    <span class="hljs-comment">// &quot;lower&quot;:   Lowercase names grouped before uppercase, natural sort within.</span>
+    <span class="hljs-comment">// &quot;unicode&quot;:  Pure Unicode codepoint comparison, no case folding.</span>
+    <span class="hljs-comment">// &quot;extension&quot;: Files grouped by extension, extensionless files (including dotfiles like &quot;.gitignore&quot;) first.</span>
+    <span class="hljs-attr">&quot;sort_order&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;default&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to hide the root entry when only one folder is open in the window;</span>
+    <span class="hljs-comment">// this also affects how file paths appear in the file finder history.</span>
+    <span class="hljs-attr">&quot;hide_root&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Whether to hide the hidden entries in the project panel.</span>
+    <span class="hljs-attr">&quot;hide_hidden&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="agent-panel"><a class="header-anchor" href="#agent-panel">Agent Panel</a></h2>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Enable/disable the agent</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show/hide the icon in the status bar</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;right&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Where to dock: left, right, bottom</span>
+    <span class="hljs-attr">&quot;flexible&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Use proportional sizing (left/right docked)</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">640</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Fixed width when flexible is false</span>
+    <span class="hljs-attr">&quot;default_height&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">320</span> <span class="hljs-comment">// Default height (bottom docked)</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Controls the font family and size for agent responses in the agent panel.</span>
+  <span class="hljs-comment">// If not specified, they fall back to the UI font family and size.</span>
+  <span class="hljs-attr">&quot;agent_ui_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Inter&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;agent_ui_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-comment">// Controls the font family and size for the agent panel&#x27;s message editor</span>
+  <span class="hljs-comment">// and user messages.</span>
+  <span class="hljs-comment">// If not specified, the font family falls back to the buffer font family.</span>
+  <span class="hljs-attr">&quot;agent_buffer_font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Berkeley Mono&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;agent_buffer_font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">12</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>When <code>agent.flexible</code> is enabled, <code>agent.default_width</code> does not control the panel width. Double-clicking the panel’s outer resize handle restores the default proportion. Set <code>agent.flexible</code> to <code>false</code> to use <code>agent.default_width</code> as the reset width.</p>
+<p>See <a href="ai/overview.html">Zed AI Documentation</a> for additional non-visual AI settings.</p>
+<h2 id="terminal-panel"><a class="header-anchor" href="#terminal-panel">Terminal Panel</a></h2>
+<pre><code class="language-json">  <span class="hljs-comment">// Terminal Panel Settings</span>
+  <span class="hljs-attr">&quot;terminal&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bottom&quot;</span><span class="hljs-punctuation">,</span>                   <span class="hljs-comment">// Where to dock: left, right, bottom</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>                     <span class="hljs-comment">// Show/hide status bar icon</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">640</span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Default width (left/right docked)</span>
+    <span class="hljs-attr">&quot;default_height&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">320</span><span class="hljs-punctuation">,</span>              <span class="hljs-comment">// Default height (bottom docked)</span>
+
+    <span class="hljs-comment">// Set the cursor blinking behavior in the terminal (on, off, terminal_controlled)</span>
+    <span class="hljs-attr">&quot;blinking&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;terminal_controlled&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Default cursor shape for the terminal cursor (block, bar, underline, hollow)</span>
+    <span class="hljs-attr">&quot;cursor_shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;block&quot;</span><span class="hljs-punctuation">,</span>
+
+    <span class="hljs-comment">// Environment variables to add to terminal&#x27;s process environment</span>
+    <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-comment">// &quot;KEY&quot;: &quot;value&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+    <span class="hljs-comment">// Terminal scrollbar</span>
+    <span class="hljs-attr">&quot;scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>                       <span class="hljs-comment">// Show/hide: (auto, system, always, never)</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Terminal Font Settings</span>
+    <span class="hljs-attr">&quot;font_family&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Fira Code&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;font_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;font_weight&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">400</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Terminal line height: comfortable (1.618), standard(1.3) or `{ &quot;custom&quot;: 2 }`</span>
+    <span class="hljs-attr">&quot;line_height&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;comfortable&quot;</span><span class="hljs-punctuation">,</span>
+
+    <span class="hljs-attr">&quot;max_scroll_history_lines&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">10000</span><span class="hljs-punctuation">,</span>   <span class="hljs-comment">// Scrollback history (0=disable, max=100000)</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<p>See <a href="reference/all-settings.html#terminal">Terminal settings</a> for additional non-visual customization options.</p>
+<h3 id="other-panels"><a class="header-anchor" href="#other-panels">Other Panels</a></h3>
+<pre><code class="language-json">  <span class="hljs-comment">// Git Panel</span>
+  <span class="hljs-attr">&quot;git_panel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Show/hide status bar icon</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;left&quot;</span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Where to dock: left, right</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">360</span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Default width of the git panel.</span>
+    <span class="hljs-attr">&quot;status_style&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;icon&quot;</span><span class="hljs-punctuation">,</span>       <span class="hljs-comment">// label_color, icon</span>
+    <span class="hljs-attr">&quot;sort_by&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;path&quot;</span><span class="hljs-punctuation">,</span>            <span class="hljs-comment">// path, name</span>
+    <span class="hljs-attr">&quot;group_by&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;status&quot;</span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// none, status, staging</span>
+    <span class="hljs-attr">&quot;scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>                <span class="hljs-comment">// Show/hide: (auto, system, always, never)</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Debugger Panel</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bottom&quot;</span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">// Where to dock: left, right, bottom</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>                <span class="hljs-comment">// Show/hide status bar icon</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+
+  <span class="hljs-comment">// Outline Panel</span>
+  <span class="hljs-attr">&quot;outline_panel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Show/hide status bar icon</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">300</span><span class="hljs-punctuation">,</span>         <span class="hljs-comment">// Default width of the git panel</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;left&quot;</span><span class="hljs-punctuation">,</span>               <span class="hljs-comment">// Where to dock: left, right</span>
+    <span class="hljs-attr">&quot;file_icons&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// Show/hide file_icons</span>
+    <span class="hljs-attr">&quot;folder_indicator&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;icon&quot;</span><span class="hljs-punctuation">,</span>   <span class="hljs-comment">// Dir glyph: icon, chevron, both</span>
+    <span class="hljs-attr">&quot;git_status&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">// Show git status</span>
+    <span class="hljs-attr">&quot;indent_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span>            <span class="hljs-comment">// Indentation for nested items (pixels)</span>
+    <span class="hljs-attr">&quot;indent_guides&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;always&quot;</span>            <span class="hljs-comment">// Show indent guides (always, never)</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;auto_reveal_entries&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">// Show file in panel when activating its buffer</span>
+    <span class="hljs-attr">&quot;auto_fold_dirs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>       <span class="hljs-comment">// Fold dirs with single subdir</span>
+    <span class="hljs-attr">&quot;scrollbar&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>                <span class="hljs-comment">// Project panel scrollbar settings</span>
+      <span class="hljs-attr">&quot;show&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">null</span></span>                <span class="hljs-comment">// Show/hide: (auto, system, always, never)</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;multi_buffer_hide_symbols&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>  <span class="hljs-comment">// Hide symbols in multi-buffer views (show only files)</span>
+  <span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="collaboration-panels"><a class="header-anchor" href="#collaboration-panels">Collaboration Panels</a></h2>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-comment">// Collaboration Panel</span>
+  <span class="hljs-attr">&quot;collaboration_panel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Show/hide status bar icon</span>
+    <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;left&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// Where to dock: left, right</span>
+    <span class="hljs-attr">&quot;default_width&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">240</span> <span class="hljs-comment">// Default width of the collaboration panel.</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;show_call_status_icon&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span> <span class="hljs-comment">// Shown call status in the OS status bar.</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/visual-customization.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

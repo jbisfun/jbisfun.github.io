@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zed Agent · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="quick-start.html">AI Quick Start</a></li>
+<li><a href="by-company.html">AI by Company</a></li>
+<li><a href="agents.html">Agents</a>
+<ul>
+<li><a class="active" aria-current="page" href="zed-agent.html">Zed Agent</a></li>
+<li><a href="external-agents.html">External Agents</a></li>
+<li><a href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="agent-settings.html">Agent Settings</a></li>
+<li><a href="agent-profiles.html">Agent Profiles</a></li>
+<li><a href="tools.html">Tools</a>
+<ul>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a href="sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="parallel-agents.html">Parallel Agents</a></li>
+<li><a href="inline-assistant.html">Inline Assistant</a></li>
+<li><a href="llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="use-api-access.html">Use API Access</a></li>
+<li><a href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="edit-prediction.html">Edit Prediction</a></li>
+<li><a href="privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="zed-agent"><a class="header-anchor" href="#zed-agent">Zed Agent</a></h1>
+<p>Zed Agent is Zed’s native agent path. It runs in the <a href="agent-panel.html">Agent Panel</a> and <a href="parallel-agents.html#threads-sidebar">Threads Sidebar</a>, uses models configured through <a href="llm-providers.html">LLM Providers</a>, and integrates with Zed’s project, editor, terminal, and review surfaces.</p>
+<p>Use Zed Agent when you want the agent to:</p>
+<ul>
+<li>read and search your project</li>
+<li>edit files</li>
+<li>run terminal commands</li>
+<li>use Zed-managed MCP tools</li>
+<li>follow <a href="agent-profiles.html">Agent Profiles</a></li>
+<li>use Zed <a href="skills.html">Skills</a> and <a href="instructions.html">Instructions</a></li>
+<li>show changes in Zed’s review UI</li>
+</ul>
+<h2 id="what-zed-agent-uses"><a class="header-anchor" href="#what-zed-agent-uses">What Zed Agent Uses</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Capability</th>
+<th>Source of truth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model access</td>
+<td><a href="llm-providers.html">LLM Providers</a></td>
+</tr>
+<tr>
+<td>Panel workflow</td>
+<td><a href="agent-panel.html">Agent Panel</a></td>
+</tr>
+<tr>
+<td>Tool availability</td>
+<td><a href="agent-profiles.html">Agent Profiles</a></td>
+</tr>
+<tr>
+<td>Tool approval behavior</td>
+<td><a href="tool-permissions.html">Tool Permissions</a></td>
+</tr>
+<tr>
+<td>Built-in tools</td>
+<td><a href="tools.html">Tools</a></td>
+</tr>
+<tr>
+<td>External tools</td>
+<td><a href="mcp.html">MCP</a></td>
+</tr>
+<tr>
+<td>Reusable task instructions</td>
+<td><a href="skills.html">Skills</a></td>
+</tr>
+<tr>
+<td>Always-on instructions</td>
+<td><a href="instructions.html">Instructions</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-agent-paths"><a class="header-anchor" href="#other-agent-paths">How It Differs from Other Agent Paths</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Agent path</th>
+<th>Main difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="zed-agent.html">Zed Agent</a></td>
+<td>Uses Zed’s model, tool, profile, skill, instruction, and MCP configuration</td>
+</tr>
+<tr>
+<td><a href="external-agents.html">External Agents</a></td>
+<td>Use an ACP integration and often own auth, model, tool, and native instruction configuration</td>
+</tr>
+<tr>
+<td><a href="terminal-threads.html">Terminal Threads</a></td>
+<td>Run a CLI/TUI in a terminal-backed thread; the CLI owns auth and configuration</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="agents.html">Agents</a> for the full comparison.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/ai/zed-agent.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

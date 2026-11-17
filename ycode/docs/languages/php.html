@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PHP · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="ansible.html">Ansible</a></li>
+<li><a href="asciidoc.html">AsciiDoc</a></li>
+<li><a href="astro.html">Astro</a></li>
+<li><a href="bash.html">Bash</a></li>
+<li><a href="biome.html">Biome</a></li>
+<li><a href="c.html">C</a></li>
+<li><a href="cpp.html">C++</a></li>
+<li><a href="csharp.html">C#</a></li>
+<li><a href="clojure.html">Clojure</a></li>
+<li><a href="css.html">CSS</a></li>
+<li><a href="dart.html">Dart</a></li>
+<li><a href="deno.html">Deno</a></li>
+<li><a href="diff.html">Diff</a></li>
+<li><a href="docker.html">Docker</a></li>
+<li><a href="elixir.html">Elixir</a></li>
+<li><a href="elm.html">Elm</a></li>
+<li><a href="emmet.html">Emmet</a></li>
+<li><a href="env.html">Env</a></li>
+<li><a href="erlang.html">Erlang</a></li>
+<li><a href="fish.html">Fish</a></li>
+<li><a href="gdscript.html">GDScript</a></li>
+<li><a href="gleam.html">Gleam</a></li>
+<li><a href="glsl.html">GLSL</a></li>
+<li><a href="go.html">Go</a></li>
+<li><a href="groovy.html">Groovy</a></li>
+<li><a href="haskell.html">Haskell</a></li>
+<li><a href="helm.html">Helm</a></li>
+<li><a href="html.html">HTML</a></li>
+<li><a href="java.html">Java</a></li>
+<li><a href="javascript.html">JavaScript</a></li>
+<li><a href="julia.html">Julia</a></li>
+<li><a href="json.html">JSON</a></li>
+<li><a href="jsonnet.html">Jsonnet</a></li>
+<li><a href="kotlin.html">Kotlin</a></li>
+<li><a href="lua.html">Lua</a></li>
+<li><a href="luau.html">Luau</a></li>
+<li><a href="makefile.html">Makefile</a></li>
+<li><a href="markdown.html">Markdown</a></li>
+<li><a href="nim.html">Nim</a></li>
+<li><a href="ocaml.html">OCaml</a></li>
+<li><a href="opentofu.html">OpenTofu</a></li>
+<li><a class="active" aria-current="page" href="php.html">PHP</a></li>
+<li><a href="powershell.html">PowerShell</a></li>
+<li><a href="prisma.html">Prisma</a></li>
+<li><a href="proto.html">Proto</a></li>
+<li><a href="purescript.html">PureScript</a></li>
+<li><a href="python.html">Python</a></li>
+<li><a href="r.html">R</a></li>
+<li><a href="rego.html">Rego</a></li>
+<li><a href="rst.html">ReStructuredText</a></li>
+<li><a href="racket.html">Racket</a></li>
+<li><a href="roc.html">Roc</a></li>
+<li><a href="ruby.html">Ruby</a></li>
+<li><a href="rust.html">Rust</a></li>
+<li><a href="scala.html">Scala</a></li>
+<li><a href="scheme.html">Scheme</a></li>
+<li><a href="sh.html">Shell Script</a></li>
+<li><a href="sql.html">SQL</a></li>
+<li><a href="sml.html">Standard ML</a></li>
+<li><a href="svelte.html">Svelte</a></li>
+<li><a href="swift.html">Swift</a></li>
+<li><a href="tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="terraform.html">Terraform</a></li>
+<li><a href="toml.html">TOML</a></li>
+<li><a href="typescript.html">TypeScript</a></li>
+<li><a href="uiua.html">Uiua</a></li>
+<li><a href="vue.html">Vue</a></li>
+<li><a href="xml.html">XML</a></li>
+<li><a href="yaml.html">YAML</a></li>
+<li><a href="yara.html">YARA</a></li>
+<li><a href="yarn.html">Yarn</a></li>
+<li><a href="zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="php"><a class="header-anchor" href="#php">PHP</a></h1>
+<p>PHP support is available through the <a href="https://github.com/zed-extensions/php">PHP extension</a>.</p>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/tree-sitter/tree-sitter-php">tree-sitter/tree-sitter-php</a></li>
+<li>Language Server: <a href="https://github.com/phpactor/phpactor">phpactor/phpactor</a></li>
+<li>Alternate Language Server: <a href="https://github.com/bmewburn/vscode-intelephense/">bmewburn/vscode-intelephense</a></li>
+</ul>
+<h2 id="install-php"><a class="header-anchor" href="#install-php">Install PHP</a></h2>
+<p>The PHP extension requires PHP to be installed and available in your <code>PATH</code>:</p>
+<pre><code class="language-sh"><span class="hljs-comment"># macOS via Homebrew</span>
+brew install php
+
+<span class="hljs-comment"># Debian/Ubuntu</span>
+<span class="hljs-built_in">sudo</span> apt-get install php-cli
+
+<span class="hljs-comment"># CentOS 8+/RHEL</span>
+<span class="hljs-built_in">sudo</span> dnf install php-cli
+
+<span class="hljs-comment"># Arch Linux</span>
+<span class="hljs-built_in">sudo</span> pacman -S php
+
+<span class="hljs-comment"># check PHP path</span>
+<span class="hljs-comment">## macOS and Linux</span>
+<span class="hljs-built_in">which</span> php
+
+<span class="hljs-comment">## Windows</span>
+<span class="hljs-built_in">where</span> php
+</code></pre>
+<h2 id="choosing-a-language-server"><a class="header-anchor" href="#choosing-a-language-server">Choosing a language server</a></h2>
+<p>The PHP extension uses <a href="https://microsoft.github.io/language-server-protocol">LSP language servers</a> with Phpactor as the default. If you want to use other language servers that support Zed (e.g. Intelephense, PHP Tools or PHPantom), make sure to follow the documentation on how to implement it.</p>
+<h3 id="intelephense"><a class="header-anchor" href="#intelephense">Intelephense</a></h3>
+<p><a href="https://intelephense.com/">Intelephense</a> is a <a href="https://github.com/bmewburn/vscode-intelephense/blob/master/LICENSE.txt#L29">proprietary</a> language server for PHP operating under a freemium model. Certain features require purchase of a <a href="https://intelephense.com/buy">premium license</a>.</p>
+<p>Configure language servers in Settings (<code>zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;PHP&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;intelephense&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpactor&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phptools&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpantom&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;...&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>To use the premium features, you can place your license file inside your home directory at <code>~/intelephense/licence.txt</code> for macOS and Linux, or <code>%USERPROFILE%/intelephense/licence.txt</code> on Windows.</p>
+<p>Alternatively, you can pass the licence key or a path to a file containing the licence key as an initialization option. To do this, add the following to your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;intelephense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;initialization_options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;licenceKey&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/path/to/licence.txt&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="php-tools"><a class="header-anchor" href="#php-tools">PHP Tools</a></h3>
+<p><a href="https://www.devsense.com/">PHP Tools</a> is a proprietary language server that offers free and premium features. You need to <a href="https://www.devsense.com/en/purchase">purchase a license</a> to activate the premium features.</p>
+<p>Configure language servers in Settings (<code>zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;PHP&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;phptools&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!intelephense&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpactor&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpantom&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;...&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>To use the premium features, you can add your license in <code>initialization_options</code> in your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;phptools&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;initialization_options&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;0&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;your_license_key&quot;</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>or, set environment variable <code>DEVSENSE_PHP_LS_LICENSE</code> on <code>.env</code> file in your project.</p>
+<pre><code class="language-env">DEVSENSE_PHP_LS_LICENSE=&quot;your_license_key&quot;
+</code></pre>
+<p>Check out the documentation of <a href="https://docs.devsense.com/other/zed/">PHP Tools for Zed</a> for more details.</p>
+<h3 id="phpactor"><a class="header-anchor" href="#phpactor">Phpactor</a></h3>
+<p>Configure language servers in Settings (<code>zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;PHP&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;phpactor&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!intelephense&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phptools&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpantom&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;...&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="phpantom"><a class="header-anchor" href="#phpantom">PHPantom</a></h3>
+<p>Configure language servers in Settings (<code>zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;languages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;PHP&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;language_servers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-string">&quot;phpantom&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phpactor&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!intelephense&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;!phptools&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-string">&quot;...&quot;</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="phpdoc"><a class="header-anchor" href="#phpdoc">PHPDoc</a></h2>
+<p>Zed supports syntax highlighting for PHPDoc comments.</p>
+<ul>
+<li>Tree-sitter: <a href="https://github.com/claytonrcarter/tree-sitter-phpdoc">claytonrcarter/tree-sitter-phpdoc</a></li>
+</ul>
+<h2 id="debugging"><a class="header-anchor" href="#debugging">Debugging</a></h2>
+<p>The PHP extension provides a debug adapter for PHP via Xdebug. There are several ways to use it:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PHP: Listen to Xdebug&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Xdebug&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">9003</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;PHP: Debug this test&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Xdebug&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vendor/bin/phpunit&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;--filter&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;$ZED_SYMBOL&quot;</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>These are common troubleshooting tips, in case you run into issues:</p>
+<ul>
+<li>Ensure that you have Xdebug installed for the version of PHP you’re running.</li>
+<li>Ensure that Xdebug is configured to run in <code>debug</code> mode.</li>
+<li>Ensure that Xdebug is actually starting a debugging session.</li>
+<li>Ensure that the host and port match between Xdebug and Zed.</li>
+<li>Look at the diagnostics log by using the <code>xdebug_info()</code> function in the page you’re trying to debug.</li>
+</ul>
+<h2 id="using-the-tailwind-css-language-server-with-php"><a class="header-anchor" href="#using-the-tailwind-css-language-server-with-php">Using the Tailwind CSS Language Server with PHP</a></h2>
+<p>To get all the features (autocomplete, linting, etc.) from the <a href="https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme">Tailwind CSS language server</a> in PHP files, you need to configure the language server so that it knows about where to look for CSS classes by adding the following to your <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;tailwindcss-language-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;includeLanguages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;php&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;html&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;experimental&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;classRegex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;class=\&quot;([^\&quot;]*)\&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;class=&#x27;([^&#x27;]*)&#x27;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;class=\\\&quot;([^\\\&quot;]*)\\\&quot;&quot;</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>With these settings, you will get completions for Tailwind CSS classes in HTML attributes inside PHP files. Examples:</p>
+<pre><code class="language-php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// PHP file with HTML:</span>
+<span class="hljs-meta">?&gt;</span>
+&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span>=&quot;<span class="hljs-title">flex</span> <span class="hljs-title">items</span>-<span class="hljs-title">center</span> &lt;<span class="hljs-title">completion</span> <span class="hljs-title">here</span>&gt;&quot;&gt;
+  &lt;<span class="hljs-title">p</span> <span class="hljs-title">class</span>=&quot;<span class="hljs-title">text</span>-<span class="hljs-title">lg</span> <span class="hljs-title">font</span>-<span class="hljs-title">bold</span> &lt;<span class="hljs-title">completion</span> <span class="hljs-title">here</span>&gt;&quot;&gt;<span class="hljs-title">Hello</span> <span class="hljs-title">World</span>&lt;/<span class="hljs-title">p</span>&gt;
+&lt;/<span class="hljs-title">div</span>&gt;
+</span></code></pre>
+<h3 id="laravel%2Fblade"><a class="header-anchor" href="#laravel%2Fblade">Laravel/Blade</a></h3>
+<p>For Laravel/Blade files, you may need additional configuration to handle Blade directives:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;lsp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;tailwindcss-language-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;includeLanguages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;php&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;html&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;blade&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;html&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;experimental&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;classRegex&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-string">&quot;class=\&quot;([^\&quot;]*)\&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;class=&#x27;([^&#x27;]*)&#x27;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;class=\\\&quot;([^\\\&quot;]*)\\\&quot;&quot;</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-string">&quot;@class\\(\\[([^\\]]*)\\]\\)&quot;</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>This will also provide completions in Blade directives like:</p>
+<pre><code class="language-blade">{{-- Blade file --}}
+&lt;div class=&quot;flex {{ $customClass }} &lt;completion here&gt;&quot;&gt;
+  @class(['flex', 'items-center', '&lt;completion here&gt;'])
+&lt;/div&gt;
+</code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/languages/php.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

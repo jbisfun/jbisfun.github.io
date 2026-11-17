@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLI Reference · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="../ai/overview.html">Overview</a></li>
+<li><a href="../ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="../ai/by-company.html">AI by Company</a></li>
+<li><a href="../ai/agents.html">Agents</a>
+<ul>
+<li><a href="../ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="../ai/external-agents.html">External Agents</a></li>
+<li><a href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="../ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="../ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="../ai/tools.html">Tools</a>
+<ul>
+<li><a href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="../ai/skills.html">Skills</a></li>
+<li><a href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="../ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="../ai/use-api-access.html">Use API Access</a></li>
+<li><a href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a class="active" aria-current="page" href="cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="cli-reference"><a class="header-anchor" href="#cli-reference">CLI Reference</a></h1>
+<p>Use Zed’s command-line interface (CLI) to open files and directories, integrate with other tools, and control Zed from scripts.</p>
+<h2 id="installation"><a class="header-anchor" href="#installation">Installation</a></h2>
+<p><strong>macOS:</strong> Run the <code>cli::InstallCliBinary</code> command from the command palette (<code>command_palette::Toggle</code>) to install the <code>zed</code> CLI to <code>/usr/local/bin/zed</code>.</p>
+<p><strong>Linux:</strong> The CLI is included with Zed packages. The binary name may vary by distribution (commonly <code>zed</code> or <code>zeditor</code>).</p>
+<p><strong>Windows:</strong> The CLI is included with Zed. Add Zed’s installation directory to your PATH, or use the full path to <code>zed.exe</code>.</p>
+<h2 id="usage"><a class="header-anchor" href="#usage">Usage</a></h2>
+<pre><code class="language-sh">zed [OPTIONS] [PATHS]...
+</code></pre>
+<h2 id="opening-files-and-directories"><a class="header-anchor" href="#opening-files-and-directories">Opening Files and Directories</a></h2>
+<p>Open a file:</p>
+<pre><code class="language-sh">zed myfile.txt
+</code></pre>
+<p>Open a directory as a workspace:</p>
+<pre><code class="language-sh">zed ~/projects/myproject
+</code></pre>
+<p>Open multiple files or directories:</p>
+<pre><code class="language-sh">zed file1.txt file2.txt ~/projects/myproject
+</code></pre>
+<p>Open a file at a specific line and column:</p>
+<pre><code class="language-sh">zed myfile.txt:42        <span class="hljs-comment"># Open at line 42</span>
+zed myfile.txt:42:10     <span class="hljs-comment"># Open at line 42, column 10</span>
+</code></pre>
+<h2 id="options"><a class="header-anchor" href="#options">Options</a></h2>
+<h3 id="-w%2C---wait"><a class="header-anchor" href="#-w%2C---wait"><code>-w</code>, <code>--wait</code></a></h3>
+<p>Wait for all opened files to be closed before the CLI exits. When opening a directory, waits until the window is closed.</p>
+<p>This is useful for integrating Zed with tools that expect an editor to block until editing is complete (e.g., <code>git commit</code>):</p>
+<pre><code class="language-sh"><span class="hljs-built_in">export</span> EDITOR=<span class="hljs-string">&quot;zed --wait&quot;</span>
+git commit  <span class="hljs-comment"># Opens Zed and waits for you to close the commit message file</span>
+</code></pre>
+<h3 id="-n%2C---new"><a class="header-anchor" href="#-n%2C---new"><code>-n</code>, <code>--new</code></a></h3>
+<p>Open paths in a new workspace window, even if the paths are already open in an existing window:</p>
+<pre><code class="language-sh">zed -n ~/projects/myproject
+</code></pre>
+<h3 id="-a%2C---add"><a class="header-anchor" href="#-a%2C---add"><code>-a</code>, <code>--add</code></a></h3>
+<p>Add paths to an existing project, preferring a matching project and then the
+focused window’s active local project. Open a new window if no local project is
+open:</p>
+<pre><code class="language-sh">zed -a newfile.txt
+</code></pre>
+<h3 id="-r%2C---reuse"><a class="header-anchor" href="#-r%2C---reuse"><code>-r</code>, <code>--reuse</code></a></h3>
+<p>Reuse an existing window, replacing its current workspace with the new paths:</p>
+<pre><code class="language-sh">zed -r ~/projects/different-project
+</code></pre>
+<h3 id="-e%2C---existing"><a class="header-anchor" href="#-e%2C---existing"><code>-e</code>, <code>--existing</code></a></h3>
+<p>Open paths in an existing Zed window instead of creating a new one:</p>
+<pre><code class="language-sh">zed -e myfile.txt
+</code></pre>
+<p>By default (without <code>-n</code>, <code>-a</code>, <code>-r</code>, or <code>-e</code>), directories open in the current window’s sidebar. You can change this default with the <code>cli_default_open_behavior</code> setting. See <a href="../windows-and-projects.html">Windows &amp; Projects</a> for more details.</p>
+<h3 id="--diff-%3Cold_path%3E-%3Cnew_path%3E"><a class="header-anchor" href="#--diff-%3Cold_path%3E-%3Cnew_path%3E"><code>--diff &lt;OLD_PATH&gt; &lt;NEW_PATH&gt;</code></a></h3>
+<p>Open a diff view comparing two files. Can be specified multiple times:</p>
+<pre><code class="language-sh">zed --diff file1.txt file2.txt
+zed --diff old.rs new.rs --diff old2.rs new2.rs
+</code></pre>
+<h3 id="--foreground"><a class="header-anchor" href="#--foreground"><code>--foreground</code></a></h3>
+<p>Run Zed in the foreground, keeping the terminal attached. Useful for debugging:</p>
+<pre><code class="language-sh">zed --foreground
+</code></pre>
+<h3 id="--user-data-dir-%3Cdir%3E"><a class="header-anchor" href="#--user-data-dir-%3Cdir%3E"><code>--user-data-dir &lt;DIR&gt;</code></a></h3>
+<p>Use a custom directory for all user data (database, extensions, logs) instead of the default location:</p>
+<pre><code class="language-sh">zed --user-data-dir ~/.zed-custom
+</code></pre>
+<p>Default locations:</p>
+<ul>
+<li><strong>macOS:</strong> <code>~/Library/Application Support/Zed</code></li>
+<li><strong>Linux:</strong> <code>$XDG_DATA_HOME/zed</code> (typically <code>~/.local/share/zed</code>)</li>
+<li><strong>Windows:</strong> <code>%LOCALAPPDATA%\Zed</code></li>
+</ul>
+<h3 id="-v%2C---version"><a class="header-anchor" href="#-v%2C---version"><code>-v</code>, <code>--version</code></a></h3>
+<p>Print Zed’s version and exit:</p>
+<pre><code class="language-sh">zed --version
+</code></pre>
+<h3 id="--completions-%3Cshell%3E"><a class="header-anchor" href="#--completions-%3Cshell%3E"><code>--completions &lt;SHELL&gt;</code></a></h3>
+<p>Generate shell completions for the <code>zed</code> CLI:</p>
+<h4 id="bash"><a class="header-anchor" href="#bash">Bash</a></h4>
+<p>Add to <code>~/.bashrc</code>:</p>
+<pre><code class="language-bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(zed --completions bash)</span>&quot;</span>
+</code></pre>
+<h4 id="elvish"><a class="header-anchor" href="#elvish">Elvish</a></h4>
+<p>Add to <code>~/.config/elvish/rc.elv</code>:</p>
+<pre><code class="language-elvish">set edit:completion:arg-completer[zed] = { |@args|
+    eval (zed --completions elvish | slurp)
+    $edit:completion:arg-completer[zed] $@args
+}
+</code></pre>
+<h4 id="fish"><a class="header-anchor" href="#fish">Fish</a></h4>
+<p>Add to <code>~/.config/fish/config.fish</code>:</p>
+<pre><code class="language-fish">zed --completions fish | source
+</code></pre>
+<h4 id="nushell"><a class="header-anchor" href="#nushell">Nushell</a></h4>
+<p>Add to <code>~/.config/nushell/config.nu</code>:</p>
+<pre><code class="language-nu">mkdir ($nu.data-dir | path join &quot;vendor/autoload&quot;)
+^zed --completions nushell | save --force ($nu.data-dir | path join &quot;vendor/autoload/zed.nu&quot;)
+</code></pre>
+<h4 id="powershell"><a class="header-anchor" href="#powershell">Powershell</a></h4>
+<p>Add to <code>$PROFILE</code>:</p>
+<pre><code class="language-powershell">(&amp;zed <span class="hljs-literal">--completions</span> powershell) | <span class="hljs-built_in">Out-String</span> | <span class="hljs-built_in">Invoke-Expression</span>
+</code></pre>
+<h4 id="zsh"><a class="header-anchor" href="#zsh">Zsh</a></h4>
+<p>Add to <code>~/.zshrc</code>:</p>
+<pre><code class="language-zsh"><span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(zed --completions zsh)</span>&quot;</span>
+</code></pre>
+<h3 id="--uninstall"><a class="header-anchor" href="#--uninstall"><code>--uninstall</code></a></h3>
+<p>Uninstall Zed and remove all related files (macOS and Linux only):</p>
+<pre><code class="language-sh">zed --uninstall
+</code></pre>
+<h3 id="--zed-%3Cpath%3E"><a class="header-anchor" href="#--zed-%3Cpath%3E"><code>--zed &lt;PATH&gt;</code></a></h3>
+<p>Specify a custom path to the Zed application or binary:</p>
+<pre><code class="language-sh">zed --zed /path/to/Zed.app myfile.txt
+</code></pre>
+<h2 id="reading-from-standard-input"><a class="header-anchor" href="#reading-from-standard-input">Reading from Standard Input</a></h2>
+<p>Read content from stdin by passing <code>-</code> as the path:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Hello, World!&quot;</span> | zed -
+<span class="hljs-built_in">cat</span> myfile.txt | zed -
+ps aux | zed -
+</code></pre>
+<p>This creates a temporary file with the stdin content and opens it in Zed.</p>
+<h2 id="url-handling"><a class="header-anchor" href="#url-handling">URL Handling</a></h2>
+<p>The CLI can open <code>zed://</code>, <code>file://</code>, and <code>ssh://</code> URLs:</p>
+<pre><code class="language-sh">zed zed://settings
+zed file:///Users/whatever/.zshrc
+zed ssh://me@example.com/abs/path
+zed ssh://me@example.com:/abs/path
+zed ssh://me@example.com/~/project
+zed ssh://me@example.com:~/project
+</code></pre>
+<h2 id="using-zed-as-your-default-editor"><a class="header-anchor" href="#using-zed-as-your-default-editor">Using Zed as Your Default Editor</a></h2>
+<p>Set Zed as your default editor for Git and other tools:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">export</span> EDITOR=<span class="hljs-string">&quot;zed --wait&quot;</span>
+<span class="hljs-built_in">export</span> VISUAL=<span class="hljs-string">&quot;zed --wait&quot;</span>
+</code></pre>
+<p>Add these lines to your shell configuration file (e.g., <code>~/.bashrc</code>, <code>~/.zshrc</code>).</p>
+<h2 id="macos%3A-switching-release-channels"><a class="header-anchor" href="#macos%3A-switching-release-channels">macOS: Switching Release Channels</a></h2>
+<p>On macOS, you can launch a specific release channel by passing the channel name as the first argument:</p>
+<pre><code class="language-sh">zed --stable myfile.txt
+zed --preview myfile.txt
+zed --nightly myfile.txt
+</code></pre>
+<h2 id="wsl-integration-(windows)"><a class="header-anchor" href="#wsl-integration-(windows)">WSL Integration (Windows)</a></h2>
+<p>On Windows, the CLI supports opening paths from WSL distributions. This is handled automatically when launching Zed from within WSL.</p>
+<h2 id="exit-codes"><a class="header-anchor" href="#exit-codes">Exit Codes</a></h2>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Error (details printed to stderr)</td>
+</tr>
+</tbody>
+</table>
+<p>When using <code>--wait</code>, the exit code reflects whether the files were saved before closing.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/reference/cli.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

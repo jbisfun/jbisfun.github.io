@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debugger - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a class="active" aria-current="page" href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="debugger"><a class="header-anchor" href="#debugger">Debugger</a></h1>
+<p>Zed uses the <a href="https://microsoft.github.io/debug-adapter-protocol/">Debug Adapter Protocol (DAP)</a> to provide debugging functionality across multiple programming languages.
+DAP is a standardized protocol that defines how debuggers, editors, and IDEs communicate with each other.
+It allows Zed to support various debuggers without needing to implement language-specific debugging logic.
+Zed implements the client side of the protocol, and various <em>debug adapters</em> implement the server side.</p>
+<p>This protocol enables features like setting breakpoints, stepping through code, inspecting variables,
+and more, in a consistent manner across different programming languages and runtime environments.</p>
+<h2 id="supported-languages"><a class="header-anchor" href="#supported-languages">Supported Languages</a></h2>
+<p>To debug code written in a specific language, Zed needs to find a debug adapter for that language. Some debug adapters are provided by Zed without additional setup, and some are provided by <a href="extensions/debugger-extensions.html">language extensions</a>. The following languages currently have debug adapters available:</p>
+<!-- keep this sorted -->
+<ul>
+<li><a href="languages/c.html#debugging">C</a> (built-in)</li>
+<li><a href="languages/cpp.html#debugging">C++</a> (built-in)</li>
+<li><a href="languages/go.html#debugging">Go</a> (built-in)</li>
+<li><a href="languages/java.html#debugging">Java</a> (provided by extension)</li>
+<li><a href="languages/javascript.html#debugging">JavaScript</a> (built-in)</li>
+<li><a href="languages/php.html#debugging">PHP</a> (built-in)</li>
+<li><a href="languages/python.html#debugging">Python</a> (built-in)</li>
+<li><a href="languages/ruby.html#debugging">Ruby</a> (provided by extension)</li>
+<li><a href="languages/rust.html#debugging">Rust</a> (built-in)</li>
+<li><a href="languages/swift.html#debugging">Swift</a> (provided by extension)</li>
+<li><a href="languages/typescript.html#debugging">TypeScript</a> (built-in)</li>
+</ul>
+<blockquote>
+<p>If your language isn’t listed, you can contribute by adding a debug adapter for it. Check out our <a href="extensions/debugger-extensions.html">debugger extensions</a> documentation for more information.</p>
+</blockquote>
+<p>Follow those links for language- and adapter-specific information and examples, or read on for more about Zed’s general debugging features that apply to all adapters.</p>
+<h2 id="getting-started"><a class="header-anchor" href="#getting-started">Getting Started</a></h2>
+<p>For most languages, the fastest way to get started is to run <code>debugger::Start</code> (<code>debugger::Start</code>). This opens the <em>new process modal</em>, which shows you a contextual list of preconfigured debug tasks for the current project. Debug tasks are created from tests, entry points (like a <code>main</code> function), and from other sources — consult the documentation for your language for full information about what’s supported.</p>
+<p>You can open the same modal by clicking the “plus” button at the top right of the debug panel.</p>
+<p>For languages that don’t provide preconfigured debug tasks (this includes C, C++, and some extension-supported languages), you can define debug configurations in the <code>.zed/debug.json</code> file in your project root. This file should be an array of configuration objects:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;CodeLLDB&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;First configuration&quot;</span>
+    <span class="hljs-comment">// ...</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Debugpy&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Second configuration&quot;</span>
+    <span class="hljs-comment">// ...</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>Check the documentation for your language for example configurations covering typical use-cases. Once you’ve added configurations to <code>.zed/debug.json</code>, they’ll appear in the list in the new process modal.</p>
+<p>Zed will also load debug configurations from <code>.vscode/launch.json</code>, and show them in the new process modal if no configurations are found in <code>.zed/debug.json</code>.</p>
+<h4 id="global-debug-configurations"><a class="header-anchor" href="#global-debug-configurations">Global debug configurations</a></h4>
+<p>If you run the same launch profiles across multiple projects, you can store them once in your user configuration. Invoke <code>zed::OpenDebugTasks</code> from the command palette to open the global <code>debug.json</code> file; Zed creates it next to your user <code>settings.json</code> and keeps it in sync with the debugger UI. The file lives at:</p>
+<ul>
+<li><strong>macOS:</strong> <code>~/Library/Application Support/Zed/debug.json</code></li>
+<li><strong>Linux/BSD:</strong> <code>$XDG_CONFIG_HOME/zed/debug.json</code> (falls back to <code>~/.config/zed/debug.json</code>)</li>
+<li><strong>Windows:</strong> <code>%APPDATA%\Zed\debug.json</code></li>
+</ul>
+<p>Populate this file with the same array of objects you would place in <code>.zed/debug.json</code>. Any scenarios defined there are merged into every workspace, so your favorite launch presets appear automatically in the “New Debug Session” dialog.</p>
+<h3 id="launching-%26-attaching"><a class="header-anchor" href="#launching-%26-attaching">Launching &amp; Attaching</a></h3>
+<p>The Zed debugger offers two ways to debug your program; you can either <em>launch</em> a new instance of your program or <em>attach</em> to an existing process.
+Which one you choose depends on what you are trying to achieve.</p>
+<p>When launching a new instance, Zed (and the underlying debug adapter) can often do a better job at picking up the debug information compared to attaching to an existing process, since it controls the lifetime of a whole program.
+Running unit tests or a debug build of your application is a good use case for launching.</p>
+<p>Compared to launching, attaching to an existing process might seem inferior, but that’s far from the truth; there are cases where you cannot afford to restart your program, because for example, the bug is not reproducible outside of a production environment or some other circumstances.</p>
+<h2 id="configuration"><a class="header-anchor" href="#configuration">Configuration</a></h2>
+<p>Zed requires the <code>adapter</code> and <code>label</code> fields for all debug tasks. In addition, Zed will use the <code>build</code> field to run any necessary setup steps before the debugger starts <a href="#build-tasks">(see below)</a>, and can accept a <code>tcp_connection</code> field to connect to an existing process.</p>
+<p>All other fields are provided by the debug adapter and can contain <a href="tasks.html#variables">task variables</a>. Most adapters support <code>request</code>, <code>program</code>, and <code>cwd</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-comment">// The label for the debug configuration and used to identify the debug session inside the debug panel &amp; new process modal</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Example Start debugger config&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// The debug adapter that Zed should use to debug the program</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Example adapter name&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// Request:</span>
+    <span class="hljs-comment">//  - launch: Zed will launch the program if specified, or show a debug terminal with the right configuration</span>
+    <span class="hljs-comment">//  - attach: Zed will attach to a running program to debug it, or when the process_id is not specified, will show a process picker (only supported for node currently)</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// The program to debug. This field supports path resolution with ~ or . symbols.</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;path_to_program&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-comment">// cwd: defaults to the current working directory of your project ($ZED_WORKTREE_ROOT)</span>
+    <span class="hljs-attr">&quot;cwd&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$ZED_WORKTREE_ROOT&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>Check your debug adapter’s documentation for more information on the fields it supports.</p>
+<h3 id="build-tasks"><a class="header-anchor" href="#build-tasks">Build tasks</a></h3>
+<p>Zed allows embedding a Zed task in the <code>build</code> field that is run before the debugger starts. This is useful for setting up the environment or running any necessary setup steps before the debugger starts.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Build Binary&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;CodeLLDB&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;path_to_program&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;make&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;build&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;-j8&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<p>Build tasks can also refer to the existing tasks by unsubstituted label:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;label&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Build Binary&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;adapter&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;CodeLLDB&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;program&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;path_to_program&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;my build task&quot;</span> <span class="hljs-comment">// Or &quot;my build task for $ZED_FILE&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">]</span>
+</code></pre>
+<h3 id="automatic-scenario-creation"><a class="header-anchor" href="#automatic-scenario-creation">Automatic scenario creation</a></h3>
+<p>Given a Zed task, Zed can automatically create a scenario for you. Automatic scenario creation also powers our scenario creation from gutter.
+Automatic scenario creation is currently supported for Rust, Go, Python, JavaScript, and TypeScript.</p>
+<h2 id="breakpoints"><a class="header-anchor" href="#breakpoints">Breakpoints</a></h2>
+<p>To set a breakpoint, simply click next to the line number in the editor gutter.
+Breakpoints can be tweaked depending on your needs; to access additional options of a given breakpoint, right-click on the breakpoint icon in the gutter and select the desired option.
+At present, you can:</p>
+<ul>
+<li>Add a log to a breakpoint, which will output a log message whenever that breakpoint is hit.</li>
+<li>Make the breakpoint conditional, which will only stop at the breakpoint when the condition is met. The syntax for conditions is adapter-specific.</li>
+<li>Add a hit count to a breakpoint, which will only stop at the breakpoint after it’s hit a certain number of times.</li>
+<li>Disable a breakpoint, which will prevent it from being hit while leaving it visible in the gutter.</li>
+</ul>
+<p>Some debug adapters (e.g. CodeLLDB and JavaScript) will also <em>verify</em> whether your breakpoints can be hit; breakpoints that cannot be hit are surfaced more prominently in the UI.</p>
+<p>All breakpoints enabled for a given project are also listed in “Breakpoints” item in your debugging session UI. From “Breakpoints” item in your UI you can also manage exception breakpoints.
+The debug adapter will then stop whenever an exception of a given kind occurs. Which exception types are supported depends on the debug adapter.</p>
+<h2 id="working-with-split-panes"><a class="header-anchor" href="#working-with-split-panes">Working with Split Panes</a></h2>
+<p>When debugging with multiple split panes open, Zed shows the active debug line in one pane and preserves your layout in others. If you have the same file open in multiple panes, the debugger picks a pane where the file is already the active tab—it won’t switch tabs in panes where the file is inactive.</p>
+<p>Once the debugger picks a pane, it continues using that pane for subsequent breakpoints during the session. If you drag the tab with the active debug line to a different split, the debugger tracks the move and uses the new pane.</p>
+<p>This ensures the debugger doesn’t disrupt your workflow when stepping through code across different files.</p>
+<h2 id="settings"><a class="header-anchor" href="#settings">Settings</a></h2>
+<p>In the Settings Editor, open <strong>Panels → Debugger Panel</strong> to configure the panel’s
+dock position, default width, and default height.</p>
+<p>The settings for the debugger are grouped under the <code>debugger</code> key in <code>settings.json</code>:</p>
+<ul>
+<li><code>dock</code>: Determines the position of the debug panel in the UI.</li>
+<li><code>default_width</code>: Default width in pixels when docked to the left or right (default: <code>300</code>).</li>
+<li><code>default_height</code>: Default height in pixels when docked to the bottom (default: <code>300</code>).</li>
+<li><code>stepping_granularity</code>: Determines the stepping granularity.</li>
+<li><code>save_breakpoints</code>: Whether the breakpoints should be reused across Zed sessions.</li>
+<li><code>button</code>: Whether to show the debug button in the status bar.</li>
+<li><code>timeout</code>: Time in milliseconds until timeout error when connecting to a TCP debug adapter.</li>
+<li><code>log_dap_communications</code>: Whether to log messages between active debug adapters and Zed.</li>
+<li><code>format_dap_log_messages</code>: Whether to format DAP messages when adding them to the debug adapter logger.</li>
+</ul>
+<h3 id="dock"><a class="header-anchor" href="#dock">Dock</a></h3>
+<ul>
+<li>Description: The position of the debug panel in the UI.</li>
+<li>Default: <code>bottom</code></li>
+<li>Setting: debugger.dock</li>
+</ul>
+<p><strong>Options</strong></p>
+<ol>
+<li><code>left</code> - The debug panel will be docked to the left side of the UI.</li>
+<li><code>right</code> - The debug panel will be docked to the right side of the UI.</li>
+<li><code>bottom</code> - The debug panel will be docked to the bottom of the UI.</li>
+</ol>
+<pre><code class="language-json"><span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;dock&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;bottom&quot;</span>
+<span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+</code></pre>
+<h3 id="stepping-granularity"><a class="header-anchor" href="#stepping-granularity">Stepping granularity</a></h3>
+<ul>
+<li>Description: The Step granularity that the debugger will use</li>
+<li>Default: <code>line</code></li>
+<li>Setting: <code>debugger.stepping_granularity</code></li>
+</ul>
+<p><strong>Options</strong></p>
+<ol>
+<li>Statement - The step should allow the program to run until the current statement has finished executing.
+The meaning of a statement is determined by the adapter and it may be considered equivalent to a line.
+For example <code>for(int i = 0; i &lt; 10; i++)</code> could be considered to have 3 statements <code>int i = 0</code>, <code>i &lt; 10</code>, and <code>i++</code>.</li>
+</ol>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;stepping_granularity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;statement&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<ol start="2">
+<li>Line - The step should allow the program to run until the current source line has executed.</li>
+</ol>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;stepping_granularity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;line&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<ol start="3">
+<li>Instruction - The step should allow one instruction to execute (e.g. one x86 instruction).</li>
+</ol>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;stepping_granularity&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;instruction&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="save-breakpoints"><a class="header-anchor" href="#save-breakpoints">Save Breakpoints</a></h3>
+<ul>
+<li>Description: Whether the breakpoints should be saved across Zed sessions.</li>
+<li>Default: <code>true</code></li>
+<li>Setting: <code>debugger.save_breakpoints</code></li>
+</ul>
+<p><strong>Options</strong></p>
+<p><code>boolean</code> values</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;save_breakpoints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="button"><a class="header-anchor" href="#button">Button</a></h3>
+<ul>
+<li>Description: Whether the button should be displayed in the debugger toolbar.</li>
+<li>Default: <code>true</code></li>
+<li>Setting: <code>debugger.button</code></li>
+</ul>
+<p><strong>Options</strong></p>
+<p><code>boolean</code> values</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;button&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="timeout"><a class="header-anchor" href="#timeout">Timeout</a></h3>
+<ul>
+<li>Description: Time in milliseconds until timeout error when connecting to a TCP debug adapter.</li>
+<li>Default: <code>2000</code></li>
+<li>Setting: <code>debugger.timeout</code></li>
+</ul>
+<p><strong>Options</strong></p>
+<p><code>integer</code> values</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;timeout&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3000</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="inline-values"><a class="header-anchor" href="#inline-values">Inline Values</a></h3>
+<ul>
+<li>Description: Whether to enable editor inlay hints showing the values of variables in your code during debugging sessions.</li>
+<li>Default: <code>true</code></li>
+<li>Setting: <code>inlay_hints.show_value_hints</code></li>
+</ul>
+<p><strong>Options</strong></p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;inlay_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;show_value_hints&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Inline value hints can also be toggled from the Editor Controls menu in the editor toolbar.</p>
+<h3 id="log-dap-communications"><a class="header-anchor" href="#log-dap-communications">Log Dap Communications</a></h3>
+<ul>
+<li>Description: Whether to log messages between active debug adapters and Zed. (Used for DAP development)</li>
+<li>Default: false</li>
+<li>Setting: debugger.log_dap_communications</li>
+</ul>
+<p><strong>Options</strong></p>
+<p><code>boolean</code> values</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;log_dap_communications&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="format-dap-log-messages"><a class="header-anchor" href="#format-dap-log-messages">Format Dap Log Messages</a></h3>
+<ul>
+<li>Description: Whether to format DAP messages when adding them to the debug adapter logger. (Used for DAP development)</li>
+<li>Default: false</li>
+<li>Setting: debugger.format_dap_log_messages</li>
+</ul>
+<p><strong>Options</strong></p>
+<p><code>boolean</code> values</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;debugger&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;format_dap_log_messages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h3 id="customizing-debug-adapters"><a class="header-anchor" href="#customizing-debug-adapters">Customizing Debug Adapters</a></h3>
+<ul>
+<li>Description: Custom program path and arguments to override how Zed launches a specific debug adapter.</li>
+<li>Default: Adapter-specific</li>
+<li>Setting: <code>dap.$ADAPTER.binary</code> and <code>dap.$ADAPTER.args</code></li>
+</ul>
+<p>You can pass <code>binary</code>, <code>args</code>, or both. <code>binary</code> should be a path to a <em>debug adapter</em> (like <code>lldb-dap</code>) not a <em>debugger</em> (like <code>lldb</code> itself). The <code>args</code> setting overrides any arguments that Zed would otherwise pass to the adapter.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;dap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;CodeLLDB&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;binary&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/Users/name/bin/lldb-dap&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;--wait-for-debugger&quot;</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="theme"><a class="header-anchor" href="#theme">Theme</a></h2>
+<p>The Debugger supports the following theme options:</p>
+<ul>
+<li><code>debugger.accent</code>: Color used to accent breakpoint &amp; breakpoint-related symbols</li>
+<li><code>editor.debugger_active_line.background</code>: Background color of active debug line</li>
+</ul>
+<h2 id="troubleshooting"><a class="header-anchor" href="#troubleshooting">Troubleshooting</a></h2>
+<p>If you’re running into problems with the debugger, please <a href="https://github.com/zed-industries/zed/issues/new?template=04_bug_debugger.yml">open a GitHub issue</a>, providing as much context as possible. There are also some features you can use to gather more information about the problem:</p>
+<ul>
+<li>When you have a session running in the debug panel, you can run the <code>dev::CopyDebugAdapterArguments</code> action to copy a JSON blob to the clipboard that describes how Zed initialized the session. This is especially useful when the session failed to start, and is great context to add if you open a GitHub issue.</li>
+<li>You can also use the <code>dev::OpenDebugAdapterLogs</code> action to see a trace of all of Zed’s communications with debug adapters during the most recent debug sessions.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/debugger.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

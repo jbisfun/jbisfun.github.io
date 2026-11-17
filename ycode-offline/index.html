@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ycode-offline · jbisfun wiki</title>
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode-offline">Source on GitHub</a></li>
+
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="ycode-offline"><a class="header-anchor" href="#ycode-offline">ycode-offline</a></h1>
+<p>ycode Lua plugin that turns off the account and online features:</p>
+<ul>
+<li>no automatic sign-in at startup (<code>%hookf client::authenticate</code> that never calls <code>%orig</code>)</li>
+<li>swallows <code>client::*</code>, <code>collab::*</code>, <code>collab_panel::*</code>, <code>channel_modal::*</code>,
+<code>onboarding::SignIn</code>/<code>OpenAccount</code>, <code>zed::OpenAccountSettings</code>, <code>auto_update::Check</code></li>
+<li>hides the sign-in button, user menu/avatar, collab panel button and onboarding banner</li>
+<li>telemetry off, auto-update off, edit predictions provider <code>none</code></li>
+<li>dismisses the upsell/ad banners (“Welcome to Zed AI — Sign In to Try GPT Luna”, trial
+ended, edit-prediction upsell, update announcement) via <code>ycode.kv_set</code>, and blocks the
+edit-prediction onboarding modal</li>
+<li>hides the account/collab namespaces from the command palette (<code>ycode.palette_hide</code>)</li>
+</ul>
+<p>Settings go into ycode’s in-memory plugin layer (<code>ycode.settings{}</code>), above settings.json
+and never written to disk.</p>
+<h2 id="install"><a class="header-anchor" href="#install">Install</a></h2>
+<pre><code>ln -s ~/jbisfun/ycode-offline ~/.config/zed/hooks/ycode-offline
+</code></pre>
+<p>then “ycode: reload hooks”. To undo, remove the link and reload (banner dismissals are
+stored like clicking “dismiss” and stay). The startup sign-in veto
+only takes effect from the next launch.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode-offline/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

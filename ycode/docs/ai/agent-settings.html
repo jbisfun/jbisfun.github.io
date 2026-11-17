@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Settings - Zed · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="../getting-started.html">Getting Started</a></li>
+<li><a href="../installation.html">Installation</a>
+<ul>
+<li><a href="../update.html">Update</a></li>
+<li><a href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="../editing-code.html">Editing Code</a>
+<ul>
+<li><a href="../completions.html">Code Completions</a></li>
+<li><a href="../snippets.html">Snippets</a></li>
+<li><a href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="../command-palette.html">Command Palette</a></li>
+<li><a href="../outline-panel.html">Outline Panel</a></li>
+<li><a href="../project-panel.html">Project Panel</a></li>
+<li><a href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="../running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="../terminal.html">Terminal</a></li>
+<li><a href="../tasks.html">Tasks</a></li>
+<li><a href="../debugger.html">Debugger</a></li>
+<li><a href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="../git.html">Git</a></li>
+<li><a href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="../collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="../collaboration/channels.html">Channels</a></li>
+<li><a href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a href="../remote-development.html">Overview</a></li>
+<li><a href="../environment.html">Environment Variables</a></li>
+<li><a href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="quick-start.html">AI Quick Start</a></li>
+<li><a href="by-company.html">AI by Company</a></li>
+<li><a href="agents.html">Agents</a>
+<ul>
+<li><a href="zed-agent.html">Zed Agent</a></li>
+<li><a href="external-agents.html">External Agents</a></li>
+<li><a href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="agent-panel.html">Agent Panel</a>
+<ul>
+<li><a class="active" aria-current="page" href="agent-settings.html">Agent Settings</a></li>
+<li><a href="agent-profiles.html">Agent Profiles</a></li>
+<li><a href="tools.html">Tools</a>
+<ul>
+<li><a href="tool-permissions.html">Tool Permissions</a></li>
+<li><a href="sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="parallel-agents.html">Parallel Agents</a></li>
+<li><a href="inline-assistant.html">Inline Assistant</a></li>
+<li><a href="llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="use-api-access.html">Use API Access</a></li>
+<li><a href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="edit-prediction.html">Edit Prediction</a></li>
+<li><a href="privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="../authentication.html">Authenticate</a></li>
+<li><a href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="../business/overview.html">Overview</a></li>
+<li><a href="../business/organizations.html">Organizations</a></li>
+<li><a href="../roles.html">Roles &amp; Permissions</a></li>
+<li><a href="../business/admin-controls.html">Admin Controls</a></li>
+<li><a href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="../worktree-trust.html">Worktree Trust</a></li>
+<li><a href="../business/privacy.html">Privacy for Business</a></li>
+<li><a href="../telemetry.html">Telemetry</a></li>
+<li><a href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="../macos.html">macOS</a></li>
+<li><a href="../windows.html">Windows</a></li>
+<li><a href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="../appearance.html">Appearance</a>
+<ul>
+<li><a href="../themes.html">Themes</a></li>
+<li><a href="../icon-themes.html">Icon Themes</a></li>
+<li><a href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="../key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="../vim.html">Vim Mode</a></li>
+<li><a href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="../languages.html">All Languages</a></li>
+<li><a href="../configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="../toolchains.html">Toolchains</a></li>
+<li><a href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="../languages/ansible.html">Ansible</a></li>
+<li><a href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="../languages/astro.html">Astro</a></li>
+<li><a href="../languages/bash.html">Bash</a></li>
+<li><a href="../languages/biome.html">Biome</a></li>
+<li><a href="../languages/c.html">C</a></li>
+<li><a href="../languages/cpp.html">C++</a></li>
+<li><a href="../languages/csharp.html">C#</a></li>
+<li><a href="../languages/clojure.html">Clojure</a></li>
+<li><a href="../languages/css.html">CSS</a></li>
+<li><a href="../languages/dart.html">Dart</a></li>
+<li><a href="../languages/deno.html">Deno</a></li>
+<li><a href="../languages/diff.html">Diff</a></li>
+<li><a href="../languages/docker.html">Docker</a></li>
+<li><a href="../languages/elixir.html">Elixir</a></li>
+<li><a href="../languages/elm.html">Elm</a></li>
+<li><a href="../languages/emmet.html">Emmet</a></li>
+<li><a href="../languages/env.html">Env</a></li>
+<li><a href="../languages/erlang.html">Erlang</a></li>
+<li><a href="../languages/fish.html">Fish</a></li>
+<li><a href="../languages/gdscript.html">GDScript</a></li>
+<li><a href="../languages/gleam.html">Gleam</a></li>
+<li><a href="../languages/glsl.html">GLSL</a></li>
+<li><a href="../languages/go.html">Go</a></li>
+<li><a href="../languages/groovy.html">Groovy</a></li>
+<li><a href="../languages/haskell.html">Haskell</a></li>
+<li><a href="../languages/helm.html">Helm</a></li>
+<li><a href="../languages/html.html">HTML</a></li>
+<li><a href="../languages/java.html">Java</a></li>
+<li><a href="../languages/javascript.html">JavaScript</a></li>
+<li><a href="../languages/julia.html">Julia</a></li>
+<li><a href="../languages/json.html">JSON</a></li>
+<li><a href="../languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="../languages/kotlin.html">Kotlin</a></li>
+<li><a href="../languages/lua.html">Lua</a></li>
+<li><a href="../languages/luau.html">Luau</a></li>
+<li><a href="../languages/makefile.html">Makefile</a></li>
+<li><a href="../languages/markdown.html">Markdown</a></li>
+<li><a href="../languages/nim.html">Nim</a></li>
+<li><a href="../languages/ocaml.html">OCaml</a></li>
+<li><a href="../languages/opentofu.html">OpenTofu</a></li>
+<li><a href="../languages/php.html">PHP</a></li>
+<li><a href="../languages/powershell.html">PowerShell</a></li>
+<li><a href="../languages/prisma.html">Prisma</a></li>
+<li><a href="../languages/proto.html">Proto</a></li>
+<li><a href="../languages/purescript.html">PureScript</a></li>
+<li><a href="../languages/python.html">Python</a></li>
+<li><a href="../languages/r.html">R</a></li>
+<li><a href="../languages/rego.html">Rego</a></li>
+<li><a href="../languages/rst.html">ReStructuredText</a></li>
+<li><a href="../languages/racket.html">Racket</a></li>
+<li><a href="../languages/roc.html">Roc</a></li>
+<li><a href="../languages/ruby.html">Ruby</a></li>
+<li><a href="../languages/rust.html">Rust</a></li>
+<li><a href="../languages/scala.html">Scala</a></li>
+<li><a href="../languages/scheme.html">Scheme</a></li>
+<li><a href="../languages/sh.html">Shell Script</a></li>
+<li><a href="../languages/sql.html">SQL</a></li>
+<li><a href="../languages/sml.html">Standard ML</a></li>
+<li><a href="../languages/svelte.html">Svelte</a></li>
+<li><a href="../languages/swift.html">Swift</a></li>
+<li><a href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="../languages/terraform.html">Terraform</a></li>
+<li><a href="../languages/toml.html">TOML</a></li>
+<li><a href="../languages/typescript.html">TypeScript</a></li>
+<li><a href="../languages/uiua.html">Uiua</a></li>
+<li><a href="../languages/vue.html">Vue</a></li>
+<li><a href="../languages/xml.html">XML</a></li>
+<li><a href="../languages/yaml.html">YAML</a></li>
+<li><a href="../languages/yara.html">YARA</a></li>
+<li><a href="../languages/yarn.html">Yarn</a></li>
+<li><a href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="../extensions.html">Overview</a></li>
+<li><a href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="../extensions/languages.html">Language Extensions</a></li>
+<li><a href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="../extensions/themes.html">Theme Extensions</a></li>
+<li><a href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="../migrate/vs-code.html">VS Code</a></li>
+<li><a href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="../migrate/pycharm.html">PyCharm</a></li>
+<li><a href="../migrate/webstorm.html">WebStorm</a></li>
+<li><a href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="../reference/all-settings.html">All Settings</a></li>
+<li><a href="../all-actions.html">All Actions</a></li>
+<li><a href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="../development.html">Developing Zed</a>
+<ul>
+<li><a href="../development/macos.html">macOS</a></li>
+<li><a href="../development/linux.html">Linux</a></li>
+<li><a href="../development/windows.html">Windows</a></li>
+<li><a href="../development/freebsd.html">FreeBSD</a></li>
+<li><a href="../development/debuggers.html">Using Debuggers</a></li>
+<li><a href="../performance.html">Performance</a></li>
+<li><a href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="../development/release-notes.html">Release Notes</a></li>
+<li><a href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="agent-settings"><a class="header-anchor" href="#agent-settings">Agent Settings</a></h1>
+<p>Agent Settings live in the <strong>AI</strong> section of the Settings Editor, which configures model providers, External Agents, and MCP servers.
+Open it with <code>agent::OpenSettings</code> (also available from the top-right menu in the <a href="agent-panel.html">Agent Panel</a>), which takes you straight to the AI page.
+You can also reach the same page with <code>zed::OpenSettings</code> and selecting <strong>AI</strong> in the sidebar.</p>
+<p>Within the AI page, LLM Providers, External Agents, and MCP Servers each open as their own sub-page under the <strong>General</strong> section.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Surface</th>
+<th>Opens with</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Settings Editor</td>
+<td><code>agent::OpenSettings</code></td>
+<td>AI settings: LLM providers, External Agents, MCP servers, and related pages</td>
+</tr>
+<tr>
+<td>Settings file</td>
+<td><code>zed::OpenSettingsFile</code></td>
+<td>Direct JSON edits and settings not exposed in UI</td>
+</tr>
+</tbody>
+</table>
+<p>For general settings mechanics, see <a href="../configuring-zed.html">Configuring Zed</a>.</p>
+<h2 id="llm-providers"><a class="header-anchor" href="#llm-providers">LLM Providers</a></h2>
+<p>The <code>LLM Providers</code> section configures model providers for Zed AI features, including Zed Agent, Inline Assistant, Git commit generation, thread summaries, and similar model-backed features.</p>
+<p>Use this section to:</p>
+<ul>
+<li>sign in to supported subscription-backed providers</li>
+<li>enter provider API keys</li>
+<li>add OpenAI-compatible providers</li>
+<li>remove providers</li>
+</ul>
+<p>For the model-access paths and provider-specific setup, see <a href="llm-providers.html">LLM Providers</a>.</p>
+<h2 id="feature-specific-settings"><a class="header-anchor" href="#feature-specific-settings">Feature-Specific Settings</a></h2>
+<p>Some Zed AI features have their own model or prompt settings in <code>settings.json</code>, including:</p>
+<ul>
+<li><code>agent.inline_assistant_model</code></li>
+<li><code>agent.commit_message_model</code></li>
+<li><code>agent.thread_summary_model</code></li>
+<li><code>agent.compaction_model</code></li>
+<li><code>agent.subagent_model</code></li>
+<li><code>agent.commit_message_instructions</code></li>
+<li><code>agent.inline_alternatives</code></li>
+</ul>
+<p>Use <code>agent.commit_message_instructions</code> for instructions that apply only to generated Git commit messages:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;commit_message_instructions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Use the Conventional Commits format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;.&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>For feature-specific model examples, see <a href="#feature-specific-models">Feature-specific Models</a>.</p>
+<h2 id="automatic-compaction"><a class="header-anchor" href="#automatic-compaction">Automatic Compaction</a></h2>
+<p>Zed Agent can automatically compact long threads before they reach the selected model’s context window. Compaction summarizes earlier messages and keeps the conversation usable without starting a new thread.</p>
+<p>Automatic compaction is enabled by default and runs when the thread reaches <code>90%</code> of the model’s context window. You can change the threshold or disable automatic compaction in <code>settings.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;auto_compact&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;enabled&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;threshold&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;90%&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>The <code>threshold</code> value can be one of:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Percentage string, like <code>90%</code></td>
+<td>Compact when the thread uses that percentage of the model’s context window.</td>
+</tr>
+<tr>
+<td>Positive integer, like <code>100000</code></td>
+<td>Compact after that many tokens have been used.</td>
+</tr>
+<tr>
+<td>Negative integer, like <code>-20000</code></td>
+<td>Compact once fewer than that many tokens remain in the model’s context window.</td>
+</tr>
+</tbody>
+</table>
+<p><code>0</code> is not a valid threshold. If the threshold is invalid, Zed falls back to <code>90%</code>.</p>
+<p>You can compact a Zed Agent thread manually at any time by typing <code>/compact</code> in the Agent Panel message editor. For more on thread token usage and compaction behavior, see <a href="agent-panel.html#token-usage">Token Usage and Compaction</a>.</p>
+<h2 id="compaction-model"><a class="header-anchor" href="#compaction-model">Compaction Model</a></h2>
+<p>By default, context compaction (both <code>/compact</code> and auto-compaction) uses the thread’s currently selected model. Set <code>agent.compaction_model</code> to use a different model:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;default_model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anthropic&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;claude-opus-4-6&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;compaction_model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anthropic&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;claude-sonnet-4-5&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The configured model should have a context window at least as large as the thread’s primary model for predictable behavior.</li>
+</ul>
+<h2 id="external-agents"><a class="header-anchor" href="#external-agents">External Agents</a></h2>
+<p>The External Agents section configures ACP-integrated agents.</p>
+<p>Use <code>Add Agent</code> to:</p>
+<ul>
+<li><code>Install from Registry</code></li>
+<li><code>Add Custom Agent</code></li>
+</ul>
+<p>For setup details and support boundaries, see <a href="external-agents.html">External Agents</a>.</p>
+<h2 id="mcp-servers"><a class="header-anchor" href="#mcp-servers">MCP Servers</a></h2>
+<p>The <code>MCP Servers</code> page configures Model Context Protocol servers connected to Zed.</p>
+<p>Use <code>Add Server</code> (in the page header) to:</p>
+<ul>
+<li><code>Add Local Server</code></li>
+<li><code>Add Remote Server</code></li>
+<li><code>Install from Extensions</code></li>
+</ul>
+<p>Each configured server row exposes:</p>
+<ul>
+<li>a <code>Configure</code> (gear) button to edit the server</li>
+<li>an <code>Uninstall</code> (trash) button to remove it</li>
+<li>a toggle to enable or disable it</li>
+</ul>
+<p>For MCP setup, auth, server status, and agent-path boundaries, see <a href="mcp.html">MCP</a>.</p>
+<h2 id="related-configuration"><a class="header-anchor" href="#related-configuration">Related Configuration</a></h2>
+<p>Some AI settings are not configured on the AI settings pages:</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Task</th>
+<th>Go to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Choose which tools are available in a Zed Agent thread</td>
+<td><a href="agent-profiles.html">Agent Profiles</a></td>
+</tr>
+<tr>
+<td>Control whether tool calls are allowed, denied, or confirmed</td>
+<td><a href="tool-permissions.html">Tool Permissions</a></td>
+</tr>
+<tr>
+<td>Configure reusable task instructions</td>
+<td><a href="skills.html">Skills</a></td>
+</tr>
+<tr>
+<td>Configure always-on personal or project instructions</td>
+<td><a href="instructions.html">Instructions</a></td>
+</tr>
+<tr>
+<td>Configure edit prediction providers</td>
+<td><a href="edit-prediction.html">Edit Prediction</a></td>
+</tr>
+<tr>
+<td>Turn AI off</td>
+<td><a href="quick-start.html#turn-ai-off">AI Quick Start</a></td>
+</tr>
+<tr>
+<td>Edit raw settings JSON</td>
+<td><a href="../configuring-zed.html">Configuring Zed</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="feature-specific-models"><a class="header-anchor" href="#feature-specific-models">Feature-Specific Models</a></h2>
+<p>Zed supports feature-specific model settings for Inline Assistant, Git commit generation, thread summaries, and subagents. Configure these in settings when you need a different model for a specific workflow.</p>
+<p>See <a href="llm-providers.html">LLM Providers</a> for model access, and <a href="../reference/all-settings.html">All Settings</a> for the complete settings reference.</p>
+<h3 id="subagent-models"><a class="header-anchor" href="#subagent-models">Subagent Models</a></h3>
+<p>By default, Zed Agent’s subagents inherit the parent thread’s model, thinking setting, reasoning effort, and speed. Set <code>agent.subagent_model</code> in <code>settings.json</code> to choose separate model, reasoning, and speed settings. You can override the model by asking the agent to use a specific model for a subagent. When that model matches the provider and model in <code>agent.subagent_model</code>, its <code>enable_thinking</code>, <code>effort</code>, and <code>speed</code> settings are preserved. This setting does not configure <a href="external-agents.html">External Agents</a>.</p>
+<p>Configure this setting with a <code>provider</code> and <code>model</code>. To choose a reasoning effort for a model that supports it, also set <code>enable_thinking</code> and <code>effort</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;subagent_model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;effort&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;low&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;enable_thinking&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;claude-opus-4-6&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anthropic&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Choose an <code>effort</code> value supported by the selected model. Omitting <code>effort</code> from this object does not inherit the parent’s effort. It leaves effort to the selected provider and model’s default behavior. Omitting <code>enable_thinking</code> defaults to <code>false</code>, although models that cannot disable thinking still use it.</p>
+<p>To find supported effort values:</p>
+<ol>
+<li>Choose the target provider and model from the model selector in a native Zed Agent thread, even if it is already selected, to save it as <code>agent.default_model</code>.</li>
+<li>Enable thinking if it is off, then open the thinking effort menu. The “Change Thinking Effort” menu lists the model’s supported levels. If the model offers no effort choices, omit <code>effort</code>.</li>
+<li>Choose a level and read <code>agent.default_model.effort</code> in <code>settings.json</code> for the exact value to use in <code>agent.subagent_model.effort</code>.</li>
+</ol>
+<p>These controls change the current thread and saved default model settings, and can update a matching favorite model. Restore your previous selections afterward if needed.</p>
+<p>The optional <code>speed</code> field accepts <code>&quot;fast&quot;</code> or <code>&quot;standard&quot;</code>. It applies only to models that support fast mode. Omitting it from <code>agent.subagent_model</code> leaves speed unspecified rather than inheriting the parent’s speed.</p>
+<table class="table table-sm table-striped">
+<thead>
+<tr>
+<th>Model Selection</th>
+<th>Settings Applied</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No specific model requested, and <code>agent.subagent_model</code> is unset</td>
+<td>Inherits the parent thread’s current thinking, effort, and speed settings.</td>
+</tr>
+<tr>
+<td>No specific model requested, and <code>agent.subagent_model</code> is configured</td>
+<td>Uses <code>enable_thinking</code>, <code>effort</code>, and <code>speed</code> from <code>agent.subagent_model</code>.</td>
+</tr>
+<tr>
+<td>Requested model matches the provider and model in <code>agent.subagent_model</code></td>
+<td>Uses <code>enable_thinking</code>, <code>effort</code>, and <code>speed</code> from <code>agent.subagent_model</code>.</td>
+</tr>
+<tr>
+<td>Requested model differs from <code>agent.subagent_model</code>, or <code>agent.subagent_model</code> is unset</td>
+<td>Uses matching <code>agent.default_model</code> settings. Without a match, enables thinking if supported, uses the model’s default effort when available, and leaves speed unspecified.</td>
+</tr>
+</tbody>
+</table>
+<p>When using matching <code>agent.default_model</code> settings, unsupported or omitted <code>effort</code> falls back to the selected model’s default effort, when available.</p>
+<p>If the configured model is unavailable, subagents use the parent thread’s model and its thinking, effort, and speed settings.</p>
+<p>The agent can only request a model for a subagent, not a separate effort or speed. Requesting the parent’s own model is not the same as requesting no specific model: the table’s rules for requested models apply instead of inheriting the parent’s current settings. Subagents with a requested or configured model do not follow later changes to the parent’s model, reasoning, or speed settings. Resuming a subagent keeps its existing model, reasoning, and speed settings.</p>
+<h2 id="model-temperature"><a class="header-anchor" href="#model-temperature">Model Temperature</a></h2>
+<p>Most Zed AI features use the selected model’s default generation behavior.
+Use <code>agent.model_parameters</code> when you need to set a temperature for a provider,
+a model, or a specific provider/model pair.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;agent&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;model_parameters&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;provider&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;anthropic&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;claude-sonnet-4-5&quot;</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;temperature&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.2</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Zed checks matching entries from last to first. An entry can omit <code>provider</code> or
+<code>model</code> to apply more broadly. For provider-specific model configuration such as
+custom model entries, context windows, or gateway routing, see
+<a href="llm-providers.html">LLM Providers</a> and the provider setup pages.</p>
+<h2 id="rules-skills-instructions"><a class="header-anchor" href="#rules-skills-instructions">Rules, Skills, and Instructions</a></h2>
+<p>Reusable Rules have been replaced by <a href="skills.html">Skills</a>. Always-on Rules have moved to <a href="instructions.html">Instructions</a>, including personal <code>AGENTS.md</code> and project instruction files.</p>
+<p>Older builds or transitional UI may still refer to <code>Rules</code>. Use <a href="skills.html">Skills</a> for reusable task instructions and <a href="instructions.html">Instructions</a> for always-on context.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/ai/agent-settings.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>

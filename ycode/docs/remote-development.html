@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Remote Development in Zed - SSH Workflows · jbisfun wiki</title>
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="../../index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="../../pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="../index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../dotenv/index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="../../wiki/index.html">wiki</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ycode">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="../api/rust/lua_hooks/index.html">lua_hooks</a> <span class="badge text-bg-light">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome"><a class="header-anchor" href="#welcome">Welcome</a></h1>
+<ul>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="installation.html">Installation</a>
+<ul>
+<li><a href="update.html">Update</a></li>
+<li><a href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code"><a class="header-anchor" href="#working-with-code">Working with Code</a></h1>
+<ul>
+<li><a href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li><a href="editing-code.html">Editing Code</a>
+<ul>
+<li><a href="completions.html">Code Completions</a></li>
+<li><a href="snippets.html">Snippets</a></li>
+<li><a href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li><a href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li><a href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul>
+<li><a href="command-palette.html">Command Palette</a></li>
+<li><a href="outline-panel.html">Outline Panel</a></li>
+<li><a href="project-panel.html">Project Panel</a></li>
+<li><a href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li><a href="running-testing.html">Running &amp; Testing</a>
+<ul>
+<li><a href="terminal.html">Terminal</a></li>
+<li><a href="tasks.html">Tasks</a></li>
+<li><a href="debugger.html">Debugger</a></li>
+<li><a href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li><a href="git.html">Git</a></li>
+<li><a href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration"><a class="header-anchor" href="#collaboration">Collaboration</a></h1>
+<ul>
+<li><a href="collaboration/overview.html">Overview</a>
+<ul>
+<li><a href="collaboration/channels.html">Channels</a></li>
+<li><a href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<ul>
+<li><a class="active" aria-current="page" href="remote-development.html">Overview</a></li>
+<li><a href="environment.html">Environment Variables</a></li>
+<li><a href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai"><a class="header-anchor" href="#ai">AI</a></h1>
+<ul>
+<li><a href="ai/overview.html">Overview</a></li>
+<li><a href="ai/quick-start.html">AI Quick Start</a></li>
+<li><a href="ai/by-company.html">AI by Company</a></li>
+<li><a href="ai/agents.html">Agents</a>
+<ul>
+<li><a href="ai/zed-agent.html">Zed Agent</a></li>
+<li><a href="ai/external-agents.html">External Agents</a></li>
+<li><a href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>
+<ul>
+<li><a href="ai/agent-settings.html">Agent Settings</a></li>
+<li><a href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li><a href="ai/tools.html">Tools</a>
+<ul>
+<li><a href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li><a href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li><a href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li><a href="ai/skills.html">Skills</a></li>
+<li><a href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li><a href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li><a href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li><a href="ai/llm-providers.html">LLM Providers</a>
+<ul>
+<li><a href="ai/use-api-access.html">Use API Access</a></li>
+<li><a href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li><a href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li><a href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li><a href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li><a href="ai/privacy-and-security.html">AI Privacy</a>
+<ul>
+<li><a href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account-%26-billing"><a class="header-anchor" href="#account-%26-billing">Account &amp; Billing</a></h1>
+<ul>
+<li><a href="authentication.html">Authenticate</a></li>
+<li><a href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li><a href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li><a href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business"><a class="header-anchor" href="#zed-business">Zed Business</a></h1>
+<ul>
+<li><a href="business/overview.html">Overview</a></li>
+<li><a href="business/organizations.html">Organizations</a></li>
+<li><a href="roles.html">Roles &amp; Permissions</a></li>
+<li><a href="business/admin-controls.html">Admin Controls</a></li>
+<li><a href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy-%26-security"><a class="header-anchor" href="#privacy-%26-security">Privacy &amp; Security</a></h1>
+<ul>
+<li><a href="worktree-trust.html">Worktree Trust</a></li>
+<li><a href="business/privacy.html">Privacy for Business</a></li>
+<li><a href="telemetry.html">Telemetry</a></li>
+<li><a href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support"><a class="header-anchor" href="#platform-support">Platform Support</a></h1>
+<ul>
+<li><a href="macos.html">macOS</a></li>
+<li><a href="windows.html">Windows</a></li>
+<li><a href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization"><a class="header-anchor" href="#customization">Customization</a></h1>
+<ul>
+<li><a href="appearance.html">Appearance</a>
+<ul>
+<li><a href="themes.html">Themes</a></li>
+<li><a href="icon-themes.html">Icon Themes</a></li>
+<li><a href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li><a href="key-bindings.html">Keybindings</a>
+<ul>
+<li><a href="vim.html">Vim Mode</a></li>
+<li><a href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support"><a class="header-anchor" href="#language-support">Language Support</a></h1>
+<ul>
+<li><a href="languages.html">All Languages</a></li>
+<li><a href="configuring-languages.html">Configuring Languages</a>
+<ul>
+<li><a href="toolchains.html">Toolchains</a></li>
+<li><a href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li><a href="languages/ansible.html">Ansible</a></li>
+<li><a href="languages/asciidoc.html">AsciiDoc</a></li>
+<li><a href="languages/astro.html">Astro</a></li>
+<li><a href="languages/bash.html">Bash</a></li>
+<li><a href="languages/biome.html">Biome</a></li>
+<li><a href="languages/c.html">C</a></li>
+<li><a href="languages/cpp.html">C++</a></li>
+<li><a href="languages/csharp.html">C#</a></li>
+<li><a href="languages/clojure.html">Clojure</a></li>
+<li><a href="languages/css.html">CSS</a></li>
+<li><a href="languages/dart.html">Dart</a></li>
+<li><a href="languages/deno.html">Deno</a></li>
+<li><a href="languages/diff.html">Diff</a></li>
+<li><a href="languages/docker.html">Docker</a></li>
+<li><a href="languages/elixir.html">Elixir</a></li>
+<li><a href="languages/elm.html">Elm</a></li>
+<li><a href="languages/emmet.html">Emmet</a></li>
+<li><a href="languages/env.html">Env</a></li>
+<li><a href="languages/erlang.html">Erlang</a></li>
+<li><a href="languages/fish.html">Fish</a></li>
+<li><a href="languages/gdscript.html">GDScript</a></li>
+<li><a href="languages/gleam.html">Gleam</a></li>
+<li><a href="languages/glsl.html">GLSL</a></li>
+<li><a href="languages/go.html">Go</a></li>
+<li><a href="languages/groovy.html">Groovy</a></li>
+<li><a href="languages/haskell.html">Haskell</a></li>
+<li><a href="languages/helm.html">Helm</a></li>
+<li><a href="languages/html.html">HTML</a></li>
+<li><a href="languages/java.html">Java</a></li>
+<li><a href="languages/javascript.html">JavaScript</a></li>
+<li><a href="languages/julia.html">Julia</a></li>
+<li><a href="languages/json.html">JSON</a></li>
+<li><a href="languages/jsonnet.html">Jsonnet</a></li>
+<li><a href="languages/kotlin.html">Kotlin</a></li>
+<li><a href="languages/lua.html">Lua</a></li>
+<li><a href="languages/luau.html">Luau</a></li>
+<li><a href="languages/makefile.html">Makefile</a></li>
+<li><a href="languages/markdown.html">Markdown</a></li>
+<li><a href="languages/nim.html">Nim</a></li>
+<li><a href="languages/ocaml.html">OCaml</a></li>
+<li><a href="languages/opentofu.html">OpenTofu</a></li>
+<li><a href="languages/php.html">PHP</a></li>
+<li><a href="languages/powershell.html">PowerShell</a></li>
+<li><a href="languages/prisma.html">Prisma</a></li>
+<li><a href="languages/proto.html">Proto</a></li>
+<li><a href="languages/purescript.html">PureScript</a></li>
+<li><a href="languages/python.html">Python</a></li>
+<li><a href="languages/r.html">R</a></li>
+<li><a href="languages/rego.html">Rego</a></li>
+<li><a href="languages/rst.html">ReStructuredText</a></li>
+<li><a href="languages/racket.html">Racket</a></li>
+<li><a href="languages/roc.html">Roc</a></li>
+<li><a href="languages/ruby.html">Ruby</a></li>
+<li><a href="languages/rust.html">Rust</a></li>
+<li><a href="languages/scala.html">Scala</a></li>
+<li><a href="languages/scheme.html">Scheme</a></li>
+<li><a href="languages/sh.html">Shell Script</a></li>
+<li><a href="languages/sql.html">SQL</a></li>
+<li><a href="languages/sml.html">Standard ML</a></li>
+<li><a href="languages/svelte.html">Svelte</a></li>
+<li><a href="languages/swift.html">Swift</a></li>
+<li><a href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li><a href="languages/terraform.html">Terraform</a></li>
+<li><a href="languages/toml.html">TOML</a></li>
+<li><a href="languages/typescript.html">TypeScript</a></li>
+<li><a href="languages/uiua.html">Uiua</a></li>
+<li><a href="languages/vue.html">Vue</a></li>
+<li><a href="languages/xml.html">XML</a></li>
+<li><a href="languages/yaml.html">YAML</a></li>
+<li><a href="languages/yara.html">YARA</a></li>
+<li><a href="languages/yarn.html">Yarn</a></li>
+<li><a href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions"><a class="header-anchor" href="#extensions">Extensions</a></h1>
+<ul>
+<li><a href="extensions.html">Overview</a></li>
+<li><a href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li><a href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li><a href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul>
+<li><a href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li><a href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li><a href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li><a href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li><a href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li><a href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li><a href="extensions/languages.html">Language Extensions</a></li>
+<li><a href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li><a href="extensions/themes.html">Theme Extensions</a></li>
+<li><a href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li><a href="extensions/snippets.html">Snippets Extensions</a></li>
+<li><a href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li><a href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from%E2%80%A6"><a class="header-anchor" href="#coming-from%E2%80%A6">Coming From…</a></h1>
+<ul>
+<li><a href="migrate/vs-code.html">VS Code</a></li>
+<li><a href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li><a href="migrate/pycharm.html">PyCharm</a></li>
+<li><a href="migrate/webstorm.html">WebStorm</a></li>
+<li><a href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference"><a class="header-anchor" href="#reference">Reference</a></h1>
+<ul>
+<li><a href="reference/all-settings.html">All Settings</a></li>
+<li><a href="all-actions.html">All Actions</a></li>
+<li><a href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed"><a class="header-anchor" href="#developing-zed">Developing Zed</a></h1>
+<ul>
+<li><a href="development.html">Developing Zed</a>
+<ul>
+<li><a href="development/macos.html">macOS</a></li>
+<li><a href="development/linux.html">Linux</a></li>
+<li><a href="development/windows.html">Windows</a></li>
+<li><a href="development/freebsd.html">FreeBSD</a></li>
+<li><a href="development/debuggers.html">Using Debuggers</a></li>
+<li><a href="performance.html">Performance</a></li>
+<li><a href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li><a href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li><a href="development/release-notes.html">Release Notes</a></li>
+<li><a href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+      <h1 id="remote-development"><a class="header-anchor" href="#remote-development">Remote Development</a></h1>
+<p>Remote Development lets you edit code on a remote server while running Zed locally. The UI stays responsive because it runs on your machine, while language servers, tasks, and terminals run on the server.</p>
+<p>For day-to-day workflows, pair remote development with <a href="tasks.html">Tasks</a>,
+<a href="terminal.html">Terminal</a>, and <a href="debugger.html">Debugger</a>.</p>
+<h2 id="overview"><a class="header-anchor" href="#overview">Overview</a></h2>
+<p>Remote development requires two computers, your local machine that runs the Zed UI and the remote server which runs a Zed headless server. The two communicate over SSH, so you will need to be able to SSH from your local machine into the remote server to use this feature.</p>
+<p><img src="https://zed.dev/img/remote-development/diagram.png" alt="Architectural overview of Zed Remote Development"></p>
+<p>On your local machine, Zed runs its UI, talks to language models, uses Tree-sitter to parse and syntax-highlight code, and stores unsaved changes and recent projects. The source code, language servers, tasks, and the terminal all run on the remote server. <a href="ai/overview.html">AI features</a> work in remote sessions, including the Agent Panel and Inline Assistant.</p>
+<blockquote>
+<p><strong>Note:</strong> The original version of remote development sent traffic via Zed’s servers. As of Zed v0.157 you can no longer use that mode.</p>
+</blockquote>
+<h2 id="setup"><a class="header-anchor" href="#setup">Setup</a></h2>
+<ol>
+<li>Download and install the latest <a href="https://zed.dev/releases">Zed</a>. You need at least Zed v0.159.</li>
+<li>Use <code>projects::OpenRemote</code> to open the “Remote Projects” dialog.</li>
+<li>Click “Connect New Server” and enter the command you use to SSH into the server. See <a href="#supported-ssh-options">Supported SSH options</a> for options you can pass.</li>
+<li>Your local machine will attempt to connect to the remote server using the <code>ssh</code> binary on your path. Assuming the connection is successful, Zed will download the server on the remote host and start it.</li>
+<li>Once the Zed server is running, you will be prompted to choose a path to open on the remote server.
+<blockquote>
+<p><strong>Note:</strong> Zed does not currently handle opening very large directories (for example, <code>/</code> or <code>~</code> that may have &gt;100,000 files) very well. We are working on improving this, but suggest in the meantime opening only specific projects, or subfolders of very large mono-repos.</p>
+</blockquote>
+</li>
+</ol>
+<p>For simple cases where you don’t need any SSH arguments, you can run <code>zed ssh://[&lt;user&gt;@]&lt;host&gt;[:&lt;port&gt;]/&lt;path&gt;</code> to open a remote folder/file directly. The CLI also accepts the scp style <code>zed ssh://[&lt;user&gt;@]&lt;host&gt;:~/project</code> or <code>zed ssh://[&lt;user&gt;@]&lt;host&gt;:/absolute/path</code>. If you’d like to hotlink into an SSH project, use a link of the format: <code>zed://ssh/[&lt;user&gt;@]&lt;host&gt;[:&lt;port&gt;]/&lt;path&gt;</code>.</p>
+<h2 id="supported-platforms"><a class="header-anchor" href="#supported-platforms">Supported platforms</a></h2>
+<p>The remote machine must be able to run Zed’s server. The following platforms should work, though note that we have not exhaustively tested every Linux distribution:</p>
+<ul>
+<li>macOS 12.0 (Monterey) or later (Intel or Apple Silicon)</li>
+<li>Linux (x86_64 or arm64, we do not yet support 32-bit platforms)</li>
+<li>Windows (x86_64 or arm64)</li>
+</ul>
+<h2 id="configuration"><a class="header-anchor" href="#configuration">Configuration</a></h2>
+<p>The list of remote servers is stored in your settings file <code>zed::OpenSettings</code>. You can edit this list using the Remote Projects dialog <code>projects::OpenRemote</code>, which provides some robustness - for example it checks that the connection can be established before writing it to the settings file.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;projects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;~/code/zed/zed&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Zed shells out to the <code>ssh</code> on your path, and so it will inherit any configuration you have in <code>~/.ssh/config</code> for the given host. That said, if you need to override anything you can configure the following additional options on each connection:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;projects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;~/code/zed/zed&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-comment">// any argument to pass to the ssh master process</span>
+      <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;-i&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;~/.ssh/work_id_file&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">22</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">// defaults to 22</span>
+      <span class="hljs-comment">// defaults to your username on your local machine</span>
+      <span class="hljs-attr">&quot;username&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;me&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>There are two additional Zed-specific options per connection, <code>upload_binary_over_ssh</code> and <code>nickname</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;projects&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;paths&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;~/code/zed/zed&quot;</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-comment">// by default Zed will download the server binary from the internet on the remote.</span>
+      <span class="hljs-comment">// When this is true, it&#x27;ll be downloaded to your laptop and uploaded over SSH.</span>
+      <span class="hljs-comment">// This is useful when your remote server has restricted internet access.</span>
+      <span class="hljs-attr">&quot;upload_binary_over_ssh&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-comment">// Shown in the Zed UI to help distinguish multiple hosts.</span>
+      <span class="hljs-attr">&quot;nickname&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;lil-linux&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>If you use the command line to open a connection to a host by doing <code>zed ssh://192.168.1.10/~/.vimrc</code>, then extra options are read from your settings file by finding the first connection that matches the host/username/port of the URL on the command line.</p>
+<p>Additionally it’s worth noting that while you can pass a password on the command line <code>zed ssh://user:password@host/~</code>, we do not support writing a password to your settings file. If you’re connecting repeatedly to the same host, you should configure key-based authentication.</p>
+<h2 id="remote-development-on-windows-(ssh)"><a class="header-anchor" href="#remote-development-on-windows-(ssh)">Remote Development on Windows (SSH)</a></h2>
+<p>Zed on Windows supports SSH remoting and will prompt for credentials when needed.</p>
+<p>If you encounter authentication issues, confirm that your SSH key agent is running (e.g., ssh-agent or your Git client’s agent) and that ssh.exe is on PATH.</p>
+<h3 id="troubleshooting-ssh-on-windows"><a class="header-anchor" href="#troubleshooting-ssh-on-windows">Troubleshooting SSH on Windows</a></h3>
+<p>When prompted for credentials, use the graphical askpass dialog. If it doesn’t appear, check for credential manager conflicts and that GUI prompts aren’t blocked by your terminal.</p>
+<h2 id="wsl-support"><a class="header-anchor" href="#wsl-support">WSL Support</a></h2>
+<p>Zed supports opening folders inside of WSL natively on Windows.</p>
+<h3 id="opening-a-local-folder-in-wsl"><a class="header-anchor" href="#opening-a-local-folder-in-wsl">Opening a local folder in WSL</a></h3>
+<p>To open a local folder inside a WSL container, use the <code>projects::OpenFolderInWsl</code> action and select the folder you want to open. You will be presented with a list of available WSL distributions to open the folder in.</p>
+<h3 id="opening-a-folder-already-in-wsl"><a class="header-anchor" href="#opening-a-folder-already-in-wsl">Opening a folder already in WSL</a></h3>
+<p>To open a folder that’s already located inside of a WSL container, use the <code>projects::OpenWsl</code> action and select the WSL distribution. The distribution will be added to the <code>Remote Projects</code> window where you will be able to open the folder.</p>
+<h2 id="port-forwarding"><a class="header-anchor" href="#port-forwarding">Port forwarding</a></h2>
+<p>If you’d like to be able to connect to ports on your remote server from your local machine, you can configure port forwarding in your settings file. This is particularly useful for developing websites so you can load the site in your browser while working.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;port_forwards&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span> <span class="hljs-attr">&quot;local_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">8080</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;remote_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>This will cause requests from your local machine to <code>localhost:8080</code> to be forwarded to the remote machine’s port 80. Under the hood this uses the <code>-L</code> argument to ssh.</p>
+<p>By default these ports are bound to localhost, so other computers in the same network as your development machine cannot access them. You can set the local_host to bind to a different interface, for example, 0.0.0.0 will bind to all local interfaces.</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;port_forwards&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;local_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">8080</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;remote_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;local_host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0.0.0.0&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>These ports also default to the <code>localhost</code> interface on the remote host. If you need to change this, you can also set the remote host:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;ssh_connections&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;192.168.1.10&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;port_forwards&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;local_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">8080</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;remote_port&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;remote_host&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;docker-host&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<h2 id="zed-settings"><a class="header-anchor" href="#zed-settings">Zed settings</a></h2>
+<p>When opening a remote project there are three relevant settings locations:</p>
+<ul>
+<li>The local Zed settings (in <code>~/.zed/settings.json</code> on macOS or <code>~/.config/zed/settings.json</code> on Linux) on your local machine.</li>
+<li>The server Zed settings (in the same place) on the remote server.</li>
+<li>The project settings (in <code>.zed/settings.json</code> or <code>.editorconfig</code> of your project)</li>
+</ul>
+<p>Both the local Zed and the server Zed read supported project settings. Zed forwards
+your local user settings to the server, where server settings override them.</p>
+<p>Git auto-fetch runs on the server and sends updated branch information to your
+local Zed window. Enable <code>git.auto_fetch</code> in your user settings or the server’s
+settings. Git settings are not read from project <code>.zed/settings.json</code> files. See
+<a href="reference/all-settings.html#auto-fetch">Auto Fetch</a> for configuration and credential
+requirements.</p>
+<p>Which settings file you should use depends on the kind of setting you want to make:</p>
+<ul>
+<li>Project settings should be used for things that affect the project: indentation settings, which formatter / language server to use, etc.</li>
+<li>Server settings should be used for things that affect the server: paths to language servers, proxy settings, etc.</li>
+<li>Local settings should be used for things that affect the UI: font size, etc.</li>
+</ul>
+<p>In addition any extensions you have installed locally will be propagated to the remote server. This means that language servers, etc. will run correctly.</p>
+<h2 id="proxy-configuration"><a class="header-anchor" href="#proxy-configuration">Proxy Configuration</a></h2>
+<p>The remote server will not use your local machine’s proxy configuration because they may be under different network policies. If your remote server requires a proxy to access the internet, you must configure it on the remote server itself.</p>
+<p>In most cases, your remote server will already have proxy environment variables configured. Zed will automatically use them when downloading language servers, communicating with LLM models, etc.</p>
+<p>If needed, you can set these environment variables in the server’s shell configuration (e.g., <code>~/.bashrc</code>):</p>
+<pre><code class="language-bash"><span class="hljs-built_in">export</span> http_proxy=<span class="hljs-string">&quot;http://proxy.example.com:8080&quot;</span>
+<span class="hljs-built_in">export</span> https_proxy=<span class="hljs-string">&quot;http://proxy.example.com:8080&quot;</span>
+<span class="hljs-built_in">export</span> no_proxy=<span class="hljs-string">&quot;localhost,127.0.0.1&quot;</span>
+</code></pre>
+<p>Alternatively, you can configure the proxy in the remote machine’s <code>~/.config/zed/settings.json</code> (Linux) or <code>~/.zed/settings.json</code> (macOS):</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;proxy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://proxy.example.com:8080&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>See the <a href="reference/all-settings.html#network-proxy">proxy documentation</a> for supported proxy types and additional configuration options.</p>
+<h2 id="initializing-the-remote-server"><a class="header-anchor" href="#initializing-the-remote-server">Initializing the remote server</a></h2>
+<p>Once you provide the SSH options, Zed shells out to <code>ssh</code> on your local machine to create a ControlMaster connection with the options you provide.</p>
+<p>Any prompts that SSH needs will be shown in the UI, so you can verify host keys, type key passwords, etc.</p>
+<p>Once the master connection is established, Zed will check to see if the remote server binary is present in <code>~/.zed_server</code> on the remote, and that its version matches the current version of Zed that you’re using.</p>
+<p>If it is not there or the version mismatches, Zed will try to download the latest version. By default, it will download from <code>https://zed.dev</code> directly, but if you set: <code>{&quot;upload_binary_over_ssh&quot;:true}</code> in your settings for that server, it will download the binary to your local machine and then upload it to the remote server.</p>
+<p>If you’d like to maintain the server binary yourself you can. You can either download our prebuilt versions from <a href="https://github.com/zed-industries/zed/releases">GitHub</a>, or <a href="https://zed.dev/docs/development">build your own</a>:</p>
+<pre><code class="language-bash">cargo build --release --package remote_server
+llvm-objcopy --strip-debug target/release/remote-server
+</code></pre>
+<p>Stripping debug symbols matches the packaging step in <a href="https://github.com/zed-industries/zed/blob/main/script/bundle-linux"><code>script/bundle-linux</code></a> and keeps the binary closer to the size of Zed’s prebuilt downloads. Prefer <code>llvm-objcopy</code> because GNU <code>objcopy</code> may not understand newer LLVM-emitted CREL sections.</p>
+<p>The official Linux release builds a musl/static remote server. If you need that, follow the current target and flags in <a href="https://github.com/zed-industries/zed/blob/main/script/bundle-linux"><code>script/bundle-linux</code></a>; for x86-64 Linux, that looks like:</p>
+<pre><code class="language-bash">RUSTFLAGS=<span class="hljs-string">&quot;-C target-feature=+crt-static&quot;</span> cargo build --release --package remote_server --target x86_64-unknown-linux-musl
+llvm-objcopy --strip-debug target/x86_64-unknown-linux-musl/release/remote-server
+</code></pre>
+<p>If you do this, you must upload it to <code>~/.zed_server/zed-remote-server-{RELEASE_CHANNEL}-{VERSION}</code> on the server, for example <code>~/.zed_server/zed-remote-server-stable-0.217.3+stable.105.80433cb239e868271457ac376673a5f75bc4adb1</code>. The version must exactly match the version of Zed itself you are using.</p>
+<h2 id="maintaining-the-ssh-connection"><a class="header-anchor" href="#maintaining-the-ssh-connection">Maintaining the SSH connection</a></h2>
+<p>Once the server is initialized, Zed will create new SSH connections (reusing the existing ControlMaster) to run the remote development server.</p>
+<p>Each connection tries to run the development server in proxy mode. This mode will start the daemon if it is not running, and reconnect to it if it is. This way when your connection drops and is restarted, you can continue to work without interruption.</p>
+<p>In the case that reconnecting fails, the daemon will not be re-used. That said, unsaved changes are by default persisted locally, so that you do not lose work. You can always reconnect to the project at a later date and Zed will restore unsaved changes.</p>
+<p>If you are struggling with connection issues, you should be able to see more information in the Zed log <code>cmd-shift-p Open Log</code>. If you are seeing things that are unexpected, please file a <a href="https://github.com/zed-industries/zed/issues/new">GitHub issue</a> or reach out in the #support forums on <a href="https://zed.dev/community-links">Discord</a>.</p>
+<h2 id="supported-ssh-options"><a class="header-anchor" href="#supported-ssh-options">Supported SSH Options</a></h2>
+<p>Under the hood, Zed shells out to the <code>ssh</code> binary to connect to the remote server. We create one SSH control master per project, and then use that to multiplex SSH connections for the Zed protocol itself, any terminals you open and tasks you run. We read settings from your SSH config file, but if you want to specify additional options to the SSH control master you can configure Zed to set them.</p>
+<p>When typing in the “Connect New Server” dialog, you can use bash-style quoting to pass options containing a space. Once you have created a server it will be added to the <code>&quot;ssh_connections&quot;: []</code> array in your settings file. You can edit the settings file directly to make changes to SSH connections.</p>
+<p>Supported options:</p>
+<ul>
+<li><code>-p</code> / <code>-l</code> - these are equivalent to passing the port and the username in the host string.</li>
+<li><code>-L</code> / <code>-R</code> for port forwarding</li>
+<li><code>-i</code> - to use a specific key file</li>
+<li><code>-o</code> - to set custom options</li>
+<li><code>-J</code> / <code>-w</code> - to proxy the SSH connection</li>
+<li><code>-F</code> for specifying an <code>ssh_config</code></li>
+<li>And also… <code>-4</code>, <code>-6</code>, <code>-A</code>, <code>-B</code>, <code>-C</code>, <code>-D</code>, <code>-I</code>, <code>-K</code>, <code>-P</code>, <code>-X</code>, <code>-Y</code>, <code>-a</code>, <code>-b</code>, <code>-c</code>, <code>-i</code>, <code>-k</code>, <code>-l</code>, <code>-m</code>, <code>-o</code>, <code>-p</code>, <code>-w</code>, <code>-x</code>, <code>-y</code></li>
+</ul>
+<p>Note that we deliberately disallow some options (for example <code>-t</code> or <code>-T</code>) that Zed will set for you.</p>
+<h2 id="known-limitations"><a class="header-anchor" href="#known-limitations">Known Limitations</a></h2>
+<ul>
+<li>You can’t open files from the remote Terminal by typing the <code>zed</code> command.</li>
+</ul>
+<h2 id="see-also"><a class="header-anchor" href="#see-also">See also</a></h2>
+<ul>
+<li><a href="running-testing.html">Running &amp; Testing</a>: Run tasks, terminal commands, and
+debugger sessions while you work remotely.</li>
+<li><a href="git.html#git-worktrees">Git Worktrees</a>: Create and switch between linked
+Git worktrees. Zed supports the worktree picker in remote projects when the
+remote connection is active.</li>
+<li><a href="configuring-zed.html">Configuring Zed</a>: Manage shared and project settings,
+including <code>.zed/settings.json</code>.</li>
+<li><a href="ai/agent-panel.html">Agent Panel</a>: Use AI workflows in remote projects.</li>
+<li><a href="https://zed.dev/remote-development">Remote Development on zed.dev</a>: Product
+overview and release updates.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ycode/blob/main/docs/src/remote-development.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
