@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
   <link rel="stylesheet" href="_assets/style.css">
   <script type="module" src="_assets/main.js"></script>
 </head>
@@ -13,25 +21,25 @@
     <a class="navbar-brand fw-semibold" href="index.html">jbisfun wiki</a>
     <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
 
-      <li class="nav-item"><a class="nav-link" href="pull/index.html">pull</a></li>
-
-      <li class="nav-item"><a class="nav-link" href="ycode/index.html">ycode</a></li>
-
       <li class="nav-item"><a class="nav-link" href="dotenv/index.html">dotenv</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="ycode-pull/index.html">ycode-pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="ios-webusb/index.html">ios-webusb</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="ycode-offline/index.html">ycode-offline</a></li>
+      <li class="nav-item"><a class="nav-link" href="pull/index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="tool/index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="wiki/index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="ycode/index.html">ycode</a></li>
 
       <li class="nav-item"><a class="nav-link" href="ycode-hermes/index.html">ycode-hermes</a></li>
 
       <li class="nav-item"><a class="nav-link" href="ycode-manager/index.html">ycode-manager</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="wiki/index.html">wiki</a></li>
+      <li class="nav-item"><a class="nav-link" href="ycode-offline/index.html">ycode-offline</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="tool/index.html">tool</a></li>
-
-      <li class="nav-item"><a class="nav-link" href="ios-webusb/index.html">ios-webusb</a></li>
+      <li class="nav-item"><a class="nav-link" href="ycode-pull/index.html">ycode-pull</a></li>
 
     </ul>
 
@@ -50,6 +58,38 @@
   <div class="col">
     <div class="card h-100">
       <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="dotenv/index.html">dotenv</a></h2>
+
+        <p class="card-text">pull workspace environment (pullfile)</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>dotenv</code> @ 6e2873d
+
+
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ios-webusb/index.html">ios-webusb</a></h2>
+
+        <p class="card-text">A WebUSB driver for iPhones and iPads. The web page claims the device through navigator.usb and runs the driver itself in wasm: rusbmux (vendored, ported to WebUSB) for the usbmux protocol, and idevice for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>ios-webusb</code> @ 8420f0d
+
+ · <span class="badge text-bg-secondary">Rust API</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
         <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="pull/index.html">pull</a></h2>
 
         <p class="card-text">A multi-repo git wrapper. pullfile.plist lists the repos, their upstreams and pinned commits. Each repo is cloned to {pullfile-root}/{repo-name}. A single pull commit writes one commit, with the same message, identity and signature, to every repo that has changes, then records the new pins.</p>
@@ -57,7 +97,39 @@
         <p class="card-text small text-body-secondary mb-0">
           <code>pull</code> @ c189219
 
- · <span class="badge text-bg-light">Rust API</span>
+ · <span class="badge text-bg-secondary">Rust API</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="tool/index.html">tool</a></h2>
+
+        <p class="card-text">Declarative Homebrew packages per project, a little like a nix profile.</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>tool</code> @ b74013f
+
+ · <span class="badge text-bg-secondary">Rust API</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="wiki/index.html">wiki</a></h2>
+
+        <p class="card-text">Static site built from every repo in a pull workspace, published to https://jbisfun.github.io: each repo’s README is its entry page, next to its docs/ folder and code reference generated by rustdoc, LDoc and JSDoc.</p>
+
+        <p class="card-text small text-body-secondary mb-0">
+          <code>wiki</code> @ be17769
+ · 2 doc pages
+ · <span class="badge text-bg-secondary">JavaScript API</span>
         </p>
       </div>
     </div>
@@ -73,55 +145,7 @@
         <p class="card-text small text-body-secondary mb-0">
           <code>ycode</code> @ 40d2c05
  · 198 doc pages
- · <span class="badge text-bg-light">Rust API</span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="dotenv/index.html">dotenv</a></h2>
-
-        <p class="card-text">pull workspace environment (pullfile)</p>
-
-        <p class="card-text small text-body-secondary mb-0">
-          <code>dotenv</code> @ 2356d25
-
-
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ycode-pull/index.html">ycode-pull</a></h2>
-
-        <p class="card-text">pull inside ycode, as a Lua extension built on ycode’s lua_hooks (gpui.open_window).</p>
-
-        <p class="card-text small text-body-secondary mb-0">
-          <code>ycode-pull</code> @ 983e685
-
- · <span class="badge text-bg-light">Lua API</span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ycode-offline/index.html">ycode-offline</a></h2>
-
-        <p class="card-text">ycode Lua plugin that turns off the account and online features:</p>
-
-        <p class="card-text small text-body-secondary mb-0">
-          <code>ycode-offline</code> @ bee7705
-
-
+ · <span class="badge text-bg-secondary">Rust API</span>
         </p>
       </div>
     </div>
@@ -162,14 +186,14 @@
   <div class="col">
     <div class="card h-100">
       <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="wiki/index.html">wiki</a></h2>
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ycode-offline/index.html">ycode-offline</a></h2>
 
-        <p class="card-text">Static site built from every repo in a pull workspace, published to https://jbisfun.github.io: each repo’s README is its entry page, next to its docs/ folder and code reference generated by rustdoc, LDoc and JSDoc.</p>
+        <p class="card-text">ycode Lua plugin that turns off the account and online features:</p>
 
         <p class="card-text small text-body-secondary mb-0">
-          <code>wiki</code> @ be17769
- · 2 doc pages
- · <span class="badge text-bg-light">JavaScript API</span>
+          <code>ycode-offline</code> @ bee7705
+
+
         </p>
       </div>
     </div>
@@ -178,30 +202,14 @@
   <div class="col">
     <div class="card h-100">
       <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="tool/index.html">tool</a></h2>
+        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ycode-pull/index.html">ycode-pull</a></h2>
 
-        <p class="card-text">Declarative Homebrew packages per project, a little like a nix profile.</p>
-
-        <p class="card-text small text-body-secondary mb-0">
-          <code>tool</code> @ b74013f
-
- · <span class="badge text-bg-light">Rust API</span>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card h-100">
-      <div class="card-body">
-        <h2 class="h5 card-title mt-0"><a class="stretched-link text-decoration-none" href="ios-webusb/index.html">ios-webusb</a></h2>
-
-        <p class="card-text">A WebUSB driver for iPhones and iPads. The web page claims the device through navigator.usb and runs the driver itself in wasm: rusbmux (vendored, ported to WebUSB) for the usbmux protocol, and idevice for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
+        <p class="card-text">pull inside ycode, as a Lua extension built on ycode’s lua_hooks (gpui.open_window).</p>
 
         <p class="card-text small text-body-secondary mb-0">
-          <code>ios-webusb</code> @ 11d704d
+          <code>ycode-pull</code> @ 983e685
 
- · <span class="badge text-bg-light">Rust API</span>
+ · <span class="badge text-bg-secondary">Lua API</span>
         </p>
       </div>
     </div>
