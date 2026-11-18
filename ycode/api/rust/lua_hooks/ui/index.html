@@ -1,63 +1,130 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="gpui for Lua: `gpui.open_window{...}` opens a real gpui window whose content is rendered from Lua tables on every frame."><title>lua_hooks::ui - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-0c87338a.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="lua_hooks" data-themes="" data-resource-suffix="" data-rustdoc-version="1.99.1 (58cf8f9c3 2026-10-13)" data-channel="1.99.1" data-search-js="search-cf4fc35e.js" data-stringdex-js="stringdex-b5109af9.js" data-settings-js="settings-170eb4bf.js" ><script src="../../static.files/storage-41dd4d93.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../static.files/main-417ebf0a.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-9f56287d.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><div style="position:fixed;top:0;left:0;right:0;z-index:2147483647;display:flex;gap:.6rem;
-    align-items:center;flex-wrap:wrap;background:#1b1f23;color:#e6e6e6;
-    font:14px/1.4 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    padding:.4rem 1rem;border-bottom:1px solid #000;box-sizing:border-box;">
-  <a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html" style="color:#e6e6e6;font-weight:600;text-decoration:none;">jbisfun wiki</a>
-  <span style="color:#6c757d;">/</span>
-  <a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html" style="color:#9fcdff;text-decoration:none;">ycode</a>
-</div><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module ui</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../lua_hooks/index.html">lua_<wbr>hooks</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module ui</a></h2><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate lua_<wbr>hooks</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">lua_hooks</a></div><h1>Module <span>ui</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/lua_hooks/ui.rs.html#1-1210">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>gpui for Lua: <code>gpui.open_window{...}</code> opens a real gpui window whose content is
-rendered from Lua tables on every frame.</p>
-<div class="example-wrap"><pre class="language-lua"><code>gpui.open_window{
-    title = &quot;hello&quot;, width = 600, height = 400,
-    state = { n = 0 },             -- persistent table, available as w.state
-    focus = &quot;name&quot;,                -- input to focus on open
-    poll_ms = 500,                 -- re-render periodically (optional)
-    on_key = function(w, ev) ... return true end,   -- ev.key/ctrl/alt/shift/cmd/char; true = consumed
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="gpui for Lua: `gpui.open_window{...}` / `gpui.register_panel{...}` render a tree of Lua tables on every frame, built from Zed’s own `ui` components so Lua panels look like the native ones without any styling in the plugin."><title>lua_hooks::ui - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../static.files/rustdoc-0c87338a.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="lua_hooks" data-themes="" data-resource-suffix="" data-rustdoc-version="1.99.1 (58cf8f9c3 2026-10-13)" data-channel="1.99.1" data-search-js="search-cf4fc35e.js" data-stringdex-js="stringdex-b5109af9.js" data-settings-js="settings-170eb4bf.js" ><script src="../../static.files/storage-41dd4d93.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../static.files/main-417ebf0a.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-9f56287d.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-044be391.svg">  <link rel="stylesheet" href="../../../../../_assets/style.css">
+  <script type="module" src="../../../../../_assets/main.js"></script>
+</head><body class="rustdoc mod"><nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module ui</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../lua_hooks/index.html">lua_<wbr>hooks</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module ui</a></h2><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate lua_<wbr>hooks</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">lua_hooks</a></div><h1>Module <span>ui</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/lua_hooks/ui/mod.rs.html#1-663">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>gpui for Lua: <code>gpui.open_window{...}</code> / <code>gpui.register_panel{...}</code> render a
+tree of Lua tables on every frame, built from Zed’s own <code>ui</code> components so Lua
+panels look like the native ones without any styling in the plugin.</p>
+<div class="example-wrap"><pre class="language-lua"><code>gpui.register_panel{ id = &quot;demo&quot;, title = &quot;Demo&quot;, icon = &quot;box&quot;, position = &quot;right&quot;,
     render = function(w)
-        return { &quot;col&quot;, p = 8, gap = 4,
-            { &quot;text&quot;, &quot;clicked &quot; .. w.state.n .. &quot; times&quot;, fg = &quot;muted&quot; },
-            { &quot;input&quot;, id = &quot;name&quot;, placeholder = &quot;type here&quot; },
-            { &quot;button&quot;, &quot;Click&quot;, on_click = function(w) w.state.n = w.state.n + 1 end },
+        return { &quot;panel&quot;,
+            header = { title = &quot;Demo&quot;, context = &quot;3 items&quot;,
+                       actions = { { &quot;icon_button&quot;, icon = &quot;rotate_cw&quot;, tooltip = &quot;Refresh&quot;,
+                                     on_click = function(w) end } } },
+            footer = w.state.message,
+            { &quot;section&quot;, &quot;Items&quot;, action = { &quot;icon_button&quot;, icon = &quot;plus&quot;, tooltip = &quot;Add&quot; },
+                { &quot;list_item&quot;, &quot;first&quot;, detail = &quot;a detail&quot;, selected = true,
+                  start = { &quot;icon&quot;, name = &quot;file&quot; }, on_click = function(w) end },
+            },
+            { &quot;toolbar&quot;, { &quot;button&quot;, &quot;Build&quot;, on_click = build }, { &quot;button&quot;, &quot;Test&quot; } },
         }
-    end,
-}</code></pre></div>
-<p>Elements are <code>{ tag, children..., props }</code> with tag <code>col</code> (default), <code>row</code>, <code>text</code>,
-<code>button</code>, <code>icon_button</code>, <code>icon</code>, <code>checkbox</code>, <code>toggle_group</code>, <code>divider</code>,
-<code>panel_header</code>, <code>list_item</code>, <code>list_header</code>, <code>disclosure</code>, <code>input</code>. Strings
-and numbers are text. Props:</p>
+    end }</code></pre></div>
+<p>An element is <code>{ tag, children..., props }</code>; bare strings and numbers are text.
+Props are typed: an unknown or mistyped prop is an error drawn in place of the
+element. Sizes and spacing are names, never pixels (pixel numbers still work
+but log a deprecation once).</p>
+<p>Structure (these carry Zed’s spacing, so plugins don’t pick any):</p>
 <ul>
-<li><code>button</code> (native <code>ui::Button</code>, <code>LabelSize::Small</code>): label is the first string
-child (or <code>label</code>), <code>style = "subtle"</code> (default) | <code>"filled"</code> | <code>"transparent"</code>,
-<code>icon</code>, <code>tooltip</code>, <code>disabled</code>, <code>on_click = fn(w)</code></li>
-<li><code>icon_button</code> (native <code>ui::IconButton</code>, <code>IconSize::Small</code>): <code>icon</code> (required,
-snake_case/kebab-case <code>IconName</code>, e.g. <code>"settings"</code>), <code>tooltip</code>, <code>disabled</code>,
-<code>on_click = fn(w)</code></li>
-<li><code>icon</code> (native <code>ui::Icon</code>): <code>name</code> (required, same <code>IconName</code> parsing as
-<code>icon_button</code>), <code>size</code> (<code>"indicator"</code>/<code>"xsmall"</code>/<code>"small"</code>/<code>"default"</code>/<code>"large"</code>),
-<code>color</code> (named theme color or <code>#rrggbb[aa]</code>, same as <code>text</code>’s <code>color</code>)</li>
-<li><code>checkbox</code> (native <code>ui::Checkbox</code>): <code>checked = true | false | "mixed"</code>
-(<code>"mixed"</code> is <code>ToggleState::Indeterminate</code>), <code>label</code>, <code>disabled</code>, <code>on_click = fn(w)</code></li>
-<li><code>toggle_group</code> (native <code>ui::ToggleButtonGroup</code>, 1-6 options): <code>options</code>
-(list of strings), <code>selected</code> (one of <code>options</code>), <code>on_select = fn(w, option)</code></li>
-<li><code>divider</code> (native <code>ui::Divider</code>): <code>vertical</code> (default horizontal)</li>
-<li><code>panel_header</code> (height <code>Tab::container_height</code>, bottom border): <code>title</code>
-(Default-size <code>Label</code>), <code>context</code> (optional Small muted <code>Label</code>),
-children render right-aligned as actions</li>
-<li>layout: <code>p px py gap w h</code> (pixels, or <code>"full"</code> for w/h), <code>grow</code>, <code>align</code>
-(<code>start</code>/<code>center</code>/<code>end</code>; <code>row</code> defaults to <code>center</code>, use <code>align = "start"</code> to
-opt out), <code>justify</code> (<code>center</code>/<code>end</code>/<code>between</code>)</li>
-<li>look: <code>bg fg border</code> (theme names: <code>background surface panel editor element text muted accent border error warning success</code>, or <code>#rrggbb[aa]</code>), <code>rounded mono bold</code>,
-<code>size</code> (<code>"default"</code>/<code>"small"</code>/<code>"xsmall"</code>/<code>"large"</code>, follows <code>ui_font_size</code>; a raw
-number is accepted for back-compat but is a fixed px size and logs a deprecation
-warning)</li>
-<li>behaviour: <code>id</code>, <code>scroll = true</code> (vertical scroll; needs/uses <code>id</code>), <code>on_click = fn(w)</code></li>
-<li><code>text</code> renders a native <code>ui::Label</code> (never the window’s root text size), so bare
-strings elsewhere in a tree also render at Label’s default (14px) size. <code>text</code>-only
-props: <code>size</code> (<code>"default"</code>/<code>"small"</code>/<code>"xsmall"</code>/<code>"large"</code>), <code>color</code>/<code>fg</code> (named or
-<code>#rrggbb[aa]</code>), <code>mono</code> (buffer font instead of the UI font), <code>truncate</code> (ellipsis).</li>
-<li>inputs (<code>id</code> required): <code>multiline</code>, <code>placeholder</code>; read and write them with
-<code>w.text(id)</code> and <code>w.set_text(id, s)</code></li>
+<li><code>panel{ header, footer, scroll = true, children }</code>: <code>header</code> is a title string or
+<code>{ title, context, actions = {...} }</code> (tab-bar height, bottom border); the body
+fills the rest and scrolls with a scrollbar unless <code>scroll = false</code>; <code>footer</code> is
+a string (small, muted, truncated; <code>color</code> applies to it) or an element.</li>
+<li><code>section{ "Title", action = el, empty = "nothing here", children }</code>: a list
+sub-header (small, muted) followed by its rows.</li>
+<li><code>toolbar{ children }</code>: a wrapping row of buttons with toolbar padding.</li>
+<li><code>split{ a, b, ratio, vertical }</code>: two panes with a divider. Horizontal splits give
+the first pane a sidebar width unless <code>ratio</code> (0..1) is set; vertical ones split
+evenly by default.</li>
+<li><code>empty{ "message", action = el }</code>: centered muted text for empty/loading/error states.</li>
+<li><code>panel_header{ title, context, actions | children }</code>, <code>divider{ vertical }</code>.</li>
+<li><code>col</code> (default tag), <code>row</code> (children vertically centered): plain flex containers
+with <code>gap p px py</code> (<code>none xs sm md lg xl</code>), <code>w h</code> (<code>"full"</code>, <code>"sidebar"</code>),
+<code>grow</code>, <code>align</code> (<code>start center end</code>), <code>justify</code> (<code>center end between</code>),
+<code>bg border</code> (theme color names), <code>rounded</code>, <code>scroll</code>, <code>id</code>, <code>on_click</code>.</li>
 </ul>
-<p>Inside callbacks, <code>w</code> also has <code>focus(id)</code>, <code>scroll_bottom(id)</code>, <code>refresh()</code>,
-<code>close()</code> and <code>state</code>.</p>
+<p>Content:</p>
+<ul>
+<li><code>text{ "...", size, color, mono, bold, truncate }</code> (<code>ui::Label</code>; <code>size</code> is
+<code>default small xsmall large</code>; <code>color</code> is a theme color such as <code>muted accent error warning success</code>; <code>fg</code> is an alias).</li>
+<li><code>list_item{ "label" | children, detail, selected, indent, start, end_, end_hover, on_click }</code> (<code>ui::ListItem</code>: hover/selected background, full-row hit target;
+<code>detail</code> is small muted text after the label; <code>end_hover</code> replaces <code>end_</code> on hover).</li>
+<li><code>list_header{ "label", sub, start, end_, end_hover, on_click }</code>.</li>
+<li><code>button{ "label", style = subtle|filled|transparent, icon, tooltip, disabled, on_click }</code>, <code>icon_button{ icon, tooltip, disabled, on_click }</code>.</li>
+<li><code>icon{ name, size, color }</code>, <code>checkbox{ checked = true|false|"mixed", label, size, disabled, on_click }</code>, <code>toggle_group{ options, selected, on_select = fn(w, opt) }</code>,
+<code>disclosure{ open, on_click }</code>.</li>
+<li><code>input{ id, placeholder, multiline }</code>: read/write with <code>w.text(id)</code>/<code>w.set_text</code>.</li>
+</ul>
+<p>Inside callbacks, <code>w</code> has <code>state</code>, <code>text(id)</code>, <code>set_text(id, s)</code>, <code>focus(id)</code>,
+<code>scroll_bottom(id)</code>, <code>refresh()</code> and <code>close()</code>.</p>
 </div></details><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><dl class="item-table"><dt><a class="struct" href="struct.LuaWindow.html" title="struct lua_hooks::ui::LuaWindow">LuaWindow</a></dt><dt><a class="struct" href="struct.UiHost.html" title="struct lua_hooks::ui::UiHost">UiHost</a></dt><dd>Host for Lua running inside a window callback.</dd></dl><h2 id="functions" class="section-header">Functions<a href="#functions" class="anchor">§</a></h2><dl class="item-table"><dt><a class="fn" href="fn.open_window.html" title="fn lua_hooks::ui::open_window">open_<wbr>window</a></dt><dd>Open a window described by <code>opts</code> (see module docs).</dd></dl></section></div></main></body></html>
