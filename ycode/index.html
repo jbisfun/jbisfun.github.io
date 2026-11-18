@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zed · jbisfun wiki</title>
+  <title>ycode · jbisfun wiki</title>
   <meta name="color-scheme" content="light dark">
   <script>
     // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
@@ -399,40 +399,77 @@
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="README.md">
 
-      <h1 id="zed" data-sourcepos="1:1-1:5">Zed<a href="#zed" aria-label="Link to heading 'Zed'" data-heading-content="Zed" class="anchor"></a></h1>
-<p data-sourcepos="3:1-4:159"><a data-sourcepos="3:1-3:141" href="https://zed.dev"><img data-sourcepos="3:2-3:123" src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/zed-industries/zed/main/assets/badge/v0.json" alt="Zed" /></a>
-<a data-sourcepos="4:1-4:159" href="https://github.com/zed-industries/zed/actions/workflows/run_tests.yml"><img data-sourcepos="4:2-4:87" src="https://github.com/zed-industries/zed/actions/workflows/run_tests.yml/badge.svg" alt="CI" /></a></p>
-<p data-sourcepos="6:1-6:180">Welcome to Zed, a high-performance, multiplayer code editor from the creators of <a data-sourcepos="6:82-6:117" href="https://github.com/atom/atom">Atom</a> and <a data-sourcepos="6:123-6:179" href="https://github.com/tree-sitter/tree-sitter">Tree-sitter</a>.</p>
-<hr data-sourcepos="8:1-8:3" />
-<h3 id="installation" data-sourcepos="10:1-10:16">Installation<a href="#installation" aria-label="Link to heading 'Installation'" data-heading-content="Installation" class="anchor"></a></h3>
-<p data-sourcepos="12:1-12:310">On macOS, Linux, and Windows you can <a data-sourcepos="12:38-12:86" href="https://zed.dev/download">download Zed directly</a> or install Zed via your local package manager (<a data-sourcepos="12:135-12:182" href="https://zed.dev/docs/installation#macos">macOS</a>/<a data-sourcepos="12:184-12:251" href="https://zed.dev/docs/linux#installing-via-a-package-manager">Linux</a>/<a data-sourcepos="12:253-12:308" href="https://zed.dev/docs/windows#package-managers">Windows</a>).</p>
-<p data-sourcepos="14:1-14:38">Other platforms are not yet available:</p>
-<ul data-sourcepos="16:1-16:86">
-<li data-sourcepos="16:1-16:86">Web (<a data-sourcepos="16:8-16:85" href="https://github.com/zed-industries/zed/discussions/26195">tracking discussion</a>)</li>
+      <h1 id="ycode" data-sourcepos="1:1-1:7">ycode<a href="#ycode" aria-label="Link to heading 'ycode'" data-heading-content="ycode" class="anchor"></a></h1>
+<p data-sourcepos="3:1-7:14">ycode is a fork of <a data-sourcepos="3:20-3:63" href="https://github.com/zed-industries/zed">Zed</a> that can be scripted in
+Lua. Its own code is a hook system, <a data-sourcepos="4:37-4:74" href="https://github.com/jbisfun/ycode/blob/main/crates/lua_hooks"><code data-sourcepos="4:38-4:55">crates/lua_hooks</code></a>. It lets
+plugins written in Lua intercept and replace any Zed action, add new actions and draw
+native gpui windows and dock panels. The rest of the editor is upstream Zed with a few
+small patches.</p>
+<p data-sourcepos="9:1-11:5">ycode is part of the <a data-sourcepos="9:22-9:58" href="https://github.com/jbisfun">jbisfun</a> workspace, which is managed
+with <a data-sourcepos="10:6-10:44" href="https://github.com/jbisfun/pull">pull</a>. Most features live in plugins, not in this
+repo.</p>
+<h2 id="lua-hooks" data-sourcepos="13:1-13:12">Lua hooks<a href="#lua-hooks" aria-label="Link to heading 'Lua hooks'" data-heading-content="Lua hooks" class="anchor"></a></h2>
+<p data-sourcepos="15:1-17:45">Hook files are <code data-sourcepos="15:16-15:42">~/.config/zed/hooks/*.lua</code> and <code data-sourcepos="15:48-15:56">*.x.lua</code>, plus one level of extension
+subdirectories (<code data-sourcepos="16:17-16:30">hooks/&lt;ext&gt;/</code>). <code data-sourcepos="16:34-16:41">.x.lua</code> files use directives modelled on
+<a data-sourcepos="17:1-17:44" href="https://theos.dev/docs/logos-syntax">Logos</a>:</p>
+<pre class="syntax-highlighting" data-sourcepos="19:1-26:3"><code class="language-lua"><span class="hl-source hl-lua"><span class="hl-keyword hl-operator hl-arithmetic hl-lua">%</span><span class="hl-variable hl-other hl-lua">hook</span> <span class="hl-variable hl-other hl-lua">editor</span>
+<span class="hl-keyword hl-operator hl-arithmetic hl-lua">-</span> <span class="hl-variable hl-other hl-lua">Copy</span>
+  <span class="hl-keyword hl-operator hl-arithmetic hl-lua">%</span><span class="hl-variable hl-other hl-lua">log</span>
+  <span class="hl-keyword hl-operator hl-arithmetic hl-lua">%</span><span class="hl-variable hl-other hl-lua">orig</span>
+<span class="hl-invalid hl-illegal hl-unexpected-end hl-lua">end</span>
+<span class="hl-keyword hl-operator hl-arithmetic hl-lua">%</span><span class="hl-invalid hl-illegal hl-unexpected-end hl-lua">end</span>
+</span></code></pre>
+<ul data-sourcepos="28:1-33:36">
+<li data-sourcepos="28:1-29:52"><code data-sourcepos="28:3-28:12">%hook ns</code> / <code data-sourcepos="28:16-28:25">- Action</code>: wrap <code data-sourcepos="28:33-28:44">ns::Action</code> (<code data-sourcepos="28:47-28:51">- *</code> wraps the whole namespace). If a
+hook never calls <code data-sourcepos="29:20-29:26">%orig</code>, the action is swallowed.</li>
+<li data-sourcepos="30:1-30:66"><code data-sourcepos="30:3-30:21">%new - Name(args)</code>: a new action, shown in the command palette.</li>
+<li data-sourcepos="31:1-32:32"><code data-sourcepos="31:3-31:16">%hookf point</code>: wrap a hook point in the Rust code (e.g. <code data-sourcepos="31:60-31:81">client::authenticate</code>, the
+automatic sign-in at startup).</li>
+<li data-sourcepos="33:1-33:36"><code data-sourcepos="33:3-33:9">%ctor</code>, <code data-sourcepos="33:12-33:19">%group</code>/<code data-sourcepos="33:21-33:27">%init</code>, <code data-sourcepos="33:30-33:35">%log</code>.</li>
 </ul>
-<h3 id="developing-zed" data-sourcepos="18:1-18:18">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h3>
-<ul data-sourcepos="20:1-22:63">
-<li data-sourcepos="20:1-20:59"><a data-sourcepos="20:3-20:59" href="docs/development/macos.html">Building Zed for macOS</a></li>
-<li data-sourcepos="21:1-21:59"><a data-sourcepos="21:3-21:59" href="docs/development/linux.html">Building Zed for Linux</a></li>
-<li data-sourcepos="22:1-22:63"><a data-sourcepos="22:3-22:63" href="docs/development/windows.html">Building Zed for Windows</a></li>
+<p data-sourcepos="35:1-38:61">The Lua API (<code data-sourcepos="35:14-35:22">ycode.*</code>, <code data-sourcepos="35:25-35:32">gpui.*</code>) covers dispatching actions, a settings layer, the KV
+store, status-bar buttons, workspace folders, spawning processes and native UI elements
+(<code data-sourcepos="37:2-37:19">gpui.open_window</code>, <code data-sourcepos="37:22-37:42">gpui.register_panel</code>). LuaSocket comes embedded. Plugins are
+reloaded with <code data-sourcepos="38:15-38:35">ycode: reload hooks</code> and never need a rebuild.</p>
+<ul data-sourcepos="40:1-43:37">
+<li data-sourcepos="40:1-40:78"><a data-sourcepos="40:3-40:58" href="https://github.com/jbisfun/ycode/blob/main/crates/lua_hooks/README.md">crates/lua_hooks/README.md</a>: directives and API</li>
+<li data-sourcepos="41:1-41:90"><a data-sourcepos="41:3-41:50" href="https://github.com/jbisfun/ycode/blob/main/crates/lua_hooks/UI.md">crates/lua_hooks/UI.md</a>: how Lua windows and panels should look</li>
+<li data-sourcepos="42:1-43:37"><code data-sourcepos="42:3-42:30">crates/lua_hooks/ycode-lua</code>: REPL/runner for the live executor socket
+(<code data-sourcepos="43:4-43:36">$XDG_RUNTIME_DIR/ycode-lua.sock</code>)</li>
 </ul>
-<h3 id="contributing" data-sourcepos="24:1-24:16">Contributing<a href="#contributing" aria-label="Link to heading 'Contributing'" data-heading-content="Contributing" class="anchor"></a></h3>
-<p data-sourcepos="26:1-26:76">See <a data-sourcepos="26:5-26:40" href="https://github.com/jbisfun/ycode/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for ways you can contribute to Zed.</p>
-<p data-sourcepos="28:1-28:85">Also… we’re hiring! Check out our <a data-sourcepos="28:37-28:64" href="https://zed.dev/jobs">jobs</a> page for open roles.</p>
-<h3 id="licensing" data-sourcepos="30:1-30:13">Licensing<a href="#licensing" aria-label="Link to heading 'Licensing'" data-heading-content="Licensing" class="anchor"></a></h3>
-<p data-sourcepos="32:1-32:102">Zed source code is licensed primarily under GPL-3.0-or-later, with Apache-2.0 components where marked.</p>
-<p data-sourcepos="34:1-34:91">License information for third party dependencies must be correctly provided for CI to pass.</p>
-<p data-sourcepos="36:1-36:158">We use <a data-sourcepos="36:8-36:68" href="https://github.com/EmbarkStudios/cargo-about"><code data-sourcepos="36:9-36:21">cargo-about</code></a> to automatically comply with open source licenses. If CI is failing, check the following:</p>
-<ul data-sourcepos="38:1-40:277">
-<li data-sourcepos="38:1-38:149">Is it showing a <code data-sourcepos="38:19-38:40">no license specified</code> error for a crate you’ve created? If so, add <code data-sourcepos="38:87-38:103">publish = false</code> under <code data-sourcepos="38:111-38:121">[package]</code> in your crate’s Cargo.toml.</li>
-<li data-sourcepos="39:1-39:389">Is the error <code data-sourcepos="39:16-39:55">failed to satisfy license requirements</code> for a dependency? If so, first determine what license the project has and whether this system is sufficient to comply with this license’s requirements. If you’re unsure, ask a lawyer. Once you’ve verified that this system is acceptable add the license’s SPDX identifier to the <code data-sourcepos="39:334-39:343">accepted</code> array in <code data-sourcepos="39:354-39:388">script/licenses/zed-licenses.toml</code>.</li>
-<li data-sourcepos="40:1-40:277">Is <code data-sourcepos="40:6-40:18">cargo-about</code> unable to find the license for a dependency? If so, add a clarification field at the end of <code data-sourcepos="40:112-40:146">script/licenses/zed-licenses.toml</code>, as specified in the <a data-sourcepos="40:169-40:276" href="https://embarkstudios.github.io/cargo-about/cli/generate/config.html#crate-configuration">cargo-about book</a>.</li>
+<h2 id="plugins" data-sourcepos="45:1-45:10">Plugins<a href="#plugins" aria-label="Link to heading 'Plugins'" data-heading-content="Plugins" class="anchor"></a></h2>
+<p data-sourcepos="47:1-47:74">Each plugin is its own repo, symlinked into <code data-sourcepos="47:45-47:73">~/.config/zed/hooks/&lt;name&gt;/</code>:</p>
+<ul data-sourcepos="49:1-56:17">
+<li data-sourcepos="49:1-50:78"><a data-sourcepos="49:3-49:53" href="https://github.com/jbisfun/ycode-pull">ycode-pull</a>: pull’s multi-repo Pull panel,
+sessions and jobs. It replaces Zed’s git panel, which handles only one repo.</li>
+<li data-sourcepos="51:1-52:10"><a data-sourcepos="51:3-51:57" href="https://github.com/jbisfun/ycode-hermes">ycode-hermes</a>: Hermes Agent as the agent,
+over ACP</li>
+<li data-sourcepos="53:1-53:74"><a data-sourcepos="53:3-53:51" href="https://github.com/jbisfun/ycode-idl">ycode-idl</a>: panel for the idl CLI</li>
+<li data-sourcepos="54:1-54:83"><a data-sourcepos="54:3-54:59" href="https://github.com/jbisfun/ycode-manager">ycode-manager</a>: enable/disable plugins</li>
+<li data-sourcepos="55:1-56:17"><a data-sourcepos="55:3-55:59" href="https://github.com/jbisfun/ycode-offline">ycode-offline</a>: turns off sign-in and the
+online features</li>
 </ul>
-<h2 id="sponsorship" data-sourcepos="42:1-42:14">Sponsorship<a href="#sponsorship" aria-label="Link to heading 'Sponsorship'" data-heading-content="Sponsorship" class="anchor"></a></h2>
-<p data-sourcepos="44:1-44:67">Zed is developed by <strong data-sourcepos="44:21-44:44">Zed Industries, Inc.</strong>, a for-profit company.</p>
-<p data-sourcepos="46:1-48:63">If you’d like to financially support the project, you can do so via GitHub Sponsors.
-Sponsorships go directly to Zed Industries and are used as general company revenue.
-There are no perks or entitlements associated with sponsorship.</p>
+<h2 id="changes-to-zed" data-sourcepos="58:1-58:17">Changes to Zed<a href="#changes-to-zed" aria-label="Link to heading 'Changes to Zed'" data-heading-content="Changes to Zed" class="anchor"></a></h2>
+<p data-sourcepos="60:1-60:62">Outside <code data-sourcepos="60:9-60:26">crates/lua_hooks</code>, the patches are small and generic:</p>
+<ul data-sourcepos="62:1-70:78">
+<li data-sourcepos="62:1-63:17">gpui: <code data-sourcepos="62:9-62:32">App::intercept_actions</code>, a single slot that wraps every window and global
+action dispatch</li>
+<li data-sourcepos="64:1-66:10">zed: <code data-sourcepos="64:8-64:24">lua_hooks::init</code> runs after all other inits. Startup sign-in goes through the
+<code data-sourcepos="65:3-65:24">client::authenticate</code> hook point. The Lua C API is exported so <code data-sourcepos="65:67-65:75">require</code> can load C
+modules.</li>
+<li data-sourcepos="67:1-67:74">settings: a plugin settings layer (<code data-sourcepos="67:38-67:73">SettingsStore::set_plugin_settings</code>)</li>
+<li data-sourcepos="68:1-68:82">command palette: <code data-sourcepos="68:20-68:25">%new</code> actions appear in the palette, and actions can be hidden</li>
+<li data-sourcepos="69:1-69:51">workspace: Lua dock panels (<code data-sourcepos="69:31-69:50">panel_index_for_id</code>)</li>
+<li data-sourcepos="70:1-70:78">agent_ui: <code data-sourcepos="70:13-70:37">agent::SyncAgentThreads</code> imports an ACP agent’s existing sessions</li>
+</ul>
+<h2 id="building" data-sourcepos="72:1-72:11">Building<a href="#building" aria-label="Link to heading 'Building'" data-heading-content="Building" class="anchor"></a></h2>
+<p data-sourcepos="74:1-75:84">The build is the same as upstream Zed (<a data-sourcepos="74:40-74:77" href="docs/development/linux.html">Linux</a>,
+<a data-sourcepos="75:1-75:38" href="docs/development/macos.html">macOS</a>, <a data-sourcepos="75:41-75:82" href="docs/development/windows.html">Windows</a>):</p>
+<pre class="syntax-highlighting" data-sourcepos="77:1-79:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">cargo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>p</span> zed        <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> target/debug/zed</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<h2 id="license" data-sourcepos="81:1-81:10">License<a href="#license" aria-label="Link to heading 'License'" data-heading-content="License" class="anchor"></a></h2>
+<p data-sourcepos="83:1-84:47">ycode is licensed like upstream Zed: GPL-3.0-or-later, with Apache-2.0 components where
+marked. See <code data-sourcepos="84:13-84:25">LICENSE-GPL</code> and <code data-sourcepos="84:31-84:46">LICENSE-APACHE</code>.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
