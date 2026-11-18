@@ -111,10 +111,18 @@ the window. <code data-sourcepos="23:13-23:18">pull</code> must be on ycode’s 
 <li data-sourcepos="38:1-38:52">open it in <code data-sourcepos="38:14-38:24">$TERMINAL</code> (via <code data-sourcepos="38:31-38:51">pull session attach</code>)</li>
 </ul>
 <h2 id="mcp" data-sourcepos="40:1-40:6">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
-<p data-sourcepos="42:1-45:14">In a pull workspace the plugin registers <code data-sourcepos="42:42-42:65">pull mcp --root &lt;root&gt;</code> as an MCP server
-(<code data-sourcepos="43:2-43:23">context_servers.pull</code>, in-memory settings layer), so ycode’s agent gets pull’s
-workspace, search, exec and terminal-session tools; ycode forwards it to ACP agents such
-as Hermes too.</p>
+<p data-sourcepos="42:1-45:38">In a pull workspace the plugin runs <code data-sourcepos="42:37-42:54">pull mcp-servers</code> and registers every server it
+returns (<code data-sourcepos="43:10-43:26">context_servers</code>, in-memory settings layer): <code data-sourcepos="43:56-43:79">pull mcp --root &lt;root&gt;</code> itself
+(workspace, search, exec and terminal-session tools) plus whatever the pullfile’s
+<code data-sourcepos="45:1-45:13">mcp_servers</code> section configures, e.g.</p>
+<pre class="syntax-highlighting" data-sourcepos="47:5-51:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;radar&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
+&lt;/dict&gt;
+</span></code></pre>
+<p data-sourcepos="53:1-54:58">(<code data-sourcepos="53:2-53:10">command</code> defaults to the section key, resolved on PATH; <code data-sourcepos="53:59-53:69">PULL_ROOT</code> is set for these).
+ycode forwards all of it to ACP agents such as Hermes too.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

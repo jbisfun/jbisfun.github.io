@@ -190,25 +190,36 @@ job                            start/stop/restart/unload pullfile jobs
 <p data-sourcepos="106:1-106:39">Register it with an agent, e.g. Hermes:</p>
 <pre class="syntax-highlighting" data-sourcepos="108:5-108:75"><code><span class="hl-text hl-plain">hermes mcp add pull --command pull --args mcp --root /path/to/workspace
 </span></code></pre>
-<h2 id="jobs-and-sessions-launchd" data-sourcepos="110:1-110:30">Jobs and sessions (launchd)<a href="#jobs-and-sessions-launchd" aria-label="Link to heading 'Jobs and sessions (launchd)'" data-heading-content="Jobs and sessions (launchd)" class="anchor"></a></h2>
-<p data-sourcepos="112:1-114:15">pull ports launchd’s job model (Apple’s launchd, <code data-sourcepos="112:50-112:69">liblaunch/launch.h</code>) to the workspace.
-Jobs use launchd plist keys, either in the pullfile’s <code data-sourcepos="113:55-113:60">jobs</code> array or in standalone
-<code data-sourcepos="114:1-114:8">.plist</code> files:</p>
-<pre class="syntax-highlighting" data-sourcepos="116:5-118:45"><code><span class="hl-text hl-plain">Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
+<p data-sourcepos="110:1-113:33"><code data-sourcepos="110:1-110:18">pull mcp-servers</code> prints <code data-sourcepos="110:27-110:32">pull</code> itself plus every pullfile <code data-sourcepos="110:61-110:73">mcp_servers</code> entry as JSON
+(<code data-sourcepos="111:2-111:31">{name: {command, args, env}}</code>, command resolved on <code data-sourcepos="111:54-111:60">$PATH</code>, <code data-sourcepos="111:63-111:73">PULL_ROOT</code> set), for an
+editor/agent to register the whole set at once. A pullfile entry needs only a <code data-sourcepos="112:79-112:87">command</code>
+(defaults to the key) and <code data-sourcepos="113:27-113:32">args</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="115:5-119:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;radar&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
+&lt;/dict&gt;
+</span></code></pre>
+<p data-sourcepos="121:1-121:70">ycode-pull reads <code data-sourcepos="121:18-121:35">pull mcp-servers</code> to register all of them in one go.</p>
+<h2 id="jobs-and-sessions-launchd" data-sourcepos="123:1-123:30">Jobs and sessions (launchd)<a href="#jobs-and-sessions-launchd" aria-label="Link to heading 'Jobs and sessions (launchd)'" data-heading-content="Jobs and sessions (launchd)" class="anchor"></a></h2>
+<p data-sourcepos="125:1-127:15">pull ports launchd’s job model (Apple’s launchd, <code data-sourcepos="125:50-125:69">liblaunch/launch.h</code>) to the workspace.
+Jobs use launchd plist keys, either in the pullfile’s <code data-sourcepos="126:55-126:60">jobs</code> array or in standalone
+<code data-sourcepos="127:1-127:8">.plist</code> files:</p>
+<pre class="syntax-highlighting" data-sourcepos="129:5-131:45"><code><span class="hl-text hl-plain">Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
 KeepAlive (bool or {SuccessfulExit}), StartInterval, ThrottleInterval,
 StandardOutPath, Disabled, LaunchOnlyOnce
 </span></code></pre>
-<p data-sourcepos="120:1-122:81">A per-workspace daemon (<code data-sourcepos="120:25-120:38">pull launchd</code>, started automatically, socket <code data-sourcepos="120:71-120:90">.pull/launchd.sock</code>)
-supervises them. Every job runs in a pseudo-terminal with the workspace env (<code data-sourcepos="121:78-121:87">pull env</code>)
-plus its own EnvironmentVariables and <code data-sourcepos="122:39-122:48">PULL_JOB</code>, so every job is also a session.</p>
-<pre class="syntax-highlighting" data-sourcepos="124:5-128:70"><code><span class="hl-text hl-plain">pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
+<p data-sourcepos="133:1-135:81">A per-workspace daemon (<code data-sourcepos="133:25-133:38">pull launchd</code>, started automatically, socket <code data-sourcepos="133:71-133:90">.pull/launchd.sock</code>)
+supervises them. Every job runs in a pseudo-terminal with the workspace env (<code data-sourcepos="134:78-134:87">pull env</code>)
+plus its own EnvironmentVariables and <code data-sourcepos="135:39-135:48">PULL_JOB</code>, so every job is also a session.</p>
+<pre class="syntax-highlighting" data-sourcepos="137:5-141:70"><code><span class="hl-text hl-plain">pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
 pull launchctl list | print LABEL     (--json for agents)
 pull launchctl start|stop|unload LABEL
 pull launchctl kickstart [-k] LABEL   start, or kill and restart
 pull launchctl shutdown               stop all jobs and the daemon
 </span></code></pre>
-<p data-sourcepos="130:1-130:43">tmux-style sessions, for humans and agents:</p>
-<pre class="syntax-highlighting" data-sourcepos="132:5-139:26"><code><span class="hl-text hl-plain">pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
+<p data-sourcepos="143:1-143:43">tmux-style sessions, for humans and agents:</p>
+<pre class="syntax-highlighting" data-sourcepos="145:5-152:26"><code><span class="hl-text hl-plain">pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
 pull session attach NAME              detach with ctrl-\
 pull session ls [--json]              running program + its directory per session
 pull session send NAME [-e] TEXT      type into it (-e: press enter)
@@ -217,7 +228,7 @@ pull session run NAME CMD...          agents: type CMD, wait for output to settl
                                       print the screen
 pull session kill NAME
 </span></code></pre>
-<p data-sourcepos="141:1-142:16">StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
+<p data-sourcepos="154:1-155:16">StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
 StandardOutPath.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
