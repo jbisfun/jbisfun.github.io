@@ -1,0 +1,2 @@
+createSrcSidebar('[["mac_adi_ios",["",[["sap",[],["engine.rs","image.rs","mod.rs","platform_table.rs","shim_platform.rs"]]],["adi.rs","capi.rs","lib.rs","macho.rs","vm.rs"]]]]');
+//{"start":19,"fragment_lengths":[155]}

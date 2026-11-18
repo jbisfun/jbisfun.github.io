@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XKit for Rust · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">xkit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;xkit">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api&#x2f;rust&#x2f;xkit&#x2f;index.html">xkit</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="xkit" data-radar-file="README.md">
+
+      <h1 id="xkit-for-rust" data-sourcepos="1:1-1:15">XKit for Rust<a href="#xkit-for-rust" aria-label="Link to heading 'XKit for Rust'" data-heading-content="XKit for Rust" class="anchor"></a></h1>
+<p data-sourcepos="3:1-8:36"><code data-sourcepos="3:1-3:6">xkit</code> is a library for Apple developer authentication, provisioning,
+code signing, and installation. It uses native Rust libraries for Windows, macOS,
+and Linux. This is a Rust port of XKit from
+<a data-sourcepos="6:1-6:53" href="https://github.com/xtool-org/xtool">xtool-org/xtool</a>, originally authored by
+Kabir Oberai. The application and
+CLI can adopt this crate separately.</p>
+<table data-sourcepos="10:1-20:139" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="10:1-10:25">
+<th data-sourcepos="10:2-10:13">Swift area</th>
+<th data-sourcepos="10:15-10:24">Rust API</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="12:1-12:153">
+<td data-sourcepos="12:2-12:23">GrandSlam / Anisette</td>
+<td data-sourcepos="12:25-12:152"><code data-sourcepos="12:26-12:59">grand_slam::AnisetteDataProvider</code> and the Xcode GrandSlam constants; login and anisette generation are supplied by the caller</td>
+</tr>
+<tr data-sourcepos="13:1-13:150">
+<td data-sourcepos="13:2-13:21">HTTPClientProtocol</td>
+<td data-sourcepos="13:23-13:149"><code data-sourcepos="13:24-13:49">http::HTTPClientProtocol</code>, <code data-sourcepos="13:52-13:63">HTTPClient</code>, injectable requests/responses; anisette websocket provisioning stays in <code data-sourcepos="13:138-13:148">omnisette</code></td>
+</tr>
+<tr data-sourcepos="14:1-14:186">
+<td data-sourcepos="14:2-14:30">DeveloperServices / OpenAPI</td>
+<td data-sourcepos="14:32-14:185"><code data-sourcepos="14:33-14:57">DeveloperServicesClient</code> for legacy plists; <code data-sourcepos="14:78-14:97">DeveloperAPIClient</code> for JSON:API, Xcode authentication or ASC ES256 JWTs, pagination and structured errors</td>
+</tr>
+<tr data-sourcepos="15:1-15:162">
+<td data-sourcepos="15:2-15:26">Provisioning operations</td>
+<td data-sourcepos="15:28-15:161"><code data-sourcepos="15:29-15:45">register_device</code>, <code data-sourcepos="15:48-15:66">fetch_certificate</code>, <code data-sourcepos="15:69-15:80">upsert_app</code>, <code data-sourcepos="15:83-15:101">assign_app_groups</code>, <code data-sourcepos="15:104-15:118">fetch_profile</code>, <code data-sourcepos="15:121-15:160">DeveloperServicesProvisioningOperation</code></td>
+</tr>
+<tr data-sourcepos="16:1-16:133">
+<td data-sourcepos="16:2-16:23">Model / Entitlements</td>
+<td data-sourcepos="16:25-16:132"><code data-sourcepos="16:26-16:38">Certificate</code>, <code data-sourcepos="16:41-16:49">Keypair</code>, <code data-sourcepos="16:52-16:63">PrivateKey</code>, <code data-sourcepos="16:66-16:82">Mobileprovision</code>, typed <code data-sourcepos="16:91-16:103">Entitlement</code> and lossless <code data-sourcepos="16:118-16:131">Entitlements</code></td>
+</tr>
+<tr data-sourcepos="17:1-17:121">
+<td data-sourcepos="17:2-17:9">Signer</td>
+<td data-sourcepos="17:11-17:120"><code data-sourcepos="17:12-17:27">SigningContext</code>, <code data-sourcepos="17:30-17:37">Signer</code>, <code data-sourcepos="17:40-17:51">AutoSigner</code>; native <code data-sourcepos="17:61-17:76">apple-codesign</code>, including separate extension entitlements</td>
+</tr>
+<tr data-sourcepos="18:1-18:144">
+<td data-sourcepos="18:2-18:15">Installation</td>
+<td data-sourcepos="18:17-18:143"><code data-sourcepos="18:18-18:29">Connection</code>, <code data-sourcepos="18:32-18:45">ClientDevice</code>, <code data-sourcepos="18:48-18:60">IPAUploader</code>, <code data-sourcepos="18:63-18:76">IPAInstaller</code>, <code data-sourcepos="18:79-18:92">AppInstaller</code>, <code data-sourcepos="18:95-18:110">ProfileManager</code>, <code data-sourcepos="18:113-18:130">HeartbeatHandler</code>, <code data-sourcepos="18:133-18:142">Debugger</code></td>
+</tr>
+<tr data-sourcepos="19:1-19:144">
+<td data-sourcepos="19:2-19:14">Integration</td>
+<td data-sourcepos="19:16-19:143"><code data-sourcepos="19:17-19:37">IntegratedInstaller</code>, <code data-sourcepos="19:40-19:68">IntegratedInstallerDelegate</code>; unpack → prepare device → provision → sign → package → install</td>
+</tr>
+<tr data-sourcepos="20:1-20:139">
+<td data-sourcepos="20:2-20:12">Utilities</td>
+<td data-sourcepos="20:14-20:138"><code data-sourcepos="20:15-20:39">ProvisioningIdentifiers</code>, memory/directory storage, Apple <code data-sourcepos="20:74-20:90">KeychainStorage</code>, <code data-sourcepos="20:93-20:120">KeyValueSigningInfoManager</code>, <code data-sourcepos="20:123-20:137">ZIPCompressor</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="22:1-28:68">Rust futures, ownership, and <code data-sourcepos="22:30-22:49">tokio::time::sleep</code> replace the Swift task and C
+lifetime helpers. Custom connection lookup uses an <code data-sourcepos="23:52-23:68">IdeviceProvider</code> passed to
+<code data-sourcepos="24:1-24:27">Connection::with_provider</code>. Discovery returns an async stream of changed device
+snapshots. Dropping a discovery stream stops it; dropping a heartbeat stops its
+task. AFC uploads stream in 1 MiB chunks and clean up staged files on completion,
+failure, or cancellation. Profile enumeration supports the pre-iOS 9.3 protocol.
+The upstream DDI mounter was disabled and has no active API to port.</p>
+<h2 id="sign-an-app" data-sourcepos="30:1-30:14">Sign an app<a href="#sign-an-app" aria-label="Link to heading 'Sign an app'" data-heading-content="Sign an app" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="32:1-51:3"><code class="language-rust,no_run"><span class="hl-source hl-rust"><span class="hl-keyword hl-other hl-rust">use</span> <span class="hl-meta hl-path hl-rust">std<span class="hl-punctuation hl-accessor hl-rust">::</span></span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span><span class="hl-meta hl-path hl-rust">path<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Path<span class="hl-punctuation hl-separator hl-rust">,</span> <span class="hl-meta hl-path hl-rust">sync<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Arc</span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+<span class="hl-keyword hl-other hl-rust">use</span> <span class="hl-meta hl-path hl-rust">xkit<span class="hl-punctuation hl-accessor hl-rust">::</span></span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>ASCKey<span class="hl-punctuation hl-separator hl-rust">,</span> AutoSigner<span class="hl-punctuation hl-separator hl-rust">,</span> DeveloperAPIAuthData<span class="hl-punctuation hl-separator hl-rust">,</span> DeveloperAPIClient<span class="hl-punctuation hl-separator hl-rust">,</span> SigningContext</span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+<span class="hl-keyword hl-other hl-rust">use</span> <span class="hl-meta hl-path hl-rust">xkit<span class="hl-punctuation hl-accessor hl-rust">::</span></span><span class="hl-meta hl-path hl-rust">utilities<span class="hl-punctuation hl-accessor hl-rust">::</span></span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>DirectoryStorage<span class="hl-punctuation hl-separator hl-rust">,</span> KeyValueSigningInfoManager<span class="hl-punctuation hl-separator hl-rust">,</span> persistent_directory</span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+
+async <span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-rust"><span class="hl-storage hl-type hl-function hl-rust">fn</span> </span><span class="hl-entity hl-name hl-function hl-rust">sign</span></span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-parameters hl-rust"><span class="hl-punctuation hl-section hl-parameters hl-begin hl-rust">(</span><span class="hl-variable hl-parameter hl-rust">app</span><span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-keyword hl-operator hl-rust">&amp;</span>Path, <span class="hl-variable hl-parameter hl-rust">key</span><span class="hl-punctuation hl-separator hl-rust">:</span> ASCKey</span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-parameters hl-rust"><span class="hl-punctuation hl-section hl-parameters hl-end hl-rust">)</span></span></span></span><span class="hl-meta hl-function hl-rust"> <span class="hl-meta hl-function hl-return-type hl-rust"><span class="hl-punctuation hl-separator hl-rust">-&gt;</span> <span class="hl-meta hl-path hl-rust">xkit<span class="hl-punctuation hl-accessor hl-rust">::</span></span><span class="hl-meta hl-generic hl-rust"><span class="hl-support hl-type hl-rust">Result</span><span class="hl-punctuation hl-definition hl-generic hl-begin hl-rust">&lt;</span><span class="hl-support hl-type hl-rust">String</span><span class="hl-punctuation hl-definition hl-generic hl-end hl-rust">&gt;</span></span></span> </span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>
+    <span class="hl-storage hl-type hl-rust">let</span> client <span class="hl-keyword hl-operator hl-assignment hl-rust">=</span> <span class="hl-meta hl-path hl-rust">DeveloperAPIClient<span class="hl-punctuation hl-accessor hl-rust">::</span></span>new<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span><span class="hl-meta hl-path hl-rust">DeveloperAPIAuthData<span class="hl-punctuation hl-accessor hl-rust">::</span></span>AppStoreConnect<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span>key</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-separator hl-rust">,</span> <span class="hl-support hl-type hl-rust">None</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-keyword hl-operator hl-rust">?</span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+    <span class="hl-storage hl-type hl-rust">let</span> manager <span class="hl-keyword hl-operator hl-assignment hl-rust">=</span> <span class="hl-meta hl-path hl-rust">Arc<span class="hl-punctuation hl-accessor hl-rust">::</span></span>new<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span>KeyValueSigningInfoManager <span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>
+        storage<span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-meta hl-path hl-rust">Arc<span class="hl-punctuation hl-accessor hl-rust">::</span></span>new<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span><span class="hl-meta hl-path hl-rust">DirectoryStorage<span class="hl-punctuation hl-accessor hl-rust">::</span></span>new<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span><span class="hl-support hl-function hl-rust">persistent_directory</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-keyword hl-operator hl-rust">?</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-separator hl-rust">,</span>
+    </span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+    <span class="hl-storage hl-type hl-rust">let</span> signer <span class="hl-keyword hl-operator hl-assignment hl-rust">=</span> AutoSigner <span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span> context<span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-meta hl-path hl-rust">SigningContext<span class="hl-punctuation hl-accessor hl-rust">::</span></span>new<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span>client<span class="hl-punctuation hl-separator hl-rust">,</span> manager</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span> </span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span><span class="hl-punctuation hl-terminator hl-rust">;</span>
+    signer<span class="hl-punctuation hl-accessor hl-dot hl-rust">.</span><span class="hl-support hl-function hl-rust">sign</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span>
+        app<span class="hl-punctuation hl-separator hl-rust">,</span>
+        <span class="hl-keyword hl-operator hl-bitwise hl-rust">&amp;</span><span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span>_certificates<span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span> <span class="hl-support hl-type hl-rust">Box</span><span class="hl-meta hl-path hl-rust"><span class="hl-punctuation hl-accessor hl-rust">::</span></span>pin<span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span>async <span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span> <span class="hl-constant hl-language hl-rust">false</span> </span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-separator hl-rust">,</span>
+        <span class="hl-keyword hl-operator hl-bitwise hl-rust">&amp;</span><span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span>stage<span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span> <span class="hl-support hl-macro hl-rust">println!</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-string hl-quoted hl-double hl-rust"><span class="hl-punctuation hl-definition hl-string hl-begin hl-rust">&quot;</span><span class="hl-constant hl-other hl-placeholder hl-rust">{stage}</span><span class="hl-punctuation hl-definition hl-string hl-end hl-rust">&quot;</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-separator hl-rust">,</span>
+        <span class="hl-keyword hl-operator hl-bitwise hl-rust">&amp;</span><span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span>_progress<span class="hl-keyword hl-operator hl-bitwise hl-rust">|</span> <span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span></span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span><span class="hl-punctuation hl-separator hl-rust">,</span>
+        <span class="hl-keyword hl-operator hl-bitwise hl-rust">&amp;</span><span class="hl-keyword hl-operator hl-logical hl-rust">||</span> <span class="hl-support hl-type hl-rust">Ok</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-separator hl-rust">,</span>
+    </span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-punctuation hl-accessor hl-dot hl-rust">.</span>await
+</span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span>
+</span></code></pre>
+<p data-sourcepos="53:1-57:73">For Xcode authentication, pass a <code data-sourcepos="53:34-53:62">DeveloperServicesLoginToken</code> (ADSID, Xcode
+GrandSlam token, expiry) and an <code data-sourcepos="54:33-54:54">AnisetteDataProvider</code> that yields fresh anisette
+headers: <code data-sourcepos="55:10-56:41">DeveloperAPIClient::new(DeveloperAPIAuthData::Xcode(XcodeAuthData { login_token, team_id }), Some(provider))</code>. xkit does not perform the GrandSlam
+login itself; Jimpactor’s <code data-sourcepos="57:27-57:50">plume_utils::xkit_auth</code> is one implementation.</p>
+<p data-sourcepos="59:1-64:80"><code data-sourcepos="59:1-59:31">SigningContext::target_device</code> optionally registers a device before provisioning.
+<code data-sourcepos="60:1-60:21">IntegratedInstaller</code> supplies it automatically when installing an IPA or app.
+<code data-sourcepos="61:1-61:12">AutoSigner</code> signs in place; <code data-sourcepos="61:30-61:59">IntegratedInstaller::install</code> works in a temporary
+staging directory. The integration delegate controls certificate revocation and
+receives pairing/unlock messages and stage/progress updates. The default delegate
+revocation policy matches Swift (accept); override it to present a confirmation.</p>
+<p data-sourcepos="66:1-72:76">Directory storage persists private keys as files; callers can instead select
+Apple keychain storage or another <code data-sourcepos="67:35-67:51">KeyValueStorage</code>. The default
+<code data-sourcepos="68:1-68:28">KeyValueSigningInfoManager</code> stores data in memory. Certificate serials compare
+numerically, so inconsistent leading zeros from Apple’s API do not prevent reuse.
+Unknown entitlement keys survive normal updates; free-team filtering removes
+unknown and paid entitlements, matching the source policy. CSRs use RSA-2048 with
+SHA-256, matching the repository’s existing Rust certificate implementation.</p>
+<h2 id="verification" data-sourcepos="74:1-74:15">Verification<a href="#verification" aria-label="Link to heading 'Verification'" data-heading-content="Verification" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="76:1-81:3"><code class="language-text"><span class="hl-text hl-plain">cargo check -p xkit
+cargo test -p xkit
+cargo clippy -p xkit --all-targets --no-deps -- -D warnings
+cargo fmt -p xkit --check
+</span></code></pre>
+<p data-sourcepos="83:1-88:61">Tests run offline using injected HTTP responses, generated test certificates,
+and a freestanding ARM64 Mach-O fixture. They cover request transformations,
+JWT signatures/renewal, pagination, entitlement rewrites, certificate reuse and
+revocation cancellation, profile creation, ZIP round trips, separate extension
+entitlements, and a complete provisioning/signing flow. The fixture’s source and
+LLVM regeneration commands are in <code data-sourcepos="88:35-88:60">tests/fixtures/minimal.c</code>.</p>
+<p data-sourcepos="90:1-92:59">Live Apple authentication, USB/network devices, the native Apple keychain, and
+installation require validation with the corresponding account/hardware/platform.
+No live accounts or devices are accessed by the test suite.</p>
+<h2 id="attribution-and-license" data-sourcepos="94:1-94:26">Attribution and license<a href="#attribution-and-license" aria-label="Link to heading 'Attribution and license'" data-heading-content="Attribution and license" class="anchor"></a></h2>
+<p data-sourcepos="96:1-97:73"><strong data-sourcepos="96:1-96:62">XKit: Copyright © 2019 Kabir Oberai. All rights reserved.</strong>
+Individual source files also carry copyright notices dated 2020 and 2021.</p>
+<p data-sourcepos="99:1-101:32">XKit is part of <a data-sourcepos="99:17-99:59" href="https://github.com/xtool-org/xtool">XTool</a>, which is distributed
+under the <strong data-sourcepos="100:11-100:25">MIT license</strong>. XTool’s MIT license notice is
+Copyright (c) 2024 Kabir Oberai.</p>
+<p data-sourcepos="103:1-104:54">The original Swift files have been removed.
+XTool’s MIT notice is preserved in <a data-sourcepos="104:36-104:53" href="https://github.com/jbisfun/xkit/blob/main/LICENSE">LICENSE</a>.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;xkit&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

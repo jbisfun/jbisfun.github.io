@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>apple-codesign · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">apple-codesign</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;apple-codesign">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api&#x2f;rust&#x2f;apple_codesign&#x2f;index.html">apple_codesign</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="api&#x2f;rust&#x2f;rcodesign&#x2f;index.html">rcodesign</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="apple-codesign" data-radar-file="README.md">
+
+      <h1 id="apple-codesign" data-sourcepos="1:1-1:16">apple-codesign<a href="#apple-codesign" aria-label="Link to heading 'apple-codesign'" data-heading-content="apple-codesign" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:19"><code data-sourcepos="3:1-3:16">apple-codesign</code> is a crate implementing functionality related to code signing
+on Apple platforms.</p>
+<p data-sourcepos="6:1-7:69">All functionality is implemented in pure Rust and doesn’t require any 3rd party
+or proprietary software nor do we require running on Apple platforms.</p>
+<p data-sourcepos="9:1-11:9">We believe this crate provides the most comprehensive implementation of Apple
+code signing outside the canonical Apple tools. We have support for the following
+features:</p>
+<ul data-sourcepos="13:1-16:52">
+<li data-sourcepos="13:1-13:82">Signing Mach-O binaries (the executable file format on Apple operating systems).</li>
+<li data-sourcepos="14:1-14:80">Signing, notarizing, and stapling directory bundles (e.g. <code data-sourcepos="14:61-14:66">.app</code> directories).</li>
+<li data-sourcepos="15:1-15:69">Signing, notarizing, and stapling XAR archives / <code data-sourcepos="15:52-15:57">.pkg</code> installers.</li>
+<li data-sourcepos="16:1-16:52">Signing, notarizing, and stapling DMG disk images.</li>
+</ul>
+<p data-sourcepos="18:1-21:5">What this all means is that you can sign, notarize, and release Apple software
+from anywhere you can get the Rust crate to compile. Linux, Windows, and macOS
+are officially supported by other operating systems (like BSDs) should work as
+well.</p>
+<p data-sourcepos="23:1-25:60">See the crate documentation at <a data-sourcepos="23:32-23:84" href="https://docs.rs/apple-codesign/latest/apple_codesign/">https://docs.rs/apple-codesign/latest/apple_codesign/</a>
+and the end-user documentation at
+<a data-sourcepos="25:1-25:50" href="https://gregoryszorc.com/docs/apple-codesign/main/">https://gregoryszorc.com/docs/apple-codesign/main/</a> for more.</p>
+<h1 id="rcodesign-cli" data-sourcepos="27:1-27:17"><code data-sourcepos="27:3-27:13">rcodesign</code> CLI<a href="#rcodesign-cli" aria-label="Link to heading 'rcodesign CLI'" data-heading-content="rcodesign CLI" class="anchor"></a></h1>
+<p data-sourcepos="29:1-30:45">This crate defines an <code data-sourcepos="29:23-29:33">rcodesign</code> binary which provides a CLI interface to
+some of the crate’s capabilities. To install:</p>
+<pre class="syntax-highlighting" data-sourcepos="32:1-39:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> From a Git checkout</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">$</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> cargo run<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>bin</span> rcodesign<span class="hl-keyword hl-operator hl-end-of-options hl-shell"> --</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> --help</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">$</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> cargo install<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>bin</span> rcodesign</span>
+
+<span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> Remote install.</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">$</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> cargo install<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>git</span> https://github.com/indygreg/apple-platform-rs<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>branch</span> main<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>bin</span> rcodesign apple-codesign</span>
+</span></code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;apple-codesign&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

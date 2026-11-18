@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["APSEnvironment","DataProtection","Entitlement"],"struct":["DeveloperServicesCapability","Entitlements"]};

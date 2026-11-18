@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["NotarizationUpload"],"fn":["bundle_to_zip"],"struct":["Notarizer"]};

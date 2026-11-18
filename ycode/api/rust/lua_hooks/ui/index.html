@@ -5,7 +5,7 @@
   <a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html" style="color:#e6e6e6;font-weight:600;text-decoration:none;">jbisfun wiki</a>
   <span style="color:#6c757d;">/</span>
   <a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html" style="color:#9fcdff;text-decoration:none;">ycode</a>
-</div><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module ui</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../lua_hooks/index.html">lua_<wbr>hooks</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module ui</a></h2><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate lua_<wbr>hooks</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">lua_hooks</a></div><h1>Module <span>ui</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/lua_hooks/ui.rs.html#1-687">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>gpui for Lua: <code>gpui.open_window{...}</code> opens a real gpui window whose content is
+</div><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module ui</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../lua_hooks/index.html">lua_<wbr>hooks</a><span class="version">0.1.0</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module ui</a></h2><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"><h2 class="in-crate"><a href="../index.html">In crate lua_<wbr>hooks</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../index.html">lua_hooks</a></div><h1>Module <span>ui</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../src/lua_hooks/ui.rs.html#1-1210">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>gpui for Lua: <code>gpui.open_window{...}</code> opens a real gpui window whose content is
 rendered from Lua tables on every frame.</p>
 <div class="example-wrap"><pre class="language-lua"><code>gpui.open_window{
     title = &quot;hello&quot;, width = 600, height = 400,
@@ -22,12 +22,39 @@ rendered from Lua tables on every frame.</p>
     end,
 }</code></pre></div>
 <p>Elements are <code>{ tag, children..., props }</code> with tag <code>col</code> (default), <code>row</code>, <code>text</code>,
-<code>button</code>, <code>input</code>. Strings and numbers are text. Props:</p>
+<code>button</code>, <code>icon_button</code>, <code>icon</code>, <code>checkbox</code>, <code>toggle_group</code>, <code>divider</code>,
+<code>panel_header</code>, <code>list_item</code>, <code>list_header</code>, <code>disclosure</code>, <code>input</code>. Strings
+and numbers are text. Props:</p>
 <ul>
+<li><code>button</code> (native <code>ui::Button</code>, <code>LabelSize::Small</code>): label is the first string
+child (or <code>label</code>), <code>style = "subtle"</code> (default) | <code>"filled"</code> | <code>"transparent"</code>,
+<code>icon</code>, <code>tooltip</code>, <code>disabled</code>, <code>on_click = fn(w)</code></li>
+<li><code>icon_button</code> (native <code>ui::IconButton</code>, <code>IconSize::Small</code>): <code>icon</code> (required,
+snake_case/kebab-case <code>IconName</code>, e.g. <code>"settings"</code>), <code>tooltip</code>, <code>disabled</code>,
+<code>on_click = fn(w)</code></li>
+<li><code>icon</code> (native <code>ui::Icon</code>): <code>name</code> (required, same <code>IconName</code> parsing as
+<code>icon_button</code>), <code>size</code> (<code>"indicator"</code>/<code>"xsmall"</code>/<code>"small"</code>/<code>"default"</code>/<code>"large"</code>),
+<code>color</code> (named theme color or <code>#rrggbb[aa]</code>, same as <code>text</code>’s <code>color</code>)</li>
+<li><code>checkbox</code> (native <code>ui::Checkbox</code>): <code>checked = true | false | "mixed"</code>
+(<code>"mixed"</code> is <code>ToggleState::Indeterminate</code>), <code>label</code>, <code>disabled</code>, <code>on_click = fn(w)</code></li>
+<li><code>toggle_group</code> (native <code>ui::ToggleButtonGroup</code>, 1-6 options): <code>options</code>
+(list of strings), <code>selected</code> (one of <code>options</code>), <code>on_select = fn(w, option)</code></li>
+<li><code>divider</code> (native <code>ui::Divider</code>): <code>vertical</code> (default horizontal)</li>
+<li><code>panel_header</code> (height <code>Tab::container_height</code>, bottom border): <code>title</code>
+(Default-size <code>Label</code>), <code>context</code> (optional Small muted <code>Label</code>),
+children render right-aligned as actions</li>
 <li>layout: <code>p px py gap w h</code> (pixels, or <code>"full"</code> for w/h), <code>grow</code>, <code>align</code>
-(<code>center</code>/<code>end</code>), <code>justify</code> (<code>center</code>/<code>end</code>/<code>between</code>)</li>
-<li>look: <code>bg fg border</code> (theme names: <code>background surface panel editor element text muted accent border error warning success</code>, or <code>#rrggbb[aa]</code>), <code>rounded size mono bold</code></li>
+(<code>start</code>/<code>center</code>/<code>end</code>; <code>row</code> defaults to <code>center</code>, use <code>align = "start"</code> to
+opt out), <code>justify</code> (<code>center</code>/<code>end</code>/<code>between</code>)</li>
+<li>look: <code>bg fg border</code> (theme names: <code>background surface panel editor element text muted accent border error warning success</code>, or <code>#rrggbb[aa]</code>), <code>rounded mono bold</code>,
+<code>size</code> (<code>"default"</code>/<code>"small"</code>/<code>"xsmall"</code>/<code>"large"</code>, follows <code>ui_font_size</code>; a raw
+number is accepted for back-compat but is a fixed px size and logs a deprecation
+warning)</li>
 <li>behaviour: <code>id</code>, <code>scroll = true</code> (vertical scroll; needs/uses <code>id</code>), <code>on_click = fn(w)</code></li>
+<li><code>text</code> renders a native <code>ui::Label</code> (never the window’s root text size), so bare
+strings elsewhere in a tree also render at Label’s default (14px) size. <code>text</code>-only
+props: <code>size</code> (<code>"default"</code>/<code>"small"</code>/<code>"xsmall"</code>/<code>"large"</code>), <code>color</code>/<code>fg</code> (named or
+<code>#rrggbb[aa]</code>), <code>mono</code> (buffer font instead of the UI font), <code>truncate</code> (ellipsis).</li>
 <li>inputs (<code>id</code> required): <code>multiline</code>, <code>placeholder</code>; read and write them with
 <code>w.text(id)</code> and <code>w.set_text(id, s)</code></li>
 </ul>

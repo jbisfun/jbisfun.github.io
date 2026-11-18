@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>README · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">MacADICore</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;MacADICore">Source on GitHub</a></li>
+
+</ul>
+
+<h1>Code reference</h1>
+<ul class="list-unstyled">
+
+  <li><a href="api&#x2f;rust&#x2f;mac_adi_ios&#x2f;index.html">mac_adi_ios</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="MacADICore" data-radar-file="README.md">
+
+      <h1 id="macadicore" data-sourcepos="1:1-2:10">MacADICore<a href="#macadicore" aria-label="Link to heading 'MacADICore'" data-heading-content="MacADICore" class="anchor"></a></h1>
+<p data-sourcepos="4:1-5:84">Swift package: <code data-sourcepos="4:16-4:87">.package(url: &quot;https://github.com/jbisfun/MacADICore&quot;, branch: &quot;main&quot;)</code>,
+product <code data-sourcepos="5:9-5:20">MacADICore</code> (binary target <code data-sourcepos="5:37-5:60">MacADICore.xcframework</code>; link libz and libbz2).</p>
+<p data-sourcepos="7:1-11:71"><code data-sourcepos="7:1-7:32">src/{lib,adi,vm,macho,capi}.rs</code> are vendored from sacca97/os-findmy-e
+commit 374d83854f657a7fdca45f813387d99d491db0e2, as used by
+Jimpactor’s <code data-sourcepos="9:13-9:50">crates/omnisette/src/mac_anisette.rs</code>. The code is MIT licensed
+(see LICENSE). It emulates a pinned x86_64 Mac CoreADI under Unicorn and
+exposes the original C ABI. It does not include Apple’s CoreADI binary.</p>
+<p data-sourcepos="13:1-16:58"><a data-sourcepos="13:1-13:55" href="https://github.com/jbisfun/AppStoreAuth">AppStoreAuth</a>’s <code data-sourcepos="13:59-13:74">MacAnisetteKit</code> ports Jimpactor’s <code data-sourcepos="13:94-13:111">mac_libraries.rs</code>
+(range-fetch and validate iTunes 12.8.3’s CoreADI) and <code data-sourcepos="14:56-14:72">mac_anisette.rs</code>
+(persist identity/store, GrandSlam machine provisioning, fresh MID/OTP).
+The user’s Apple account data is not in the CoreADI store.</p>
+<p data-sourcepos="18:1-24:70"><code data-sourcepos="18:1-18:24">MacADICore.xcframework</code> is a static arm64-iOS-device framework.
+It includes the vendored Rust implementation and mahee96/unicorn’s x86 guest
+engine, built with the Tiny Code Interpreter (no JIT). Rebuild it from source
+on this Linux host with <code data-sourcepos="21:25-21:38">build-ios.sh</code>. The build script downloads the
+pinned Unicorn fork; it does not download Apple’s CoreADI binary. The app
+fetches CoreADI itself on first run and checks both payload and binary SHA-256.
+The build target is arm64 iOS device only; simulator is not supported.</p>
+<p data-sourcepos="26:1-30:75">Machine anisette is not the Store SAP action signature. <code data-sourcepos="26:57-26:72">MacAnisetteKit</code>
+provides X-Apple-I-MD/-M; the App Store native login also needs the separately
+SAP-signed request body. Jimpactor’s mac_anisette.rs does not implement SAP.
+Apple can still return HTTP 204 for unsigned Store auth requests. Store-specific
+SP provisioning and FairPlay keybag handling are also not implemented here.</p>
+<p data-sourcepos="32:1-33:67">Smoke test on Linux (after <code data-sourcepos="32:28-32:50">cargo build --release</code>, with a local Unicorn
+archive and an independently obtained, hash-checked CoreADI image):</p>
+<pre class="syntax-highlighting" data-sourcepos="35:5-37:35"><code><span class="hl-text hl-plain">cc -I include tests/smoke.c target/release/libmac_adi_ios.a \
+  /path/to/linux/libunicorn.a -ldl -lpthread -lm -o smoke
+./smoke /path/to/CoreADI-x86_64
+</span></code></pre>
+<p data-sourcepos="39:1-40:58">Expected for a fresh machine: <code data-sourcepos="39:31-39:80">adi_headers(-2): -2 (machine is not provisioned)</code>.
+This test makes no network calls or provisioning requests.</p>
+<p data-sourcepos="42:1-46:67">Provisioning must discard <code data-sourcepos="42:27-42:44">STORE_DIR/adi.pb</code> after <code data-sourcepos="42:52-42:76">adi_provisioning_finish</code>:
+that legacy whole-machine blob masks the new per-user store and otherwise
+<code data-sourcepos="44:1-44:17">adi_headers(-2)</code> immediately returns <code data-sourcepos="44:39-44:42">-2</code> even after Apple accepted the
+provisioning exchange. The C ABI performs this step before the Swift layer
+exports and saves the store (matching Jimpactor’s mac_anisette.rs).</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;MacADICore&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["ANDROID_ARCH","APPLE_MUSIC_APK_URL","LIBRARY_NAMES"],"fn":["download_libraries","ensure_libraries","fake_serial_number","libraries_dir","libraries_present"]};

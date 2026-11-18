@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DEFAULT_SIDELOADLY_HOST"],"fn":["ensure_device_hash","save_device_hash","sideloadly_anisette_url"],"struct":["RemoteAnisetteProviderV1"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["copy_directory","persistent_directory"],"struct":["DirectoryStorage","ErrorList","KeyValueSigningInfoManager","MemoryKeyValueStorage","ProvisioningIdentifiers","ZIPCompressor"],"trait":["KeyValueStorage","SigningInfoManager"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BUILDS","STORE_DIR"],"enum":["Error"],"fn":["identify_build"],"mod":["capi"],"struct":["CoreAdi","Headers","Otp","ProvisioningStart","Reply","Sync","Vm"]};

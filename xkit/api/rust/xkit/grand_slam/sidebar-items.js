@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["XCODE_APP","XCODE_VERSION"],"trait":["AnisetteDataProvider"]};
