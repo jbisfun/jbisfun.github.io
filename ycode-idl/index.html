@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ycode-idl · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+      <li class="nav-item"><a class="nav-link active" href="index.html">ycode-idl</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-idl">Source on GitHub</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode-idl" data-radar-file="README.md">
+
+      <h1 id="ycode-idl" data-sourcepos="1:1-1:11">ycode-idl<a href="#ycode-idl" aria-label="Link to heading 'ycode-idl'" data-heading-content="ycode-idl" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:36"><a data-sourcepos="3:1-3:37" href="https://github.com/jbisfun/idl">idl</a> inside ycode, as a Lua extension on ycode’s
+<code data-sourcepos="4:1-4:11">lua_hooks</code> (<code data-sourcepos="4:14-4:34">gpui.register_panel</code>).</p>
+<p data-sourcepos="6:1-7:69">A right-dock panel (“idl: panel”) for the idlproj.yml at or above an open folder, or one
+or two levels below it (a pull workspace keeps repos one level down):</p>
+<ul data-sourcepos="9:1-15:30">
+<li data-sourcepos="9:1-9:42">targets from <code data-sourcepos="9:16-9:25">idl list</code>; pick one or all</li>
+<li data-sourcepos="10:1-10:40">debug / release profile and <code data-sourcepos="10:31-10:40">--strict</code></li>
+<li data-sourcepos="11:1-11:52">Build, Install, Check, Test, Gen, Lint, Fmt, Clean</li>
+<li data-sourcepos="12:1-13:18">devices from the Jimpactor tray app (<code data-sourcepos="12:40-12:57">idl devices list</code>); Install hands the IPA to
+the selected one</li>
+<li data-sourcepos="14:1-15:30">streamed output with a Stop button; <code data-sourcepos="14:39-14:61">file:line:col: error:</code> lines are highlighted
+and open their file on click</li>
+</ul>
+<p data-sourcepos="17:1-17:88">“idl: build” and “idl: install” run from the command palette with the panel’s selection.</p>
+<h2 id="install" data-sourcepos="19:1-19:10">Install<a href="#install" aria-label="Link to heading 'Install'" data-heading-content="Install" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="21:5-21:46"><code><span class="hl-text hl-plain">ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-idl
+</span></code></pre>
+<p data-sourcepos="23:1-23:58">then “ycode: reload hooks”. <code data-sourcepos="23:29-23:33">idl</code> must be on ycode’s PATH.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-idl&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>
