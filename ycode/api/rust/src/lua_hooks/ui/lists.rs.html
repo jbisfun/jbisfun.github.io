@@ -213,19 +213,22 @@
 <a href=#138 id=138 data-nosnippet>138</a>        <span class="kw">let </span>rows = <span class="self">self</span>.children(t, first, window, cx)<span class="question-mark">?</span>;
 <a href=#139 id=139 data-nosnippet>139</a>        <span class="kw">if </span>rows.is_empty() {
 <a href=#140 id=140 data-nosnippet>140</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>(empty) = p.empty.clone() {
-<a href=#141 id=141 data-nosnippet>141</a>                col = col.child(
-<a href=#142 id=142 data-nosnippet>142</a>                    ListItem::new(SharedString::from(<span class="self">self</span>.auto_id(<span class="string">"section-empty"</span>)))
-<a href=#143 id=143 data-nosnippet>143</a>                        .inset(<span class="bool-val">true</span>)
-<a href=#144 id=144 data-nosnippet>144</a>                        .selectable(<span class="bool-val">false</span>)
-<a href=#145 id=145 data-nosnippet>145</a>                        .child(
-<a href=#146 id=146 data-nosnippet>146</a>                            ui::Label::new(empty)
-<a href=#147 id=147 data-nosnippet>147</a>                                .size(LabelSize::Small)
-<a href=#148 id=148 data-nosnippet>148</a>                                .color(ui::Color::Muted),
-<a href=#149 id=149 data-nosnippet>149</a>                        ),
-<a href=#150 id=150 data-nosnippet>150</a>                );
-<a href=#151 id=151 data-nosnippet>151</a>            }
-<a href=#152 id=152 data-nosnippet>152</a>        }
-<a href=#153 id=153 data-nosnippet>153</a>        <span class="prelude-val">Ok</span>(col.children(rows).pb(ui::DynamicSpacing::Base04.rems(cx)).into_any_element())
-<a href=#154 id=154 data-nosnippet>154</a>    }
-<a href=#155 id=155 data-nosnippet>155</a>}
+<a href=#141 id=141 data-nosnippet>141</a>                <span class="comment">// Wraps (errors can be long); indented like list_item labels.
+<a href=#142 id=142 data-nosnippet>142</a>                </span>col = col.child(
+<a href=#143 id=143 data-nosnippet>143</a>                    div()
+<a href=#144 id=144 data-nosnippet>144</a>                        .w_full()
+<a href=#145 id=145 data-nosnippet>145</a>                        .pl_2p5()
+<a href=#146 id=146 data-nosnippet>146</a>                        .pr_2()
+<a href=#147 id=147 data-nosnippet>147</a>                        .py(ui::DynamicSpacing::Base02.rems(cx))
+<a href=#148 id=148 data-nosnippet>148</a>                        .child(
+<a href=#149 id=149 data-nosnippet>149</a>                            ui::Label::new(empty)
+<a href=#150 id=150 data-nosnippet>150</a>                                .size(LabelSize::Small)
+<a href=#151 id=151 data-nosnippet>151</a>                                .color(ui::Color::Placeholder),
+<a href=#152 id=152 data-nosnippet>152</a>                        ),
+<a href=#153 id=153 data-nosnippet>153</a>                );
+<a href=#154 id=154 data-nosnippet>154</a>            }
+<a href=#155 id=155 data-nosnippet>155</a>        }
+<a href=#156 id=156 data-nosnippet>156</a>        <span class="prelude-val">Ok</span>(col.children(rows).pb(ui::DynamicSpacing::Base04.rems(cx)).into_any_element())
+<a href=#157 id=157 data-nosnippet>157</a>    }
+<a href=#158 id=158 data-nosnippet>158</a>}
 </code></pre></div></section></main></body></html>
