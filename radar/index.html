@@ -12,40 +12,40 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
-  <link rel="stylesheet" href="../_assets/style.css">
-  <script type="module" src="../_assets/main.js"></script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
     <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
 
-      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../idl/index.html">idl</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
 
       <li class="nav-item"><a class="nav-link active" href="index.html">radar</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
 
     </ul>
 
@@ -55,52 +55,49 @@
 
   </div>
 </nav>
-
 <div class="container-fluid">
   <div class="row">
 
     <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
       <ul class="list-unstyled">
 
-  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
 
 
-  <li><a href="https://github.com/jbisfun/radar">Source on GitHub</a></li>
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;radar">Source on GitHub</a></li>
 
 </ul>
 
 <h1>Code reference</h1>
 <ul class="list-unstyled">
 
-  <li><a href="api/rust/radar/index.html">radar</a> <span class="badge text-bg-secondary">Rust</span></li>
+  <li><a href="api&#x2f;rust&#x2f;radar&#x2f;index.html">radar</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
-
 
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="radar" data-radar-file="README.md">
 
-      <h1 id="radar" data-line="1"><a class="header-anchor" href="#radar">radar</a></h1>
-<p data-line="3">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. Radar is a stateless CLI: every run opens the PoloDB database at <code>&lt;workspace&gt;/issues/radar.db</code>, does its work and exits.</p>
-<pre><code data-line="5" class="language-sh">radar add pull src/main.rs 42 --note <span class="hljs-string">&quot;panics on an empty pullfile&quot;</span>   <span class="hljs-comment"># the line text is read from the file</span>
-radar list [--all] [--json]
-radar close 3 / radar reopen 3 / radar <span class="hljs-built_in">rm</span> 3
-radar <span class="hljs-built_in">export</span>        <span class="hljs-comment"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
-</code></pre>
-<p data-line="12">The workspace root is <code>$PULL_ROOT</code>, or the nearest directory above the current one that contains <code>pullfile.plist</code>.</p>
-<ul data-line="14">
-<li data-line="14"><strong>Pull:</strong> the precommit hook runs <code>radar export</code> and stages <code>issues/radar.db</code>. <code>issues/docs</code> is gitignored, and the wiki publishes it under <code>issues</code>.</li>
-<li data-line="15"><strong>Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code>radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>
+      <h1 id="radar" data-sourcepos="1:1-1:7">radar<a href="#radar" aria-label="Link to heading 'radar'" data-heading-content="radar" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:306">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. Radar is a stateless CLI: every run opens the PoloDB database at <code data-sourcepos="3:252-3:280">&lt;workspace&gt;/issues/radar.db</code>, does its work and exits.</p>
+<pre class="syntax-highlighting" data-sourcepos="5:1-10:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">radar</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> add pull src/main.rs 42<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>note</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>panics on an empty pullfile<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> the line text is read from the file</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">radar</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> list <span class="hl-keyword hl-control hl-regexp hl-set hl-begin hl-shell">[</span>-<span class="hl-keyword hl-operator hl-word hl-shell">-</span>all<span class="hl-keyword hl-control hl-regexp hl-set hl-end hl-shell">]</span> <span class="hl-keyword hl-control hl-regexp hl-set hl-begin hl-shell">[</span>-<span class="hl-keyword hl-operator hl-word hl-shell">-</span>json<span class="hl-keyword hl-control hl-regexp hl-set hl-end hl-shell">]</span></span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">radar</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> close 3 / radar reopen 3 / radar rm 3</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">radar</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> export        <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> issues/docs/NNNN.md per open report + issues/docs/index.md</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="12:1-12:114">The workspace root is <code data-sourcepos="12:23-12:34">$PULL_ROOT</code>, or the nearest directory above the current one that contains <code data-sourcepos="12:98-12:113">pullfile.plist</code>.</p>
+<ul data-sourcepos="14:1-15:195">
+<li data-sourcepos="14:1-14:151"><strong data-sourcepos="14:3-14:11">Pull:</strong> the precommit hook runs <code data-sourcepos="14:37-14:50">radar export</code> and stages <code data-sourcepos="14:63-14:79">issues/radar.db</code>. <code data-sourcepos="14:82-14:94">issues/docs</code> is gitignored, and the wiki publishes it under <code data-sourcepos="14:143-14:150">issues</code>.</li>
+<li data-sourcepos="15:1-15:195"><strong data-sourcepos="15:3-15:11">Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code data-sourcepos="15:101-15:115">radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
-  <a href="https://github.com/jbisfun/radar/blob/main/README.md">View source on GitHub</a> ·
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;radar&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
 
   Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
 </footer>
-
     </main>
   </div>
 </div>
@@ -113,6 +110,5 @@ radar <span class="hljs-built_in">export</span>        <span class="hljs-comment
     <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
   </div>
 </div>
-
 </body>
 </html>

@@ -12,40 +12,40 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
-  <link rel="stylesheet" href="../_assets/style.css">
-  <script type="module" src="../_assets/main.js"></script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
     <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
 
-      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../idl/index.html">idl</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
 
       <li class="nav-item"><a class="nav-link active" href="index.html">tool</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
 
     </ul>
 
@@ -55,80 +55,77 @@
 
   </div>
 </nav>
-
 <div class="container-fluid">
   <div class="row">
 
     <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
       <ul class="list-unstyled">
 
-  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
 
 
-  <li><a href="https://github.com/jbisfun/tool">Source on GitHub</a></li>
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;tool">Source on GitHub</a></li>
 
 </ul>
 
 <h1>Code reference</h1>
 <ul class="list-unstyled">
 
-  <li><a href="api/rust/tool/index.html">tool</a> <span class="badge text-bg-secondary">Rust</span></li>
+  <li><a href="api&#x2f;rust&#x2f;tool&#x2f;index.html">tool</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
-
 
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="tool" data-radar-file="README.md">
 
-      <h1 id="tool" data-line="1"><a class="header-anchor" href="#tool">tool</a></h1>
-<p data-line="3">Declarative Homebrew packages per project, a little like a nix profile.</p>
-<ul data-line="5">
-<li data-line="5"><strong>Package list</strong>: Brewfile-shaped (<code>tap</code>, <code>brew</code>). Standalone <code>tool</code> reads a <code>Brewfile</code>;
-in a pull workspace the list lives in the pullfile <code>tool</code> section (<code>pull tool</code>).</li>
-<li data-line="7"><strong>Store</strong>: one shared Homebrew-layout prefix (<code>Cellar/&lt;name&gt;/&lt;version&gt;</code>, <code>opt/&lt;name&gt;</code>) in
-<code>$TOOL_HOME</code> (default <code>~/.local/share/tool</code>). Kegs are Linuxbrew bottles from
-<code>formulae.brew.sh</code> / ghcr.io, poured and relocated into the store (ELF interpreter -&gt; the
-system loader, RUNPATHs -&gt; <code>opt/&lt;dep&gt;/lib</code>, via <code>patchelf</code>). Bottles are cached in
-<code>$TOOL_CACHE</code> (default <code>~/.cache/tool</code>).</li>
-<li data-line="12"><strong>Profiles</strong>: a directory of symlinks to the requested formulae (<code>bin/</code>, <code>lib/</code>, <code>share/</code>
+      <h1 id="tool" data-sourcepos="1:1-1:6">tool<a href="#tool" aria-label="Link to heading 'tool'" data-heading-content="tool" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:71">Declarative Homebrew packages per project, a little like a nix profile.</p>
+<ul data-sourcepos="5:1-14:46">
+<li data-sourcepos="5:1-6:82"><strong data-sourcepos="5:3-5:18">Package list</strong>: Brewfile-shaped (<code data-sourcepos="5:38-5:42">tap</code>, <code data-sourcepos="5:45-5:50">brew</code>). Standalone <code data-sourcepos="5:65-5:70">tool</code> reads a <code data-sourcepos="5:80-5:89">Brewfile</code>;
+in a pull workspace the list lives in the pullfile <code data-sourcepos="6:54-6:59">tool</code> section (<code data-sourcepos="6:70-6:80">pull tool</code>).</li>
+<li data-sourcepos="7:1-11:42"><strong data-sourcepos="7:3-7:11">Store</strong>: one shared Homebrew-layout prefix (<code data-sourcepos="7:49-7:73">Cellar/&lt;name&gt;/&lt;version&gt;</code>, <code data-sourcepos="7:76-7:87">opt/&lt;name&gt;</code>) in
+<code data-sourcepos="8:3-8:14">$TOOL_HOME</code> (default <code data-sourcepos="8:25-8:45">~/.local/share/tool</code>). Kegs are Linuxbrew bottles from
+<code data-sourcepos="9:3-9:20">formulae.brew.sh</code> / ghcr.io, poured and relocated into the store (ELF interpreter -&gt; the
+system loader, RUNPATHs -&gt; <code data-sourcepos="10:30-10:44">opt/&lt;dep&gt;/lib</code>, via <code data-sourcepos="10:51-10:60">patchelf</code>). Bottles are cached in
+<code data-sourcepos="11:3-11:15">$TOOL_CACHE</code> (default <code data-sourcepos="11:26-11:40">~/.cache/tool</code>).</li>
+<li data-sourcepos="12:1-14:46"><strong data-sourcepos="12:3-12:14">Profiles</strong>: a directory of symlinks to the requested formulae (<code data-sourcepos="12:68-12:73">bin/</code>, <code data-sourcepos="12:76-12:81">lib/</code>, <code data-sourcepos="12:84-12:91">share/</code>
 …), rebuilt and swapped in atomically on every sync. Every profile is a GC root;
-<code>tool gc</code> deletes kegs no live profile uses.</li>
+<code data-sourcepos="14:3-14:11">tool gc</code> deletes kegs no live profile uses.</li>
 </ul>
-<p data-line="16">Requires <code>patchelf</code>. Only homebrew/core formulae; casks/mas/vscode entries are ignored.
+<p data-sourcepos="16:1-17:93">Requires <code data-sourcepos="16:10-16:19">patchelf</code>. Only homebrew/core formulae; casks/mas/vscode entries are ignored.
 Building bottles from source is planned; for now everything is poured from Linuxbrew bottles.</p>
-<h2 id="standalone" data-line="19"><a class="header-anchor" href="#standalone">Standalone</a></h2>
-<pre><code data-line="21" class="language-sh"><span class="hljs-built_in">printf</span> <span class="hljs-string">&#x27;brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n&#x27;</span> &gt; Brewfile
-tool <span class="hljs-built_in">sync</span>            <span class="hljs-comment"># pour into the store, link ./.tool</span>
-<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(tool env)</span>&quot;</span>   <span class="hljs-comment"># .tool/bin on PATH</span>
-tool list
-tool gc
-</code></pre>
-<h2 id="in-a-pull-workspace" data-line="29"><a class="header-anchor" href="#in-a-pull-workspace">In a pull workspace</a></h2>
-<pre><code data-line="31" class="language-sh">pull tool add jq ripgrep      <span class="hljs-comment"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
-pull tool import Brewfile     <span class="hljs-comment"># merge an existing Brewfile into the pullfile</span>
-pull tool <span class="hljs-built_in">sync</span>                <span class="hljs-comment"># links $PULL_ROOT/.pull/tool</span>
-pull <span class="hljs-built_in">env</span>                      <span class="hljs-comment"># PATH includes $PULL_ROOT/.pull/tool/bin</span>
-</code></pre>
-<p data-line="38">Pullfile section:</p>
-<pre><code data-line="40" class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>tool<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>brew<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">array</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>jq<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">dict</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>name<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>openssl@3<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>link<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">false</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">array</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dict</span>&gt;</span>
-</code></pre>
-<p data-line="51">Built on the stout crates (stout-bundle, stout-fetch, stout-install, stout-resolve).</p>
+<h2 id="standalone" data-sourcepos="19:1-19:13">Standalone<a href="#standalone" aria-label="Link to heading 'Standalone'" data-heading-content="Standalone" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="21:1-27:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-support hl-function hl-printf hl-shell">printf</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> <span class="hl-string hl-quoted hl-single hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&#39;</span>brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&#39;</span></span> <span class="hl-keyword hl-operator hl-assignment hl-redirection hl-shell">&gt;</span> Brewfile</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">tool</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> sync            <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> pour into the store, link ./.tool</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-support hl-function hl-eval hl-shell">eval</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span><span class="hl-meta hl-group hl-expansion hl-command hl-parens hl-shell"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-punctuation hl-section hl-parens hl-begin hl-shell">(</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">tool</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> env</span><span class="hl-punctuation hl-section hl-parens hl-end hl-shell">)</span></span><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> .tool/bin on PATH</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">tool</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> list</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">tool</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> gc</span>
+</span></code></pre>
+<h2 id="in-a-pull-workspace" data-sourcepos="29:1-29:22">In a pull workspace<a href="#in-a-pull-workspace" aria-label="Link to heading 'In a pull workspace'" data-heading-content="In a pull workspace" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="31:1-36:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">pull</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> tool add jq ripgrep      <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">pull</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> tool import Brewfile     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> merge an existing Brewfile into the pullfile</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">pull</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> tool sync                <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> links $PULL_ROOT/.pull/tool</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">pull</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> env                      <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> PATH includes $PULL_ROOT/.pull/tool/bin</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="38:1-38:17">Pullfile section:</p>
+<pre class="syntax-highlighting" data-sourcepos="40:1-49:3"><code class="language-xml"><span class="hl-text hl-xml"><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>tool<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+  <span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>brew<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+  <span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+    <span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>jq<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+    <span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>name<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>openssl@3<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>link<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">false</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">/&gt;</span></span><span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+  <span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+<span class="hl-meta hl-tag hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-begin hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-end hl-xml">&gt;</span></span>
+</span></code></pre>
+<p data-sourcepos="51:1-51:84">Built on the stout crates (stout-bundle, stout-fetch, stout-install, stout-resolve).</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
-  <a href="https://github.com/jbisfun/tool/blob/main/README.md">View source on GitHub</a> ·
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;tool&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
 
   Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
 </footer>
-
     </main>
   </div>
 </div>
@@ -141,6 +138,5 @@ pull <span class="hljs-built_in">env</span>                      <span class="hl
     <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
   </div>
 </div>
-
 </body>
 </html>

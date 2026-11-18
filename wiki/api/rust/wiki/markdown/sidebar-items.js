@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["HIGHLIGHT_PREFIX"],"fn":["mark_active","preprocess","rewrite_links"],"static":["SCHEME"],"struct":["Markdown"]};

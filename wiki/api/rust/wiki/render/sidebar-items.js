@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["basename","docs_root","front_matter","is_page","out_name","render","title_of","url","walk","write"],"static":["FRONT_MATTER","H1","IMAGE"],"struct":["ApiView","Links","Page","PageRef","PageView","Renderer","RepoView","SiteRepo","TreeNode"]};

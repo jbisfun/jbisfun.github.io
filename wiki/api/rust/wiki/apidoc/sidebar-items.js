@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["copy_dir","generate"],"struct":["Api","Job"]};

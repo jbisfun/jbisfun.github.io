@@ -12,40 +12,40 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
-  <link rel="stylesheet" href="../_assets/style.css">
-  <script type="module" src="../_assets/main.js"></script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
     <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
 
-      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../idl/index.html">idl</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
 
       <li class="nav-item"><a class="nav-link active" href="index.html">ios-webusb</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
 
     </ul>
 
@@ -55,74 +55,71 @@
 
   </div>
 </nav>
-
 <div class="container-fluid">
   <div class="row">
 
     <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
       <ul class="list-unstyled">
 
-  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
 
 
-  <li><a href="https://github.com/jbisfun/ios-webusb">Source on GitHub</a></li>
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ios-webusb">Source on GitHub</a></li>
 
 </ul>
 
 <h1>Code reference</h1>
 <ul class="list-unstyled">
 
-  <li><a href="api/rust/ios_webusb/index.html">ios_webusb</a> <span class="badge text-bg-secondary">Rust</span></li>
+  <li><a href="api&#x2f;rust&#x2f;ios_webusb&#x2f;index.html">ios_webusb</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
-
 
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ios-webusb" data-radar-file="README.md">
 
-      <h1 id="ios-webusb" data-line="1"><a class="header-anchor" href="#ios-webusb">ios-webusb</a></h1>
-<p data-line="3">A WebUSB driver for iPhones and iPads. The web page claims the device through <code>navigator.usb</code> and runs the driver itself in wasm: <a href="https://github.com/abdullah-albanna/rusbmux">rusbmux</a> (vendored, ported to WebUSB) for the usbmux protocol, and <a href="https://github.com/jkcoxson/idevice">idevice</a> for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
-<p data-line="5">There’s also a native build of the same driver with a gpui tray, for local tools.</p>
-<h2 id="web" data-line="7"><a class="header-anchor" href="#web">Web</a></h2>
-<pre><code data-line="9" class="language-sh">just web     <span class="hljs-comment"># -&gt; web/pkg (wasm-bindgen --target web)</span>
-just serve   <span class="hljs-comment"># demo page on http://localhost:8000</span>
-</code></pre>
-<pre><code data-line="14" class="language-js"><span class="hljs-keyword">import</span> init, { <span class="hljs-title class_">IosDevice</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./pkg/ios_webusb_web.js&quot;</span>;
-<span class="hljs-keyword">await</span> <span class="hljs-title function_">init</span>();
+      <h1 id="ios-webusb" data-sourcepos="1:1-1:12">ios-webusb<a href="#ios-webusb" aria-label="Link to heading 'ios-webusb'" data-heading-content="ios-webusb" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:400">A WebUSB driver for iPhones and iPads. The web page claims the device through <code data-sourcepos="3:79-3:93">navigator.usb</code> and runs the driver itself in wasm: <a data-sourcepos="3:131-3:184" href="https://github.com/abdullah-albanna/rusbmux">rusbmux</a> (vendored, ported to WebUSB) for the usbmux protocol, and <a data-sourcepos="3:244-3:289" href="https://github.com/jkcoxson/idevice">idevice</a> for lockdown, pairing and services. No daemon, no extension, nothing native. Works in Chromium-based browsers.</p>
+<p data-sourcepos="5:1-5:81">There’s also a native build of the same driver with a gpui tray, for local tools.</p>
+<h2 id="web" data-sourcepos="7:1-7:6">Web<a href="#web" aria-label="Link to heading 'Web'" data-heading-content="Web" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="9:1-12:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> web     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> -&gt; web/pkg (wasm-bindgen --target web)</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> serve   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> demo page on http://localhost:8000</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<pre class="syntax-highlighting" data-sourcepos="14:1-28:3"><code class="language-js"><span class="hl-source hl-js"><span class="hl-keyword hl-operator hl-module hl-js">import</span> <span class="hl-variable hl-other hl-readwrite hl-js">init</span><span class="hl-meta hl-delimiter hl-comma hl-js">,</span> <span class="hl-meta hl-group hl-braces hl-curly hl-js"><span class="hl-meta hl-brace hl-curly hl-begin hl-js">{</span> <span class="hl-variable hl-other hl-readwrite hl-js">IosDevice</span> <span class="hl-meta hl-brace hl-curly hl-end hl-js">}</span></span> <span class="hl-keyword hl-operator hl-module hl-js">from</span> <span class="hl-string hl-quoted hl-js"><span class="hl-punctuation hl-definition hl-string hl-begin hl-js">&quot;</span>./pkg/ios_webusb_web.js<span class="hl-punctuation hl-definition hl-string hl-end hl-js">&quot;</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>
+<span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-meta hl-function-call hl-without-arguments hl-js"><span class="hl-variable hl-function hl-js">init</span><span class="hl-meta hl-group hl-braces hl-round hl-function hl-arguments hl-js">()</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>
 
-<span class="hljs-keyword">const</span> device = <span class="hljs-keyword">await</span> <span class="hljs-title class_">IosDevice</span>.<span class="hljs-title function_">request</span>();          <span class="hljs-comment">// browser chooser; call from a click</span>
-<span class="hljs-comment">// or: const [device] = await IosDevice.authorized(); // devices granted before</span>
+<span class="hl-storage hl-type hl-js">const</span> <span class="hl-variable hl-other hl-readwrite hl-js">device</span> <span class="hl-keyword hl-operator hl-assignment hl-js">=</span> <span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-meta hl-function-call hl-static hl-without-arguments hl-js"><span class="hl-variable hl-other hl-class hl-js">IosDevice</span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-variable hl-function hl-js">request</span><span class="hl-meta hl-group hl-braces hl-round hl-function hl-arguments hl-js">()</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>          <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> browser chooser; call from a click
+</span><span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> or: const [device] = await IosDevice.authorized(); // devices granted before
+</span>
+<span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> The page is the host: keep one SystemBUID and the pair record per device.
+</span><span class="hl-storage hl-type hl-js">const</span> <span class="hl-variable hl-other hl-readwrite hl-js">record</span> <span class="hl-keyword hl-operator hl-assignment hl-js">=</span> <span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">device</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">pair</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-variable hl-other hl-readwrite hl-js">savedRecord</span>, <span class="hl-variable hl-other hl-readwrite hl-js">systemBuid</span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> &quot;Trust This Computer?&quot; on first use
+</span><span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">device</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">getValue</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-string hl-quoted hl-js"><span class="hl-punctuation hl-definition hl-string hl-begin hl-js">&quot;</span>ProductVersion<span class="hl-punctuation hl-definition hl-string hl-end hl-js">&quot;</span></span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>
 
-<span class="hljs-comment">// The page is the host: keep one SystemBUID and the pair record per device.</span>
-<span class="hljs-keyword">const</span> record = <span class="hljs-keyword">await</span> device.<span class="hljs-title function_">pair</span>(savedRecord, systemBuid); <span class="hljs-comment">// &quot;Trust This Computer?&quot; on first use</span>
-<span class="hljs-keyword">await</span> device.<span class="hljs-title function_">getValue</span>(<span class="hljs-string">&quot;ProductVersion&quot;</span>);
-
-<span class="hljs-keyword">const</span> afc = <span class="hljs-keyword">await</span> device.<span class="hljs-title function_">startService</span>(<span class="hljs-string">&quot;com.apple.afc&quot;</span>);    <span class="hljs-comment">// TLS set up when needed</span>
-<span class="hljs-keyword">await</span> afc.<span class="hljs-title function_">write</span>(bytes); <span class="hljs-keyword">const</span> reply = <span class="hljs-keyword">await</span> afc.<span class="hljs-title function_">read</span>(<span class="hljs-number">65536</span>);
-<span class="hljs-keyword">const</span> lockdownd = <span class="hljs-keyword">await</span> device.<span class="hljs-title function_">connect</span>(<span class="hljs-number">62078</span>);             <span class="hljs-comment">// raw TCP; sendPlist/readPlist frame plists</span>
-</code></pre>
-<p data-line="30">Linux needs the udev rule so the browser can open the device, and nothing else may hold the device:</p>
-<pre><code data-line="32" class="language-sh"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> udev/70-ios-webusb.rules /etc/udev/rules.d/ &amp;&amp; <span class="hljs-built_in">sudo</span> udevadm control --reload
-<span class="hljs-built_in">sudo</span> systemctl mask --now usbmuxd
-</code></pre>
-<h2 id="native-tray" data-line="37"><a class="header-anchor" href="#native-tray">Native tray</a></h2>
-<p data-line="39"><code>just tray</code> (<code>--show</code> opens the window). It serves a usbmuxd socket at <code>$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code> (point tools at it with <code>USBMUXD_SOCKET_ADDRESS</code>), lists devices, pairs them, and can <strong>release</strong> a device so a web page can claim it. Only one driver can own a device at a time. Pair records are stored in <code>~/.local/share/ios-webusb/lockdown</code>.</p>
-<h2 id="vendored-rusbmux-changes" data-line="41"><a class="header-anchor" href="#vendored-rusbmux-changes">Vendored rusbmux changes</a></h2>
-<ul data-line="43">
-<li data-line="43">Builds for <code>wasm32-unknown-unknown</code> with nusb’s WebUSB backend. On that target, the daemon, Wi-Fi and filesystem parts are compiled out. Tasks run on the page’s event loop (<code>rt.rs</code>). WebUSB handles are marked <code>Send</code> because wasm without atomics is single-threaded.</li>
-<li data-line="44"><code>preflight_with_buid</code> lets the host supply its own SystemBUID.</li>
-<li data-line="45"><code>idevice</code> is pinned to <code>=0.1.68</code> exactly (<code>=</code>), because the vendored code is written against that release.</li>
-<li data-line="46">The lockdown directory can be set with <code>rusbmux::handler::set_lockdown_path</code>, so the native daemon runs unprivileged.</li>
+<span class="hl-storage hl-type hl-js">const</span> <span class="hl-variable hl-other hl-readwrite hl-js">afc</span> <span class="hl-keyword hl-operator hl-assignment hl-js">=</span> <span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">device</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">startService</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-string hl-quoted hl-js"><span class="hl-punctuation hl-definition hl-string hl-begin hl-js">&quot;</span>com.apple.afc<span class="hl-punctuation hl-definition hl-string hl-end hl-js">&quot;</span></span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>    <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> TLS set up when needed
+</span><span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">afc</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">write</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-variable hl-other hl-readwrite hl-js">bytes</span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span> <span class="hl-storage hl-type hl-js">const</span> <span class="hl-variable hl-other hl-readwrite hl-js">reply</span> <span class="hl-keyword hl-operator hl-assignment hl-js">=</span> <span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">afc</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">read</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-constant hl-numeric hl-js">65536</span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>
+<span class="hl-storage hl-type hl-js">const</span> <span class="hl-variable hl-other hl-readwrite hl-js">lockdownd</span> <span class="hl-keyword hl-operator hl-assignment hl-js">=</span> <span class="hl-keyword hl-control hl-flow hl-js">await</span> <span class="hl-variable hl-other hl-object hl-js"><span class="hl-variable hl-other hl-object hl-js">device</span></span><span class="hl-keyword hl-operator hl-accessor hl-js">.</span><span class="hl-meta hl-function-call hl-method hl-with-arguments hl-js"><span class="hl-variable hl-function hl-js">connect</span></span><span class="hl-meta hl-group hl-braces hl-round hl-js"><span class="hl-meta hl-brace hl-round hl-begin hl-js">(</span><span class="hl-constant hl-numeric hl-js">62078</span><span class="hl-meta hl-brace hl-round hl-end hl-js">)</span></span><span class="hl-punctuation hl-terminator hl-statement hl-js">;</span>             <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-js">//</span> raw TCP; sendPlist/readPlist frame plists
+</span></span></code></pre>
+<p data-sourcepos="30:1-30:99">Linux needs the udev rule so the browser can open the device, and nothing else may hold the device:</p>
+<pre class="syntax-highlighting" data-sourcepos="32:1-35:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> cp udev/70-ios-webusb.rules /etc/udev/rules.d/</span> <span class="hl-keyword hl-operator hl-logical hl-and hl-shell">&amp;&amp;</span> <span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> udevadm control<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>reload</span></span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> systemctl mask<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>now</span> usbmuxd</span>
+</span></code></pre>
+<h2 id="native-tray" data-sourcepos="37:1-37:14">Native tray<a href="#native-tray" aria-label="Link to heading 'Native tray'" data-heading-content="Native tray" class="anchor"></a></h2>
+<p data-sourcepos="39:1-39:352"><code data-sourcepos="39:1-39:11">just tray</code> (<code data-sourcepos="39:14-39:21">--show</code> opens the window). It serves a usbmuxd socket at <code data-sourcepos="39:72-39:108">$XDG_RUNTIME_DIR/ios-webusb/usbmuxd</code> (point tools at it with <code data-sourcepos="39:134-39:157">USBMUXD_SOCKET_ADDRESS</code>), lists devices, pairs them, and can <strong data-sourcepos="39:196-39:206">release</strong> a device so a web page can claim it. Only one driver can own a device at a time. Pair records are stored in <code data-sourcepos="39:316-39:351">~/.local/share/ios-webusb/lockdown</code>.</p>
+<h2 id="vendored-rusbmux-changes" data-sourcepos="41:1-41:27">Vendored rusbmux changes<a href="#vendored-rusbmux-changes" aria-label="Link to heading 'Vendored rusbmux changes'" data-heading-content="Vendored rusbmux changes" class="anchor"></a></h2>
+<ul data-sourcepos="43:1-46:119">
+<li data-sourcepos="43:1-43:266">Builds for <code data-sourcepos="43:14-43:37">wasm32-unknown-unknown</code> with nusb’s WebUSB backend. On that target, the daemon, Wi-Fi and filesystem parts are compiled out. Tasks run on the page’s event loop (<code data-sourcepos="43:176-43:182">rt.rs</code>). WebUSB handles are marked <code data-sourcepos="43:212-43:217">Send</code> because wasm without atomics is single-threaded.</li>
+<li data-sourcepos="44:1-44:64"><code data-sourcepos="44:3-44:23">preflight_with_buid</code> lets the host supply its own SystemBUID.</li>
+<li data-sourcepos="45:1-45:108"><code data-sourcepos="45:3-45:11">idevice</code> is pinned to <code data-sourcepos="45:26-45:34">=0.1.68</code> exactly (<code data-sourcepos="45:45-45:47">=</code>), because the vendored code is written against that release.</li>
+<li data-sourcepos="46:1-46:119">The lockdown directory can be set with <code data-sourcepos="46:42-46:78">rusbmux::handler::set_lockdown_path</code>, so the native daemon runs unprivileged.</li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
-  <a href="https://github.com/jbisfun/ios-webusb/blob/main/README.md">View source on GitHub</a> ·
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ios-webusb&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
 
   Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
 </footer>
-
     </main>
   </div>
 </div>
@@ -135,6 +132,5 @@ just serve   <span class="hljs-comment"># demo page on http://localhost:8000</sp
     <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
   </div>
 </div>
-
 </body>
 </html>

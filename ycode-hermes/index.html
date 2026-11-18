@@ -12,40 +12,40 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
-  <link rel="stylesheet" href="../_assets/style.css">
-  <script type="module" src="../_assets/main.js"></script>
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand fw-semibold" href="../index.html">jbisfun wiki</a>
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
     <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
 
-      <li class="nav-item"><a class="nav-link" href="../dotenv/index.html">dotenv</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../idl/index.html">idl</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ios-webusb/index.html">ios-webusb</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../issues/index.html">issues</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../pull/index.html">pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../radar/index.html">radar</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../tool/index.html">tool</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../wiki/index.html">wiki</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode/index.html">ycode</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
 
       <li class="nav-item"><a class="nav-link active" href="index.html">ycode-hermes</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-manager/index.html">ycode-manager</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-offline/index.html">ycode-offline</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
 
-      <li class="nav-item"><a class="nav-link" href="../ycode-pull/index.html">ycode-pull</a></li>
+      <li class="nav-item"><a class="nav-link" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
 
     </ul>
 
@@ -55,70 +55,67 @@
 
   </div>
 </nav>
-
 <div class="container-fluid">
   <div class="row">
 
     <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
       <ul class="list-unstyled">
 
-  <li><a class="active" aria-current="page" href="index.html">README</a></li>
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
 
 
-  <li><a href="https://github.com/jbisfun/ycode-hermes">Source on GitHub</a></li>
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-hermes">Source on GitHub</a></li>
 
 </ul>
-
 
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode-hermes" data-radar-file="README.md">
 
-      <h1 id="ycode-hermes" data-line="1"><a class="header-anchor" href="#ycode-hermes">ycode-hermes</a></h1>
-<p data-line="3">ycode Lua plugin that makes <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>
+      <h1 id="ycode-hermes" data-sourcepos="1:1-1:14">ycode-hermes<a href="#ycode-hermes" aria-label="Link to heading 'ycode-hermes'" data-heading-content="ycode-hermes" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:48">ycode Lua plugin that makes <a data-sourcepos="3:29-3:88" href="https://github.com/NousResearch/hermes-agent">Hermes Agent</a>
 ycode’s agent, over ACP (Agent Client Protocol).</p>
-<p data-line="6">It registers <code>hermes acp</code> as an external agent (<code>agent_servers.hermes</code>) through ycode’s
+<p data-sourcepos="6:1-10:50">It registers <code data-sourcepos="6:14-6:25">hermes acp</code> as an external agent (<code data-sourcepos="6:49-6:70">agent_servers.hermes</code>) through ycode’s
 in-memory plugin settings layer. Threads you start with the “hermes” agent in the agent
-panel run inside Hermes, so they are Hermes sessions (saved in Hermes’ <code>state.db</code>), with
+panel run inside Hermes, so they are Hermes sessions (saved in Hermes’ <code data-sourcepos="8:72-8:81">state.db</code>), with
 Hermes’ memory, skills, tools and model providers, including OAuth ones. ycode holds no
-credentials; change the model with <code>hermes model</code>.</p>
-<p data-line="12">Command palette:</p>
-<ul data-line="14">
-<li data-line="14"><strong>hermes: new thread</strong>: new agent-panel thread with Hermes</li>
-<li data-line="15"><strong>hermes: status</strong>: ACP check (<code>hermes acp --check</code>), version and Hermes’ default model</li>
-<li data-line="16"><strong>hermes: sync threads</strong>: show Hermes sessions in the sidebar now</li>
+credentials; change the model with <code data-sourcepos="10:36-10:49">hermes model</code>.</p>
+<p data-sourcepos="12:1-12:16">Command palette:</p>
+<ul data-sourcepos="14:1-16:67">
+<li data-sourcepos="14:1-14:60"><strong data-sourcepos="14:3-14:24">hermes: new thread</strong>: new agent-panel thread with Hermes</li>
+<li data-sourcepos="15:1-15:89"><strong data-sourcepos="15:3-15:20">hermes: status</strong>: ACP check (<code data-sourcepos="15:34-15:53">hermes acp --check</code>), version and Hermes’ default model</li>
+<li data-sourcepos="16:1-16:67"><strong data-sourcepos="16:3-16:26">hermes: sync threads</strong>: show Hermes sessions in the sidebar now</li>
 </ul>
-<h2 id="hermes-plugin" data-line="18"><a class="header-anchor" href="#hermes-plugin">Hermes plugin</a></h2>
-<p data-line="20"><code>hermes-plugin/</code> adds <code>hermes ycode-acp</code>: the stock ACP adapter, except that <code>session/list</code>
-and <code>session/load</code> include CLI, TUI/desktop and gateway sessions (stock <code>hermes acp</code> only
+<h2 id="hermes-plugin" data-sourcepos="18:1-18:16">Hermes plugin<a href="#hermes-plugin" aria-label="Link to heading 'Hermes plugin'" data-heading-content="Hermes plugin" class="anchor"></a></h2>
+<p data-sourcepos="20:1-23:16"><code data-sourcepos="20:1-20:16">hermes-plugin/</code> adds <code data-sourcepos="20:23-20:40">hermes ycode-acp</code>: the stock ACP adapter, except that <code data-sourcepos="20:78-20:91">session/list</code>
+and <code data-sourcepos="21:5-21:18">session/load</code> include CLI, TUI/desktop and gateway sessions (stock <code data-sourcepos="21:73-21:84">hermes acp</code> only
 shows sessions an editor created). Subagent, cron and one-shot sessions stay hidden.
 Install it once:</p>
-<pre data-line="25"><code># from the ycode-hermes clone
+<pre class="syntax-highlighting" data-sourcepos="25:5-27:38"><code><span class="hl-text hl-plain"># from the ycode-hermes clone
 ln -s &quot;$PWD/hermes-plugin&quot; ~/.hermes/plugins/ycode-hermes
 hermes plugins enable ycode-hermes
-</code></pre>
-<h2 id="sidebar" data-line="29"><a class="header-anchor" href="#sidebar">Sidebar</a></h2>
-<p data-line="31">Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
-(<code>session/list</code>) and shown as threads in the sidebar, 5 seconds after startup and then
-every 2 minutes, through ycode’s <code>agent::SyncAgentThreads</code> action. Only sessions whose
+</span></code></pre>
+<h2 id="sidebar" data-sourcepos="29:1-29:10">Sidebar<a href="#sidebar" aria-label="Link to heading 'Sidebar'" data-heading-content="Sidebar" class="anchor"></a></h2>
+<p data-sourcepos="31:1-37:38">Hermes sessions from every surface (CLI, gateway, other editors) are listed over ACP
+(<code data-sourcepos="32:2-32:15">session/list</code>) and shown as threads in the sidebar, 5 seconds after startup and then
+every 2 minutes, through ycode’s <code data-sourcepos="33:34-33:58">agent::SyncAgentThreads</code> action. Only sessions whose
 working directory is an open folder or below it are shown; Hermes threads from other
 directories are taken out of the sidebar (they stay in Hermes and return when their folder
 is open). Opening one
-loads it from Hermes (<code>session/load</code>).</p>
-<p data-line="39">At startup the plugin resolves <code>hermes</code> on PATH and runs the ACP check in the background.</p>
-<h2 id="install" data-line="41"><a class="header-anchor" href="#install">Install</a></h2>
-<pre data-line="43"><code># from the ycode-hermes clone
+loads it from Hermes (<code data-sourcepos="37:23-37:36">session/load</code>).</p>
+<p data-sourcepos="39:1-39:89">At startup the plugin resolves <code data-sourcepos="39:32-39:39">hermes</code> on PATH and runs the ACP check in the background.</p>
+<h2 id="install" data-sourcepos="41:1-41:10">Install<a href="#install" aria-label="Link to heading 'Install'" data-heading-content="Install" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="43:5-44:49"><code><span class="hl-text hl-plain"># from the ycode-hermes clone
 ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-hermes
-</code></pre>
-<p data-line="46">then “ycode: reload hooks”.</p>
+</span></code></pre>
+<p data-sourcepos="46:1-46:27">then “ycode: reload hooks”.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
-  <a href="https://github.com/jbisfun/ycode-hermes/blob/main/README.md">View source on GitHub</a> ·
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-hermes&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
 
   Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
 </footer>
-
     </main>
   </div>
 </div>
@@ -131,6 +128,5 @@ ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-hermes
     <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
   </div>
 </div>
-
 </body>
 </html>

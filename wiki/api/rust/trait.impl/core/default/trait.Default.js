@@ -1,0 +1,9 @@
+(function() {
+    const implementors = Object.fromEntries([["wiki",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"wiki/collect/struct.RepoConfig.html\" title=\"struct wiki::collect::RepoConfig\">RepoConfig</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"wiki/state/struct.State.html\" title=\"struct wiki::state::State\">State</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"enum\" href=\"wiki/collect/enum.Tool.html\" title=\"enum wiki::collect::Tool\">Tool</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"wiki/collect/struct.ToolSettings.html\" title=\"struct wiki::collect::ToolSettings\">ToolSettings</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"wiki/render/struct.TreeNode.html\" title=\"struct wiki::render::TreeNode\">TreeNode</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"wiki/collect/struct.WikiToml.html\" title=\"struct wiki::collect::WikiToml\">WikiToml</a>",0]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":59,"fragment_lengths":[1651]}
