@@ -45,6 +45,15 @@
       </li>
 
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
         <ul class="dropdown-menu">
 
@@ -123,11 +132,11 @@
 </span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">radar</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> mcp <span class="hl-keyword hl-control hl-regexp hl-set hl-begin hl-shell">[</span>-<span class="hl-keyword hl-operator hl-word hl-shell">-</span>root DIR<span class="hl-keyword hl-control hl-regexp hl-set hl-end hl-shell">]</span>   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> MCP server (stdio): add/list/close/reopen/rm/export</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span></span></span></code></pre>
 <p data-sourcepos="13:1-13:114">The workspace root is <code data-sourcepos="13:23-13:34">$PULL_ROOT</code>, or the nearest directory above the current one that contains <code data-sourcepos="13:98-13:113">pullfile.plist</code>.</p>
-<p data-sourcepos="15:1-19:62">Only one process may hold <code data-sourcepos="15:27-15:36">radar.db</code> open at a time. The CLI commands above are
-short-lived and fine to interleave; <code data-sourcepos="16:37-16:47">radar mcp</code> holds the database open for as long as
-an agent is attached, so don’t run the CLI against the same workspace while it’s up
-(<code data-sourcepos="18:2-18:7">pull</code>’s own <code data-sourcepos="18:15-18:27">mcp_servers</code> pullfile section registers it alongside <code data-sourcepos="18:69-18:78">pull mcp</code> in
-editors/agents that read <code data-sourcepos="19:26-19:43">pull mcp-servers</code>, e.g. ycode-pull).</p>
+<p data-sourcepos="15:1-19:60">Only one process can have <code data-sourcepos="15:27-15:36">radar.db</code> open at a time, so every command opens it for a
+single operation and waits briefly if another one has it. That includes <code data-sourcepos="16:73-16:83">radar mcp</code>,
+which opens it per tool call, so the CLI keeps working while an agent is attached. The
+pullfile’s <code data-sourcepos="18:12-18:24">mcp_servers</code> section registers <code data-sourcepos="18:44-18:54">radar mcp</code> alongside <code data-sourcepos="18:66-18:75">pull mcp</code> in editors
+and agents that read <code data-sourcepos="19:22-19:39">pull mcp-servers</code>, such as ycode-pull.</p>
 <ul data-sourcepos="21:1-22:195">
 <li data-sourcepos="21:1-21:151"><strong data-sourcepos="21:3-21:11">Pull:</strong> the precommit hook runs <code data-sourcepos="21:37-21:50">radar export</code> and stages <code data-sourcepos="21:63-21:79">issues/radar.db</code>. <code data-sourcepos="21:82-21:94">issues/docs</code> is gitignored, and the wiki publishes it under <code data-sourcepos="21:143-21:150">issues</code>.</li>
 <li data-sourcepos="22:1-22:195"><strong data-sourcepos="22:3-22:11">Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code data-sourcepos="22:101-22:115">radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>

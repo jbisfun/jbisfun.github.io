@@ -33,6 +33,15 @@
       </li>
 
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
         <ul class="dropdown-menu">
 
@@ -536,7 +545,7 @@
 <a href=#454 id=454 data-nosnippet>454</a>                blob: site.links.blob.clone(),
 <a href=#455 id=455 data-nosnippet>455</a>                head: repo.head.clone(),
 <a href=#456 id=456 data-nosnippet>456</a>                category: repo.config.category.clone().unwrap_or_else(|| <span class="string">"Other"</span>.into()),
-<a href=#457 id=457 data-nosnippet>457</a>                description: readme.and_then(|at| markdown.first_paragraph(<span class="kw-2">&amp;</span>pages[<span class="kw-2">*</span>at].body)),
+<a href=#457 id=457 data-nosnippet>457</a>                description: repo.config.description.clone().or_else(|| readme.and_then(|at| markdown.first_sentence(<span class="kw-2">&amp;</span>pages[<span class="kw-2">*</span>at].body))),
 <a href=#458 id=458 data-nosnippet>458</a>                readme_page: readme.map(page_ref),
 <a href=#459 id=459 data-nosnippet>459</a>                doc_pages: docs.iter().map(|(<span class="kw">_</span>, page)| page.clone()).collect(),
 <a href=#460 id=460 data-nosnippet>460</a>                tree: TreeNode::build(<span class="kw-2">&amp;</span>docs),

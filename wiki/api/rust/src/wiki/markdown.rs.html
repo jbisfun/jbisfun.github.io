@@ -33,6 +33,15 @@
       </li>
 
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
         <ul class="dropdown-menu">
 
@@ -138,68 +147,74 @@
 <a href=#56 id=56 data-nosnippet>56</a>    }
 <a href=#57 id=57 data-nosnippet>57</a>
 <a href=#58 id=58 data-nosnippet>58</a>    <span class="doccomment">/// Plain text of the first paragraph with text (not just badges), for the home page cards.
-<a href=#59 id=59 data-nosnippet>59</a>    </span><span class="kw">pub fn </span>first_paragraph(<span class="kw-2">&amp;</span><span class="self">self</span>, source: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;String&gt; {
-<a href=#60 id=60 data-nosnippet>60</a>        <span class="kw">let </span>arena = Arena::new();
-<a href=#61 id=61 data-nosnippet>61</a>        <span class="kw">let </span>root = parse_document(<span class="kw-2">&amp;</span>arena, <span class="kw-2">&amp;</span>preprocess(source), <span class="kw-2">&amp;</span><span class="self">self</span>.options);
-<a href=#62 id=62 data-nosnippet>62</a>        root.descendants().find_map(|node| {
-<a href=#63 id=63 data-nosnippet>63</a>            <span class="kw">if </span>!<span class="macro">matches!</span>(node.data().value, NodeValue::Paragraph) {
-<a href=#64 id=64 data-nosnippet>64</a>                <span class="kw">return </span><span class="prelude-val">None</span>;
-<a href=#65 id=65 data-nosnippet>65</a>            }
-<a href=#66 id=66 data-nosnippet>66</a>            <span class="kw">let </span>text: String = node
-<a href=#67 id=67 data-nosnippet>67</a>                .children()
-<a href=#68 id=68 data-nosnippet>68</a>                .map(|child| <span class="kw">match </span><span class="kw-2">&amp;</span>child.data().value {
-<a href=#69 id=69 data-nosnippet>69</a>                    NodeValue::Text(text) =&gt; text.to_string(),
-<a href=#70 id=70 data-nosnippet>70</a>                    NodeValue::Code(code) =&gt; code.literal.clone(),
-<a href=#71 id=71 data-nosnippet>71</a>                    NodeValue::SoftBreak =&gt; <span class="string">" "</span>.into(),
-<a href=#72 id=72 data-nosnippet>72</a>                    <span class="kw">_ </span>=&gt; String::new(),
-<a href=#73 id=73 data-nosnippet>73</a>                })
-<a href=#74 id=74 data-nosnippet>74</a>                .collect();
-<a href=#75 id=75 data-nosnippet>75</a>            <span class="kw">let </span>text = text.trim();
-<a href=#76 id=76 data-nosnippet>76</a>            (!text.is_empty()).then(|| text.to_owned())
-<a href=#77 id=77 data-nosnippet>77</a>        })
-<a href=#78 id=78 data-nosnippet>78</a>    }
-<a href=#79 id=79 data-nosnippet>79</a>}
-<a href=#80 id=80 data-nosnippet>80</a>
-<a href=#81 id=81 data-nosnippet>81</a><span class="doccomment">/// Replace the mdBook preprocessor commands used by the zed docs
-<a href=#82 id=82 data-nosnippet>82</a>/// (`{#kb action}` / `{#action action}`) with code spans.
-<a href=#83 id=83 data-nosnippet>83</a></span><span class="kw">pub fn </span>preprocess(source: <span class="kw-2">&amp;</span>str) -&gt; String {
-<a href=#84 id=84 data-nosnippet>84</a>    <span class="kw">static </span>COMMAND: LazyLock&lt;Regex&gt; = LazyLock::new(|| Regex::new(<span class="string">r"\{#(?:kb|action)\s+([^}]+)\}"</span>).expect(<span class="string">"valid regex"</span>));
-<a href=#85 id=85 data-nosnippet>85</a>    COMMAND.replace_all(source, |found: <span class="kw-2">&amp;</span>regex::Captures| <span class="macro">format!</span>(<span class="string">"`{}`"</span>, found[<span class="number">1</span>].trim())).into_owned()
-<a href=#86 id=86 data-nosnippet>86</a>}
-<a href=#87 id=87 data-nosnippet>87</a>
-<a href=#88 id=88 data-nosnippet>88</a><span class="doccomment">/// Rewrite every `a[href]` / `img[src]` through `resolve` (None keeps the
-<a href=#89 id=89 data-nosnippet>89</a>/// link) and give tables Bootstrap's look.
-<a href=#90 id=90 data-nosnippet>90</a></span><span class="kw">pub fn </span>rewrite_links(html: <span class="kw-2">&amp;</span>str, resolve: <span class="kw">impl </span>Fn(<span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;String&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
-<a href=#91 id=91 data-nosnippet>91</a>    <span class="kw">let </span>resolve = <span class="kw-2">&amp;</span>resolve;
-<a href=#92 id=92 data-nosnippet>92</a>    <span class="kw">let </span>settings = RewriteStrSettings::new()
-<a href=#93 id=93 data-nosnippet>93</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"a[href]"</span>, <span class="kw">move </span>|el| {
-<a href=#94 id=94 data-nosnippet>94</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>(link) = el.get_attribute(<span class="string">"href"</span>).and_then(|href| resolve(<span class="kw-2">&amp;</span>href)) {
-<a href=#95 id=95 data-nosnippet>95</a>                el.set_attribute(<span class="string">"href"</span>, <span class="kw-2">&amp;</span>link)<span class="question-mark">?</span>;
-<a href=#96 id=96 data-nosnippet>96</a>            }
-<a href=#97 id=97 data-nosnippet>97</a>            <span class="prelude-val">Ok</span>(())
-<a href=#98 id=98 data-nosnippet>98</a>        }))
-<a href=#99 id=99 data-nosnippet>99</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"img[src]"</span>, <span class="kw">move </span>|el| {
-<a href=#100 id=100 data-nosnippet>100</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>(link) = el.get_attribute(<span class="string">"src"</span>).and_then(|src| resolve(<span class="kw-2">&amp;</span>src)) {
-<a href=#101 id=101 data-nosnippet>101</a>                el.set_attribute(<span class="string">"src"</span>, <span class="kw-2">&amp;</span>link)<span class="question-mark">?</span>;
+<a href=#59 id=59 data-nosnippet>59</a>    /// The first sentence of the first paragraph, as plain text (link and
+<a href=#60 id=60 data-nosnippet>60</a>    /// emphasis text kept, markup dropped).
+<a href=#61 id=61 data-nosnippet>61</a>    </span><span class="kw">pub fn </span>first_sentence(<span class="kw-2">&amp;</span><span class="self">self</span>, source: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;String&gt; {
+<a href=#62 id=62 data-nosnippet>62</a>        <span class="kw">let </span>arena = Arena::new();
+<a href=#63 id=63 data-nosnippet>63</a>        <span class="kw">let </span>root = parse_document(<span class="kw-2">&amp;</span>arena, <span class="kw-2">&amp;</span>preprocess(source), <span class="kw-2">&amp;</span><span class="self">self</span>.options);
+<a href=#64 id=64 data-nosnippet>64</a>        <span class="kw">let </span>paragraph = root
+<a href=#65 id=65 data-nosnippet>65</a>            .descendants()
+<a href=#66 id=66 data-nosnippet>66</a>            .find(|node| <span class="macro">matches!</span>(node.data().value, NodeValue::Paragraph))<span class="question-mark">?</span>;
+<a href=#67 id=67 data-nosnippet>67</a>        <span class="kw">let </span><span class="kw-2">mut </span>text = String::new();
+<a href=#68 id=68 data-nosnippet>68</a>        <span class="kw">for </span>node <span class="kw">in </span>paragraph.descendants() {
+<a href=#69 id=69 data-nosnippet>69</a>            <span class="kw">match </span><span class="kw-2">&amp;</span>node.data().value {
+<a href=#70 id=70 data-nosnippet>70</a>                NodeValue::Text(t) =&gt; text.push_str(t),
+<a href=#71 id=71 data-nosnippet>71</a>                NodeValue::Code(code) =&gt; text.push_str(<span class="kw-2">&amp;</span>code.literal),
+<a href=#72 id=72 data-nosnippet>72</a>                NodeValue::SoftBreak | NodeValue::LineBreak =&gt; text.push(<span class="string">' '</span>),
+<a href=#73 id=73 data-nosnippet>73</a>                <span class="kw">_ </span>=&gt; {}
+<a href=#74 id=74 data-nosnippet>74</a>            }
+<a href=#75 id=75 data-nosnippet>75</a>        }
+<a href=#76 id=76 data-nosnippet>76</a>        <span class="kw">let </span>text = text.trim();
+<a href=#77 id=77 data-nosnippet>77</a>        <span class="kw">let </span>end = text
+<a href=#78 id=78 data-nosnippet>78</a>            .match_indices(<span class="string">". "</span>)
+<a href=#79 id=79 data-nosnippet>79</a>            .map(|(at, <span class="kw">_</span>)| at + <span class="number">1</span>)
+<a href=#80 id=80 data-nosnippet>80</a>            .next()
+<a href=#81 id=81 data-nosnippet>81</a>            .unwrap_or(text.len());
+<a href=#82 id=82 data-nosnippet>82</a>        <span class="kw">let </span>sentence = text[..end].trim();
+<a href=#83 id=83 data-nosnippet>83</a>        (!sentence.is_empty()).then(|| sentence.to_owned())
+<a href=#84 id=84 data-nosnippet>84</a>    }
+<a href=#85 id=85 data-nosnippet>85</a>}
+<a href=#86 id=86 data-nosnippet>86</a>
+<a href=#87 id=87 data-nosnippet>87</a><span class="doccomment">/// Replace the mdBook preprocessor commands used by the zed docs
+<a href=#88 id=88 data-nosnippet>88</a>/// (`{#kb action}` / `{#action action}`) with code spans.
+<a href=#89 id=89 data-nosnippet>89</a></span><span class="kw">pub fn </span>preprocess(source: <span class="kw-2">&amp;</span>str) -&gt; String {
+<a href=#90 id=90 data-nosnippet>90</a>    <span class="kw">static </span>COMMAND: LazyLock&lt;Regex&gt; = LazyLock::new(|| Regex::new(<span class="string">r"\{#(?:kb|action)\s+([^}]+)\}"</span>).expect(<span class="string">"valid regex"</span>));
+<a href=#91 id=91 data-nosnippet>91</a>    COMMAND.replace_all(source, |found: <span class="kw-2">&amp;</span>regex::Captures| <span class="macro">format!</span>(<span class="string">"`{}`"</span>, found[<span class="number">1</span>].trim())).into_owned()
+<a href=#92 id=92 data-nosnippet>92</a>}
+<a href=#93 id=93 data-nosnippet>93</a>
+<a href=#94 id=94 data-nosnippet>94</a><span class="doccomment">/// Rewrite every `a[href]` / `img[src]` through `resolve` (None keeps the
+<a href=#95 id=95 data-nosnippet>95</a>/// link) and give tables Bootstrap's look.
+<a href=#96 id=96 data-nosnippet>96</a></span><span class="kw">pub fn </span>rewrite_links(html: <span class="kw-2">&amp;</span>str, resolve: <span class="kw">impl </span>Fn(<span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Option</span>&lt;String&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
+<a href=#97 id=97 data-nosnippet>97</a>    <span class="kw">let </span>resolve = <span class="kw-2">&amp;</span>resolve;
+<a href=#98 id=98 data-nosnippet>98</a>    <span class="kw">let </span>settings = RewriteStrSettings::new()
+<a href=#99 id=99 data-nosnippet>99</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"a[href]"</span>, <span class="kw">move </span>|el| {
+<a href=#100 id=100 data-nosnippet>100</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>(link) = el.get_attribute(<span class="string">"href"</span>).and_then(|href| resolve(<span class="kw-2">&amp;</span>href)) {
+<a href=#101 id=101 data-nosnippet>101</a>                el.set_attribute(<span class="string">"href"</span>, <span class="kw-2">&amp;</span>link)<span class="question-mark">?</span>;
 <a href=#102 id=102 data-nosnippet>102</a>            }
 <a href=#103 id=103 data-nosnippet>103</a>            <span class="prelude-val">Ok</span>(())
 <a href=#104 id=104 data-nosnippet>104</a>        }))
-<a href=#105 id=105 data-nosnippet>105</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"table"</span>, |el| {
-<a href=#106 id=106 data-nosnippet>106</a>            el.set_attribute(<span class="string">"class"</span>, <span class="string">"table table-sm table-striped"</span>)<span class="question-mark">?</span>;
-<a href=#107 id=107 data-nosnippet>107</a>            <span class="prelude-val">Ok</span>(())
-<a href=#108 id=108 data-nosnippet>108</a>        }));
-<a href=#109 id=109 data-nosnippet>109</a>    <span class="prelude-val">Ok</span>(rewrite_str(html, settings)<span class="question-mark">?</span>)
-<a href=#110 id=110 data-nosnippet>110</a>}
-<a href=#111 id=111 data-nosnippet>111</a>
-<a href=#112 id=112 data-nosnippet>112</a><span class="doccomment">/// Mark the links to `href` (the current page) as active.
-<a href=#113 id=113 data-nosnippet>113</a></span><span class="kw">pub fn </span>mark_active(html: <span class="kw-2">&amp;</span>str, href: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
-<a href=#114 id=114 data-nosnippet>114</a>    <span class="kw">let </span>settings = RewriteStrSettings::new().append_element_content_handler(<span class="macro">element!</span>(<span class="string">"a[href]"</span>, |el| {
-<a href=#115 id=115 data-nosnippet>115</a>        <span class="kw">if </span>el.get_attribute(<span class="string">"href"</span>).as_deref() == <span class="prelude-val">Some</span>(href) {
-<a href=#116 id=116 data-nosnippet>116</a>            el.set_attribute(<span class="string">"class"</span>, <span class="string">"active"</span>)<span class="question-mark">?</span>;
-<a href=#117 id=117 data-nosnippet>117</a>            el.set_attribute(<span class="string">"aria-current"</span>, <span class="string">"page"</span>)<span class="question-mark">?</span>;
-<a href=#118 id=118 data-nosnippet>118</a>        }
-<a href=#119 id=119 data-nosnippet>119</a>        <span class="prelude-val">Ok</span>(())
-<a href=#120 id=120 data-nosnippet>120</a>    }));
-<a href=#121 id=121 data-nosnippet>121</a>    <span class="prelude-val">Ok</span>(rewrite_str(html, settings)<span class="question-mark">?</span>)
-<a href=#122 id=122 data-nosnippet>122</a>}
+<a href=#105 id=105 data-nosnippet>105</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"img[src]"</span>, <span class="kw">move </span>|el| {
+<a href=#106 id=106 data-nosnippet>106</a>            <span class="kw">if let </span><span class="prelude-val">Some</span>(link) = el.get_attribute(<span class="string">"src"</span>).and_then(|src| resolve(<span class="kw-2">&amp;</span>src)) {
+<a href=#107 id=107 data-nosnippet>107</a>                el.set_attribute(<span class="string">"src"</span>, <span class="kw-2">&amp;</span>link)<span class="question-mark">?</span>;
+<a href=#108 id=108 data-nosnippet>108</a>            }
+<a href=#109 id=109 data-nosnippet>109</a>            <span class="prelude-val">Ok</span>(())
+<a href=#110 id=110 data-nosnippet>110</a>        }))
+<a href=#111 id=111 data-nosnippet>111</a>        .append_element_content_handler(<span class="macro">element!</span>(<span class="string">"table"</span>, |el| {
+<a href=#112 id=112 data-nosnippet>112</a>            el.set_attribute(<span class="string">"class"</span>, <span class="string">"table table-sm table-striped"</span>)<span class="question-mark">?</span>;
+<a href=#113 id=113 data-nosnippet>113</a>            <span class="prelude-val">Ok</span>(())
+<a href=#114 id=114 data-nosnippet>114</a>        }));
+<a href=#115 id=115 data-nosnippet>115</a>    <span class="prelude-val">Ok</span>(rewrite_str(html, settings)<span class="question-mark">?</span>)
+<a href=#116 id=116 data-nosnippet>116</a>}
+<a href=#117 id=117 data-nosnippet>117</a>
+<a href=#118 id=118 data-nosnippet>118</a><span class="doccomment">/// Mark the links to `href` (the current page) as active.
+<a href=#119 id=119 data-nosnippet>119</a></span><span class="kw">pub fn </span>mark_active(html: <span class="kw-2">&amp;</span>str, href: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
+<a href=#120 id=120 data-nosnippet>120</a>    <span class="kw">let </span>settings = RewriteStrSettings::new().append_element_content_handler(<span class="macro">element!</span>(<span class="string">"a[href]"</span>, |el| {
+<a href=#121 id=121 data-nosnippet>121</a>        <span class="kw">if </span>el.get_attribute(<span class="string">"href"</span>).as_deref() == <span class="prelude-val">Some</span>(href) {
+<a href=#122 id=122 data-nosnippet>122</a>            el.set_attribute(<span class="string">"class"</span>, <span class="string">"active"</span>)<span class="question-mark">?</span>;
+<a href=#123 id=123 data-nosnippet>123</a>            el.set_attribute(<span class="string">"aria-current"</span>, <span class="string">"page"</span>)<span class="question-mark">?</span>;
+<a href=#124 id=124 data-nosnippet>124</a>        }
+<a href=#125 id=125 data-nosnippet>125</a>        <span class="prelude-val">Ok</span>(())
+<a href=#126 id=126 data-nosnippet>126</a>    }));
+<a href=#127 id=127 data-nosnippet>127</a>    <span class="prelude-val">Ok</span>(rewrite_str(html, settings)<span class="question-mark">?</span>)
+<a href=#128 id=128 data-nosnippet>128</a>}
 </code></pre></div></section></main></body></html>
