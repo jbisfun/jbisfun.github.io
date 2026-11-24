@@ -157,8 +157,8 @@
 <pre class="syntax-highlighting" data-sourcepos="5:5-6:44"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifyCalculator.ipa (ad-hoc signed; re-sign to install)
 idl install &quot;&lt;device&gt;&quot; FossifyCalculator
 </span></code></pre>
-<p data-sourcepos="8:1-8:439">Ported: the calculator engine (CalculatorImpl, with Foundation <code data-sourcepos="8:64-8:72">Decimal</code> in place of BigDecimal/EvalEx) with its portrait and landscape keypads, long-press C to reset, long-press minus to negate, long-press the formula/result to copy; history (last 20, tap to reuse, long-press to copy, clear); all nine unit converters with every upstream unit and the remembered unit pair; colors, vibrate on button press and prevent phone from sleeping.</p>
-<p data-sourcepos="10:1-10:168">Differences forced by iOS: no home-screen widget (it would need a WidgetKit extension plus an App Group), no in-app language switch, and converter icons are SF Symbols.</p>
+<p data-sourcepos="8:1-8:611">Ported: the calculator engine (CalculatorImpl, with Foundation <code data-sourcepos="8:64-8:72">Decimal</code> in place of BigDecimal/EvalEx) with its portrait and landscape keypads, long-press C to reset, long-press minus to negate, long-press the formula/result to copy; history (last 20, tap to reuse, long-press to copy, clear); all nine unit converters with every upstream unit and the remembered unit pair; colors, vibrate on button press and prevent phone from sleeping; the home-screen calculator widget (4x4, resizable to 3x3, with AC, tap the display to open the app) and its configure screen (background color + transparency, text color).</p>
+<p data-sourcepos="10:1-10:198">Differences forced by iOS: the widget is available inside launcher-ios only (iOS home-screen widgets would need a WidgetKit extension), no in-app language switch, and converter icons are SF Symbols.</p>
 <p data-sourcepos="12:1-12:27">GPL-3.0, like the original.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
