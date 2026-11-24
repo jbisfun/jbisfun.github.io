@@ -50,11 +50,39 @@
 
           <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">fossify-ios&#x2f;calculator-ios</a></li>
 
+          <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">fossify-ios&#x2f;calendar-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">fossify-ios&#x2f;camera-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">fossify-ios&#x2f;clock-ios</a></li>
+
           <li><a class="dropdown-item active" href="index.html">fossify-ios&#x2f;commons-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">fossify-ios&#x2f;contacts-ios</a></li>
 
+          <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">fossify-ios&#x2f;documents-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">fossify-ios&#x2f;file-manager-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">fossify-ios&#x2f;gallery-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">fossify-ios&#x2f;keyboard-ios</a></li>
+
           <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">fossify-ios&#x2f;launcher-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">fossify-ios&#x2f;messages-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">fossify-ios&#x2f;music-player-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">fossify-ios&#x2f;notes-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">fossify-ios&#x2f;paint-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">fossify-ios&#x2f;phone-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">fossify-ios&#x2f;thank-you-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">fossify-ios&#x2f;voice-recorder-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
 
@@ -126,15 +154,30 @@
 
       <h1 id="commons-ios" data-sourcepos="1:1-1:13">commons-ios<a href="#commons-ios" aria-label="Link to heading 'commons-ios'" data-heading-content="commons-ios" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:264">Shared core of the Fossify iOS ports (<a data-sourcepos="3:39-3:93" href="https://github.com/jbisfun/contacts-ios">contacts-ios</a>, <a data-sourcepos="3:96-3:154" href="https://github.com/jbisfun/calculator-ios">calculator-ios</a>), the counterpart of <a data-sourcepos="3:177-3:232" href="https://github.com/FossifyOrg/Commons">Fossify Commons</a>. Swift module <code data-sourcepos="3:248-3:263">FossifyCommons</code>.</p>
-<ul data-sourcepos="5:1-9:124">
+<ul data-sourcepos="5:1-24:169">
 <li data-sourcepos="5:1-5:85"><code data-sourcepos="5:3-5:14">BaseConfig</code>: theme, custom colors, font size (same UserDefaults keys in every app)</li>
 <li data-sourcepos="6:1-6:119"><code data-sourcepos="6:3-6:9">Theme</code>: <code data-sourcepos="6:12-6:22">ThemeKind</code>, <code data-sourcepos="6:25-6:33">Palette</code> (<code data-sourcepos="6:36-6:46">\.palette</code> environment), <code data-sourcepos="6:62-6:78">.fossifyTheme()</code> for the app root, <code data-sourcepos="6:98-6:119">.paletteBackground()</code></li>
 <li data-sourcepos="7:1-7:193"><code data-sourcepos="7:3-7:14">Components</code>: <code data-sourcepos="7:17-7:29">RadioDialog</code>, <code data-sourcepos="7:32-7:41">CheckRow</code>, <code data-sourcepos="7:44-7:56">DialogFrame</code>, <code data-sourcepos="7:59-7:73">DialogButtons</code>, <code data-sourcepos="7:76-7:83">.toast</code>, <code data-sourcepos="7:86-7:101">.sectionHeader</code>, <code data-sourcepos="7:104-7:111">TopBar</code>, <code data-sourcepos="7:114-7:125">IconButton</code>, <code data-sourcepos="7:128-7:141">PressedStyle</code>, <code data-sourcepos="7:144-7:153">Launcher</code>, swipe-back with hidden navigation bars</li>
 <li data-sourcepos="8:1-8:96"><code data-sourcepos="8:3-8:12">Settings</code>: <code data-sourcepos="8:15-8:28">SettingsItem</code>, <code data-sourcepos="8:31-8:46">SettingsToggle</code>, <code data-sourcepos="8:49-8:69">CustomizeColorsView</code>, <code data-sourcepos="8:72-8:96">AboutView(app: AppInfo)</code></li>
 <li data-sourcepos="9:1-9:124"><code data-sourcepos="9:3-9:11">Hosting</code>: <code data-sourcepos="9:14-9:25">\.closeApp</code> / <code data-sourcepos="9:29-9:44">CloseAppButton</code> for apps running inside <a data-sourcepos="9:70-9:124" href="https://github.com/jbisfun/launcher-ios">launcher-ios</a></li>
+<li data-sourcepos="10:1-10:151"><code data-sourcepos="10:3-10:19">NotificationHub</code>: the process’ single notification delegate and merged category set; apps register handlers instead of setting the center’s delegate</li>
+<li data-sourcepos="11:1-11:148"><code data-sourcepos="11:3-11:18">DateTimeFormat</code>: date format / 24-hour settings with <code data-sourcepos="11:57-11:68">format(_:)</code>, <code data-sourcepos="11:71-11:98">ChangeDateTimeFormatDialog</code>, <code data-sourcepos="11:101-11:125">Int.formattedDuration()</code>, <code data-sourcepos="11:128-11:148">Int64.formattedSize</code></li>
+<li data-sourcepos="12:1-12:130"><code data-sourcepos="12:3-12:21">ColorPickerDialog</code>: the system color picker as a sheet; <code data-sourcepos="12:60-12:76">OrientationLock</code> + <code data-sourcepos="12:80-12:104">OrientationLockDelegate</code> for “Force portrait mode”</li>
+<li data-sourcepos="13:1-13:171"><code data-sourcepos="13:3-13:18">SecurityDialog</code>: pattern / PIN / Face ID tabs, <code data-sourcepos="13:51-13:66">SecurityConfig</code>, <code data-sourcepos="13:69-13:94">.securityCheck($request)</code>, <code data-sourcepos="13:97-13:108">.appLock()</code>, <code data-sourcepos="13:111-13:136">PasswordProtectionToggle</code> (needs <code data-sourcepos="13:145-13:170">NSFaceIDUsageDescription</code>)</li>
+<li data-sourcepos="14:1-14:189"><code data-sourcepos="14:3-14:20">StoredProtection</code>: hidden items / per-folder (<code data-sourcepos="14:50-14:77">ProtectionKeys.hiddenItems</code>, <code data-sourcepos="14:80-14:94">.folder(path)</code>) or app-specific protections, <code data-sourcepos="14:126-14:163">StoredProtection.check(_:onSuccess:)</code>, <code data-sourcepos="14:166-14:189">StoredProtectionToggle</code></li>
+<li data-sourcepos="15:1-15:118"><code data-sourcepos="15:3-15:14">AutoBackup</code>: 6 AM backup slot, <code data-sourcepos="15:35-15:49">%Y%M%D_%h%m%s</code> filenames, <code data-sourcepos="15:62-15:89">currentFormattedDateTime()</code>, <code data-sourcepos="15:92-15:118">DateTimePatternInfoDialog</code></li>
+<li data-sourcepos="16:1-16:274">Files: <code data-sourcepos="16:10-16:22">FileDirItem</code> + <code data-sourcepos="16:26-16:34">Sorting</code>/<code data-sourcepos="16:36-16:46">ViewTypes</code>, <code data-sourcepos="16:49-16:61">StorageRoot</code>, <code data-sourcepos="16:64-16:76">Breadcrumbs</code>, <code data-sourcepos="16:79-16:96">FilePickerDialog</code>, <code data-sourcepos="16:99-16:119">StoragePickerDialog</code>, <code data-sourcepos="16:122-16:144">CreateNewFolderDialog</code>, <code data-sourcepos="16:147-16:163">DialogTextField</code>, <code data-sourcepos="16:166-16:183">PropertiesDialog</code>, <code data-sourcepos="16:186-16:203">RenameItemDialog</code> / <code data-sourcepos="16:207-16:225">RenameItemsDialog</code>, <code data-sourcepos="16:228-16:247">FileConflictDialog</code> + <code data-sourcepos="16:251-16:274">.conflictCheck($check)</code></li>
+<li data-sourcepos="17:1-17:244">Alarms: <code data-sourcepos="17:11-17:20">WeekDays</code> (first day of week, day bits/names), <code data-sourcepos="17:59-17:75">DurationStrings</code>, <code data-sourcepos="17:78-17:96">PickSecondsDialog</code> / <code data-sourcepos="17:100-17:127">CustomIntervalPickerDialog</code>, <code data-sourcepos="17:130-17:141">AlarmSound</code> / <code data-sourcepos="17:145-17:168">SelectAlarmSoundDialog</code> / <code data-sourcepos="17:172-17:189">AlarmSoundPlayer</code>, <code data-sourcepos="17:192-17:207">ReminderConfig</code> (snooze, alarm warning, your sounds)</li>
+<li data-sourcepos="18:1-18:143"><code data-sourcepos="18:3-18:14">ShareSheet</code>: <code data-sourcepos="18:17-18:28">ShareSheet</code> / <code data-sourcepos="18:32-18:43">ShareItems</code> (system share sheet), <code data-sourcepos="18:67-18:89">Launcher.openWith(_:)</code> (“Open with” chooser), <code data-sourcepos="18:114-18:143">Launcher.topViewController()</code></li>
+<li data-sourcepos="19:1-19:141">Lists: <code data-sourcepos="19:10-19:24">ActionModeBar</code> (selection CAB), <code data-sourcepos="19:43-19:56">OverflowMenu</code>, <code data-sourcepos="19:59-19:82">toggleSelection(_:in:)</code>, <code data-sourcepos="19:85-19:98">FastScroller</code> (RecyclerViewFastScroller handle + bubble)</li>
+<li data-sourcepos="20:1-20:190"><code data-sourcepos="20:3-20:18">BlockedNumbers</code>: shared block list with <code data-sourcepos="20:44-20:58">isBlocked(_:)</code> (patterns too), <code data-sourcepos="20:76-20:101">ManageBlockedNumbersView</code>, <code data-sourcepos="20:104-20:121">BlockedItemsView</code> (add/edit, copy, delete, .txt import/export), <code data-sourcepos="20:169-20:190">ExportTextFileDialog</code></li>
+<li data-sourcepos="21:1-21:202"><code data-sourcepos="21:3-21:18">GlobalSettings</code>: global “show checkmarks on switches” / “binary storage units” keys, <code data-sourcepos="21:89-21:110">CheckmarkSwitchStyle</code> (used by <code data-sourcepos="21:121-21:136">SettingsToggle</code>); <code data-sourcepos="21:140-21:153">DonationView</code> (DonationActivity: platforms + crypto addresses)</li>
+<li data-sourcepos="22:1-22:220"><code data-sourcepos="22:3-22:22">LetterFastScroller</code> (indicatorfastscroll letter column + bubble, <code data-sourcepos="22:69-22:78">firstIDs</code>), <code data-sourcepos="22:82-22:95">KeypadHelper</code> (T9 letters -&gt; digits, keypad letters), <code data-sourcepos="22:137-22:174">DateTimeFormat.formatDateOrTime(...)</code>, <code data-sourcepos="22:177-22:207">DurationStrings.shortTime(_:)</code> (“1h 5m 3s”)</li>
+<li data-sourcepos="23:1-23:111"><code data-sourcepos="23:3-23:38">OpenDeviceSettingsDialog(message:)</code> (denied permission -&gt; “Go to Settings”), <code data-sourcepos="23:81-23:111">Launcher.openDeviceSettings()</code></li>
+<li data-sourcepos="24:1-24:169"><code data-sourcepos="24:3-24:16">ColorShading</code>: <code data-sourcepos="24:19-24:40">UInt32.darkened(by:)</code> / <code data-sourcepos="24:44-24:59">lightened(by:)</code> / <code data-sourcepos="24:63-24:81">alphaAdjusted(_:)</code> / <code data-sourcepos="24:85-24:98">contrastARGB</code> (Commons’ darkenColor / lightenColor / adjustAlpha / getContrastColor)</li>
 </ul>
-<p data-sourcepos="11:1-11:124">Apps check it out next to themselves in the pull workspace (<code data-sourcepos="11:61-11:85">fossify-ios/commons-ios</code>) and build it as an idl static target:</p>
-<pre class="syntax-highlighting" data-sourcepos="13:1-25:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+<p data-sourcepos="26:1-26:124">Apps check it out next to themselves in the pull workspace (<code data-sourcepos="26:61-26:85">fossify-ios/commons-ios</code>) and build it as an idl static target:</p>
+<pre class="syntax-highlighting" data-sourcepos="28:1-40:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">FossifyCalculator</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">link</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">FossifyCommons</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
     <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> ...
@@ -146,7 +189,7 @@
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">SwiftUI</span><span class="hl-punctuation hl-separator hl-sequence hl-yaml">,</span> <span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">UIKit</span><span class="hl-punctuation hl-separator hl-sequence hl-yaml">,</span> <span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Foundation</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">swift_version</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span>5.0<span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
 </span></code></pre>
-<p data-sourcepos="27:1-27:30">GPL-3.0, like Fossify Commons.</p>
+<p data-sourcepos="42:1-42:30">GPL-3.0, like Fossify Commons.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

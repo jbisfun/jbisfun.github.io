@@ -50,11 +50,39 @@
 
           <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">fossify-ios&#x2f;calculator-ios</a></li>
 
+          <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">fossify-ios&#x2f;calendar-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">fossify-ios&#x2f;camera-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">fossify-ios&#x2f;clock-ios</a></li>
+
           <li><a class="dropdown-item" href="..&#x2f;commons-ios&#x2f;index.html">fossify-ios&#x2f;commons-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">fossify-ios&#x2f;contacts-ios</a></li>
 
+          <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">fossify-ios&#x2f;documents-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">fossify-ios&#x2f;file-manager-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">fossify-ios&#x2f;gallery-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">fossify-ios&#x2f;keyboard-ios</a></li>
+
           <li><a class="dropdown-item active" href="index.html">fossify-ios&#x2f;launcher-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">fossify-ios&#x2f;messages-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">fossify-ios&#x2f;music-player-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">fossify-ios&#x2f;notes-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">fossify-ios&#x2f;paint-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">fossify-ios&#x2f;phone-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">fossify-ios&#x2f;thank-you-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">fossify-ios&#x2f;voice-recorder-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
 
@@ -129,9 +157,10 @@
 <pre class="syntax-highlighting" data-sourcepos="5:5-6:42"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifyLauncher.ipa (ad-hoc signed; re-sign to install)
 idl install &quot;&lt;device&gt;&quot; FossifyLauncher
 </span></code></pre>
-<p data-sourcepos="8:1-8:464">Each app still builds on its own. Its repo splits into a static <code data-sourcepos="8:65-8:74">&lt;App&gt;Kit</code> module (<code data-sourcepos="8:84-8:93">Sources/</code>, public entry view <code data-sourcepos="8:114-8:129">CalculatorRoot</code> / <code data-sourcepos="8:133-8:146">ContactsRoot</code>) and a one-file app target (<code data-sourcepos="8:176-8:191">App/main.swift</code>). The launcher links the kits and <a data-sourcepos="8:227-8:279" href="https://github.com/jbisfun/commons-ios">commons-ios</a> from the sibling checkouts in <code data-sourcepos="8:311-8:324">fossify-ios/</code> (calculator-ios, contacts-ios, commons-ios). An app hosted by the launcher gets <code data-sourcepos="8:406-8:417">\.closeApp</code> in its environment and shows <code data-sourcepos="8:448-8:463">CloseAppButton</code>.</p>
-<p data-sourcepos="10:1-10:189">Adding an app: give it the Kit/App split, add its Kit target to <code data-sourcepos="10:65-10:77">idlproj.yml</code>, merge its Info.plist keys into the launcher’s <code data-sourcepos="10:126-10:132">info:</code>, add a case to <code data-sourcepos="10:149-10:160">BundledApp</code> plus a 180 px icon imageset.</p>
-<p data-sourcepos="12:1-12:8">GPL-3.0.</p>
+<p data-sourcepos="8:1-8:567">Bundled: Calculator, Calendar, Camera, Clock, Contacts, Documents, File Manager, Gallery, Keyboard (in-app only; the system keyboard extension ships with keyboard-ios), Messages, Music Player, Notes, Paint, Phone, Thank You, Voice Recorder. Files shared to the launcher are routed by type (<code data-sourcepos="8:291-8:311">BundledApp.handling</code>): vCards to Contacts, .ics to Calendar, text to Notes, documents to Documents, audio to Music Player, images to Paint, the rest to File Manager. Notifications go through commons’ <code data-sourcepos="8:492-8:508">NotificationHub</code> so Clock and Calendar don’t replace each other’s delegate.</p>
+<p data-sourcepos="10:1-10:464">Each app still builds on its own. Its repo splits into a static <code data-sourcepos="10:65-10:74">&lt;App&gt;Kit</code> module (<code data-sourcepos="10:84-10:93">Sources/</code>, public entry view <code data-sourcepos="10:114-10:129">CalculatorRoot</code> / <code data-sourcepos="10:133-10:146">ContactsRoot</code>) and a one-file app target (<code data-sourcepos="10:176-10:191">App/main.swift</code>). The launcher links the kits and <a data-sourcepos="10:227-10:279" href="https://github.com/jbisfun/commons-ios">commons-ios</a> from the sibling checkouts in <code data-sourcepos="10:311-10:324">fossify-ios/</code> (calculator-ios, contacts-ios, commons-ios). An app hosted by the launcher gets <code data-sourcepos="10:406-10:417">\.closeApp</code> in its environment and shows <code data-sourcepos="10:448-10:463">CloseAppButton</code>.</p>
+<p data-sourcepos="12:1-12:429">Adding an app: give it the Kit/App split, add its Kit target to <code data-sourcepos="12:65-12:77">idlproj.yml</code>, merge its Info.plist keys into the launcher’s <code data-sourcepos="12:126-12:132">info:</code>, add a case to <code data-sourcepos="12:149-12:160">BundledApp</code> (and its file types to <code data-sourcepos="12:185-12:194">handling</code>) plus its 180 px icon as <code data-sourcepos="12:221-12:251">Resources/AppIcons/&lt;name&gt;.png</code>. Resources of a Kit (e.g. Calendar’s <code data-sourcepos="12:290-12:306">Holidays.bundle</code>, Camera’s <code data-sourcepos="12:318-12:338">CameraSounds.bundle</code>) must be copied into <code data-sourcepos="12:361-12:372">Resources/</code>, since idl resources can’t point outside the target dir.</p>
+<p data-sourcepos="14:1-14:8">GPL-3.0.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

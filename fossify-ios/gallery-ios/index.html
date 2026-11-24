@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gallery-ios · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">fossify-ios&#x2f;calculator-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">fossify-ios&#x2f;calendar-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">fossify-ios&#x2f;camera-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">fossify-ios&#x2f;clock-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;commons-ios&#x2f;index.html">fossify-ios&#x2f;commons-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">fossify-ios&#x2f;contacts-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">fossify-ios&#x2f;documents-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">fossify-ios&#x2f;file-manager-ios</a></li>
+
+          <li><a class="dropdown-item active" href="index.html">fossify-ios&#x2f;gallery-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">fossify-ios&#x2f;keyboard-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">fossify-ios&#x2f;launcher-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">fossify-ios&#x2f;messages-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">fossify-ios&#x2f;music-player-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">fossify-ios&#x2f;notes-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">fossify-ios&#x2f;paint-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">fossify-ios&#x2f;phone-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">fossify-ios&#x2f;thank-you-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">fossify-ios&#x2f;voice-recorder-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;gallery-ios">Source on GitHub</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="fossify-ios&#x2f;gallery-ios" data-radar-file="README.md">
+
+      <h1 id="gallery-ios" data-sourcepos="1:1-1:13">gallery-ios<a href="#gallery-ios" aria-label="Link to heading 'gallery-ios'" data-heading-content="gallery-ios" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:183"><a data-sourcepos="3:1-3:56" href="https://github.com/FossifyOrg/Gallery">Fossify Gallery</a> re-created for iOS in SwiftUI, on top of the system photo library (PhotoKit): folders are albums, files are photos and videos.</p>
+<pre class="syntax-highlighting" data-sourcepos="5:5-6:41"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifyGallery.ipa (ad-hoc signed; re-sign to install)
+idl install &quot;&lt;device&gt;&quot; FossifyGallery
+</span></code></pre>
+<p data-sourcepos="8:1-8:1214">Ported: folders screen (grid/list, square or rounded thumbnails, media count styles, pinning, custom drag order, cover images, sorting, media type filter, column count with pinch zoom, horizontal scrolling, search, show all folders content, default folder, temporarily show hidden/excluded); folder actions (rename, hide, exclude, lock, copy/move content, delete, properties); media screen with sorting, grouping, view types and file name toggle; multi-select actions (share, rotate, favorite, hide, copy/move, resize, fix date taken, edit, delete, properties); fullscreen viewer with deep zoom, 1:1 zoom, rotating gestures, instant change, down gesture, brightness gestures, extended details, bottom actions, slideshow, print, show on map, change orientation; video player with seek bar, ±10 s, playback speed, mute, loop, autoplay, remembered position, volume/brightness gestures and the separate-screen player; editor with crop (free, 1:1, 4:3, 16:9, other ratios), rotate, flip, filters and drawing, saved as a copy or over the original; file search; open camera; excluded folders; password protection of the app, hidden items, excluded folders, deletion and folders; date format and every applicable setting.</p>
+<p data-sourcepos="10:1-10:582">Differences forced by iOS: deleted media go to the system’s Recently Deleted (after iOS’ own confirmation), so there is no in-app recycle bin; “Hide” uses the Photos Hidden album instead of .nomedia files, so there are no managed hidden or included folders and no subfolder grouping; files can’t be renamed or set as wallpaper; no home-screen widget, launcher shortcuts, pick/view intents for other apps, default player choice, notch setting, in-app language switch or settings/favorites export; filters are Core Image photo effects and the volume gesture changes the player volume.</p>
+<p data-sourcepos="12:1-12:27">GPL-3.0, like the original.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;gallery-ios&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>
