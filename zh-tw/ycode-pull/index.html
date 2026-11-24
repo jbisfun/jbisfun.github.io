@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ycode-pull · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-pull">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;ycode-pull&#x2f;api&#x2f;lua&#x2f;index.html">ycode-pull</a> <span class="badge text-bg-secondary">Lua</span></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="ycode-pull" data-sourcepos="1:1-1:12">ycode-pull<a href="#ycode-pull" aria-label="Link to heading 'ycode-pull'" data-heading-content="ycode-pull" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:71">在 ycode 中使用 <a data-sourcepos="3:21-3:59" href="https://github.com/jbisfun/pull">pull</a>，是建立在
+ycode 的 <code data-sourcepos="4:11-4:21">lua_hooks</code>（<code data-sourcepos="4:25-4:42">gpui.open_window</code>）上的 Lua 擴充功能。</p>
+<p data-sourcepos="6:1-7:181">一個視窗，提供 status / sync / update / push、一個 commit 輸入框（40 字元計數器、<code data-sourcepos="6:102-6:105">-a</code> 切換、
+ctrl-enter 會透過 <code data-sourcepos="7:22-7:34">pull commit</code> 提交，因此 pullfile 的 lint 規則與 hooks 都會套用），以及工作區 worktree。指令在背景執行，並即時串流其輸出。</p>
+<h2 id="install" data-sourcepos="9:1-9:9">安裝<a href="#install" aria-label="Link to heading '安裝'" data-heading-content="安裝" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="11:5-12:47"><code><span class="hl-text hl-plain"># from the ycode-pull clone
+ln -s &quot;$PWD&quot; ~/.config/zed/hooks/ycode-pull
+</span></code></pre>
+<p data-sourcepos="14:1-14:64">然後執行「ycode: reload hooks」。以下列方式開啟它</p>
+<pre class="syntax-highlighting" data-sourcepos="16:5-17:75"><code><span class="hl-text hl-plain">ycode.dispatch(&quot;pull::Open&quot;)                       -- executor
+&quot;ctrl-alt-p&quot;: [&quot;ycode::Run&quot;, { &quot;name&quot;: &quot;pull::Open&quot; }]   -- keymap.json
+</span></code></pre>
+<p data-sourcepos="19:1-19:301">工作區根目錄為 <code data-sourcepos="19:23-19:34">$PULL_ROOT</code>（由 <code data-sourcepos="19:42-19:53">pull shell</code> / <code data-sourcepos="19:57-19:66">pull env</code> 設定），否則是 ycode 中已開啟資料夾上層最近的 <code data-sourcepos="19:133-19:148">pullfile.plist</code>（優先使用作用中的視窗），再不然是 ycode 工作目錄上層的；也可以在視窗中變更。<code data-sourcepos="19:261-19:266">pull</code> 必須位於 ycode 的 PATH 上。</p>
+<h2 id="changes-panel" data-sourcepos="21:1-21:15">變更面板<a href="#changes-panel" aria-label="Link to heading '變更面板'" data-heading-content="變更面板" class="anchor"></a></h2>
+<p data-sourcepos="23:1-23:107">「pull: changes」會切換左側停駐面板，顯示每個儲存庫的變更、分支與 ahead/behind。</p>
+<ul data-sourcepos="25:1-27:85">
+<li data-sourcepos="25:1-25:109">點擊檔案即可開啟；勾選檔案（或儲存庫）即可透過 <code data-sourcepos="25:73-25:82">pull add</code> / <code data-sourcepos="25:86-25:99">pull unstage</code> 暫存。</li>
+<li data-sourcepos="26:1-26:122">Commit 會執行 <code data-sourcepos="26:20-26:32">pull commit</code>（若沒有暫存任何內容則加上 <code data-sourcepos="26:73-26:76">-a</code>），並套用 pullfile 的 lint 與 hooks。</li>
+<li data-sourcepos="27:1-27:85">Sync、Update 與 Push 作用於整個工作區。Zed 的 git 面板會被隱藏。</li>
+</ul>
+<h2 id="jobs-panel" data-sourcepos="29:1-29:15">工作面板<a href="#jobs-panel" aria-label="Link to heading '工作面板'" data-heading-content="工作面板" class="anchor"></a></h2>
+<p data-sourcepos="31:1-31:138">「pull: jobs」會切換底部停駐面板，顯示 pullfile 的 <code data-sourcepos="31:67-31:72">jobs</code> 與臨時 session。檢視器會即時顯示所選的終端機：</p>
+<ul data-sourcepos="33:1-34:64">
+<li data-sourcepos="33:1-33:110">可在其中輸入、傳送 ctrl-c、啟動／停止／重新啟動、載入或卸載工作、移除 session</li>
+<li data-sourcepos="34:1-34:64">在 <code data-sourcepos="34:7-34:17">$TERMINAL</code> 中開啟它（透過 <code data-sourcepos="34:41-34:61">pull session attach</code>）</li>
+</ul>
+<h2 id="mcp" data-sourcepos="36:1-36:6">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
+<p data-sourcepos="38:1-39:56">在 pull 工作區中，外掛會執行 <code data-sourcepos="38:41-38:58">pull mcp-servers</code>，並註冊它傳回的每個伺服器（<code data-sourcepos="38:101-38:117">context_servers</code>，記憶體內的設定層）：包括 <code data-sourcepos="38:158-38:181">pull mcp --root &lt;root&gt;</code> 本身（工作區、搜尋、exec 與終端機 session 工具），以及 pullfile 的
+<code data-sourcepos="39:1-39:13">mcp_servers</code> 區段所設定的其他伺服器，例如</p>
+<pre class="syntax-highlighting" data-sourcepos="41:5-45:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;radar&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
+&lt;/dict&gt;
+</span></code></pre>
+<p data-sourcepos="47:1-48:64">（<code data-sourcepos="47:4-47:12">command</code> 預設為區段鍵名，並在 PATH 上解析；這些伺服器會設定 <code data-sourcepos="47:87-47:97">PULL_ROOT</code>）。
+ycode 也會將這一切轉送給 Hermes 等 ACP 代理程式。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-pull&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

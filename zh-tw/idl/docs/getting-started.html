@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>開始使用 · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;getting-started.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;getting-started.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="getting-started.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;idl">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="architecture.html">架構</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="configuration.html">idlproj.yml 參考</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="getting-started.html" class="active" aria-current="page">開始使用</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="limitations.html">已知限制</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workflows.html">常見工作流程</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;getting-started.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="getting-started" data-sourcepos="1:1-1:14">開始使用<a href="#getting-started" aria-label="Link to heading '開始使用'" data-heading-content="開始使用" class="anchor"></a></h1>
+<h2 id="requirements" data-sourcepos="3:1-3:9">需求<a href="#requirements" aria-label="Link to heading '需求'" data-heading-content="需求" class="anchor"></a></h2>
+<table data-sourcepos="5:1-10:123" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="5:1-5:28">
+<th data-sourcepos="5:2-5:9">工具</th>
+<th data-sourcepos="5:11-5:18">用途</th>
+<th data-sourcepos="5:20-5:27">安裝</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="7:1-7:62">
+<td data-sourcepos="7:2-7:13">Zig 0.14.1</td>
+<td data-sourcepos="7:15-7:28">建置 <code data-sourcepos="7:23-7:27">idl</code></td>
+<td data-sourcepos="7:30-7:61">發行版套件或 ziglang.org</td>
+</tr>
+<tr data-sourcepos="8:1-8:125">
+<td data-sourcepos="8:2-8:43">Swift toolchain (clang, clang++, swiftc)</td>
+<td data-sourcepos="8:45-8:74">為 <code data-sourcepos="8:50-8:66">arm64-apple-ios</code> 編譯</td>
+<td data-sourcepos="8:76-8:124"><a data-sourcepos="8:77-8:123" href="https://www.swift.org/install/linux/">swiftly</a></td>
+</tr>
+<tr data-sourcepos="9:1-9:154">
+<td data-sourcepos="9:2-9:21">xtool + Darwin SDK</td>
+<td data-sourcepos="9:23-9:78">iPhoneOS SDK、<code data-sourcepos="9:39-9:48">ld64.lld</code>、compiler-rt、Swift 資源</td>
+<td data-sourcepos="9:80-9:153"><a data-sourcepos="9:81-9:123" href="https://github.com/xtool-org/xtool">xtool</a>，然後執行 <code data-sourcepos="9:140-9:152">xtool setup</code></td>
+</tr>
+<tr data-sourcepos="10:1-10:123">
+<td data-sourcepos="10:2-10:7">ldid</td>
+<td data-sourcepos="10:9-10:23">ad-hoc 簽署</td>
+<td data-sourcepos="10:25-10:122"><a data-sourcepos="10:26-10:84" href="https://github.com/ProcursusTeam/ldid">ProcursusTeam/ldid</a> 發行版執行檔或發行版套件</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="12:1-14:55"><code data-sourcepos="12:1-12:5">idl</code> 絕不會安裝任何東西。它只會尋找這些工具，而 <code data-sourcepos="12:71-12:81">idl check</code>（以及每次建置）會在缺少任何工具時中止，並顯示指出缺少項目的錯誤。你不需要
+Python、Make、<code data-sourcepos="13:17-13:21">zip</code>、<code data-sourcepos="13:25-13:31">unzip</code> 或 <code data-sourcepos="13:37-13:50">llvm-objdump</code>：<code data-sourcepos="13:54-13:58">idl</code> 會自行寫入 ZIP、解析
+Mach-O 檔案，並處理 plist（透過 libplist）。</p>
+<h2 id="build-idl" data-sourcepos="16:1-16:13">建置 idl<a href="#build-idl" aria-label="Link to heading '建置 idl'" data-heading-content="建置 idl" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="18:5-20:50"><code><span class="hl-text hl-plain">zig build                         # Debug build in ./zig-out/bin/idl
+zig build -Doptimize=ReleaseSafe  # optimized build
+zig build test                    # unit tests
+</span></code></pre>
+<p data-sourcepos="22:1-22:92"><code data-sourcepos="22:1-22:11">zig build</code> 會下載其相依套件，這些套件已在 <code data-sourcepos="22:59-22:73">build.zig.zon</code> 中固定版本：</p>
+<ul data-sourcepos="24:1-26:164">
+<li data-sourcepos="24:1-24:73"><a data-sourcepos="24:3-24:48" href="https://github.com/Hejsil/zig-clap">zig-clap</a> 0.10.0：命令列解析</li>
+<li data-sourcepos="25:1-25:77"><a data-sourcepos="25:3-25:48" href="https://github.com/kubkon/zig-yaml">zig-yaml</a> 0.1.1：<code data-sourcepos="25:58-25:70">idlproj.yml</code> 解析</li>
+<li data-sourcepos="26:1-26:164"><a data-sourcepos="26:3-26:58" href="https://github.com/libimobiledevice/libplist">libplist</a> 2.8.1：屬性清單（property list）。它從 git 取得，並由 <code data-sourcepos="26:129-26:139">build.zig</code> 以 C 原始碼編譯。</li>
+</ul>
+<p data-sourcepos="28:1-28:132">若要在任何地方使用 <code data-sourcepos="28:29-28:33">idl</code>，請將 <code data-sourcepos="28:44-28:60">zig-out/bin/idl</code> 複製到 <code data-sourcepos="28:72-28:77">PATH</code> 中的資料夾，或使用 <code data-sourcepos="28:107-28:129">zig build -p ~/.local</code>。</p>
+<p data-sourcepos="30:1-32:84"><code data-sourcepos="30:1-30:10">idl init</code> 只會建立應用程式原始碼、<code data-sourcepos="30:48-30:59">.gitignore</code> 與 <code data-sourcepos="30:65-30:77">idlproj.yml</code>。Info.plist
+與 entitlements 由 YAML 產生；請在
+<code data-sourcepos="32:1-32:7">info:</code> 與 <code data-sourcepos="32:13-32:27">entitlements:</code> 下設定任意鍵值。不需要任何 XML 原始檔。</p>
+<p data-sourcepos="34:1-35:25">若需要資源目錄（asset catalog），請在 PATH 中有 Swift 工具鏈的情況下，另外執行 <code data-sourcepos="34:106-34:123">zig build actool</code>。這個輔助工具預設使用共用的 Swift 執行階段函式庫；若要脫離該工具鏈獨立散布，請使用
+<code data-sourcepos="35:1-35:22">-Dactool-static=true</code>。</p>
+<h2 id="check-the-toolchain" data-sourcepos="37:1-37:18">檢查工具鏈<a href="#check-the-toolchain" aria-label="Link to heading '檢查工具鏈'" data-heading-content="檢查工具鏈" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="39:5-39:13"><code><span class="hl-text hl-plain">idl check
+</span></code></pre>
+<p data-sourcepos="41:1-41:15">範例輸出：</p>
+<pre class="syntax-highlighting" data-sourcepos="43:5-49:7"><code><span class="hl-text hl-plain">sdk              ~/.swiftpm/.../iPhoneOS27.2.sdk
+sdk version      27.2
+swift resources  ~/.swiftpm/.../usr/lib/swift
+ld64.lld         ~/.swiftpm/.../toolset/bin/orig/ld64.lld
+compiler-rt      ~/.swiftpm/.../libclang_rt.ios.a
+clang            ~/.local/share/swiftly/bin/clang
+...
+</span></code></pre>
+<p data-sourcepos="51:1-53:24">如果某個項目顯示 <code data-sourcepos="51:26-51:34">missing</code>，請安裝該工具，或在 <code data-sourcepos="51:66-51:78">idlproj.yml</code> 的
+<code data-sourcepos="52:1-52:12">toolchain:</code> 下設定其位置。只有 <code data-sourcepos="52:42-52:57">builder: xtool</code>
+目標才需要 xtool。</p>
+<h2 id="build-the-examples" data-sourcepos="55:1-55:15">建置範例<a href="#build-the-examples" aria-label="Link to heading '建置範例'" data-heading-content="建置範例" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="57:5-59:67"><code><span class="hl-text hl-plain">idl build                 # all targets
+idl build ObjCExample     # one target
+idl -v build              # print every compiler/linker command
+</span></code></pre>
+<p data-sourcepos="61:1-61:9">輸出：</p>
+<pre class="syntax-highlighting" data-sourcepos="63:5-65:49"><code><span class="hl-text hl-plain">examples/objc-app/build/ObjCExample.ipa
+examples/swift-app/build/SwiftExample.ipa
+examples/xtool-swiftpm/xtool/XtoolExample.ipa
+</span></code></pre>
+<p data-sourcepos="67:1-68:109">每次建置之後，<code data-sourcepos="67:22-67:33">idl verify</code> 會檢查 IPA：ZIP 的 CRC、Info.plist 的鍵、執行檔的模式、精簡的 arm64 <code data-sourcepos="67:122-67:133">MH_EXECUTE</code> 二進位檔、<code data-sourcepos="67:150-67:158">LC_MAIN</code>、<code data-sourcepos="67:162-67:179">LC_BUILD_VERSION</code> 中的 iOS
+平台、<code data-sourcepos="68:10-68:28">LC_CODE_SIGNATURE</code>（除非目標為未簽署），以及它只相依於系統或隨附的 dylib。</p>
+<h2 id="start-your-own-app" data-sourcepos="70:1-70:33">建立你自己的應用程式<a href="#start-your-own-app" aria-label="Link to heading '建立你自己的應用程式'" data-heading-content="建立你自己的應用程式" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="72:5-75:61"><code><span class="hl-text hl-plain">idl init MyApp --lang objc --bundle-id com.example.myapp
+cd MyApp
+idl build
+idl gen         # MyApp.xcodeproj + compile_commands.json
+</span></code></pre>
+<p data-sourcepos="77:1-78:52"><code data-sourcepos="77:1-77:5">idl</code> 會在目前資料夾及其上層資料夾中搜尋 <code data-sourcepos="77:59-77:71">idlproj.yml</code>。傳入
+<code data-sourcepos="78:1-78:24">-f path/to/idlproj.yml</code> 即可使用其他檔案。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;idl&#x2f;blob&#x2f;main&#x2f;docs&#x2f;getting-started.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

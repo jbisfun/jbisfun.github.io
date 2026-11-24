@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ycode-radar · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-radar">GitHub 原始碼</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="ycode-radar" data-sourcepos="1:1-1:13">ycode-radar<a href="#ycode-radar" aria-label="Link to heading 'ycode-radar'" data-heading-content="ycode-radar" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:138">在 <a data-sourcepos="3:5-3:45" href="https://github.com/jbisfun/ycode">ycode</a> 中使用 <a data-sourcepos="3:57-3:97" href="https://github.com/jbisfun/radar">radar</a>，以 Lua 擴充功能的形式提供。</p>
+<ul data-sourcepos="5:1-6:179">
+<li data-sourcepos="5:1-5:202"><strong data-sourcepos="5:3-5:18">radar: panel</strong> 會開啟右側停駐面板，顯示 pull 工作區中未結的報告，並依儲存庫分組。點擊報告即可在該行開啟其檔案。將滑鼠移到報告上即可關閉它。</li>
+<li data-sourcepos="6:1-6:179"><strong data-sourcepos="6:3-6:19">radar: report</strong> 會提交目前編輯器的選取內容。小視窗會顯示它指向何處與選取的文字，並附有備註輸入框。Ctrl-Enter 提交，Escape 取消。</li>
+</ul>
+<p data-sourcepos="8:1-8:166">報告會透過 <code data-sourcepos="8:17-8:23">radar</code> CLI 寫入 <code data-sourcepos="8:36-8:63">$PULL_ROOT/issues/radar.db</code>。工作區為 <code data-sourcepos="8:80-8:91">$PULL_ROOT</code>，否則是 ycode 中已開啟資料夾上層最近的 <code data-sourcepos="8:148-8:163">pullfile.plist</code>。</p>
+<p data-sourcepos="10:1-10:54">在 <code data-sourcepos="10:5-10:17">keymap.json</code> 中將報告動作綁定到按鍵：</p>
+<pre class="syntax-highlighting" data-sourcepos="12:1-14:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Editor<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-alt-r<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ycode::Run<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>name<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>radar::Report<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h2 id="install" data-sourcepos="16:1-16:9">安裝<a href="#install" aria-label="Link to heading '安裝'" data-heading-content="安裝" class="anchor"></a></h2>
+<p data-sourcepos="18:1-18:67">將儲存庫連結到 hooks 資料夾，然後重新載入 hooks：</p>
+<pre class="syntax-highlighting" data-sourcepos="20:1-22:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ln</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>s</span> <span class="hl-meta hl-group hl-expansion hl-tilde"><span class="hl-variable hl-language hl-tilde hl-shell">~</span></span>/jbisfun/ycode-radar <span class="hl-meta hl-group hl-expansion hl-tilde"><span class="hl-variable hl-language hl-tilde hl-shell">~</span></span>/.config/zed/hooks/ycode-radar</span>
+</span></code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode-radar&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

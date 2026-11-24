@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>settings-ios · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;settings-ios">GitHub 原始碼</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="settings-ios" data-sourcepos="1:1-1:14">settings-ios<a href="#settings-ios" aria-label="Link to heading 'settings-ios'" data-heading-content="settings-ios" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:252"><a data-sourcepos="3:1-3:81" href="https://android.googlesource.com/platform/packages/apps/Settings">AOSP Settings</a> 以 SwiftUI 在 iOS 上以 Fossify 風格（FossifyCommons）分支而成，供 <a data-sourcepos="3:163-3:217" href="https://github.com/jbisfun/launcher-ios">launcher-ios</a> 中隨附的 Fossify App 使用。</p>
+<pre class="syntax-highlighting" data-sourcepos="5:5-6:42"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifySettings.ipa (ad-hoc signed; re-sign to install)
+idl install &quot;&lt;device&gt;&quot; FossifySettings
+</span></code></pre>
+<p data-sourcepos="8:1-8:1342">已移植：首頁（搜尋列、彩色分類圖示、AOSP 標題與摘要）以及跨所有設定的搜尋；僅保留 Settings 能夠變更的設定。<strong data-sourcepos="8:154-8:160">App</strong>：所有 App、App 資訊（開啟、清除快取、通知、含清除儲存空間的儲存空間與快取、App 內的其他設定），以及啟動器的 App 項目（預設／隱藏的 App）。<strong data-sourcepos="8:359-8:368">通知</strong>：各 App 的開關（由 commons 的 <code data-sourcepos="8:408-8:424">NotificationHub</code> 遵循）以及 iOS 通知權限。<strong data-sourcepos="8:461-8:476">儲存空間</strong>：已用／可用、釋放空間（每個 App 的快取）、依 App、類型（圖片、影片、音訊、文件）與資料夾的使用量、二進位單位。<strong data-sourcepos="8:639-8:648">顯示</strong>：亮度等級、螢幕逾時（保持螢幕開啟）、深色主題、顏色、顯示大小與文字（Fossify 字型大小）、自動旋轉，以及啟動器的顯示／桌布項目。<strong data-sourcepos="8:837-8:852">輔助使用</strong>：顯示大小與文字、顏色、開關上的勾號。<strong data-sourcepos="8:910-8:931">安全性與隱私</strong>：共用的 App 鎖定（圖形／PIN／生物辨識）與鎖定時機、刪除保護。<strong data-sourcepos="8:1021-8:1030">系統</strong>：啟動器項目（手勢／導覽，……）、日期與時間（24 小時制、日期格式）、備份（匯出／匯入每個 App 的設定）、重設選項（重設 App 偏好設定、清除所有資料）。透過 commons 的 <code data-sourcepos="8:1267-8:1290">SystemSettingsRegistry</code> 註冊的設定會顯示於其分類與搜尋中。</p>
+<p data-sourcepos="10:1-10:458">iOS 造成的差異：獨立的 App 只能看到自己的行程，因此 App 與啟動器項目僅會出現在 launcher-ios 內；網路、藍牙、電池、聲音、位置、帳號、語言與關於因 iOS 不允許 App 變更而被省略；螢幕逾時只能設為「永不」，各 App 的資料依各移植版已知的檔案與鍵值找到（<code data-sourcepos="10:347-10:371">scripts/gen_app_keys.py</code>），而清除資料或匯入設定需在 Fossify 重新啟動後才會完全生效。</p>
+<p data-sourcepos="12:1-12:56">Apache-2.0（AOSP Settings）／ GPL-3.0（Fossify）。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;settings-ios&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

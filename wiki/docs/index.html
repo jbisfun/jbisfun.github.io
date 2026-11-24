@@ -12,11 +12,14 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;..&#x2f;zh-tw&#x2f;wiki&#x2f;docs&#x2f;index.html">
+
   <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
   <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -143,6 +146,20 @@
         </li>
 
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;zh-tw&#x2f;wiki&#x2f;docs&#x2f;index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
@@ -187,6 +204,7 @@
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="wiki" data-radar-file="docs&#x2f;README.md">
 
+
       <h1 id="overview" data-sourcepos="1:1-1:10">Overview<a href="#overview" aria-label="Link to heading 'Overview'" data-heading-content="Overview" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:158"><code data-sourcepos="3:1-3:6">wiki</code> turns every repo in a <a data-sourcepos="3:30-3:68" href="https://github.com/jbisfun/pull">pull</a> workspace into one static site, published at <a data-sourcepos="3:115-3:141" href="https://jbisfun.github.io">https://jbisfun.github.io</a>. Each repo gets:</p>
 <ul data-sourcepos="5:1-7:73">
@@ -196,7 +214,7 @@
 </ul>
 <h2 id="how-it-works" data-sourcepos="9:1-9:15">How it works<a href="#how-it-works" aria-label="Link to heading 'How it works'" data-heading-content="How it works" class="anchor"></a></h2>
 <p data-sourcepos="11:1-11:54"><code data-sourcepos="11:1-11:12">wiki build</code> (a Rust binary, <code data-sourcepos="11:30-11:35">src/</code>) runs these steps:</p>
-<ol data-sourcepos="13:1-25:108">
+<ol data-sourcepos="13:1-26:108">
 <li data-sourcepos="13:1-13:176"><strong data-sourcepos="13:4-13:14">Collect</strong> (<code data-sourcepos="13:17-13:28">collect.rs</code>): runs <code data-sourcepos="13:37-13:56">pull status --json</code> and keeps every cloned repo, with its README, its GitHub URL (from the <code data-sourcepos="13:129-13:136">origin</code> remote) and its table from <code data-sourcepos="13:165-13:175">wiki.toml</code>.</li>
 <li data-sourcepos="14:1-18:72"><strong data-sourcepos="14:4-14:21">Code reference</strong> (<code data-sourcepos="14:24-14:34">apidoc.rs</code>), into <code data-sourcepos="14:43-14:69">.build/api/&lt;repo&gt;/&lt;tool&gt;/</code>:
 <ul data-sourcepos="15:4-18:72">
@@ -215,40 +233,45 @@ A missing tool or a failing run only warns, so the site still builds.</li>
 <li data-sourcepos="24:4-24:239">Links resolve against the repo, so a README linking <code data-sourcepos="24:58-24:72">docs/setup.md</code> lands on the rendered page. Links to other repo files go to GitHub (images to their raw URL). Links are rewritten with lol_html, so links in raw HTML are covered too.</li>
 </ul>
 </li>
-<li data-sourcepos="25:1-25:108"><strong data-sourcepos="25:4-25:14">Publish</strong> (<code data-sourcepos="25:17-25:30">wiki publish</code>): mirrors <code data-sourcepos="25:42-25:48">dist/</code> into the <code data-sourcepos="25:59-25:77">jbisfun.github.io</code> repo with rsync and stages it.</li>
+<li data-sourcepos="25:1-25:129"><strong data-sourcepos="25:4-25:16">Languages</strong> (<code data-sourcepos="25:19-25:27">i18n.rs</code>, <code data-sourcepos="25:30-25:43">translate.rs</code>): Step 4 runs once per language in <code data-sourcepos="25:80-25:90">wiki.toml</code> <code data-sourcepos="25:92-25:99">[i18n]</code>; see <a data-sourcepos="25:106-25:128" href="#languages">Languages</a>.</li>
+<li data-sourcepos="26:1-26:108"><strong data-sourcepos="26:4-26:14">Publish</strong> (<code data-sourcepos="26:17-26:30">wiki publish</code>): mirrors <code data-sourcepos="26:42-26:48">dist/</code> into the <code data-sourcepos="26:59-26:77">jbisfun.github.io</code> repo with rsync and stages it.</li>
 </ol>
-<h2 id="what-gets-regenerated" data-sourcepos="27:1-27:24">What gets regenerated<a href="#what-gets-regenerated" aria-label="Link to heading 'What gets regenerated'" data-heading-content="What gets regenerated" class="anchor"></a></h2>
-<p data-sourcepos="29:1-29:133">Inputs are identified the way git identifies them (<code data-sourcepos="29:52-29:61">state.rs</code>), and <code data-sourcepos="29:69-29:87">.build/state.json</code> keeps the key each piece was last built with:</p>
-<table data-sourcepos="31:1-36:82" class="table table-sm table-striped">
+<h2 id="what-gets-regenerated" data-sourcepos="28:1-28:24">What gets regenerated<a href="#what-gets-regenerated" aria-label="Link to heading 'What gets regenerated'" data-heading-content="What gets regenerated" class="anchor"></a></h2>
+<p data-sourcepos="30:1-30:133">Inputs are identified the way git identifies them (<code data-sourcepos="30:52-30:61">state.rs</code>), and <code data-sourcepos="30:69-30:87">.build/state.json</code> keeps the key each piece was last built with:</p>
+<table data-sourcepos="32:1-38:82" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="31:1-31:37">
-<th data-sourcepos="31:2-31:8">Piece</th>
-<th data-sourcepos="31:10-31:36">Rebuilt when this changes</th>
+<tr data-sourcepos="32:1-32:37">
+<th data-sourcepos="32:2-32:8">Piece</th>
+<th data-sourcepos="32:10-32:36">Rebuilt when this changes</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="33:1-33:123">
-<td data-sourcepos="33:2-33:26">A repo’s code reference</td>
-<td data-sourcepos="33:28-33:122">the repo’s HEAD tree id, the patch id of its uncommitted changes, or its <code data-sourcepos="33:102-33:112">wiki.toml</code> settings</td>
+<tr data-sourcepos="34:1-34:123">
+<td data-sourcepos="34:2-34:26">A repo’s code reference</td>
+<td data-sourcepos="34:28-34:122">the repo’s HEAD tree id, the patch id of its uncommitted changes, or its <code data-sourcepos="34:102-34:112">wiki.toml</code> settings</td>
 </tr>
-<tr data-sourcepos="34:1-34:103">
-<td data-sourcepos="34:2-34:17">A repo’s pages</td>
-<td data-sourcepos="34:19-34:102">the blob id of any of its page sources, its code reference keys, or the global key</td>
+<tr data-sourcepos="35:1-35:103">
+<td data-sourcepos="35:2-35:17">A repo’s pages</td>
+<td data-sourcepos="35:19-35:102">the blob id of any of its page sources, its code reference keys, or the global key</td>
 </tr>
-<tr data-sourcepos="35:1-35:128">
-<td data-sourcepos="35:2-35:13">Everything</td>
-<td data-sourcepos="35:15-35:127">the global key: blob ids of <code data-sourcepos="35:44-35:55">templates/</code>, the list of repos in the navbar, the site title, or the <code data-sourcepos="35:114-35:119">wiki</code> binary</td>
+<tr data-sourcepos="36:1-36:95">
+<td data-sourcepos="36:2-36:37">A repo’s pages in another language</td>
+<td data-sourcepos="36:39-36:94">the same, plus its translations and translated strings</td>
 </tr>
-<tr data-sourcepos="36:1-36:82">
-<td data-sourcepos="36:2-36:17"><code data-sourcepos="36:3-36:16">dist/_assets</code></td>
-<td data-sourcepos="36:19-36:81">blob ids of <code data-sourcepos="36:32-36:40">assets/</code>, <code data-sourcepos="36:43-36:58">pnpm-lock.yaml</code>, or the <code data-sourcepos="36:68-36:73">wiki</code> binary</td>
+<tr data-sourcepos="37:1-37:160">
+<td data-sourcepos="37:2-37:13">Everything</td>
+<td data-sourcepos="37:15-37:159">the global key: blob ids of <code data-sourcepos="37:44-37:55">templates/</code> and <code data-sourcepos="37:61-37:70">locales/</code>, the locale list, the list of repos in the navbar, the site title, or the <code data-sourcepos="37:146-37:151">wiki</code> binary</td>
+</tr>
+<tr data-sourcepos="38:1-38:82">
+<td data-sourcepos="38:2-38:17"><code data-sourcepos="38:3-38:16">dist/_assets</code></td>
+<td data-sourcepos="38:19-38:81">blob ids of <code data-sourcepos="38:32-38:40">assets/</code>, <code data-sourcepos="38:43-38:58">pnpm-lock.yaml</code>, or the <code data-sourcepos="38:68-38:73">wiki</code> binary</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="38:1-38:160"><code data-sourcepos="38:1-38:8">.jinja</code> pages and the home page can show anything about the site, so they are rendered on every build. <code data-sourcepos="38:105-38:124">wiki build --force</code> (<code data-sourcepos="38:127-38:140">just rebuild</code>) ignores the state.</p>
-<h2 id="wikitoml" data-sourcepos="40:1-40:12">wiki.toml<a href="#wikitoml" aria-label="Link to heading 'wiki.toml'" data-heading-content="wiki.toml" class="anchor"></a></h2>
-<p data-sourcepos="42:1-42:115">Per-repo settings, keyed by pull repo name; all optional. The full list is at the top of <a data-sourcepos="42:90-42:114" href="https://github.com/jbisfun/wiki/blob/main/wiki.toml">wiki.toml</a>.</p>
-<pre class="syntax-highlighting" data-sourcepos="44:1-54:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">repos</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">launchd</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<p data-sourcepos="40:1-40:160"><code data-sourcepos="40:1-40:8">.jinja</code> pages and the home page can show anything about the site, so they are rendered on every build. <code data-sourcepos="40:105-40:124">wiki build --force</code> (<code data-sourcepos="40:127-40:140">just rebuild</code>) ignores the state.</p>
+<h2 id="wikitoml" data-sourcepos="42:1-42:12">wiki.toml<a href="#wikitoml" aria-label="Link to heading 'wiki.toml'" data-heading-content="wiki.toml" class="anchor"></a></h2>
+<p data-sourcepos="44:1-44:115">Per-repo settings, keyed by pull repo name; all optional. The full list is at the top of <a data-sourcepos="44:90-44:114" href="https://github.com/jbisfun/wiki/blob/main/wiki.toml">wiki.toml</a>.</p>
+<pre class="syntax-highlighting" data-sourcepos="46:1-56:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">repos</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">launchd</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
 <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">skip</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-language hl-toml">true</span>                            <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> leave the repo out</span>
 
 <span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">repos</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">ycode</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
@@ -258,18 +281,27 @@ A missing tool or a failing run only warns, so the site still builds.</li>
 
 <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> lua = { files = [&quot;lib&quot;] }  /  js = { files = [&quot;src&quot;] }  /  rust = false</span>
 </span></code></pre>
-<p data-sourcepos="56:1-56:186">Repos in a pull group (<code data-sourcepos="56:24-56:46">fossify-ios/notes-ios</code>) are listed by their own name (<code data-sourcepos="56:79-56:89">notes-ios</code>) under the group’s category. A long README sentence is cut at its first comma for the home page.</p>
-<h2 id="commands" data-sourcepos="58:1-58:11">Commands<a href="#commands" aria-label="Link to heading 'Commands'" data-heading-content="Commands" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="60:1-66:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> pnpm install, then wiki build into dist/</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+<p data-sourcepos="58:1-58:186">Repos in a pull group (<code data-sourcepos="58:24-58:46">fossify-ios/notes-ios</code>) are listed by their own name (<code data-sourcepos="58:79-58:89">notes-ios</code>) under the group’s category. A long README sentence is cut at its first comma for the home page.</p>
+<h2 id="languages" data-sourcepos="60:1-60:12">Languages<a href="#languages" aria-label="Link to heading 'Languages'" data-heading-content="Languages" class="anchor"></a></h2>
+<p data-sourcepos="62:1-62:285">English is the source language, at the site root. Every locale in <code data-sourcepos="62:67-62:82">[i18n] locales</code> (now <code data-sourcepos="62:89-62:95">zh-TW</code>) is a full copy of the site under its lowercased tag (<code data-sourcepos="62:151-62:162">/zh-tw/...</code>), with a language menu in the header and <code data-sourcepos="62:205-62:214">hreflang</code> links between the copies. Code references stay English and are shared.</p>
+<ul data-sourcepos="64:1-68:186">
+<li data-sourcepos="64:1-64:280"><strong data-sourcepos="64:3-64:12">Chrome</strong> (navbar, sidebar, footer, home page): <a data-sourcepos="64:52-64:86" href="https://projectfluent.org">Fluent</a> messages in <code data-sourcepos="64:100-64:123">locales/&lt;tag&gt;/main.ftl</code>, loaded with fluent-templates. Templates call <code data-sourcepos="64:171-64:192">t('key', name=value)</code>. A new locale needs a <code data-sourcepos="64:216-64:239">locales/&lt;tag&gt;/main.ftl</code> with every key in <code data-sourcepos="64:259-64:279">locales/en/main.ftl</code>.</li>
+<li data-sourcepos="65:1-65:452"><strong data-sourcepos="65:3-65:11">Pages</strong> (READMEs, <code data-sourcepos="65:23-65:29">docs/</code>) and the <code data-sourcepos="65:40-65:50">wiki.toml</code> descriptions and categories are machine-translated through any OpenAI-compatible chat API (<code data-sourcepos="65:143-65:161">[i18n.translator]</code>: <code data-sourcepos="65:164-65:173">base_url</code>, <code data-sourcepos="65:176-65:182">model</code>, <code data-sourcepos="65:185-65:197">api_key_env</code>, <code data-sourcepos="65:200-65:217">reasoning_effort</code>, <code data-sourcepos="65:220-65:225">jobs</code>, <code data-sourcepos="65:228-65:234">chunk</code>; local Ollama by default), with async-openai. Pages are split along their markdown structure (text-splitter) into chunks of at most <code data-sourcepos="65:368-65:374">chunk</code> characters; the prompt keeps code, links, HTML and template tags as they are.</li>
+<li data-sourcepos="66:1-66:349"><strong data-sourcepos="66:3-66:11">Cache</strong>: <code data-sourcepos="66:14-66:47">translations/&lt;tag&gt;/&lt;repo&gt;/&lt;path&gt;</code> plus <code data-sourcepos="66:54-66:67">sources.json</code> (page -&gt; blob id of the English it came from) and <code data-sourcepos="66:119-66:132">strings.json</code>, committed with the wiki. A page goes back to the translator only when its English blob id changes; until then the old translation is shown (with a warning in the build log). Translations of deleted pages are pruned.</li>
+<li data-sourcepos="67:1-67:263"><code data-sourcepos="67:3-67:20">WIKI_TRANSLATE=0</code>, or a translator that can’t be reached, builds from the cache alone: pages without a translation are shown in English with a notice. Translated pages carry a “machine-translated” notice linking the English original, and Radar is English-only.</li>
+<li data-sourcepos="68:1-68:186"><code data-sourcepos="68:3-68:21">translate = false</code> or <code data-sourcepos="68:26-68:64">translate = { files = [&quot;README.md&quot;] }</code> in a repo’s table limits what gets translated (ycode’s upstream Zed docs and the radar reports in <code data-sourcepos="68:164-68:171">issues</code> stay English).</li>
+</ul>
+<h2 id="commands" data-sourcepos="70:1-70:11">Commands<a href="#commands" aria-label="Link to heading 'Commands'" data-heading-content="Commands" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="72:1-78:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> pnpm install, then wiki build into dist/</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> rebuild   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> the same, ignoring .build/state.json</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> publish   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build, then copy into ../jbisfun.github.io and git add</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> serve     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build and serve dist/ on http://localhost:8000</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> clean</span>
 </span></code></pre>
-<p data-sourcepos="68:1-68:173">Environment: <code data-sourcepos="68:14-68:24">PULL_ROOT</code> (workspace root, default <code data-sourcepos="68:51-68:54">..</code>), <code data-sourcepos="68:58-68:68">WIKI_SKIP</code> (comma-separated repos to leave out, on top of <code data-sourcepos="68:117-68:122">skip</code> in <code data-sourcepos="68:127-68:137">wiki.toml</code>), <code data-sourcepos="68:141-68:152">WIKI_TITLE</code>, <code data-sourcepos="68:155-68:172">WIKI_PUBLISH_DIR</code>.</p>
-<h2 id="pull-hook" data-sourcepos="70:1-70:12">pull hook<a href="#pull-hook" aria-label="Link to heading 'pull hook'" data-heading-content="pull hook" class="anchor"></a></h2>
-<p data-sourcepos="72:1-72:203">The workspace <code data-sourcepos="72:15-72:30">pullfile.plist</code> runs <code data-sourcepos="72:37-72:50">just publish</code> as a <code data-sourcepos="72:57-72:67">precommit</code> hook, so <code data-sourcepos="72:78-72:90">pull commit</code> lands the regenerated site in <code data-sourcepos="72:122-72:140">jbisfun.github.io</code> in the same commit and <code data-sourcepos="72:165-72:175">pull push</code> deploys it to GitHub Pages.</p>
-<p data-sourcepos="74:1-74:53">See <a data-sourcepos="74:5-74:34" href="templating.html">Templating</a> for writing pages.</p>
+<p data-sourcepos="80:1-80:274">Environment: <code data-sourcepos="80:14-80:24">PULL_ROOT</code> (workspace root, default <code data-sourcepos="80:51-80:54">..</code>), <code data-sourcepos="80:58-80:68">WIKI_SKIP</code> (comma-separated repos to leave out, on top of <code data-sourcepos="80:117-80:122">skip</code> in <code data-sourcepos="80:127-80:137">wiki.toml</code>), <code data-sourcepos="80:141-80:152">WIKI_TITLE</code>, <code data-sourcepos="80:155-80:172">WIKI_PUBLISH_DIR</code>, <code data-sourcepos="80:175-80:192">WIKI_TRANSLATE=0</code> (no translator calls), and the variable named by <code data-sourcepos="80:243-80:273">[i18n.translator] api_key_env</code>.</p>
+<h2 id="pull-hook" data-sourcepos="82:1-82:12">pull hook<a href="#pull-hook" aria-label="Link to heading 'pull hook'" data-heading-content="pull hook" class="anchor"></a></h2>
+<p data-sourcepos="84:1-84:203">The workspace <code data-sourcepos="84:15-84:30">pullfile.plist</code> runs <code data-sourcepos="84:37-84:50">just publish</code> as a <code data-sourcepos="84:57-84:67">precommit</code> hook, so <code data-sourcepos="84:78-84:90">pull commit</code> lands the regenerated site in <code data-sourcepos="84:122-84:140">jbisfun.github.io</code> in the same commit and <code data-sourcepos="84:165-84:175">pull push</code> deploys it to GitHub Pages.</p>
+<p data-sourcepos="86:1-86:53">See <a data-sourcepos="86:5-86:34" href="templating.html">Templating</a> for writing pages.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;languages&#x2f;python.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;languages&#x2f;python.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="python.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="../getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="../installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="../update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="../editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="../completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="../snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="../command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="../outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="../project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="../running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="../terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="../tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="../debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="../git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="../collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="../collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="../remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="../environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="../ai/overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="../ai/quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="../ai/by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="../ai/agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="../ai/zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="../ai/external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="../ai/agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="../ai/agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="../ai/tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="../ai/skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="../ai/llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="../ai/use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="../authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="../business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="../business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="../roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="../business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="../worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="../business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="../telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="../macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="../windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="../appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="../themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="../icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="../key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="../vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="../languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="../configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="../toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="python.html" class="active" aria-current="page">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="../extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="../extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="../extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="../migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="../migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="../migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="../reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="../all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="../development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="../development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="../development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="../development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="../development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="../development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="../performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="../development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="how-to-set-up-python-in-zed" data-sourcepos="6:1-6:29">How to Set Up Python in Zed<a href="#how-to-set-up-python-in-zed" aria-label="Link to heading 'How to Set Up Python in Zed'" data-heading-content="How to Set Up Python in Zed" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:44">Python support is available natively in Zed.</p>
+<ul data-sourcepos="10:1-18:64">
+<li data-sourcepos="10:1-10:89">Tree-sitter: <a data-sourcepos="10:16-10:89" href="https://github.com/zed-industries/tree-sitter-python">tree-sitter-python</a></li>
+<li data-sourcepos="11:1-17:91">Language Servers:
+<ul data-sourcepos="12:3-17:91">
+<li data-sourcepos="12:3-12:73"><a data-sourcepos="12:5-12:73" href="https://github.com/DetachHead/basedpyright">DetachHead/basedpyright</a></li>
+<li data-sourcepos="13:3-13:55"><a data-sourcepos="13:5-13:55" href="https://github.com/astral-sh/ruff">astral-sh/ruff</a></li>
+<li data-sourcepos="14:3-14:51"><a data-sourcepos="14:5-14:51" href="https://github.com/astral-sh/ty">astral-sh/ty</a></li>
+<li data-sourcepos="15:3-15:59"><a data-sourcepos="15:5-15:59" href="https://github.com/facebook/pyrefly">facebook/pyrefly</a></li>
+<li data-sourcepos="16:3-16:61"><a data-sourcepos="16:5-16:61" href="https://github.com/microsoft/pyright">microsoft/pyright</a></li>
+<li data-sourcepos="17:3-17:91"><a data-sourcepos="17:5-17:83" href="https://github.com/python-lsp/python-lsp-server">python-lsp/python-lsp-server</a> (PyLSP)</li>
+</ul>
+</li>
+<li data-sourcepos="18:1-18:64">Debug Adapter: <a data-sourcepos="18:18-18:64" href="https://github.com/microsoft/debugpy">debugpy</a></li>
+</ul>
+<h2 id="install-python" data-sourcepos="20:1-20:17">Install Python<a href="#install-python" aria-label="Link to heading 'Install Python'" data-heading-content="Install Python" class="anchor"></a></h2>
+<p data-sourcepos="22:1-22:63">You’ll need both Zed and Python installed before you can begin.</p>
+<h3 id="step-1-install-python" data-sourcepos="24:1-24:26">Step 1: Install Python<a href="#step-1-install-python" aria-label="Link to heading 'Step 1: Install Python'" data-heading-content="Step 1: Install Python" class="anchor"></a></h3>
+<p data-sourcepos="26:1-27:36">Zed does not bundle a Python runtime, so you’ll need to install one yourself.
+Choose one of the following options:</p>
+<ul data-sourcepos="29:1-29:18">
+<li data-sourcepos="29:1-29:18">uv (recommended)</li>
+</ul>
+<pre class="syntax-highlighting" data-sourcepos="31:1-33:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">curl</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>LsSf</span> https://astral.sh/uv/install.sh</span> <span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span> <span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sh</span></span>
+</span></code></pre>
+<p data-sourcepos="35:1-35:110">To learn more, visit <a data-sourcepos="35:22-35:109" href="https://docs.astral.sh/uv/getting-started/installation/">Astral’s installation guide</a>.</p>
+<ul data-sourcepos="37:1-37:11">
+<li data-sourcepos="37:1-37:11">Homebrew:</li>
+</ul>
+<pre class="syntax-highlighting" data-sourcepos="39:1-41:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">brew</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> install python</span>
+</span></code></pre>
+<ul data-sourcepos="43:1-43:110">
+<li data-sourcepos="43:1-43:110">Python.org installer: Download the latest version from <a data-sourcepos="43:58-43:109" href="https://python.org/downloads">python.org/downloads</a>.</li>
+</ul>
+<h3 id="step-2-verify-python-installation" data-sourcepos="45:1-45:38">Step 2: Verify Python Installation<a href="#step-2-verify-python-installation" aria-label="Link to heading 'Step 2: Verify Python Installation'" data-heading-content="Step 2: Verify Python Installation" class="anchor"></a></h3>
+<p data-sourcepos="47:1-47:56">Confirm Python is installed and available in your shell:</p>
+<pre class="syntax-highlighting" data-sourcepos="49:1-51:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">python3</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>version</span></span>
+</span></code></pre>
+<p data-sourcepos="53:1-53:45">You should see an output like <code data-sourcepos="53:31-53:44">Python 3.x.x</code>.</p>
+<h2 id="open-your-first-python-project-in-zed" data-sourcepos="55:1-55:40">Open Your First Python Project in Zed<a href="#open-your-first-python-project-in-zed" aria-label="Link to heading 'Open Your First Python Project in Zed'" data-heading-content="Open Your First Python Project in Zed" class="anchor"></a></h2>
+<p data-sourcepos="57:1-57:89">Once Zed and Python are installed, open a folder containing Python code to start working.</p>
+<h3 id="step-1-launch-zed-with-a-python-project" data-sourcepos="59:1-59:44">Step 1: Launch Zed with a Python Project<a href="#step-1-launch-zed-with-a-python-project" aria-label="Link to heading 'Step 1: Launch Zed with a Python Project'" data-heading-content="Step 1: Launch Zed with a Python Project" class="anchor"></a></h3>
+<p data-sourcepos="61:1-62:74">Open Zed.
+From the menu bar, choose File &gt; Open Folder, or launch from the terminal:</p>
+<pre class="syntax-highlighting" data-sourcepos="64:1-66:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zed</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> path/to/your/project</span>
+</span></code></pre>
+<p data-sourcepos="68:1-68:130">Zed will recognize <code data-sourcepos="68:20-68:24">.py</code> files automatically using its native tree-sitter-python parser, with no plugins or manual setup required.</p>
+<h3 id="step-2-use-the-integrated-terminal-optional" data-sourcepos="70:1-70:50">Step 2: Use the Integrated Terminal (Optional)<a href="#step-2-use-the-integrated-terminal-optional" aria-label="Link to heading 'Step 2: Use the Integrated Terminal (Optional)'" data-heading-content="Step 2: Use the Integrated Terminal (Optional)" class="anchor"></a></h3>
+<p data-sourcepos="72:1-72:340">Zed includes an integrated terminal, accessible from the bottom panel. If Zed detects that your project is using a <a data-sourcepos="72:116-72:159" href="#virtual-environments">virtual environment</a>, it will be activated automatically in newly-created terminals. You can configure this behavior with the <a data-sourcepos="72:266-72:331" href="../reference/all-settings.html#terminal-detect_venv"><code data-sourcepos="72:267-72:279">detect_venv</code></a> setting.</p>
+<h2 id="configure-python-language-servers-in-zed" data-sourcepos="74:1-74:43">Configure Python Language Servers in Zed<a href="#configure-python-language-servers-in-zed" aria-label="Link to heading 'Configure Python Language Servers in Zed'" data-heading-content="Configure Python Language Servers in Zed" class="anchor"></a></h2>
+<p data-sourcepos="76:1-76:245">Zed provides several Python language servers out of the box. By default, <a data-sourcepos="76:74-76:131" href="https://github.com/DetachHead/basedpyright">basedpyright</a> is the primary language server, and <a data-sourcepos="76:169-76:209" href="https://github.com/astral-sh/ruff">Ruff</a> is used for formatting and linting.</p>
+<p data-sourcepos="78:1-78:36">Other built-in language servers are:</p>
+<ul data-sourcepos="80:1-83:166">
+<li data-sourcepos="80:1-80:100"><a data-sourcepos="80:3-80:34" href="https://docs.astral.sh/ty/">Ty</a>—Up-and-coming language server from Astral, built for speed.</li>
+<li data-sourcepos="81:1-81:128"><a data-sourcepos="81:3-81:32" href="https://pyrefly.org">Pyrefly</a>—Language server and type checker using inference for accurate navigation and type safety.</li>
+<li data-sourcepos="82:1-82:83"><a data-sourcepos="82:3-82:49" href="https://github.com/microsoft/pyright">Pyright</a>—The basis for basedpyright.</li>
+<li data-sourcepos="83:1-83:166"><a data-sourcepos="83:3-83:58" href="https://github.com/python-lsp/python-lsp-server">PyLSP</a>—A plugin-based language server that integrates with tools like <code data-sourcepos="83:129-83:141">pycodestyle</code>, <code data-sourcepos="83:144-83:153">autopep8</code>, and <code data-sourcepos="83:160-83:165">yapf</code>.</li>
+</ul>
+<p data-sourcepos="85:1-85:116">These are disabled by default and are not included by <code data-sourcepos="85:55-85:61">&quot;...&quot;</code>. Enable them by listing them by name in your settings.</p>
+<p data-sourcepos="87:1-87:116">Configure language servers in Settings (<code data-sourcepos="87:41-87:59">zed::OpenSettings</code>) under Languages &gt; Python, or add to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="89:1-103:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>language_servers<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Enable ty, disable basedpyright, and enable all other
+</span>        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> language servers that are enabled by default (e.g. ruff).
+</span>        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ty<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>!basedpyright<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>...<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+      <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="105:1-105:181">See: <a data-sourcepos="105:6-105:110" href="https://zed.dev/docs/configuring-languages#working-with-language-servers">Working with Language Servers</a> for more information about how to enable and disable language servers.</p>
+<h3 id="basedpyright" data-sourcepos="107:1-107:16">Basedpyright<a href="#basedpyright" aria-label="Link to heading 'Basedpyright'" data-heading-content="Basedpyright" class="anchor"></a></h3>
+<p data-sourcepos="109:1-109:364"><a data-sourcepos="109:1-109:53" href="https://docs.basedpyright.com/latest/">basedpyright</a> is the primary Python language server in Zed beginning with Zed v0.204.0. It provides core language server functionality like navigation (go to definition/find all references) and type checking. Compared to Pyright, it adds support for additional language server features (like inlay hints) and checking rules.</p>
+<p data-sourcepos="111:1-111:526">Note that while basedpyright in isolation defaults to the <code data-sourcepos="111:59-111:71">recommended</code> <a data-sourcepos="111:73-111:186" href="https://docs.basedpyright.com/latest/benefits-over-pyright/better-defaults/#typecheckingmode">type-checking mode</a>, Zed configures it to use the less-strict <code data-sourcepos="111:230-111:239">standard</code> mode by default, which matches the behavior of Pyright. You can set the type-checking mode for your project using the <code data-sourcepos="111:359-111:376">typeCheckingMode</code> setting in <code data-sourcepos="111:389-111:408">pyrightconfig.json</code> or <code data-sourcepos="111:413-111:428">pyproject.toml</code>, which will override Zed’s default. Read on for more details about how to configure basedpyright.</p>
+<h4 id="basedpyright-configuration" data-sourcepos="113:1-113:31">Basedpyright Configuration<a href="#basedpyright-configuration" aria-label="Link to heading 'Basedpyright Configuration'" data-heading-content="Basedpyright Configuration" class="anchor"></a></h4>
+<p data-sourcepos="115:1-115:77">basedpyright reads configuration options from two different kinds of sources:</p>
+<ul data-sourcepos="117:1-118:142">
+<li data-sourcepos="117:1-117:177">Language server settings (“workspace configuration”), which must be configured per-editor (using <code data-sourcepos="117:100-117:114">settings.json</code> in Zed’s case) but apply to all projects opened in that editor</li>
+<li data-sourcepos="118:1-118:142">Configuration files (<code data-sourcepos="118:24-118:43">pyrightconfig.json</code>, <code data-sourcepos="118:46-118:61">pyproject.toml</code>), which are editor-independent but specific to the project where they are placed</li>
+</ul>
+<p data-sourcepos="120:1-120:545">As a rule of thumb, options that are only relevant when using basedpyright from an editor must be set in language server settings, and options that are relevant even if you’re running it <a data-sourcepos="120:188-120:277" href="https://docs.basedpyright.com/latest/configuration/command-line/">as a command-line tool</a> must be set in configuration files. Settings related to inlay hints are examples of the first category, and the <a data-sourcepos="120:391-120:499" href="https://docs.basedpyright.com/latest/configuration/config-files/#diagnostic-categories">diagnostic category</a> settings are examples of the second category.</p>
+<p data-sourcepos="122:1-122:345">Examples of both kinds of configuration are provided below. Refer to the basedpyright documentation on <a data-sourcepos="122:104-122:207" href="https://docs.basedpyright.com/latest/configuration/language-server-settings/">language server settings</a> and <a data-sourcepos="122:213-122:299" href="https://docs.basedpyright.com/latest/configuration/config-files/">configuration files</a> for comprehensive lists of available options.</p>
+<h5 id="language-server-settings" data-sourcepos="124:1-124:30">Language server settings<a href="#language-server-settings" aria-label="Link to heading 'Language server settings'" data-heading-content="Language server settings" class="anchor"></a></h5>
+<p data-sourcepos="126:1-126:105">Language server settings for basedpyright in Zed can be set in the <code data-sourcepos="126:68-126:72">lsp</code> section of your <code data-sourcepos="126:90-126:104">settings.json</code>.</p>
+<p data-sourcepos="128:1-128:16">For example, to:</p>
+<ul data-sourcepos="130:1-131:43">
+<li data-sourcepos="130:1-130:76">diagnose all files in the workspace instead of the only open files default</li>
+<li data-sourcepos="131:1-131:43">disable inlay hints on function arguments</li>
+</ul>
+<p data-sourcepos="133:1-133:40">You can use the following configuration:</p>
+<pre class="syntax-highlighting" data-sourcepos="135:1-152:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>lsp<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>basedpyright<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>settings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>basedpyright<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>analysis<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+            </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>diagnosticMode<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>workspace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+            </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>inlayHints<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+              </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>callArgumentNames<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span>
+            <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="154:1-154:123">For compatibility with older configurations, Zed also accepts <code data-sourcepos="154:63-154:85">basedpyright.analysis</code> as a top-level key within <code data-sourcepos="154:113-154:122">settings</code>.</p>
+<h5 id="configuration-files" data-sourcepos="156:1-156:25">Configuration files<a href="#configuration-files" aria-label="Link to heading 'Configuration files'" data-heading-content="Configuration files" class="anchor"></a></h5>
+<p data-sourcepos="158:1-158:286">basedpyright reads project-specific configuration from the <code data-sourcepos="158:60-158:79">pyrightconfig.json</code> configuration file and from the <code data-sourcepos="158:113-158:133">[tool.basedpyright]</code> and <code data-sourcepos="158:139-158:154">[tool.pyright]</code> sections of <code data-sourcepos="158:168-158:183">pyproject.toml</code> manifests. <code data-sourcepos="158:196-158:215">pyrightconfig.json</code> overrides <code data-sourcepos="158:227-158:242">pyproject.toml</code> if configuration is present in both places.</p>
+<p data-sourcepos="160:1-160:184">Here’s an example <code data-sourcepos="160:19-160:38">pyrightconfig.json</code> file that configures basedpyright to use the <code data-sourcepos="160:85-160:92">strict</code> type-checking mode and not to issue diagnostics for any files in <code data-sourcepos="160:159-160:171">__pycache__</code> directories:</p>
+<pre class="syntax-highlighting" data-sourcepos="162:1-167:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>typeCheckingMode<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>strict<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ignore<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>**/__pycache__<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="pylsp" data-sourcepos="169:1-169:9">PyLSP<a href="#pylsp" aria-label="Link to heading 'PyLSP'" data-heading-content="PyLSP" class="anchor"></a></h3>
+<p data-sourcepos="171:1-171:282"><a data-sourcepos="171:1-171:69" href="https://github.com/python-lsp/python-lsp-server/">python-lsp-server</a>, more commonly known as PyLSP, by default integrates with a number of external tools (autopep8, mccabe, pycodestyle, yapf) while others are optional and must be explicitly enabled and configured (flake8, pylint).</p>
+<p data-sourcepos="173:1-173:131">See <a data-sourcepos="173:5-173:121" href="https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md">Python Language Server Configuration</a> for more.</p>
+<h3 id="pyrefly" data-sourcepos="175:1-175:11">Pyrefly<a href="#pyrefly" aria-label="Link to heading 'Pyrefly'" data-heading-content="Pyrefly" class="anchor"></a></h3>
+<p data-sourcepos="177:1-177:120"><a data-sourcepos="177:1-177:30" href="https://pyrefly.org">Pyrefly</a> is a modern Python type checker and language server from Meta with powerful IDE features.</p>
+<h4 id="showing-type-errors" data-sourcepos="179:1-179:24">Showing Type Errors<a href="#showing-type-errors" aria-label="Link to heading 'Showing Type Errors'" data-heading-content="Showing Type Errors" class="anchor"></a></h4>
+<p data-sourcepos="181:1-181:126">By default, Pyrefly only displays type errors when a configuration file is present in your project. To see type errors in Zed:</p>
+<p data-sourcepos="183:1-183:233"><strong data-sourcepos="183:1-183:31">Create a configuration file</strong> (recommended): Add a <code data-sourcepos="183:54-183:67">pyrefly.toml</code> or configure <code data-sourcepos="183:82-183:97">[tool.pyrefly]</code> in your <code data-sourcepos="183:107-183:122">pyproject.toml</code> at the root of your project. This is the standard way to use Pyrefly and allows you to customize its behavior.</p>
+<p data-sourcepos="185:1-185:31">Example minimal <code data-sourcepos="185:17-185:30">pyrefly.toml</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="187:1-190:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> Check all Python files in your project</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">project-includes</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>.<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<p data-sourcepos="192:1-192:127">For comprehensive configuration options, see the <a data-sourcepos="192:50-192:126" href="https://pyrefly.org/docs/configuration">Pyrefly configuration documentation</a>.</p>
+<p data-sourcepos="194:1-194:110">Alternatively, add to the <code data-sourcepos="194:27-194:31">lsp</code> section of your zed config file to tell Pyrefly to always display type errors:</p>
+<pre class="syntax-highlighting" data-sourcepos="196:1-208:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>lsp<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pyrefly<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>initialization_options<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>python<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pyrefly<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>displayTypeErrors<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>force-on<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h2 id="virtual-environments" data-sourcepos="210:1-210:23">Virtual Environments<a href="#virtual-environments" aria-label="Link to heading 'Virtual Environments'" data-heading-content="Virtual Environments" class="anchor"></a></h2>
+<p data-sourcepos="212:1-212:394"><a data-sourcepos="212:1-212:67" href="https://docs.python.org/3/library/venv.html">Virtual environments</a> are a useful tool for fixing a Python version and set of dependencies for a specific project, in a way that’s isolated from other projects on the same machine. Zed has built-in support for discovering, configuring, and activating virtual environments, based on the language-agnostic concept of a <a data-sourcepos="212:365-212:393" href="../toolchains.html">toolchain</a>.</p>
+<p data-sourcepos="214:1-214:105">Note that if you have a global Python installation, it is also counted as a toolchain for Zed’s purposes.</p>
+<h3 id="create-a-virtual-environment" data-sourcepos="216:1-216:32">Create a Virtual Environment<a href="#create-a-virtual-environment" aria-label="Link to heading 'Create a Virtual Environment'" data-heading-content="Create a Virtual Environment" class="anchor"></a></h3>
+<p data-sourcepos="218:1-218:97">If your project doesn’t have a virtual environment set up already, you can create one as follows:</p>
+<pre class="syntax-highlighting" data-sourcepos="220:1-222:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">python3</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>m</span> venv .venv</span>
+</span></code></pre>
+<p data-sourcepos="224:1-224:115">Alternatively, if you’re using <code data-sourcepos="224:32-224:35">uv</code>, running <code data-sourcepos="224:46-224:54">uv sync</code> will create a virtual environment the first time you run it.</p>
+<h3 id="how-zed-uses-python-toolchains" data-sourcepos="226:1-226:34">How Zed Uses Python Toolchains<a href="#how-zed-uses-python-toolchains" aria-label="Link to heading 'How Zed Uses Python Toolchains'" data-heading-content="How Zed Uses Python Toolchains" class="anchor"></a></h3>
+<p data-sourcepos="228:1-228:78">Zed uses the selected Python toolchain for your project in the following ways:</p>
+<ul data-sourcepos="230:1-233:191">
+<li data-sourcepos="230:1-230:317">Built-in language servers will be automatically configured with the path to the toolchain’s Python interpreter and, if applicable, virtual environment. This is important so that they can resolve dependencies. (Note that language servers provided by extensions can’t be automatically configured like this currently.)</li>
+<li data-sourcepos="231:1-231:91">Python tasks (such as pytest tests) will be run using the toolchain’s Python interpreter.</li>
+<li data-sourcepos="232:1-232:248">If the toolchain is a virtual environment, the environment’s activation script will be run automatically when you launch a new shell in Zed’s integrated terminal, giving you convenient access to the selected Python interpreter and dependency set.</li>
+<li data-sourcepos="233:1-233:191">If a built-in language server is installed in the active virtual environment, that binary will be used instead of Zed’s private automatically-installed binary. This also applies to debugpy.</li>
+</ul>
+<h3 id="selecting-a-toolchain" data-sourcepos="235:1-235:25">Selecting a Toolchain<a href="#selecting-a-toolchain" aria-label="Link to heading 'Selecting a Toolchain'" data-heading-content="Selecting a Toolchain" class="anchor"></a></h3>
+<p data-sourcepos="237:1-237:427">For most projects, Zed will automatically select the right Python toolchain. In complex projects with multiple virtual environments, it might be necessary to override this selection. You can use the <a data-sourcepos="237:200-237:258" href="../toolchains.html#selecting-toolchains">toolchain selector</a> to pick a toolchain from the list discovered by Zed, or <a data-sourcepos="237:316-237:402" href="../toolchains.html#adding-toolchains-manually">specify the path to a toolchain manually</a> if it’s not on the list.</p>
+<h2 id="code-formatting--linting" data-sourcepos="239:1-239:28">Code Formatting &amp; Linting<a href="#code-formatting--linting" aria-label="Link to heading 'Code Formatting &amp; Linting'" data-heading-content="Code Formatting &amp; Linting" class="anchor"></a></h2>
+<p data-sourcepos="241:1-241:170">Zed uses <a data-sourcepos="241:10-241:50" href="https://github.com/astral-sh/ruff">Ruff</a> for formatting and linting Python code. Specifically, it runs Ruff as an LSP server using the <code data-sourcepos="241:146-241:158">ruff server</code> subcommand.</p>
+<h3 id="configuring-formatting" data-sourcepos="243:1-243:26">Configuring Formatting<a href="#configuring-formatting" aria-label="Link to heading 'Configuring Formatting'" data-heading-content="Configuring Formatting" class="anchor"></a></h3>
+<p data-sourcepos="245:1-245:156">Formatting in Zed follows a two-phase pipeline: first, code actions on format (<code data-sourcepos="245:80-245:103">code_actions_on_format</code>) are executed, followed by the configured formatter.</p>
+<p data-sourcepos="247:1-247:110">Configure formatting in Settings (<code data-sourcepos="247:35-247:53">zed::OpenSettings</code>) under Languages &gt; Python, or add to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="249:1-264:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>code_actions_on_format<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>source.organizeImports.ruff<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>formatter<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>language_server<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>name<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ruff<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="266:1-266:204">These two phases are independent. For example, if you prefer <a data-sourcepos="266:62-266:98" href="https://github.com/psf/black">Black</a> for code formatting, but want to keep Ruff’s import sorting, you only need to change the formatter phase.</p>
+<p data-sourcepos="268:1-268:99">Configure in Settings (<code data-sourcepos="268:24-268:42">zed::OpenSettings</code>) under Languages &gt; Python, or add to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="270:1-288:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>code_actions_on_format<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Phase 1: Ruff still handles organize imports
+</span>        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>source.organizeImports.ruff<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>formatter<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Phase 2: Black handles formatting
+</span>        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>external<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>command<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>black<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>arguments<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>--stdin-filename<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>{buffer_path}<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>-<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="290:1-290:229">To completely switch to another tool and prevent Ruff from modifying your code at all, you must explicitly set <code data-sourcepos="290:112-290:140">source.organizeImports.ruff</code> to false in the <code data-sourcepos="290:158-290:181">code_actions_on_format</code> section, in addition to changing the formatter.</p>
+<p data-sourcepos="292:1-292:97">To prevent any formatting actions when you save, you can disable format-on-save for Python files.</p>
+<p data-sourcepos="294:1-294:99">Configure in Settings (<code data-sourcepos="294:24-294:42">zed::OpenSettings</code>) under Languages &gt; Python, or add to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="296:1-304:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>format_on_save<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>off<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="configuring-ruff" data-sourcepos="306:1-306:20">Configuring Ruff<a href="#configuring-ruff" aria-label="Link to heading 'Configuring Ruff'" data-heading-content="Configuring Ruff" class="anchor"></a></h3>
+<p data-sourcepos="308:1-308:518">Like basedpyright, Ruff reads options from both Zed’s language server settings and configuration files (<code data-sourcepos="308:105-308:115">ruff.toml</code>) when used in Zed. Unlike basedpyright, <em data-sourcepos="308:157-308:161">all</em> options can be configured in either of these locations, so the choice of where to put your Ruff configuration comes down to whether you want it to be shared between projects but specific to Zed (in which case you should use language server settings), or specific to one project but common to all Ruff invocations (in which case you should use <code data-sourcepos="308:506-308:516">ruff.toml</code>).</p>
+<p data-sourcepos="310:1-310:150">Here’s an example of using language server settings in Zed’s <code data-sourcepos="310:62-310:76">settings.json</code> to disable all Ruff lints in Zed (while still using Ruff as a formatter):</p>
+<pre class="syntax-highlighting" data-sourcepos="312:1-324:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>lsp<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ruff<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>initialization_options<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>settings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>exclude<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>*<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="326:1-326:107">And here’s an example <code data-sourcepos="326:23-326:33">ruff.toml</code> with linting and formatting options, adapted from the Ruff documentation:</p>
+<pre class="syntax-highlighting" data-sourcepos="328:1-336:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">lint</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> Avoid enforcing line-length violations (`E501`)</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">ignore</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>E501<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+
+<span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">format</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> Use single quotes when formatting.</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">quote-style</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>single<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="338:1-338:266">For more details, refer to the Ruff documentation about <a data-sourcepos="338:57-338:121" href="https://docs.astral.sh/ruff/configuration/">configuration files</a> and <a data-sourcepos="338:127-338:199" href="https://docs.astral.sh/ruff/editors/settings/">language server settings</a>, and the <a data-sourcepos="338:210-338:265" href="https://docs.astral.sh/ruff/settings/">list of options</a>.</p>
+<h3 id="embedded-language-highlighting" data-sourcepos="340:1-340:34">Embedded Language Highlighting<a href="#embedded-language-highlighting" aria-label="Link to heading 'Embedded Language Highlighting'" data-heading-content="Embedded Language Highlighting" class="anchor"></a></h3>
+<p data-sourcepos="342:1-342:112">Zed supports syntax highlighting for code embedded in Python strings by adding a comment with the language name.</p>
+<pre class="syntax-highlighting" data-sourcepos="344:1-357:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment hl-line hl-number-sign hl-python"><span class="hl-punctuation hl-definition hl-comment hl-python">#</span> sql
+</span><span class="hl-meta hl-qualified-name hl-python"><span class="hl-meta hl-generic-name hl-python">query</span></span> <span class="hl-keyword hl-operator hl-assignment hl-python">=</span> <span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">&quot;</span></span></span><span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-source hl-sql"><span class="hl-keyword hl-other hl-DML hl-sql">SELECT</span> <span class="hl-variable hl-language hl-star hl-sql">*</span> <span class="hl-keyword hl-other hl-DML hl-sql">FROM</span> users</span><span class="hl-punctuation hl-definition hl-string hl-end hl-python">&quot;</span></span></span>
+
+<span class="hl-comment hl-line hl-number-sign hl-python"><span class="hl-punctuation hl-definition hl-comment hl-python">#</span>sql
+</span><span class="hl-meta hl-qualified-name hl-python"><span class="hl-meta hl-generic-name hl-python">query</span></span> <span class="hl-keyword hl-operator hl-assignment hl-python">=</span> <span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-block hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">&quot;&quot;&quot;</span></span></span><span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-block hl-python">
+<span class="hl-meta hl-string hl-python"></span></span></span><span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-block hl-python"><span class="hl-source hl-sql">    <span class="hl-keyword hl-other hl-DML hl-sql">SELECT</span> <span class="hl-variable hl-language hl-star hl-sql">*</span>
+    <span class="hl-keyword hl-other hl-DML hl-sql">FROM</span> users
+</span><span class="hl-punctuation hl-definition hl-string hl-end hl-python">&quot;&quot;&quot;</span></span></span>
+
+<span class="hl-meta hl-qualified-name hl-python"><span class="hl-meta hl-generic-name hl-python">result</span></span> <span class="hl-keyword hl-operator hl-assignment hl-python">=</span> <span class="hl-meta hl-function-call hl-python"><span class="hl-meta hl-qualified-name hl-python"><span class="hl-variable hl-function hl-python"><span class="hl-meta hl-generic-name hl-python">func</span></span></span></span><span class="hl-meta hl-function-call hl-arguments hl-python"><span class="hl-punctuation hl-section hl-arguments hl-begin hl-python">(</span> <span class="hl-comment hl-line hl-number-sign hl-python"><span class="hl-punctuation hl-definition hl-comment hl-python">#</span>sql
+</span>    <span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">&quot;</span></span></span><span class="hl-meta hl-string hl-python"><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-source hl-sql"><span class="hl-keyword hl-other hl-DML hl-sql">SELECT</span> <span class="hl-variable hl-language hl-star hl-sql">*</span> <span class="hl-keyword hl-other hl-DML hl-sql">FROM</span> users</span><span class="hl-punctuation hl-definition hl-string hl-end hl-python">&quot;</span></span></span>
+<span class="hl-punctuation hl-section hl-arguments hl-end hl-python">)</span></span>
+</span></code></pre>
+<h2 id="debugging" data-sourcepos="359:1-359:12">Debugging<a href="#debugging" aria-label="Link to heading 'Debugging'" data-heading-content="Debugging" class="anchor"></a></h2>
+<p data-sourcepos="361:1-361:151">Zed supports Python debugging through the <code data-sourcepos="361:43-361:51">debugpy</code> adapter. You can start with no configuration or define custom launch profiles in <code data-sourcepos="361:134-361:150">.zed/debug.json</code>.</p>
+<h3 id="start-debugging-with-no-setup" data-sourcepos="363:1-363:33">Start Debugging with No Setup<a href="#start-debugging-with-no-setup" aria-label="Link to heading 'Start Debugging with No Setup'" data-heading-content="Start Debugging with No Setup" class="anchor"></a></h3>
+<p data-sourcepos="365:1-366:15">Zed can automatically detect debuggable Python entry points. Press F4 (or run debugger: start from the Command Palette) to see available options for your current project.
+This works for:</p>
+<ul data-sourcepos="368:1-370:14">
+<li data-sourcepos="368:1-368:16">Python scripts</li>
+<li data-sourcepos="369:1-369:9">Modules</li>
+<li data-sourcepos="370:1-370:14">pytest tests</li>
+</ul>
+<p data-sourcepos="372:1-372:83">Zed uses <code data-sourcepos="372:10-372:18">debugpy</code> under the hood, but no manual adapter configuration is required.</p>
+<h3 id="define-custom-debug-configurations" data-sourcepos="374:1-374:38">Define Custom Debug Configurations<a href="#define-custom-debug-configurations" aria-label="Link to heading 'Define Custom Debug Configurations'" data-heading-content="Define Custom Debug Configurations" class="anchor"></a></h3>
+<p data-sourcepos="376:1-376:142">For reusable setups, create a <code data-sourcepos="376:31-376:47">.zed/debug.json</code> file in your project root. This gives you more control over how Zed runs and debugs your code.</p>
+<ul data-sourcepos="378:1-378:133">
+<li data-sourcepos="378:1-378:133"><a data-sourcepos="378:3-378:133" href="https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings#launchattach-settings">debugpy configuration documentation</a></li>
+</ul>
+<h4 id="debug-active-file" data-sourcepos="380:1-380:22">Debug Active File<a href="#debug-active-file" aria-label="Link to heading 'Debug Active File'" data-heading-content="Debug Active File" class="anchor"></a></h4>
+<pre class="syntax-highlighting" data-sourcepos="382:1-391:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>label<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python Active File<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>adapter<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Debugpy<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>program<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>$ZED_FILE<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>request<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>launch<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="393:1-393:48">This runs the file currently open in the editor.</p>
+<h4 id="debug-a-flask-app" data-sourcepos="395:1-395:22">Debug a Flask App<a href="#debug-a-flask-app" aria-label="Link to heading 'Debug a Flask App'" data-heading-content="Debug a Flask App" class="anchor"></a></h4>
+<p data-sourcepos="397:1-397:69">For projects using Flask, you can define a full launch configuration:</p>
+<pre class="syntax-highlighting" data-sourcepos="399:1-410:3"><code><span class="hl-text hl-plain">.venv/
+app/
+  init.py
+  main.py
+  routes.py
+templates/
+  index.html
+static/
+  style.css
+requirements.txt
+</span></code></pre>
+<p data-sourcepos="412:1-412:43">…the following configuration can be used:</p>
+<pre class="syntax-highlighting" data-sourcepos="414:1-438:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>label<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python: Flask<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>adapter<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Debugpy<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>request<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>launch<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>module<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>app<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cwd<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>$ZED_WORKTREE_ROOT<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>env<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>FLASK_APP<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>app<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>FLASK_DEBUG<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>1<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>args<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>run<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>--reload<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Enables Flask reloader that watches for file changes
+</span>      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>--debugger<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Enables Flask debugger
+</span>    <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>autoReload<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>enable<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>jinja<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>justMyCode<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="440:1-440:96">These can be combined to tailor the experience for web servers, test runners, or custom scripts.</p>
+<h4 id="debug-a-django-app" data-sourcepos="442:1-442:23">Debug a Django App<a href="#debug-a-django-app" aria-label="Link to heading 'Debug a Django App'" data-heading-content="Debug a Django App" class="anchor"></a></h4>
+<p data-sourcepos="444:1-444:68">For projects using Django with a structure similar to the following:</p>
+<pre class="syntax-highlighting" data-sourcepos="446:1-456:3"><code><span class="hl-text hl-plain">my_django_project/
+  manage.py
+  …
+  my_django_app/
+    migrations/
+    templates/
+    models.py
+    urls.py
+    …
+</span></code></pre>
+<p data-sourcepos="458:1-458:43">…the following configuration can be used:</p>
+<pre class="syntax-highlighting" data-sourcepos="460:1-471:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>label<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Python: Django<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>adapter<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Debugpy<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>request<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>launch<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>program<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>manage.py<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>args<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>runserver<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>django<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<h2 id="troubleshooting" data-sourcepos="473:1-473:18">Troubleshooting<a href="#troubleshooting" aria-label="Link to heading 'Troubleshooting'" data-heading-content="Troubleshooting" class="anchor"></a></h2>
+<p data-sourcepos="475:1-475:109">Issues with Python in Zed typically involve virtual environments, language servers, or tooling configuration.</p>
+<h3 id="resolve-language-server-startup-issues" data-sourcepos="477:1-477:42">Resolve Language Server Startup Issues<a href="#resolve-language-server-startup-issues" aria-label="Link to heading 'Resolve Language Server Startup Issues'" data-heading-content="Resolve Language Server Startup Issues" class="anchor"></a></h3>
+<p data-sourcepos="479:1-479:100">If a language server isn’t responding or features like diagnostics or autocomplete aren’t available:</p>
+<ul data-sourcepos="481:1-486:138">
+<li data-sourcepos="481:1-481:223">Check your Zed log (using the <code data-sourcepos="481:33-481:46">zed::OpenLog</code> action) for errors related to the language server you’re trying to use. This is where you’re likely to find useful information if the language server failed to start up at all.</li>
+<li data-sourcepos="482:1-484:80">Use the language server logs view to understand the lifecycle of the affected language server. You can access this view using the <code data-sourcepos="482:133-482:161">dev::OpenLanguageServerLogs</code> action, or by clicking the lightning bolt icon in the status bar and selecting your language server. The most useful pieces of data in this view are:
+<ul data-sourcepos="483:3-484:80">
+<li data-sourcepos="483:3-483:72">“Server Logs”, which shows any errors printed by the language server</li>
+<li data-sourcepos="484:3-484:80">“Server Info”, which shows details about how the language server was started</li>
+</ul>
+</li>
+<li data-sourcepos="485:1-485:79">Verify your <code data-sourcepos="485:15-485:29">settings.json</code> or <code data-sourcepos="485:34-485:53">pyrightconfig.json</code> is syntactically correct.</li>
+<li data-sourcepos="486:1-486:138">Restart Zed to reinitialize language server connections, or try restarting the language server using the <code data-sourcepos="486:108-486:138">editor::RestartLanguageServer</code></li>
+</ul>
+<p data-sourcepos="488:1-488:324">If the language server is failing to resolve imports, and you’re using a virtual environment, make sure that the right environment is chosen in the selector. You can use the “Server Info” view to confirm which virtual environment Zed is sending to the language server—look for the <code data-sourcepos="488:288-488:304">* Configuration</code> section at the end.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;languages&#x2f;python.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

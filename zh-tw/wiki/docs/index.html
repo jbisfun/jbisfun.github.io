@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>概覽 · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;docs&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;docs&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;wiki">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;api&#x2f;rust&#x2f;wiki&#x2f;index.html">wiki</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled"><li><a href="index.html" class="active" aria-current="page">概覽</a></li></ul>
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="templating.html">範本</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;docs&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="overview" data-sourcepos="1:1-1:8">概覽<a href="#overview" aria-label="Link to heading '概覽'" data-heading-content="概覽" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:181"><code data-sourcepos="3:1-3:6">wiki</code> 會把 <a data-sourcepos="3:15-3:53" href="https://github.com/jbisfun/pull">pull</a> 工作區中的每個儲存庫轉換成一個靜態網站，發佈於 <a data-sourcepos="3:125-3:151" href="https://jbisfun.github.io">https://jbisfun.github.io</a>。每個儲存庫會得到：</p>
+<ul data-sourcepos="5:1-7:78">
+<li data-sourcepos="5:1-5:67">以其 <code data-sourcepos="5:10-5:20">README.md</code> 作為入口頁面（<code data-sourcepos="5:43-5:61">&lt;repo&gt;/index.html</code>），</li>
+<li data-sourcepos="6:1-6:61">其 <code data-sourcepos="6:7-6:13">docs/</code> 資料夾中的頁面（<code data-sourcepos="6:39-6:55">&lt;repo&gt;/docs/...</code>），</li>
+<li data-sourcepos="7:1-7:78">由該語言自己的工具產生的程式碼參考（<code data-sourcepos="7:57-7:72">&lt;repo&gt;/api/...</code>）。</li>
+</ul>
+<h2 id="how-it-works" data-sourcepos="9:1-9:15">運作方式<a href="#how-it-works" aria-label="Link to heading '運作方式'" data-heading-content="運作方式" class="anchor"></a></h2>
+<p data-sourcepos="11:1-11:72"><code data-sourcepos="11:1-11:12">wiki build</code>（一個 Rust 執行檔，<code data-sourcepos="11:40-11:45">src/</code>）會執行下列步驟：</p>
+<ol data-sourcepos="13:1-25:115">
+<li data-sourcepos="13:1-13:197"><strong data-sourcepos="13:4-13:13">收集</strong>（<code data-sourcepos="13:17-13:28">collect.rs</code>）：執行 <code data-sourcepos="13:42-13:61">pull status --json</code>，保留每個已複製的儲存庫，連同其 README、GitHub URL（來自 <code data-sourcepos="13:140-13:147">origin</code> 遠端）以及 <code data-sourcepos="13:165-13:175">wiki.toml</code> 中對應的表格。</li>
+<li data-sourcepos="14:1-17:254"><strong data-sourcepos="14:4-14:22">程式碼參考</strong>（<code data-sourcepos="14:26-14:36">apidoc.rs</code>），輸出到 <code data-sourcepos="14:53-14:79">.build/api/&lt;repo&gt;/&lt;tool&gt;/</code>：
+<ul data-sourcepos="15:4-17:254">
+<li data-sourcepos="15:4-15:135">Rust：當儲存庫有 <code data-sourcepos="15:29-15:40">Cargo.toml</code> 時執行 <code data-sourcepos="15:52-15:72">cargo doc --no-deps</code>（rustdoc），並使用該儲存庫自己的 target 目錄。</li>
+<li data-sourcepos="16:4-16:246">Lua：對受追蹤的 <code data-sourcepos="16:28-16:34">*.lua</code> 檔案使用 <a data-sourcepos="16:49-16:92" href="https://github.com/lunarmodules/ldoc">LDoc</a>（<code data-sourcepos="16:96-16:117">apt install lua-ldoc</code>），但 <code data-sourcepos="16:128-16:136">*.x.lua</code> 掛鉤指令碼除外。只會讀取 <code data-sourcepos="16:175-16:179">---</code> 文件註解（檔案第一個註解上用 <code data-sourcepos="16:224-16:240">-- @module name</code>）。</li>
+<li data-sourcepos="17:4-17:254">JavaScript：對有 <code data-sourcepos="17:26-17:39">package.json</code> 且含 <code data-sourcepos="17:48-17:55">/** */</code> 註解的儲存庫，針對受追蹤的 <code data-sourcepos="17:97-17:102">*.js</code>/<code data-sourcepos="17:104-17:110">*.mjs</code> 使用 <a data-sourcepos="17:119-17:144" href="https://jsdoc.app">JSDoc</a>（wiki 的開發相依套件）。缺少工具或執行失敗只會發出警告，因此網站仍可建置。</li>
+</ul>
+</li>
+<li data-sourcepos="18:1-18:420"><strong data-sourcepos="18:4-18:13">資產</strong>（<code data-sourcepos="18:17-18:27">bundle.rs</code>）：內嵌的 <a data-sourcepos="18:44-18:74" href="https://rolldown.rs">rolldown</a> 會連同 npm 匯入項目（Bootstrap 的 collapse 與 dropdown、clipboard.js）一起打包並壓縮 <code data-sourcepos="18:180-18:195">assets/main.js</code>。<a data-sourcepos="18:199-18:238" href="https://lightningcss.dev">lightningcss</a> 會把 <code data-sourcepos="18:247-18:264">assets/style.css</code> 與 Bootstrap 的 CSS 打包在一起，再加上 syntect 根據其淺色與深色主題產生的程式碼醒目提示 CSS。輸出放在 <code data-sourcepos="18:404-18:417">dist/_assets</code>。</li>
+<li data-sourcepos="19:1-23:282"><strong data-sourcepos="19:4-19:13">渲染</strong>（<code data-sourcepos="19:17-19:27">render.rs</code>）到 <code data-sourcepos="19:35-19:51">dist/&lt;repo&gt;/...</code>。mdBook 專案（有 <code data-sourcepos="19:75-19:90">docs/book.toml</code>）會使用該書的 <code data-sourcepos="19:113-19:117">src</code> 資料夾，並以其 <code data-sourcepos="19:141-19:152">SUMMARY.md</code> 作為文件側邊欄。
+<ul data-sourcepos="20:4-23:282">
+<li data-sourcepos="20:4-20:285"><code data-sourcepos="20:6-20:11">*.md</code> 使用 <a data-sourcepos="20:20-20:63" href="https://github.com/kivikakk/comrak">comrak</a>：GFM 表格與自動連結、智慧標點、<code data-sourcepos="20:110-20:116">{#id}</code> 標題屬性，以及在建置時由 syntect 進行的醒目提示。每個區塊都帶有 <code data-sourcepos="20:209-20:224">data-sourcepos</code>，因此 Radar 可以把選取範圍對應回原始碼行。</li>
+<li data-sourcepos="21:4-21:114"><code data-sourcepos="21:6-21:14">*.jinja</code> 使用 <a data-sourcepos="21:23-21:73" href="https://github.com/mitsuhiko/minijinja">minijinja</a>。請參閱<a data-sourcepos="21:86-21:111" href="templating.html">範本</a>。</li>
+<li data-sourcepos="22:4-22:64"><code data-sourcepos="22:6-22:12">docs/</code> 中的其他所有檔案都會當作資產複製。</li>
+<li data-sourcepos="23:4-23:282">連結會依儲存庫解析，因此 README 中連結到 <code data-sourcepos="23:63-23:77">docs/setup.md</code> 時，會導向渲染後的頁面。連結到其他儲存庫檔案時會前往 GitHub（圖片則前往其原始 URL）。連結是用 lol_html 改寫的，因此原始 HTML 中的連結也涵蓋在內。</li>
+</ul>
+</li>
+<li data-sourcepos="24:1-24:153"><strong data-sourcepos="24:4-24:13">語言</strong>（<code data-sourcepos="24:17-24:25">i18n.rs</code>、<code data-sourcepos="24:29-24:42">translate.rs</code>）：第 4 步會針對 <code data-sourcepos="24:68-24:78">wiki.toml</code> <code data-sourcepos="24:80-24:87">[i18n]</code> 中的每個語言各執行一次；請見<a data-sourcepos="24:131-24:150" href="#languages">語言</a>。</li>
+<li data-sourcepos="25:1-25:115"><strong data-sourcepos="25:4-25:13">發佈</strong>（<code data-sourcepos="25:17-25:30">wiki publish</code>）：以 rsync 將 <code data-sourcepos="25:51-25:57">dist/</code> 鏡像到 <code data-sourcepos="25:69-25:87">jbisfun.github.io</code> 儲存庫並加入暫存。</li>
+</ol>
+<h2 id="what-gets-regenerated" data-sourcepos="27:1-27:30">哪些內容會重新產生<a href="#what-gets-regenerated" aria-label="Link to heading '哪些內容會重新產生'" data-heading-content="哪些內容會重新產生" class="anchor"></a></h2>
+<p data-sourcepos="29:1-29:141">輸入是以 git 識別它們的方式來識別（<code data-sourcepos="29:51-29:60">state.rs</code>），而 <code data-sourcepos="29:71-29:89">.build/state.json</code> 會保存每個部分上次建置時使用的鍵：</p>
+<table data-sourcepos="31:1-37:84" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="31:1-31:46">
+<th data-sourcepos="31:2-31:9">部分</th>
+<th data-sourcepos="31:11-31:45">下列項目變更時重新建置</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="33:1-33:123">
+<td data-sourcepos="33:2-33:30">儲存庫的程式碼參考</td>
+<td data-sourcepos="33:32-33:122">該儲存庫的 HEAD tree id、其未提交變更的 patch id，或其 <code data-sourcepos="33:104-33:114">wiki.toml</code> 設定</td>
+</tr>
+<tr data-sourcepos="34:1-34:99">
+<td data-sourcepos="34:2-34:21">儲存庫的頁面</td>
+<td data-sourcepos="34:23-34:98">其任何頁面來源的 blob id、其程式碼參考的鍵，或全域鍵</td>
+</tr>
+<tr data-sourcepos="35:1-35:88">
+<td data-sourcepos="35:2-35:36">儲存庫在其他語言的頁面</td>
+<td data-sourcepos="35:38-35:87">同上，再加上其翻譯與翻譯後的字串</td>
+</tr>
+<tr data-sourcepos="36:1-36:150">
+<td data-sourcepos="36:2-36:9">全部</td>
+<td data-sourcepos="36:11-36:149">全域鍵：<code data-sourcepos="36:24-36:35">templates/</code> 與 <code data-sourcepos="36:41-36:50">locales/</code> 的 blob id、語言清單、導覽列中的儲存庫清單、網站標題，或 <code data-sourcepos="36:133-36:138">wiki</code> 執行檔</td>
+</tr>
+<tr data-sourcepos="37:1-37:84">
+<td data-sourcepos="37:2-37:17"><code data-sourcepos="37:3-37:16">dist/_assets</code></td>
+<td data-sourcepos="37:19-37:83"><code data-sourcepos="37:20-37:28">assets/</code>、<code data-sourcepos="37:32-37:47">pnpm-lock.yaml</code> 的 blob id，或 <code data-sourcepos="37:67-37:72">wiki</code> 執行檔</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="39:1-39:151"><code data-sourcepos="39:1-39:8">.jinja</code> 頁面與首頁可以顯示網站的任何資訊，因此每次建置都會渲染。<code data-sourcepos="39:94-39:113">wiki build --force</code>（<code data-sourcepos="39:117-39:130">just rebuild</code>）會忽略狀態。</p>
+<h2 id="wikitoml" data-sourcepos="41:1-41:12">wiki.toml<a href="#wikitoml" aria-label="Link to heading 'wiki.toml'" data-heading-content="wiki.toml" class="anchor"></a></h2>
+<p data-sourcepos="43:1-43:135">各儲存庫的設定，以 pull 儲存庫名稱為鍵；全部皆為選用。完整清單位於 <a data-sourcepos="43:98-43:122" href="https://github.com/jbisfun/wiki/blob/main/wiki.toml">wiki.toml</a> 的開頭。</p>
+<pre class="syntax-highlighting" data-sourcepos="45:1-55:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">repos</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">launchd</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">skip</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-language hl-toml">true</span>                            <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> leave the repo out</span>
+
+<span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">repos</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">ycode</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">category</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>ycode<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>                     <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> header dropdown and home page section (default: the pull group, else &quot;Other&quot;)</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">description</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>A Zed fork you can script in Lua.<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>   <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> home page blurb (default: the README&#39;s first sentence)</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">rust</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-inline-table hl-begin hl-toml">{</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">packages</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>lua_hooks<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span> <span class="hl-punctuation hl-definition hl-inline-table hl-end hl-toml">}</span>    <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> cargo doc -p ... (default: default-members)</span>
+
+<span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> lua = { files = [&quot;lib&quot;] }  /  js = { files = [&quot;src&quot;] }  /  rust = false</span>
+</span></code></pre>
+<p data-sourcepos="57:1-57:201">位於 pull 群組中的儲存庫（<code data-sourcepos="57:37-57:59">fossify-ios/notes-ios</code>）會以其自己的名稱（<code data-sourcepos="57:90-57:100">notes-ios</code>）列在該群組的類別之下。過長的 README 句子在首頁會於第一個逗號處截斷。</p>
+<h2 id="languages" data-sourcepos="59:1-59:9">語言<a href="#languages" aria-label="Link to heading '語言'" data-heading-content="語言" class="anchor"></a></h2>
+<p data-sourcepos="61:1-61:292">英文是來源語言，位於網站根目錄。<code data-sourcepos="61:49-61:64">[i18n] locales</code> 中的每個語言（目前是 <code data-sourcepos="61:97-61:103">zh-TW</code>）都是整個網站的完整副本，放在其小寫標籤之下（<code data-sourcepos="61:173-61:184">/zh-tw/...</code>），頁首有語言選單，各副本之間以 <code data-sourcepos="61:234-61:243">hreflang</code> 連結。程式碼參考維持英文並共用。</p>
+<ul data-sourcepos="63:1-67:200">
+<li data-sourcepos="63:1-63:307"><strong data-sourcepos="63:3-63:12">介面</strong>（導覽列、側邊欄、頁尾、首頁）：<code data-sourcepos="63:61-63:84">locales/&lt;tag&gt;/main.ftl</code> 中的 <a data-sourcepos="63:93-63:127" href="https://projectfluent.org">Fluent</a> 訊息，透過 fluent-templates 載入。範本呼叫 <code data-sourcepos="63:184-63:205">t('key', name=value)</code>。新增語言需要一個 <code data-sourcepos="63:234-63:257">locales/&lt;tag&gt;/main.ftl</code>，包含 <code data-sourcepos="63:268-63:288">locales/en/main.ftl</code> 中的每個鍵。</li>
+<li data-sourcepos="64:1-64:443"><strong data-sourcepos="64:3-64:12">頁面</strong>（README、<code data-sourcepos="64:25-64:31">docs/</code>）以及 <code data-sourcepos="64:42-64:52">wiki.toml</code> 的描述與分類，會透過任何相容 OpenAI 的聊天 API 機器翻譯（<code data-sourcepos="64:133-64:151">[i18n.translator]</code>：<code data-sourcepos="64:155-64:164">base_url</code>、<code data-sourcepos="64:168-64:174">model</code>、<code data-sourcepos="64:178-64:190">api_key_env</code>、<code data-sourcepos="64:194-64:211">reasoning_effort</code>、<code data-sourcepos="64:215-64:220">jobs</code>、<code data-sourcepos="64:224-64:230">chunk</code>；預設為本機 Ollama），使用 async-openai。頁面依其 markdown 結構切成最多 <code data-sourcepos="64:325-64:331">chunk</code> 個字元的區塊（text-splitter）；提示詞要求程式碼、連結、HTML 與範本標籤保持原樣。</li>
+<li data-sourcepos="65:1-65:352"><strong data-sourcepos="65:3-65:12">快取</strong>：<code data-sourcepos="65:16-65:49">translations/&lt;tag&gt;/&lt;repo&gt;/&lt;path&gt;</code>，加上 <code data-sourcepos="65:60-65:73">sources.json</code>（頁面 -&gt; 其翻譯所根據的英文 blob id）與 <code data-sourcepos="65:129-65:142">strings.json</code>，與 wiki 一起提交。只有當頁面的英文 blob id 改變時，才會再送去翻譯；在那之前會顯示舊的翻譯（並在建置記錄中發出警告）。已刪除頁面的翻譯會被清除。</li>
+<li data-sourcepos="66:1-66:248"><code data-sourcepos="66:3-66:20">WIKI_TRANSLATE=0</code>，或無法連線到翻譯服務時，只從快取建置：沒有翻譯的頁面會以英文顯示並附上提示。翻譯後的頁面會附上「機器翻譯」提示並連結英文原文，Radar 只在英文頁面上提供。</li>
+<li data-sourcepos="67:1-67:200">在儲存庫的設定表中使用 <code data-sourcepos="67:37-67:55">translate = false</code> 或 <code data-sourcepos="67:61-67:99">translate = { files = [&quot;README.md&quot;] }</code> 可限制翻譯範圍（ycode 的上游 Zed 文件與 <code data-sourcepos="67:155-67:162">issues</code> 中的 radar 回報維持英文）。</li>
+</ul>
+<h2 id="commands" data-sourcepos="69:1-69:9">指令<a href="#commands" aria-label="Link to heading '指令'" data-heading-content="指令" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="71:1-77:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> pnpm install, then wiki build into dist/</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> rebuild   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> the same, ignoring .build/state.json</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> publish   <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build, then copy into ../jbisfun.github.io and git add</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> serve     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build and serve dist/ on http://localhost:8000</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">just</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> clean</span>
+</span></code></pre>
+<p data-sourcepos="79:1-79:315">環境變數：<code data-sourcepos="79:16-79:26">PULL_ROOT</code>（工作區根目錄，預設為 <code data-sourcepos="79:61-79:64">..</code>）、<code data-sourcepos="79:71-79:81">WIKI_SKIP</code>（以逗號分隔、要排除的儲存庫，疊加在 <code data-sourcepos="79:137-79:147">wiki.toml</code> 的 <code data-sourcepos="79:153-79:158">skip</code> 之上）、<code data-sourcepos="79:172-79:183">WIKI_TITLE</code>、<code data-sourcepos="79:187-79:204">WIKI_PUBLISH_DIR</code>、<code data-sourcepos="79:208-79:225">WIKI_TRANSLATE=0</code>（不呼叫翻譯服務），以及 <code data-sourcepos="79:263-79:293">[i18n.translator] api_key_env</code> 所指定的變數。</p>
+<h2 id="pull-hook" data-sourcepos="81:1-81:14">pull 掛鉤<a href="#pull-hook" aria-label="Link to heading 'pull 掛鉤'" data-heading-content="pull 掛鉤" class="anchor"></a></h2>
+<p data-sourcepos="83:1-83:234">工作區的 <code data-sourcepos="83:14-83:29">pullfile.plist</code> 會在 <code data-sourcepos="83:38-83:48">precommit</code> 掛鉤中執行 <code data-sourcepos="83:66-83:79">just publish</code>，因此 <code data-sourcepos="83:90-83:102">pull commit</code> 會把重新產生的網站放進同一個提交的 <code data-sourcepos="83:156-83:174">jbisfun.github.io</code> 中，而 <code data-sourcepos="83:186-83:196">pull push</code> 則會將它部署到 GitHub Pages。</p>
+<p data-sourcepos="85:1-85:50">撰寫頁面請參閱<a data-sourcepos="85:22-85:47" href="templating.html">範本</a>。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;wiki&#x2f;blob&#x2f;main&#x2f;docs&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

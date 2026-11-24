@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["dir_ids","file_id","key","source_id"],"struct":["ApiState","State"]};
+window.SIDEBAR_ITEMS = {"fn":["dir_ids","file_id","key","source_id","text_id"],"struct":["ApiState","State"]};

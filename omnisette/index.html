@@ -12,11 +12,14 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;zh-tw&#x2f;omnisette&#x2f;index.html">
+
   <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
   <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -143,6 +146,20 @@
         </li>
 
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;zh-tw&#x2f;omnisette&#x2f;index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
@@ -168,10 +185,12 @@
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
 
+
       <h1>omnisette</h1>
-<p class="lead">
-  <code>omnisette</code> has no README.md; source in <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;omnisette">github.com&#x2f;jbisfun&#x2f;omnisette</a>.
-</p>
+<p class="lead">This repo has no README.md.</p>
+
+<p>Source: <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;omnisette">github.com&#x2f;jbisfun&#x2f;omnisette</a></p>
+
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
   Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>

@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Key Bindings and Shortcuts - Zed · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;key-bindings.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;key-bindings.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="key-bindings.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="ai/overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="ai/quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="ai/by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="ai/agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="ai/zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="ai/external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="ai/agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="ai/agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="ai/tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="ai/skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="ai/llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="ai/use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="ai/privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="key-bindings.html" class="active" aria-current="page">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="key-bindings" data-sourcepos="6:1-6:14">Key bindings<a href="#key-bindings" aria-label="Link to heading 'Key bindings'" data-heading-content="Key bindings" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:134">Zed’s key binding system is fully customizable. You can rebind any action, create key sequences, and define context-specific bindings.</p>
+<h2 id="predefined-keymaps" data-sourcepos="10:1-10:21">Predefined Keymaps<a href="#predefined-keymaps" aria-label="Link to heading 'Predefined Keymaps'" data-heading-content="Predefined Keymaps" class="anchor"></a></h2>
+<p data-sourcepos="12:1-13:21">If you’re used to a specific editor’s defaults, you can change your <code data-sourcepos="12:69-12:81">base_keymap</code> through the settings window (<code data-sourcepos="12:112-12:130">zed::OpenSettings</code>) or directly through your <code data-sourcepos="12:158-12:172">settings.json</code> file (<code data-sourcepos="12:180-12:202">zed::OpenSettingsFile</code>).
+We currently support:</p>
+<ul data-sourcepos="15:1-23:36">
+<li data-sourcepos="15:1-15:15">Zed (default)</li>
+<li data-sourcepos="16:1-16:9">VS Code</li>
+<li data-sourcepos="17:1-17:6">Atom</li>
+<li data-sourcepos="18:1-18:14">Emacs (Beta)</li>
+<li data-sourcepos="19:1-19:11">JetBrains</li>
+<li data-sourcepos="20:1-20:14">Sublime Text</li>
+<li data-sourcepos="21:1-21:10">TextMate</li>
+<li data-sourcepos="22:1-22:8">Cursor</li>
+<li data-sourcepos="23:1-23:36">None (disables <em data-sourcepos="23:18-23:22">all</em> key bindings)</li>
+</ul>
+<p data-sourcepos="25:1-25:108">This setting can also be changed via the command palette through the <code data-sourcepos="25:70-25:100">zed::ToggleBaseKeymapSelector</code> action.</p>
+<p data-sourcepos="27:1-28:98">You can also enable <code data-sourcepos="27:21-27:30">vim_mode</code> or <code data-sourcepos="27:35-27:46">helix_mode</code>, which add modal bindings.
+For more information, see the documentation for <a data-sourcepos="28:49-28:68" href="vim.html">Vim mode</a> and <a data-sourcepos="28:74-28:97" href="helix.html">Helix mode</a>.</p>
+<h2 id="keymap-editor" data-sourcepos="30:1-30:16">Keymap Editor<a href="#keymap-editor" aria-label="Link to heading 'Keymap Editor'" data-heading-content="Keymap Editor" class="anchor"></a></h2>
+<p data-sourcepos="32:1-32:312">You can access the keymap editor through the <code data-sourcepos="32:46-32:62">zed::OpenKeymap</code> action or by running <code data-sourcepos="32:85-32:101">zed::OpenKeymap</code> action from the <a data-sourcepos="32:119-32:157" href="command-palette.html">command palette</a>. You can easily add or change a keybind for an action with the <code data-sourcepos="32:222-32:240">Change Keybinding</code> or <code data-sourcepos="32:245-32:260">Add Keybinding</code> button on the command palette’s left bottom corner.</p>
+<p data-sourcepos="34:1-34:118">In there, you can see all of the existing actions in Zed as well as the associated keybindings set to them by default.</p>
+<p data-sourcepos="36:1-36:207">You can also customize them right from there, either by clicking on the pencil icon that appears when you hover over a particular action, by double-clicking on the action row, or by pressing the <code data-sourcepos="36:196-36:202">enter</code> key.</p>
+<p data-sourcepos="38:1-38:98">Anything that you end up doing on the keymap editor also gets reflected on the <code data-sourcepos="38:80-38:92">keymap.json</code> file.</p>
+<h2 id="user-keymaps" data-sourcepos="40:1-40:15">User Keymaps<a href="#user-keymaps" aria-label="Link to heading 'User Keymaps'" data-heading-content="User Keymaps" class="anchor"></a></h2>
+<p data-sourcepos="42:1-42:71">The keymap file is stored in the following locations for each platform:</p>
+<ul data-sourcepos="44:1-45:46">
+<li data-sourcepos="44:1-44:42">macOS/Linux: <code data-sourcepos="44:16-44:42">~/.config/zed/keymap.json</code></li>
+<li data-sourcepos="45:1-45:46">Windows: <code data-sourcepos="45:12-45:46">~\AppData\Roaming\Zed/keymap.json</code></li>
+</ul>
+<p data-sourcepos="47:1-47:87">You can open the keymap with the <code data-sourcepos="47:34-47:54">zed::OpenKeymapFile</code> action from the command palette.</p>
+<p data-sourcepos="49:1-51:79">This file contains a JSON array of objects with <code data-sourcepos="49:49-49:60">&quot;bindings&quot;</code>.
+If no <code data-sourcepos="50:7-50:17">&quot;context&quot;</code> is set, the bindings are always active.
+If it is set, the binding is only active when the <a data-sourcepos="51:51-51:78" href="#contexts">context matches</a>.</p>
+<p data-sourcepos="53:1-54:79">Within each binding section, a <a data-sourcepos="53:32-53:65" href="#keybinding-syntax">key sequence</a> is mapped to <a data-sourcepos="53:80-53:100" href="#actions">an action</a>.
+If conflicts are detected, they are resolved as <a data-sourcepos="54:49-54:78" href="#precedence">described below</a>.</p>
+<p data-sourcepos="56:1-56:181">If you are using a non-QWERTY, Latin-character keyboard, you may want to set <code data-sourcepos="56:78-56:98">use_key_equivalents</code> to <code data-sourcepos="56:103-56:108">true</code>. See <a data-sourcepos="56:115-56:159" href="#non-qwerty-keyboards">Non-QWERTY keyboards</a> for more information.</p>
+<p data-sourcepos="58:1-58:12">For example:</p>
+<pre class="syntax-highlighting" data-sourcepos="60:1-75:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-right<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::SelectLargerSyntaxNode<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-left<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::SelectSmallerSyntaxNode<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ProjectPanel &amp;&amp; not_editing<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>o<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>project_panel::Open<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="77:1-77:89">You can see all of Zed’s default bindings for each platform in the default keymaps files:</p>
+<ul data-sourcepos="79:1-81:93">
+<li data-sourcepos="79:1-79:92"><a data-sourcepos="79:3-79:92" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-macos.json">macOS</a></li>
+<li data-sourcepos="80:1-80:96"><a data-sourcepos="80:3-80:96" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-windows.json">Windows</a></li>
+<li data-sourcepos="81:1-81:93"><a data-sourcepos="81:3-81:92" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-linux.json">Linux</a>.</li>
+</ul>
+<p data-sourcepos="83:1-84:120">If you want to debug problems with custom keymaps, you can use <code data-sourcepos="83:64-83:88">dev::OpenKeyContextView</code> from the command palette.
+Please file <a data-sourcepos="84:13-84:61" href="https://github.com/zed-industries/zed">an issue</a> if you run into something you think should work but isn’t.</p>
+<h3 id="keybinding-syntax" data-sourcepos="86:1-86:21">Keybinding Syntax<a href="#keybinding-syntax" aria-label="Link to heading 'Keybinding Syntax'" data-heading-content="Keybinding Syntax" class="anchor"></a></h3>
+<p data-sourcepos="88:1-88:188">Zed has the ability to match against not just a single keypress, but a sequence of keys typed in order. Each key in the <code data-sourcepos="88:121-88:132">&quot;bindings&quot;</code> map is a sequence of keypresses separated with a space.</p>
+<p data-sourcepos="90:1-90:78">Each keypress is a sequence of modifiers followed by a key. The modifiers are:</p>
+<ul data-sourcepos="92:1-97:100">
+<li data-sourcepos="92:1-92:25"><code data-sourcepos="92:3-92:9">ctrl-</code> The control key</li>
+<li data-sourcepos="93:1-93:126"><code data-sourcepos="93:3-93:8">cmd-</code>, <code data-sourcepos="93:11-93:16">win-</code> or <code data-sourcepos="93:21-93:28">super-</code> for the platform modifier (Command on macOS, Windows key on Windows, and the Super key on Linux).</li>
+<li data-sourcepos="94:1-94:34"><code data-sourcepos="94:3-94:8">alt-</code> for alt (option on macOS)</li>
+<li data-sourcepos="95:1-95:24"><code data-sourcepos="95:3-95:10">shift-</code> The shift key</li>
+<li data-sourcepos="96:1-96:24"><code data-sourcepos="96:3-96:7">fn-</code> The function key</li>
+<li data-sourcepos="97:1-97:100"><code data-sourcepos="97:3-97:14">secondary-</code> Equivalent to <code data-sourcepos="97:30-97:34">cmd</code> when Zed is running on macOS and <code data-sourcepos="97:69-97:74">ctrl</code> when on Windows and Linux</li>
+</ul>
+<p data-sourcepos="99:1-99:323">The keys can be any single Unicode codepoint that your keyboard generates (for example <code data-sourcepos="99:88-99:90">a</code>, <code data-sourcepos="99:93-99:95">0</code>, <code data-sourcepos="99:98-99:101">£</code> or <code data-sourcepos="99:106-99:109">ç</code>), or any named key (<code data-sourcepos="99:131-99:135">tab</code>, <code data-sourcepos="99:138-99:141">f1</code>, <code data-sourcepos="99:144-99:150">shift</code>, or <code data-sourcepos="99:156-99:160">cmd</code>). If you are using a non-Latin layout (e.g. Cyrillic), you can bind either to the Cyrillic character or the Latin character that key generates with <code data-sourcepos="99:310-99:314">cmd</code> pressed.</p>
+<p data-sourcepos="101:1-101:15">A few examples:</p>
+<pre class="syntax-highlighting" data-sourcepos="103:1-112:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cmd-k cmd-s<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>zed::OpenKeymap<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> matches ⌘-k then ⌘-s
+</span>    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>space e<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::ShowCompletions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> type space then e
+</span>    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ç<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::ShowCompletions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> matches ⌥-c
+</span>    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>shift shift<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>file_finder::Toggle<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> matches pressing and releasing shift twice
+</span>  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="114:1-114:307">The <code data-sourcepos="114:5-114:12">shift-</code> modifier can only be used in combination with a letter to indicate the uppercase version. For example, <code data-sourcepos="114:117-114:125">shift-g</code> matches typing <code data-sourcepos="114:142-114:144">G</code>. Although on many keyboards shift is used to type punctuation characters like <code data-sourcepos="114:224-114:226">(</code>, the keypress is not considered to be modified, and so <code data-sourcepos="114:283-114:291">shift-(</code> does not match.</p>
+<p data-sourcepos="116:1-116:261">The <code data-sourcepos="116:5-116:10">alt-</code> modifier can be used on many layouts to generate a different key. For example, on a macOS US keyboard, the combination <code data-sourcepos="116:131-116:137">alt-c</code> types <code data-sourcepos="116:145-116:148">ç</code>. You can match against either in your keymap file, though by convention, Zed spells this combination as <code data-sourcepos="116:254-116:260">alt-c</code>.</p>
+<p data-sourcepos="118:1-118:231">It is possible to match against typing a modifier key on its own. For example, <code data-sourcepos="118:80-118:92">shift shift</code> can be used to implement JetBrains’ ‘Search Everywhere’ shortcut. In this case, the binding happens on key release instead of on keypress.</p>
+<h3 id="contexts" data-sourcepos="120:1-120:12">Contexts<a href="#contexts" aria-label="Link to heading 'Contexts'" data-heading-content="Contexts" class="anchor"></a></h3>
+<p data-sourcepos="122:1-122:106">If a binding group has a <code data-sourcepos="122:26-122:36">&quot;context&quot;</code> key, it will be matched against the currently active contexts in Zed.</p>
+<p data-sourcepos="124:1-124:311">Zed’s contexts make up a tree, with the root being <code data-sourcepos="124:52-124:62">Workspace</code>. Workspaces contain Panes and Panels, and Panes contain Editors, etc. The easiest way to see what contexts are active at a given moment is the key context view, which you can get to with the <code data-sourcepos="124:255-124:279">dev::OpenKeyContextView</code> command in the command palette.</p>
+<p data-sourcepos="126:1-126:12">For example:</p>
+<pre class="syntax-highlighting" data-sourcepos="128:1-138:3"><code><span class="hl-text hl-plain"># in an editor, it might look like this:
+Workspace os=macos keyboard_layout=com.apple.keylayout.QWERTY
+  Pane
+    Editor mode=full extension=md vim_mode=insert
+
+# in the project panel
+Workspace os=macos
+  Dock
+    ProjectPanel not_editing
+</span></code></pre>
+<p data-sourcepos="140:1-140:53">Context expressions can contain the following syntax:</p>
+<ul data-sourcepos="142:1-145:81">
+<li data-sourcepos="142:1-142:45"><code data-sourcepos="142:3-142:10">X &amp;&amp; Y</code>, <code data-sourcepos="142:13-142:20">X || Y</code> to and/or two conditions</li>
+<li data-sourcepos="143:1-143:41"><code data-sourcepos="143:3-143:6">!X</code> to check that a condition is false</li>
+<li data-sourcepos="144:1-144:20"><code data-sourcepos="144:3-144:7">(X)</code> for grouping</li>
+<li data-sourcepos="145:1-145:81"><code data-sourcepos="145:3-145:9">X &gt; Y</code> to match if an ancestor in the tree matches X and this layer matches Y.</li>
+</ul>
+<p data-sourcepos="147:1-147:12">For example:</p>
+<ul data-sourcepos="149:1-152:68">
+<li data-sourcepos="149:1-149:70"><code data-sourcepos="149:3-149:23">&quot;context&quot;: &quot;Editor&quot;</code> - matches any editor (including inline inputs)</li>
+<li data-sourcepos="150:1-150:88"><code data-sourcepos="150:3-150:39">&quot;context&quot;: &quot;Editor &amp;&amp; mode == full&quot;</code> - matches the main editors used for editing code</li>
+<li data-sourcepos="151:1-151:102"><code data-sourcepos="151:3-151:37">&quot;context&quot;: &quot;!Editor &amp;&amp; !Terminal&quot;</code> - matches anywhere except where an Editor or Terminal is focused</li>
+<li data-sourcepos="152:1-152:68"><code data-sourcepos="152:3-152:37">&quot;context&quot;: &quot;os == macos &gt; Editor&quot;</code> - matches any editor on macOS.</li>
+</ul>
+<p data-sourcepos="154:1-154:260">It’s worth noting that attributes are only available on the node they are defined on. This means that if you want to (for example) only enable a keybinding when the debugger is stopped in vim normal mode, you need to do <code data-sourcepos="154:221-154:259">debugger_stopped &gt; vim_mode == normal</code>.</p>
+<blockquote data-sourcepos="156:1-156:375">
+<p data-sourcepos="156:3-156:375">Note: Before Zed v0.197.x, the <code data-sourcepos="156:34-156:36">!</code> operator only looked at one node at a time, and <code data-sourcepos="156:86-156:88">&gt;</code> meant “parent” not “ancestor”. This meant that <code data-sourcepos="156:137-156:145">!Editor</code> would match the context <code data-sourcepos="156:171-156:197">Workspace &gt; Pane &gt; Editor</code>, because (confusingly) the Pane matches <code data-sourcepos="156:239-156:247">!Editor</code>, and that <code data-sourcepos="156:259-156:280">os == macos &gt; Editor</code> did not match the context <code data-sourcepos="156:308-156:334">Workspace &gt; Pane &gt; Editor</code> because of the intermediate <code data-sourcepos="156:364-156:369">Pane</code> node.</p>
+</blockquote>
+<p data-sourcepos="158:1-158:194">If you’re using Vim mode, we have information on how <a data-sourcepos="158:54-158:126" href="vim.html#selecting-the-correct-context">vim modes influence the context</a>. Helix mode is built on top of Vim mode and uses the same contexts.</p>
+<h3 id="actions" data-sourcepos="160:1-160:11">Actions<a href="#actions" aria-label="Link to heading 'Actions'" data-heading-content="Actions" class="anchor"></a></h3>
+<p data-sourcepos="162:1-163:483">Almost all of Zed’s functionality is exposed as actions.
+Although there is no explicitly documented list, you can find most of them by searching in the command palette, by looking in the default keymaps for <a data-sourcepos="163:151-163:240" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-macos.json">macOS</a>, <a data-sourcepos="163:243-163:336" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-windows.json">Windows</a> or <a data-sourcepos="163:341-163:430" href="https://github.com/zed-industries/zed/blob/main/assets/keymaps/default-linux.json">Linux</a>, or by using Zed’s autocomplete in your keymap file.</p>
+<p data-sourcepos="165:1-165:383">Most actions do not require any arguments, and so you can bind them as strings: <code data-sourcepos="165:81-165:119">&quot;ctrl-a&quot;: &quot;language_selector::Toggle&quot;</code>. Some require a single argument and must be bound as an array: <code data-sourcepos="165:184-165:224">&quot;cmd-1&quot;: [&quot;workspace::ActivatePane&quot;, 0]</code>. Some actions require multiple arguments and are bound as an array of a string and an object: <code data-sourcepos="165:320-165:382">&quot;ctrl-a&quot;: [&quot;pane::DeploySearch&quot;, { &quot;replace_enabled&quot;: true }]</code>.</p>
+<h3 id="precedence" data-sourcepos="167:1-167:14">Precedence<a href="#precedence" aria-label="Link to heading 'Precedence'" data-heading-content="Precedence" class="anchor"></a></h3>
+<p data-sourcepos="169:1-169:118">When multiple keybindings have the same keystroke and are active at the same time, precedence is resolved in two ways:</p>
+<ul data-sourcepos="171:1-172:252">
+<li data-sourcepos="171:1-171:261">Bindings that match on lower nodes in the context tree win. This means that if you have a binding with a context of <code data-sourcepos="171:119-171:126">Editor</code>, it will take precedence over a binding with a context of <code data-sourcepos="171:186-171:196">Workspace</code>. Bindings with no context match at the lowest level in the tree.</li>
+<li data-sourcepos="172:1-172:252">If there are multiple bindings that match at the same level in the tree, then the binding defined later takes precedence. As user keybindings are loaded after system keybindings, this allows user bindings to take precedence over built-in keybindings.</li>
+</ul>
+<p data-sourcepos="174:1-174:223">The other kind of conflict that arises is when you have two bindings, one of which is a prefix of the other. For example, if you have <code data-sourcepos="174:135-174:174">&quot;ctrl-w&quot;:&quot;editor::DeleteToNextWordEnd&quot;</code> and <code data-sourcepos="174:180-174:222">&quot;ctrl-w left&quot;:&quot;editor::DeleteToEndOfLine&quot;</code>.</p>
+<p data-sourcepos="176:1-176:322">When this happens, and both bindings are active in the current context, Zed will wait for 1 second after you type <code data-sourcepos="176:115-176:122">ctrl-w</code> to see if you’re about to type <code data-sourcepos="176:155-176:160">left</code>. If you don’t type anything, or if you type a different key, then <code data-sourcepos="176:228-176:248">DeleteToNextWordEnd</code> will be triggered. If you do, then <code data-sourcepos="176:285-176:303">DeleteToEndOfLine</code> will be triggered.</p>
+<p data-sourcepos="178:1-178:208">Zed can also wait before inserting printable text when it might begin a multi-stroke binding. For example, with a <code data-sourcepos="178:115-178:119">j k</code> binding, typing <code data-sourcepos="178:137-178:139">j</code> waits briefly for <code data-sourcepos="178:159-178:161">k</code>; otherwise, <code data-sourcepos="178:175-178:177">j</code> is inserted after the timeout.</p>
+<p data-sourcepos="180:1-180:616">Whenever multi-stroke input is pending, an indicator with the pending keystrokes is shown in the status bar. Hovering it lists the bindings that could still match. If the input has a timeout, the indicator also shows a countdown, and hovering pauses the timeout so you can read the bindings. The timeout resumes with the same remaining duration when the pointer leaves. Without a timeout, the pending keystrokes are shown without a countdown. The indicator can be hidden with <code data-sourcepos="180:477-180:533">{&quot;status_bar&quot;: {&quot;pending_keystrokes_indicator&quot;: false}}</code>. Vim and Helix modes continue to use their existing pending-key indicator instead.</p>
+<p data-sourcepos="182:1-185:75">While a key sequence (chord) is pending, press <code data-sourcepos="182:48-182:79">which_key::ShowPendingBindings</code>
+to open the indicator’s binding list without moving focus. The list updates as
+you continue typing and stays open until the chord completes or is cleared.
+While it is open, the timeout stays paused, even if the pointer moves away.</p>
+<p data-sourcepos="187:1-191:13">The <code data-sourcepos="187:5-187:36">which_key::ShowPendingBindings</code> action only works while a chord is
+pending, and only when bound to a single keystroke. While a chord is pending,
+it takes precedence over longer bindings that use the same keystroke, such as
+<code data-sourcepos="190:1-190:14">ctrl-b alt-/</code> or <code data-sourcepos="190:19-190:27">alt-/ x</code>. To use those bindings mid-chord, rebind or disable
+the shortcut.</p>
+<p data-sourcepos="193:1-197:20">Your chords that start with <code data-sourcepos="193:29-193:35">alt-/</code>, such as <code data-sourcepos="193:46-193:54">alt-/ x</code>, time out like any chord
+whose first keystroke is also bound. You can override or disable the default
+binding using the normal <a data-sourcepos="195:26-195:61" href="#precedence">keybinding precedence</a>; only disabling it
+removes that timeout. For example, add this to your <code data-sourcepos="196:53-196:65">keymap.json</code> to move the
+shortcut to <code data-sourcepos="197:13-197:19">alt-h</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="199:1-210:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Workspace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>use_key_equivalents<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">null</span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-h<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>which_key::ShowPendingBindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="212:1-215:55">To also use the larger which-key menu, open the Settings Editor and search for
+<code data-sourcepos="213:1-213:21">Show Which-key Menu</code>. The pending keystrokes indicator remains visible when the
+menu is enabled, and hovering it still pauses the timeout, but its binding list
+popover is disabled. Or add this to your settings.json:</p>
+<pre class="syntax-highlighting" data-sourcepos="217:1-223:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>which_key<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>enabled<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="225:1-225:78">Set <code data-sourcepos="225:5-225:24">which_key.delay_ms</code> to change how long Zed waits before opening the menu.</p>
+<h3 id="non-qwerty-keyboards" data-sourcepos="227:1-227:24">Non-QWERTY keyboards<a href="#non-qwerty-keyboards" aria-label="Link to heading 'Non-QWERTY keyboards'" data-heading-content="Non-QWERTY keyboards" class="anchor"></a></h3>
+<p data-sourcepos="229:1-229:67">Zed’s support for non-QWERTY keyboards is still a work in progress.</p>
+<p data-sourcepos="231:1-231:113">If your keyboard can type the full ASCII range (DVORAK, COLEMAK, etc.), then shortcuts should work as you expect.</p>
+<p data-sourcepos="233:1-233:21">Otherwise, read on…</p>
+<h4 id="macos" data-sourcepos="235:1-235:10">macOS<a href="#macos" aria-label="Link to heading 'macOS'" data-heading-content="macOS" class="anchor"></a></h4>
+<p data-sourcepos="237:1-237:430">On Cyrillic, Hebrew, Armenian, and other keyboards that are mostly non-ASCII, macOS automatically maps keys to the ASCII range when <code data-sourcepos="237:133-237:137">cmd</code> is held. Zed takes this a step further, and it can always match key-presses against either the ASCII layout or the real layout, regardless of modifiers and the <code data-sourcepos="237:299-237:319">use_key_equivalents</code> setting. For example, in Thai, pressing <code data-sourcepos="237:361-237:370">ctrl-ๆ</code> will match bindings associated with <code data-sourcepos="237:408-237:415">ctrl-q</code> or <code data-sourcepos="237:420-237:429">ctrl-ๆ</code>.</p>
+<p data-sourcepos="239:1-239:550">On keyboards that support extended Latin alphabets (French AZERTY, German QWERTZ, etc.), it is often not possible to type the entire ASCII range without <code data-sourcepos="239:154-239:161">option</code>. This introduces an ambiguity: <code data-sourcepos="239:194-239:203">option-2</code> produces <code data-sourcepos="239:214-239:216">@</code>. To ensure that all the built-in keyboard shortcuts can still be typed on these keyboards, we move key bindings around. For example, shortcuts bound to <code data-sourcepos="239:370-239:372">@</code> on QWERTY are moved to <code data-sourcepos="239:397-239:399">&quot;</code> on a Spanish layout. This mapping is based on the macOS system defaults and can be seen by running <code data-sourcepos="239:500-239:524">dev::OpenKeyContextView</code> from the command palette.</p>
+<p data-sourcepos="241:1-241:157">If you are defining shortcuts in your personal keymap, you can opt into the key equivalent mapping by setting <code data-sourcepos="241:111-241:131">use_key_equivalents</code> to <code data-sourcepos="241:136-241:141">true</code> in your keymap:</p>
+<pre class="syntax-highlighting" data-sourcepos="243:1-252:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>use_key_equivalents<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-&gt;<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::Indent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> parsed as ctrl-: when a German QWERTZ keyboard is active
+</span>    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<h3 id="linux" data-sourcepos="254:1-254:9">Linux<a href="#linux" aria-label="Link to heading 'Linux'" data-heading-content="Linux" class="anchor"></a></h3>
+<p data-sourcepos="256:1-256:216">Since v0.196.0, on Linux, if the key that you type doesn’t produce an ASCII character, then we use the QWERTY-layout equivalent key for keyboard shortcuts. This means that many shortcuts can be typed on many layouts.</p>
+<p data-sourcepos="258:1-258:194">We do not yet remap shortcuts so every built-in shortcut is typeable on every layout. If your layout cannot type some ASCII characters, you may need custom key bindings. We plan to improve this.</p>
+<h2 id="tips-and-tricks" data-sourcepos="260:1-260:18">Tips and tricks<a href="#tips-and-tricks" aria-label="Link to heading 'Tips and tricks'" data-heading-content="Tips and tricks" class="anchor"></a></h2>
+<h3 id="disabling-a-binding" data-sourcepos="262:1-262:23">Disabling a binding<a href="#disabling-a-binding" aria-label="Link to heading 'Disabling a binding'" data-heading-content="Disabling a binding" class="anchor"></a></h3>
+<p data-sourcepos="264:1-267:81">If you’d like a given binding to do nothing in a given context, you can use
+<code data-sourcepos="265:1-265:6">null</code> as the action. This is useful if you hit the key binding by accident and
+want to disable it, or if you want to type the character that would be typed by
+the sequence, or if you want to disable multikey bindings starting with that key.</p>
+<pre class="syntax-highlighting" data-sourcepos="269:1-278:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Workspace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cmd-r<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">null</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> cmd-r will do nothing when the Workspace context is active
+</span>    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="280:1-280:313">A <code data-sourcepos="280:3-280:8">null</code> binding follows the same precedence rules as normal actions, so it disables all bindings that would match further up in the tree too. If you’d like a binding that matches further up in the tree to take precedence over a lower binding, you need to rebind it to the action you want in the context you want.</p>
+<p data-sourcepos="282:1-282:401">This is useful for preventing Zed from falling back to a default key binding when the action you specified is conditional and propagates. For example, <code data-sourcepos="282:152-282:181">buffer_search::DeployReplace</code> only triggers when the search bar is not in view. If the search bar is in view, it would propagate and trigger the default action set for that key binding, such as opening the right dock. To prevent this from happening:</p>
+<pre class="syntax-highlighting" data-sourcepos="284:1-299:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Workspace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cmd-r<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">null</span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> cmd-r will do nothing when the search bar is in view
+</span>    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Workspace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cmd-r<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>buffer_search::DeployReplace<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> cmd-r will deploy replace when the search bar is not in view
+</span>    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<h3 id="remapping-keys" data-sourcepos="301:1-301:18">Remapping keys<a href="#remapping-keys" aria-label="Link to heading 'Remapping keys'" data-heading-content="Remapping keys" class="anchor"></a></h3>
+<p data-sourcepos="303:1-303:137">A common request is to be able to map from a single keystroke to a sequence. You can do this with the <code data-sourcepos="303:103-303:129">workspace::SendKeystrokes</code> action.</p>
+<pre class="syntax-highlighting" data-sourcepos="305:1-326:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Move down four times
+</span>      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-down<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>workspace::SendKeystrokes<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>down down down down<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Expand the selection (editor::SelectLargerSyntaxNode);
+</span>      <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> copy to the clipboard; and then undo the selection expansion.
+</span>      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cmd-alt-c<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>workspace::SendKeystrokes<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-shift-right ctrl-shift-right ctrl-shift-right cmd-c ctrl-shift-left ctrl-shift-left ctrl-shift-left<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+      <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Editor &amp;&amp; vim_mode == insert<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>j k<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>workspace::SendKeystrokes<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>escape<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="328:1-328:44">There are some limitations to this, notably:</p>
+<ul data-sourcepos="330:1-332:51">
+<li data-sourcepos="330:1-330:291">Any asynchronous operation will not happen until after all your key bindings have been dispatched. For example, this means that while you can use a binding to open a file (as in the <code data-sourcepos="330:185-330:195">cmd-alt-r</code> example), you cannot send further keystrokes and hope to have them interpreted by the new view.</li>
+<li data-sourcepos="331:1-331:178">Other examples of asynchronous things are: opening the command palette, communicating with a language server, changing the language of a buffer, anything that hits the network.</li>
+<li data-sourcepos="332:1-332:51">There is a limit of 100 simulated keys at a time.</li>
+</ul>
+<p data-sourcepos="334:1-334:258">The argument to <code data-sourcepos="334:17-334:32">SendKeystrokes</code> is a space-separated list of keystrokes (using the same syntax as above). Due to the way that keystrokes are parsed, any segment that is not recognized as a keypress will be sent verbatim to the currently focused input field.</p>
+<p data-sourcepos="336:1-336:209">If the argument to <code data-sourcepos="336:20-336:35">SendKeystrokes</code> contains the binding used to trigger it, it will use the next-highest-precedence definition of that binding. This allows you to extend the default behavior of a key binding.</p>
+<h3 id="forward-keys-to-terminal" data-sourcepos="338:1-338:28">Forward keys to terminal<a href="#forward-keys-to-terminal" aria-label="Link to heading 'Forward keys to terminal'" data-heading-content="Forward keys to terminal" class="anchor"></a></h3>
+<p data-sourcepos="340:1-340:153">If you’re on Linux or Windows, you might find yourself wanting to forward key combinations to the built-in terminal instead of them being handled by Zed.</p>
+<p data-sourcepos="342:1-342:163">For example, <code data-sourcepos="342:14-342:21">ctrl-n</code> creates a new tab in Zed on Linux. If you want to send <code data-sourcepos="342:78-342:85">ctrl-n</code> to the built-in terminal when it’s focused, add the following to your keymap:</p>
+<pre class="syntax-highlighting" data-sourcepos="344:1-351:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Terminal<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-n<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>terminal::SendKeystroke<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ctrl-n<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="task-key-bindings" data-sourcepos="353:1-353:21">Task Key bindings<a href="#task-key-bindings" aria-label="Link to heading 'Task Key bindings'" data-heading-content="Task Key bindings" class="anchor"></a></h3>
+<p data-sourcepos="355:1-356:78">You can also bind keys to launch Zed Tasks defined in your <code data-sourcepos="355:60-355:71">tasks.json</code>.
+See the <a data-sourcepos="356:9-356:68" href="tasks.html#custom-keybindings-for-tasks">tasks documentation</a> for more.</p>
+<h3 id="subword-navigation" data-sourcepos="358:1-358:22">Subword Navigation<a href="#subword-navigation" aria-label="Link to heading 'Subword Navigation'" data-heading-content="Subword Navigation" class="anchor"></a></h3>
+<p data-sourcepos="360:1-360:221">Zed exposes word and subword motions as separate actions. Word motions stop at whitespace and punctuation boundaries, while subword motions also stop inside identifiers such as <code data-sourcepos="360:178-360:188">camelCase</code>, <code data-sourcepos="360:191-360:202">PascalCase</code>, and <code data-sourcepos="360:209-360:220">snake_case</code>.</p>
+<p data-sourcepos="362:1-362:266">The JetBrains base keymap uses editor-local <code data-sourcepos="362:45-362:54">alt-left</code> / <code data-sourcepos="362:58-362:68">alt-right</code> and <code data-sourcepos="362:74-362:89">shift-alt-left</code> / <code data-sourcepos="362:93-362:109">shift-alt-right</code> for subword navigation to match JetBrains-style CamelHump navigation. If you use another base keymap and want that behavior, add this to your <code data-sourcepos="362:253-362:265">keymap.json</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="364:1-376:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Editor<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-left<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::MoveToPreviousSubwordStart<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-right<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::MoveToNextSubwordEnd<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>shift-alt-left<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::SelectToPreviousSubwordStart<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>shift-alt-right<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>editor::SelectToNextSubwordEnd<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="378:1-378:129">If you use the JetBrains base keymap and want <code data-sourcepos="378:47-378:56">alt-left</code> / <code data-sourcepos="378:60-378:70">alt-right</code> to keep moving between tabs in editors, add this override:</p>
+<pre class="syntax-highlighting" data-sourcepos="380:1-390:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>context<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Editor<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bindings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-left<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pane::ActivatePreviousItem<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>alt-right<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pane::ActivateNextItem<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;key-bindings.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

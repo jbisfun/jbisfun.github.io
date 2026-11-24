@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Skills - Zed · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;ai&#x2f;skills.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;ai&#x2f;skills.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="skills.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="../getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="../installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="../update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="../editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="../completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="../snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="../command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="../outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="../project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="../running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="../terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="../tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="../debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="../git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="../collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="../collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="../remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="../environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="skills.html" class="active" aria-current="page">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="../authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="../business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="../business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="../roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="../business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="../worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="../business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="../telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="../macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="../windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="../appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="../themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="../icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="../key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="../vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="../languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="../configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="../toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="../languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="../languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="../languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="../languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="../languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="../languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="../languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="../languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="../languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="../languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="../languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="../languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="../languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="../languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="../languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="../languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="../languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="../languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="../languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="../languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="../languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="../languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="../languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="../languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="../languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="../languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="../languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="../languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="../languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="../languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="../languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="../languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="../languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="../languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="../languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="../languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="../languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="../languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="../languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="../languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="../languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="../languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="../languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="../languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="../languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="../languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="../languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="../languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="../languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="../languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="../languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="../languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="../languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="../languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="../languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="../languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="../languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="../languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="../languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="../languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="../languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="../languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="../languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="../languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="../languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="../languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="../languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="../languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="../languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="../extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="../extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="../extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="../migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="../migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="../migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="../reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="../all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="../development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="../development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="../development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="../development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="../development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="../development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="../performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="../development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="skills" data-sourcepos="6:1-6:18">Skills<a href="#skills" aria-label="Link to heading 'Skills'" data-heading-content="Skills" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:223">Skills are reusable instruction packages that give the agent specialized knowledge for specific tasks: test-driven development workflows, document processing, database integrations, or your team’s internal coding standards.</p>
+<p data-sourcepos="10:1-10:240">A skill is a folder containing a <code data-sourcepos="10:34-10:43">SKILL.md</code> file with metadata and instructions. The agent sees a catalog of all installed skills and can load one on demand, or you can invoke any skill directly from the message editor with a slash command.</p>
+<h2 id="adding-skills" data-sourcepos="12:1-12:33">Adding Skills<a href="#adding-skills" aria-label="Link to heading 'Adding Skills'" data-heading-content="Adding Skills" class="anchor"></a></h2>
+<h3 id="create-your-own" data-sourcepos="14:1-14:38">Create your own<a href="#create-your-own" aria-label="Link to heading 'Create your own'" data-heading-content="Create your own" class="anchor"></a></h3>
+<p data-sourcepos="16:1-16:124">Zed includes a built-in <code data-sourcepos="16:25-16:38">create-skill</code> skill — invoke it with <code data-sourcepos="16:65-16:79">/create-skill</code> and the agent walks you through the process.</p>
+<p data-sourcepos="18:1-18:686">You can also open the Skills Manager from the Agent Panel using <code data-sourcepos="18:65-18:85">agent::ManageSkills</code>, or by clicking <code data-sourcepos="18:103-18:107">...</code> and selecting <strong data-sourcepos="18:123-18:132">Skills</strong>. Outside the panel, use the <code data-sourcepos="18:162-18:186">agent::OpenSkillCreator</code> action from the command palette, or click <strong data-sourcepos="18:230-18:245">Create Skill</strong> on the <strong data-sourcepos="18:254-18:268">AI &gt; Skills</strong> settings page. The creator opens as a page in the settings window where you fill in the skill’s name, description, body, and optionally toggle <code data-sourcepos="18:413-18:438">disable-model-invocation</code>. The skill is saved to the scope of the settings file selected in the settings window — the <strong data-sourcepos="18:534-18:541">User</strong> tab creates a global skill, while a <strong data-sourcepos="18:579-18:589">Project</strong> tab creates a project-local skill — and the form shows exactly where the file will be written.</p>
+<p data-sourcepos="20:1-20:280">Lastly, it’s also possible to add a skill through importing it from an existing GitHub Markdown file. Open the command palette and look for the <code data-sourcepos="20:145-20:171">agent::CreateSkillFromUrl</code> action. If your clipboard contains a supported GitHub <code data-sourcepos="20:227-20:231">.md</code> URL, Zed pre-fills and fetches it automatically.</p>
+<p data-sourcepos="22:1-22:70">See <a data-sourcepos="22:5-22:33" href="#skill-format">Skill format</a> below for the full format reference.</p>
+<h3 id="from-the-registry" data-sourcepos="24:1-24:52">From the skills.sh Registry<a href="#from-the-registry" aria-label="Link to heading 'From the skills.sh Registry'" data-heading-content="From the skills.sh Registry" class="anchor"></a></h3>
+<p data-sourcepos="26:1-26:148"><a data-sourcepos="26:1-26:30" href="https://skills.sh">skills.sh</a> is a community registry of open-source skills. You’ll find skills for popular frameworks, tools, workflows, and more:</p>
+<ul data-sourcepos="28:1-30:114">
+<li data-sourcepos="28:1-28:120"><a data-sourcepos="28:3-28:67" href="https://skills.sh/vercel-labs/skills/find-skills"><code data-sourcepos="28:4-28:16">find-skills</code></a>: discover and install skills from the open ecosystem</li>
+<li data-sourcepos="29:1-29:131"><a data-sourcepos="29:3-29:74" href="https://skills.sh/anthropics/skills/frontend-design"><code data-sourcepos="29:4-29:20">frontend-design</code></a>: production-grade frontend interfaces with design polish</li>
+<li data-sourcepos="30:1-30:114"><a data-sourcepos="30:3-30:50" href="https://skills.sh/anthropics/skills/pdf"><code data-sourcepos="30:4-30:8">pdf</code></a>: PDF text extraction, merging, splitting, form filling, and OCR</li>
+</ul>
+<p data-sourcepos="32:1-32:155">To install a skill, copy the skill’s folder into <code data-sourcepos="32:50-32:68">~/.agents/skills/</code> for global use, or into your project’s <code data-sourcepos="32:109-32:125">.agents/skills/</code> folder for project-local use.</p>
+<h2 id="managing-skills" data-sourcepos="34:1-34:37">Managing Skills<a href="#managing-skills" aria-label="Link to heading 'Managing Skills'" data-heading-content="Managing Skills" class="anchor"></a></h2>
+<p data-sourcepos="36:1-36:166">Open the Settings Editor (<code data-sourcepos="36:27-36:33">Cmd+,</code> on macOS, <code data-sourcepos="36:45-36:52">Ctrl+,</code> on Linux/Windows) and navigate to <strong data-sourcepos="36:88-36:102">AI &gt; Skills</strong>, or go directly to <a data-sourcepos="36:123-36:165" href="zed://settings/agent.skills">agent.skills</a>.</p>
+<p data-sourcepos="38:1-38:102">The <strong data-sourcepos="38:5-38:12">User</strong> tab shows your global skills, and each <strong data-sourcepos="38:53-38:63">Project</strong> tab shows the skills for that project.</p>
+<p data-sourcepos="40:1-40:23">For each skill you can:</p>
+<ul data-sourcepos="42:1-44:51">
+<li data-sourcepos="42:1-42:146"><strong data-sourcepos="42:3-42:21">Copy Share Link</strong> — copies a <code data-sourcepos="42:36-42:48">zed://skill</code> link that embeds the skill, ready to send to someone else (see <a data-sourcepos="42:113-42:145" href="#sharing-skills">Sharing Skills</a>)</li>
+<li data-sourcepos="43:1-43:62"><strong data-sourcepos="43:3-43:10">Open</strong> — opens the skill’s <code data-sourcepos="43:34-43:43">SKILL.md</code> file in the editor</li>
+<li data-sourcepos="44:1-44:51"><strong data-sourcepos="44:3-44:12">Delete</strong> — removes the skill folder from disk</li>
+</ul>
+<p data-sourcepos="46:1-46:153">In the skills page, you’ll see a <strong data-sourcepos="46:34-46:49">Create Skill</strong> button that opens the settings window, providing the ability to create a skill directly through the UI.</p>
+<h2 id="sharing-skills" data-sourcepos="48:1-48:35">Sharing Skills<a href="#sharing-skills" aria-label="Link to heading 'Sharing Skills'" data-heading-content="Sharing Skills" class="anchor"></a></h2>
+<p data-sourcepos="50:1-51:157">You can hand a skill to a teammate without hosting it anywhere. In the Skills settings page, click the <strong data-sourcepos="50:104-50:111">link</strong> icon on a skill row to copy a <code data-sourcepos="50:143-50:164">zed://skill?data=…</code> link to your clipboard.
+The link is self-contained: it embeds the full <code data-sourcepos="51:48-51:57">SKILL.md</code> contents (base64url-encoded), so the recipient doesn’t need access to your project or any registry.</p>
+<p data-sourcepos="53:1-55:133">When someone opens that link (for example by pasting it into their browser or clicking it in a chat), Zed opens the “Create Skill” page in the settings window, pre-filled with the shared skill.
+The recipient can review the name, description, and full body, choose a scope by selecting the <strong data-sourcepos="54:96-54:103">User</strong> tab (global) or a <strong data-sourcepos="54:123-54:133">Project</strong> tab, and click <strong data-sourcepos="54:150-54:157">Save</strong> to install it.
+Nothing is written to disk until they explicitly save, so a shared link can never silently install instructions into someone’s agent.</p>
+<h2 id="using-skills" data-sourcepos="57:1-57:31">Using Skills<a href="#using-skills" aria-label="Link to heading 'Using Skills'" data-heading-content="Using Skills" class="anchor"></a></h2>
+<p data-sourcepos="59:1-59:209">By default, the agent picks up skills autonomously. It sees a catalog of every installed skill (name and description) in its system prompt, and calls the <code data-sourcepos="59:155-59:161">skill</code> tool when a task matches a skill’s description.</p>
+<p data-sourcepos="61:1-61:305">When the agent invokes a skill you created or installed, Zed prompts you to allow or deny it, using the same permission flow as other tools. Skills built into Zed do not prompt. You can set per-skill defaults in <a data-sourcepos="61:213-61:253" href="tool-permissions.html">Tool Permissions</a> so you’re not prompted for skills you always trust.</p>
+<h3 id="manual-invocation" data-sourcepos="63:1-63:42">Manual Invocation<a href="#manual-invocation" aria-label="Link to heading 'Manual Invocation'" data-heading-content="Manual Invocation" class="anchor"></a></h3>
+<p data-sourcepos="65:1-65:35">You can also load a skill manually:</p>
+<ul data-sourcepos="67:1-68:96">
+<li data-sourcepos="67:1-67:78"><strong data-sourcepos="67:3-67:19">Slash command</strong>: type <code data-sourcepos="67:27-67:29">/</code> in the message editor and select a skill by name</li>
+<li data-sourcepos="68:1-68:96"><strong data-sourcepos="68:3-68:15">@-mention</strong>: type <code data-sourcepos="68:23-68:30">@skill</code> in the message editor and select a skill from the completion menu</li>
+</ul>
+<p data-sourcepos="70:1-70:151">Both inject the skill’s instructions as context. The loaded skill appears as a crease button in the thread, which you can click to open the skill file.</p>
+<h3 id="disable-model-invocation" data-sourcepos="72:1-72:64">Preventing Autonomous Invocation<a href="#disable-model-invocation" aria-label="Link to heading 'Preventing Autonomous Invocation'" data-heading-content="Preventing Autonomous Invocation" class="anchor"></a></h3>
+<p data-sourcepos="74:1-75:83">Add <code data-sourcepos="74:5-74:36">disable-model-invocation: true</code> to a skill’s frontmatter to stop the agent from picking it up autonomously.
+The skill still appears as a slash command, so you stay in control of when it runs.</p>
+<p data-sourcepos="77:1-77:114">This is useful for workflows you don’t want the agent triggering automatically, like deploy or release procedures.</p>
+<pre class="syntax-highlighting" data-sourcepos="79:1-85:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
+<span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">deploy</span>
+<span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">description</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Deploy the current branch to production.</span>
+<span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">disable-model-invocation</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
+<span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
+</span></code></pre>
+<h2 id="skill-format" data-sourcepos="87:1-87:31">Skill Format<a href="#skill-format" aria-label="Link to heading 'Skill Format'" data-heading-content="Skill Format" class="anchor"></a></h2>
+<h3 id="folder-structure" data-sourcepos="89:1-89:40">Folder Structure<a href="#folder-structure" aria-label="Link to heading 'Folder Structure'" data-heading-content="Folder Structure" class="anchor"></a></h3>
+<p data-sourcepos="91:1-91:55">A skill is a named folder containing a <code data-sourcepos="91:40-91:49">SKILL.md</code> file:</p>
+<pre class="syntax-highlighting" data-sourcepos="93:1-99:3"><code><span class="hl-text hl-plain">my-skill/
+├── SKILL.md          # Required: metadata and instructions
+├── scripts/          # Optional: scripts the agent can run
+├── references/       # Optional: additional documentation
+└── assets/           # Optional: templates and static files
+</span></code></pre>
+<p data-sourcepos="101:1-101:75">By convention, the folder name should match the <code data-sourcepos="101:49-101:54">name</code> field in <code data-sourcepos="101:65-101:74">SKILL.md</code>.</p>
+<h3 id="skill-md-format" data-sourcepos="103:1-103:38">SKILL.md format<a href="#skill-md-format" aria-label="Link to heading 'SKILL.md format'" data-heading-content="SKILL.md format" class="anchor"></a></h3>
+<p data-sourcepos="105:1-105:75"><code data-sourcepos="105:1-105:10">SKILL.md</code> starts with YAML frontmatter, followed by Markdown instructions.</p>
+<p data-sourcepos="107:1-107:20"><strong data-sourcepos="107:1-107:20">Minimal example:</strong></p>
+<pre class="syntax-highlighting" data-sourcepos="109:1-118:3"><code class="language-markdown"><span class="hl-text hl-html hl-markdown"><span class="hl-meta hl-block-level hl-markdown"><span class="hl-meta hl-separator hl-thematic-break hl-markdown"><span class="hl-punctuation hl-definition hl-thematic-break hl-markdown">---</span>
+</span></span><span class="hl-meta hl-paragraph hl-markdown">name: my-skill
+description: What this skill does and when to use it.
+<span class="hl-markup hl-heading hl-2 hl-setext hl-markdown"><span class="hl-punctuation hl-definition hl-heading hl-setext hl-markdown">---</span></span></span>
+
+<span class="hl-meta hl-block-level hl-markdown"><span class="hl-markup hl-heading hl-2 hl-markdown"><span class="hl-punctuation hl-definition hl-heading hl-begin hl-markdown">##</span> </span><span class="hl-markup hl-heading hl-2 hl-markdown"><span class="hl-entity hl-name hl-section hl-markdown">Instructions</span><span class="hl-meta hl-whitespace hl-newline hl-markdown">
+</span></span></span>
+<span class="hl-meta hl-paragraph hl-markdown">Step-by-step instructions for the agent...
+</span></span></code></pre>
+<h4 id="frontmatter-fields" data-sourcepos="120:1-120:45">Frontmatter Fields<a href="#frontmatter-fields" aria-label="Link to heading 'Frontmatter Fields'" data-heading-content="Frontmatter Fields" class="anchor"></a></h4>
+<table data-sourcepos="122:1-126:180" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="122:1-122:180">
+<th data-sourcepos="122:2-122:29">Field</th>
+<th data-sourcepos="122:31-122:40">Required</th>
+<th data-sourcepos="122:42-122:179">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="124:1-124:180">
+<td data-sourcepos="124:2-124:29"><code data-sourcepos="124:3-124:8">name</code></td>
+<td data-sourcepos="124:31-124:40">Yes</td>
+<td data-sourcepos="124:42-124:179">Lowercase letters, numbers, and hyphens only. Max 64 characters. Should match the folder name.</td>
+</tr>
+<tr data-sourcepos="125:1-125:180">
+<td data-sourcepos="125:2-125:29"><code data-sourcepos="125:3-125:15">description</code></td>
+<td data-sourcepos="125:31-125:40">Yes</td>
+<td data-sourcepos="125:42-125:179">What the skill does and when to use it. Keep it at most 1024 characters; skills with longer descriptions still load, but with a warning.</td>
+</tr>
+<tr data-sourcepos="126:1-126:180">
+<td data-sourcepos="126:2-126:29"><code data-sourcepos="126:3-126:28">disable-model-invocation</code></td>
+<td data-sourcepos="126:31-126:40">No</td>
+<td data-sourcepos="126:42-126:179">Set to <code data-sourcepos="126:50-126:55">true</code> to hide from the agent’s catalog (invocable via slash command or @-mention only).</td>
+</tr>
+</tbody>
+</table>
+<blockquote data-sourcepos="128:1-128:228">
+<p data-sourcepos="128:3-128:228"><strong data-sourcepos="128:3-128:10">Tip:</strong> Write descriptions that help the agent recognize when a skill is relevant. Include specific task types and trigger phrases: “Use when handling PDFs, extracting text, or filling forms” is better than “Helps with PDFs.”</p>
+</blockquote>
+<p data-sourcepos="130:1-130:134">We plan to include other fields promoted by <a data-sourcepos="130:45-130:114" href="https://agentskills.io/specification">the Agent Skills specification</a> in the near future.</p>
+<h4 id="name-validation" data-sourcepos="132:1-132:39">Name Validation<a href="#name-validation" aria-label="Link to heading 'Name Validation'" data-heading-content="Name Validation" class="anchor"></a></h4>
+<p data-sourcepos="134:1-134:22">The <code data-sourcepos="134:5-134:10">name</code> field must:</p>
+<ul data-sourcepos="136:1-139:23">
+<li data-sourcepos="136:1-136:62">Contain only lowercase letters (<code data-sourcepos="136:35-136:39">a-z</code>), numbers, and hyphens</li>
+<li data-sourcepos="137:1-137:32">Not start or end with a hyphen</li>
+<li data-sourcepos="138:1-138:40">Not contain consecutive hyphens (<code data-sourcepos="138:36-138:39">--</code>)</li>
+<li data-sourcepos="139:1-139:23">Be 1 to 64 characters</li>
+</ul>
+<p data-sourcepos="141:1-141:70">Skills with invalid names fail to load and surface an error in the UI.</p>
+<h3 id="bundled-resources" data-sourcepos="143:1-143:42">Bundled Resources<a href="#bundled-resources" aria-label="Link to heading 'Bundled Resources'" data-heading-content="Bundled Resources" class="anchor"></a></h3>
+<p data-sourcepos="145:1-145:118">Keep the body of <code data-sourcepos="145:18-145:27">SKILL.md</code> under 500 lines. Move detailed material to reference files and link to them from the body:</p>
+<pre class="syntax-highlighting" data-sourcepos="147:1-152:3"><code class="language-markdown"><span class="hl-text hl-html hl-markdown"><span class="hl-meta hl-paragraph hl-markdown">See <span class="hl-meta hl-link hl-inline hl-markdown"><span class="hl-punctuation hl-definition hl-link hl-begin hl-markdown">[</span></span><span class="hl-meta hl-link hl-inline hl-description hl-markdown">reference guide</span><span class="hl-meta hl-link hl-inline hl-markdown"><span class="hl-punctuation hl-definition hl-link hl-end hl-markdown">]</span></span><span class="hl-meta hl-link hl-inline hl-markdown"><span class="hl-punctuation hl-definition hl-metadata hl-begin hl-markdown">(</span></span><span class="hl-meta hl-link hl-inline hl-markdown"><span class="hl-markup hl-underline hl-link hl-markdown">references/REFERENCE.md</span><span class="hl-punctuation hl-definition hl-metadata hl-end hl-markdown">)</span></span> for complete API details.
+
+</span><span class="hl-meta hl-paragraph hl-markdown">Run the extraction script:
+scripts/extract.py
+</span></span></code></pre>
+<p data-sourcepos="154:1-154:197">The agent loads these files on demand using the <code data-sourcepos="154:49-154:59">read_file</code> and <code data-sourcepos="154:65-154:80">list_directory</code> tools. Global skills under <code data-sourcepos="154:109-154:127">~/.agents/skills/</code> are accessible to the agent even though they’re outside your project.</p>
+<h3 id="writing-instructions" data-sourcepos="156:1-156:58">Writing Effective Instructions<a href="#writing-instructions" aria-label="Link to heading 'Writing Effective Instructions'" data-heading-content="Writing Effective Instructions" class="anchor"></a></h3>
+<p data-sourcepos="158:1-158:244">Skills use <a data-sourcepos="158:12-158:96" href="https://agentskills.io/specification#progressive-disclosure">progressive disclosure</a>: the agent sees only the name and description until it activates a skill, then loads the full body. Structure your skill to take advantage of this:</p>
+<ul data-sourcepos="160:1-162:54">
+<li data-sourcepos="160:1-160:62">Put the most important instructions near the top of the body</li>
+<li data-sourcepos="161:1-161:76">Keep <code data-sourcepos="161:8-161:17">SKILL.md</code> under 500 lines; move detailed references to <code data-sourcepos="161:64-161:76">references/</code></li>
+<li data-sourcepos="162:1-162:54">Scripts that the agent needs to run go in <code data-sourcepos="162:45-162:54">scripts/</code></li>
+</ul>
+<p data-sourcepos="164:1-164:105">See the <a data-sourcepos="164:9-164:74" href="https://agentskills.io/specification">Agent Skills specification</a> for the full format reference.</p>
+<h2 id="where-skills-live" data-sourcepos="166:1-166:41">Where Skills Live<a href="#where-skills-live" aria-label="Link to heading 'Where Skills Live'" data-heading-content="Where Skills Live" class="anchor"></a></h2>
+<p data-sourcepos="168:1-168:36">Zed loads skills from two locations:</p>
+<table data-sourcepos="170:1-173:75" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="170:1-170:75">
+<th data-sourcepos="170:2-170:16">Scope</th>
+<th data-sourcepos="170:18-170:47">Path</th>
+<th data-sourcepos="170:49-170:74">When it applies</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="172:1-172:75">
+<td data-sourcepos="172:2-172:16">Global</td>
+<td data-sourcepos="172:18-172:47"><code data-sourcepos="172:19-172:37">~/.agents/skills/</code></td>
+<td data-sourcepos="172:49-172:74">Every project</td>
+</tr>
+<tr data-sourcepos="173:1-173:75">
+<td data-sourcepos="173:2-173:16">Project-local</td>
+<td data-sourcepos="173:18-173:47"><code data-sourcepos="173:19-173:46">&lt;worktree&gt;/.agents/skills/</code></td>
+<td data-sourcepos="173:49-173:74">Only the current project</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="175:1-175:99">Each skill is a direct child of the skills root. Nesting skills inside subfolders is not supported.</p>
+<h3 id="project-local-trust" data-sourcepos="177:1-177:57">Project-local Skills and Trust<a href="#project-local-trust" aria-label="Link to heading 'Project-local Skills and Trust'" data-heading-content="Project-local Skills and Trust" class="anchor"></a></h3>
+<p data-sourcepos="179:1-179:200">Project-local skills only load from <a data-sourcepos="179:37-179:77" href="../worktree-trust.html">trusted worktrees</a>. Skills from a freshly cloned or untrusted project are excluded from the catalog and slash commands until you grant trust.</p>
+<p data-sourcepos="181:1-181:140">This prevents a malicious project from injecting instructions into your agent’s system prompt before you’ve reviewed what the project ships.</p>
+<h3 id="override-behavior" data-sourcepos="183:1-183:42">Override Behavior<a href="#override-behavior" aria-label="Link to heading 'Override Behavior'" data-heading-content="Override Behavior" class="anchor"></a></h3>
+<p data-sourcepos="185:1-185:177">If a global and a project-local skill share the same name, the project-local skill takes precedence. This lets a project customize or replace a global skill for its own context.</p>
+<h3 id="editing-skill-files" data-sourcepos="187:1-187:46">Editing Skill Files<a href="#editing-skill-files" aria-label="Link to heading 'Editing Skill Files'" data-heading-content="Editing Skill Files" class="anchor"></a></h3>
+<p data-sourcepos="189:1-189:230">The agent cannot edit <code data-sourcepos="189:23-189:32">SKILL.md</code> files or their bundled resources without your explicit authorization, even in a trusted project. This prevents a compromised conversation from modifying the skills that govern future conversations.</p>
+<h2 id="agent-path-boundaries" data-sourcepos="191:1-191:49">Agent Path Boundaries<a href="#agent-path-boundaries" aria-label="Link to heading 'Agent Path Boundaries'" data-heading-content="Agent Path Boundaries" class="anchor"></a></h2>
+<p data-sourcepos="193:1-193:208">Zed Skills apply to the Zed Agent. <a data-sourcepos="193:36-193:74" href="external-agents.html">External Agents</a> and Terminal Threads may have their own native skills, prompts, or instruction systems. Configure those in the External Agent or CLI.</p>
+<h2 id="limitations" data-sourcepos="195:1-195:29">Limitations<a href="#limitations" aria-label="Link to heading 'Limitations'" data-heading-content="Limitations" class="anchor"></a></h2>
+<ul data-sourcepos="197:1-200:224">
+<li data-sourcepos="197:1-197:149"><strong data-sourcepos="197:3-197:23">Flat layout only.</strong> Skills must be direct children of the skills root. Nested folders like <code data-sourcepos="197:96-197:129">~/.agents/skills/group/my-skill/</code> are not discovered.</li>
+<li data-sourcepos="198:1-198:200"><strong data-sourcepos="198:3-198:26">50KB catalog budget.</strong> The total size of all skill names and descriptions is capped at 50KB. Skills that don’t fit are dropped from the catalog with a warning in the UI. Keep descriptions concise.</li>
+<li data-sourcepos="199:1-199:376"><strong data-sourcepos="199:3-199:25">No remote registry.</strong> Zed does not discover or load skills from remote locations at runtime, and custom search paths are not supported. (You can still import a skill once from a GitHub URL — see <a data-sourcepos="199:202-199:236" href="#create-your-own">Create your own</a>.) Skills are loaded from <code data-sourcepos="199:263-199:281">~/.agents/skills/</code> and <code data-sourcepos="199:287-199:314">&lt;worktree&gt;/.agents/skills/</code> only. Use a symlink if you need to point at another location.</li>
+<li data-sourcepos="200:1-200:224"><strong data-sourcepos="200:3-200:18">Live reload.</strong> Adding, removing, or editing a <code data-sourcepos="200:51-200:60">SKILL.md</code> takes effect immediately without restarting your session. Changes to a skill’s <code data-sourcepos="200:141-200:146">name</code> or <code data-sourcepos="200:151-200:163">description</code> invalidate the model’s prompt cache for the current session.</li>
+</ul>
+<h2 id="see-also" data-sourcepos="202:1-202:11">See also<a href="#see-also" aria-label="Link to heading 'See also'" data-heading-content="See also" class="anchor"></a></h2>
+<ul data-sourcepos="204:1-206:68">
+<li data-sourcepos="204:1-204:33"><a data-sourcepos="204:3-204:33" href="agent-panel.html">Agent Panel</a></li>
+<li data-sourcepos="205:1-205:43"><a data-sourcepos="205:3-205:43" href="tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="206:1-206:68"><a data-sourcepos="206:3-206:68" href="https://agentskills.io/specification">Agent Skills specification</a></li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;ai&#x2f;skills.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

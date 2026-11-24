@@ -4,7 +4,7 @@
   <template shadowrootmode="open">
     <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
     <div class="wiki-shadow" data-bs-theme="light">
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -129,12 +129,13 @@
         </li>
 
       </ul>
+
     </div>
   </div>
 </nav>
     </div>
   </template>
-</wiki-header><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">wiki/</div>state.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-2"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="doccomment">//! What needs regenerating, decided with git object ids.
+</wiki-header><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><h1><div class="sub-heading">wiki/</div>state.rs</h1><rustdoc-toolbar></rustdoc-toolbar></div><div class="example-wrap digits-3"><pre class="rust"><code><a href=#1 id=1 data-nosnippet>1</a><span class="doccomment">//! What needs regenerating, decided with git object ids.
 <a href=#2 id=2 data-nosnippet>2</a>//!
 <a href=#3 id=3 data-nosnippet>3</a>//! Every input is identified the way git identifies it: files by their blob id
 <a href=#4 id=4 data-nosnippet>4</a>//! (`git hash-object`), a repo's sources by its HEAD tree id plus the patch id
@@ -203,31 +204,36 @@
 <a href=#67 id=67 data-nosnippet>67</a>    Oid::hash_file(ObjectType::Blob, path).map(|oid| oid.to_string()).unwrap_or_default()
 <a href=#68 id=68 data-nosnippet>68</a>}
 <a href=#69 id=69 data-nosnippet>69</a>
-<a href=#70 id=70 data-nosnippet>70</a><span class="doccomment">/// Blob ids of every file under `dir`, as "relative path\0id" parts.
-<a href=#71 id=71 data-nosnippet>71</a></span><span class="kw">pub fn </span>dir_ids(dir: <span class="kw-2">&amp;</span>Path) -&gt; Vec&lt;String&gt; {
-<a href=#72 id=72 data-nosnippet>72</a>    <span class="kw">let </span><span class="kw-2">mut </span>parts: Vec&lt;String&gt; = walkdir::WalkDir::new(dir)
-<a href=#73 id=73 data-nosnippet>73</a>        .into_iter()
-<a href=#74 id=74 data-nosnippet>74</a>        .filter_map(Result::ok)
-<a href=#75 id=75 data-nosnippet>75</a>        .filter(|entry| entry.file_type().is_file())
-<a href=#76 id=76 data-nosnippet>76</a>        .map(|entry| {
-<a href=#77 id=77 data-nosnippet>77</a>            <span class="kw">let </span>rel = entry.path().strip_prefix(dir).unwrap_or(entry.path());
-<a href=#78 id=78 data-nosnippet>78</a>            <span class="macro">format!</span>(<span class="string">"{}\0{}"</span>, rel.display(), file_id(entry.path()))
-<a href=#79 id=79 data-nosnippet>79</a>        })
-<a href=#80 id=80 data-nosnippet>80</a>        .collect();
-<a href=#81 id=81 data-nosnippet>81</a>    parts.sort();
-<a href=#82 id=82 data-nosnippet>82</a>    parts
-<a href=#83 id=83 data-nosnippet>83</a>}
-<a href=#84 id=84 data-nosnippet>84</a>
-<a href=#85 id=85 data-nosnippet>85</a><span class="doccomment">/// Id of a repo's current sources: HEAD's tree id plus the patch id of
-<a href=#86 id=86 data-nosnippet>86</a>/// everything uncommitted (staged, unstaged and untracked).
-<a href=#87 id=87 data-nosnippet>87</a></span><span class="kw">pub fn </span>source_id(path: <span class="kw-2">&amp;</span>Path) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
-<a href=#88 id=88 data-nosnippet>88</a>    <span class="kw">let </span>repo = Repository::open(path)<span class="question-mark">?</span>;
-<a href=#89 id=89 data-nosnippet>89</a>    <span class="kw">let </span>tree = repo.head().ok().and_then(|head| head.peel_to_tree().ok());
-<a href=#90 id=90 data-nosnippet>90</a>    <span class="kw">let </span><span class="kw-2">mut </span>options = DiffOptions::new();
-<a href=#91 id=91 data-nosnippet>91</a>    options.include_untracked(<span class="bool-val">true</span>).recurse_untracked_dirs(<span class="bool-val">true</span>).show_untracked_content(<span class="bool-val">true</span>);
-<a href=#92 id=92 data-nosnippet>92</a>    <span class="kw">let </span>diff = repo.diff_tree_to_workdir_with_index(tree.as_ref(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;mut </span>options))<span class="question-mark">?</span>;
-<a href=#93 id=93 data-nosnippet>93</a>    <span class="kw">let </span>tree_id = tree.map(|tree| tree.id().to_string()).unwrap_or_default();
-<a href=#94 id=94 data-nosnippet>94</a>    <span class="kw">let </span>patch_id = <span class="kw">if </span>diff.deltas().len() == <span class="number">0 </span>{ String::new() } <span class="kw">else </span>{ diff.patchid(<span class="prelude-val">None</span>)<span class="question-mark">?</span>.to_string() };
-<a href=#95 id=95 data-nosnippet>95</a>    <span class="prelude-val">Ok</span>(key([tree_id, patch_id]))
-<a href=#96 id=96 data-nosnippet>96</a>}
+<a href=#70 id=70 data-nosnippet>70</a><span class="doccomment">/// Blob id of a text (`git hash-object` of a file with this content).
+<a href=#71 id=71 data-nosnippet>71</a></span><span class="kw">pub fn </span>text_id(text: <span class="kw-2">&amp;</span>str) -&gt; String {
+<a href=#72 id=72 data-nosnippet>72</a>    Oid::hash_object(ObjectType::Blob, text.as_bytes()).map(|oid| oid.to_string()).unwrap_or_default()
+<a href=#73 id=73 data-nosnippet>73</a>}
+<a href=#74 id=74 data-nosnippet>74</a>
+<a href=#75 id=75 data-nosnippet>75</a><span class="doccomment">/// Blob ids of every file under `dir`, as "relative path\0id" parts.
+<a href=#76 id=76 data-nosnippet>76</a></span><span class="kw">pub fn </span>dir_ids(dir: <span class="kw-2">&amp;</span>Path) -&gt; Vec&lt;String&gt; {
+<a href=#77 id=77 data-nosnippet>77</a>    <span class="kw">let </span><span class="kw-2">mut </span>parts: Vec&lt;String&gt; = walkdir::WalkDir::new(dir)
+<a href=#78 id=78 data-nosnippet>78</a>        .into_iter()
+<a href=#79 id=79 data-nosnippet>79</a>        .filter_map(Result::ok)
+<a href=#80 id=80 data-nosnippet>80</a>        .filter(|entry| entry.file_type().is_file())
+<a href=#81 id=81 data-nosnippet>81</a>        .map(|entry| {
+<a href=#82 id=82 data-nosnippet>82</a>            <span class="kw">let </span>rel = entry.path().strip_prefix(dir).unwrap_or(entry.path());
+<a href=#83 id=83 data-nosnippet>83</a>            <span class="macro">format!</span>(<span class="string">"{}\0{}"</span>, rel.display(), file_id(entry.path()))
+<a href=#84 id=84 data-nosnippet>84</a>        })
+<a href=#85 id=85 data-nosnippet>85</a>        .collect();
+<a href=#86 id=86 data-nosnippet>86</a>    parts.sort();
+<a href=#87 id=87 data-nosnippet>87</a>    parts
+<a href=#88 id=88 data-nosnippet>88</a>}
+<a href=#89 id=89 data-nosnippet>89</a>
+<a href=#90 id=90 data-nosnippet>90</a><span class="doccomment">/// Id of a repo's current sources: HEAD's tree id plus the patch id of
+<a href=#91 id=91 data-nosnippet>91</a>/// everything uncommitted (staged, unstaged and untracked).
+<a href=#92 id=92 data-nosnippet>92</a></span><span class="kw">pub fn </span>source_id(path: <span class="kw-2">&amp;</span>Path) -&gt; <span class="prelude-ty">Result</span>&lt;String&gt; {
+<a href=#93 id=93 data-nosnippet>93</a>    <span class="kw">let </span>repo = Repository::open(path)<span class="question-mark">?</span>;
+<a href=#94 id=94 data-nosnippet>94</a>    <span class="kw">let </span>tree = repo.head().ok().and_then(|head| head.peel_to_tree().ok());
+<a href=#95 id=95 data-nosnippet>95</a>    <span class="kw">let </span><span class="kw-2">mut </span>options = DiffOptions::new();
+<a href=#96 id=96 data-nosnippet>96</a>    options.include_untracked(<span class="bool-val">true</span>).recurse_untracked_dirs(<span class="bool-val">true</span>).show_untracked_content(<span class="bool-val">true</span>);
+<a href=#97 id=97 data-nosnippet>97</a>    <span class="kw">let </span>diff = repo.diff_tree_to_workdir_with_index(tree.as_ref(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;mut </span>options))<span class="question-mark">?</span>;
+<a href=#98 id=98 data-nosnippet>98</a>    <span class="kw">let </span>tree_id = tree.map(|tree| tree.id().to_string()).unwrap_or_default();
+<a href=#99 id=99 data-nosnippet>99</a>    <span class="kw">let </span>patch_id = <span class="kw">if </span>diff.deltas().len() == <span class="number">0 </span>{ String::new() } <span class="kw">else </span>{ diff.patchid(<span class="prelude-val">None</span>)<span class="question-mark">?</span>.to_string() };
+<a href=#100 id=100 data-nosnippet>100</a>    <span class="prelude-val">Ok</span>(key([tree_id, patch_id]))
+<a href=#101 id=101 data-nosnippet>101</a>}
 </code></pre></div></section></main></body></html>

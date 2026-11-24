@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Language Extensions · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;extensions&#x2f;languages.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;extensions&#x2f;languages.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="languages.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="../getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="../installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="../update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="../editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="../completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="../snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="../command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="../outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="../project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="../running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="../terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="../tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="../debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="../git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="../collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="../collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="../remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="../environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="../ai/overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="../ai/quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="../ai/by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="../ai/agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="../ai/zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="../ai/external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="../ai/agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="../ai/agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="../ai/tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="../ai/skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="../ai/llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="../ai/use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="../authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="../business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="../business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="../roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="../business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="../worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="../business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="../telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="../macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="../windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="../appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="../themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="../icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="../key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="../vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="../languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="../configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="../toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="../languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="../languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="../languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="../languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="../languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="../languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="../languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="../languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="../languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="../languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="../languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="../languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="../languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="../languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="../languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="../languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="../languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="../languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="../languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="../languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="../languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="../languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="../languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="../languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="../languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="../languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="../languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="../languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="../languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="../languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="../languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="../languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="../languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="../languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="../languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="../languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="../languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="../languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="../languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="../languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="../languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="../languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="../languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="../languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="../languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="../languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="../languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="../languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="../languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="../languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="../languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="../languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="../languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="../languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="../languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="../languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="../languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="../languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="../languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="../languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="../languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="../languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="../languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="../languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="../languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="../languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="../languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="../languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="../languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="../extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="languages.html" class="active" aria-current="page">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="../migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="../migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="../migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="../reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="../all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="../development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="../development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="../development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="../development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="../development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="../development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="../performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="../development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="language-extensions" data-sourcepos="6:1-6:21">Language Extensions<a href="#language-extensions" aria-label="Link to heading 'Language Extensions'" data-heading-content="Language Extensions" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:47">Language support in Zed has several components:</p>
+<ul data-sourcepos="10:1-13:18">
+<li data-sourcepos="10:1-10:37">Language metadata and configuration</li>
+<li data-sourcepos="11:1-11:9">Grammar</li>
+<li data-sourcepos="12:1-12:9">Queries</li>
+<li data-sourcepos="13:1-13:18">Language servers</li>
+</ul>
+<h2 id="language-metadata" data-sourcepos="15:1-15:20">Language Metadata<a href="#language-metadata" aria-label="Link to heading 'Language Metadata'" data-heading-content="Language Metadata" class="anchor"></a></h2>
+<p data-sourcepos="17:1-17:116">Each language supported by Zed must be defined in a subdirectory inside the <code data-sourcepos="17:77-17:87">languages</code> directory of your extension.</p>
+<p data-sourcepos="19:1-19:93">This subdirectory must contain a file called <code data-sourcepos="19:46-19:58">config.toml</code> file with the following structure:</p>
+<pre class="syntax-highlighting" data-sourcepos="21:1-26:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">name</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">grammar</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>my-language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">path_suffixes</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>myl<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">line_comments</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span># <span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<ul data-sourcepos="28:1-35:212">
+<li data-sourcepos="28:1-28:97"><code data-sourcepos="28:3-28:8">name</code> (required) is the human readable name that will show up in the Select Language dropdown.</li>
+<li data-sourcepos="29:1-29:101"><code data-sourcepos="29:3-29:11">grammar</code> (required) is the name of a grammar. Grammars are registered separately, described below.</li>
+<li data-sourcepos="30:1-30:162"><code data-sourcepos="30:3-30:17">path_suffixes</code> is an array of file suffixes that should be associated with this language. Unlike <code data-sourcepos="30:101-30:112">file_types</code> in settings, this does not support glob patterns.</li>
+<li data-sourcepos="31:1-31:205"><code data-sourcepos="31:3-31:17">line_comments</code> is an array of strings that are used to identify line comments in the language. This is used for the <code data-sourcepos="31:120-31:143">editor::ToggleComments</code> keybind: <code data-sourcepos="31:154-31:177">editor::ToggleComments</code> for toggling lines of code.</li>
+<li data-sourcepos="32:1-32:86"><code data-sourcepos="32:3-32:12">tab_size</code> defines the indentation/tab size used for this language (default is <code data-sourcepos="32:82-32:84">4</code>).</li>
+<li data-sourcepos="33:1-33:84"><code data-sourcepos="33:3-33:13">hard_tabs</code> whether to indent with tabs (<code data-sourcepos="33:44-33:49">true</code>) or spaces (<code data-sourcepos="33:63-33:69">false</code>, the default).</li>
+<li data-sourcepos="34:1-34:369"><code data-sourcepos="34:3-34:22">first_line_pattern</code> is a regular expression that can be used alongside <code data-sourcepos="34:75-34:89">path_suffixes</code> (above) or <code data-sourcepos="34:102-34:113">file_types</code> in settings to match files that should use this language. For example, Zed uses this to identify Shell Scripts by matching <a data-sourcepos="34:238-34:338" href="https://github.com/zed-industries/zed/blob/main/crates/grammars/src/bash/config.toml">shebang lines</a> in the first line of a script.</li>
+<li data-sourcepos="35:1-35:212"><code data-sourcepos="35:3-35:13">debuggers</code> is an array of strings that are used to identify debuggers in the language. When launching a debugger’s <code data-sourcepos="35:119-35:137">New Process Modal</code>, Zed will order available debuggers by the order of entries in this array.</li>
+</ul>
+<!--
+TBD: Document `language_name/config.toml` keys
+
+- autoclose_before
+- brackets (start, end, close, newline, not_in: ["comment", "string"])
+- word_characters
+- prettier_parser_name
+- opt_into_language_servers
+- code_fence_block_name
+- scope_opt_in_language_servers
+- collapsed_placeholder
+- auto_indent_on_paste, auto_indent_using_last_non_empty_line
+- overrides: `[overrides.element]`, `[overrides.string]`
+-->
+<h2 id="grammar" data-sourcepos="52:1-52:10">Grammar<a href="#grammar" aria-label="Link to heading 'Grammar'" data-heading-content="Grammar" class="anchor"></a></h2>
+<p data-sourcepos="54:1-54:645">Zed uses the <a data-sourcepos="54:14-54:57" href="https://tree-sitter.github.io">Tree-sitter</a> parsing library to provide built-in language-specific features. There are grammars available for many languages, and you can also <a data-sourcepos="54:189-54:301" href="https://tree-sitter.github.io/tree-sitter/creating-parsers/3-writing-the-grammar.html">develop your own grammar</a>. A growing list of Zed features are built using pattern matching over syntax trees with Tree-sitter queries. As mentioned above, every language that is defined in an extension must specify the name of a Tree-sitter grammar that is used for parsing. These grammars are then registered separately in extensions’ <code data-sourcepos="54:613-54:628">extension.toml</code> file, like this:</p>
+<pre class="syntax-highlighting" data-sourcepos="56:1-60:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">grammars</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">gleam</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">repository</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>https://github.com/gleam-lang/tree-sitter-gleam<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">rev</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>58b7cac8fc14c92b0677c542610d8738c373fa81<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="62:1-62:425">The <code data-sourcepos="62:5-62:16">repository</code> field must specify a repository where the Tree-sitter grammar should be loaded from, and the <code data-sourcepos="62:111-62:115">rev</code> field must contain a Git revision to use, such as the SHA of a Git commit. If you’re developing an extension locally and want to load a grammar from the local filesystem, you can use a <code data-sourcepos="62:302-62:310">file://</code> URL for <code data-sourcepos="62:320-62:331">repository</code>. An extension can provide multiple grammars by referencing multiple tree-sitter repositories.</p>
+<h2 id="tree-sitter-queries" data-sourcepos="64:1-64:22">Tree-sitter Queries<a href="#tree-sitter-queries" aria-label="Link to heading 'Tree-sitter Queries'" data-heading-content="Tree-sitter Queries" class="anchor"></a></h2>
+<p data-sourcepos="66:1-67:17">Zed uses the syntax tree produced by the <a data-sourcepos="66:42-66:85" href="https://tree-sitter.github.io">Tree-sitter</a> query language to implement
+several features:</p>
+<ul data-sourcepos="69:1-77:36">
+<li data-sourcepos="69:1-69:21">Syntax highlighting</li>
+<li data-sourcepos="70:1-70:18">Bracket matching</li>
+<li data-sourcepos="71:1-71:24">Code outline/structure</li>
+<li data-sourcepos="72:1-72:18">Auto-indentation</li>
+<li data-sourcepos="73:1-73:17">Code injections</li>
+<li data-sourcepos="74:1-74:18">Syntax overrides</li>
+<li data-sourcepos="75:1-75:17">Text redactions</li>
+<li data-sourcepos="76:1-76:25">Runnable code detection</li>
+<li data-sourcepos="77:1-77:36">Selecting classes, functions, etc.</li>
+</ul>
+<p data-sourcepos="79:1-80:93">The following sections elaborate on how <a data-sourcepos="79:41-79:137" href="https://tree-sitter.github.io/tree-sitter/using-parsers/queries/index.html">Tree-sitter queries</a> enable these
+features in Zed, using <a data-sourcepos="80:24-80:71" href="https://www.json.org/json-en.html">JSON syntax</a> as a guiding example.</p>
+<h3 id="syntax-highlighting" data-sourcepos="82:1-82:23">Syntax highlighting<a href="#syntax-highlighting" aria-label="Link to heading 'Syntax highlighting'" data-heading-content="Syntax highlighting" class="anchor"></a></h3>
+<p data-sourcepos="84:1-84:100">In Tree-sitter, the <code data-sourcepos="84:21-84:36">highlights.scm</code> file defines syntax highlighting rules for a particular syntax.</p>
+<p data-sourcepos="86:1-86:51">Here’s an example from a <code data-sourcepos="86:26-86:41">highlights.scm</code> for JSON:</p>
+<pre class="syntax-highlighting" data-sourcepos="88:1-95:3"><code class="language-scheme"><span class="hl-text hl-plain">(string) @string
+
+(pair
+  key: (string) @property.json_key)
+
+(number) @number
+</span></code></pre>
+<p data-sourcepos="97:1-97:132">This query marks strings, object keys, and numbers for highlighting. The following is the full list of captures supported by themes:</p>
+<table data-sourcepos="99:1-143:69" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="99:1-99:69">
+<th data-sourcepos="99:2-99:27">Capture</th>
+<th data-sourcepos="99:29-99:68">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="101:1-101:69">
+<td data-sourcepos="101:2-101:27">@attribute</td>
+<td data-sourcepos="101:29-101:68">Captures attributes</td>
+</tr>
+<tr data-sourcepos="102:1-102:69">
+<td data-sourcepos="102:2-102:27">@boolean</td>
+<td data-sourcepos="102:29-102:68">Captures boolean values</td>
+</tr>
+<tr data-sourcepos="103:1-103:69">
+<td data-sourcepos="103:2-103:27">@comment</td>
+<td data-sourcepos="103:29-103:68">Captures comments</td>
+</tr>
+<tr data-sourcepos="104:1-104:69">
+<td data-sourcepos="104:2-104:27">@comment.doc</td>
+<td data-sourcepos="104:29-104:68">Captures documentation comments</td>
+</tr>
+<tr data-sourcepos="105:1-105:69">
+<td data-sourcepos="105:2-105:27">@constant</td>
+<td data-sourcepos="105:29-105:68">Captures constants</td>
+</tr>
+<tr data-sourcepos="106:1-106:69">
+<td data-sourcepos="106:2-106:27">@constant.builtin</td>
+<td data-sourcepos="106:29-106:68">Captures built-in constants</td>
+</tr>
+<tr data-sourcepos="107:1-107:69">
+<td data-sourcepos="107:2-107:27">@constructor</td>
+<td data-sourcepos="107:29-107:68">Captures constructors</td>
+</tr>
+<tr data-sourcepos="108:1-108:69">
+<td data-sourcepos="108:2-108:27">@embedded</td>
+<td data-sourcepos="108:29-108:68">Captures embedded content</td>
+</tr>
+<tr data-sourcepos="109:1-109:69">
+<td data-sourcepos="109:2-109:27">@emphasis</td>
+<td data-sourcepos="109:29-109:68">Captures emphasized text</td>
+</tr>
+<tr data-sourcepos="110:1-110:69">
+<td data-sourcepos="110:2-110:27">@emphasis.strong</td>
+<td data-sourcepos="110:29-110:68">Captures strongly emphasized text</td>
+</tr>
+<tr data-sourcepos="111:1-111:69">
+<td data-sourcepos="111:2-111:27">@enum</td>
+<td data-sourcepos="111:29-111:68">Captures enumerations</td>
+</tr>
+<tr data-sourcepos="112:1-112:69">
+<td data-sourcepos="112:2-112:27">@function</td>
+<td data-sourcepos="112:29-112:68">Captures functions</td>
+</tr>
+<tr data-sourcepos="113:1-113:69">
+<td data-sourcepos="113:2-113:27">@hint</td>
+<td data-sourcepos="113:29-113:68">Captures hints</td>
+</tr>
+<tr data-sourcepos="114:1-114:69">
+<td data-sourcepos="114:2-114:27">@keyword</td>
+<td data-sourcepos="114:29-114:68">Captures keywords</td>
+</tr>
+<tr data-sourcepos="115:1-115:69">
+<td data-sourcepos="115:2-115:27">@label</td>
+<td data-sourcepos="115:29-115:68">Captures labels</td>
+</tr>
+<tr data-sourcepos="116:1-116:69">
+<td data-sourcepos="116:2-116:27">@link_text</td>
+<td data-sourcepos="116:29-116:68">Captures link text</td>
+</tr>
+<tr data-sourcepos="117:1-117:69">
+<td data-sourcepos="117:2-117:27">@link_uri</td>
+<td data-sourcepos="117:29-117:68">Captures link URIs</td>
+</tr>
+<tr data-sourcepos="118:1-118:69">
+<td data-sourcepos="118:2-118:27">@number</td>
+<td data-sourcepos="118:29-118:68">Captures numeric values</td>
+</tr>
+<tr data-sourcepos="119:1-119:69">
+<td data-sourcepos="119:2-119:27">@operator</td>
+<td data-sourcepos="119:29-119:68">Captures operators</td>
+</tr>
+<tr data-sourcepos="120:1-120:69">
+<td data-sourcepos="120:2-120:27">@predictive</td>
+<td data-sourcepos="120:29-120:68">Captures predictive text</td>
+</tr>
+<tr data-sourcepos="121:1-121:69">
+<td data-sourcepos="121:2-121:27">@preproc</td>
+<td data-sourcepos="121:29-121:68">Captures preprocessor directives</td>
+</tr>
+<tr data-sourcepos="122:1-122:69">
+<td data-sourcepos="122:2-122:27">@primary</td>
+<td data-sourcepos="122:29-122:68">Captures primary elements</td>
+</tr>
+<tr data-sourcepos="123:1-123:69">
+<td data-sourcepos="123:2-123:27">@property</td>
+<td data-sourcepos="123:29-123:68">Captures properties</td>
+</tr>
+<tr data-sourcepos="124:1-124:69">
+<td data-sourcepos="124:2-124:27">@punctuation</td>
+<td data-sourcepos="124:29-124:68">Captures punctuation</td>
+</tr>
+<tr data-sourcepos="125:1-125:69">
+<td data-sourcepos="125:2-125:27">@punctuation.bracket</td>
+<td data-sourcepos="125:29-125:68">Captures brackets</td>
+</tr>
+<tr data-sourcepos="126:1-126:69">
+<td data-sourcepos="126:2-126:27">@punctuation.delimiter</td>
+<td data-sourcepos="126:29-126:68">Captures delimiters</td>
+</tr>
+<tr data-sourcepos="127:1-127:69">
+<td data-sourcepos="127:2-127:27">@punctuation.list_marker</td>
+<td data-sourcepos="127:29-127:68">Captures list markers</td>
+</tr>
+<tr data-sourcepos="128:1-128:69">
+<td data-sourcepos="128:2-128:27">@punctuation.special</td>
+<td data-sourcepos="128:29-128:68">Captures special punctuation</td>
+</tr>
+<tr data-sourcepos="129:1-129:69">
+<td data-sourcepos="129:2-129:27">@string</td>
+<td data-sourcepos="129:29-129:68">Captures string literals</td>
+</tr>
+<tr data-sourcepos="130:1-130:69">
+<td data-sourcepos="130:2-130:27">@string.escape</td>
+<td data-sourcepos="130:29-130:68">Captures escaped characters in strings</td>
+</tr>
+<tr data-sourcepos="131:1-131:69">
+<td data-sourcepos="131:2-131:27">@string.regex</td>
+<td data-sourcepos="131:29-131:68">Captures regular expressions</td>
+</tr>
+<tr data-sourcepos="132:1-132:69">
+<td data-sourcepos="132:2-132:27">@string.special</td>
+<td data-sourcepos="132:29-132:68">Captures special strings</td>
+</tr>
+<tr data-sourcepos="133:1-133:69">
+<td data-sourcepos="133:2-133:27">@string.special.symbol</td>
+<td data-sourcepos="133:29-133:68">Captures special symbols</td>
+</tr>
+<tr data-sourcepos="134:1-134:69">
+<td data-sourcepos="134:2-134:27">@tag</td>
+<td data-sourcepos="134:29-134:68">Captures tags</td>
+</tr>
+<tr data-sourcepos="135:1-135:69">
+<td data-sourcepos="135:2-135:27">@tag.doctype</td>
+<td data-sourcepos="135:29-135:68">Captures doctypes (e.g., in HTML)</td>
+</tr>
+<tr data-sourcepos="136:1-136:69">
+<td data-sourcepos="136:2-136:27">@text.literal</td>
+<td data-sourcepos="136:29-136:68">Captures literal text</td>
+</tr>
+<tr data-sourcepos="137:1-137:69">
+<td data-sourcepos="137:2-137:27">@title</td>
+<td data-sourcepos="137:29-137:68">Captures titles</td>
+</tr>
+<tr data-sourcepos="138:1-138:69">
+<td data-sourcepos="138:2-138:27">@type</td>
+<td data-sourcepos="138:29-138:68">Captures types</td>
+</tr>
+<tr data-sourcepos="139:1-139:69">
+<td data-sourcepos="139:2-139:27">@type.builtin</td>
+<td data-sourcepos="139:29-139:68">Captures built-in types</td>
+</tr>
+<tr data-sourcepos="140:1-140:69">
+<td data-sourcepos="140:2-140:27">@variable</td>
+<td data-sourcepos="140:29-140:68">Captures variables</td>
+</tr>
+<tr data-sourcepos="141:1-141:69">
+<td data-sourcepos="141:2-141:27">@variable.special</td>
+<td data-sourcepos="141:29-141:68">Captures special variables</td>
+</tr>
+<tr data-sourcepos="142:1-142:69">
+<td data-sourcepos="142:2-142:27">@variable.parameter</td>
+<td data-sourcepos="142:29-142:68">Captures function/method parameters</td>
+</tr>
+<tr data-sourcepos="143:1-143:69">
+<td data-sourcepos="143:2-143:27">@variant</td>
+<td data-sourcepos="143:29-143:68">Captures variants</td>
+</tr>
+</tbody>
+</table>
+<h4 id="fallback-captures" data-sourcepos="145:1-145:22">Fallback captures<a href="#fallback-captures" aria-label="Link to heading 'Fallback captures'" data-heading-content="Fallback captures" class="anchor"></a></h4>
+<p data-sourcepos="147:1-148:171">A single Tree-sitter pattern can specify multiple captures on the same node to define fallback highlights.
+Zed resolves them right-to-left: It first tries the rightmost capture, and if the current theme has no style for it, falls back to the next capture to the left, and so on.</p>
+<p data-sourcepos="150:1-150:12">For example:</p>
+<pre class="syntax-highlighting" data-sourcepos="152:1-154:3"><code class="language-scheme"><span class="hl-text hl-plain">(type_identifier) @type @variable
+</span></code></pre>
+<p data-sourcepos="156:1-156:166">Here Zed will first try to resolve <code data-sourcepos="156:36-156:46">@variable</code> from the theme. If the theme defines a style for <code data-sourcepos="156:97-156:107">@variable</code>, that style is used. Otherwise, Zed falls back to <code data-sourcepos="156:159-156:165">@type</code>.</p>
+<p data-sourcepos="158:1-158:177">This is useful when a language wants to provide a preferred highlight that not all themes may support, while still falling back to a more common capture that most themes define.</p>
+<h3 id="bracket-matching" data-sourcepos="160:1-160:20">Bracket matching<a href="#bracket-matching" aria-label="Link to heading 'Bracket matching'" data-heading-content="Bracket matching" class="anchor"></a></h3>
+<p data-sourcepos="162:1-162:50">The <code data-sourcepos="162:5-162:18">brackets.scm</code> file defines matching brackets.</p>
+<p data-sourcepos="164:1-164:54">Here’s an example from a <code data-sourcepos="164:26-164:39">brackets.scm</code> file for JSON:</p>
+<pre class="syntax-highlighting" data-sourcepos="166:1-170:3"><code class="language-scheme"><span class="hl-text hl-plain">(&quot;[&quot; @open &quot;]&quot; @close)
+(&quot;{&quot; @open &quot;}&quot; @close)
+(&quot;\&quot;&quot; @open &quot;\&quot;&quot; @close)
+</span></code></pre>
+<p data-sourcepos="172:1-172:80">This query identifies opening and closing brackets, braces, and quotation marks.</p>
+<table data-sourcepos="174:1-177:59" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="174:1-174:59">
+<th data-sourcepos="174:2-174:10">Capture</th>
+<th data-sourcepos="174:12-174:58">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="176:1-176:59">
+<td data-sourcepos="176:2-176:10">@open</td>
+<td data-sourcepos="176:12-176:58">Captures opening brackets, braces, and quotes</td>
+</tr>
+<tr data-sourcepos="177:1-177:59">
+<td data-sourcepos="177:2-177:10">@close</td>
+<td data-sourcepos="177:12-177:58">Captures closing brackets, braces, and quotes</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="179:1-179:189">Zed uses these to highlight matching brackets: painting each bracket pair with a different color (“rainbow brackets”) and highlighting the brackets if the cursor is inside the bracket pair.</p>
+<p data-sourcepos="181:1-181:105">To opt out of rainbow brackets colorization, add the following to the corresponding <code data-sourcepos="181:85-181:98">brackets.scm</code> entry:</p>
+<pre class="syntax-highlighting" data-sourcepos="183:1-185:3"><code class="language-scheme"><span class="hl-text hl-plain">((&quot;\&quot;&quot; @open &quot;\&quot;&quot; @close) (#set! rainbow.exclude))
+</span></code></pre>
+<h3 id="code-outlinestructure" data-sourcepos="187:1-187:26">Code outline/structure<a href="#code-outlinestructure" aria-label="Link to heading 'Code outline/structure'" data-heading-content="Code outline/structure" class="anchor"></a></h3>
+<p data-sourcepos="189:1-189:66">The <code data-sourcepos="189:5-189:17">outline.scm</code> file defines the structure for the code outline.</p>
+<p data-sourcepos="191:1-191:54">Here’s an example from an <code data-sourcepos="191:27-191:39">outline.scm</code> file for JSON:</p>
+<pre class="syntax-highlighting" data-sourcepos="193:1-196:3"><code class="language-scheme"><span class="hl-text hl-plain">(pair
+  key: (string (string_content) @name)) @item
+</span></code></pre>
+<p data-sourcepos="198:1-198:58">This query captures object keys for the outline structure.</p>
+<table data-sourcepos="200:1-206:105" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="200:1-200:105">
+<th data-sourcepos="200:2-200:17">Capture</th>
+<th data-sourcepos="200:19-200:104">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="202:1-202:105">
+<td data-sourcepos="202:2-202:17">@name</td>
+<td data-sourcepos="202:19-202:104">Captures the content of object keys</td>
+</tr>
+<tr data-sourcepos="203:1-203:105">
+<td data-sourcepos="203:2-203:17">@item</td>
+<td data-sourcepos="203:19-203:104">Captures the entire key-value pair</td>
+</tr>
+<tr data-sourcepos="204:1-204:105">
+<td data-sourcepos="204:2-204:17">@context</td>
+<td data-sourcepos="204:19-204:104">Captures elements that provide context for the outline item</td>
+</tr>
+<tr data-sourcepos="205:1-205:105">
+<td data-sourcepos="205:2-205:17">@context.extra</td>
+<td data-sourcepos="205:19-205:104">Captures additional contextual information for the outline item</td>
+</tr>
+<tr data-sourcepos="206:1-206:105">
+<td data-sourcepos="206:2-206:17">@annotation</td>
+<td data-sourcepos="206:19-206:104">Captures nodes that annotate outline item (doc comments, attributes, decorators)<sup data-sourcepos="206:100-206:103" class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></td>
+</tr>
+</tbody>
+</table>
+<h3 id="auto-indentation" data-sourcepos="210:1-210:20">Auto-indentation<a href="#auto-indentation" aria-label="Link to heading 'Auto-indentation'" data-heading-content="Auto-indentation" class="anchor"></a></h3>
+<p data-sourcepos="212:1-212:49">The <code data-sourcepos="212:5-212:17">indents.scm</code> file defines indentation rules.</p>
+<h4 id="indenting-and-outdenting-based-on-syntax" data-sourcepos="214:1-214:45">Indenting and outdenting based on syntax<a href="#indenting-and-outdenting-based-on-syntax" aria-label="Link to heading 'Indenting and outdenting based on syntax'" data-heading-content="Indenting and outdenting based on syntax" class="anchor"></a></h4>
+<table data-sourcepos="216:1-221:85" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="216:1-216:85">
+<th data-sourcepos="216:2-216:11">Capture</th>
+<th data-sourcepos="216:13-216:84">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="218:1-218:85">
+<td data-sourcepos="218:2-218:11">@indent</td>
+<td data-sourcepos="218:13-218:84">Defines an indentation range using the captured node</td>
+</tr>
+<tr data-sourcepos="219:1-219:85">
+<td data-sourcepos="219:2-219:11">@start</td>
+<td data-sourcepos="219:13-219:84">Moves the start of an <code data-sourcepos="219:36-219:44">@indent</code> range to the end of the captured node</td>
+</tr>
+<tr data-sourcepos="220:1-220:85">
+<td data-sourcepos="220:2-220:11">@end</td>
+<td data-sourcepos="220:13-220:84">Moves the end of an <code data-sourcepos="220:34-220:42">@indent</code> range to the start of the captured node</td>
+</tr>
+<tr data-sourcepos="221:1-221:85">
+<td data-sourcepos="221:2-221:11">@outdent</td>
+<td data-sourcepos="221:13-221:84">Ends the innermost indentation range at the start of the captured node</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="223:1-223:64">For example, to indent all of an <code data-sourcepos="223:34-223:47">if_statement</code> node’s contents:</p>
+<pre class="syntax-highlighting" data-sourcepos="225:1-227:3"><code class="language-scheme"><span class="hl-text hl-plain">(if_statement) @indent
+</span></code></pre>
+<p data-sourcepos="229:1-229:65">The indentation range runs from the start of the node to its end.</p>
+<p data-sourcepos="231:1-232:21">An HTML element includes its opening and closing tags. To indent only the
+content between them:</p>
+<pre class="syntax-highlighting" data-sourcepos="234:1-238:3"><code class="language-scheme"><span class="hl-text hl-plain">(element
+  (start_tag) @start ; Begin indentation after the opening tag
+  (end_tag)? @end) @indent ; End indentation before the closing tag
+</span></code></pre>
+<p data-sourcepos="240:1-241:28">A subsequent case label must outdent from the preceding case body so that
+sibling labels stay aligned:</p>
+<pre class="syntax-highlighting" data-sourcepos="243:1-252:3"><code class="language-scheme"><span class="hl-text hl-plain">(compound_statement
+  (case_statement
+    &quot;:&quot; @start) ; Begin indenting the case body
+  &quot;}&quot; @end) @indent
+
+(compound_statement
+  (case_statement)
+  (case_statement) @outdent) ; Align subsequent case labels
+</span></code></pre>
+<h4 id="indenting-and-outdenting-based-on-line-patterns" data-sourcepos="254:1-254:52">Indenting and outdenting based on line patterns<a href="#indenting-and-outdenting-based-on-line-patterns" aria-label="Link to heading 'Indenting and outdenting based on line patterns'" data-heading-content="Indenting and outdenting based on line patterns" class="anchor"></a></h4>
+<p data-sourcepos="256:1-257:24">Use these <code data-sourcepos="256:11-256:23">config.toml</code> options for indentation rules that match line contents
+instead of syntax nodes:</p>
+<table data-sourcepos="259:1-263:105" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="259:1-259:105">
+<th data-sourcepos="259:2-259:29">Option</th>
+<th data-sourcepos="259:31-259:104">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="261:1-261:105">
+<td data-sourcepos="261:2-261:29"><code data-sourcepos="261:3-261:27">increase_indent_pattern</code></td>
+<td data-sourcepos="261:31-261:104">A matching line indents the following line by one level</td>
+</tr>
+<tr data-sourcepos="262:1-262:105">
+<td data-sourcepos="262:2-262:29"><code data-sourcepos="262:3-262:27">decrease_indent_pattern</code></td>
+<td data-sourcepos="262:31-262:104">A matching line outdents by one level without considering syntax context</td>
+</tr>
+<tr data-sourcepos="263:1-263:105">
+<td data-sourcepos="263:2-263:29"><code data-sourcepos="263:3-263:28">decrease_indent_patterns</code></td>
+<td data-sourcepos="263:31-263:104">A matching line aligns with an allowed earlier syntax construct</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="265:1-265:50">For example, to indent after a line ending in <code data-sourcepos="265:47-265:49">:</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="267:1-269:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">increase_indent_pattern</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>:<span class="hl-constant hl-character hl-escape hl-toml">\\</span>s*$<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="271:1-271:51">For example, to outdent lines beginning with <code data-sourcepos="271:46-271:50">end</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="273:1-275:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">decrease_indent_pattern</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>^<span class="hl-constant hl-character hl-escape hl-toml">\\</span>s*end<span class="hl-constant hl-character hl-escape hl-toml">\\</span>b<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+</span></code></pre>
+<h4 id="aligning-clauses-with-related-blocks" data-sourcepos="277:1-277:41">Aligning clauses with related blocks<a href="#aligning-clauses-with-related-blocks" aria-label="Link to heading 'Aligning clauses with related blocks'" data-heading-content="Aligning clauses with related blocks" class="anchor"></a></h4>
+<p data-sourcepos="279:1-281:43">Use <code data-sourcepos="279:5-279:30">decrease_indent_patterns</code> when a line should align with a related block
+instead of always moving left by one level. In <code data-sourcepos="280:48-280:60">indents.scm</code>, mark the block
+start with a named <code data-sourcepos="281:20-281:34">@start.&lt;name&gt;</code> capture:</p>
+<pre class="syntax-highlighting" data-sourcepos="283:1-285:3"><code class="language-scheme"><span class="hl-text hl-plain">(if_statement) @start.if
+</span></code></pre>
+<p data-sourcepos="287:1-287:59">In <code data-sourcepos="287:4-287:16">config.toml</code>, list the capture suffix in <code data-sourcepos="287:46-287:58">valid_after</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="289:1-293:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">decrease_indent_patterns</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span>
+  <span class="hl-punctuation hl-definition hl-inline-table hl-begin hl-toml">{</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">pattern</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>^<span class="hl-constant hl-character hl-escape hl-toml">\\</span>s*else<span class="hl-constant hl-character hl-escape hl-toml">\\</span>b<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-inline-table hl-toml">,</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">valid_after</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>if<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span> <span class="hl-punctuation hl-definition hl-inline-table hl-end hl-toml">}</span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span>
+<span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<p data-sourcepos="295:1-297:22">A line beginning with <code data-sourcepos="295:23-295:28">else</code> aligns with the most recent <code data-sourcepos="295:58-295:68">@start.if</code> at the same
+or a lower indentation level. If Zed finds no matching block, it leaves the
+indentation unchanged.</p>
+<p data-sourcepos="299:1-300:48">Named captures such as <code data-sourcepos="299:24-299:34">@start.if</code> mark blocks for these rules. Unlike
+<code data-sourcepos="300:1-300:8">@start</code>, they do not change an <code data-sourcepos="300:33-300:41">@indent</code> range.</p>
+<p data-sourcepos="302:1-303:59">Zed checks rules in order and stops after the first matching <code data-sourcepos="302:62-302:70">pattern</code>. Put
+more specific patterns before overlapping general patterns.</p>
+<h3 id="code-injections" data-sourcepos="305:1-305:19">Code injections<a href="#code-injections" aria-label="Link to heading 'Code injections'" data-heading-content="Code injections" class="anchor"></a></h3>
+<p data-sourcepos="307:1-307:148">The <code data-sourcepos="307:5-307:20">injections.scm</code> file defines rules for embedding one language within another, such as code blocks in Markdown or SQL queries in Python strings.</p>
+<p data-sourcepos="309:1-309:61">Here’s an example from an <code data-sourcepos="309:27-309:42">injections.scm</code> file for Markdown:</p>
+<pre class="syntax-highlighting" data-sourcepos="311:1-319:3"><code class="language-scheme"><span class="hl-text hl-plain">(fenced_code_block
+  (info_string
+    (language) @injection.language)
+  (code_fence_content) @injection.content)
+
+((inline) @content
+ (#set! injection.language &quot;markdown-inline&quot;))
+</span></code></pre>
+<p data-sourcepos="321:1-321:203">This query identifies fenced code blocks, capturing the language specified in the info string and the content within the block. It also captures inline content and sets its language to “markdown-inline”.</p>
+<table data-sourcepos="323:1-326:84" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="323:1-323:84">
+<th data-sourcepos="323:2-323:22">Capture</th>
+<th data-sourcepos="323:24-323:83">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="325:1-325:84">
+<td data-sourcepos="325:2-325:22">@injection.language</td>
+<td data-sourcepos="325:24-325:83">Captures the language identifier for a code block</td>
+</tr>
+<tr data-sourcepos="326:1-326:84">
+<td data-sourcepos="326:2-326:22">@injection.content</td>
+<td data-sourcepos="326:24-326:83">Captures the content to be treated as a different language</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="328:1-328:97">Note that we couldn’t use JSON as an example here because it doesn’t support language injections.</p>
+<h3 id="syntax-overrides" data-sourcepos="330:1-330:20">Syntax overrides<a href="#syntax-overrides" aria-label="Link to heading 'Syntax overrides'" data-heading-content="Syntax overrides" class="anchor"></a></h3>
+<p data-sourcepos="332:1-332:141">The <code data-sourcepos="332:5-332:19">overrides.scm</code> file defines syntactic <em data-sourcepos="332:44-332:51">scopes</em> that can be used to override certain editor settings within specific language constructs.</p>
+<p data-sourcepos="334:1-334:266">For example, there is a language-specific setting called <code data-sourcepos="334:58-334:74">word_characters</code> that controls which non-alphabetic characters are considered part of a word, for example when you double click to select a variable. In JavaScript, “$” and “#” are considered word characters.</p>
+<p data-sourcepos="336:1-336:337">There is also a language-specific setting called <code data-sourcepos="336:50-336:78">completion_query_characters</code> that controls which characters trigger autocomplete suggestions. In JavaScript, when your cursor is within a <em data-sourcepos="336:189-336:196">string</em>, <code data-sourcepos="336:199-336:201">-</code> should be considered a completion query character. To achieve this, the JavaScript <code data-sourcepos="336:286-336:300">overrides.scm</code> file contains the following pattern:</p>
+<pre class="syntax-highlighting" data-sourcepos="338:1-343:3"><code class="language-scheme"><span class="hl-text hl-plain">[
+  (string)
+  (template_string)
+] @string
+</span></code></pre>
+<p data-sourcepos="345:1-345:55">And the JavaScript <code data-sourcepos="345:20-345:32">config.toml</code> contains this setting:</p>
+<pre class="syntax-highlighting" data-sourcepos="347:1-352:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">word_characters</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>#<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>$<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+
+<span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">overrides</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">string</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">completion_query_characters</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>-<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<p data-sourcepos="354:1-354:189">You can also disable certain auto-closing brackets in a specific scope. For example, to prevent auto-closing <code data-sourcepos="354:110-354:112">'</code> within strings, you could put the following in the JavaScript <code data-sourcepos="354:176-354:188">config.toml</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="356:1-361:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">brackets</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span>
+  <span class="hl-punctuation hl-definition hl-inline-table hl-begin hl-toml">{</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">start</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>&#39;<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-inline-table hl-toml">,</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">end</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>&#39;<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-inline-table hl-toml">,</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">close</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-language hl-toml">true</span><span class="hl-punctuation hl-separator hl-inline-table hl-toml">,</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">newline</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-language hl-toml">false</span><span class="hl-punctuation hl-separator hl-inline-table hl-toml">,</span> <span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">not_in</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>string<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span> <span class="hl-punctuation hl-definition hl-inline-table hl-end hl-toml">}</span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span>
+  <span class="hl-comment hl-line hl-number-sign hl-toml"><span class="hl-punctuation hl-definition hl-comment hl-toml">#</span> other pairs...</span>
+<span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<h4 id="range-inclusivity" data-sourcepos="363:1-363:22">Range inclusivity<a href="#range-inclusivity" aria-label="Link to heading 'Range inclusivity'" data-heading-content="Range inclusivity" class="anchor"></a></h4>
+<p data-sourcepos="365:1-365:341">By default, the ranges defined in <code data-sourcepos="365:35-365:49">overrides.scm</code> are <em data-sourcepos="365:55-365:65">exclusive</em>. So in the case above, if your cursor was <em data-sourcepos="365:109-365:117">outside</em> the quotation marks delimiting the string, the <code data-sourcepos="365:166-365:173">string</code> scope would not take effect. Sometimes, you may want to make the range <em data-sourcepos="365:246-365:256">inclusive</em>. You can do this by adding the <code data-sourcepos="365:289-365:300">.inclusive</code> suffix to the capture name in the query.</p>
+<p data-sourcepos="367:1-367:253">For example, in JavaScript, we also disable auto-closing of single quotes within comments. And the comment scope must extend all the way to the newline after a line comment. To achieve this, the JavaScript <code data-sourcepos="367:207-367:221">overrides.scm</code> contains the following pattern:</p>
+<pre class="syntax-highlighting" data-sourcepos="369:1-371:3"><code class="language-scheme"><span class="hl-text hl-plain">(comment) @comment.inclusive
+</span></code></pre>
+<h3 id="text-objects" data-sourcepos="373:1-373:16">Text objects<a href="#text-objects" aria-label="Link to heading 'Text objects'" data-heading-content="Text objects" class="anchor"></a></h3>
+<p data-sourcepos="375:1-375:154">The <code data-sourcepos="375:5-375:21">textobjects.scm</code> file defines rules for navigating by text objects. This was added in Zed v0.165 and is currently used only in <a data-sourcepos="375:133-375:153" href="../vim.html">Vim mode</a>.</p>
+<p data-sourcepos="377:1-377:316">Vim provides two levels of granularity for navigating around files. Section-by-section with <code data-sourcepos="377:93-377:96">[]</code> etc., and method-by-method with <code data-sourcepos="377:130-377:133">]m</code> etc. Even languages that don’t support functions and classes can work well by defining similar concepts. For example CSS defines a rule-set as a method, and a media-query as a class.</p>
+<p data-sourcepos="379:1-379:235">For languages with closures, these typically should not count as functions in Zed. This is best-effort, however, because languages like JavaScript do not syntactically differentiate between closures and top-level function declarations.</p>
+<p data-sourcepos="381:1-381:181">For languages with declarations like C, provide queries that match <code data-sourcepos="381:68-381:82">@class.around</code> or <code data-sourcepos="381:87-381:104">@function.around</code>. The <code data-sourcepos="381:111-381:114">if</code> and <code data-sourcepos="381:120-381:123">ic</code> text objects will default to these if there is no inside.</p>
+<p data-sourcepos="383:1-383:388">If you are not sure what to put in textobjects.scm, both <a data-sourcepos="383:58-383:150" href="https://github.com/nvim-treesitter/nvim-treesitter-textobjects">nvim-treesitter-textobjects</a>, and the <a data-sourcepos="383:161-383:213" href="https://github.com/helix-editor/helix">Helix editor</a> have queries for many languages. You can refer to the Zed <a data-sourcepos="383:273-383:361" href="https://github.com/zed-industries/zed/tree/main/crates/grammars/src">built-in languages</a> to see how to adapt these.</p>
+<table data-sourcepos="385:1-392:145" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="385:1-385:145">
+<th data-sourcepos="385:2-385:19">Capture</th>
+<th data-sourcepos="385:21-385:93">Description</th>
+<th data-sourcepos="385:95-385:144">Vim mode</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="387:1-387:145">
+<td data-sourcepos="387:2-387:19">@function.around</td>
+<td data-sourcepos="387:21-387:93">An entire function definition or equivalent small section of a file.</td>
+<td data-sourcepos="387:95-387:144"><code data-sourcepos="387:96-387:99">[m</code>, <code data-sourcepos="387:102-387:105">]m</code>, <code data-sourcepos="387:108-387:111">[M</code>,<code data-sourcepos="387:113-387:116">]M</code> motions. <code data-sourcepos="387:127-387:130">af</code> text object</td>
+</tr>
+<tr data-sourcepos="388:1-388:145">
+<td data-sourcepos="388:2-388:19">@function.inside</td>
+<td data-sourcepos="388:21-388:93">The function body (the stuff within the braces).</td>
+<td data-sourcepos="388:95-388:144"><code data-sourcepos="388:96-388:99">if</code> text object</td>
+</tr>
+<tr data-sourcepos="389:1-389:145">
+<td data-sourcepos="389:2-389:19">@class.around</td>
+<td data-sourcepos="389:21-389:93">An entire class definition or equivalent large section of a file.</td>
+<td data-sourcepos="389:95-389:144"><code data-sourcepos="389:96-389:99">[[</code>, <code data-sourcepos="389:102-389:105">]]</code>, <code data-sourcepos="389:108-389:111">[]</code>, <code data-sourcepos="389:114-389:117">][</code> motions. <code data-sourcepos="389:128-389:131">ac</code> text object</td>
+</tr>
+<tr data-sourcepos="390:1-390:145">
+<td data-sourcepos="390:2-390:19">@class.inside</td>
+<td data-sourcepos="390:21-390:93">The contents of a class definition.</td>
+<td data-sourcepos="390:95-390:144"><code data-sourcepos="390:96-390:99">ic</code> text object</td>
+</tr>
+<tr data-sourcepos="391:1-391:145">
+<td data-sourcepos="391:2-391:19">@comment.around</td>
+<td data-sourcepos="391:21-391:93">An entire comment (e.g. all adjacent line comments, or a block comment)</td>
+<td data-sourcepos="391:95-391:144"><code data-sourcepos="391:96-391:99">gc</code> text object</td>
+</tr>
+<tr data-sourcepos="392:1-392:145">
+<td data-sourcepos="392:2-392:19">@comment.inside</td>
+<td data-sourcepos="392:21-392:93">The contents of a comment</td>
+<td data-sourcepos="392:95-392:144"><code data-sourcepos="392:96-392:100">igc</code> text object (rarely supported)</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="394:1-394:12">For example:</p>
+<pre class="syntax-highlighting" data-sourcepos="396:1-409:3"><code class="language-scheme"><span class="hl-text hl-plain">; include only the content of the method in the function
+(method_definition
+    body: (_
+        &quot;{&quot;
+        (_)* @function.inside
+        &quot;}&quot;)) @function.around
+
+; match function.around for declarations with no body
+(function_signature_item) @function.around
+
+; join all adjacent comments into one
+(comment)+ @comment.around
+</span></code></pre>
+<h3 id="text-redactions" data-sourcepos="411:1-411:19">Text redactions<a href="#text-redactions" aria-label="Link to heading 'Text redactions'" data-heading-content="Text redactions" class="anchor"></a></h3>
+<p data-sourcepos="413:1-413:199">The <code data-sourcepos="413:5-413:20">redactions.scm</code> file defines text redaction rules. When collaborating and sharing your screen, it makes sure that certain syntax nodes are rendered in a redacted mode to avoid them from leaking.</p>
+<p data-sourcepos="415:1-415:56">Here’s an example from a <code data-sourcepos="415:26-415:41">redactions.scm</code> file for JSON:</p>
+<pre class="syntax-highlighting" data-sourcepos="417:1-422:3"><code class="language-scheme"><span class="hl-text hl-plain">(pair value: (number) @redact)
+(pair value: (string) @redact)
+(array (number) @redact)
+(array (string) @redact)
+</span></code></pre>
+<p data-sourcepos="424:1-424:86">This query marks number and string values in key-value pairs and arrays for redaction.</p>
+<table data-sourcepos="426:1-428:44" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="426:1-426:44">
+<th data-sourcepos="426:2-426:10">Capture</th>
+<th data-sourcepos="426:12-426:43">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="428:1-428:44">
+<td data-sourcepos="428:2-428:10">@redact</td>
+<td data-sourcepos="428:12-428:43">Captures values to be redacted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runnable-code-detection" data-sourcepos="430:1-430:27">Runnable code detection<a href="#runnable-code-detection" aria-label="Link to heading 'Runnable code detection'" data-heading-content="Runnable code detection" class="anchor"></a></h3>
+<p data-sourcepos="432:1-432:67">The <code data-sourcepos="432:5-432:19">runnables.scm</code> file defines rules for detecting runnable code.</p>
+<p data-sourcepos="434:1-434:55">Here’s an example from a <code data-sourcepos="434:26-434:40">runnables.scm</code> file for JSON:</p>
+<pre class="syntax-highlighting" data-sourcepos="436:1-456:3"><code class="language-scheme"><span class="hl-text hl-plain">(
+    (document
+        (object
+            (pair
+                key: (string
+                    (string_content) @_name
+                    (#eq? @_name &quot;scripts&quot;)
+                )
+                value: (object
+                    (pair
+                        key: (string (string_content) @run @script)
+                    )
+                )
+            )
+        )
+    )
+    (#set! tag package-script)
+    (#set! tag composer-script)
+)
+</span></code></pre>
+<p data-sourcepos="458:1-458:76">This query detects runnable scripts in package.json and composer.json files.</p>
+<p data-sourcepos="460:1-460:242">The <code data-sourcepos="460:5-460:10">@run</code> capture specifies where the run button should appear in the editor. Other captures, except those prefixed with an underscore, are exposed as environment variables with a prefix of <code data-sourcepos="460:192-460:219">ZED_CUSTOM_$(capture_name)</code> when running the code.</p>
+<table data-sourcepos="462:1-466:68" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="462:1-462:68">
+<th data-sourcepos="462:2-462:10">Capture</th>
+<th data-sourcepos="462:12-462:67">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="464:1-464:68">
+<td data-sourcepos="464:2-464:10">@_name</td>
+<td data-sourcepos="464:12-464:67">Captures the “scripts” key</td>
+</tr>
+<tr data-sourcepos="465:1-465:68">
+<td data-sourcepos="465:2-465:10">@run</td>
+<td data-sourcepos="465:12-465:67">Captures the script name</td>
+</tr>
+<tr data-sourcepos="466:1-466:68">
+<td data-sourcepos="466:2-466:10">@script</td>
+<td data-sourcepos="466:12-466:67">Also captures the script name (for different purposes)</td>
+</tr>
+</tbody>
+</table>
+<!--
+TBD: `#set! tag`
+-->
+<h2 id="language-servers" data-sourcepos="472:1-472:19">Language Servers<a href="#language-servers" aria-label="Link to heading 'Language Servers'" data-heading-content="Language Servers" class="anchor"></a></h2>
+<p data-sourcepos="474:1-474:132">Zed uses the <a data-sourcepos="474:14-474:94" href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a> to provide advanced language support.</p>
+<p data-sourcepos="476:1-476:331">An extension may provide any number of language servers. To provide a language server from your extension, add an entry to your <code data-sourcepos="476:129-476:144">extension.toml</code> with the name of your language server and the language(s) it applies to. The entry in the list of <code data-sourcepos="476:244-476:254">languages</code> has to match the <code data-sourcepos="476:273-476:278">name</code> field from the <code data-sourcepos="476:295-476:307">config.toml</code> file for that language:</p>
+<pre class="syntax-highlighting" data-sourcepos="478:1-482:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">language_servers</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">my-language-server</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">name</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Language LSP<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">languages</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<p data-sourcepos="484:1-484:108">Then, in the Rust code for your extension, implement the <code data-sourcepos="484:58-484:82">language_server_command</code> method on your extension:</p>
+<pre class="syntax-highlighting" data-sourcepos="486:1-500:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-meta hl-impl hl-rust"><span class="hl-storage hl-type hl-impl hl-rust">impl</span> </span><span class="hl-meta hl-impl hl-rust"><span class="hl-meta hl-path hl-rust">zed<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Extension <span class="hl-keyword hl-other hl-rust">for</span></span><span class="hl-meta hl-impl hl-rust"> <span class="hl-entity hl-name hl-impl hl-rust">MyExtension</span> </span><span class="hl-meta hl-impl hl-rust"><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>
+    <span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-rust"><span class="hl-storage hl-type hl-function hl-rust">fn</span> </span><span class="hl-entity hl-name hl-function hl-rust">language_server_command</span></span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-parameters hl-rust"><span class="hl-punctuation hl-section hl-parameters hl-begin hl-rust">(</span>
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-parameter hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">language_server_id</span><span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-keyword hl-operator hl-rust">&amp;</span>LanguageServerId,
+        <span class="hl-variable hl-parameter hl-rust">worktree</span><span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-meta hl-path hl-rust">zed<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Worktree,
+    </span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-function hl-parameters hl-rust"><span class="hl-punctuation hl-section hl-parameters hl-end hl-rust">)</span></span></span></span><span class="hl-meta hl-function hl-rust"> <span class="hl-meta hl-function hl-return-type hl-rust"><span class="hl-punctuation hl-separator hl-rust">-&gt;</span> <span class="hl-meta hl-generic hl-rust"><span class="hl-support hl-type hl-rust">Result</span><span class="hl-punctuation hl-definition hl-generic hl-begin hl-rust">&lt;</span><span class="hl-meta hl-path hl-rust">zed<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Command<span class="hl-punctuation hl-definition hl-generic hl-end hl-rust">&gt;</span></span></span> </span><span class="hl-meta hl-function hl-rust"><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>
+        <span class="hl-support hl-type hl-rust">Ok</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span><span class="hl-meta hl-path hl-rust">zed<span class="hl-punctuation hl-accessor hl-rust">::</span></span>Command <span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-begin hl-rust">{</span>
+            command<span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-support hl-function hl-rust">get_path_to_language_server_executable</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-keyword hl-operator hl-rust">?</span><span class="hl-punctuation hl-separator hl-rust">,</span>
+            args<span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-support hl-function hl-rust">get_args_for_language_server</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-keyword hl-operator hl-rust">?</span><span class="hl-punctuation hl-separator hl-rust">,</span>
+            env<span class="hl-punctuation hl-separator hl-rust">:</span> <span class="hl-support hl-function hl-rust">get_env_for_language_server</span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-begin hl-rust">(</span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span><span class="hl-keyword hl-operator hl-rust">?</span><span class="hl-punctuation hl-separator hl-rust">,</span>
+        </span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span><span class="hl-meta hl-group hl-rust"><span class="hl-punctuation hl-section hl-group hl-end hl-rust">)</span></span>
+    </span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span>
+</span><span class="hl-meta hl-block hl-rust"><span class="hl-punctuation hl-section hl-block hl-end hl-rust">}</span></span></span>
+</span></code></pre>
+<h3 id="opt-in-language-servers" data-sourcepos="502:1-502:27">Opt-In Language Servers<a href="#opt-in-language-servers" aria-label="Link to heading 'Opt-In Language Servers'" data-heading-content="Opt-In Language Servers" class="anchor"></a></h3>
+<p data-sourcepos="504:1-504:288">If your extension ships a language server that users should only run when they opt in (for example, an alternative to the primary language server), list the languages it should not start for by default in <code data-sourcepos="504:206-504:223">opt_in_languages</code>. Every language listed there must also be listed in <code data-sourcepos="504:277-504:287">languages</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="506:1-511:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">language_servers</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">my-alternative-server</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">name</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Alternative LSP<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">languages</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Other Language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">opt_in_languages</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>My Language<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+</span></code></pre>
+<p data-sourcepos="513:1-513:239">For the languages listed in <code data-sourcepos="513:29-513:46">opt_in_languages</code>, the language server is not covered by the <code data-sourcepos="513:91-513:97">&quot;...&quot;</code> wildcard in the <a data-sourcepos="513:115-513:189" href="../configuring-languages.html#choosing-language-servers"><code data-sourcepos="513:116-513:133">language_servers</code></a> setting. Users enable it by naming it explicitly:</p>
+<pre class="syntax-highlighting" data-sourcepos="515:1-523:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>My Language<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>language_servers<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>my-alternative-server<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>...<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<blockquote data-sourcepos="525:1-525:134">
+<p data-sourcepos="525:3-525:134"><strong data-sourcepos="525:3-525:11">Note:</strong> Versions of Zed that do not support <code data-sourcepos="525:49-525:66">opt_in_languages</code> ignore it and start the language server for all of its <code data-sourcepos="525:123-525:133">languages</code>.</p>
+</blockquote>
+<p data-sourcepos="527:1-527:320">You can customize the handling of the language server using several optional methods in the <code data-sourcepos="527:93-527:103">Extension</code> trait. For example, you can control how completions are styled using the <code data-sourcepos="527:178-527:199">label_for_completion</code> method. For a complete list of methods, see the <a data-sourcepos="527:249-527:319" href="https://docs.rs/zed_extension_api">API docs for the Zed extension API</a>.</p>
+<h3 id="syntax-highlighting-with-semantic-tokens" data-sourcepos="529:1-529:44">Syntax Highlighting with Semantic Tokens<a href="#syntax-highlighting-with-semantic-tokens" aria-label="Link to heading 'Syntax Highlighting with Semantic Tokens'" data-heading-content="Syntax Highlighting with Semantic Tokens" class="anchor"></a></h3>
+<p data-sourcepos="531:1-531:196">Zed supports syntax highlighting using <a data-sourcepos="531:40-531:79" href="../semantic-tokens.html">semantic tokens</a> from the attached language servers. This is currently disabled by default, but can be enabled in your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="533:1-545:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Enable semantic tokens globally, backed by tree-sitter highlights for each language:
+</span>  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>semantic_tokens<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>combined<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+  <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Or, specify per-language:
+</span>  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Rust<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> No tree-sitter, only LSP semantic tokens:
+</span>      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>semantic_tokens<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>full<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="547:1-547:59">The <code data-sourcepos="547:5-547:21">semantic_tokens</code> setting accepts the following values:</p>
+<ul data-sourcepos="549:1-551:84">
+<li data-sourcepos="549:1-549:74"><code data-sourcepos="549:3-549:9">&quot;off&quot;</code> (default): Do not request semantic tokens from language servers.</li>
+<li data-sourcepos="550:1-550:79"><code data-sourcepos="550:3-550:14">&quot;combined&quot;</code>: Use LSP semantic tokens together with tree-sitter highlighting.</li>
+<li data-sourcepos="551:1-551:84"><code data-sourcepos="551:3-551:10">&quot;full&quot;</code>: Use LSP semantic tokens exclusively, replacing tree-sitter highlighting.</li>
+</ul>
+<h4 id="extension-provided-semantic-token-rules" data-sourcepos="553:1-553:44">Extension-Provided Semantic Token Rules<a href="#extension-provided-semantic-token-rules" aria-label="Link to heading 'Extension-Provided Semantic Token Rules'" data-heading-content="Extension-Provided Semantic Token Rules" class="anchor"></a></h4>
+<p data-sourcepos="555:1-555:209">Language extensions can ship default semantic token rules for their language server’s custom token types. To do this, place a <code data-sourcepos="555:127-555:153">semantic_token_rules.json</code> file in the language directory alongside <code data-sourcepos="555:196-555:208">config.toml</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="557:1-564:3"><code><span class="hl-text hl-plain">my-extension/
+  languages/
+    my-language/
+      config.toml
+      highlights.scm
+      semantic_token_rules.json
+</span></code></pre>
+<p data-sourcepos="566:1-566:116">The file uses the same format as the <code data-sourcepos="566:38-566:59">semantic_token_rules</code> array in user settings — a JSON array of rule objects:</p>
+<pre class="syntax-highlighting" data-sourcepos="568:1-583:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>lifetime<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>style<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>lifetime<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>builtinType<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>style<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>selfKeyword<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>style<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>variable.special<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="585:1-585:381">This is useful when a language server reports custom (non-standard) semantic token types that aren’t covered by Zed’s built-in default rules. Extension-provided rules act as sensible defaults for that language — users can always override them via <code data-sourcepos="585:250-585:271">semantic_token_rules</code> in their settings file, and built-in default rules are only used when neither user nor extension rules match.</p>
+<h4 id="customizing-semantic-token-styles" data-sourcepos="587:1-587:38">Customizing Semantic Token Styles<a href="#customizing-semantic-token-styles" aria-label="Link to heading 'Customizing Semantic Token Styles'" data-heading-content="Customizing Semantic Token Styles" class="anchor"></a></h4>
+<p data-sourcepos="589:1-589:177">Zed supports customizing the styles used for semantic tokens. You can define rules in your settings file, which customize how semantic tokens get mapped to styles in your theme.</p>
+<pre class="syntax-highlighting" data-sourcepos="591:1-614:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>global_lsp_settings<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>semantic_token_rules<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+      <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Highlight macros as keywords.
+</span>        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>macro<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>style<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>syntax.keyword<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+      <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Highlight unresolved references in bold red.
+</span>        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>unresolvedReference<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>foreground_color<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>#c93f3f<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>font_weight<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>bold<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+      <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        <span class="hl-comment hl-line hl-double-slash hl-js"><span class="hl-punctuation hl-definition hl-comment hl-json">//</span> Underline all mutable variables/references/etc.
+</span>        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>token_modifiers<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>mutable<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>underline<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">true</span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="616:1-616:156">All rules that match a given <code data-sourcepos="616:30-616:41">token_type</code> and <code data-sourcepos="616:47-616:63">token_modifiers</code> are applied. Earlier rules take precedence. If no rules match, the token is not highlighted.</p>
+<p data-sourcepos="618:1-618:70">Rules are applied in the following priority order (highest to lowest):</p>
+<ol data-sourcepos="620:1-622:75">
+<li data-sourcepos="620:1-620:81"><strong data-sourcepos="620:4-620:20">User settings</strong> — rules from <code data-sourcepos="620:37-620:58">semantic_token_rules</code> in your settings file.</li>
+<li data-sourcepos="621:1-621:100"><strong data-sourcepos="621:4-621:22">Extension rules</strong> — rules from <code data-sourcepos="621:39-621:65">semantic_token_rules.json</code> in extension language directories.</li>
+<li data-sourcepos="622:1-622:75"><strong data-sourcepos="622:4-622:20">Default rules</strong> — Zed’s built-in rules for standard LSP token types.</li>
+</ol>
+<p data-sourcepos="624:1-624:68">Each rule in the <code data-sourcepos="624:18-624:39">semantic_token_rules</code> array is defined as follows:</p>
+<ul data-sourcepos="626:1-634:46">
+<li data-sourcepos="626:1-626:245"><code data-sourcepos="626:3-626:14">token_type</code>: The semantic token type as defined by the <a data-sourcepos="626:59-626:198" href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocument_semanticTokens">LSP specification</a>. If omitted, the rule matches all token types.</li>
+<li data-sourcepos="627:1-627:105"><code data-sourcepos="627:3-627:19">token_modifiers</code>: A list of semantic token modifiers to match. All modifiers must be present to match.</li>
+<li data-sourcepos="628:1-628:136"><code data-sourcepos="628:3-628:9">style</code>: A list of styles from the current syntax theme to use. The first style found is used. Any settings below override that style.</li>
+<li data-sourcepos="629:1-629:104"><code data-sourcepos="629:3-629:20">foreground_color</code>: The foreground color to use for the token type, in hex format (e.g., <code data-sourcepos="629:92-629:102">&quot;#ff0000&quot;</code>).</li>
+<li data-sourcepos="630:1-630:104"><code data-sourcepos="630:3-630:20">background_color</code>: The background color to use for the token type, in hex format (e.g., <code data-sourcepos="630:92-630:102">&quot;#ff0000&quot;</code>).</li>
+<li data-sourcepos="631:1-631:133"><code data-sourcepos="631:3-631:13">underline</code>: A boolean or color to underline with, in hex format. If <code data-sourcepos="631:72-631:77">true</code>, then the token will be underlined with the text color.</li>
+<li data-sourcepos="632:1-632:148"><code data-sourcepos="632:3-632:17">strikethrough</code>: A boolean or color to strikethrough with, in hex format. If <code data-sourcepos="632:80-632:85">true</code>, then the token will have a strikethrough with the text color.</li>
+<li data-sourcepos="633:1-633:45"><code data-sourcepos="633:3-633:15">font_weight</code>: One of <code data-sourcepos="633:25-633:34">&quot;normal&quot;</code>, <code data-sourcepos="633:37-633:44">&quot;bold&quot;</code>.</li>
+<li data-sourcepos="634:1-634:46"><code data-sourcepos="634:3-634:14">font_style</code>: One of <code data-sourcepos="634:24-634:33">&quot;normal&quot;</code>, <code data-sourcepos="634:36-634:45">&quot;italic&quot;</code>.</li>
+</ul>
+<h3 id="multi-language-support" data-sourcepos="636:1-636:26">Multi-Language Support<a href="#multi-language-support" aria-label="Link to heading 'Multi-Language Support'" data-heading-content="Multi-Language Support" class="anchor"></a></h3>
+<p data-sourcepos="638:1-638:270">If your language server supports additional languages, you can use <code data-sourcepos="638:68-638:81">language_ids</code> to map Zed <code data-sourcepos="638:94-638:104">languages</code> to the desired <a data-sourcepos="638:121-638:257" href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocumentItem">LSP-specific <code data-sourcepos="638:135-638:146">languageId</code></a> identifiers:</p>
+<pre class="syntax-highlighting" data-sourcepos="640:1-651:3"><code class="language-toml"><span class="hl-source hl-toml">
+<span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">language-servers</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">my-language-server</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">name</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>Whatever LSP<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">languages</span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-begin hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>JavaScript<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>HTML<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-separator hl-array hl-toml">,</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>CSS<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-end hl-toml">]</span>
+
+<span class="hl-punctuation hl-definition hl-table hl-begin hl-toml">[</span><span class="hl-meta hl-tag hl-table hl-toml"><span class="hl-entity hl-name hl-table hl-toml">language-servers</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">my-language-server</span><span class="hl-punctuation hl-separator hl-table hl-toml">.</span><span class="hl-entity hl-name hl-table hl-toml">language_ids</span></span><span class="hl-punctuation hl-definition hl-table hl-end hl-toml">]</span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>JavaScript<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>javascript<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>TSX<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>typescriptreact<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>HTML<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>html<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-meta hl-tag hl-key hl-toml"><span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>CSS<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span></span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-basic hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span>css<span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+</span></code></pre>
+<section data-sourcepos="208:1-208:86" class="footnotes" data-footnotes>
+<ol>
+<li data-sourcepos="208:1-208:86" id="fn-1">
+<p data-sourcepos="208:7-208:86">These annotations are used by Assistant when generating code modification steps. <a href="#fnref-1" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="1" aria-label="Back to reference 1">↩</a></p>
+</li>
+</ol>
+</section>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;extensions&#x2f;languages.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

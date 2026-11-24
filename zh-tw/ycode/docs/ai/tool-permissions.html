@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tool Permissions · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;ai&#x2f;tool-permissions.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;ai&#x2f;tool-permissions.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="tool-permissions.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="../getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="../installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="../update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="../editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="../completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="../snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="../command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="../outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="../project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="../running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="../terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="../tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="../debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="../git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="../collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="../collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="../remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="../environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="tool-permissions.html" class="active" aria-current="page">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="../authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="../business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="../business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="../roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="../business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="../worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="../business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="../telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="../macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="../windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="../appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="../themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="../icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="../key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="../vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="../languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="../configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="../toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="../languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="../languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="../languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="../languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="../languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="../languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="../languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="../languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="../languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="../languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="../languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="../languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="../languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="../languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="../languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="../languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="../languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="../languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="../languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="../languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="../languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="../languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="../languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="../languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="../languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="../languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="../languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="../languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="../languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="../languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="../languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="../languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="../languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="../languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="../languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="../languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="../languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="../languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="../languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="../languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="../languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="../languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="../languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="../languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="../languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="../languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="../languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="../languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="../languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="../languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="../languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="../languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="../languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="../languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="../languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="../languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="../languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="../languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="../languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="../languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="../languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="../languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="../languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="../languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="../languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="../languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="../languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="../languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="../languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="../extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="../extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="../extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="../migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="../migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="../migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="../migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="../migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="../reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="../all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="../development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="../development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="../development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="../development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="../development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="../development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="../performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="../development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="tool-permissions" data-sourcepos="1:1-1:18">Tool Permissions<a href="#tool-permissions" aria-label="Link to heading 'Tool Permissions'" data-heading-content="Tool Permissions" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:64">Configure which <a data-sourcepos="3:17-3:47" href="agent-panel.html">Agent Panel</a> tools run automatically and which require your approval.
+For a list of available tools, <a data-sourcepos="4:32-4:63" href="tools.html">see the Tools page</a>.</p>
+<blockquote data-sourcepos="6:1-7:108">
+<p data-sourcepos="6:3-7:108"><strong data-sourcepos="6:3-6:11">Note:</strong> In Zed v0.224.0 and above, tool approval is controlled by <code data-sourcepos="6:71-6:102">agent.tool_permissions.default</code>.
+In earlier versions, it was controlled by the <code data-sourcepos="7:49-7:81">agent.always_allow_tool_actions</code> boolean (default <code data-sourcepos="7:100-7:106">false</code>).</p>
+</blockquote>
+<h2 id="quick-start" data-sourcepos="9:1-9:14">Quick Start<a href="#quick-start" aria-label="Link to heading 'Quick Start'" data-heading-content="Quick Start" class="anchor"></a></h2>
+<p data-sourcepos="11:1-11:142">Use Zed’s Settings Editor to <a data-sourcepos="11:30-11:96" href="zed://settings/agent.tool_permissions">configure tool permissions</a>, or add rules directly to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="13:1-31:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>terminal<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^cargo<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(build|test|check)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^npm<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(install|test|run)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>sudo<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="33:1-34:141">This example auto-approves <code data-sourcepos="33:28-33:34">cargo</code> and <code data-sourcepos="33:40-33:44">npm</code> commands in the terminal tool, while requiring manual confirmation on a case-by-case basis for <code data-sourcepos="33:141-33:146">sudo</code> commands.
+Non-terminal commands follow the global <code data-sourcepos="34:41-34:60">&quot;default&quot;: &quot;allow&quot;</code> setting, but tool-specific defaults and <code data-sourcepos="34:102-34:117">always_confirm</code> rules can still prompt.</p>
+<h2 id="how-it-works" data-sourcepos="36:1-36:15">How It Works<a href="#how-it-works" aria-label="Link to heading 'How It Works'" data-heading-content="How It Works" class="anchor"></a></h2>
+<p data-sourcepos="38:1-38:101">The <code data-sourcepos="38:5-38:22">tool_permissions</code> setting lets you customize tool permissions by specifying regex patterns that:</p>
+<ul data-sourcepos="40:1-42:67">
+<li data-sourcepos="40:1-40:36"><strong data-sourcepos="40:3-40:18">Auto-approve</strong> actions you trust</li>
+<li data-sourcepos="41:1-41:100"><strong data-sourcepos="41:3-41:15">Auto-deny</strong> dangerous actions (blocked even when <code data-sourcepos="41:54-41:79">tool_permissions.default</code> is set to <code data-sourcepos="41:91-41:99">&quot;allow&quot;</code>)</li>
+<li data-sourcepos="42:1-42:67"><strong data-sourcepos="42:3-42:20">Always confirm</strong> sensitive actions regardless of other settings</li>
+</ul>
+<h2 id="supported-tools" data-sourcepos="44:1-44:18">Supported Tools<a href="#supported-tools" aria-label="Link to heading 'Supported Tools'" data-heading-content="Supported Tools" class="anchor"></a></h2>
+<table data-sourcepos="46:1-57:73" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="46:1-46:73">
+<th data-sourcepos="46:2-46:21">Tool</th>
+<th data-sourcepos="46:23-46:72">Input Matched Against</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="48:1-48:73">
+<td data-sourcepos="48:2-48:21"><code data-sourcepos="48:3-48:12">terminal</code></td>
+<td data-sourcepos="48:23-48:72">The shell command string</td>
+</tr>
+<tr data-sourcepos="49:1-49:73">
+<td data-sourcepos="49:2-49:21"><code data-sourcepos="49:3-49:13">edit_file</code></td>
+<td data-sourcepos="49:23-49:72">The file path</td>
+</tr>
+<tr data-sourcepos="50:1-50:73">
+<td data-sourcepos="50:2-50:21"><code data-sourcepos="50:3-50:14">write_file</code></td>
+<td data-sourcepos="50:23-50:72">The file path</td>
+</tr>
+<tr data-sourcepos="51:1-51:73">
+<td data-sourcepos="51:2-51:21"><code data-sourcepos="51:3-51:15">delete_path</code></td>
+<td data-sourcepos="51:23-51:72">The path being deleted</td>
+</tr>
+<tr data-sourcepos="52:1-52:73">
+<td data-sourcepos="52:2-52:21"><code data-sourcepos="52:3-52:13">move_path</code></td>
+<td data-sourcepos="52:23-52:72">Source and destination paths</td>
+</tr>
+<tr data-sourcepos="53:1-53:73">
+<td data-sourcepos="53:2-53:21"><code data-sourcepos="53:3-53:13">copy_path</code></td>
+<td data-sourcepos="53:23-53:72">Source and destination paths</td>
+</tr>
+<tr data-sourcepos="54:1-54:73">
+<td data-sourcepos="54:2-54:21"><code data-sourcepos="54:3-54:20">create_directory</code></td>
+<td data-sourcepos="54:23-54:72">The directory path</td>
+</tr>
+<tr data-sourcepos="55:1-55:73">
+<td data-sourcepos="55:2-55:21"><code data-sourcepos="55:3-55:9">fetch</code></td>
+<td data-sourcepos="55:23-55:72">The URL</td>
+</tr>
+<tr data-sourcepos="56:1-56:73">
+<td data-sourcepos="56:2-56:21"><code data-sourcepos="56:3-56:14">search_web</code></td>
+<td data-sourcepos="56:23-56:72">The search query</td>
+</tr>
+<tr data-sourcepos="57:1-57:73">
+<td data-sourcepos="57:2-57:21"><code data-sourcepos="57:3-57:9">skill</code></td>
+<td data-sourcepos="57:23-57:72">The absolute path to the skill’s <code data-sourcepos="57:57-57:66">SKILL.md</code> file</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="59:1-60:105">For <a data-sourcepos="59:5-59:25" href="mcp.html">MCP tools</a>, use the format <code data-sourcepos="59:43-59:68">mcp:&lt;server&gt;:&lt;tool_name&gt;</code>.
+For example, a tool called <code data-sourcepos="60:28-60:41">create_issue</code> on a server called <code data-sourcepos="60:62-60:69">github</code> would be <code data-sourcepos="60:80-60:104">mcp:github:create_issue</code>.</p>
+<p data-sourcepos="62:1-62:169">For model-invoked <a data-sourcepos="62:19-62:39" href="skills.html">Skills</a>, use the <code data-sourcepos="62:50-62:56">skill</code> tool. A user-invoked <code data-sourcepos="62:79-62:91">/skill-name</code> slash command does not prompt again because you explicitly invoked the skill.</p>
+<h2 id="configuration" data-sourcepos="64:1-64:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="66:1-82:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>&lt;tool_name&gt;<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>...<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>case_sensitive<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_deny<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>...<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>case_sensitive<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>...<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>case_sensitive<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="options" data-sourcepos="84:1-84:11">Options<a href="#options" aria-label="Link to heading 'Options'" data-heading-content="Options" class="anchor"></a></h3>
+<table data-sourcepos="86:1-91:101" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="86:1-86:101">
+<th data-sourcepos="86:2-86:19">Option</th>
+<th data-sourcepos="86:21-86:100">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="88:1-88:101">
+<td data-sourcepos="88:2-88:19"><code data-sourcepos="88:3-88:11">default</code></td>
+<td data-sourcepos="88:21-88:100">Fallback when no patterns match: <code data-sourcepos="88:55-88:65">&quot;confirm&quot;</code> (default), <code data-sourcepos="88:78-88:86">&quot;allow&quot;</code>, or <code data-sourcepos="88:92-88:99">&quot;deny&quot;</code></td>
+</tr>
+<tr data-sourcepos="89:1-89:101">
+<td data-sourcepos="89:2-89:19"><code data-sourcepos="89:3-89:16">always_allow</code></td>
+<td data-sourcepos="89:21-89:100">Patterns that auto-approve (unless deny or confirm also matches)</td>
+</tr>
+<tr data-sourcepos="90:1-90:103">
+<td data-sourcepos="90:2-90:19"><code data-sourcepos="90:3-90:15">always_deny</code></td>
+<td data-sourcepos="90:21-90:102">Patterns that block immediately—highest priority, cannot be overridden</td>
+</tr>
+<tr data-sourcepos="91:1-91:101">
+<td data-sourcepos="91:2-91:19"><code data-sourcepos="91:3-91:18">always_confirm</code></td>
+<td data-sourcepos="91:21-91:100">Patterns that always prompt, even when <code data-sourcepos="91:61-91:86">tool_permissions.default</code> is <code data-sourcepos="91:91-91:99">&quot;allow&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="93:1-94:68">For <code data-sourcepos="93:5-93:15">edit_file</code> and <code data-sourcepos="93:21-93:32">write_file</code>, a <code data-sourcepos="93:37-93:47">&quot;confirm&quot;</code> default does not prompt for files inside the project.
+See <a data-sourcepos="94:5-94:67" href="#file-edits-inside-the-project">File Edits Inside the Project</a>.</p>
+<h3 id="pattern-syntax" data-sourcepos="96:1-96:18">Pattern Syntax<a href="#pattern-syntax" aria-label="Link to heading 'Pattern Syntax'" data-heading-content="Pattern Syntax" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="98:1-115:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>edit_file<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+              </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>your-regex-here<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+              </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>case_sensitive<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span>
+            <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="117:1-118:40">Patterns use Rust regex syntax.
+Matching is case-insensitive by default.</p>
+<h2 id="rule-precedence" data-sourcepos="120:1-120:18">Rule Precedence<a href="#rule-precedence" aria-label="Link to heading 'Rule Precedence'" data-heading-content="Rule Precedence" class="anchor"></a></h2>
+<p data-sourcepos="122:1-122:32">From highest to lowest priority:</p>
+<ol data-sourcepos="124:1-129:102">
+<li data-sourcepos="124:1-124:95"><strong data-sourcepos="124:4-124:30">Built-in security rules</strong>: Hardcoded protections (e.g., <code data-sourcepos="124:62-124:71">rm -rf /</code>). Cannot be overridden.</li>
+<li data-sourcepos="125:1-125:45"><strong data-sourcepos="125:4-125:20"><code data-sourcepos="125:6-125:18">always_deny</code></strong>: Blocks matching actions</li>
+<li data-sourcepos="126:1-126:67"><strong data-sourcepos="126:4-126:23"><code data-sourcepos="126:6-126:21">always_confirm</code></strong>: Requires confirmation for matching actions</li>
+<li data-sourcepos="127:1-127:53"><strong data-sourcepos="127:4-127:21"><code data-sourcepos="127:6-127:19">always_allow</code></strong>: Auto-approves matching actions</li>
+<li data-sourcepos="128:1-128:105"><strong data-sourcepos="128:4-128:30">Tool-specific <code data-sourcepos="128:20-128:28">default</code></strong>: Per-tool fallback when no patterns match (e.g., <code data-sourcepos="128:81-128:104">tools.terminal.default</code>)</li>
+<li data-sourcepos="129:1-129:102"><strong data-sourcepos="129:4-129:23">Global <code data-sourcepos="129:13-129:21">default</code></strong>: Falls back to <code data-sourcepos="129:40-129:65">tool_permissions.default</code> when no tool-specific default is set</li>
+</ol>
+<h2 id="global-auto-approve" data-sourcepos="131:1-131:22">Global Auto-Approve<a href="#global-auto-approve" aria-label="Link to heading 'Global Auto-Approve'" data-heading-content="Global Auto-Approve" class="anchor"></a></h2>
+<p data-sourcepos="133:1-133:33">To auto-approve all tool actions:</p>
+<pre class="syntax-highlighting" data-sourcepos="135:1-143:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="145:1-145:177">This bypasses confirmation prompts for most tools, but <code data-sourcepos="145:56-145:68">always_deny</code>, <code data-sourcepos="145:71-145:86">always_confirm</code>, built-in security rules, and paths inside Zed settings directories still prompt or block.</p>
+<h2 id="file-edits-inside-the-project" data-sourcepos="147:1-147:65">File Edits Inside the Project<a href="#file-edits-inside-the-project" aria-label="Link to heading 'File Edits Inside the Project'" data-heading-content="File Edits Inside the Project" class="anchor"></a></h2>
+<p data-sourcepos="149:1-152:88"><code data-sourcepos="149:1-149:11">edit_file</code> and <code data-sourcepos="149:17-149:28">write_file</code> handle a <code data-sourcepos="149:39-149:49">&quot;confirm&quot;</code> default differently from other tools.
+When no pattern matches and the fallback is <code data-sourcepos="150:45-150:55">&quot;confirm&quot;</code>, the agent edits files inside your project without prompting.
+This applies to both the global <code data-sourcepos="151:33-151:41">default</code> and the tool’s own <code data-sourcepos="151:62-151:70">default</code>.
+You <a data-sourcepos="152:5-152:60" href="agent-panel.html#reviewing-changes">review the changes</a> after the agent makes them.</p>
+<p data-sourcepos="154:1-154:59">A <code data-sourcepos="154:3-154:13">&quot;confirm&quot;</code> default still prompts before the agent edits:</p>
+<ul data-sourcepos="156:1-158:49">
+<li data-sourcepos="156:1-156:74">Files inside Zed settings folders (<code data-sourcepos="156:38-156:44">.zed/</code> and the global config folder)</li>
+<li data-sourcepos="157:1-157:39">Agent skill files (<code data-sourcepos="157:22-157:38">.agents/skills/</code>)</li>
+<li data-sourcepos="158:1-158:49">Files that a symlink places outside the project</li>
+</ul>
+<p data-sourcepos="160:1-161:75">To get a prompt before the agent edits specific project files, add <code data-sourcepos="160:68-160:83">always_confirm</code> patterns for them.
+A pattern that matches every path, such as <code data-sourcepos="161:44-161:47">.*</code>, prompts before every edit.</p>
+<pre class="syntax-highlighting" data-sourcepos="163:1-178:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>edit_file<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.github/workflows/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>write_file<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.github/workflows/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="180:1-180:56">The prompt shows the file path, not the proposed change.</p>
+<h2 id="shell-compatibility" data-sourcepos="182:1-182:22">Shell Compatibility<a href="#shell-compatibility" aria-label="Link to heading 'Shell Compatibility'" data-heading-content="Shell Compatibility" class="anchor"></a></h2>
+<p data-sourcepos="184:1-184:133">For the <code data-sourcepos="184:9-184:18">terminal</code> tool, Zed parses chained commands (e.g., <code data-sourcepos="184:61-184:83">echo hello &amp;&amp; rm file</code>) to check each sub-command against your patterns.</p>
+<p data-sourcepos="186:1-186:171">All supported shells work with tool permission patterns, including sh, bash, zsh, dash, fish, PowerShell 7+, pwsh, cmd, xonsh, csh, tcsh, Nushell, Elvish, and rc (Plan 9).</p>
+<h2 id="writing-patterns" data-sourcepos="188:1-188:19">Writing Patterns<a href="#writing-patterns" aria-label="Link to heading 'Writing Patterns'" data-heading-content="Writing Patterns" class="anchor"></a></h2>
+<ul data-sourcepos="190:1-192:69">
+<li data-sourcepos="190:1-190:69">Use <code data-sourcepos="190:7-190:10">\b</code> for word boundaries: <code data-sourcepos="190:33-190:40">\brm\b</code> matches “rm” but not “storm”</li>
+<li data-sourcepos="191:1-191:58">Use <code data-sourcepos="191:7-191:9">^</code> and <code data-sourcepos="191:15-191:17">$</code> to anchor patterns to start/end of input</li>
+<li data-sourcepos="192:1-192:69">Escape special characters: <code data-sourcepos="192:30-192:33">\.</code> for literal dot, <code data-sourcepos="192:52-192:55">\\</code> for backslash</li>
+</ul>
+<div class="warning">
+<p data-sourcepos="196:1-197:158">Test carefully—a typo in a deny pattern blocks legitimate actions.
+You can use the “Test Your Rules” checker, available in each individual tool page, to confirm whether a pattern is correctly falling in the desired condition.</p>
+</div>
+<h2 id="built-in-security-rules" data-sourcepos="201:1-201:26">Built-in Security Rules<a href="#built-in-security-rules" aria-label="Link to heading 'Built-in Security Rules'" data-heading-content="Built-in Security Rules" class="anchor"></a></h2>
+<p data-sourcepos="203:1-204:95">Zed includes a small set of hardcoded security rules that <strong data-sourcepos="203:59-203:82">cannot be overridden</strong> by any setting.
+These only apply to the <strong data-sourcepos="204:25-204:36">terminal</strong> tool and block recursive deletion of critical directories:</p>
+<ul data-sourcepos="206:1-210:52">
+<li data-sourcepos="206:1-206:48"><code data-sourcepos="206:3-206:12">rm -rf /</code> and <code data-sourcepos="206:18-206:28">rm -rf /*</code> — filesystem root</li>
+<li data-sourcepos="207:1-207:48"><code data-sourcepos="207:3-207:12">rm -rf ~</code> and <code data-sourcepos="207:18-207:29">rm -rf ~/*</code> — home directory</li>
+<li data-sourcepos="208:1-208:95"><code data-sourcepos="208:3-208:16">rm -rf $HOME</code> / <code data-sourcepos="208:20-208:35">rm -rf ${HOME}</code> (and <code data-sourcepos="208:42-208:50">$HOME/*</code>) — home directory via environment variable</li>
+<li data-sourcepos="209:1-209:51"><code data-sourcepos="209:3-209:12">rm -rf .</code> and <code data-sourcepos="209:18-209:29">rm -rf ./*</code> — current directory</li>
+<li data-sourcepos="210:1-210:52"><code data-sourcepos="210:3-210:13">rm -rf ..</code> and <code data-sourcepos="210:19-210:31">rm -rf ../*</code> — parent directory</li>
+</ul>
+<p data-sourcepos="212:1-213:119">These patterns catch any flag combination (e.g., <code data-sourcepos="212:50-212:54">-fr</code>, <code data-sourcepos="212:57-212:62">-rfv</code>, <code data-sourcepos="212:65-212:71">-r -f</code>, <code data-sourcepos="212:74-212:94">--recursive --force</code>) and are case-insensitive.
+They are checked against both the raw command and each parsed sub-command in chained commands (e.g., <code data-sourcepos="213:102-213:117">ls &amp;&amp; rm -rf /</code>).</p>
+<p data-sourcepos="215:1-216:210">There are no other built-in rules.
+The default settings file (<code data-sourcepos="216:28-216:53">zed::OpenDefaultSettings</code>) includes commented-out examples for protecting <code data-sourcepos="216:103-216:108">.env</code> files, secrets directories, and private keys — you can uncomment or adapt these to suit your needs.</p>
+<h2 id="permission-request-in-the-ui" data-sourcepos="218:1-218:31">Permission Request in the UI<a href="#permission-request-in-the-ui" aria-label="Link to heading 'Permission Request in the UI'" data-heading-content="Permission Request in the UI" class="anchor"></a></h2>
+<p data-sourcepos="220:1-220:104">When the agent requests permission, you’ll see in the thread view a tool card with a menu that includes:</p>
+<ul data-sourcepos="222:1-224:117">
+<li data-sourcepos="222:1-222:54"><strong data-sourcepos="222:3-222:16">Allow once</strong> / <strong data-sourcepos="222:20-222:32">Deny once</strong> — One-time decision</li>
+<li data-sourcepos="223:1-223:70"><strong data-sourcepos="223:3-223:23">Always for <tool></strong> — Sets a tool-level default to allow or deny</li>
+<li data-sourcepos="224:1-224:117"><strong data-sourcepos="224:3-224:26">Always for <pattern></strong> — Adds an <code data-sourcepos="224:40-224:53">always_allow</code> or <code data-sourcepos="224:58-224:70">always_deny</code> pattern (when a safe pattern can be extracted)</li>
+</ul>
+<p data-sourcepos="226:1-228:45">Selecting “Always for <tool>” sets <code data-sourcepos="226:36-226:57">tools.&lt;tool&gt;.default</code> to allow or deny.
+When a pattern can be safely extracted, selecting “Always for <pattern>” adds an <code data-sourcepos="227:82-227:95">always_allow</code> or <code data-sourcepos="227:100-227:112">always_deny</code> rule for that input.
+MCP tools only support the tool-level option.</p>
+<h2 id="examples" data-sourcepos="230:1-230:11">Examples<a href="#examples" aria-label="Link to heading 'Examples'" data-heading-content="Examples" class="anchor"></a></h2>
+<h3 id="terminal-auto-approve-build-commands" data-sourcepos="232:1-232:41">Terminal: Auto-Approve Build Commands<a href="#terminal-auto-approve-build-commands" aria-label="Link to heading 'Terminal: Auto-Approve Build Commands'" data-heading-content="Terminal: Auto-Approve Build Commands" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="234:1-261:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>terminal<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^cargo<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(build|test|check|clippy|fmt)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^npm<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(install|test|run|build)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^git<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(status|log|diff|branch)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^ls<span class="hl-constant hl-character hl-escape hl-json">\\</span>b<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^cat<span class="hl-constant hl-character hl-escape hl-json">\\</span>s<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_deny<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>rm<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+-rf<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+(/|~)<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>sudo<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+rm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>sudo<span class="hl-constant hl-character hl-escape hl-json">\\</span>s<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>git<span class="hl-constant hl-character hl-escape hl-json">\\</span>s+push<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="file-editing-protect-sensitive-files" data-sourcepos="263:1-263:41">File Editing: Protect Sensitive Files<a href="#file-editing-protect-sensitive-files" aria-label="Link to heading 'File Editing: Protect Sensitive Files'" data-heading-content="File Editing: Protect Sensitive Files" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="265:1-282:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>edit_file<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.github/workflows/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_deny<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.env<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>secrets?/<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.(pem|key)$<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="path-deletion-block-critical-directories" data-sourcepos="284:1-284:45">Path Deletion: Block Critical Directories<a href="#path-deletion-block-critical-directories" aria-label="Link to heading 'Path Deletion: Block Critical Directories'" data-heading-content="Path Deletion: Block Critical Directories" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="286:1-304:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>delete_path<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_deny<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^/etc<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>^/usr<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span><span class="hl-constant hl-character hl-escape hl-json">\\</span>.git/?$<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>node_modules/?$<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="url-fetching-control-external-access" data-sourcepos="306:1-306:41">URL Fetching: Control External Access<a href="#url-fetching-control-external-access" aria-label="Link to heading 'URL Fetching: Control External Access'" data-heading-content="URL Fetching: Control External Access" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="308:1-325:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>fetch<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>docs<span class="hl-constant hl-character hl-escape hl-json">\\</span>.rs<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span>
+            <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>github<span class="hl-constant hl-character hl-escape hl-json">\\</span>.com<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+          <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_deny<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>internal<span class="hl-constant hl-character hl-escape hl-json">\\</span>.company<span class="hl-constant hl-character hl-escape hl-json">\\</span>.com<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="mcp-tools" data-sourcepos="327:1-327:13">MCP Tools<a href="#mcp-tools" aria-label="Link to heading 'MCP Tools'" data-heading-content="MCP Tools" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="329:1-344:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>mcp:github:create_issue<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>mcp:github:create_pull_request<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="skills" data-sourcepos="346:1-346:10">Skills<a href="#skills" aria-label="Link to heading 'Skills'" data-heading-content="Skills" class="anchor"></a></h3>
+<p data-sourcepos="348:1-348:113">Patterns for the <code data-sourcepos="348:18-348:24">skill</code> tool match against the absolute path to the skill’s <code data-sourcepos="348:78-348:87">SKILL.md</code> file, not the skill name.</p>
+<pre class="syntax-highlighting" data-sourcepos="350:1-363:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tool_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>tools<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+        </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>skill<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>default<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>confirm<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+          </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>always_allow<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span> </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>pattern<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>/code-review/SKILL<span class="hl-constant hl-character hl-escape hl-json">\\</span>.md$<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+        <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+      <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="365:1-365:167">To prevent the model from invoking a skill at all, set <code data-sourcepos="365:56-365:87">disable-model-invocation: true</code> in that skill’s <code data-sourcepos="365:105-365:114">SKILL.md</code>. See <a data-sourcepos="365:121-365:166" href="skills.html#disable-model-invocation">Skills</a>.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;ai&#x2f;tool-permissions.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

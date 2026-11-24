@@ -12,11 +12,14 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;..&#x2f;..&#x2f;zh-tw&#x2f;ycode&#x2f;docs&#x2f;development&#x2f;debugging-crashes.html">
+
   <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
   <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -143,6 +146,20 @@
         </li>
 
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="debugging-crashes.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;zh-tw&#x2f;ycode&#x2f;docs&#x2f;development&#x2f;debugging-crashes.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
@@ -454,6 +471,7 @@
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs&#x2f;src&#x2f;development&#x2f;debugging-crashes.md">
+
 
       <h1 id="debugging-crashes" data-sourcepos="6:1-6:19">Debugging Crashes<a href="#debugging-crashes" aria-label="Link to heading 'Debugging Crashes'" data-heading-content="Debugging Crashes" class="anchor"></a></h1>
 <p data-sourcepos="8:1-8:377">When Zed panics or crashes, it sends a message to a sidecar process that inspects the editor’s memory and creates a <a data-sourcepos="8:117-8:251" href="https://chromium.googlesource.com/breakpad/breakpad/+/master/docs/getting_started_with_breakpad.md#the-minidump-file-format">minidump</a> in <code data-sourcepos="8:256-8:275">~/Library/Logs/Zed</code> or <code data-sourcepos="8:280-8:304">$XDG_DATA_HOME/zed/logs</code>. You can use this minidump to generate backtraces for all thread stacks.</p>

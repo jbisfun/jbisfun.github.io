@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pull · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;pull&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;pull">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull&#x2f;index.html">pull</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_core&#x2f;index.html">pull_core</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_env&#x2f;index.html">pull_env</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_git&#x2f;index.html">pull_git</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_hooks&#x2f;index.html">pull_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_ignore&#x2f;index.html">pull_ignore</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_launchd&#x2f;index.html">pull_launchd</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_lint&#x2f;index.html">pull_lint</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_mcp&#x2f;index.html">pull_mcp</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_tool&#x2f;index.html">pull_tool</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+  <li><a href="..&#x2f;..&#x2f;pull&#x2f;api&#x2f;rust&#x2f;pull_worktree&#x2f;index.html">pull_worktree</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;pull&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="pull" data-sourcepos="1:1-1:6">pull<a href="#pull" aria-label="Link to heading 'pull'" data-heading-content="pull" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:231">多儲存庫的 git 包裝工具。<code data-sourcepos="3:36-3:51">pullfile.plist</code> 列出各儲存庫、其上游與固定的
+commit。每個儲存庫都會複製到 <code data-sourcepos="4:41-4:69">{pullfile-root}/{repo-name}</code>。只要一個 <code data-sourcepos="4:86-4:98">pull commit</code>，就會以相同的訊息、身分與簽章，為每個有變更的儲存庫各寫入一個 commit，然後記錄新的固定點。</p>
+<h2 id="crates-and-features" data-sourcepos="6:1-6:18">Crate 與功能<a href="#crates-and-features" aria-label="Link to heading 'Crate 與功能'" data-heading-content="Crate 與功能" class="anchor"></a></h2>
+<p data-sourcepos="8:1-8:171">pull 是一個 cargo workspace。核心一律會建置；其餘都是 <code data-sourcepos="8:71-8:76">pull</code> 執行檔的 cargo 功能背後的選用 crate，且沒有任何功能需要另一個功能：</p>
+<pre class="syntax-highlighting" data-sourcepos="10:5-21:82"><code><span class="hl-text hl-plain">crate          feature        what
+pull-core      (always)       pullfile.plist / local.toml model, identity, path routing
+pull-git       (always)       clone/sync, status, stage, commit across repos, push
+               https, ssh     git transports (git2 features)
+pull-env       env            pullfile `env` + local.toml `[env]`; pull env / pull shell
+pull-hooks     hooks          pullfile `hooks` (precommit, postcommit, pull)
+pull-lint      lint           pullfile `lint`; pull lint
+               conventional   lint `conventional` (Conventional Commits parser)
+pull-ignore    ignore         pullfile `ignore` -&gt; each repo&#39;s .git/info/exclude
+pull-worktree  worktree       pull worktree
+pull-launchd   launchd        pullfile `jobs`; pull launchctl / pull session
+pull-mcp       mcp            pull mcp (session/job tools only with `launchd`)
+</span></code></pre>
+<p data-sourcepos="23:1-23:83">所有功能預設皆啟用。可以用例如以下方式建置較精簡的 pull：</p>
+<pre class="syntax-highlighting" data-sourcepos="25:5-25:75"><code><span class="hl-text hl-plain">cargo install --path . --no-default-features --features https,env,hooks
+</span></code></pre>
+<p data-sourcepos="27:1-31:81">各功能只在執行檔中會合（<code data-sourcepos="27:37-27:54">src/workspace.rs</code>）：沒有 <code data-sourcepos="27:68-27:72">env</code> 時，hooks、jobs、<code data-sourcepos="27:95-27:100">each</code>
+與 MCP <code data-sourcepos="28:9-28:14">exec</code> 只會取得 PULL_ROOT；沒有 <code data-sourcepos="28:48-28:54">hooks</code> 或 <code data-sourcepos="28:60-28:65">lint</code> 時，commit 會略過它們；沒有
+<code data-sourcepos="29:1-29:9">launchd</code> 時，MCP 伺服器就沒有 session 工具。只有 <code data-sourcepos="29:64-29:73">identity</code> 與 <code data-sourcepos="29:79-29:85">repos</code> 是核心
+pullfile 鍵：其他所有頂層鍵都是由對應功能 crate 擁有的區段，當該功能未建置時會原封不動保留（並回報為已忽略），因此精簡版建置不會丟掉其他建置的設定。<code data-sourcepos="30:215-30:230">pull --version</code> 與
+<code data-sourcepos="31:1-31:20">pull status --json</code>（<code data-sourcepos="31:24-31:33">features</code>）會列出執行檔建置時包含的功能。</p>
+<h2 id="files" data-sourcepos="33:1-33:9">檔案<a href="#files" aria-label="Link to heading '檔案'" data-heading-content="檔案" class="anchor"></a></h2>
+<p data-sourcepos="35:1-35:43"><code data-sourcepos="35:1-35:16">pullfile.plist</code>（共用，會提交）：</p>
+<pre class="syntax-highlighting" data-sourcepos="37:5-45:61"><code><span class="hl-text hl-plain">identity: org (selects [orgs.&lt;org&gt;] in local.toml), email = none|local, require_signing
+repos:    [{name, upstream, branch, commit}]
+env:      path, vars                    (feature env)
+lint:     no_description, max_subject_length, conventional, no_trailing_period
+                                        (feature lint)
+hooks:    precommit, postcommit, pull   (feature hooks; arrays of `sh -c` commands,
+                                        run in the root)
+ignore:   [patterns]                    (feature ignore)
+jobs:     [launchd jobs]                (feature launchd)
+</span></code></pre>
+<p data-sourcepos="47:1-47:111">Hook 環境變數：PULL_ROOT、PULL_HOOK、PULL_REPOS（以空格分隔）、PULL_MESSAGE（commit hooks）。</p>
+<p data-sourcepos="49:1-49:120"><code data-sourcepos="49:1-49:12">local.toml</code>（每部機器各自一份，會被 gitignore；找不到時會退回使用 ~/.config/pull/local.toml）：</p>
+<pre class="syntax-highlighting" data-sourcepos="51:5-59:23"><code><span class="hl-text hl-plain">name = &quot;jp&quot;
+# email = &quot;...&quot;          # only used if the pullfile says email = &quot;local&quot;
+signing_key = &quot;FPR&quot;      # gpg key; omit to use gpg&#39;s default key
+sign = true
+# gpg_program = &quot;gpg&quot;
+
+[orgs.acme]              # overrides used when the pullfile sets org = &quot;acme&quot;
+name = &quot;jp@acme&quot;
+signing_key = &quot;FPR&quot;
+</span></code></pre>
+<p data-sourcepos="61:1-61:102">在預設的 <code data-sourcepos="61:14-61:27">email = none</code> 下，commit 會寫成 <code data-sourcepos="61:52-61:60">name &lt;&gt;</code>，因此不會公開任何電子郵件。</p>
+<h2 id="commands" data-sourcepos="63:1-63:9">指令<a href="#commands" aria-label="Link to heading '指令'" data-heading-content="指令" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="65:5-75:54"><code><span class="hl-text hl-plain">pull init [--org X]            create pullfile.plist and local.toml
+pull repo add URL [--name] [--branch]   |  repo rm NAME  |  repo list
+pull sync                      clone missing repos, fetch, fast-forward to the pins
+pull update                    fast-forward to upstream branches and re-pin
+pull status [--json]           --json: root, features, lint rules, per-repo
+                               branch/head/pin, ahead/behind and changed files
+pull add PATHS...              each path is staged in the repo that contains it
+pull unstage PATHS...          back to HEAD, routed the same way
+pull commit -m MSG [-a] [PATHS...] [--no-verify]
+pull push
+pull lint MSG  |  pull whoami  |  pull each CMD...
+</span></code></pre>
+<p data-sourcepos="77:1-77:127">如果根目錄本身就是 git 儲存庫，<code data-sourcepos="77:45-77:57">pull commit</code> 也會以相同的訊息在那裡提交更新後的 pullfile.plist。</p>
+<h2 id="ignore" data-sourcepos="79:1-79:9">忽略<a href="#ignore" aria-label="Link to heading '忽略'" data-heading-content="忽略" class="anchor"></a></h2>
+<p data-sourcepos="81:1-84:155">pullfile 的 <code data-sourcepos="81:14-81:21">ignore</code> 陣列存放適用於每個儲存庫的 gitignore 模式，例如
+<code data-sourcepos="82:1-82:14">__pycache__/</code>、<code data-sourcepos="82:18-82:24">*.pyc</code>、<code data-sourcepos="82:28-82:38">.DS_Store</code>。pull 會在每次執行指令時，將它們保存在各儲存庫的 <code data-sourcepos="82:111-82:129">.git/info/exclude</code>
+（位於 <code data-sourcepos="83:11-83:29"># &gt;&gt;&gt; pull ignore</code> 標記之間），因此儲存庫不需要自己的
+.gitignore 項目，也不會為此提交任何內容。這些模式不會取消追蹤已經提交的檔案；請對那些檔案執行 <code data-sourcepos="84:136-84:152">git rm --cached</code>。</p>
+<h2 id="mcp-server" data-sourcepos="86:1-86:16">MCP 伺服器<a href="#mcp-server" aria-label="Link to heading 'MCP 伺服器'" data-heading-content="MCP 伺服器" class="anchor"></a></h2>
+<p data-sourcepos="88:1-88:78"><code data-sourcepos="88:1-88:23">pull mcp [--root DIR]</code> 透過 MCP（stdio）向代理程式提供工作區：</p>
+<pre class="syntax-highlighting" data-sourcepos="90:5-97:74"><code><span class="hl-text hl-plain">workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
+status / diff / log            per repo or across all repos
+grep / list_files / read_file  ripgrep&#39;s engine, .gitignore-aware, confined to the root
+exec                           run a command to completion with the workspace env
+session_new / session_run / session_send / session_capture / session_list /
+session_kill                   stateful terminals (the sessions below); a human can
+                               `pull session attach` to the same one
+job                            start/stop/restart/unload pullfile jobs
+</span></code></pre>
+<p data-sourcepos="99:1-99:46">將它註冊到代理程式，例如 Hermes：</p>
+<pre class="syntax-highlighting" data-sourcepos="101:5-101:75"><code><span class="hl-text hl-plain">hermes mcp add pull --command pull --args mcp --root /path/to/workspace
+</span></code></pre>
+<p data-sourcepos="103:1-104:34"><code data-sourcepos="103:1-103:18">pull mcp-servers</code> 會以 JSON 印出 <code data-sourcepos="103:39-103:44">pull</code> 本身，以及 pullfile 中每個 <code data-sourcepos="103:81-103:93">mcp_servers</code> 項目（<code data-sourcepos="103:104-103:133">{name: {command, args, env}}</code>，command 會在 <code data-sourcepos="103:152-103:158">$PATH</code> 上解析，並設定 <code data-sourcepos="103:182-103:192">PULL_ROOT</code>），讓編輯器或代理程式一次註冊整組伺服器。pullfile 項目只需要 <code data-sourcepos="103:281-103:289">command</code>
+（預設為鍵名）與 <code data-sourcepos="104:26-104:31">args</code>：</p>
+<pre class="syntax-highlighting" data-sourcepos="106:5-110:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;radar&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
+&lt;/dict&gt;
+</span></code></pre>
+<p data-sourcepos="112:1-112:72">ycode-pull 會讀取 <code data-sourcepos="112:22-112:39">pull mcp-servers</code>，一次註冊全部伺服器。</p>
+<h2 id="jobs-and-sessions-launchd" data-sourcepos="114:1-114:33">工作與 session（launchd）<a href="#jobs-and-sessions-launchd" aria-label="Link to heading '工作與 session（launchd）'" data-heading-content="工作與 session（launchd）" class="anchor"></a></h2>
+<p data-sourcepos="116:1-117:21">pull 將 launchd 的工作模型（Apple 的 launchd，<code data-sourcepos="116:56-116:75">liblaunch/launch.h</code>）移植到工作區。工作使用 launchd plist 鍵，可放在 pullfile 的 <code data-sourcepos="116:156-116:161">jobs</code> 陣列中，或獨立的
+<code data-sourcepos="117:1-117:8">.plist</code> 檔案裡：</p>
+<pre class="syntax-highlighting" data-sourcepos="119:5-121:45"><code><span class="hl-text hl-plain">Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
+KeepAlive (bool or {SuccessfulExit}), StartInterval, ThrottleInterval,
+StandardOutPath, Disabled, LaunchOnlyOnce
+</span></code></pre>
+<p data-sourcepos="123:1-123:315">每個工作區各有一個常駐程式（<code data-sourcepos="123:43-123:56">pull launchd</code>，自動啟動，socket 為 <code data-sourcepos="123:86-123:105">.pull/launchd.sock</code>）負責監督它們。每個工作都在偽終端機中執行，環境為工作區環境（<code data-sourcepos="123:199-123:208">pull env</code>）加上其自身的 EnvironmentVariables 與 <code data-sourcepos="123:256-123:265">PULL_JOB</code>，因此每個工作同時也是一個 session。</p>
+<pre class="syntax-highlighting" data-sourcepos="125:5-129:70"><code><span class="hl-text hl-plain">pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
+pull launchctl list | print LABEL     (--json for agents)
+pull launchctl start|stop|unload LABEL
+pull launchctl kickstart [-k] LABEL   start, or kill and restart
+pull launchctl shutdown               stop all jobs and the daemon
+</span></code></pre>
+<p data-sourcepos="131:1-131:58">tmux 風格的 session，供人類與代理程式使用：</p>
+<pre class="syntax-highlighting" data-sourcepos="133:5-140:26"><code><span class="hl-text hl-plain">pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
+pull session attach NAME              detach with ctrl-\
+pull session ls [--json]              running program + its directory per session
+pull session send NAME [-e] TEXT      type into it (-e: press enter)
+pull session capture NAME [-e]        print its screen (-e: keep colours)
+pull session run NAME CMD...          agents: type CMD, wait for output to settle,
+                                      print the screen
+pull session kill NAME
+</span></code></pre>
+<p data-sourcepos="142:1-143:18">StandardErrorPath 雖然可以接受，但終端機會將 stderr 合併到 stdout，因此兩者都會寫入
+StandardOutPath。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;pull&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

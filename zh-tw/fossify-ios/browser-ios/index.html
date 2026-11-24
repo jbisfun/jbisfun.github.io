@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>browser-ios · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;browser-ios">GitHub 原始碼</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="browser-ios" data-sourcepos="1:1-1:13">browser-ios<a href="#browser-ios" aria-label="Link to heading 'browser-ios'" data-heading-content="browser-ios" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:234"><a data-sourcepos="3:1-3:109" href="https://android.googlesource.com/platform/packages/apps/Browser/+/refs/tags/android-6.0.1_r81">AOSP Browser</a>（最後一個完整版本，Android 6.0.1）以 SwiftUI 在 iOS 上，基於 WKWebView 並以 Fossify 風格重新打造。</p>
+<pre class="syntax-highlighting" data-sourcepos="5:5-6:41"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifyBrowser.ipa (ad-hoc signed; re-sign to install)
+idl install &quot;&lt;device&gt;&quot; FossifyBrowser
+</span></code></pre>
+<p data-sourcepos="8:1-8:2253">已移植：手機介面（含安全性／網站圖示的標題列、網址輸入、停止／重新載入、分頁數量、選項選單；頁面進度列）；網址建議（輸入的文字、書籤、記錄、搜尋引擎的建議、「插入」箭頭）；分頁與 NavScreen 分頁切換器（含標題、關閉與頁面縮圖的卡片、滑動關閉、新增分頁、關閉其他分頁）、16 個分頁上限、在新分頁中開啟彈出視窗／<code data-sourcepos="8:453-8:467">target=_blank</code>、<code data-sourcepos="8:471-8:486">window.close()</code>；無痕分頁（共用的非持久性資料儲存區，隨最後一個無痕分頁一併捨棄，絕不儲存）；含資料夾與階層路徑的書籤、新增／編輯／移動／刪除、資料夾「全部開啟」、書籤／記錄的內容選單、設為首頁；依日期分組的記錄（今天、昨天、最近 7 天、上個月、更早）加上最常瀏覽、星號切換、清除；含縮圖的最常瀏覽首頁；含符合數量的頁面內尋找；分享頁面；儲存以供離線閱讀（已儲存的頁面，<code data-sourcepos="8:1015-8:1027">.webarchive</code>）；下載（WKDownload、儲存連結、儲存圖片）至 Documents/Download，並提供下載清單；每個分頁可要求桌面版網站；含憑證的頁面資訊；連結（開啟、在新／背景分頁中開啟、儲存連結、拷貝、分享）、圖片（儲存、檢視、拷貝網址、分享）、<code data-sourcepos="8:1342-8:1347">tel:</code> 與 <code data-sourcepos="8:1353-8:1361">mailto:</code> 的長按選單；JavaScript alert/confirm/prompt、HTTP 驗證、SSL 警告對話框；位置（每個網站各自提示，含「記住偏好設定」）、相機與麥克風提示；分頁（含上一頁／下一頁清單）、書籤、記錄、網站圖示與縮圖以 JSON/JPEG 持久保存；<code data-sourcepos="8:1660-8:1682">BrowserRoot(openURL:)</code> 可開啟頁面或本機的 <code data-sourcepos="8:1712-8:1718">.html</code>/<code data-sourcepos="8:1720-8:1732">.webarchive</code>。設定：首頁（目前頁面、空白、預設、最常瀏覽、其他）、隱私權與安全性（清除快取／記錄／Cookie／所有網站資料、安全性警告、接受 Cookie、啟用位置、清除位置存取權）、輔助使用（強制啟用縮放、文字縮放、最小字型大小、反相轉譯 + 對比，含預覽）、進階（搜尋引擎、搜尋建議、在背景開啟、JavaScript、網站設定、封鎖彈出視窗、桌面版網站、重設為預設值）、頻寬（載入圖片）。</p>
+<p data-sourcepos="10:1-10:659">iOS 造成的差異：頁面由 WebKit 繪製，而非 Chromium（見下文）；表單自動填寫與已儲存的密碼屬於 iOS 的「自動填寫」，因此相關設定已移除；外掛程式、文字編碼、預設縮放、概覽模式、預先載入、快速控制項與主畫面捷徑在 WKWebView／iOS 上沒有對應功能；由於 WKWebView 沒有公開的各網站位置回呼，地理位置透過注入的 <code data-sourcepos="10:422-10:444">navigator.geolocation</code> shim 處理；文字縮放、強制縮放與反相轉譯為注入的 CSS，圖片與 Cookie 封鎖則是內容規則清單；搜尋引擎清單為現今的搜尋引擎；本 App 無法成為系統預設瀏覽器。</p>
+<h2 id="chromium" data-sourcepos="12:1-12:11">Chromium<a href="#chromium" aria-label="Link to heading 'Chromium'" data-heading-content="Chromium" class="anchor"></a></h2>
+<p data-sourcepos="14:1-14:269">所有瀏覽器程式碼都與 <code data-sourcepos="14:32-14:46">BrowserEngine</code>/<code data-sourcepos="14:48-14:60">BrowserPage</code>（Sources/Engine/BrowserEngine.swift）溝通；<code data-sourcepos="14:110-14:123">WebKitEngine</code> 是唯一的實作，並在 <code data-sourcepos="14:153-14:169">Engines.current</code> 中選取。Blink 引擎將會是這兩個協定的第二種實作。發現（未嘗試建置）：</p>
+<ul data-sourcepos="16:1-20:190">
+<li data-sourcepos="16:1-16:498">BrowserEngineKit（iOS 17.4+）是執行非 WebKit 引擎的唯一方式：主機 App 需要 <code data-sourcepos="16:96-16:140">com.apple.developer.web-browser-engine.host</code>，加上三個具備 <code data-sourcepos="16:163-16:175">.webcontent</code>（JIT 為選用）、<code data-sourcepos="16:198-16:210">.networking</code> 與 <code data-sourcepos="16:216-16:227">.rendering</code> 的 arm64e 擴充功能行程，以及預設瀏覽器權利（或用於 App 內瀏覽的嵌入式引擎權利）。Apple 依 App 逐一應請求授予，僅限於歐盟（iOS 17.4+）與日本（iOS 26.2+）發佈；開發版本僅能在這些地區的裝置上執行。</li>
+<li data-sourcepos="17:1-17:405">此處的 darwin SDK（<code data-sourcepos="17:26-17:70">~/.swiftpm/swift-sdks/darwin.artifactbundle</code>，iPhoneOS 27.2）隨附 BrowserEngineKit 與 BrowserEngineCore（標頭檔、<code data-sourcepos="17:150-17:155">.tbd</code>、swiftinterface：<code data-sourcepos="17:176-17:196">BEWebContentProcess</code>、<code data-sourcepos="17:200-17:220">BENetworkingProcess</code>、<code data-sourcepos="17:224-17:243">BERenderingProcess</code>、<code data-sourcepos="17:247-17:264">BELayerHierarchy</code>、<code data-sourcepos="17:268-17:281">BEScrollView</code>、<code data-sourcepos="17:285-17:297">BETextInput</code>，……），且 idl 會建置 <code data-sourcepos="17:331-17:337">appex</code> 目標，因此主機／擴充功能骨架可在 Linux 上編譯。</li>
+<li data-sourcepos="18:1-18:277">Chromium 的 iOS Blink 移植為 GN <code data-sourcepos="18:39-18:56">use_blink = true</code>（目標 <code data-sourcepos="18:67-18:81">content_shell</code>、<code data-sourcepos="18:85-18:92">chrome</code>），上游標示為「實驗性，僅供分析」。建置需要安裝 Xcode 26+ 與 iOS 模擬器執行環境的 Mac（<code data-sourcepos="18:215-18:243">ios/build/tools/setup-gn.py</code>）；無法在 Linux 上建置。</li>
+<li data-sourcepos="19:1-19:388">Jimpactor 側載使用免費／付費的開發憑證簽署，其描述檔無法攜帶 web-browser-engine 權利（受管理，僅授予經核准的 App ID），而且 iOS 會拒絕啟動宣告了其描述檔所缺少之受限權利的二進位檔。Blink 在 iOS 上也無法於單一一般 App 行程內執行（沒有 JIT、沒有子行程），因此沒有免權利的替代方案。</li>
+<li data-sourcepos="20:1-20:190">結論：取代 WKWebView 需要 Apple 核准的歐盟／日本瀏覽器權利描述檔以及 macOS 上的 Chromium 建置；在此之前，WebKit 是本 App 唯一能夠發佈的引擎。</li>
+</ul>
+<p data-sourcepos="22:1-22:92">GPL-3.0，與其他 Fossify 移植版相同；其所依循的 AOSP Browser 為 Apache-2.0。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;browser-ios&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

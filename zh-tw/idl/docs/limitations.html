@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>已知限制 · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;limitations.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;limitations.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="limitations.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;idl">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="architecture.html">架構</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="configuration.html">idlproj.yml 參考</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="getting-started.html">開始使用</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="limitations.html" class="active" aria-current="page">已知限制</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workflows.html">常見工作流程</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;limitations.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="known-limitations" data-sourcepos="1:1-1:14">已知限制<a href="#known-limitations" aria-label="Link to heading '已知限制'" data-heading-content="已知限制" class="anchor"></a></h1>
+<h2 id="signing-and-installing" data-sourcepos="3:1-3:18">簽署與安裝<a href="#signing-and-installing" aria-label="Link to heading '簽署與安裝'" data-heading-content="簽署與安裝" class="anchor"></a></h2>
+<ul data-sourcepos="5:1-7:127">
+<li data-sourcepos="5:1-5:146">簽章是 ad-hoc <code data-sourcepos="5:20-5:25">ldid</code> 簽章。它們讓 bundle 在結構上完整，但並非 Apple 的佈建（provisioning）。安裝前請重新簽署。</li>
+<li data-sourcepos="6:1-6:144">此工具尚未將本處建置的任何 IPA 安裝或執行於裝置上。檢查僅限於結構層面：ZIP、plist 與 Mach-O 載入指令。</li>
+<li data-sourcepos="7:1-7:127">xtool 目標除非設定 <code data-sourcepos="7:28-7:39">sign: true</code>，否則不會簽署；該設定會將 <code data-sourcepos="7:80-7:87">--sign</code> 傳給 xtool，且需要登入 xtool。</li>
+</ul>
+<h2 id="xcode-only-build-steps" data-sourcepos="9:1-9:31">僅限 Xcode 的建置步驟<a href="#xcode-only-build-steps" aria-label="Link to heading '僅限 Xcode 的建置步驟'" data-heading-content="僅限 Xcode 的建置步驟" class="anchor"></a></h2>
+<p data-sourcepos="11:1-11:156">這些工具在 Linux 上沒有對應的替代品。寬鬆建置會發出警告並略過其輸入；<code data-sourcepos="11:101-11:110">--strict</code> 則會在應用程式編譯前拒絕它們：</p>
+<ul data-sourcepos="13:1-14:108">
+<li data-sourcepos="13:1-13:51">Core Data 模型（<code data-sourcepos="13:22-13:36">.xcdatamodeld</code>、<code data-sourcepos="13:40-13:45">momc</code>）。</li>
+<li data-sourcepos="14:1-14:108">Metal 著色器（<code data-sourcepos="14:21-14:28">.metal</code>）會列在產生的 Xcode 專案中，但 <code data-sourcepos="14:73-14:80">direct</code> 建置不會編譯它們。</li>
+</ul>
+<p data-sourcepos="16:1-16:388">App Intents 中繼資料需要外部處理器（<code data-sourcepos="16:49-16:70">toolchain.appintents</code>，即 re-appintentsmetadataprocessor）。所連結 <code data-sourcepos="16:124-16:131">static</code> 目標中的 intent 會被擷取到每個連結它們的 bundle 中；<code data-sourcepos="16:203-16:213">framework</code> 目標會帶有自己的 <code data-sourcepos="16:240-16:260">Metadata.appintents</code>，但相依者不會參照它（<code data-sourcepos="16:294-16:315">--metadata-file-list</code>）。App Shortcuts 片語的在地化（<code data-sourcepos="16:357-16:370">.stringsdata</code>）不會產生。</p>
+<p data-sourcepos="18:1-18:114">字串目錄（<code data-sourcepos="18:16-18:27">.xcstrings</code>）、storyboard、XIB 與資產目錄都能在 Linux 上編譯，但有下列限制。</p>
+<h2 id="storyboards-and-xibs-idl-ibtool" data-sourcepos="20:1-20:39">Storyboard 與 XIB（<code data-sourcepos="20:25-20:36">idl ibtool</code>）<a href="#storyboards-and-xibs-idl-ibtool" aria-label="Link to heading 'Storyboard 與 XIB（idl ibtool）'" data-heading-content="Storyboard 與 XIB（idl ibtool）" class="anchor"></a></h2>
+<p data-sourcepos="22:1-22:187">此編譯器是 <a data-sourcepos="22:17-22:77" href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a> 的 Zig 移植版，後者是經逆向工程的 NIB 寫入器。Apple 的格式沒有公開文件，因此：</p>
+<ul data-sourcepos="24:1-29:175">
+<li data-sourcepos="24:1-24:247"><strong data-sourcepos="24:3-24:33">尚未在裝置上驗證。</strong> 輸出可由 idl 自己的讀取器解碼，且具有與 Xcode 的 nib 相同的 NIBArchive 版面配置，但尚無任何由 <code data-sourcepos="24:161-24:165">idl</code> 產生的 nib 曾在裝置上被 UIKit 載入。在依賴它之前請先測試。</li>
+<li data-sourcepos="25:1-25:1015"><strong data-sourcepos="25:3-25:34">僅支援 UIKit 的子集。</strong> 支援的元素：檢視控制器（一般、導覽、表格）、<code data-sourcepos="25:102-25:107">view</code>、<code data-sourcepos="25:111-25:117">label</code>、<code data-sourcepos="25:121-25:128">button</code>（依狀態設定標題）、<code data-sourcepos="25:159-25:169">imageView</code>、<code data-sourcepos="25:173-25:182">textView</code>、<code data-sourcepos="25:186-25:196">searchBar</code>、<code data-sourcepos="25:200-25:214">navigationBar</code>/<code data-sourcepos="25:216-25:231">navigationItem</code>/<code data-sourcepos="25:233-25:247">barButtonItem</code>、具有模糊/鮮明效果的 <code data-sourcepos="25:280-25:297">visualEffectView</code>、含原型儲存格的 <code data-sourcepos="25:323-25:333">tableView</code>、frame、自動調整大小遮罩、顏色、字型、限制條件、outlet、action 與 segue（<code data-sourcepos="25:433-25:438">show</code>、<code data-sourcepos="25:442-25:453">showDetail</code>、<code data-sourcepos="25:457-25:470">presentation</code>、<code data-sourcepos="25:474-25:479">push</code>、<code data-sourcepos="25:483-25:489">modal</code>、<code data-sourcepos="25:493-25:501">replace</code>、<code data-sourcepos="25:505-25:512">custom</code>，以及 <code data-sourcepos="25:523-25:542">rootViewController</code> 關聯）。<code data-sourcepos="25:556-25:566">textField</code>、<code data-sourcepos="25:570-25:577">switch</code>、<code data-sourcepos="25:581-25:588">slider</code>、<code data-sourcepos="25:592-25:603">scrollView</code>、<code data-sourcepos="25:607-25:629">activityIndicatorView</code> 與 <code data-sourcepos="25:635-25:648">progressView</code> 只會取得其類別、frame 與顏色，不會有各自的屬性。其他任何項目（堆疊檢視、集合檢視、分頁列控制器、影像、手勢辨識器、使用者定義的執行階段屬性、特徵變化、在地化）在寬鬆建置中會被略過並附上診斷訊息；嚴格建置則會在應用程式編譯前拒絕不支援的節點與屬性。</li>
+<li data-sourcepos="26:1-26:150"><strong data-sourcepos="26:3-26:36">安全區域版面配置指南</strong>會被視為擁有它們的檢視，因此指向安全區域的限制條件會改為固定在該檢視的邊緣。</li>
+<li data-sourcepos="27:1-27:71">參照到不支援物件的限制條件會被捨棄並發出警告。</li>
+<li data-sourcepos="28:1-28:201">具名顏色（<code data-sourcepos="28:18-28:30">systemColor</code> / <code data-sourcepos="28:34-28:39">name</code>）透過文件自身的 <code data-sourcepos="28:65-28:77">&lt;resources&gt;</code> 區段解析，因此會變成固定顏色，不會跟隨深色模式。文字樣式會變成固定大小的系統字型。</li>
+<li data-sourcepos="29:1-29:175">僅支援 iOS 文件（<code data-sourcepos="29:26-29:57">targetRuntime=&quot;iOS.CocoaTouch&quot;</code>）。每份文件會為每個檢視控制器與檢視各產生一個 nib；沒有依裝置慣用語區分的變體。</li>
+</ul>
+<h2 id="asset-catalogs-xcassets-assetkit" data-sourcepos="31:1-31:43">資產目錄（<code data-sourcepos="31:19-31:29">.xcassets</code>、AssetKit）<a href="#asset-catalogs-xcassets-assetkit" aria-label="Link to heading '資產目錄（.xcassets、AssetKit）'" data-heading-content="資產目錄（.xcassets、AssetKit）" class="anchor"></a></h2>
+<p data-sourcepos="33:1-33:216">資產目錄由 <code data-sourcepos="33:17-33:28">idl-actool</code> 編譯，它是包裝 <a data-sourcepos="33:52-33:110" href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a> 的小型 Swift 封裝程式。因為 AssetKit 是 Swift 函式庫，所以它是獨立的二進位檔。</p>
+<ul data-sourcepos="35:1-40:161">
+<li data-sourcepos="35:1-35:435">以 <code data-sourcepos="35:7-35:24">zig build actool</code> 建置。這需要 PATH 上有 <code data-sourcepos="35:57-35:63">swift</code>。預設會使用工具鏈共用的 Swift 執行階段（此處約 1.2 MB）。Swift 會內嵌指向該工具鏈的執行階段搜尋路徑：若你移除了它，請重新建置 <code data-sourcepos="35:244-35:255">idl-actool</code>。使用 <code data-sourcepos="35:266-35:304">zig build actool -Dactool-static=true</code> 可取得獨立的 Swift 執行階段（此處約 59 MB）。xtool 私有的內嵌執行階段無法與其他可執行檔共用。</li>
+<li data-sourcepos="36:1-36:213">僅支援影像集、顏色集與一個應用程式圖示，且以 AssetKit 所支援的範圍為限。資料集、符號集、sprite atlas、隨選資源標籤與具名的替代應用程式圖示皆不支援。</li>
+<li data-sourcepos="37:1-37:284">應用程式圖示的每張影像都需要明確的 <code data-sourcepos="37:55-37:61">scale</code>，例如 iPhone 的 <code data-sourcepos="37:83-37:89">60x60</code> @2x 與 @3x。Xcode 單一的 1024 pt「universal」圖示沒有 scale，AssetKit 會拒絕它。<code data-sourcepos="37:188-37:197">app_icon</code> 設定不會被傳遞：AssetKit 會使用目錄中既有的任一個 <code data-sourcepos="37:269-37:281">.appiconset</code>。</li>
+<li data-sourcepos="38:1-38:77">每個目標僅能有一個 <code data-sourcepos="38:31-38:41">.xcassets</code>。若有多個，請合併目錄。</li>
+<li data-sourcepos="39:1-39:61">SVG 影像需要 PATH 上有 <code data-sourcepos="39:32-39:45">rsvg-convert</code>（librsvg）。</li>
+<li data-sourcepos="40:1-40:161">目錄、storyboard、XIB 與字串會依輸入內容與編譯器身分進行快取。direct 目標的打包／簽署／封裝也會略過未變更的輸出。</li>
+</ul>
+<h2 id="project-model" data-sourcepos="42:1-42:15">專案模型<a href="#project-model" aria-label="Link to heading '專案模型'" data-heading-content="專案模型" class="anchor"></a></h2>
+<ul data-sourcepos="44:1-52:60">
+<li data-sourcepos="44:1-44:647"><code data-sourcepos="44:3-44:10">direct</code> 目標可以是應用程式、動態 framework、dylib、應用程式擴充功能或 static（物件 + Swift 模組）目標；請參閱設定參考中的「Products」。只有應用程式會被封裝；其他種類是為了應用程式的 <code data-sourcepos="44:253-44:258">link</code>/<code data-sourcepos="44:260-44:266">embed</code> 清單而建置。Watch 應用程式、測試 bundle、XCFramework 與真正的 <code data-sourcepos="44:348-44:351">.a</code> 封存檔皆不支援，而且產生的 Xcode 專案與 xtool 建置器只處理應用程式目標。預先建置的 <code data-sourcepos="44:470-44:481">.framework</code> 資源會被複製到 <code data-sourcepos="44:505-44:517">Frameworks/</code>（不含 Headers、Modules 或 _CodeSignature）並以 ad-hoc 方式簽署，而 <code data-sourcepos="44:600-44:628">@executable_path/Frameworks</code> 一律是 rpath。</li>
+<li data-sourcepos="45:1-45:194">支援 debug/release 設定檔。任意額外的設定，以及隨設定檔而異的來源／相依圖，則不支援。省略 <code data-sourcepos="45:130-45:133">-c</code> 會保留舊版未使用設定檔的旗標／輸出路徑。</li>
+<li data-sourcepos="46:1-46:80">除錯符號會留在物件檔中；不會產生 <code data-sourcepos="46:52-46:58">.dSYM</code> 封存檔／匯出。</li>
+<li data-sourcepos="47:1-47:215">C 系列的增量編譯仍以 mtime／depfile 為基礎；以內容為基礎的快取適用於資源以及最終的 bundle／IPA 狀態。這是本機快取，並不保證跨機器的封閉式／可重現建置。</li>
+<li data-sourcepos="48:1-48:303">資源會像 Xcode 一樣被攤平到 bundle 根目錄，但 <code data-sourcepos="48:64-48:73">*.lproj/</code> 資料夾與套件目錄（<code data-sourcepos="48:102-48:110">.bundle</code>、<code data-sourcepos="48:114-48:125">.framework</code>、<code data-sourcepos="48:129-48:139">.mlmodelc</code>）會被保留。兩個檔名相同的資源會造成錯誤。產生相同語言檔案的 <code data-sourcepos="48:231-48:242">.xcstrings</code> 檔與 <code data-sourcepos="48:251-48:278">.lproj/Localizable.strings</code> 資源會發生衝突。</li>
+<li data-sourcepos="49:1-49:150">Swift 使用整個模組編譯，因此變更任一 Swift 來源會重新編譯目標中的所有 Swift。除錯編譯與連結是分開的步驟。</li>
+<li data-sourcepos="50:1-50:250">Swift 會先於目標的 C 系列來源編譯。若目標混用兩者，idl 會產生 <code data-sourcepos="50:89-50:106">&lt;Module&gt;-Swift.h</code> 並將其放入 include 路徑，因此 Objective-C 可以 <code data-sourcepos="50:167-50:192">#import &quot;&lt;Name&gt;-Swift.h&quot;</code>。Swift 則透過 <code data-sourcepos="50:212-50:228">bridging_header</code> 呼叫 Objective-C。</li>
+<li data-sourcepos="51:1-51:95">Swift 的 <code data-sourcepos="51:13-51:21">defines</code> 必須是單純的旗標。<code data-sourcepos="51:50-51:61">NAME=VALUE</code> 僅適用於 C 系列程式碼。</li>
+<li data-sourcepos="52:1-52:60">僅測試過 <code data-sourcepos="52:16-52:22">arm64</code> 裝置建置。沒有模擬器 SDK。</li>
+</ul>
+<h2 id="xtool-builder" data-sourcepos="54:1-54:18">xtool 建置器<a href="#xtool-builder" aria-label="Link to heading 'xtool 建置器'" data-heading-content="xtool 建置器" class="anchor"></a></h2>
+<ul data-sourcepos="56:1-60:129">
+<li data-sourcepos="56:1-56:362">
+<p data-sourcepos="56:3-56:362">xtool 目標會將 <code data-sourcepos="56:22-56:33">resources:</code> 傳給 xtool.yml，後者會將它們原樣複製到應用程式根目錄（<code data-sourcepos="56:111-56:118">.lproj</code> 資料夾、一般檔案）。需要編譯器處理的資源（<code data-sourcepos="56:183-56:193">.xcassets</code>、storyboard、XIB、<code data-sourcepos="56:216-56:227">.xcstrings</code>、Core Data、Metal、Core ML）會被拒絕；這類資源請使用 <code data-sourcepos="56:298-56:314">builder: direct</code>。xtool 自行管理其建置與封裝快取。</p>
+</li>
+<li data-sourcepos="58:1-58:185">
+<p data-sourcepos="58:3-58:185">SwiftPM 無法在同一個目標中混用 Swift 與 C 系列檔案，因此 xtool 目標若非全為 Swift，就是全為 C/Objective-C。混合程式碼請使用 <code data-sourcepos="58:166-58:182">builder: direct</code>。</p>
+</li>
+<li data-sourcepos="59:1-59:154">
+<p data-sourcepos="59:3-59:154">含有 Objective-C 的 xtool 目標不得將其 <code data-sourcepos="59:51-59:58">main()</code> 檔案命名為 <code data-sourcepos="59:76-59:83">main.m</code>：SwiftPM 會將它視為可執行目標。範例使用 <code data-sourcepos="59:141-59:151">appmain.m</code>。</p>
+</li>
+<li data-sourcepos="60:1-60:129">
+<p data-sourcepos="60:3-60:129">產生的 <code data-sourcepos="60:13-60:27">Package.swift</code> 只有一個函式庫目標。若需求更複雜，請自行撰寫並設定 <code data-sourcepos="60:105-60:126">package_swift: false</code>。</p>
+</li>
+</ul>
+<h2 id="toolchain" data-sourcepos="62:1-62:12">工具鏈<a href="#toolchain" aria-label="Link to heading '工具鏈'" data-heading-content="工具鏈" class="anchor"></a></h2>
+<ul data-sourcepos="64:1-70:201">
+<li data-sourcepos="64:1-64:145">
+<p data-sourcepos="64:3-64:145"><code data-sourcepos="64:3-64:14">idl-actool</code> 必須支援 <code data-sourcepos="64:29-64:39">--version</code>；從其輔助程式缺少該指令的版本升級 idl 時，請以 <code data-sourcepos="64:109-64:126">zig build actool</code> 重新建置它。</p>
+</li>
+<li data-sourcepos="65:1-65:232">
+<p data-sourcepos="65:3-65:232">xtool 的 entitlement 改寫路徑可能會遺失可執行檔的 ZIP 權限位元。idl 會在不變更其程式碼位元組或簽章的情況下正規化主要可執行檔的 ZIP 中繼資料，然後執行一般的 IPA 驗證。</p>
+</li>
+<li data-sourcepos="67:1-68:123">
+<p data-sourcepos="67:3-68:123">xtool 的 <code data-sourcepos="67:13-67:22">ld64.lld</code> 會印出 <code data-sourcepos="67:34-68:15">This version of lld does not support linking for platform iOS</code>。輸出是正確的：該 Mach-O 具有 <code data-sourcepos="68:58-68:75">LC_BUILD_VERSION</code> 平台 iOS。<code data-sourcepos="68:90-68:101">idl verify</code> 會檢查這一點。</p>
+</li>
+<li data-sourcepos="69:1-69:97">
+<p data-sourcepos="69:3-69:97">在 Linux 上，檔案與標頭路徑區分大小寫，這與預設的 macOS 磁碟區不同。</p>
+</li>
+<li data-sourcepos="70:1-70:201">
+<p data-sourcepos="70:3-70:201"><code data-sourcepos="70:3-70:7">idl</code> 不會安裝或下載工具。請自行安裝 Swift 工具鏈、Darwin SDK、ldid 與 xtool。<code data-sourcepos="70:103-70:113">idl check</code> 會列出缺少的項目。<code data-sourcepos="70:142-70:153">idl-actool</code> 由本儲存庫以 <code data-sourcepos="70:174-70:191">zig build actool</code> 建置。</p>
+</li>
+</ul>
+<h2 id="configuration-parsing-zig-yaml-01x" data-sourcepos="72:1-72:35">設定解析（zig-yaml 0.1.x）<a href="#configuration-parsing-zig-yaml-01x" aria-label="Link to heading '設定解析（zig-yaml 0.1.x）'" data-heading-content="設定解析（zig-yaml 0.1.x）" class="anchor"></a></h2>
+<p data-sourcepos="74:1-74:75"><code data-sourcepos="74:1-74:5">idl</code> 使用設定檔所需的 YAML 子集。該函式庫的已知問題：</p>
+<ul data-sourcepos="76:1-78:38">
+<li data-sourcepos="76:1-76:138">值為空的鍵後面接著同層的鍵（<code data-sourcepos="76:45-76:50">key:</code> 然後 <code data-sourcepos="76:59-76:68">other: x</code>）會被解析為巢狀對應。請寫成 <code data-sourcepos="76:112-76:119">key: ~</code> 或省略該鍵。</li>
+<li data-sourcepos="77:1-77:242">註解與結尾空白會在解析前移除，因此 <code data-sourcepos="77:55-77:74">key: value  # note</code> 可正常運作。引號內的 <code data-sourcepos="77:107-77:109">#</code>，或前面沒有空白的 <code data-sourcepos="77:138-77:140">#</code>（<code data-sourcepos="77:144-77:164">url: http://x/#frag</code>）會被保留。不支援多行引號字串與區塊純量（<code data-sourcepos="77:228-77:230">|</code>、<code data-sourcepos="77:234-77:236">&gt;</code>）。</li>
+<li data-sourcepos="78:1-78:38">不支援錨點、別名與標籤。</li>
+</ul>
+<h2 id="packaging" data-sourcepos="80:1-80:9">封裝<a href="#packaging" aria-label="Link to heading '封裝'" data-heading-content="封裝" class="anchor"></a></h2>
+<ul data-sourcepos="82:1-83:112">
+<li data-sourcepos="82:1-82:145">IPA 寫入器不支援 ZIP64，因此 IPA 與其中每個檔案都必須小於 4 GiB。時間戳記固定為 1980-01-01，使輸出可重現。</li>
+<li data-sourcepos="83:1-83:112">來源、資源、套件目錄與 Xcode 專案輸出中的符號連結會被拒絕，且絕不會寫入 IPA。</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;idl&#x2f;blob&#x2f;main&#x2f;docs&#x2f;limitations.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

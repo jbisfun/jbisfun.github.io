@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zed Editor Git integration documentation · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;git.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;git.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="git.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="git.html" class="active" aria-current="page">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="ai/overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="ai/quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="ai/by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="ai/agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="ai/zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="ai/external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="ai/agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="ai/agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="ai/agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="ai/tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="ai/tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="ai/sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="ai/skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="ai/parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="ai/inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="ai/llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="ai/use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="ai/use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="ai/edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="ai/privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="migrate/vs-code.html">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="migrate/intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="migrate/pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="migrate/webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="migrate/rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="git" data-sourcepos="6:1-6:5">Git<a href="#git" aria-label="Link to heading 'Git'" data-heading-content="Git" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:247">Zed has built-in Git support that lets you manage version control without leaving the editor. The Git Panel shows your working tree state, staging area, and branch information. Changes you make on the command line are reflected immediately in Zed.</p>
+<p data-sourcepos="10:1-10:86">For operations that Zed doesn’t support natively, you can use the integrated terminal.</p>
+<h2 id="repository-activation" data-sourcepos="12:1-12:24">Repository Activation<a href="#repository-activation" aria-label="Link to heading 'Repository Activation'" data-heading-content="Repository Activation" class="anchor"></a></h2>
+<p data-sourcepos="14:1-14:121">When a project is rooted at a git repository, or at a subdirectory of one, all repositories in it are active immediately.</p>
+<p data-sourcepos="16:1-16:257">When a project is not rooted at a repository (a home directory, a folder of projects), repositories directly inside the project root are also active immediately, and deeper ones activate when a file inside them is opened, in local and remote projects alike.</p>
+<p data-sourcepos="18:1-18:120">Inactive repositories are fully indexed and searchable; only git features (status, diffs, branches) wait for activation.</p>
+<p data-sourcepos="20:1-21:93">This behavior is tied to the <a data-sourcepos="20:30-20:93" href="reference/all-settings.html#file-scan-depth"><code data-sourcepos="20:31-20:47">file_scan_depth</code></a> setting, but not to its value: any non-zero <code data-sourcepos="20:139-20:155">file_scan_depth</code> defers activation for repositories that are not directly inside a project root folder, and repositories rooted at or deeper than the limit are not even discovered until their directories are indexed on demand.
+In multi-folder projects, depth and activation are measured from each root folder separately.</p>
+<p data-sourcepos="23:1-23:114">Setting <code data-sourcepos="23:9-23:25">file_scan_depth</code> to <code data-sourcepos="23:30-23:32">0</code> turns deferred activation off: every discovered repository activates immediately.</p>
+<h2 id="git-panel" data-sourcepos="25:1-25:12">Git Panel<a href="#git-panel" aria-label="Link to heading 'Git Panel'" data-heading-content="Git Panel" class="anchor"></a></h2>
+<p data-sourcepos="27:1-27:74">The Git Panel shows the state of your working tree and Git’s staging area.</p>
+<p data-sourcepos="29:1-29:105">You can open the Git Panel using <code data-sourcepos="29:34-29:57">git_panel::ToggleFocus</code>, or by clicking the Git icon in the status bar.</p>
+<p data-sourcepos="31:1-31:171">In the panel you can see the state of your project at a glance: which repository and branch are active, what files have changed and the current staging state of each file.</p>
+<p data-sourcepos="33:1-33:98">Zed monitors your repository so that changes you make on the command line are instantly reflected.</p>
+<h3 id="configuration" data-sourcepos="35:1-35:17">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h3>
+<p data-sourcepos="37:1-37:135">Open the Settings Editor (<code data-sourcepos="37:27-37:33">Cmd+,</code> on macOS, <code data-sourcepos="37:45-37:52">Ctrl+,</code> on Linux/Windows) to customize Git behavior. Settings are spread across two pages:</p>
+<ul data-sourcepos="39:1-40:67">
+<li data-sourcepos="39:1-39:81"><strong data-sourcepos="39:3-39:24">Panels &gt; Git Panel</strong>: Panel position, tree vs flat view, status display style</li>
+<li data-sourcepos="40:1-40:67"><strong data-sourcepos="40:3-40:21">Version Control</strong>: Gutter indicators, inline blame, hunk styles</li>
+</ul>
+<h4 id="moving-the-git-panel" data-sourcepos="42:1-42:25">Moving the Git Panel<a href="#moving-the-git-panel" aria-label="Link to heading 'Moving the Git Panel'" data-heading-content="Moving the Git Panel" class="anchor"></a></h4>
+<p data-sourcepos="44:1-44:138">By default, the Git Panel docks on the left. Go to <strong data-sourcepos="44:52-44:73">Panels &gt; Git Panel</strong> and change <strong data-sourcepos="44:86-44:103">Git Panel Dock</strong> to move it to the right or bottom.</p>
+<h4 id="switching-to-tree-view" data-sourcepos="46:1-46:27">Switching to Tree View<a href="#switching-to-tree-view" aria-label="Link to heading 'Switching to Tree View'" data-heading-content="Switching to Tree View" class="anchor"></a></h4>
+<p data-sourcepos="48:1-48:202">The Git Panel shows a flat list of changed files by default. To see files organized by folder hierarchy instead, toggle <strong data-sourcepos="48:121-48:133">Tree View</strong> in the panel’s context menu, or enable it in <strong data-sourcepos="48:180-48:201">Panels &gt; Git Panel</strong>.</p>
+<h4 id="inline-blame" data-sourcepos="50:1-50:17">Inline Blame<a href="#inline-blame" aria-label="Link to heading 'Inline Blame'" data-heading-content="Inline Blame" class="anchor"></a></h4>
+<p data-sourcepos="52:1-52:149">Zed shows Git blame information on the current line. To turn this off or add a delay before it appears, go to <strong data-sourcepos="52:111-52:148">Version Control &gt; Inline Git Blame</strong>.</p>
+<h4 id="hiding-the-gutter-indicators" data-sourcepos="54:1-54:33">Hiding the Gutter Indicators<a href="#hiding-the-gutter-indicators" aria-label="Link to heading 'Hiding the Gutter Indicators'" data-heading-content="Hiding the Gutter Indicators" class="anchor"></a></h4>
+<p data-sourcepos="56:1-56:163">The colored bars in the gutter that show added, modified, and deleted lines can be hidden. Go to <strong data-sourcepos="56:98-56:129">Version Control &gt; Git Gutter</strong> and set <strong data-sourcepos="56:139-56:152">Visibility</strong> to “Hide”.</p>
+<h4 id="commit-message-line-length" data-sourcepos="58:1-58:31">Commit Message Line Length<a href="#commit-message-line-length" aria-label="Link to heading 'Commit Message Line Length'" data-heading-content="Commit Message Line Length" class="anchor"></a></h4>
+<p data-sourcepos="60:1-60:152">Zed wraps commit messages at 72 characters (a Git convention). To change this, search for “Git Commit” in Settings and adjust <strong data-sourcepos="60:127-60:151">Preferred Line Length</strong>.</p>
+<h2 id="project-diff" data-sourcepos="62:1-62:15">Project Diff<a href="#project-diff" aria-label="Link to heading 'Project Diff'" data-heading-content="Project Diff" class="anchor"></a></h2>
+<p data-sourcepos="64:1-64:175">You can see all of the changes captured by Git in Zed by opening the Project Diff (<code data-sourcepos="64:84-64:94">git::Diff</code>), accessible via the <code data-sourcepos="64:117-64:127">git::Diff</code> action in the Command Palette or the Git Panel.</p>
+<p data-sourcepos="66:1-66:139">All of the changes displayed in the Project Diff behave exactly the same as any other multibuffer: they are all editable excerpts of files.</p>
+<p data-sourcepos="68:1-68:132">You can stage or unstage each hunk as well as a whole file by hitting the buttons on the tab bar or their corresponding keybindings.</p>
+<h3 id="word-diff-highlighting" data-sourcepos="70:1-70:26">Word Diff Highlighting<a href="#word-diff-highlighting" aria-label="Link to heading 'Word Diff Highlighting'" data-heading-content="Word Diff Highlighting" class="anchor"></a></h3>
+<p data-sourcepos="72:1-72:247">By default, Zed highlights changed words within modified lines to make it easier to spot exactly what changed. To disable this globally, open the Settings Editor and go to <strong data-sourcepos="72:173-72:209">Languages &amp; Tools &gt; Miscellaneous</strong>, then turn off <strong data-sourcepos="72:226-72:246">Word Diff Enabled</strong>.</p>
+<p data-sourcepos="74:1-74:81">To disable word diff for specific languages only, add this to your settings.json:</p>
+<pre class="syntax-highlighting" data-sourcepos="76:1-84:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>languages<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Markdown<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>word_diff_enabled<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-constant hl-language hl-json">false</span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<h3 id="diff-view-styles" data-sourcepos="86:1-86:20">Diff View Styles<a href="#diff-view-styles" aria-label="Link to heading 'Diff View Styles'" data-heading-content="Diff View Styles" class="anchor"></a></h3>
+<p data-sourcepos="88:1-88:128">Zed displays diffs in two modes: <strong data-sourcepos="88:34-88:42">split</strong> (side-by-side comparison) or <strong data-sourcepos="88:73-88:83">unified</strong> (inline changes). Split view is the default.</p>
+<h4 id="changing-the-diff-view" data-sourcepos="90:1-90:27">Changing the diff view<a href="#changing-the-diff-view" aria-label="Link to heading 'Changing the diff view'" data-heading-content="Changing the diff view" class="anchor"></a></h4>
+<p data-sourcepos="92:1-92:120">Open the Settings Editor (<code data-sourcepos="92:27-92:45">zed::OpenSettings</code>) and search for “diff view style”. Select either <strong data-sourcepos="92:96-92:104">Split</strong> or <strong data-sourcepos="92:109-92:119">Unified</strong>.</p>
+<p data-sourcepos="94:1-94:56">To change the default, add this to your <code data-sourcepos="94:41-94:55">settings.json</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="96:1-100:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>diff_view_style<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>unified<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="102:1-102:79">See <a data-sourcepos="102:5-102:43" href="configuring-zed.html">Configuring Zed</a> for more about the Settings Editor.</p>
+<h4 id="split-vs-unified" data-sourcepos="104:1-104:21">Split vs unified<a href="#split-vs-unified" aria-label="Link to heading 'Split vs unified'" data-heading-content="Split vs unified" class="anchor"></a></h4>
+<ul data-sourcepos="106:1-107:128">
+<li data-sourcepos="106:1-106:131"><strong data-sourcepos="106:3-106:11">Split</strong>: Shows the original and modified versions side by side. Useful for comparing file structure or reviewing large changes.</li>
+<li data-sourcepos="107:1-107:128"><strong data-sourcepos="107:3-107:13">Unified</strong>: Shows changes inline with additions and deletions in a single view. Useful for focusing on specific line changes.</li>
+</ul>
+<p data-sourcepos="109:1-109:290">You can switch between modes at any time. Your preference applies to <a data-sourcepos="109:70-109:98" href="#project-diff">Project Diff</a>, <a data-sourcepos="109:101-109:129" href="#file-history">File History</a>, and <a data-sourcepos="109:136-109:170" href="#stash-diff-view">Stash Diff View</a>. These diff views function as <a data-sourcepos="109:202-109:234" href="multibuffers.html">multibuffers</a>, allowing you to edit multiple excerpts simultaneously.</p>
+<h2 id="file-history" data-sourcepos="111:1-111:15">File History<a href="#file-history" aria-label="Link to heading 'File History'" data-heading-content="File History" class="anchor"></a></h2>
+<p data-sourcepos="113:1-113:231">File History shows the commit history for an individual file. Each entry displays the commit’s author, timestamp, and message. Selecting a commit opens a diff view filtered to show only the changes made to that file in that commit.</p>
+<p data-sourcepos="115:1-115:21">To view File History:</p>
+<ul data-sourcepos="117:1-120:55">
+<li data-sourcepos="117:1-117:75">Right-click on a file in the Project Panel and select “View File History”</li>
+<li data-sourcepos="118:1-118:71">Right-click on a file in the Git Panel and select “View File History”</li>
+<li data-sourcepos="119:1-119:61">Right-click on an editor tab and select “View File History”</li>
+<li data-sourcepos="120:1-120:55">Use the Command Palette and search for “file history”</li>
+</ul>
+<h2 id="tags" data-sourcepos="122:1-122:7">Tags<a href="#tags" aria-label="Link to heading 'Tags'" data-heading-content="Tags" class="anchor"></a></h2>
+<p data-sourcepos="124:1-124:150">To create a lightweight tag at <code data-sourcepos="124:32-124:37">HEAD</code>, use <code data-sourcepos="124:44-124:65">git::CreateTagAtHead</code> from the Command Palette. Tags are created locally and are not pushed automatically.</p>
+<h2 id="fetch-push-and-pull" data-sourcepos="126:1-126:24">Fetch, Push, and Pull<a href="#fetch-push-and-pull" aria-label="Link to heading 'Fetch, Push, and Pull'" data-heading-content="Fetch, Push, and Pull" class="anchor"></a></h2>
+<p data-sourcepos="128:1-128:204">Fetch, push, or pull from your Git repository in Zed via the buttons available on the Git Panel or via the Command Palette by looking at the respective actions: <code data-sourcepos="128:162-128:173">git::Fetch</code>, <code data-sourcepos="128:176-128:186">git::Push</code>, and <code data-sourcepos="128:193-128:203">git::Pull</code>.</p>
+<h3 id="push-configuration" data-sourcepos="130:1-130:22">Push Configuration<a href="#push-configuration" aria-label="Link to heading 'Push Configuration'" data-heading-content="Push Configuration" class="anchor"></a></h3>
+<p data-sourcepos="132:1-132:87">Zed respects Git’s push configuration. When pushing, Zed checks the following in order:</p>
+<ol data-sourcepos="134:1-136:31">
+<li data-sourcepos="134:1-134:49"><code data-sourcepos="134:4-134:15">pushRemote</code> configured for the current branch</li>
+<li data-sourcepos="135:1-135:42"><code data-sourcepos="135:4-135:23">remote.pushDefault</code> in your Git config</li>
+<li data-sourcepos="136:1-136:31">The branch’s tracking remote</li>
+</ol>
+<p data-sourcepos="138:1-138:162">This matches Git’s standard behavior, so if you’ve configured <code data-sourcepos="138:63-138:74">pushRemote</code> or <code data-sourcepos="138:79-138:91">pushDefault</code> in your <code data-sourcepos="138:101-138:112">.gitconfig</code> or via <code data-sourcepos="138:121-138:132">git config</code>, Zed will use those settings.</p>
+<h2 id="remotes" data-sourcepos="140:1-140:10">Remotes<a href="#remotes" aria-label="Link to heading 'Remotes'" data-heading-content="Remotes" class="anchor"></a></h2>
+<p data-sourcepos="142:1-142:180">When your repository has multiple remotes, Zed shows a remote selector in the Git Panel. Click the remote button next to push/pull to choose which remote to use for that operation.</p>
+<h2 id="staging-workflow" data-sourcepos="144:1-144:19">Staging Workflow<a href="#staging-workflow" aria-label="Link to heading 'Staging Workflow'" data-heading-content="Staging Workflow" class="anchor"></a></h2>
+<p data-sourcepos="146:1-146:91">Zed has two primary staging workflows, using either the Project Diff or the panel directly.</p>
+<h3 id="using-the-project-diff" data-sourcepos="148:1-148:26">Using the Project Diff<a href="#using-the-project-diff" aria-label="Link to heading 'Using the Project Diff'" data-heading-content="Using the Project Diff" class="anchor"></a></h3>
+<p data-sourcepos="150:1-150:181">In the Project Diff view, you can focus on each hunk and stage them individually by clicking on the tab bar buttons or via the keybindings <code data-sourcepos="150:140-150:158">git::StageAndNext</code> (<code data-sourcepos="150:161-150:179">git::StageAndNext</code>).</p>
+<p data-sourcepos="152:1-152:161">Similarly, stage all hunks at the same time with the <code data-sourcepos="152:54-152:68">git::StageAll</code> (<code data-sourcepos="152:71-152:85">git::StageAll</code>) keybinding and then immediately commit with <code data-sourcepos="152:132-152:144">git::Commit</code> (<code data-sourcepos="152:147-152:159">git::Commit</code>).</p>
+<h3 id="using-the-git-panel" data-sourcepos="154:1-154:23">Using the Git Panel<a href="#using-the-git-panel" aria-label="Link to heading 'Using the Git Panel'" data-heading-content="Using the Git Panel" class="anchor"></a></h3>
+<p data-sourcepos="156:1-156:210">From the panel, you can simply type a commit message and hit the commit button, or <code data-sourcepos="156:84-156:96">git::Commit</code>. This will automatically stage all tracked files (indicated by a <code data-sourcepos="156:163-156:168">[·]</code> in the entry’s checkbox) and commit them.</p>
+<!-- Show a set of changes with default staged -->
+<p data-sourcepos="160:1-160:149">Entries can be staged using each individual entry’s checkbox. All changes can be staged using the button at the top of the panel, or <code data-sourcepos="160:134-160:148">git::StageAll</code>.</p>
+<p data-sourcepos="162:1-162:455">Entries are grouped into sections (<strong data-sourcepos="162:36-162:46">Tracked</strong> and <strong data-sourcepos="162:52-162:64">Untracked</strong> by default), and each section can be staged on its own without touching the others. Click the checkbox on a section header, or use <code data-sourcepos="162:197-162:215">git::StageSection</code> / <code data-sourcepos="162:219-162:239">git::UnstageSection</code>, which act on the section containing the selected entry. These are also available by right-clicking an entry. Neither is bound by default; bind them in your keymap under the <code data-sourcepos="162:415-162:424">GitPanel</code> context if you use them often.</p>
+<p data-sourcepos="164:1-164:226">To open a changed file in the editor without a diff view, right-click on the file in the Git Panel and select <strong data-sourcepos="164:111-164:123">View File</strong>. Use <strong data-sourcepos="164:130-164:142">Open Diff</strong> (<code data-sourcepos="164:145-164:159">menu::Confirm</code>) or <strong data-sourcepos="164:165-164:184">Open Diff (File)</strong> to review changes in a diff view instead.</p>
+<!-- Add media -->
+<h2 id="committing" data-sourcepos="168:1-168:13">Committing<a href="#committing" aria-label="Link to heading 'Committing'" data-heading-content="Committing" class="anchor"></a></h2>
+<p data-sourcepos="170:1-170:32">Zed offers two commit textareas:</p>
+<ol data-sourcepos="172:1-173:160">
+<li data-sourcepos="172:1-172:137">The first one is available right at the bottom of the Git Panel. Hitting <code data-sourcepos="172:77-172:89">git::Commit</code> immediately commits all of your staged changes.</li>
+<li data-sourcepos="173:1-173:160">The second is available via the action <code data-sourcepos="173:43-173:67">git::ExpandCommitEditor</code> or via hitting the <code data-sourcepos="173:88-173:112">git::ExpandCommitEditor</code> while focused in the Git Panel commit textarea.</li>
+</ol>
+<h3 id="undoing-a-commit" data-sourcepos="175:1-175:20">Undoing a Commit<a href="#undoing-a-commit" aria-label="Link to heading 'Undoing a Commit'" data-heading-content="Undoing a Commit" class="anchor"></a></h3>
+<p data-sourcepos="177:1-178:97">As soon as you commit in Zed, in the Git Panel, you’ll see a bar right under the commit textarea, which will show the recently submitted commit.
+In there, you can use the “Uncommit” button, which performs the <code data-sourcepos="178:65-178:88">git reset HEADˆ--soft</code> command.</p>
+<h3 id="configuring-commit-line-length" data-sourcepos="180:1-180:34">Configuring Commit Line Length<a href="#configuring-commit-line-length" aria-label="Link to heading 'Configuring Commit Line Length'" data-heading-content="Configuring Commit Line Length" class="anchor"></a></h3>
+<p data-sourcepos="182:1-182:112">By default, Zed sets the commit line length to <code data-sourcepos="182:48-182:51">72</code> but it can be configured in your local <code data-sourcepos="182:92-182:106">settings.json</code> file.</p>
+<p data-sourcepos="184:1-184:111">Find more information about setting the <code data-sourcepos="184:41-184:63">preferred-line-length</code> in the <a data-sourcepos="184:72-184:102" href="#configuration">Configuration</a> section.</p>
+<h2 id="branch-management" data-sourcepos="186:1-186:20">Branch Management<a href="#branch-management" aria-label="Link to heading 'Branch Management'" data-heading-content="Branch Management" class="anchor"></a></h2>
+<h3 id="creating-and-switching-branches" data-sourcepos="188:1-188:35">Creating and Switching Branches<a href="#creating-and-switching-branches" aria-label="Link to heading 'Creating and Switching Branches'" data-heading-content="Creating and Switching Branches" class="anchor"></a></h3>
+<p data-sourcepos="190:1-190:117">Create a new branch using <code data-sourcepos="190:27-190:39">git::Branch</code> or switch to an existing branch using <code data-sourcepos="190:79-190:91">git::Switch</code> or <code data-sourcepos="190:96-190:116">git::CheckoutBranch</code>.</p>
+<p data-sourcepos="192:1-192:168">When you are working in a <a data-sourcepos="192:27-192:56" href="#git-worktrees">Git worktree</a>, use the branch picker after switching to the worktree to create or check out the branch you want to use there.</p>
+<h3 id="deleting-branches" data-sourcepos="194:1-194:21">Deleting Branches<a href="#deleting-branches" aria-label="Link to heading 'Deleting Branches'" data-heading-content="Deleting Branches" class="anchor"></a></h3>
+<p data-sourcepos="196:1-196:193">To delete a branch, open the branch switcher with <code data-sourcepos="196:51-196:63">git::Switch</code>, find the branch you want to delete, and use the delete option. Zed will confirm before deleting to prevent accidental data loss.</p>
+<blockquote data-sourcepos="198:1-198:108">
+<p data-sourcepos="198:3-198:108"><strong data-sourcepos="198:3-198:11">Note:</strong> You cannot delete the branch you currently have checked out. Switch to a different branch first.</p>
+</blockquote>
+<h2 id="git-worktrees" data-sourcepos="200:1-200:16">Git Worktrees<a href="#git-worktrees" aria-label="Link to heading 'Git Worktrees'" data-heading-content="Git Worktrees" class="anchor"></a></h2>
+<p data-sourcepos="202:1-203:145">Git worktrees let you keep multiple checkouts of the same repository on disk at the same time.
+This is useful when you want to work on more than one branch or task without stashing, rebuilding, or disturbing the files in your main checkout.</p>
+<p data-sourcepos="205:1-207:25">Open the worktree picker from the title bar, next to the project picker, or by running <code data-sourcepos="205:88-205:102">git::Worktree</code>.
+Search by worktree name or checked-out branch name to find an existing worktree.
+From the picker, you can:</p>
+<ul data-sourcepos="209:1-213:68">
+<li data-sourcepos="209:1-209:79">Create a new linked worktree either from the current branch or default branch</li>
+<li data-sourcepos="210:1-210:82">Type a name to create a named worktree or let Zed automatically pick one for you</li>
+<li data-sourcepos="211:1-211:54">Switch the current workspace to an existing worktree</li>
+<li data-sourcepos="212:1-212:43">Open an existing worktree in a new window</li>
+<li data-sourcepos="213:1-213:68">Delete linked worktrees that are not currently open in the project</li>
+</ul>
+<h3 id="worktree-management" data-sourcepos="215:1-215:23">Worktree Management<a href="#worktree-management" aria-label="Link to heading 'Worktree Management'" data-heading-content="Worktree Management" class="anchor"></a></h3>
+<p data-sourcepos="217:1-219:84">New worktrees are created in detached HEAD state.
+After switching to the new worktree, use the branch picker next to the worktree picker to create a new branch or check out an existing, unused branch.
+This keeps Zed from accidentally checking out the same branch in multiple worktrees.</p>
+<p data-sourcepos="221:1-222:102">The directory used for new worktrees is controlled by the <code data-sourcepos="221:59-221:82">git.worktree_directory</code> setting.
+By default, Zed creates worktrees under <code data-sourcepos="222:41-222:54">../worktrees</code> relative to the repository’s working directory.</p>
+<p data-sourcepos="224:1-224:84">See <a data-sourcepos="224:5-224:70" href="reference/all-settings.html#git-worktree-directory">All Settings</a> for examples.</p>
+<h3 id="init-setup" data-sourcepos="226:1-226:14">Init Setup<a href="#init-setup" aria-label="Link to heading 'Init Setup'" data-heading-content="Init Setup" class="anchor"></a></h3>
+<p data-sourcepos="228:1-229:99">To run setup steps after Zed creates a linked worktree, use the <a data-sourcepos="228:65-228:111" href="tasks.html#hooks"><code data-sourcepos="228:66-228:82">create_worktree</code> task hook</a>.
+For agent-specific workflows, see <a data-sourcepos="229:35-229:98" href="ai/parallel-agents.html#worktree-isolation">Worktree Isolation</a>.</p>
+<h3 id="multi-root-workspaces" data-sourcepos="231:1-231:25">Multi-root Workspaces<a href="#multi-root-workspaces" aria-label="Link to heading 'Multi-root Workspaces'" data-heading-content="Multi-root Workspaces" class="anchor"></a></h3>
+<p data-sourcepos="233:1-234:76">If your project contains multiple Git repositories (i.e., multi-root folders), Zed creates a linked worktree for each repository when creating a new worktree from the picker.
+Non-Git folders in the same project are included in the new workspace as-is.</p>
+<h2 id="merge-conflicts" data-sourcepos="236:1-236:18">Merge Conflicts<a href="#merge-conflicts" aria-label="Link to heading 'Merge Conflicts'" data-heading-content="Merge Conflicts" class="anchor"></a></h2>
+<p data-sourcepos="238:1-238:172">When you encounter merge conflicts after a merge, rebase, or pull, Zed highlights the conflicting regions in your files and displays resolution buttons above each conflict.</p>
+<h3 id="viewing-conflicts" data-sourcepos="240:1-240:21">Viewing Conflicts<a href="#viewing-conflicts" aria-label="Link to heading 'Viewing Conflicts'" data-heading-content="Viewing Conflicts" class="anchor"></a></h3>
+<p data-sourcepos="242:1-242:158">Conflicting files appear in the Git Panel with a warning icon. You can also see conflicts in the Project Diff view, where each conflict region is highlighted:</p>
+<ul data-sourcepos="244:1-245:58">
+<li data-sourcepos="244:1-244:59">Changes from your current branch are highlighted in green</li>
+<li data-sourcepos="245:1-245:58">Changes from the incoming branch are highlighted in blue</li>
+</ul>
+<h3 id="resolving-conflicts" data-sourcepos="247:1-247:23">Resolving Conflicts<a href="#resolving-conflicts" aria-label="Link to heading 'Resolving Conflicts'" data-heading-content="Resolving Conflicts" class="anchor"></a></h3>
+<p data-sourcepos="249:1-249:34">Each conflict shows three buttons:</p>
+<ul data-sourcepos="251:1-253:75">
+<li data-sourcepos="251:1-251:101"><strong data-sourcepos="251:3-251:23">Use [branch-name]</strong>: Keep the changes from one branch (shows the actual branch name, like “main”)</li>
+<li data-sourcepos="252:1-252:88"><strong data-sourcepos="252:3-252:24">Use [other-branch]</strong>: Keep the changes from the other branch (like “feature-branch”)</li>
+<li data-sourcepos="253:1-253:75"><strong data-sourcepos="253:3-253:14">Use Both</strong>: Keep both sets of changes, with your branch’s changes first</li>
+</ul>
+<p data-sourcepos="255:1-255:196">Click a button to resolve that conflict. The conflict markers are removed and replaced with your chosen content. After resolving all conflicts in a file, stage it and commit to complete the merge.</p>
+<blockquote data-sourcepos="257:1-257:183">
+<p data-sourcepos="257:3-257:183"><strong data-sourcepos="257:3-257:10">Tip:</strong> For complex conflicts that need manual editing, you can edit the file directly. Remove the conflict markers (<code data-sourcepos="257:121-257:129">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code data-sourcepos="257:132-257:140">=======</code>, <code data-sourcepos="257:143-257:151">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) and keep the content you want.</p>
+</blockquote>
+<h2 id="stashing" data-sourcepos="259:1-259:11">Stashing<a href="#stashing" aria-label="Link to heading 'Stashing'" data-heading-content="Stashing" class="anchor"></a></h2>
+<p data-sourcepos="261:1-261:238">Git stash allows you to temporarily save your uncommitted changes and revert your working directory to a clean state. This is particularly useful when you need to quickly switch branches or pull updates without committing incomplete work.</p>
+<h3 id="creating-stashes" data-sourcepos="263:1-263:20">Creating Stashes<a href="#creating-stashes" aria-label="Link to heading 'Creating Stashes'" data-heading-content="Creating Stashes" class="anchor"></a></h3>
+<p data-sourcepos="265:1-265:197">To stash all your current changes, use the <code data-sourcepos="265:44-265:58">git::StashAll</code> action. This will save both staged and unstaged changes, including untracked files, to a new stash entry and clean your working directory.</p>
+<p data-sourcepos="267:1-267:235">To stash only tracked changes and leave untracked files in place, use the <code data-sourcepos="267:75-267:93">git::StashTracked</code> action. To stash only staged changes and leave unstaged changes in place, use the <code data-sourcepos="267:177-267:194">git::StashStaged</code> action; this requires git 2.35 or newer.</p>
+<p data-sourcepos="269:1-269:242">The Git Panel’s overflow menu offers whichever of these matches the current <strong data-sourcepos="269:77-269:88">Group By</strong> mode: <strong data-sourcepos="269:96-269:112">Stash Tracked</strong> when grouping by Tracked &amp; Untracked, and <strong data-sourcepos="269:156-269:171">Stash Staged</strong> when grouping by Staged &amp; Unstaged. <strong data-sourcepos="269:209-269:221">Stash All</strong> is always available.</p>
+<p data-sourcepos="271:1-271:149">Each of these actions first prompts for an optional stash name. Confirming with an empty prompt lets git generate its usual <code data-sourcepos="271:125-271:136">WIP on ...</code> description.</p>
+<h3 id="managing-stashes" data-sourcepos="273:1-273:20">Managing Stashes<a href="#managing-stashes" aria-label="Link to heading 'Managing Stashes'" data-heading-content="Managing Stashes" class="anchor"></a></h3>
+<p data-sourcepos="275:1-275:130">Zed provides a stash picker accessible via <code data-sourcepos="275:44-275:59">git::ViewStash</code> or from the Git Panel’s overflow menu. From the stash picker, you can:</p>
+<ul data-sourcepos="277:1-281:71">
+<li data-sourcepos="277:1-277:91"><strong data-sourcepos="277:3-277:21">View stash list</strong>: Browse all your saved stashes with their descriptions and timestamps</li>
+<li data-sourcepos="278:1-278:67"><strong data-sourcepos="278:3-278:16">Open diffs</strong>: See exactly what changes are stored in each stash</li>
+<li data-sourcepos="279:1-279:96"><strong data-sourcepos="279:3-279:19">Apply stashes</strong>: Apply stash changes to your working directory while keeping the stash entry</li>
+<li data-sourcepos="280:1-280:79"><strong data-sourcepos="280:3-280:17">Pop stashes</strong>: Apply stash changes and remove the stash entry from the list</li>
+<li data-sourcepos="281:1-281:71"><strong data-sourcepos="281:3-281:18">Drop stashes</strong>: Delete unwanted stash entries without applying them</li>
+</ul>
+<h3 id="quick-stash-operations" data-sourcepos="283:1-283:26">Quick Stash Operations<a href="#quick-stash-operations" aria-label="Link to heading 'Quick Stash Operations'" data-heading-content="Quick Stash Operations" class="anchor"></a></h3>
+<p data-sourcepos="285:1-285:85">For faster workflows, Zed provides direct actions to work with the most recent stash:</p>
+<ul data-sourcepos="287:1-288:85">
+<li data-sourcepos="287:1-287:98"><strong data-sourcepos="287:3-287:24">Apply latest stash</strong>: Use <code data-sourcepos="287:31-287:47">git::StashApply</code> to apply the most recent stash without removing it</li>
+<li data-sourcepos="288:1-288:85"><strong data-sourcepos="288:3-288:22">Pop latest stash</strong>: Use <code data-sourcepos="288:29-288:43">git::StashPop</code> to apply and remove the most recent stash</li>
+</ul>
+<h3 id="stash-diff-view" data-sourcepos="290:1-290:19">Stash Diff View<a href="#stash-diff-view" aria-label="Link to heading 'Stash Diff View'" data-heading-content="Stash Diff View" class="anchor"></a></h3>
+<p data-sourcepos="292:1-292:149">To view a stash’s contents, select it in the stash picker and press <code data-sourcepos="292:69-292:97">stash_picker::ShowStashItem</code>. From the diff view, you can use these keybindings:</p>
+<table data-sourcepos="294:1-298:67" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="294:1-294:71">
+<th data-sourcepos="294:2-294:39">Action</th>
+<th data-sourcepos="294:41-294:70">Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="296:1-296:67">
+<td data-sourcepos="296:2-296:39">Apply stash</td>
+<td data-sourcepos="296:41-296:66"><code data-sourcepos="296:42-296:65">git::ApplyCurrentStash</code></td>
+</tr>
+<tr data-sourcepos="297:1-297:67">
+<td data-sourcepos="297:2-297:39">Pop stash (apply and remove)</td>
+<td data-sourcepos="297:41-297:66"><code data-sourcepos="297:42-297:63">git::PopCurrentStash</code></td>
+</tr>
+<tr data-sourcepos="298:1-298:67">
+<td data-sourcepos="298:2-298:39">Drop stash (remove without applying)</td>
+<td data-sourcepos="298:41-298:66"><code data-sourcepos="298:42-298:64">git::DropCurrentStash</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ai-support-in-git" data-sourcepos="300:1-300:20">AI Support in Git<a href="#ai-support-in-git" aria-label="Link to heading 'AI Support in Git'" data-heading-content="AI Support in Git" class="anchor"></a></h2>
+<p data-sourcepos="302:1-303:263">Zed currently supports LLM-powered commit message generation.
+You can ask AI to generate a commit message by focusing on the message editor within the Git Panel and either clicking on the pencil icon in the bottom left, or reaching for the <code data-sourcepos="303:179-303:206">git::GenerateCommitMessage</code>, or through the <code data-sourcepos="303:224-303:251">git::GenerateCommitMessage</code> keybinding.</p>
+<blockquote data-sourcepos="305:1-306:75">
+<p data-sourcepos="305:3-306:75">Note that you need to have an LLM provider configured either via your own API keys or through Zed’s hosted AI models.
+Visit <a data-sourcepos="306:9-306:45" href="ai/quick-start.html">AI Quick Start</a> to learn how to configure AI.</p>
+</blockquote>
+<p data-sourcepos="308:1-309:99">You can specify your preferred model for this task by adding a <code data-sourcepos="308:64-308:85">commit_message_model</code> field to your agent settings.
+See <a data-sourcepos="309:5-309:77" href="ai/agent-settings.html#feature-specific-models">Feature-specific models</a> for more information.</p>
+<pre class="syntax-highlighting" data-sourcepos="311:1-320:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>commit_message_model<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>provider<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>anthropic<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>model<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>claude-4-5-haiku<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="322:1-322:175">To add custom commit instructions for the model, use the global <code data-sourcepos="322:65-322:75">AGENTS.md</code> file located at <code data-sourcepos="322:93-322:117">~/.config/zed/AGENTS.md</code> on macOS and Linux, <code data-sourcepos="322:139-322:163">%APPDATA%\Zed\AGENTS.md</code> on Windows.</p>
+<p data-sourcepos="324:1-324:140">To add custom instructions that apply only to commit message generation, use the <code data-sourcepos="324:82-324:110">commit_message_instructions</code> field in your agent settings:</p>
+<pre class="syntax-highlighting" data-sourcepos="326:1-332:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>commit_message_instructions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Use the Conventional Commits format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;.<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="334:1-334:321">These instructions are sent to the model in addition to any instruction files, such as <code data-sourcepos="334:88-334:95">.rules</code> or <code data-sourcepos="334:100-334:110">AGENTS.md</code>. To add instructions that apply to both commit messages and the agent more broadly, use the global <code data-sourcepos="334:211-334:221">AGENTS.md</code> file located at <code data-sourcepos="334:239-334:263">~/.config/zed/AGENTS.md</code> on macOS and Linux, <code data-sourcepos="334:285-334:309">%APPDATA%\Zed\AGENTS.md</code> on Windows.</p>
+<blockquote data-sourcepos="336:1-337:93">
+<p data-sourcepos="336:3-337:93">Before Zed v1.4.0, this was done through the Rules Library, which has been removed.
+See <a data-sourcepos="337:7-337:71" href="ai/instructions.html#migrating-from-rules">Migrating from Rules</a> for more information.</p>
+</blockquote>
+<h2 id="git-integrations" data-sourcepos="339:1-339:19">Git Integrations<a href="#git-integrations" aria-label="Link to heading 'Git Integrations'" data-heading-content="Git Integrations" class="anchor"></a></h2>
+<p data-sourcepos="341:1-341:165">Zed integrates with popular Git hosting services to ensure that Git commit hashes and references to Issues, Pull Requests, and Merge Requests become clickable links.</p>
+<p data-sourcepos="343:1-349:33">Zed currently supports links to the hosted versions of
+<a data-sourcepos="344:1-344:28" href="https://github.com">GitHub</a>,
+<a data-sourcepos="345:1-345:28" href="https://gitlab.com">GitLab</a>,
+<a data-sourcepos="346:1-346:34" href="https://bitbucket.org">Bitbucket</a>,
+<a data-sourcepos="347:1-347:26" href="https://sr.ht">SourceHut</a>,
+<a data-sourcepos="348:1-348:30" href="https://tangled.org">Tangled</a> and
+<a data-sourcepos="349:1-349:32" href="https://codeberg.org">Codeberg</a>.</p>
+<h3 id="self-hosted-instances" data-sourcepos="351:1-351:25">Self-Hosted Instances<a href="#self-hosted-instances" aria-label="Link to heading 'Self-Hosted Instances'" data-heading-content="Self-Hosted Instances" class="anchor"></a></h3>
+<p data-sourcepos="353:1-353:288">Zed automatically identifies Git hosting providers by checking for keywords in your Git remote URL. For example, if your self-hosted URL contains <code data-sourcepos="353:147-353:154">gitlab</code>, <code data-sourcepos="353:157-353:163">gitea</code>, or other recognized provider names, Zed will automatically register that hosting provider without any configuration needed.</p>
+<p data-sourcepos="355:1-355:257">However, if your self-hosted Git instance URL doesn’t contain identifying keywords, you can manually configure Zed to create clickable links to your instance by adding a <code data-sourcepos="355:171-355:193">git_hosting_providers</code> setting so commit hashes and permalinks resolve to your domain:</p>
+<pre class="syntax-highlighting" data-sourcepos="357:1-367:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+  </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>git_hosting_providers<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+    <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>provider<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>gitlab<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>name<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>Corp GitLab<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+      </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>base_url<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>https://git.example.corp<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+  <span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+<span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+</span></code></pre>
+<p data-sourcepos="369:1-369:484">The <code data-sourcepos="369:5-369:14">provider</code> field specifies which type of hosting service you’re using. Supported <code data-sourcepos="369:86-369:95">provider</code> values are <code data-sourcepos="369:108-369:115">github</code>, <code data-sourcepos="369:118-369:125">gitlab</code>, <code data-sourcepos="369:128-369:138">bitbucket</code>, <code data-sourcepos="369:141-369:147">gitea</code>, <code data-sourcepos="369:150-369:158">forgejo</code>, <code data-sourcepos="369:161-369:171">sourcehut</code>, <code data-sourcepos="369:174-369:182">tangled</code>, and <code data-sourcepos="369:189-369:197">gitiles</code>. The <code data-sourcepos="369:204-369:209">name</code> is optional and used as a display name for your instance, and <code data-sourcepos="369:273-369:282">base_url</code> is the root URL of your self-hosted server. For the <code data-sourcepos="369:336-369:344">gitiles</code> provider, set <code data-sourcepos="369:360-369:369">base_url</code> to the Gitiles browse root (e.g. <code data-sourcepos="369:404-369:437">https://android.googlesource.com</code> or <code data-sourcepos="369:442-369:482">https://git.example.com/plugins/gitiles</code>).</p>
+<p data-sourcepos="371:1-371:91">You can configure multiple custom providers if you work with several self-hosted instances.</p>
+<h3 id="permalinks" data-sourcepos="373:1-373:14">Permalinks<a href="#permalinks" aria-label="Link to heading 'Permalinks'" data-heading-content="Permalinks" class="anchor"></a></h3>
+<p data-sourcepos="375:1-376:100">Zed can open or copy a permanent link to a file or code selection on your Git hosting service.
+These links are useful for sharing a specific line or range of lines in a file at a specific commit.</p>
+<p data-sourcepos="378:1-381:62">For the current selection in the editor, use <code data-sourcepos="378:46-378:74">editor::CopyPermalinkToLine</code> or
+<code data-sourcepos="379:1-379:29">editor::OpenPermalinkToLine</code> from the <a data-sourcepos="379:40-379:78" href="command-palette.html">Command Palette</a>
+(search for <code data-sourcepos="380:13-380:23">permalink</code>), via <a data-sourcepos="380:31-380:84" href="key-bindings.html#keymap-editor">custom key bindings</a>,
+or by right-clicking and selecting <strong data-sourcepos="381:36-381:61">Copy Permalink to Line</strong>.</p>
+<p data-sourcepos="383:1-384:46">From a file tab or the Project Panel, you can also <strong data-sourcepos="383:52-383:74">Open File Permalink</strong> or <strong data-sourcepos="383:79-383:101">Copy File Permalink</strong>
+for the whole file (without a line selection).</p>
+<h2 id="diff-hunk-keyboard-shortcuts" data-sourcepos="386:1-386:31">Diff Hunk Keyboard Shortcuts<a href="#diff-hunk-keyboard-shortcuts" aria-label="Link to heading 'Diff Hunk Keyboard Shortcuts'" data-heading-content="Diff Hunk Keyboard Shortcuts" class="anchor"></a></h2>
+<p data-sourcepos="388:1-388:111">When viewing files with changes, Zed displays diff hunks that can be expanded or collapsed for detailed review:</p>
+<ul data-sourcepos="390:1-393:79">
+<li data-sourcepos="390:1-390:88"><strong data-sourcepos="390:3-390:27">Expand all diff hunks</strong>: <code data-sourcepos="390:30-390:57">editor::ExpandAllDiffHunks</code> (<code data-sourcepos="390:60-390:87">editor::ExpandAllDiffHunks</code>)</li>
+<li data-sourcepos="391:1-391:73"><strong data-sourcepos="391:3-391:29">Collapse all diff hunks</strong>: Press <code data-sourcepos="391:38-391:45">Escape</code> (bound to <code data-sourcepos="391:57-391:72">editor::Cancel</code>)</li>
+<li data-sourcepos="392:1-392:103"><strong data-sourcepos="392:3-392:32">Toggle selected diff hunks</strong>: <code data-sourcepos="392:35-392:67">editor::ToggleSelectedDiffHunks</code> (<code data-sourcepos="392:70-392:102">editor::ToggleSelectedDiffHunks</code>)</li>
+<li data-sourcepos="393:1-393:79"><strong data-sourcepos="393:3-393:28">Navigate between hunks</strong>: <code data-sourcepos="393:31-393:48">editor::GoToHunk</code> and <code data-sourcepos="393:54-393:79">editor::GoToPreviousHunk</code></li>
+</ul>
+<blockquote data-sourcepos="395:1-395:126">
+<p data-sourcepos="395:3-395:126"><strong data-sourcepos="395:3-395:10">Tip:</strong> The <code data-sourcepos="395:16-395:23">Escape</code> key is the quickest way to collapse all expanded diff hunks and return to an overview of your changes.</p>
+</blockquote>
+<h2 id="action-reference" data-sourcepos="397:1-397:19">Action Reference<a href="#action-reference" aria-label="Link to heading 'Action Reference'" data-heading-content="Action Reference" class="anchor"></a></h2>
+<table data-sourcepos="399:1-432:73" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="399:1-399:85">
+<th data-sourcepos="399:2-399:44">Action</th>
+<th data-sourcepos="399:46-399:84">Keybinding</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="401:1-401:73">
+<td data-sourcepos="401:2-401:36"><code data-sourcepos="401:3-401:12">git::Add</code></td>
+<td data-sourcepos="401:38-401:72"><code data-sourcepos="401:39-401:48">git::Add</code></td>
+</tr>
+<tr data-sourcepos="402:1-402:73">
+<td data-sourcepos="402:2-402:36"><code data-sourcepos="402:3-402:17">git::StageAll</code></td>
+<td data-sourcepos="402:38-402:72"><code data-sourcepos="402:39-402:53">git::StageAll</code></td>
+</tr>
+<tr data-sourcepos="403:1-403:73">
+<td data-sourcepos="403:2-403:36"><code data-sourcepos="403:3-403:19">git::UnstageAll</code></td>
+<td data-sourcepos="403:38-403:72"><code data-sourcepos="403:39-403:55">git::UnstageAll</code></td>
+</tr>
+<tr data-sourcepos="404:1-404:73">
+<td data-sourcepos="404:2-404:36"><code data-sourcepos="404:3-404:21">git::StageSection</code></td>
+<td data-sourcepos="404:38-404:72"><code data-sourcepos="404:39-404:57">git::StageSection</code></td>
+</tr>
+<tr data-sourcepos="405:1-405:73">
+<td data-sourcepos="405:2-405:36"><code data-sourcepos="405:3-405:23">git::UnstageSection</code></td>
+<td data-sourcepos="405:38-405:72"><code data-sourcepos="405:39-405:59">git::UnstageSection</code></td>
+</tr>
+<tr data-sourcepos="406:1-406:73">
+<td data-sourcepos="406:2-406:36"><code data-sourcepos="406:3-406:21">git::ToggleStaged</code></td>
+<td data-sourcepos="406:38-406:72"><code data-sourcepos="406:39-406:57">git::ToggleStaged</code></td>
+</tr>
+<tr data-sourcepos="407:1-407:73">
+<td data-sourcepos="407:2-407:36"><code data-sourcepos="407:3-407:21">git::StageAndNext</code></td>
+<td data-sourcepos="407:38-407:72"><code data-sourcepos="407:39-407:57">git::StageAndNext</code></td>
+</tr>
+<tr data-sourcepos="408:1-408:73">
+<td data-sourcepos="408:2-408:36"><code data-sourcepos="408:3-408:23">git::UnstageAndNext</code></td>
+<td data-sourcepos="408:38-408:72"><code data-sourcepos="408:39-408:59">git::UnstageAndNext</code></td>
+</tr>
+<tr data-sourcepos="409:1-409:73">
+<td data-sourcepos="409:2-409:36"><code data-sourcepos="409:3-409:15">git::Commit</code></td>
+<td data-sourcepos="409:38-409:72"><code data-sourcepos="409:39-409:51">git::Commit</code></td>
+</tr>
+<tr data-sourcepos="410:1-410:73">
+<td data-sourcepos="410:2-410:36"><code data-sourcepos="410:3-410:27">git::ExpandCommitEditor</code></td>
+<td data-sourcepos="410:38-410:72"><code data-sourcepos="410:39-410:63">git::ExpandCommitEditor</code></td>
+</tr>
+<tr data-sourcepos="411:1-411:73">
+<td data-sourcepos="411:2-411:36"><code data-sourcepos="411:3-411:13">git::Push</code></td>
+<td data-sourcepos="411:38-411:72"><code data-sourcepos="411:39-411:49">git::Push</code></td>
+</tr>
+<tr data-sourcepos="412:1-412:73">
+<td data-sourcepos="412:2-412:36"><code data-sourcepos="412:3-412:18">git::ForcePush</code></td>
+<td data-sourcepos="412:38-412:72"><code data-sourcepos="412:39-412:54">git::ForcePush</code></td>
+</tr>
+<tr data-sourcepos="413:1-413:73">
+<td data-sourcepos="413:2-413:36"><code data-sourcepos="413:3-413:13">git::Pull</code></td>
+<td data-sourcepos="413:38-413:72"><code data-sourcepos="413:39-413:49">git::Pull</code></td>
+</tr>
+<tr data-sourcepos="414:1-414:73">
+<td data-sourcepos="414:2-414:36"><code data-sourcepos="414:3-414:19">git::PullRebase</code></td>
+<td data-sourcepos="414:38-414:72"><code data-sourcepos="414:39-414:55">git::PullRebase</code></td>
+</tr>
+<tr data-sourcepos="415:1-415:73">
+<td data-sourcepos="415:2-415:36"><code data-sourcepos="415:3-415:14">git::Fetch</code></td>
+<td data-sourcepos="415:38-415:72"><code data-sourcepos="415:39-415:50">git::Fetch</code></td>
+</tr>
+<tr data-sourcepos="416:1-416:73">
+<td data-sourcepos="416:2-416:36"><code data-sourcepos="416:3-416:13">git::Diff</code></td>
+<td data-sourcepos="416:38-416:72"><code data-sourcepos="416:39-416:49">git::Diff</code></td>
+</tr>
+<tr data-sourcepos="417:1-417:73">
+<td data-sourcepos="417:2-417:36"><code data-sourcepos="417:3-417:16">git::Restore</code></td>
+<td data-sourcepos="417:38-417:72"><code data-sourcepos="417:39-417:52">git::Restore</code></td>
+</tr>
+<tr data-sourcepos="418:1-418:73">
+<td data-sourcepos="418:2-418:36"><code data-sourcepos="418:3-418:20">git::RestoreFile</code></td>
+<td data-sourcepos="418:38-418:72"><code data-sourcepos="418:39-418:56">git::RestoreFile</code></td>
+</tr>
+<tr data-sourcepos="419:1-419:73">
+<td data-sourcepos="419:2-419:36"><code data-sourcepos="419:3-419:15">git::Branch</code></td>
+<td data-sourcepos="419:38-419:72"><code data-sourcepos="419:39-419:51">git::Branch</code></td>
+</tr>
+<tr data-sourcepos="420:1-420:73">
+<td data-sourcepos="420:2-420:36"><code data-sourcepos="420:3-420:15">git::Switch</code></td>
+<td data-sourcepos="420:38-420:72"><code data-sourcepos="420:39-420:51">git::Switch</code></td>
+</tr>
+<tr data-sourcepos="421:1-421:73">
+<td data-sourcepos="421:2-421:36"><code data-sourcepos="421:3-421:23">git::CheckoutBranch</code></td>
+<td data-sourcepos="421:38-421:72"><code data-sourcepos="421:39-421:59">git::CheckoutBranch</code></td>
+</tr>
+<tr data-sourcepos="422:1-422:73">
+<td data-sourcepos="422:2-422:36"><code data-sourcepos="422:3-422:17">git::Worktree</code></td>
+<td data-sourcepos="422:38-422:72"><code data-sourcepos="422:39-422:53">git::Worktree</code></td>
+</tr>
+<tr data-sourcepos="423:1-423:73">
+<td data-sourcepos="423:2-423:36"><code data-sourcepos="423:3-423:14">git::Blame</code></td>
+<td data-sourcepos="423:38-423:72"><code data-sourcepos="423:39-423:50">git::Blame</code></td>
+</tr>
+<tr data-sourcepos="424:1-424:73">
+<td data-sourcepos="424:2-424:36"><code data-sourcepos="424:3-424:17">git::StashAll</code></td>
+<td data-sourcepos="424:38-424:72"><code data-sourcepos="424:39-424:53">git::StashAll</code></td>
+</tr>
+<tr data-sourcepos="425:1-425:73">
+<td data-sourcepos="425:2-425:36"><code data-sourcepos="425:3-425:21">git::StashTracked</code></td>
+<td data-sourcepos="425:38-425:72"><code data-sourcepos="425:39-425:57">git::StashTracked</code></td>
+</tr>
+<tr data-sourcepos="426:1-426:73">
+<td data-sourcepos="426:2-426:36"><code data-sourcepos="426:3-426:20">git::StashStaged</code></td>
+<td data-sourcepos="426:38-426:72"><code data-sourcepos="426:39-426:56">git::StashStaged</code></td>
+</tr>
+<tr data-sourcepos="427:1-427:73">
+<td data-sourcepos="427:2-427:36"><code data-sourcepos="427:3-427:17">git::StashPop</code></td>
+<td data-sourcepos="427:38-427:72"><code data-sourcepos="427:39-427:53">git::StashPop</code></td>
+</tr>
+<tr data-sourcepos="428:1-428:73">
+<td data-sourcepos="428:2-428:36"><code data-sourcepos="428:3-428:19">git::StashApply</code></td>
+<td data-sourcepos="428:38-428:72"><code data-sourcepos="428:39-428:55">git::StashApply</code></td>
+</tr>
+<tr data-sourcepos="429:1-429:73">
+<td data-sourcepos="429:2-429:36"><code data-sourcepos="429:3-429:18">git::ViewStash</code></td>
+<td data-sourcepos="429:38-429:72"><code data-sourcepos="429:39-429:54">git::ViewStash</code></td>
+</tr>
+<tr data-sourcepos="430:1-430:73">
+<td data-sourcepos="430:2-430:36"><code data-sourcepos="430:3-430:32">editor::ToggleGitBlameInline</code></td>
+<td data-sourcepos="430:38-430:72"><code data-sourcepos="430:39-430:68">editor::ToggleGitBlameInline</code></td>
+</tr>
+<tr data-sourcepos="431:1-431:73">
+<td data-sourcepos="431:2-431:36"><code data-sourcepos="431:3-431:30">editor::ExpandAllDiffHunks</code></td>
+<td data-sourcepos="431:38-431:72"><code data-sourcepos="431:39-431:66">editor::ExpandAllDiffHunks</code></td>
+</tr>
+<tr data-sourcepos="432:1-432:73">
+<td data-sourcepos="432:2-432:36"><code data-sourcepos="432:3-432:35">editor::ToggleSelectedDiffHunks</code></td>
+<td data-sourcepos="432:38-432:72"><code data-sourcepos="432:39-432:71">editor::ToggleSelectedDiffHunks</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote data-sourcepos="434:1-434:122">
+<p data-sourcepos="434:3-434:122">Not all actions have default keybindings, but can be bound by <a data-sourcepos="434:65-434:121" href="key-bindings.html#user-keymaps">customizing your keymap</a>.</p>
+</blockquote>
+<h2 id="git-cli-configuration" data-sourcepos="436:1-436:24">Git CLI Configuration<a href="#git-cli-configuration" aria-label="Link to heading 'Git CLI Configuration'" data-heading-content="Git CLI Configuration" class="anchor"></a></h2>
+<p data-sourcepos="438:1-438:213">If you would like to also use Zed for your <a data-sourcepos="438:44-438:149" href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor">git commit message editor</a> when committing from the command line you can use <code data-sourcepos="438:201-438:212">zed --wait</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="440:1-442:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">git</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> config<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>global</span> core.editor <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>zed --wait<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span></span>
+</span></code></pre>
+<p data-sourcepos="444:1-444:81">Or add the following to your shell environment (in <code data-sourcepos="444:52-444:61">~/.zshrc</code>, <code data-sourcepos="444:64-444:74">~/.bashrc</code>, etc):</p>
+<pre class="syntax-highlighting" data-sourcepos="446:1-448:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-storage hl-modifier hl-shell">export</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">GIT_EDITOR</span><span class="hl-keyword hl-operator hl-assignment hl-shell">=</span><span class="hl-string hl-unquoted hl-shell"><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>zed --wait<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span></span></span>
+</span></code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;git.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

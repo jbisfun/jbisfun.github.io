@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AppStoreAuth · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;AppStoreAuth">GitHub 原始碼</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="appstoreauth" data-sourcepos="1:1-1:14">AppStoreAuth<a href="#appstoreauth" aria-label="Link to heading 'AppStoreAuth'" data-heading-content="AppStoreAuth" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:82">適用於 iOS 的裝置端 App Store 登入，從 LiveContainer 中拆分出來。</p>
+<table data-sourcepos="5:1-10:55" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="5:1-5:19">
+<th data-sourcepos="5:2-5:9">產品</th>
+<th data-sourcepos="5:11-5:18">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="7:1-7:72">
+<td data-sourcepos="7:2-7:16"><code data-sourcepos="7:3-7:15">NativeStore</code></td>
+<td data-sourcepos="7:18-7:71">連接 StoreServices / AMD 的 Objective-C 橋接層</td>
+</tr>
+<tr data-sourcepos="8:1-8:101">
+<td data-sourcepos="8:2-8:11"><code data-sourcepos="8:3-8:10">SAPKit</code></td>
+<td data-sourcepos="8:13-8:100">在模擬機器中執行 Apple 的 SAP 簽署器（透過 MacADICore 使用 Unicorn）</td>
+</tr>
+<tr data-sourcepos="9:1-9:71">
+<td data-sourcepos="9:2-9:19"><code data-sourcepos="9:3-9:18">MacAnisetteKit</code></td>
+<td data-sourcepos="9:21-9:70">Mac CoreADI anisette（MID/OTP）、機器佈建</td>
+</tr>
+<tr data-sourcepos="10:1-10:55">
+<td data-sourcepos="10:2-10:17"><code data-sourcepos="10:3-10:16">AppStoreCore</code></td>
+<td data-sourcepos="10:19-10:54">App Store 驗證流程與用戶端</td>
+</tr>
+</tbody>
+</table>
+<pre class="syntax-highlighting" data-sourcepos="12:1-14:3"><code class="language-swift"><span class="hl-source hl-swift"><span class="hl-keyword hl-operator hl-custom hl-postfix hl-unary hl-swift">.</span>package(url: <span class="hl-meta hl-literal hl-string hl-swift"><span class="hl-string hl-quoted hl-double hl-swift">&quot;</span><span class="hl-string hl-quoted hl-double hl-swift">h</span><span class="hl-string hl-quoted hl-double hl-swift">t</span><span class="hl-string hl-quoted hl-double hl-swift">t</span><span class="hl-string hl-quoted hl-double hl-swift">p</span><span class="hl-string hl-quoted hl-double hl-swift">s</span><span class="hl-string hl-quoted hl-double hl-swift">:</span><span class="hl-string hl-quoted hl-double hl-swift">/</span><span class="hl-string hl-quoted hl-double hl-swift">/</span><span class="hl-string hl-quoted hl-double hl-swift">g</span><span class="hl-string hl-quoted hl-double hl-swift">i</span><span class="hl-string hl-quoted hl-double hl-swift">t</span><span class="hl-string hl-quoted hl-double hl-swift">h</span><span class="hl-string hl-quoted hl-double hl-swift">u</span><span class="hl-string hl-quoted hl-double hl-swift">b</span><span class="hl-string hl-quoted hl-double hl-swift">.</span><span class="hl-string hl-quoted hl-double hl-swift">c</span><span class="hl-string hl-quoted hl-double hl-swift">o</span><span class="hl-string hl-quoted hl-double hl-swift">m</span><span class="hl-string hl-quoted hl-double hl-swift">/</span><span class="hl-string hl-quoted hl-double hl-swift">j</span><span class="hl-string hl-quoted hl-double hl-swift">b</span><span class="hl-string hl-quoted hl-double hl-swift">i</span><span class="hl-string hl-quoted hl-double hl-swift">s</span><span class="hl-string hl-quoted hl-double hl-swift">f</span><span class="hl-string hl-quoted hl-double hl-swift">u</span><span class="hl-string hl-quoted hl-double hl-swift">n</span><span class="hl-string hl-quoted hl-double hl-swift">/</span><span class="hl-string hl-quoted hl-double hl-swift">A</span><span class="hl-string hl-quoted hl-double hl-swift">p</span><span class="hl-string hl-quoted hl-double hl-swift">p</span><span class="hl-string hl-quoted hl-double hl-swift">S</span><span class="hl-string hl-quoted hl-double hl-swift">t</span><span class="hl-string hl-quoted hl-double hl-swift">o</span><span class="hl-string hl-quoted hl-double hl-swift">r</span><span class="hl-string hl-quoted hl-double hl-swift">e</span><span class="hl-string hl-quoted hl-double hl-swift">A</span><span class="hl-string hl-quoted hl-double hl-swift">u</span><span class="hl-string hl-quoted hl-double hl-swift">t</span><span class="hl-string hl-quoted hl-double hl-swift">h</span><span class="hl-string hl-quoted hl-double hl-swift">&quot;</span></span>, branch: <span class="hl-meta hl-literal hl-string hl-swift"><span class="hl-string hl-quoted hl-double hl-swift">&quot;</span><span class="hl-string hl-quoted hl-double hl-swift">m</span><span class="hl-string hl-quoted hl-double hl-swift">a</span><span class="hl-string hl-quoted hl-double hl-swift">i</span><span class="hl-string hl-quoted hl-double hl-swift">n</span><span class="hl-string hl-quoted hl-double hl-swift">&quot;</span></span>)
+</span></code></pre>
+<p data-sourcepos="16:1-18:49">相依於 <a data-sourcepos="16:11-16:61" href="https://github.com/jbisfun/MacADICore">MacADICore</a>。衍生自
+AnisetteKit（AGPL-3.0，請參閱 LICENSE）；SAPKit 在
+<code data-sourcepos="18:1-18:16">Sources/SAPKit</code> 中附有自己的 MIT 聲明。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;AppStoreAuth&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

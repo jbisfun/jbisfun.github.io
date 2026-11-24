@@ -12,11 +12,14 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;..&#x2f;zh-tw&#x2f;wiki&#x2f;docs&#x2f;templating.html">
+
   <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
   <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -143,6 +146,20 @@
         </li>
 
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="templating.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;zh-tw&#x2f;wiki&#x2f;docs&#x2f;templating.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
@@ -187,6 +204,7 @@
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
 
+
       <h1>Templating</h1>
 <p>Any <code>.jinja</code> file in a repo's <code>docs/</code> (or in <code>wiki/pages/</code>) is a page, rendered with <a href="https://github.com/mitsuhiko/minijinja">minijinja</a> (Jinja2 syntax). This page is <code>wiki/docs/templating.jinja</code>. Layouts and partials live in <code>wiki/templates</code>.</p>
 
@@ -200,9 +218,10 @@
 
 <h2>Variables</h2>
 <ul>
-  <li><code>site</code>: <code>title</code>, <code>repos</code>, <code>pages</code> (<code>{title, out}</code>)</li>
+  <li><code>site</code>: <code>title</code>, <code>home</code> (this language's home page), <code>lang</code>, <code>repos</code>, <code>pages</code> (<code>{title, out}</code>)</li>
   <li><code>repo</code>: the current repo (<code>name</code>, <code>title</code> (name without its pull group), <code>category</code>, <code>description</code>, <code>index</code>, <code>readme_page</code>, <code>doc_pages</code>, <code>apis</code> (<code>{tool, title, label, out}</code>), <code>web</code>, <code>head</code>, ...)</li>
-  <li><code>page</code>: <code>title</code>, <code>out</code>, <code>rel</code>, front matter as <code>page.data</code></li>
+  <li><code>page</code>: <code>title</code>, <code>out</code>, <code>rel</code>, <code>lang</code>, <code>translation</code> (<code>"machine"</code>, <code>"missing"</code> or none), <code>original</code> (the English page), <code>alternates</code> (<code>{lang, name, out, current}</code>), front matter as <code>page.data</code></li>
+  <li><code>t(key, **args)</code>: a message from <code>locales/&lt;lang&gt;/main.ftl</code> in the page's language</li>
   <li><code>url(path)</code>: site-relative path to a link from this page</li>
   <li><code>md(source)</code>: render markdown</li>
 </ul>

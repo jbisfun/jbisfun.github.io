@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Migrate from VS Code to Zed · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;migrate&#x2f;vs-code.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="..&#x2f;..&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;docs&#x2f;migrate&#x2f;vs-code.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="vs-code.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">GitHub 原始碼</a></li>
+
+</ul>
+
+<h1>程式碼參考</h1>
+<ul class="list-unstyled">
+
+  <li><a href="..&#x2f;..&#x2f;..&#x2f;..&#x2f;ycode&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
+
+</ul>
+
+
+<h1>Zed</h1>
+
+<h1 id="welcome" data-sourcepos="1:1-1:9">Welcome<a href="#welcome" aria-label="Link to heading 'Welcome'" data-heading-content="Welcome" class="anchor"></a></h1>
+<ul data-sourcepos="3:1-7:41">
+<li data-sourcepos="3:1-3:41"><a data-sourcepos="3:3-3:41" href="../getting-started.html">Getting Started</a></li>
+<li data-sourcepos="4:1-6:31"><a data-sourcepos="4:3-4:35" href="../installation.html">Installation</a>
+<ul data-sourcepos="5:3-6:31">
+<li data-sourcepos="5:3-5:25"><a data-sourcepos="5:5-5:25" href="../update.html">Update</a></li>
+<li data-sourcepos="6:3-6:31"><a data-sourcepos="6:5-6:31" href="../uninstall.html">Uninstall</a></li>
+</ul>
+</li>
+<li data-sourcepos="7:1-7:41"><a data-sourcepos="7:3-7:41" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<h1 id="working-with-code" data-sourcepos="9:1-9:19">Working with Code<a href="#working-with-code" aria-label="Link to heading 'Working with Code'" data-heading-content="Working with Code" class="anchor"></a></h1>
+<ul data-sourcepos="11:1-28:29">
+<li data-sourcepos="11:1-11:49"><a data-sourcepos="11:3-11:49" href="../windows-and-projects.html">Windows &amp; Projects</a></li>
+<li data-sourcepos="12:1-16:37"><a data-sourcepos="12:3-12:35" href="../editing-code.html">Editing Code</a>
+<ul data-sourcepos="13:3-16:37">
+<li data-sourcepos="13:3-13:40"><a data-sourcepos="13:5-13:40" href="../completions.html">Code Completions</a></li>
+<li data-sourcepos="14:3-14:29"><a data-sourcepos="14:5-14:29" href="../snippets.html">Snippets</a></li>
+<li data-sourcepos="15:3-15:49"><a data-sourcepos="15:5-15:49" href="../diagnostics.html">Diagnostics &amp; Quick Fixes</a></li>
+<li data-sourcepos="16:3-16:37"><a data-sourcepos="16:5-16:37" href="../multibuffers.html">Multibuffers</a></li>
+</ul>
+</li>
+<li data-sourcepos="17:1-21:37"><a data-sourcepos="17:3-17:49" href="../finding-navigating.html">Finding &amp; Navigating</a>
+<ul data-sourcepos="18:3-21:37">
+<li data-sourcepos="18:3-18:43"><a data-sourcepos="18:5-18:43" href="../command-palette.html">Command Palette</a></li>
+<li data-sourcepos="19:3-19:39"><a data-sourcepos="19:5-19:39" href="../outline-panel.html">Outline Panel</a></li>
+<li data-sourcepos="20:3-20:39"><a data-sourcepos="20:5-20:39" href="../project-panel.html">Project Panel</a></li>
+<li data-sourcepos="21:3-21:37"><a data-sourcepos="21:5-21:37" href="../tab-switcher.html">Tab Switcher</a></li>
+</ul>
+</li>
+<li data-sourcepos="22:1-26:21"><a data-sourcepos="22:3-22:43" href="../running-testing.html">Running &amp; Testing</a>
+<ul data-sourcepos="23:3-26:21">
+<li data-sourcepos="23:3-23:29"><a data-sourcepos="23:5-23:29" href="../terminal.html">Terminal</a></li>
+<li data-sourcepos="24:3-24:23"><a data-sourcepos="24:5-24:23" href="../tasks.html">Tasks</a></li>
+<li data-sourcepos="25:3-25:29"><a data-sourcepos="25:5-25:29" href="../debugger.html">Debugger</a></li>
+<li data-sourcepos="26:3-26:21"><a data-sourcepos="26:5-26:21" href="../repl.html">REPL</a></li>
+</ul>
+</li>
+<li data-sourcepos="27:1-27:17"><a data-sourcepos="27:3-27:17" href="../git.html">Git</a></li>
+<li data-sourcepos="28:1-28:29"><a data-sourcepos="28:3-28:29" href="../modelines.html">Modelines</a></li>
+</ul>
+<h1 id="collaboration" data-sourcepos="30:1-30:15">Collaboration<a href="#collaboration" aria-label="Link to heading 'Collaboration'" data-heading-content="Collaboration" class="anchor"></a></h1>
+<ul data-sourcepos="32:1-34:79">
+<li data-sourcepos="32:1-34:79"><a data-sourcepos="32:3-32:41" href="../collaboration/overview.html">Overview</a>
+<ul data-sourcepos="33:3-34:79">
+<li data-sourcepos="33:3-33:43"><a data-sourcepos="33:5-33:43" href="../collaboration/channels.html">Channels</a></li>
+<li data-sourcepos="34:3-34:79"><a data-sourcepos="34:5-34:79" href="../collaboration/contacts-and-private-calls.html">Contacts and Private Calls</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="remote-development" data-sourcepos="36:1-36:20">Remote Development<a href="#remote-development" aria-label="Link to heading 'Remote Development'" data-heading-content="Remote Development" class="anchor"></a></h1>
+<ul data-sourcepos="38:1-40:39">
+<li data-sourcepos="38:1-38:37"><a data-sourcepos="38:3-38:37" href="../remote-development.html">Overview</a></li>
+<li data-sourcepos="39:1-39:43"><a data-sourcepos="39:3-39:43" href="../environment.html">Environment Variables</a></li>
+<li data-sourcepos="40:1-40:39"><a data-sourcepos="40:3-40:39" href="../dev-containers.html">Dev Containers</a></li>
+</ul>
+<h1 id="ai" data-sourcepos="42:1-42:4">AI<a href="#ai" aria-label="Link to heading 'AI'" data-heading-content="AI" class="anchor"></a></h1>
+<ul data-sourcepos="44:1-69:56">
+<li data-sourcepos="44:1-44:30"><a data-sourcepos="44:3-44:30" href="../ai/overview.html">Overview</a></li>
+<li data-sourcepos="45:1-45:39"><a data-sourcepos="45:3-45:39" href="../ai/quick-start.html">AI Quick Start</a></li>
+<li data-sourcepos="46:1-46:37"><a data-sourcepos="46:3-46:37" href="../ai/by-company.html">AI by Company</a></li>
+<li data-sourcepos="47:1-50:48"><a data-sourcepos="47:3-47:26" href="../ai/agents.html">Agents</a>
+<ul data-sourcepos="48:3-50:48">
+<li data-sourcepos="48:3-48:34"><a data-sourcepos="48:5-48:34" href="../ai/zed-agent.html">Zed Agent</a></li>
+<li data-sourcepos="49:3-49:46"><a data-sourcepos="49:5-49:46" href="../ai/external-agents.html">External Agents</a></li>
+<li data-sourcepos="50:3-50:48"><a data-sourcepos="50:5-50:48" href="../ai/terminal-threads.html">Terminal Threads</a></li>
+</ul>
+</li>
+<li data-sourcepos="51:1-59:40"><a data-sourcepos="51:3-51:36" href="../ai/agent-panel.html">Agent Panel</a>
+<ul data-sourcepos="52:3-59:40">
+<li data-sourcepos="52:3-52:44"><a data-sourcepos="52:5-52:44" href="../ai/agent-settings.html">Agent Settings</a></li>
+<li data-sourcepos="53:3-53:44"><a data-sourcepos="53:5-53:44" href="../ai/agent-profiles.html">Agent Profiles</a></li>
+<li data-sourcepos="54:3-57:43"><a data-sourcepos="54:5-54:26" href="../ai/tools.html">Tools</a>
+<ul data-sourcepos="55:5-57:43">
+<li data-sourcepos="55:5-55:50"><a data-sourcepos="55:7-55:50" href="../ai/tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="56:5-56:44"><a data-sourcepos="56:7-56:44" href="../ai/sandboxing.html">Agent Sandboxing</a></li>
+<li data-sourcepos="57:5-57:43"><a data-sourcepos="57:7-57:43" href="../ai/mcp.html">Model Context Protocol</a></li>
+</ul>
+</li>
+<li data-sourcepos="58:3-58:28"><a data-sourcepos="58:5-58:28" href="../ai/skills.html">Skills</a></li>
+<li data-sourcepos="59:3-59:40"><a data-sourcepos="59:5-59:40" href="../ai/instructions.html">Instructions</a></li>
+</ul>
+</li>
+<li data-sourcepos="60:1-60:44"><a data-sourcepos="60:3-60:44" href="../ai/parallel-agents.html">Parallel Agents</a></li>
+<li data-sourcepos="61:1-61:46"><a data-sourcepos="61:3-61:46" href="../ai/inline-assistant.html">Inline Assistant</a></li>
+<li data-sourcepos="62:1-66:50"><a data-sourcepos="62:3-62:40" href="../ai/llm-providers.html">LLM Providers</a>
+<ul data-sourcepos="63:3-66:50">
+<li data-sourcepos="63:3-63:44"><a data-sourcepos="63:5-63:44" href="../ai/use-api-access.html">Use API Access</a></li>
+<li data-sourcepos="64:3-64:72"><a data-sourcepos="64:5-64:72" href="../ai/use-an-existing-subscription.html">Use an Existing Subscription</a></li>
+<li data-sourcepos="65:3-65:42"><a data-sourcepos="65:5-65:42" href="../ai/use-a-gateway.html">Use a Gateway</a></li>
+<li data-sourcepos="66:3-66:50"><a data-sourcepos="66:5-66:50" href="../ai/use-a-local-model.html">Use a Local Model</a></li>
+</ul>
+</li>
+<li data-sourcepos="67:1-67:44"><a data-sourcepos="67:3-67:44" href="../ai/edit-prediction.html">Edit Prediction</a></li>
+<li data-sourcepos="68:1-69:56"><a data-sourcepos="68:3-68:44" href="../ai/privacy-and-security.html">AI Privacy</a>
+<ul data-sourcepos="69:3-69:56">
+<li data-sourcepos="69:3-69:56"><a data-sourcepos="69:5-69:56" href="../ai/ai-improvement.html">Feedback and Training Data</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="account--billing" data-sourcepos="71:1-71:19">Account &amp; Billing<a href="#account--billing" aria-label="Link to heading 'Account &amp; Billing'" data-heading-content="Account &amp; Billing" class="anchor"></a></h1>
+<ul data-sourcepos="73:1-76:33">
+<li data-sourcepos="73:1-73:37"><a data-sourcepos="73:3-73:37" href="../authentication.html">Authenticate</a></li>
+<li data-sourcepos="74:1-74:51"><a data-sourcepos="74:3-74:51" href="../account/plans-and-pricing.html">Plans &amp; Pricing</a></li>
+<li data-sourcepos="75:1-75:53"><a data-sourcepos="75:3-75:53" href="../account/zed-hosted-models.html">Zed-Hosted Models</a></li>
+<li data-sourcepos="76:1-76:33"><a data-sourcepos="76:3-76:33" href="../account/billing.html">Billing</a></li>
+</ul>
+<h1 id="zed-business" data-sourcepos="78:1-78:14">Zed Business<a href="#zed-business" aria-label="Link to heading 'Zed Business'" data-heading-content="Zed Business" class="anchor"></a></h1>
+<ul data-sourcepos="80:1-84:52">
+<li data-sourcepos="80:1-80:36"><a data-sourcepos="80:3-80:36" href="../business/overview.html">Overview</a></li>
+<li data-sourcepos="81:1-81:46"><a data-sourcepos="81:3-81:46" href="../business/organizations.html">Organizations</a></li>
+<li data-sourcepos="82:1-82:35"><a data-sourcepos="82:3-82:35" href="../roles.html">Roles &amp; Permissions</a></li>
+<li data-sourcepos="83:1-83:48"><a data-sourcepos="83:3-83:48" href="../business/admin-controls.html">Admin Controls</a></li>
+<li data-sourcepos="84:1-84:52"><a data-sourcepos="84:3-84:52" href="../business/business-support.html">Business Support</a></li>
+</ul>
+<h1 id="privacy--security" data-sourcepos="86:1-86:20">Privacy &amp; Security<a href="#privacy--security" aria-label="Link to heading 'Privacy &amp; Security'" data-heading-content="Privacy &amp; Security" class="anchor"></a></h1>
+<ul data-sourcepos="88:1-91:19">
+<li data-sourcepos="88:1-88:39"><a data-sourcepos="88:3-88:39" href="../worktree-trust.html">Worktree Trust</a></li>
+<li data-sourcepos="89:1-89:47"><a data-sourcepos="89:3-89:47" href="../business/privacy.html">Privacy for Business</a></li>
+<li data-sourcepos="90:1-90:29"><a data-sourcepos="90:3-90:29" href="../telemetry.html">Telemetry</a></li>
+<li data-sourcepos="91:1-91:19"><a data-sourcepos="91:3-91:19" href="../soc2.html">SOC2</a></li>
+</ul>
+<h1 id="platform-support" data-sourcepos="93:1-93:18">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h1>
+<ul data-sourcepos="95:1-97:21">
+<li data-sourcepos="95:1-95:21"><a data-sourcepos="95:3-95:21" href="../macos.html">macOS</a></li>
+<li data-sourcepos="96:1-96:25"><a data-sourcepos="96:3-96:25" href="../windows.html">Windows</a></li>
+<li data-sourcepos="97:1-97:21"><a data-sourcepos="97:3-97:21" href="../linux.html">Linux</a></li>
+</ul>
+<h1 id="customization" data-sourcepos="99:1-99:15">Customization<a href="#customization" aria-label="Link to heading 'Customization'" data-heading-content="Customization" class="anchor"></a></h1>
+<ul data-sourcepos="101:1-107:28">
+<li data-sourcepos="101:1-104:54"><a data-sourcepos="101:3-101:31" href="../appearance.html">Appearance</a>
+<ul data-sourcepos="102:3-104:54">
+<li data-sourcepos="102:3-102:25"><a data-sourcepos="102:5-102:25" href="../themes.html">Themes</a></li>
+<li data-sourcepos="103:3-103:35"><a data-sourcepos="103:5-103:35" href="../icon-themes.html">Icon Themes</a></li>
+<li data-sourcepos="104:3-104:54"><a data-sourcepos="104:5-104:54" href="../visual-customization.html">Fonts &amp; Visual Tweaks</a></li>
+</ul>
+</li>
+<li data-sourcepos="105:1-107:28"><a data-sourcepos="105:3-105:34" href="../key-bindings.html">Keybindings</a>
+<ul data-sourcepos="106:3-107:28">
+<li data-sourcepos="106:3-106:24"><a data-sourcepos="106:5-106:24" href="../vim.html">Vim Mode</a></li>
+<li data-sourcepos="107:3-107:28"><a data-sourcepos="107:5-107:28" href="../helix.html">Helix Mode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="language-support" data-sourcepos="109:1-109:18">Language Support<a href="#language-support" aria-label="Link to heading 'Language Support'" data-heading-content="Language Support" class="anchor"></a></h1>
+<ul data-sourcepos="111:1-186:27">
+<li data-sourcepos="111:1-111:33"><a data-sourcepos="111:3-111:33" href="../languages.html">All Languages</a></li>
+<li data-sourcepos="112:1-114:43"><a data-sourcepos="112:3-112:53" href="../configuring-languages.html">Configuring Languages</a>
+<ul data-sourcepos="113:3-114:43">
+<li data-sourcepos="113:3-113:33"><a data-sourcepos="113:5-113:33" href="../toolchains.html">Toolchains</a></li>
+<li data-sourcepos="114:3-114:43"><a data-sourcepos="114:5-114:43" href="../semantic-tokens.html">Semantic Tokens</a></li>
+</ul>
+</li>
+<li data-sourcepos="115:1-115:35"><a data-sourcepos="115:3-115:35" href="../languages/ansible.html">Ansible</a></li>
+<li data-sourcepos="116:1-116:37"><a data-sourcepos="116:3-116:37" href="../languages/asciidoc.html">AsciiDoc</a></li>
+<li data-sourcepos="117:1-117:31"><a data-sourcepos="117:3-117:31" href="../languages/astro.html">Astro</a></li>
+<li data-sourcepos="118:1-118:29"><a data-sourcepos="118:3-118:29" href="../languages/bash.html">Bash</a></li>
+<li data-sourcepos="119:1-119:31"><a data-sourcepos="119:3-119:31" href="../languages/biome.html">Biome</a></li>
+<li data-sourcepos="120:1-120:23"><a data-sourcepos="120:3-120:23" href="../languages/c.html">C</a></li>
+<li data-sourcepos="121:1-121:27"><a data-sourcepos="121:3-121:27" href="../languages/cpp.html">C++</a></li>
+<li data-sourcepos="122:1-122:29"><a data-sourcepos="122:3-122:29" href="../languages/csharp.html">C#</a></li>
+<li data-sourcepos="123:1-123:35"><a data-sourcepos="123:3-123:35" href="../languages/clojure.html">Clojure</a></li>
+<li data-sourcepos="124:1-124:27"><a data-sourcepos="124:3-124:27" href="../languages/css.html">CSS</a></li>
+<li data-sourcepos="125:1-125:29"><a data-sourcepos="125:3-125:29" href="../languages/dart.html">Dart</a></li>
+<li data-sourcepos="126:1-126:29"><a data-sourcepos="126:3-126:29" href="../languages/deno.html">Deno</a></li>
+<li data-sourcepos="127:1-127:29"><a data-sourcepos="127:3-127:29" href="../languages/diff.html">Diff</a></li>
+<li data-sourcepos="128:1-128:33"><a data-sourcepos="128:3-128:33" href="../languages/docker.html">Docker</a></li>
+<li data-sourcepos="129:1-129:33"><a data-sourcepos="129:3-129:33" href="../languages/elixir.html">Elixir</a></li>
+<li data-sourcepos="130:1-130:27"><a data-sourcepos="130:3-130:27" href="../languages/elm.html">Elm</a></li>
+<li data-sourcepos="131:1-131:31"><a data-sourcepos="131:3-131:31" href="../languages/emmet.html">Emmet</a></li>
+<li data-sourcepos="132:1-132:27"><a data-sourcepos="132:3-132:27" href="../languages/env.html">Env</a></li>
+<li data-sourcepos="133:1-133:33"><a data-sourcepos="133:3-133:33" href="../languages/erlang.html">Erlang</a></li>
+<li data-sourcepos="134:1-134:29"><a data-sourcepos="134:3-134:29" href="../languages/fish.html">Fish</a></li>
+<li data-sourcepos="135:1-135:37"><a data-sourcepos="135:3-135:37" href="../languages/gdscript.html">GDScript</a></li>
+<li data-sourcepos="136:1-136:31"><a data-sourcepos="136:3-136:31" href="../languages/gleam.html">Gleam</a></li>
+<li data-sourcepos="137:1-137:29"><a data-sourcepos="137:3-137:29" href="../languages/glsl.html">GLSL</a></li>
+<li data-sourcepos="138:1-138:25"><a data-sourcepos="138:3-138:25" href="../languages/go.html">Go</a></li>
+<li data-sourcepos="139:1-139:33"><a data-sourcepos="139:3-139:33" href="../languages/groovy.html">Groovy</a></li>
+<li data-sourcepos="140:1-140:35"><a data-sourcepos="140:3-140:35" href="../languages/haskell.html">Haskell</a></li>
+<li data-sourcepos="141:1-141:29"><a data-sourcepos="141:3-141:29" href="../languages/helm.html">Helm</a></li>
+<li data-sourcepos="142:1-142:29"><a data-sourcepos="142:3-142:29" href="../languages/html.html">HTML</a></li>
+<li data-sourcepos="143:1-143:29"><a data-sourcepos="143:3-143:29" href="../languages/java.html">Java</a></li>
+<li data-sourcepos="144:1-144:41"><a data-sourcepos="144:3-144:41" href="../languages/javascript.html">JavaScript</a></li>
+<li data-sourcepos="145:1-145:31"><a data-sourcepos="145:3-145:31" href="../languages/julia.html">Julia</a></li>
+<li data-sourcepos="146:1-146:29"><a data-sourcepos="146:3-146:29" href="../languages/json.html">JSON</a></li>
+<li data-sourcepos="147:1-147:35"><a data-sourcepos="147:3-147:35" href="../languages/jsonnet.html">Jsonnet</a></li>
+<li data-sourcepos="148:1-148:33"><a data-sourcepos="148:3-148:33" href="../languages/kotlin.html">Kotlin</a></li>
+<li data-sourcepos="149:1-149:27"><a data-sourcepos="149:3-149:27" href="../languages/lua.html">Lua</a></li>
+<li data-sourcepos="150:1-150:29"><a data-sourcepos="150:3-150:29" href="../languages/luau.html">Luau</a></li>
+<li data-sourcepos="151:1-151:37"><a data-sourcepos="151:3-151:37" href="../languages/makefile.html">Makefile</a></li>
+<li data-sourcepos="152:1-152:37"><a data-sourcepos="152:3-152:37" href="../languages/markdown.html">Markdown</a></li>
+<li data-sourcepos="153:1-153:27"><a data-sourcepos="153:3-153:27" href="../languages/nim.html">Nim</a></li>
+<li data-sourcepos="154:1-154:31"><a data-sourcepos="154:3-154:31" href="../languages/ocaml.html">OCaml</a></li>
+<li data-sourcepos="155:1-155:37"><a data-sourcepos="155:3-155:37" href="../languages/opentofu.html">OpenTofu</a></li>
+<li data-sourcepos="156:1-156:27"><a data-sourcepos="156:3-156:27" href="../languages/php.html">PHP</a></li>
+<li data-sourcepos="157:1-157:41"><a data-sourcepos="157:3-157:41" href="../languages/powershell.html">PowerShell</a></li>
+<li data-sourcepos="158:1-158:33"><a data-sourcepos="158:3-158:33" href="../languages/prisma.html">Prisma</a></li>
+<li data-sourcepos="159:1-159:31"><a data-sourcepos="159:3-159:31" href="../languages/proto.html">Proto</a></li>
+<li data-sourcepos="160:1-160:41"><a data-sourcepos="160:3-160:41" href="../languages/purescript.html">PureScript</a></li>
+<li data-sourcepos="161:1-161:33"><a data-sourcepos="161:3-161:33" href="../languages/python.html">Python</a></li>
+<li data-sourcepos="162:1-162:23"><a data-sourcepos="162:3-162:23" href="../languages/r.html">R</a></li>
+<li data-sourcepos="163:1-163:29"><a data-sourcepos="163:3-163:29" href="../languages/rego.html">Rego</a></li>
+<li data-sourcepos="164:1-164:40"><a data-sourcepos="164:3-164:40" href="../languages/rst.html">ReStructuredText</a></li>
+<li data-sourcepos="165:1-165:33"><a data-sourcepos="165:3-165:33" href="../languages/racket.html">Racket</a></li>
+<li data-sourcepos="166:1-166:27"><a data-sourcepos="166:3-166:27" href="../languages/roc.html">Roc</a></li>
+<li data-sourcepos="167:1-167:29"><a data-sourcepos="167:3-167:29" href="../languages/ruby.html">Ruby</a></li>
+<li data-sourcepos="168:1-168:29"><a data-sourcepos="168:3-168:29" href="../languages/rust.html">Rust</a></li>
+<li data-sourcepos="169:1-169:31"><a data-sourcepos="169:3-169:31" href="../languages/scala.html">Scala</a></li>
+<li data-sourcepos="170:1-170:33"><a data-sourcepos="170:3-170:33" href="../languages/scheme.html">Scheme</a></li>
+<li data-sourcepos="171:1-171:35"><a data-sourcepos="171:3-171:35" href="../languages/sh.html">Shell Script</a></li>
+<li data-sourcepos="172:1-172:27"><a data-sourcepos="172:3-172:27" href="../languages/sql.html">SQL</a></li>
+<li data-sourcepos="173:1-173:35"><a data-sourcepos="173:3-173:35" href="../languages/sml.html">Standard ML</a></li>
+<li data-sourcepos="174:1-174:33"><a data-sourcepos="174:3-174:33" href="../languages/svelte.html">Svelte</a></li>
+<li data-sourcepos="175:1-175:31"><a data-sourcepos="175:3-175:31" href="../languages/swift.html">Swift</a></li>
+<li data-sourcepos="176:1-176:44"><a data-sourcepos="176:3-176:44" href="../languages/tailwindcss.html">Tailwind CSS</a></li>
+<li data-sourcepos="177:1-177:39"><a data-sourcepos="177:3-177:39" href="../languages/terraform.html">Terraform</a></li>
+<li data-sourcepos="178:1-178:29"><a data-sourcepos="178:3-178:29" href="../languages/toml.html">TOML</a></li>
+<li data-sourcepos="179:1-179:41"><a data-sourcepos="179:3-179:41" href="../languages/typescript.html">TypeScript</a></li>
+<li data-sourcepos="180:1-180:29"><a data-sourcepos="180:3-180:29" href="../languages/uiua.html">Uiua</a></li>
+<li data-sourcepos="181:1-181:27"><a data-sourcepos="181:3-181:27" href="../languages/vue.html">Vue</a></li>
+<li data-sourcepos="182:1-182:27"><a data-sourcepos="182:3-182:27" href="../languages/xml.html">XML</a></li>
+<li data-sourcepos="183:1-183:29"><a data-sourcepos="183:3-183:29" href="../languages/yaml.html">YAML</a></li>
+<li data-sourcepos="184:1-184:29"><a data-sourcepos="184:3-184:29" href="../languages/yara.html">YARA</a></li>
+<li data-sourcepos="185:1-185:29"><a data-sourcepos="185:3-185:29" href="../languages/yarn.html">Yarn</a></li>
+<li data-sourcepos="186:1-186:27"><a data-sourcepos="186:3-186:27" href="../languages/zig.html">Zig</a></li>
+</ul>
+<h1 id="extensions" data-sourcepos="188:1-188:12">Extensions<a href="#extensions" aria-label="Link to heading 'Extensions'" data-heading-content="Extensions" class="anchor"></a></h1>
+<ul data-sourcepos="190:1-206:58">
+<li data-sourcepos="190:1-190:29"><a data-sourcepos="190:3-190:29" href="../extensions.html">Overview</a></li>
+<li data-sourcepos="191:1-191:64"><a data-sourcepos="191:3-191:64" href="../extensions/installing-extensions.html">Installing Extensions</a></li>
+<li data-sourcepos="192:1-192:64"><a data-sourcepos="192:3-192:64" href="../extensions/developing-extensions.html">Developing Extensions</a></li>
+<li data-sourcepos="193:1-198:64"><a data-sourcepos="193:3-193:66" href="../extensions/publishing/overview.html">Publishing Your Extension</a>
+<ul data-sourcepos="194:3-198:64">
+<li data-sourcepos="194:3-194:75"><a data-sourcepos="194:5-194:75" href="../extensions/publishing/license-requirements.html">License Requirements</a></li>
+<li data-sourcepos="195:3-195:72"><a data-sourcepos="195:5-195:72" href="../extensions/publishing/prerequisites.html">Publishing Prerequisites</a></li>
+<li data-sourcepos="196:3-196:67"><a data-sourcepos="196:5-196:67" href="../extensions/publishing/publishing-guide.html">Publishing Guide</a></li>
+<li data-sourcepos="197:3-197:80"><a data-sourcepos="197:5-197:80" href="../extensions/publishing/updating-and-maintenance.html">Updating an Extension</a></li>
+<li data-sourcepos="198:3-198:64"><a data-sourcepos="198:5-198:64" href="../extensions/publishing/faq.html">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li data-sourcepos="199:1-199:56"><a data-sourcepos="199:3-199:56" href="../extensions/capabilities.html">Extension Capabilities</a></li>
+<li data-sourcepos="200:1-200:50"><a data-sourcepos="200:3-200:50" href="../extensions/languages.html">Language Extensions</a></li>
+<li data-sourcepos="201:1-201:60"><a data-sourcepos="201:3-201:60" href="../extensions/debugger-extensions.html">Debugger Extensions</a></li>
+<li data-sourcepos="202:1-202:44"><a data-sourcepos="202:3-202:44" href="../extensions/themes.html">Theme Extensions</a></li>
+<li data-sourcepos="203:1-203:54"><a data-sourcepos="203:3-203:54" href="../extensions/icon-themes.html">Icon Theme Extensions</a></li>
+<li data-sourcepos="204:1-204:49"><a data-sourcepos="204:3-204:49" href="../extensions/snippets.html">Snippets Extensions</a></li>
+<li data-sourcepos="205:1-205:57"><a data-sourcepos="205:3-205:57" href="../extensions/mcp-extensions.html">MCP Server Extensions</a></li>
+<li data-sourcepos="206:1-206:58"><a data-sourcepos="206:3-206:58" href="../extensions/agent-servers.html">Agent Server Extensions</a></li>
+</ul>
+<h1 id="coming-from" data-sourcepos="208:1-208:16">Coming From…<a href="#coming-from" aria-label="Link to heading 'Coming From…'" data-heading-content="Coming From…" class="anchor"></a></h1>
+<ul data-sourcepos="210:1-214:37">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="vs-code.html" class="active" aria-current="page">VS Code</a></li>
+<li data-sourcepos="211:1-211:40"><a data-sourcepos="211:3-211:40" href="intellij.html">IntelliJ IDEA</a></li>
+<li data-sourcepos="212:1-212:33"><a data-sourcepos="212:3-212:33" href="pycharm.html">PyCharm</a></li>
+<li data-sourcepos="213:1-213:35"><a data-sourcepos="213:3-213:35" href="webstorm.html">WebStorm</a></li>
+<li data-sourcepos="214:1-214:37"><a data-sourcepos="214:3-214:37" href="rustrover.html">RustRover</a></li>
+</ul>
+<h1 id="reference" data-sourcepos="216:1-216:11">Reference<a href="#reference" aria-label="Link to heading 'Reference'" data-heading-content="Reference" class="anchor"></a></h1>
+<ul data-sourcepos="218:1-220:37">
+<li data-sourcepos="218:1-218:45"><a data-sourcepos="218:3-218:45" href="../reference/all-settings.html">All Settings</a></li>
+<li data-sourcepos="219:1-219:33"><a data-sourcepos="219:3-219:33" href="../all-actions.html">All Actions</a></li>
+<li data-sourcepos="220:1-220:37"><a data-sourcepos="220:3-220:37" href="../reference/cli.html">CLI Reference</a></li>
+</ul>
+<h1 id="developing-zed" data-sourcepos="222:1-222:16">Developing Zed<a href="#developing-zed" aria-label="Link to heading 'Developing Zed'" data-heading-content="Developing Zed" class="anchor"></a></h1>
+<ul data-sourcepos="224:1-234:57">
+<li data-sourcepos="224:1-232:41"><a data-sourcepos="224:3-224:36" href="../development.html">Developing Zed</a>
+<ul data-sourcepos="225:3-232:41">
+<li data-sourcepos="225:3-225:35"><a data-sourcepos="225:5-225:35" href="../development/macos.html">macOS</a></li>
+<li data-sourcepos="226:3-226:35"><a data-sourcepos="226:5-226:35" href="../development/linux.html">Linux</a></li>
+<li data-sourcepos="227:3-227:39"><a data-sourcepos="227:5-227:39" href="../development/windows.html">Windows</a></li>
+<li data-sourcepos="228:3-228:39"><a data-sourcepos="228:5-228:39" href="../development/freebsd.html">FreeBSD</a></li>
+<li data-sourcepos="229:3-229:49"><a data-sourcepos="229:5-229:49" href="../development/debuggers.html">Using Debuggers</a></li>
+<li data-sourcepos="230:3-230:35"><a data-sourcepos="230:5-230:35" href="../performance.html">Performance</a></li>
+<li data-sourcepos="231:3-231:52"><a data-sourcepos="231:5-231:52" href="../development/ui-checklist.html">UI/UX Checklist</a></li>
+<li data-sourcepos="232:3-232:41"><a data-sourcepos="232:5-232:41" href="../development/glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li data-sourcepos="233:1-233:49"><a data-sourcepos="233:3-233:49" href="../development/release-notes.html">Release Notes</a></li>
+<li data-sourcepos="234:1-234:57"><a data-sourcepos="234:3-234:57" href="../development/debugging-crashes.html">Debugging Crashes</a></li>
+</ul>
+
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="how-to-migrate-from-vs-code-to-zed" data-sourcepos="6:1-6:36">How to Migrate from VS Code to Zed<a href="#how-to-migrate-from-vs-code-to-zed" aria-label="Link to heading 'How to Migrate from VS Code to Zed'" data-heading-content="How to Migrate from VS Code to Zed" class="anchor"></a></h1>
+<p data-sourcepos="8:1-8:85">This guide explains how to move from VS Code to Zed without rebuilding your workflow.</p>
+<p data-sourcepos="10:1-10:129">It covers which settings import automatically, which shortcuts map cleanly, and which behaviors differ so you can adjust quickly.</p>
+<h2 id="install-zed" data-sourcepos="12:1-12:14">Install Zed<a href="#install-zed" aria-label="Link to heading 'Install Zed'" data-heading-content="Install Zed" class="anchor"></a></h2>
+<p data-sourcepos="14:1-14:46">Zed is available on macOS, Windows, and Linux.</p>
+<p data-sourcepos="16:1-17:25">For macOS, you can download it from zed.dev/download, or install via Homebrew:
+<code data-sourcepos="17:1-17:25">brew install --cask zed</code></p>
+<p data-sourcepos="19:1-20:41">For most Linux users, the easiest way to install Zed is through our installation script:
+<code data-sourcepos="20:1-20:41">curl -f https://zed.dev/install.sh | sh</code></p>
+<p data-sourcepos="22:1-24:40">After installation, you can launch Zed from your Applications folder (macOS) or directly from the terminal (Linux) using:
+<code data-sourcepos="23:1-23:7">zed .</code>
+This opens the current directory in Zed.</p>
+<h2 id="import-settings-from-vs-code" data-sourcepos="26:1-26:31">Import Settings from VS Code<a href="#import-settings-from-vs-code" aria-label="Link to heading 'Import Settings from VS Code'" data-heading-content="Import Settings from VS Code" class="anchor"></a></h2>
+<p data-sourcepos="28:1-28:106">During setup, you have the option to import key settings from VS Code. Zed imports the following settings:</p>
+<h3 id="settings-imported-from-vs-code" data-sourcepos="30:1-30:34">Settings Imported from VS Code<a href="#settings-imported-from-vs-code" aria-label="Link to heading 'Settings Imported from VS Code'" data-heading-content="Settings Imported from VS Code" class="anchor"></a></h3>
+<p data-sourcepos="32:1-32:104">The following VS Code settings are automatically imported when you use <strong data-sourcepos="32:72-32:103">Import Settings from VS Code</strong>:</p>
+<p data-sourcepos="34:1-34:10"><strong data-sourcepos="34:1-34:10">Editor</strong></p>
+<table data-sourcepos="36:1-81:96" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="36:1-36:96">
+<th data-sourcepos="36:2-36:46">VS Code Setting</th>
+<th data-sourcepos="36:48-36:95">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="38:1-38:96">
+<td data-sourcepos="38:2-38:46"><code data-sourcepos="38:3-38:21">editor.fontFamily</code></td>
+<td data-sourcepos="38:48-38:95"><code data-sourcepos="38:49-38:68">buffer_font_family</code></td>
+</tr>
+<tr data-sourcepos="39:1-39:96">
+<td data-sourcepos="39:2-39:46"><code data-sourcepos="39:3-39:19">editor.fontSize</code></td>
+<td data-sourcepos="39:48-39:95"><code data-sourcepos="39:49-39:66">buffer_font_size</code></td>
+</tr>
+<tr data-sourcepos="40:1-40:96">
+<td data-sourcepos="40:2-40:46"><code data-sourcepos="40:3-40:21">editor.fontWeight</code></td>
+<td data-sourcepos="40:48-40:95"><code data-sourcepos="40:49-40:68">buffer_font_weight</code></td>
+</tr>
+<tr data-sourcepos="41:1-41:96">
+<td data-sourcepos="41:2-41:46"><code data-sourcepos="41:3-41:18">editor.tabSize</code></td>
+<td data-sourcepos="41:48-41:95"><code data-sourcepos="41:49-41:58">tab_size</code></td>
+</tr>
+<tr data-sourcepos="42:1-42:96">
+<td data-sourcepos="42:2-42:46"><code data-sourcepos="42:3-42:23">editor.insertSpaces</code></td>
+<td data-sourcepos="42:48-42:95"><code data-sourcepos="42:49-42:59">hard_tabs</code> (inverted)</td>
+</tr>
+<tr data-sourcepos="43:1-43:96">
+<td data-sourcepos="43:2-43:46"><code data-sourcepos="43:3-43:19">editor.wordWrap</code></td>
+<td data-sourcepos="43:48-43:95"><code data-sourcepos="43:49-43:59">soft_wrap</code></td>
+</tr>
+<tr data-sourcepos="44:1-44:96">
+<td data-sourcepos="44:2-44:46"><code data-sourcepos="44:3-44:25">editor.wordWrapColumn</code></td>
+<td data-sourcepos="44:48-44:95"><code data-sourcepos="44:49-44:71">preferred_line_length</code></td>
+</tr>
+<tr data-sourcepos="45:1-45:96">
+<td data-sourcepos="45:2-45:46"><code data-sourcepos="45:3-45:22">editor.cursorStyle</code></td>
+<td data-sourcepos="45:48-45:95"><code data-sourcepos="45:49-45:62">cursor_shape</code></td>
+</tr>
+<tr data-sourcepos="46:1-46:96">
+<td data-sourcepos="46:2-46:46"><code data-sourcepos="46:3-46:25">editor.cursorBlinking</code></td>
+<td data-sourcepos="46:48-46:95"><code data-sourcepos="46:49-46:62">cursor_blink</code></td>
+</tr>
+<tr data-sourcepos="47:1-47:96">
+<td data-sourcepos="47:2-47:46"><code data-sourcepos="47:3-47:30">editor.renderLineHighlight</code></td>
+<td data-sourcepos="47:48-47:95"><code data-sourcepos="47:49-47:72">current_line_highlight</code></td>
+</tr>
+<tr data-sourcepos="48:1-48:96">
+<td data-sourcepos="48:2-48:46"><code data-sourcepos="48:3-48:22">editor.lineNumbers</code></td>
+<td data-sourcepos="48:48-48:95"><code data-sourcepos="48:49-48:69">gutter.line_numbers</code>, <code data-sourcepos="48:72-48:94">relative_line_numbers</code></td>
+</tr>
+<tr data-sourcepos="49:1-49:96">
+<td data-sourcepos="49:2-49:46"><code data-sourcepos="49:3-49:30">editor.showFoldingControls</code></td>
+<td data-sourcepos="49:48-49:95"><code data-sourcepos="49:49-49:62">gutter.folds</code></td>
+</tr>
+<tr data-sourcepos="50:1-50:96">
+<td data-sourcepos="50:2-50:46"><code data-sourcepos="50:3-50:26">editor.minimap.enabled</code></td>
+<td data-sourcepos="50:48-50:95"><code data-sourcepos="50:49-50:62">minimap.show</code></td>
+</tr>
+<tr data-sourcepos="51:1-51:96">
+<td data-sourcepos="51:2-51:46"><code data-sourcepos="51:3-51:27">editor.minimap.autohide</code></td>
+<td data-sourcepos="51:48-51:95"><code data-sourcepos="51:49-51:62">minimap.show</code></td>
+</tr>
+<tr data-sourcepos="52:1-52:96">
+<td data-sourcepos="52:2-52:46"><code data-sourcepos="52:3-52:29">editor.minimap.showSlider</code></td>
+<td data-sourcepos="52:48-52:95"><code data-sourcepos="52:49-52:63">minimap.thumb</code></td>
+</tr>
+<tr data-sourcepos="53:1-53:96">
+<td data-sourcepos="53:2-53:46"><code data-sourcepos="53:3-53:28">editor.minimap.maxColumn</code></td>
+<td data-sourcepos="53:48-53:95"><code data-sourcepos="53:49-53:75">minimap.max_width_columns</code></td>
+</tr>
+<tr data-sourcepos="54:1-54:96">
+<td data-sourcepos="54:2-54:46"><code data-sourcepos="54:3-54:31">editor.stickyScroll.enabled</code></td>
+<td data-sourcepos="54:48-54:95"><code data-sourcepos="54:49-54:71">sticky_scroll.enabled</code></td>
+</tr>
+<tr data-sourcepos="55:1-55:96">
+<td data-sourcepos="55:2-55:46"><code data-sourcepos="55:3-55:31">editor.scrollbar.horizontal</code></td>
+<td data-sourcepos="55:48-55:95"><code data-sourcepos="55:49-55:75">scrollbar.axes.horizontal</code></td>
+</tr>
+<tr data-sourcepos="56:1-56:96">
+<td data-sourcepos="56:2-56:46"><code data-sourcepos="56:3-56:29">editor.scrollbar.vertical</code></td>
+<td data-sourcepos="56:48-56:95"><code data-sourcepos="56:49-56:73">scrollbar.axes.vertical</code></td>
+</tr>
+<tr data-sourcepos="57:1-57:96">
+<td data-sourcepos="57:2-57:46"><code data-sourcepos="57:3-57:38">editor.mouseWheelScrollSensitivity</code></td>
+<td data-sourcepos="57:48-57:95"><code data-sourcepos="57:49-57:68">scroll_sensitivity</code></td>
+</tr>
+<tr data-sourcepos="58:1-58:96">
+<td data-sourcepos="58:2-58:46"><code data-sourcepos="58:3-58:32">editor.fastScrollSensitivity</code></td>
+<td data-sourcepos="58:48-58:95"><code data-sourcepos="58:49-58:73">fast_scroll_sensitivity</code></td>
+</tr>
+<tr data-sourcepos="59:1-59:96">
+<td data-sourcepos="59:2-59:46"><code data-sourcepos="59:3-59:33">editor.cursorSurroundingLines</code></td>
+<td data-sourcepos="59:48-59:95"><code data-sourcepos="59:49-59:72">vertical_scroll_margin</code></td>
+</tr>
+<tr data-sourcepos="60:1-60:96">
+<td data-sourcepos="60:2-60:46"><code data-sourcepos="60:3-60:24">editor.hover.enabled</code></td>
+<td data-sourcepos="60:48-60:95"><code data-sourcepos="60:49-60:71">hover_popover_enabled</code></td>
+</tr>
+<tr data-sourcepos="61:1-61:96">
+<td data-sourcepos="61:2-61:46"><code data-sourcepos="61:3-61:22">editor.hover.delay</code></td>
+<td data-sourcepos="61:48-61:95"><code data-sourcepos="61:49-61:69">hover_popover_delay</code></td>
+</tr>
+<tr data-sourcepos="62:1-62:96">
+<td data-sourcepos="62:2-62:46"><code data-sourcepos="62:3-62:23">editor.hover.sticky</code></td>
+<td data-sourcepos="62:48-62:95"><code data-sourcepos="62:49-62:70">hover_popover_sticky</code></td>
+</tr>
+<tr data-sourcepos="63:1-63:96">
+<td data-sourcepos="63:2-63:46"><code data-sourcepos="63:3-63:28">editor.hover.hidingDelay</code></td>
+<td data-sourcepos="63:48-63:95"><code data-sourcepos="63:49-63:76">hover_popover_hiding_delay</code></td>
+</tr>
+<tr data-sourcepos="64:1-64:96">
+<td data-sourcepos="64:2-64:46"><code data-sourcepos="64:3-64:33">editor.parameterHints.enabled</code></td>
+<td data-sourcepos="64:48-64:95"><code data-sourcepos="64:49-64:69">auto_signature_help</code></td>
+</tr>
+<tr data-sourcepos="65:1-65:96">
+<td data-sourcepos="65:2-65:46"><code data-sourcepos="65:3-65:38">workbench.editor.languageDetection</code></td>
+<td data-sourcepos="65:48-65:95"><code data-sourcepos="65:49-65:68">language_detection</code></td>
+</tr>
+<tr data-sourcepos="66:1-66:96">
+<td data-sourcepos="66:2-66:46"><code data-sourcepos="66:3-66:30">editor.multiCursorModifier</code></td>
+<td data-sourcepos="66:48-66:95"><code data-sourcepos="66:49-66:71">multi_cursor_modifier</code></td>
+</tr>
+<tr data-sourcepos="67:1-67:96">
+<td data-sourcepos="67:2-67:46"><code data-sourcepos="67:3-67:29">editor.selectionHighlight</code></td>
+<td data-sourcepos="67:48-67:95"><code data-sourcepos="67:49-67:69">selection_highlight</code></td>
+</tr>
+<tr data-sourcepos="68:1-68:96">
+<td data-sourcepos="68:2-68:46"><code data-sourcepos="68:3-68:27">editor.roundedSelection</code></td>
+<td data-sourcepos="68:48-68:95"><code data-sourcepos="68:49-68:67">rounded_selection</code></td>
+</tr>
+<tr data-sourcepos="69:1-69:96">
+<td data-sourcepos="69:2-69:46"><code data-sourcepos="69:3-69:45">editor.find.seedSearchStringFromSelection</code></td>
+<td data-sourcepos="69:48-69:95"><code data-sourcepos="69:49-69:79">seed_search_query_from_cursor</code></td>
+</tr>
+<tr data-sourcepos="70:1-70:96">
+<td data-sourcepos="70:2-70:46"><code data-sourcepos="70:3-70:17">editor.rulers</code></td>
+<td data-sourcepos="70:48-70:95"><code data-sourcepos="70:49-70:61">wrap_guides</code></td>
+</tr>
+<tr data-sourcepos="71:1-71:96">
+<td data-sourcepos="71:2-71:46"><code data-sourcepos="71:3-71:27">editor.renderWhitespace</code></td>
+<td data-sourcepos="71:48-71:95"><code data-sourcepos="71:49-71:66">show_whitespaces</code></td>
+</tr>
+<tr data-sourcepos="72:1-72:96">
+<td data-sourcepos="72:2-72:46"><code data-sourcepos="72:3-72:29">editor.guides.indentation</code></td>
+<td data-sourcepos="72:48-72:95"><code data-sourcepos="72:49-72:71">indent_guides.enabled</code></td>
+</tr>
+<tr data-sourcepos="73:1-73:96">
+<td data-sourcepos="73:2-73:46"><code data-sourcepos="73:3-73:24">editor.linkedEditing</code></td>
+<td data-sourcepos="73:48-73:95"><code data-sourcepos="73:49-73:62">linked_edits</code></td>
+</tr>
+<tr data-sourcepos="74:1-74:96">
+<td data-sourcepos="74:2-74:46"><code data-sourcepos="74:3-74:23">editor.autoSurround</code></td>
+<td data-sourcepos="74:48-74:95"><code data-sourcepos="74:49-74:67">use_auto_surround</code></td>
+</tr>
+<tr data-sourcepos="75:1-75:96">
+<td data-sourcepos="75:2-75:46"><code data-sourcepos="75:3-75:23">editor.formatOnSave</code></td>
+<td data-sourcepos="75:48-75:95"><code data-sourcepos="75:49-75:64">format_on_save</code></td>
+</tr>
+<tr data-sourcepos="76:1-76:96">
+<td data-sourcepos="76:2-76:46"><code data-sourcepos="76:3-76:24">editor.formatOnPaste</code></td>
+<td data-sourcepos="76:48-76:95"><code data-sourcepos="76:49-76:70">auto_indent_on_paste</code></td>
+</tr>
+<tr data-sourcepos="77:1-77:96">
+<td data-sourcepos="77:2-77:46"><code data-sourcepos="77:3-77:23">editor.formatOnType</code></td>
+<td data-sourcepos="77:48-77:95"><code data-sourcepos="77:49-77:68">use_on_type_format</code></td>
+</tr>
+<tr data-sourcepos="78:1-78:96">
+<td data-sourcepos="78:2-78:46"><code data-sourcepos="78:3-78:29">editor.trimAutoWhitespace</code></td>
+<td data-sourcepos="78:48-78:95"><code data-sourcepos="78:49-78:84">remove_trailing_whitespace_on_save</code></td>
+</tr>
+<tr data-sourcepos="79:1-79:96">
+<td data-sourcepos="79:2-79:46"><code data-sourcepos="79:3-79:37">editor.suggestOnTriggerCharacters</code></td>
+<td data-sourcepos="79:48-79:95"><code data-sourcepos="79:49-79:75">show_completions_on_input</code></td>
+</tr>
+<tr data-sourcepos="80:1-80:96">
+<td data-sourcepos="80:2-80:46"><code data-sourcepos="80:3-80:28">editor.suggest.showWords</code></td>
+<td data-sourcepos="80:48-80:95"><code data-sourcepos="80:49-80:67">completions.words</code></td>
+</tr>
+<tr data-sourcepos="81:1-81:96">
+<td data-sourcepos="81:2-81:46"><code data-sourcepos="81:3-81:32">editor.inlineSuggest.enabled</code></td>
+<td data-sourcepos="81:48-81:95"><code data-sourcepos="81:49-81:71">show_edit_predictions</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="83:1-83:21"><strong data-sourcepos="83:1-83:21">Files &amp; Workspace</strong></p>
+<table data-sourcepos="85:1-95:64" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="85:1-85:64">
+<th data-sourcepos="85:2-85:30">VS Code Setting</th>
+<th data-sourcepos="85:32-85:63">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="87:1-87:64">
+<td data-sourcepos="87:2-87:30"><code data-sourcepos="87:3-87:22">files.associations</code></td>
+<td data-sourcepos="87:32-87:63"><code data-sourcepos="87:33-87:44">file_types</code></td>
+</tr>
+<tr data-sourcepos="88:1-88:64">
+<td data-sourcepos="88:2-88:30"><code data-sourcepos="88:3-88:18">files.autoSave</code></td>
+<td data-sourcepos="88:32-88:63"><code data-sourcepos="88:33-88:42">autosave</code></td>
+</tr>
+<tr data-sourcepos="89:1-89:64">
+<td data-sourcepos="89:2-89:30"><code data-sourcepos="89:3-89:23">files.autoSaveDelay</code></td>
+<td data-sourcepos="89:32-89:63"><code data-sourcepos="89:33-89:55">autosave.milliseconds</code></td>
+</tr>
+<tr data-sourcepos="90:1-90:64">
+<td data-sourcepos="90:2-90:30"><code data-sourcepos="90:3-90:17">files.exclude</code></td>
+<td data-sourcepos="90:32-90:63"><code data-sourcepos="90:33-90:54">file_scan_exclusions</code></td>
+</tr>
+<tr data-sourcepos="91:1-91:64">
+<td data-sourcepos="91:2-91:30"><code data-sourcepos="91:3-91:28">files.insertFinalNewline</code></td>
+<td data-sourcepos="91:32-91:63"><code data-sourcepos="91:33-91:62">ensure_final_newline_on_save</code></td>
+</tr>
+<tr data-sourcepos="92:1-92:64">
+<td data-sourcepos="92:2-92:30"><code data-sourcepos="92:3-92:25">files.readonlyInclude</code></td>
+<td data-sourcepos="92:32-92:63"><code data-sourcepos="92:33-92:49">read_only_files</code></td>
+</tr>
+<tr data-sourcepos="93:1-93:64">
+<td data-sourcepos="93:2-93:30"><code data-sourcepos="93:3-93:29">files.simpleDialog.enable</code></td>
+<td data-sourcepos="93:32-93:63"><code data-sourcepos="93:33-93:57">use_system_path_prompts</code></td>
+</tr>
+<tr data-sourcepos="94:1-94:64">
+<td data-sourcepos="94:2-94:30"><code data-sourcepos="94:3-94:20">search.smartCase</code></td>
+<td data-sourcepos="94:32-94:63"><code data-sourcepos="94:33-94:54">use_smartcase_search</code></td>
+</tr>
+<tr data-sourcepos="95:1-95:64">
+<td data-sourcepos="95:2-95:30"><code data-sourcepos="95:3-95:25">search.useIgnoreFiles</code></td>
+<td data-sourcepos="95:32-95:63"><code data-sourcepos="95:33-95:56">search.include_ignored</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="97:1-97:12"><strong data-sourcepos="97:1-97:12">Terminal</strong></p>
+<table data-sourcepos="99:1-110:79" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="99:1-99:79">
+<th data-sourcepos="99:2-99:40">VS Code Setting</th>
+<th data-sourcepos="99:42-99:78">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="101:1-101:79">
+<td data-sourcepos="101:2-101:40"><code data-sourcepos="101:3-101:34">terminal.integrated.fontFamily</code></td>
+<td data-sourcepos="101:42-101:78"><code data-sourcepos="101:43-101:64">terminal.font_family</code></td>
+</tr>
+<tr data-sourcepos="102:1-102:79">
+<td data-sourcepos="102:2-102:40"><code data-sourcepos="102:3-102:32">terminal.integrated.fontSize</code></td>
+<td data-sourcepos="102:42-102:78"><code data-sourcepos="102:43-102:62">terminal.font_size</code></td>
+</tr>
+<tr data-sourcepos="103:1-103:79">
+<td data-sourcepos="103:2-103:40"><code data-sourcepos="103:3-103:34">terminal.integrated.lineHeight</code></td>
+<td data-sourcepos="103:42-103:78"><code data-sourcepos="103:43-103:64">terminal.line_height</code></td>
+</tr>
+<tr data-sourcepos="104:1-104:79">
+<td data-sourcepos="104:2-104:40"><code data-sourcepos="104:3-104:35">terminal.integrated.cursorStyle</code></td>
+<td data-sourcepos="104:42-104:78"><code data-sourcepos="104:43-104:65">terminal.cursor_shape</code></td>
+</tr>
+<tr data-sourcepos="105:1-105:79">
+<td data-sourcepos="105:2-105:40"><code data-sourcepos="105:3-105:38">terminal.integrated.cursorBlinking</code></td>
+<td data-sourcepos="105:42-105:78"><code data-sourcepos="105:43-105:61">terminal.blinking</code></td>
+</tr>
+<tr data-sourcepos="106:1-106:79">
+<td data-sourcepos="106:2-106:40"><code data-sourcepos="106:3-106:39">terminal.integrated.copyOnSelection</code></td>
+<td data-sourcepos="106:42-106:78"><code data-sourcepos="106:43-106:67">terminal.copy_on_select</code></td>
+</tr>
+<tr data-sourcepos="107:1-107:79">
+<td data-sourcepos="107:2-107:40"><code data-sourcepos="107:3-107:34">terminal.integrated.scrollback</code></td>
+<td data-sourcepos="107:42-107:78"><code data-sourcepos="107:43-107:77">terminal.max_scroll_history_lines</code></td>
+</tr>
+<tr data-sourcepos="108:1-108:79">
+<td data-sourcepos="108:2-108:40"><code data-sourcepos="108:3-108:39">terminal.integrated.macOptionIsMeta</code></td>
+<td data-sourcepos="108:42-108:78"><code data-sourcepos="108:43-108:67">terminal.option_as_meta</code></td>
+</tr>
+<tr data-sourcepos="109:1-109:79">
+<td data-sourcepos="109:2-109:40"><code data-sourcepos="109:3-109:38">terminal.integrated.{platform}Exec</code></td>
+<td data-sourcepos="109:42-109:78"><code data-sourcepos="109:43-109:58">terminal.shell</code></td>
+</tr>
+<tr data-sourcepos="110:1-110:79">
+<td data-sourcepos="110:2-110:40"><code data-sourcepos="110:3-110:38">terminal.integrated.env.{platform}</code></td>
+<td data-sourcepos="110:42-110:78"><code data-sourcepos="110:43-110:56">terminal.env</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="112:1-112:17"><strong data-sourcepos="112:1-112:17">Tabs &amp; Panels</strong></p>
+<table data-sourcepos="114:1-127:107" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="114:1-114:107">
+<th data-sourcepos="114:2-114:53">VS Code Setting</th>
+<th data-sourcepos="114:55-114:106">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="116:1-116:107">
+<td data-sourcepos="116:2-116:53"><code data-sourcepos="116:3-116:29">workbench.editor.showTabs</code></td>
+<td data-sourcepos="116:55-116:106"><code data-sourcepos="116:56-116:69">tab_bar.show</code></td>
+</tr>
+<tr data-sourcepos="117:1-117:107">
+<td data-sourcepos="117:2-117:53"><code data-sourcepos="117:3-117:30">workbench.editor.showIcons</code></td>
+<td data-sourcepos="117:55-117:106"><code data-sourcepos="117:56-117:72">tabs.file_icons</code></td>
+</tr>
+<tr data-sourcepos="118:1-118:107">
+<td data-sourcepos="118:2-118:53"><code data-sourcepos="118:3-118:38">workbench.editor.tabActionLocation</code></td>
+<td data-sourcepos="118:55-118:106"><code data-sourcepos="118:56-118:76">tabs.close_position</code></td>
+</tr>
+<tr data-sourcepos="119:1-119:107">
+<td data-sourcepos="119:2-119:53"><code data-sourcepos="119:3-119:45">workbench.editor.tabActionCloseVisibility</code></td>
+<td data-sourcepos="119:55-119:106"><code data-sourcepos="119:56-119:79">tabs.show_close_button</code></td>
+</tr>
+<tr data-sourcepos="120:1-120:107">
+<td data-sourcepos="120:2-120:53"><code data-sourcepos="120:3-120:48">workbench.editor.focusRecentEditorAfterClose</code></td>
+<td data-sourcepos="120:55-120:106"><code data-sourcepos="120:56-120:79">tabs.activate_on_close</code></td>
+</tr>
+<tr data-sourcepos="121:1-121:107">
+<td data-sourcepos="121:2-121:53"><code data-sourcepos="121:3-121:34">workbench.editor.enablePreview</code></td>
+<td data-sourcepos="121:55-121:106"><code data-sourcepos="121:56-121:77">preview_tabs.enabled</code></td>
+</tr>
+<tr data-sourcepos="122:1-122:107">
+<td data-sourcepos="122:2-122:53"><code data-sourcepos="122:3-122:47">workbench.editor.enablePreviewFromQuickOpen</code></td>
+<td data-sourcepos="122:55-122:106"><code data-sourcepos="122:56-122:101">preview_tabs.enable_preview_from_file_finder</code></td>
+</tr>
+<tr data-sourcepos="123:1-123:107">
+<td data-sourcepos="123:2-123:53"><code data-sourcepos="123:3-123:52">workbench.editor.enablePreviewFromCodeNavigation</code></td>
+<td data-sourcepos="123:55-123:106"><code data-sourcepos="123:56-123:105">preview_tabs.enable_preview_from_code_navigation</code></td>
+</tr>
+<tr data-sourcepos="124:1-124:107">
+<td data-sourcepos="124:2-124:53"><code data-sourcepos="124:3-124:42">workbench.editor.editorActionsLocation</code></td>
+<td data-sourcepos="124:55-124:106"><code data-sourcepos="124:56-124:85">tab_bar.show_tab_bar_buttons</code></td>
+</tr>
+<tr data-sourcepos="125:1-125:107">
+<td data-sourcepos="125:2-125:53"><code data-sourcepos="125:3-125:34">workbench.editor.limit.enabled</code> / <code data-sourcepos="125:38-125:44">value</code></td>
+<td data-sourcepos="125:55-125:106"><code data-sourcepos="125:56-125:65">max_tabs</code></td>
+</tr>
+<tr data-sourcepos="126:1-126:107">
+<td data-sourcepos="126:2-126:53"><code data-sourcepos="126:3-126:37">workbench.editor.restoreViewState</code></td>
+<td data-sourcepos="126:55-126:106"><code data-sourcepos="126:56-126:79">restore_on_file_reopen</code></td>
+</tr>
+<tr data-sourcepos="127:1-127:107">
+<td data-sourcepos="127:2-127:53"><code data-sourcepos="127:3-127:31">workbench.statusBar.visible</code></td>
+<td data-sourcepos="127:55-127:106"><code data-sourcepos="127:56-127:72">status_bar.show</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="129:1-129:33"><strong data-sourcepos="129:1-129:33">Project Panel (File Explorer)</strong></p>
+<table data-sourcepos="131:1-137:72" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="131:1-131:72">
+<th data-sourcepos="131:2-131:33">VS Code Setting</th>
+<th data-sourcepos="131:35-131:71">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="133:1-133:72">
+<td data-sourcepos="133:2-133:33"><code data-sourcepos="133:3-133:27">explorer.compactFolders</code></td>
+<td data-sourcepos="133:35-133:71"><code data-sourcepos="133:36-133:65">project_panel.auto_fold_dirs</code></td>
+</tr>
+<tr data-sourcepos="134:1-134:72">
+<td data-sourcepos="134:2-134:33"><code data-sourcepos="134:3-134:23">explorer.autoReveal</code></td>
+<td data-sourcepos="134:35-134:71"><code data-sourcepos="134:36-134:70">project_panel.auto_reveal_entries</code></td>
+</tr>
+<tr data-sourcepos="135:1-135:72">
+<td data-sourcepos="135:2-135:33"><code data-sourcepos="135:3-135:29">explorer.excludeGitIgnore</code></td>
+<td data-sourcepos="135:35-135:71"><code data-sourcepos="135:36-135:65">project_panel.hide_gitignore</code></td>
+</tr>
+<tr data-sourcepos="136:1-136:72">
+<td data-sourcepos="136:2-136:33"><code data-sourcepos="136:3-136:32">problems.decorations.enabled</code></td>
+<td data-sourcepos="136:35-136:71"><code data-sourcepos="136:36-136:67">project_panel.show_diagnostics</code></td>
+</tr>
+<tr data-sourcepos="137:1-137:72">
+<td data-sourcepos="137:2-137:33"><code data-sourcepos="137:3-137:31">explorer.decorations.badges</code></td>
+<td data-sourcepos="137:35-137:71"><code data-sourcepos="137:36-137:61">project_panel.git_status</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="139:1-139:7"><strong data-sourcepos="139:1-139:7">Git</strong></p>
+<table data-sourcepos="141:1-146:89" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="141:1-141:89">
+<th data-sourcepos="141:2-141:39">VS Code Setting</th>
+<th data-sourcepos="141:41-141:88">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="143:1-143:89">
+<td data-sourcepos="143:2-143:39"><code data-sourcepos="143:3-143:15">git.enabled</code></td>
+<td data-sourcepos="143:41-143:88"><code data-sourcepos="143:42-143:59">git_panel.button</code></td>
+</tr>
+<tr data-sourcepos="144:1-144:89">
+<td data-sourcepos="144:2-144:39"><code data-sourcepos="144:3-144:25">git.defaultBranchName</code></td>
+<td data-sourcepos="144:41-144:88"><code data-sourcepos="144:42-144:73">git_panel.fallback_branch_name</code></td>
+</tr>
+<tr data-sourcepos="145:1-145:89">
+<td data-sourcepos="145:2-145:39"><code data-sourcepos="145:3-145:27">git.decorations.enabled</code></td>
+<td data-sourcepos="145:41-145:88"><code data-sourcepos="145:42-145:59">git.inline_blame</code>, <code data-sourcepos="145:62-145:87">project_panel.git_status</code></td>
+</tr>
+<tr data-sourcepos="146:1-146:89">
+<td data-sourcepos="146:2-146:39"><code data-sourcepos="146:3-146:38">git.blame.editorDecoration.enabled</code></td>
+<td data-sourcepos="146:41-146:88"><code data-sourcepos="146:42-146:67">git.inline_blame.enabled</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="148:1-148:21"><strong data-sourcepos="148:1-148:21">Window &amp; Behavior</strong></p>
+<table data-sourcepos="150:1-155:95" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="150:1-150:95">
+<th data-sourcepos="150:2-150:51">VS Code Setting</th>
+<th data-sourcepos="150:53-150:94">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="152:1-152:95">
+<td data-sourcepos="152:2-152:51"><code data-sourcepos="152:3-152:29">window.confirmBeforeClose</code></td>
+<td data-sourcepos="152:53-152:94"><code data-sourcepos="152:54-152:67">confirm_quit</code></td>
+</tr>
+<tr data-sourcepos="153:1-153:95">
+<td data-sourcepos="153:2-153:51"><code data-sourcepos="153:3-153:21">window.nativeTabs</code></td>
+<td data-sourcepos="153:53-153:94"><code data-sourcepos="153:54-153:77">use_system_window_tabs</code></td>
+</tr>
+<tr data-sourcepos="154:1-154:95">
+<td data-sourcepos="154:2-154:51"><code data-sourcepos="154:3-154:25">window.closeWhenEmpty</code></td>
+<td data-sourcepos="154:53-154:94"><code data-sourcepos="154:54-154:80">when_closing_with_no_tabs</code></td>
+</tr>
+<tr data-sourcepos="155:1-155:95">
+<td data-sourcepos="155:2-155:51"><code data-sourcepos="155:3-155:38">accessibility.dimUnfocused.enabled</code> / <code data-sourcepos="155:42-155:50">opacity</code></td>
+<td data-sourcepos="155:53-155:94"><code data-sourcepos="155:54-155:93">active_pane_modifiers.inactive_opacity</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="157:1-157:9"><strong data-sourcepos="157:1-157:9">Other</strong></p>
+<table data-sourcepos="159:1-166:93" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="159:1-159:93">
+<th data-sourcepos="159:2-159:29">VS Code Setting</th>
+<th data-sourcepos="159:31-159:92">Zed Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="161:1-161:93">
+<td data-sourcepos="161:2-161:29"><code data-sourcepos="161:3-161:14">http.proxy</code></td>
+<td data-sourcepos="161:31-161:92"><code data-sourcepos="161:32-161:38">proxy</code></td>
+</tr>
+<tr data-sourcepos="162:1-162:93">
+<td data-sourcepos="162:2-162:29"><code data-sourcepos="162:3-162:22">npm.packageManager</code></td>
+<td data-sourcepos="162:31-162:92"><code data-sourcepos="162:32-162:46">node.npm_path</code></td>
+</tr>
+<tr data-sourcepos="163:1-163:93">
+<td data-sourcepos="163:2-163:29"><code data-sourcepos="163:3-163:28">telemetry.telemetryLevel</code></td>
+<td data-sourcepos="163:31-163:92"><code data-sourcepos="163:32-163:50">telemetry.metrics</code>, <code data-sourcepos="163:53-163:75">telemetry.diagnostics</code></td>
+</tr>
+<tr data-sourcepos="164:1-164:93">
+<td data-sourcepos="164:2-164:29"><code data-sourcepos="164:3-164:17">outline.icons</code></td>
+<td data-sourcepos="164:31-164:92"><code data-sourcepos="164:32-164:57">outline_panel.file_icons</code>, <code data-sourcepos="164:60-164:91">outline_panel.folder_indicator</code></td>
+</tr>
+<tr data-sourcepos="165:1-165:93">
+<td data-sourcepos="165:2-165:29"><code data-sourcepos="165:3-165:22">chat.agent.enabled</code></td>
+<td data-sourcepos="165:31-165:92"><code data-sourcepos="165:32-165:46">agent.enabled</code></td>
+</tr>
+<tr data-sourcepos="166:1-166:93">
+<td data-sourcepos="166:2-166:29"><code data-sourcepos="166:3-166:7">mcp</code></td>
+<td data-sourcepos="166:31-166:92"><code data-sourcepos="166:32-166:48">context_servers</code></td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="168:1-168:224">Zed doesn’t import extensions or keybindings, but this import gets core editor behavior close to your VS Code setup. If you skip that step during setup, you can still import settings manually later via the command palette:</p>
+<p data-sourcepos="170:1-170:45"><code data-sourcepos="170:1-170:18">Cmd+Shift+P → </code>zed::ImportVsCodeSettings``</p>
+<h2 id="set-up-editor-preferences" data-sourcepos="172:1-172:28">Set Up Editor Preferences<a href="#set-up-editor-preferences" aria-label="Link to heading 'Set Up Editor Preferences'" data-heading-content="Set Up Editor Preferences" class="anchor"></a></h2>
+<p data-sourcepos="174:1-174:190">You can configure most settings in the Settings Editor (<code data-sourcepos="174:57-174:75">zed::OpenSettings</code>). For advanced settings, run <code data-sourcepos="174:106-174:128">zed::OpenSettingsFile</code> from the Command Palette to edit your settings file directly.</p>
+<p data-sourcepos="176:1-176:47">Here’s how common VS Code settings translate:</p>
+<table data-sourcepos="178:1-185:76" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="178:1-178:76">
+<th data-sourcepos="178:2-178:22">VS Code</th>
+<th data-sourcepos="178:24-178:43">Zed</th>
+<th data-sourcepos="178:45-178:75">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="180:1-180:76">
+<td data-sourcepos="180:2-180:22">editor.fontFamily</td>
+<td data-sourcepos="180:24-180:43">buffer_font_family</td>
+<td data-sourcepos="180:45-180:75">Zed uses Zed Mono by default</td>
+</tr>
+<tr data-sourcepos="181:1-181:76">
+<td data-sourcepos="181:2-181:22">editor.fontSize</td>
+<td data-sourcepos="181:24-181:43">buffer_font_size</td>
+<td data-sourcepos="181:45-181:75">Set in pixels</td>
+</tr>
+<tr data-sourcepos="182:1-182:76">
+<td data-sourcepos="182:2-182:22">editor.tabSize</td>
+<td data-sourcepos="182:24-182:43">tab_size</td>
+<td data-sourcepos="182:45-182:75">Can override per language</td>
+</tr>
+<tr data-sourcepos="183:1-183:76">
+<td data-sourcepos="183:2-183:22">editor.insertSpaces</td>
+<td data-sourcepos="183:24-183:43">insert_spaces</td>
+<td data-sourcepos="183:45-183:75">Boolean</td>
+</tr>
+<tr data-sourcepos="184:1-184:76">
+<td data-sourcepos="184:2-184:22">editor.formatOnSave</td>
+<td data-sourcepos="184:24-184:43">format_on_save</td>
+<td data-sourcepos="184:45-184:75">Works with formatter enabled</td>
+</tr>
+<tr data-sourcepos="185:1-185:76">
+<td data-sourcepos="185:2-185:22">editor.wordWrap</td>
+<td data-sourcepos="185:24-185:43">soft_wrap</td>
+<td data-sourcepos="185:45-185:75">Supports optional wrap column</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="187:1-187:90">Zed also supports per-project settings. You can find these in the Settings Editor as well.</p>
+<h2 id="open-or-create-a-project" data-sourcepos="189:1-189:27">Open or Create a Project<a href="#open-or-create-a-project" aria-label="Link to heading 'Open or Create a Project'" data-heading-content="Open or Create a Project" class="anchor"></a></h2>
+<p data-sourcepos="191:1-191:321">After setup, press <code data-sourcepos="191:20-191:26">Cmd+O</code> (<code data-sourcepos="191:29-191:36">Ctrl+O</code> on Linux) to open a folder. By default, new folders open in the current window’s threads sidebar, letting you work on multiple projects without juggling windows. See <a data-sourcepos="191:204-191:251" href="../windows-and-projects.html">Windows &amp; Projects</a> for details on managing multiple projects and opening in new windows.</p>
+<p data-sourcepos="193:1-193:163">To start a new project, create a directory using your terminal or file manager, then open it in Zed. The editor will treat that folder as the root of your project.</p>
+<p data-sourcepos="195:1-196:7">You can also launch Zed from the terminal inside any folder with:
+<code data-sourcepos="196:1-196:7">zed .</code></p>
+<p data-sourcepos="198:1-198:216">Once inside a project, use <code data-sourcepos="198:28-198:34">Cmd+P</code> to jump between files quickly. <code data-sourcepos="198:67-198:79">Cmd+Shift+P</code> (<code data-sourcepos="198:82-198:95">Ctrl+Shift+P</code> on Linux) opens the command palette for running actions / tasks, toggling settings, or starting a collaboration session.</p>
+<p data-sourcepos="200:1-200:152">Open buffers appear as tabs across the top. The Project Panel shows your file tree and Git status. Collapse it with <code data-sourcepos="200:117-200:123">Cmd+B</code> for a distraction-free view.</p>
+<h2 id="differences-in-keybindings" data-sourcepos="202:1-202:29">Differences in Keybindings<a href="#differences-in-keybindings" aria-label="Link to heading 'Differences in Keybindings'" data-heading-content="Differences in Keybindings" class="anchor"></a></h2>
+<p data-sourcepos="204:1-205:77">If you chose the VS Code keymap during onboarding, most shortcuts should already feel familiar.
+Here’s a quick reference for where keybindings match and where they differ.</p>
+<h3 id="common-shared-keybindings-zed--vs-code" data-sourcepos="207:1-207:46">Common Shared Keybindings (Zed &lt;&gt; VS Code)<a href="#common-shared-keybindings-zed--vs-code" aria-label="Link to heading 'Common Shared Keybindings (Zed &lt;&gt; VS Code)'" data-heading-content="Common Shared Keybindings (Zed &lt;&gt; VS Code)" class="anchor"></a></h3>
+<table data-sourcepos="209:1-226:56" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="209:1-209:56">
+<th data-sourcepos="209:2-209:30">Action</th>
+<th data-sourcepos="209:32-209:55">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="211:1-211:56">
+<td data-sourcepos="211:2-211:30">Find files</td>
+<td data-sourcepos="211:32-211:55"><code data-sourcepos="211:33-211:41">Cmd + P</code></td>
+</tr>
+<tr data-sourcepos="212:1-212:56">
+<td data-sourcepos="212:2-212:30">Run a command</td>
+<td data-sourcepos="212:32-212:55"><code data-sourcepos="212:33-212:49">Cmd + Shift + P</code></td>
+</tr>
+<tr data-sourcepos="213:1-213:56">
+<td data-sourcepos="213:2-213:30">Search text (project-wide)</td>
+<td data-sourcepos="213:32-213:55"><code data-sourcepos="213:33-213:49">Cmd + Shift + F</code></td>
+</tr>
+<tr data-sourcepos="214:1-214:56">
+<td data-sourcepos="214:2-214:30">Find symbols (project-wide)</td>
+<td data-sourcepos="214:32-214:55"><code data-sourcepos="214:33-214:41">Cmd + T</code></td>
+</tr>
+<tr data-sourcepos="215:1-215:56">
+<td data-sourcepos="215:2-215:30">Find symbols (file-wide)</td>
+<td data-sourcepos="215:32-215:55"><code data-sourcepos="215:33-215:49">Cmd + Shift + O</code></td>
+</tr>
+<tr data-sourcepos="216:1-216:56">
+<td data-sourcepos="216:2-216:30">Toggle left dock</td>
+<td data-sourcepos="216:32-216:55"><code data-sourcepos="216:33-216:41">Cmd + B</code></td>
+</tr>
+<tr data-sourcepos="217:1-217:56">
+<td data-sourcepos="217:2-217:30">Toggle bottom dock</td>
+<td data-sourcepos="217:32-217:55"><code data-sourcepos="217:33-217:41">Cmd + J</code></td>
+</tr>
+<tr data-sourcepos="218:1-218:56">
+<td data-sourcepos="218:2-218:30">Open terminal</td>
+<td data-sourcepos="218:32-218:55"><code data-sourcepos="218:33-218:42">Ctrl + ~</code></td>
+</tr>
+<tr data-sourcepos="219:1-219:56">
+<td data-sourcepos="219:2-219:30">Open file tree explorer</td>
+<td data-sourcepos="219:32-219:55"><code data-sourcepos="219:33-219:49">Cmd + Shift + E</code></td>
+</tr>
+<tr data-sourcepos="220:1-220:56">
+<td data-sourcepos="220:2-220:30">Close current buffer</td>
+<td data-sourcepos="220:32-220:55"><code data-sourcepos="220:33-220:41">Cmd + W</code></td>
+</tr>
+<tr data-sourcepos="221:1-221:56">
+<td data-sourcepos="221:2-221:30">Close whole project</td>
+<td data-sourcepos="221:32-221:55"><code data-sourcepos="221:33-221:49">Cmd + Shift + W</code></td>
+</tr>
+<tr data-sourcepos="222:1-222:56">
+<td data-sourcepos="222:2-222:30">Refactor: rename symbol</td>
+<td data-sourcepos="222:32-222:55"><code data-sourcepos="222:33-222:36">F2</code></td>
+</tr>
+<tr data-sourcepos="223:1-223:56">
+<td data-sourcepos="223:2-223:30">Change theme</td>
+<td data-sourcepos="223:32-223:55"><code data-sourcepos="223:33-223:50">Cmd + K, Cmd + T</code></td>
+</tr>
+<tr data-sourcepos="224:1-224:56">
+<td data-sourcepos="224:2-224:30">Wrap text</td>
+<td data-sourcepos="224:32-224:55"><code data-sourcepos="224:33-224:41">Opt + Z</code></td>
+</tr>
+<tr data-sourcepos="225:1-225:56">
+<td data-sourcepos="225:2-225:30">Navigate open tabs</td>
+<td data-sourcepos="225:32-225:55"><code data-sourcepos="225:33-225:51">Cmd + Opt + Arrow</code></td>
+</tr>
+<tr data-sourcepos="226:1-226:56">
+<td data-sourcepos="226:2-226:30">Syntactic fold / unfold</td>
+<td data-sourcepos="226:32-226:55"><code data-sourcepos="226:33-226:47">Cmd + Opt + {</code> or <code data-sourcepos="226:52-226:54">}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="different-keybindings-zed--vs-code" data-sourcepos="228:1-228:42">Different Keybindings (Zed &lt;&gt; VS Code)<a href="#different-keybindings-zed--vs-code" aria-label="Link to heading 'Different Keybindings (Zed &lt;&gt; VS Code)'" data-heading-content="Different Keybindings (Zed &lt;&gt; VS Code)" class="anchor"></a></h3>
+<table data-sourcepos="230:1-235:72" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="230:1-230:72">
+<th data-sourcepos="230:2-230:22">Action</th>
+<th data-sourcepos="230:24-230:46">VS Code</th>
+<th data-sourcepos="230:48-230:71">Zed</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="232:1-232:72">
+<td data-sourcepos="232:2-232:22">Open recent project</td>
+<td data-sourcepos="232:24-232:46"><code data-sourcepos="232:25-232:34">Ctrl + R</code></td>
+<td data-sourcepos="232:48-232:71"><code data-sourcepos="232:49-232:63">Cmd + Opt + O</code></td>
+</tr>
+<tr data-sourcepos="233:1-233:72">
+<td data-sourcepos="233:2-233:22">Move lines up/down</td>
+<td data-sourcepos="233:24-233:46"><code data-sourcepos="233:25-233:39">Opt + Up/Down</code></td>
+<td data-sourcepos="233:48-233:71"><code data-sourcepos="233:49-233:70">Cmd + Ctrl + Up/Down</code></td>
+</tr>
+<tr data-sourcepos="234:1-234:72">
+<td data-sourcepos="234:2-234:22">Split panes</td>
+<td data-sourcepos="234:24-234:46"><code data-sourcepos="234:25-234:33">Cmd + \</code></td>
+<td data-sourcepos="234:48-234:71"><code data-sourcepos="234:49-234:69">Cmd + K, Arrow Keys</code></td>
+</tr>
+<tr data-sourcepos="235:1-235:72">
+<td data-sourcepos="235:2-235:22">Expand Selection</td>
+<td data-sourcepos="235:24-235:46"><code data-sourcepos="235:25-235:45">Shift + Alt + Right</code></td>
+<td data-sourcepos="235:48-235:71"><code data-sourcepos="235:49-235:58">Opt + Up</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="unique-to-zed" data-sourcepos="237:1-237:17">Unique to Zed<a href="#unique-to-zed" aria-label="Link to heading 'Unique to Zed'" data-heading-content="Unique to Zed" class="anchor"></a></h3>
+<table data-sourcepos="239:1-242:105" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="239:1-239:105">
+<th data-sourcepos="239:2-239:22">Action</th>
+<th data-sourcepos="239:24-239:53">Shortcut</th>
+<th data-sourcepos="239:55-239:104">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="241:1-241:105">
+<td data-sourcepos="241:2-241:22">Toggle right dock</td>
+<td data-sourcepos="241:24-241:53"><code data-sourcepos="241:25-241:33">Cmd + R</code> or <code data-sourcepos="241:38-241:52">Cmd + Alt + B</code></td>
+<td data-sourcepos="241:55-241:104"></td>
+</tr>
+<tr data-sourcepos="242:1-242:105">
+<td data-sourcepos="242:2-242:22">Syntactic selection</td>
+<td data-sourcepos="242:24-242:53"><code data-sourcepos="242:25-242:39">Opt + Up/Down</code></td>
+<td data-sourcepos="242:55-242:104">Selects code by structure (e.g., inside braces).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-customize-keybindings" data-sourcepos="244:1-244:32">How to Customize Keybindings<a href="#how-to-customize-keybindings" aria-label="Link to heading 'How to Customize Keybindings'" data-heading-content="How to Customize Keybindings" class="anchor"></a></h3>
+<p data-sourcepos="246:1-246:25">To edit your keybindings:</p>
+<ul data-sourcepos="248:1-249:23">
+<li data-sourcepos="248:1-248:42">Open the command palette (<code data-sourcepos="248:29-248:41">Cmd+Shift+P</code>)</li>
+<li data-sourcepos="249:1-249:23">Run <code data-sourcepos="249:7-249:23">zed::OpenKeymap</code></li>
+</ul>
+<p data-sourcepos="251:1-251:153">This opens a list of all available bindings. You can override individual shortcuts, remove conflicts, or build a layout that works better for your setup.</p>
+<p data-sourcepos="253:1-253:85">Zed also supports chords (multi-key sequences) like <code data-sourcepos="253:53-253:65">Cmd+K Cmd+C</code>, like VS Code does.</p>
+<h2 id="differences-in-user-interfaces" data-sourcepos="255:1-255:33">Differences in User Interfaces<a href="#differences-in-user-interfaces" aria-label="Link to heading 'Differences in User Interfaces'" data-heading-content="Differences in User Interfaces" class="anchor"></a></h2>
+<h3 id="projects-and-windows" data-sourcepos="257:1-257:24">Projects and Windows<a href="#projects-and-windows" aria-label="Link to heading 'Projects and Windows'" data-heading-content="Projects and Windows" class="anchor"></a></h3>
+<p data-sourcepos="259:1-260:31">VS Code uses a dedicated Workspace concept, with multi-root folders, <code data-sourcepos="259:70-259:86">.code-workspace</code> files, and a clear distinction between “a window” and “a workspace.”
+Zed takes a different approach.</p>
+<p data-sourcepos="262:1-262:7">In Zed:</p>
+<ul data-sourcepos="264:1-272:119">
+<li data-sourcepos="264:1-264:271">
+<p data-sourcepos="264:3-264:271"><strong data-sourcepos="264:3-264:37">Multiple projects in one window</strong>: You can open multiple folders in the same window. Each appears in the threads sidebar on the left, and you can switch between them while preserving your layout and agent threads. See <a data-sourcepos="264:223-264:270" href="../windows-and-projects.html">Windows &amp; Projects</a>.</p>
+</li>
+<li data-sourcepos="266:1-266:116">
+<p data-sourcepos="266:3-266:116"><strong data-sourcepos="266:3-266:30">No workspace file format</strong>: There’s no <code data-sourcepos="266:46-266:62">.code-workspace</code> equivalent. Opening a folder is your project context.</p>
+</li>
+<li data-sourcepos="268:1-268:204">
+<p data-sourcepos="268:3-268:204"><strong data-sourcepos="268:3-268:27">Add Folder to Project</strong>: If you want multiple folders in the same project (like VS Code’s multi-root), use File &gt; Add Folder to Project. This adds another root to your current project’s file tree.</p>
+</li>
+<li data-sourcepos="270:1-270:126">
+<p data-sourcepos="270:3-270:126"><strong data-sourcepos="270:3-270:39">Per-project settings are optional</strong>: You can add a <code data-sourcepos="270:56-270:75">.zed/settings.json</code> file inside a project to override global settings.</p>
+</li>
+<li data-sourcepos="272:1-272:119">
+<p data-sourcepos="272:3-272:119"><strong data-sourcepos="272:3-272:57">You can start from a single file or an empty window</strong>: Zed doesn’t require you to open a folder to begin editing.</p>
+</li>
+</ul>
+<p data-sourcepos="274:1-274:150">The result is flexibility without complexity: multiple projects per window via the sidebar, or multiple folders per project via Add Folder to Project.</p>
+<h3 id="navigating-in-a-project" data-sourcepos="276:1-276:27">Navigating in a Project<a href="#navigating-in-a-project" aria-label="Link to heading 'Navigating in a Project'" data-heading-content="Navigating in a Project" class="anchor"></a></h3>
+<p data-sourcepos="278:1-279:31">In VS Code, the standard entry point is opening a folder. From there, the left-hand panel is central to navigation.
+Zed takes a different approach:</p>
+<ul data-sourcepos="281:1-286:147">
+<li data-sourcepos="281:1-281:127">You can still open folders, but you don’t need to. Opening a single file or even starting with an empty workspace is valid.</li>
+<li data-sourcepos="282:1-282:194">The <a data-sourcepos="282:7-282:46" href="../command-palette.html">Command Palette</a> (<code data-sourcepos="282:49-282:61">Cmd+Shift+P</code>) and File Finder (<code data-sourcepos="282:81-282:87">Cmd+P</code>) are primary navigation tools. The File Finder searches files, symbols, and commands across the workspace.</li>
+<li data-sourcepos="283:1-286:147">Instead of a persistent panel, Zed encourages you to:
+<ul data-sourcepos="284:3-286:147">
+<li data-sourcepos="284:3-284:38">Fuzzy-find files by name (<code data-sourcepos="284:31-284:37">Cmd+P</code>)</li>
+<li data-sourcepos="285:3-285:44">Jump directly to symbols (<code data-sourcepos="285:31-285:43">Cmd+Shift+O</code>)</li>
+<li data-sourcepos="286:3-286:147">Use split panes and tabs for context, rather than keeping a large file tree open (though you can do this with the Project Panel if you prefer).</li>
+</ul>
+</li>
+</ul>
+<p data-sourcepos="288:1-288:82">The UI keeps auxiliary panels out of the way so navigation stays centered on code.</p>
+<h3 id="extensions-vs-marketplace" data-sourcepos="290:1-290:30">Extensions vs. Marketplace<a href="#extensions-vs-marketplace" aria-label="Link to heading 'Extensions vs. Marketplace'" data-heading-content="Extensions vs. Marketplace" class="anchor"></a></h3>
+<p data-sourcepos="292:1-292:173">Zed does not offer as many extensions as VS Code. The available extensions are focused on language support, themes, syntax highlighting, and other core editing enhancements.</p>
+<p data-sourcepos="294:1-294:81">Several features that typically require extensions in VS Code are built into Zed:</p>
+<ul data-sourcepos="296:1-301:45">
+<li data-sourcepos="296:1-296:80">Real-time collaboration with voice and cursor sharing (no Live Share required)</li>
+<li data-sourcepos="297:1-297:52">AI coding assistance (no Copilot extension needed)</li>
+<li data-sourcepos="298:1-298:25">Built-in terminal panel</li>
+<li data-sourcepos="299:1-299:27">Project-wide fuzzy search</li>
+<li data-sourcepos="300:1-300:30">Task runner with JSON config</li>
+<li data-sourcepos="301:1-301:45">Inline diagnostics and code actions via LSP</li>
+</ul>
+<p data-sourcepos="303:1-303:204">You won’t find one-to-one replacements for every VS Code extension, especially if you rely on tools for DevOps, containers, or test runners. Zed’s extension catalog is still growing and remains smaller.</p>
+<h3 id="collaboration-in-zed-vs-vs-code" data-sourcepos="305:1-305:36">Collaboration in Zed vs. VS Code<a href="#collaboration-in-zed-vs-vs-code" aria-label="Link to heading 'Collaboration in Zed vs. VS Code'" data-heading-content="Collaboration in Zed vs. VS Code" class="anchor"></a></h3>
+<p data-sourcepos="307:1-307:105">Unlike VS Code, Zed doesn’t require an extension to collaborate. It’s built into the core experience.</p>
+<ul data-sourcepos="309:1-311:100">
+<li data-sourcepos="309:1-309:41">Open the Collab Panel in the left dock.</li>
+<li data-sourcepos="310:1-310:119">Create a channel and <a data-sourcepos="310:24-310:110" href="https://zed.dev/docs/collaboration#inviting-a-collaborator">invite your collaborators</a> to join.</li>
+<li data-sourcepos="311:1-311:100"><a data-sourcepos="311:3-311:90" href="https://zed.dev/docs/collaboration#share-a-project">Share your screen or your codebase</a> directly.</li>
+</ul>
+<p data-sourcepos="313:1-313:199">Once connected, you’ll see each other’s cursors, selections, and edits in real time. Voice chat is included, so you can talk as you work. There’s no need for separate tools or third-party logins.</p>
+<p data-sourcepos="315:1-315:94">Learn how <a data-sourcepos="315:11-315:64" href="https://zed.dev/blog/zed-is-our-office">Zed uses Zed</a> to plan work and collaborate.</p>
+<h3 id="using-ai-in-zed" data-sourcepos="317:1-317:19">Using AI in Zed<a href="#using-ai-in-zed" aria-label="Link to heading 'Using AI in Zed'" data-heading-content="Using AI in Zed" class="anchor"></a></h3>
+<p data-sourcepos="319:1-319:236">If you’re used to GitHub Copilot in VS Code, you can do the same in Zed. You can also explore other agents through Zed Pro, or bring your own keys and connect without authentication. You can disable AI features entirely if you prefer.</p>
+<h4 id="configuring-github-copilot" data-sourcepos="321:1-321:31">Configuring GitHub Copilot<a href="#configuring-github-copilot" aria-label="Link to heading 'Configuring GitHub Copilot'" data-heading-content="Configuring GitHub Copilot" class="anchor"></a></h4>
+<ol data-sourcepos="323:1-326:56">
+<li data-sourcepos="323:1-323:65">Open Settings with <code data-sourcepos="323:23-323:29">Cmd+,</code> (macOS) or <code data-sourcepos="323:42-323:49">Ctrl+,</code> (Linux/Windows)</li>
+<li data-sourcepos="324:1-324:42">Navigate to <strong data-sourcepos="324:16-324:42">AI → Edit Predictions</strong></li>
+<li data-sourcepos="325:1-325:52">Click <strong data-sourcepos="325:10-325:22">Configure</strong> next to “Configure Providers”</li>
+<li data-sourcepos="326:1-326:56">Under <strong data-sourcepos="326:10-326:27">GitHub Copilot</strong>, click <strong data-sourcepos="326:36-326:56">Sign in to GitHub</strong></li>
+</ol>
+<p data-sourcepos="328:1-328:87">Once signed in, just start typing. Zed will offer suggestions inline for you to accept.</p>
+<h4 id="additional-ai-options" data-sourcepos="330:1-330:26">Additional AI Options<a href="#additional-ai-options" aria-label="Link to heading 'Additional AI Options'" data-heading-content="Additional AI Options" class="anchor"></a></h4>
+<p data-sourcepos="332:1-332:56">To use other AI models in Zed, you have several options:</p>
+<ul data-sourcepos="334:1-336:88">
+<li data-sourcepos="334:1-334:199">Use Zed’s hosted models, with higher rate limits. Requires <a data-sourcepos="334:64-334:116" href="https://zed.dev/docs/authentication">authentication</a> and access through <a data-sourcepos="334:137-334:198" href="https://zed.dev/docs/account/zed-hosted-models.html">Zed Pro</a>.</li>
+<li data-sourcepos="335:1-335:98">Bring your own <a data-sourcepos="335:18-335:72" href="https://zed.dev/docs/ai/use-api-access.html">API keys</a>, no authentication needed</li>
+<li data-sourcepos="336:1-336:88">Use <a data-sourcepos="336:7-336:87" href="https://zed.dev/docs/ai/external-agents.html">External Agents like Claude Agent</a>.</li>
+</ul>
+<h3 id="advanced-config-and-productivity-tweaks" data-sourcepos="338:1-338:43">Advanced Config and Productivity Tweaks<a href="#advanced-config-and-productivity-tweaks" aria-label="Link to heading 'Advanced Config and Productivity Tweaks'" data-heading-content="Advanced Config and Productivity Tweaks" class="anchor"></a></h3>
+<p data-sourcepos="340:1-340:86">Zed exposes advanced settings for power users who want to fine-tune their environment.</p>
+<p data-sourcepos="342:1-342:29">Here are a few useful tweaks:</p>
+<p data-sourcepos="344:1-344:19"><strong data-sourcepos="344:1-344:19">Format on Save:</strong></p>
+<pre class="syntax-highlighting" data-sourcepos="346:1-348:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>format_on_save<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>on<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="350:1-350:26"><strong data-sourcepos="350:1-350:26">Enable direnv support:</strong></p>
+<pre class="syntax-highlighting" data-sourcepos="352:1-354:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>load_direnv<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>shell_hook<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="356:1-356:117"><strong data-sourcepos="356:1-356:16">Custom Tasks</strong>: Define build or run commands in your <code data-sourcepos="356:56-356:67">tasks.json</code> (accessed via command palette: <code data-sourcepos="356:100-356:115">zed::OpenTasks</code>):</p>
+<pre class="syntax-highlighting" data-sourcepos="358:1-365:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span>
+  <span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>label<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>build<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
+    </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>command<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>cargo build<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+  <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
+<span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span>
+</span></code></pre>
+<p data-sourcepos="367:1-368:99"><strong data-sourcepos="367:1-367:30">Bring over custom snippets</strong>
+Copy your VS Code snippet JSON directly into Zed’s snippets folder (<code data-sourcepos="368:69-368:97">snippets::ConfigureSnippets</code>).</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode&#x2f;blob&#x2f;main&#x2f;docs&#x2f;src&#x2f;migrate&#x2f;vs-code.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

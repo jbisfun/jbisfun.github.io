@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>commons-ios · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">
+
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">fossify-ios</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;browser-ios&#x2f;index.html">browser-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">calculator-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">calendar-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">camera-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">clock-ios</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">commons-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">contacts-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">documents-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">file-manager-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">gallery-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">keyboard-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">launcher-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">messages-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">music-player-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">notes-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">paint-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">phone-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;settings-ios&#x2f;index.html">settings-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">thank-you-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">voice-recorder-ios</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;widgets-ios&#x2f;index.html">widgets-ios</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;commons-ios">GitHub 原始碼</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="commons-ios" data-sourcepos="1:1-1:13">commons-ios<a href="#commons-ios" aria-label="Link to heading 'commons-ios'" data-heading-content="commons-ios" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:260">Fossify iOS 移植版的共用核心（<a data-sourcepos="3:40-3:94" href="https://github.com/jbisfun/contacts-ios">contacts-ios</a>、<a data-sourcepos="3:98-3:156" href="https://github.com/jbisfun/calculator-ios">calculator-ios</a>），對應 <a data-sourcepos="3:170-3:225" href="https://github.com/FossifyOrg/Commons">Fossify Commons</a>。Swift 模組 <code data-sourcepos="3:242-3:257">FossifyCommons</code>。</p>
+<ul data-sourcepos="5:1-24:176">
+<li data-sourcepos="5:1-5:115"><code data-sourcepos="5:3-5:14">BaseConfig</code>：佈景主題、自訂色彩、字型大小（每個應用程式使用相同的 UserDefaults 鍵）</li>
+<li data-sourcepos="6:1-6:138"><code data-sourcepos="6:3-6:9">Theme</code>：<code data-sourcepos="6:13-6:23">ThemeKind</code>、<code data-sourcepos="6:27-6:35">Palette</code>（<code data-sourcepos="6:39-6:49">\.palette</code> 環境值）、用於應用程式根視圖的 <code data-sourcepos="6:97-6:113">.fossifyTheme()</code>、<code data-sourcepos="6:117-6:138">.paletteBackground()</code></li>
+<li data-sourcepos="7:1-7:205"><code data-sourcepos="7:3-7:14">Components</code>：<code data-sourcepos="7:18-7:30">RadioDialog</code>、<code data-sourcepos="7:34-7:43">CheckRow</code>、<code data-sourcepos="7:47-7:59">DialogFrame</code>、<code data-sourcepos="7:63-7:77">DialogButtons</code>、<code data-sourcepos="7:81-7:88">.toast</code>、<code data-sourcepos="7:92-7:107">.sectionHeader</code>、<code data-sourcepos="7:111-7:118">TopBar</code>、<code data-sourcepos="7:122-7:133">IconButton</code>、<code data-sourcepos="7:137-7:150">PressedStyle</code>、<code data-sourcepos="7:154-7:163">Launcher</code>，以及隱藏導覽列時的滑動返回</li>
+<li data-sourcepos="8:1-8:100"><code data-sourcepos="8:3-8:12">Settings</code>：<code data-sourcepos="8:16-8:29">SettingsItem</code>、<code data-sourcepos="8:33-8:48">SettingsToggle</code>、<code data-sourcepos="8:52-8:72">CustomizeColorsView</code>、<code data-sourcepos="8:76-8:100">AboutView(app: AppInfo)</code></li>
+<li data-sourcepos="9:1-9:142"><code data-sourcepos="9:3-9:11">Hosting</code>：供在 <a data-sourcepos="9:22-9:76" href="https://github.com/jbisfun/launcher-ios">launcher-ios</a> 內執行的應用程式使用的 <code data-sourcepos="9:112-9:123">\.closeApp</code>／<code data-sourcepos="9:127-9:142">CloseAppButton</code></li>
+<li data-sourcepos="10:1-10:154"><code data-sourcepos="10:3-10:19">NotificationHub</code>：行程唯一的通知委派與合併後的類別集合；應用程式改為註冊處理常式，而不是設定通知中心的委派</li>
+<li data-sourcepos="11:1-11:156"><code data-sourcepos="11:3-11:18">DateTimeFormat</code>：日期格式／24 小時制設定，含 <code data-sourcepos="11:62-11:73">format(_:)</code>、<code data-sourcepos="11:77-11:104">ChangeDateTimeFormatDialog</code>、<code data-sourcepos="11:108-11:132">Int.formattedDuration()</code>、<code data-sourcepos="11:136-11:156">Int64.formattedSize</code></li>
+<li data-sourcepos="12:1-12:148"><code data-sourcepos="12:3-12:21">ColorPickerDialog</code>：以工作表呈現的系統色彩選擇器；用於「強制直向模式」的 <code data-sourcepos="12:104-12:120">OrientationLock</code> + <code data-sourcepos="12:124-12:148">OrientationLockDelegate</code></li>
+<li data-sourcepos="13:1-13:187"><code data-sourcepos="13:3-13:18">SecurityDialog</code>：圖形密碼／PIN／Face ID 分頁、<code data-sourcepos="13:60-13:75">SecurityConfig</code>、<code data-sourcepos="13:79-13:104">.securityCheck($request)</code>、<code data-sourcepos="13:108-13:119">.appLock()</code>、<code data-sourcepos="13:123-13:148">PasswordProtectionToggle</code>（需要 <code data-sourcepos="13:159-13:184">NSFaceIDUsageDescription</code>）</li>
+<li data-sourcepos="14:1-14:200"><code data-sourcepos="14:3-14:20">StoredProtection</code>：隱藏項目／各資料夾（<code data-sourcepos="14:54-14:81">ProtectionKeys.hiddenItems</code>、<code data-sourcepos="14:85-14:99">.folder(path)</code>）或應用程式專屬的保護、<code data-sourcepos="14:136-14:173">StoredProtection.check(_:onSuccess:)</code>、<code data-sourcepos="14:177-14:200">StoredProtectionToggle</code></li>
+<li data-sourcepos="15:1-15:130"><code data-sourcepos="15:3-15:14">AutoBackup</code>：上午 6 點的備份時段、<code data-sourcepos="15:48-15:62">%Y%M%D_%h%m%s</code> 檔名、<code data-sourcepos="15:73-15:100">currentFormattedDateTime()</code>、<code data-sourcepos="15:104-15:130">DateTimePatternInfoDialog</code></li>
+<li data-sourcepos="16:1-16:285">檔案：<code data-sourcepos="16:12-16:24">FileDirItem</code> + <code data-sourcepos="16:28-16:36">Sorting</code>/<code data-sourcepos="16:38-16:48">ViewTypes</code>、<code data-sourcepos="16:52-16:64">StorageRoot</code>、<code data-sourcepos="16:68-16:80">Breadcrumbs</code>、<code data-sourcepos="16:84-16:101">FilePickerDialog</code>、<code data-sourcepos="16:105-16:125">StoragePickerDialog</code>、<code data-sourcepos="16:129-16:151">CreateNewFolderDialog</code>、<code data-sourcepos="16:155-16:171">DialogTextField</code>、<code data-sourcepos="16:175-16:192">PropertiesDialog</code>、<code data-sourcepos="16:196-16:213">RenameItemDialog</code> / <code data-sourcepos="16:217-16:235">RenameItemsDialog</code>、<code data-sourcepos="16:239-16:258">FileConflictDialog</code> + <code data-sourcepos="16:262-16:285">.conflictCheck($check)</code></li>
+<li data-sourcepos="17:1-17:263">鬧鐘：<code data-sourcepos="17:12-17:21">WeekDays</code>（每週第一天、星期位元／名稱）、<code data-sourcepos="17:70-17:86">DurationStrings</code>、<code data-sourcepos="17:90-17:108">PickSecondsDialog</code> / <code data-sourcepos="17:112-17:139">CustomIntervalPickerDialog</code>、<code data-sourcepos="17:143-17:154">AlarmSound</code> / <code data-sourcepos="17:158-17:181">SelectAlarmSoundDialog</code> / <code data-sourcepos="17:185-17:202">AlarmSoundPlayer</code>、<code data-sourcepos="17:206-17:221">ReminderConfig</code>（貪睡、鬧鐘警告、您的音效）</li>
+<li data-sourcepos="18:1-18:163"><code data-sourcepos="18:3-18:14">ShareSheet</code>：<code data-sourcepos="18:18-18:29">ShareSheet</code> / <code data-sourcepos="18:33-18:44">ShareItems</code>（系統分享工作表）、<code data-sourcepos="18:75-18:97">Launcher.openWith(_:)</code>（「開啟方式」選擇器）、<code data-sourcepos="18:134-18:163">Launcher.topViewController()</code></li>
+<li data-sourcepos="19:1-19:152">清單：<code data-sourcepos="19:12-19:26">ActionModeBar</code>（選取 CAB）、<code data-sourcepos="19:46-19:59">OverflowMenu</code>、<code data-sourcepos="19:63-19:86">toggleSelection(_:in:)</code>、<code data-sourcepos="19:90-19:103">FastScroller</code>（RecyclerViewFastScroller 的把手＋氣泡）</li>
+<li data-sourcepos="20:1-20:228"><code data-sourcepos="20:3-20:18">BlockedNumbers</code>：共用的封鎖清單，含 <code data-sourcepos="20:50-20:64">isBlocked(_:)</code>（也支援比對樣式）、<code data-sourcepos="20:95-20:120">ManageBlockedNumbersView</code>、<code data-sourcepos="20:124-20:141">BlockedItemsView</code>（新增／編輯、複製、刪除、.txt 匯入／匯出）、<code data-sourcepos="20:207-20:228">ExportTextFileDialog</code></li>
+<li data-sourcepos="21:1-21:220"><code data-sourcepos="21:3-21:18">GlobalSettings</code>：全域的「在開關上顯示勾號」／「二進位儲存單位」鍵、<code data-sourcepos="21:97-21:118">CheckmarkSwitchStyle</code>（供 <code data-sourcepos="21:126-21:141">SettingsToggle</code> 使用）；<code data-sourcepos="21:155-21:168">DonationView</code>（DonationActivity：平台＋加密貨幣位址）</li>
+<li data-sourcepos="22:1-22:231"><code data-sourcepos="22:3-22:22">LetterFastScroller</code>（indicatorfastscroll 字母欄＋氣泡、<code data-sourcepos="22:67-22:76">firstIDs</code>）、<code data-sourcepos="22:83-22:96">KeypadHelper</code>（T9 字母 -&gt; 數字、按鍵字母）、<code data-sourcepos="22:140-22:177">DateTimeFormat.formatDateOrTime(...)</code>、<code data-sourcepos="22:181-22:211">DurationStrings.shortTime(_:)</code>（「1h 5m 3s」）</li>
+<li data-sourcepos="23:1-23:112"><code data-sourcepos="23:3-23:38">OpenDeviceSettingsDialog(message:)</code>（權限遭拒 -&gt; 「前往設定」）、<code data-sourcepos="23:82-23:112">Launcher.openDeviceSettings()</code></li>
+<li data-sourcepos="24:1-24:176"><code data-sourcepos="24:3-24:16">ColorShading</code>：<code data-sourcepos="24:20-24:41">UInt32.darkened(by:)</code> / <code data-sourcepos="24:45-24:60">lightened(by:)</code> / <code data-sourcepos="24:64-24:82">alphaAdjusted(_:)</code> / <code data-sourcepos="24:86-24:99">contrastARGB</code>（Commons 的 darkenColor / lightenColor / adjustAlpha / getContrastColor）</li>
+</ul>
+<p data-sourcepos="26:1-26:129">應用程式會在 pull 工作區中將它簽出到自己旁邊（<code data-sourcepos="26:67-26:91">fossify-ios/commons-ios</code>），並以 idl 靜態目標建置：</p>
+<pre class="syntax-highlighting" data-sourcepos="28:1-40:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">FossifyCalculator</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">link</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">FossifyCommons</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
+    <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> ...
+</span>  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">FossifyCommons</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">static</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">dir</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">../commons-ios</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">min_ios</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span>17.0<span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Sources</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">SwiftUI</span><span class="hl-punctuation hl-separator hl-sequence hl-yaml">,</span> <span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">UIKit</span><span class="hl-punctuation hl-separator hl-sequence hl-yaml">,</span> <span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Foundation</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">swift_version</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span>5.0<span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+</span></code></pre>
+<p data-sourcepos="42:1-42:39">GPL-3.0，與 Fossify Commons 相同。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;commons-ios&#x2f;blob&#x2f;main&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

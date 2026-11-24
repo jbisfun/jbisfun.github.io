@@ -12,11 +12,14 @@
     applyScheme();
     scheme.addEventListener("change", applyScheme);
   </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;..&#x2f;zh-tw&#x2f;idl&#x2f;docs&#x2f;architecture.html">
+
   <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
   <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
     <div class="d-flex align-items-center gap-2 d-lg-none">
@@ -143,6 +146,20 @@
         </li>
 
       </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="architecture.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;zh-tw&#x2f;idl&#x2f;docs&#x2f;architecture.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
     </div>
   </div>
 </nav>
@@ -205,6 +222,7 @@
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idl" data-radar-file="docs&#x2f;architecture.md">
+
 
       <h1 id="architecture" data-sourcepos="1:1-1:14">Architecture<a href="#architecture" aria-label="Link to heading 'Architecture'" data-heading-content="Architecture" class="anchor"></a></h1>
 <p data-sourcepos="3:1-6:72"><code data-sourcepos="3:1-3:5">idl</code> is a single Zig executable (libplist is compiled in; only libc is linked dynamically). It reads <code data-sourcepos="3:103-3:115">idlproj.yml</code> and
