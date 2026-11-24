@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>widgets-ios · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="..&#x2f;..&#x2f;index.html">jbisfun wiki</a>
+    <ul class="navbar-nav flex-row flex-wrap gap-3 ms-lg-3 me-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;browser-ios&#x2f;index.html">fossify-ios&#x2f;browser-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;calculator-ios&#x2f;index.html">fossify-ios&#x2f;calculator-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;calendar-ios&#x2f;index.html">fossify-ios&#x2f;calendar-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;camera-ios&#x2f;index.html">fossify-ios&#x2f;camera-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;clock-ios&#x2f;index.html">fossify-ios&#x2f;clock-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;commons-ios&#x2f;index.html">fossify-ios&#x2f;commons-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;contacts-ios&#x2f;index.html">fossify-ios&#x2f;contacts-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;documents-ios&#x2f;index.html">fossify-ios&#x2f;documents-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;file-manager-ios&#x2f;index.html">fossify-ios&#x2f;file-manager-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;gallery-ios&#x2f;index.html">fossify-ios&#x2f;gallery-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;keyboard-ios&#x2f;index.html">fossify-ios&#x2f;keyboard-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;launcher-ios&#x2f;index.html">fossify-ios&#x2f;launcher-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;messages-ios&#x2f;index.html">fossify-ios&#x2f;messages-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;music-player-ios&#x2f;index.html">fossify-ios&#x2f;music-player-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;notes-ios&#x2f;index.html">fossify-ios&#x2f;notes-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;paint-ios&#x2f;index.html">fossify-ios&#x2f;paint-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;phone-ios&#x2f;index.html">fossify-ios&#x2f;phone-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;settings-ios&#x2f;index.html">fossify-ios&#x2f;settings-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;thank-you-ios&#x2f;index.html">fossify-ios&#x2f;thank-you-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;voice-recorder-ios&#x2f;index.html">fossify-ios&#x2f;voice-recorder-ios</a></li>
+
+          <li><a class="dropdown-item active" href="index.html">fossify-ios&#x2f;widgets-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+
+    <button class="navbar-toggler ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle pages">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;widgets-ios">Source on GitHub</a></li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="fossify-ios&#x2f;widgets-ios" data-radar-file="README.md">
+
+      <h1 id="widgets-ios" data-sourcepos="1:1-1:13">widgets-ios<a href="#widgets-ios" aria-label="Link to heading 'widgets-ios'" data-heading-content="widgets-ios" class="anchor"></a></h1>
+<p data-sourcepos="3:1-4:97">The Fossify apps’ home-screen widgets re-created for the real iOS home screen as a WidgetKit
+extension (SwiftUI, App Intents). launcher-ios embeds it; this repo also builds a small host app.</p>
+<pre class="syntax-highlighting" data-sourcepos="6:5-6:102"><code><span class="hl-text hl-plain">idl build -c release     # -&gt; build/release/FossifyWidgets.ipa with PlugIns/WidgetsExtension.appex
+</span></code></pre>
+<p data-sourcepos="8:1-10:50">Needs <code data-sourcepos="8:7-8:35">appintentsmetadataprocessor</code> on PATH (<a data-sourcepos="8:46-8:139" href="https://codeberg.org/viraptor/re-appintentsmetadataprocessor">re-appintentsmetadataprocessor</a>,
+e.g. <code data-sourcepos="9:6-9:65">nix profile install nixpkgs#re-appintentsmetadataprocessor</code>): idl writes <code data-sourcepos="9:80-9:100">Metadata.appintents</code>, without
+which iOS ignores the widget settings and buttons.</p>
+<h2 id="widgets" data-sourcepos="12:1-12:10">Widgets<a href="#widgets" aria-label="Link to heading 'Widgets'" data-heading-content="Widgets" class="anchor"></a></h2>
+<table data-sourcepos="14:1-25:93" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="14:1-14:60">
+<th data-sourcepos="14:2-14:9">Widget</th>
+<th data-sourcepos="14:11-14:20">Families</th>
+<th data-sourcepos="14:22-14:45">Settings (Edit Widget)</th>
+<th data-sourcepos="14:47-14:59">Interactive</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="16:1-16:113">
+<td data-sourcepos="16:2-16:13">Calculator</td>
+<td data-sourcepos="16:15-16:34">large, extra large</td>
+<td data-sourcepos="16:36-16:75">background color + opacity, text color</td>
+<td data-sourcepos="16:77-16:112">every key (state in the app group)</td>
+</tr>
+<tr data-sourcepos="17:1-17:38">
+<td data-sourcepos="17:2-17:18">Date (Calendar)</td>
+<td data-sourcepos="17:20-17:26">small</td>
+<td data-sourcepos="17:28-17:35">colors</td>
+<td data-sourcepos="17:37-17:37"></td>
+</tr>
+<tr data-sourcepos="18:1-18:88">
+<td data-sourcepos="18:2-18:24">Event list (Calendar)</td>
+<td data-sourcepos="18:26-18:46">small - extra large</td>
+<td data-sourcepos="18:48-18:85">period / custom days, header, colors</td>
+<td data-sourcepos="18:87-18:87"></td>
+</tr>
+<tr data-sourcepos="19:1-19:96">
+<td data-sourcepos="19:2-19:26">Monthly view (Calendar)</td>
+<td data-sourcepos="19:28-19:54">small, large, extra large</td>
+<td data-sourcepos="19:56-19:63">colors</td>
+<td data-sourcepos="19:65-19:95">previous / today / next month</td>
+</tr>
+<tr data-sourcepos="20:1-20:44">
+<td data-sourcepos="20:2-20:16">Digital clock</td>
+<td data-sourcepos="20:18-20:32">small, medium</td>
+<td data-sourcepos="20:34-20:41">colors</td>
+<td data-sourcepos="20:43-20:43"></td>
+</tr>
+<tr data-sourcepos="21:1-21:49">
+<td data-sourcepos="21:2-21:17">Analogue clock</td>
+<td data-sourcepos="21:19-21:33">small, medium</td>
+<td data-sourcepos="21:35-21:46">background</td>
+<td data-sourcepos="21:48-21:48"></td>
+</tr>
+<tr data-sourcepos="22:1-22:66">
+<td data-sourcepos="22:2-22:17">Gallery folder</td>
+<td data-sourcepos="22:19-22:33">small - large</td>
+<td data-sourcepos="22:35-22:63">folder, folder name, colors</td>
+<td data-sourcepos="22:65-22:65"></td>
+</tr>
+<tr data-sourcepos="23:1-23:86">
+<td data-sourcepos="23:2-23:15">Music Player</td>
+<td data-sourcepos="23:17-23:24">medium</td>
+<td data-sourcepos="23:26-23:33">colors</td>
+<td data-sourcepos="23:35-23:85">previous / play-pause / next (in the app process)</td>
+</tr>
+<tr data-sourcepos="24:1-24:54">
+<td data-sourcepos="24:2-24:7">Note</td>
+<td data-sourcepos="24:9-24:29">small - extra large</td>
+<td data-sourcepos="24:31-24:51">note, title, colors</td>
+<td data-sourcepos="24:53-24:53"></td>
+</tr>
+<tr data-sourcepos="25:1-25:93">
+<td data-sourcepos="25:2-25:26">Record (Voice Recorder)</td>
+<td data-sourcepos="25:28-25:34">small</td>
+<td data-sourcepos="25:36-25:52">color + opacity</td>
+<td data-sourcepos="25:54-25:92">start (opens the app) / stop and save</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="27:1-28:71">Colors are a Material palette plus “Theme” (the apps’ primary color) or a custom <code data-sourcepos="27:82-27:90">#RRGGBB</code>. Taps elsewhere
+open <code data-sourcepos="28:6-28:31">fossify://open/&lt;app&gt;?...</code> in the launcher (note id, folder path).</p>
+<h2 id="add-a-widget" data-sourcepos="30:1-30:15">Add a widget<a href="#add-a-widget" aria-label="Link to heading 'Add a widget'" data-heading-content="Add a widget" class="anchor"></a></h2>
+<p data-sourcepos="32:1-33:45">Touch and hold the home screen, Edit &gt; Add Widget, search “Fossify Widgets”, pick one. Touch and hold a
+placed widget &gt; Edit Widget for its settings.</p>
+<h2 id="how-it-works" data-sourcepos="35:1-35:15">How it works<a href="#how-it-works" aria-label="Link to heading 'How it works'" data-heading-content="How it works" class="anchor"></a></h2>
+<ul data-sourcepos="37:1-45:74">
+<li data-sourcepos="37:1-38:70"><code data-sourcepos="37:3-37:14">Extension/</code>: the <code data-sourcepos="37:21-37:40">@main WidgetBundle</code>, one widget per Android AppWidgetProvider, drawn like the
+in-launcher ports (<code data-sourcepos="38:22-38:53">*-ios/Sources/UI/Widgets.swift</code>) from snapshots.</li>
+<li data-sourcepos="39:1-41:111">The apps publish snapshots into the launcher’s app group (<code data-sourcepos="39:61-39:89">FossifyCommons.WidgetBridge</code>,
+<code data-sourcepos="40:3-40:25">WidgetSnapshots.swift</code>) from <code data-sourcepos="40:33-40:59">&lt;App&gt;WidgetData.install()</code> in each Kit (<code data-sourcepos="40:74-40:111">Sources/Model/HomeScreenWidget.swift</code>)
+and reload the timelines when their data changes. Gallery covers and music artwork are written as JPEG files.</li>
+<li data-sourcepos="42:1-43:65"><code data-sourcepos="42:3-42:11">Shared/</code>: intents that must run in the app (music controls as <code data-sourcepos="42:66-42:86">AudioPlaybackIntent</code>, recording); the app
+links this module too so they are in its <code data-sourcepos="43:44-43:64">Metadata.appintents</code>.</li>
+<li data-sourcepos="44:1-45:74">Re-signing renames the app group (<code data-sourcepos="44:37-44:68">group.org.fossify.launcher.ios</code> becomes <code data-sourcepos="44:78-44:94">...ios.&lt;TEAMID&gt;</code> through
+Jimpactor); <code data-sourcepos="45:15-45:39">FossifyCommons.AppGroup</code> finds the entitled one at runtime.</li>
+</ul>
+<p data-sourcepos="47:1-55:73">Differences forced by iOS: widgets show the data the apps last published (they update when an app runs, not
+live; open the app if a widget looks stale); timelines refresh on WidgetKit’s budget (clock and event list use
+pre-computed per-minute / 15-minute entries, the digital clock uses live <code data-sourcepos="49:74-49:86">Text(.time)</code> when the app’s 24-hour
+setting matches the system’s); no scrolling lists (long notes and event lists are cut); widget backgrounds are
+the iOS container (its corner radius, transparency over the home screen); starting a recording opens Voice
+Recorder (the microphone can’t start in the background); protected notes show no content (no password prompt
+in widgets); the calculator shows results after each key press round-trip (intents), and its history joins the
+app’s history the next time the launcher runs; one month offset is shared by all monthly widgets
+(like upstream) and stays within the published 2 months back to 12 ahead.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;widgets-ios&#x2f;blob&#x2f;main&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

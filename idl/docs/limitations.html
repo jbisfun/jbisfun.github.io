@@ -48,6 +48,8 @@
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
         <ul class="dropdown-menu">
 
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">fossify-ios&#x2f;browser-ios</a></li>
+
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">fossify-ios&#x2f;calculator-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">fossify-ios&#x2f;calendar-ios</a></li>
@@ -80,9 +82,13 @@
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">fossify-ios&#x2f;phone-ios</a></li>
 
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">fossify-ios&#x2f;settings-ios</a></li>
+
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">fossify-ios&#x2f;thank-you-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">fossify-ios&#x2f;voice-recorder-ios</a></li>
+
+          <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">fossify-ios&#x2f;widgets-ios</a></li>
 
           <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
 
@@ -213,162 +219,168 @@ their inputs; <code data-sourcepos="15:15-15:24">--strict</code> rejects them be
 <li data-sourcepos="18:1-19:30">Metal shaders (<code data-sourcepos="18:18-18:25">.metal</code>) are listed in generated Xcode projects but are not
 compiled by <code data-sourcepos="19:15-19:22">direct</code> builds.</li>
 </ul>
-<p data-sourcepos="21:1-22:41">String Catalogs (<code data-sourcepos="21:18-21:29">.xcstrings</code>), storyboards, XIBs and asset catalogs are
+<p data-sourcepos="21:1-26:16">App Intents metadata needs an external processor (<code data-sourcepos="21:51-21:72">toolchain.appintents</code>,
+re-appintentsmetadataprocessor). Intents in linked <code data-sourcepos="22:52-22:59">static</code> targets are
+extracted into each bundle that links them; a <code data-sourcepos="23:47-23:57">framework</code> target carries its
+own <code data-sourcepos="24:5-24:25">Metadata.appintents</code>, but dependents don’t reference it
+(<code data-sourcepos="25:2-25:23">--metadata-file-list</code>). App Shortcuts phrase localization (<code data-sourcepos="25:62-25:75">.stringsdata</code>)
+is not produced.</p>
+<p data-sourcepos="28:1-29:41">String Catalogs (<code data-sourcepos="28:18-28:29">.xcstrings</code>), storyboards, XIBs and asset catalogs are
 compiled on Linux, with the limits below.</p>
-<h2 id="storyboards-and-xibs-idl-ibtool" data-sourcepos="24:1-24:38">Storyboards and XIBs (<code data-sourcepos="24:26-24:37">idl ibtool</code>)<a href="#storyboards-and-xibs-idl-ibtool" aria-label="Link to heading 'Storyboards and XIBs (idl ibtool)'" data-heading-content="Storyboards and XIBs (idl ibtool)" class="anchor"></a></h2>
-<p data-sourcepos="26:1-28:66">The compiler is a Zig port of
-<a data-sourcepos="27:1-27:61" href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a>, a
+<h2 id="storyboards-and-xibs-idl-ibtool" data-sourcepos="31:1-31:38">Storyboards and XIBs (<code data-sourcepos="31:26-31:37">idl ibtool</code>)<a href="#storyboards-and-xibs-idl-ibtool" aria-label="Link to heading 'Storyboards and XIBs (idl ibtool)'" data-heading-content="Storyboards and XIBs (idl ibtool)" class="anchor"></a></h2>
+<p data-sourcepos="33:1-35:66">The compiler is a Zig port of
+<a data-sourcepos="34:1-34:61" href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a>, a
 reverse-engineered NIB writer. Apple’s format is undocumented, so:</p>
-<ul data-sourcepos="30:1-54:11">
-<li data-sourcepos="30:1-32:62"><strong data-sourcepos="30:3-30:35">Not verified on a device yet.</strong> The output decodes with idl’s own reader and
-has the same NIBArchive layout as Xcode’s nibs, but no nib from <code data-sourcepos="31:67-31:71">idl</code> has
+<ul data-sourcepos="37:1-61:11">
+<li data-sourcepos="37:1-39:62"><strong data-sourcepos="37:3-37:35">Not verified on a device yet.</strong> The output decodes with idl’s own reader and
+has the same NIBArchive layout as Xcode’s nibs, but no nib from <code data-sourcepos="38:67-38:71">idl</code> has
 been loaded by UIKit on a device. Test before relying on it.</li>
-<li data-sourcepos="33:1-45:40"><strong data-sourcepos="33:3-33:24">A subset of UIKit.</strong> Supported elements: view controllers (plain,
-navigation, table), <code data-sourcepos="34:23-34:28">view</code>, <code data-sourcepos="34:31-34:37">label</code>, <code data-sourcepos="34:40-34:47">button</code> (title per state), <code data-sourcepos="34:68-34:78">imageView</code>,
-<code data-sourcepos="35:3-35:12">textView</code>, <code data-sourcepos="35:15-35:25">searchBar</code>, <code data-sourcepos="35:28-35:42">navigationBar</code>/<code data-sourcepos="35:44-35:59">navigationItem</code>/<code data-sourcepos="35:61-35:75">barButtonItem</code>,
-<code data-sourcepos="36:3-36:20">visualEffectView</code> with blur/vibrancy, <code data-sourcepos="36:42-36:52">tableView</code> with prototype cells,
+<li data-sourcepos="40:1-52:40"><strong data-sourcepos="40:3-40:24">A subset of UIKit.</strong> Supported elements: view controllers (plain,
+navigation, table), <code data-sourcepos="41:23-41:28">view</code>, <code data-sourcepos="41:31-41:37">label</code>, <code data-sourcepos="41:40-41:47">button</code> (title per state), <code data-sourcepos="41:68-41:78">imageView</code>,
+<code data-sourcepos="42:3-42:12">textView</code>, <code data-sourcepos="42:15-42:25">searchBar</code>, <code data-sourcepos="42:28-42:42">navigationBar</code>/<code data-sourcepos="42:44-42:59">navigationItem</code>/<code data-sourcepos="42:61-42:75">barButtonItem</code>,
+<code data-sourcepos="43:3-43:20">visualEffectView</code> with blur/vibrancy, <code data-sourcepos="43:42-43:52">tableView</code> with prototype cells,
 frames, autoresizing masks, colors, fonts, constraints, outlets, actions and
-segues (<code data-sourcepos="38:11-38:16">show</code>, <code data-sourcepos="38:19-38:30">showDetail</code>, <code data-sourcepos="38:33-38:46">presentation</code>, <code data-sourcepos="38:49-38:54">push</code>, <code data-sourcepos="38:57-38:63">modal</code>, <code data-sourcepos="38:66-38:74">replace</code>,
-<code data-sourcepos="39:3-39:10">custom</code>, and <code data-sourcepos="39:17-39:36">rootViewController</code> relationships). <code data-sourcepos="39:54-39:64">textField</code>, <code data-sourcepos="39:67-39:74">switch</code>,
-<code data-sourcepos="40:3-40:10">slider</code>, <code data-sourcepos="40:13-40:24">scrollView</code>, <code data-sourcepos="40:27-40:49">activityIndicatorView</code> and <code data-sourcepos="40:55-40:68">progressView</code> get their
+segues (<code data-sourcepos="45:11-45:16">show</code>, <code data-sourcepos="45:19-45:30">showDetail</code>, <code data-sourcepos="45:33-45:46">presentation</code>, <code data-sourcepos="45:49-45:54">push</code>, <code data-sourcepos="45:57-45:63">modal</code>, <code data-sourcepos="45:66-45:74">replace</code>,
+<code data-sourcepos="46:3-46:10">custom</code>, and <code data-sourcepos="46:17-46:36">rootViewController</code> relationships). <code data-sourcepos="46:54-46:64">textField</code>, <code data-sourcepos="46:67-46:74">switch</code>,
+<code data-sourcepos="47:3-47:10">slider</code>, <code data-sourcepos="47:13-47:24">scrollView</code>, <code data-sourcepos="47:27-47:49">activityIndicatorView</code> and <code data-sourcepos="47:55-47:68">progressView</code> get their
 class, frame and colors but none of their own attributes. Anything else (stack
 views, collection views, tab bar controllers, images, gesture recognizers,
 user-defined runtime attributes, trait variations, localization) is skipped
 with diagnostics in permissive builds; strict builds reject unsupported nodes
 and attributes before app compilation.</li>
-<li data-sourcepos="46:1-47:62"><strong data-sourcepos="46:3-46:29">Safe-area layout guides</strong> are treated as the view that owns them, so a
+<li data-sourcepos="53:1-54:62"><strong data-sourcepos="53:3-53:29">Safe-area layout guides</strong> are treated as the view that owns them, so a
 constraint to the safe area pins to the view’s edge instead.</li>
-<li data-sourcepos="48:1-48:75">Constraints that refer to unsupported objects are dropped with a warning.</li>
-<li data-sourcepos="49:1-51:51">Named colors (<code data-sourcepos="49:17-49:29">systemColor</code> / <code data-sourcepos="49:33-49:38">name</code>) resolve through the document’s own
-<code data-sourcepos="50:3-50:15">&lt;resources&gt;</code> section, so they become fixed colors and do not follow dark
+<li data-sourcepos="55:1-55:75">Constraints that refer to unsupported objects are dropped with a warning.</li>
+<li data-sourcepos="56:1-58:51">Named colors (<code data-sourcepos="56:17-56:29">systemColor</code> / <code data-sourcepos="56:33-56:38">name</code>) resolve through the document’s own
+<code data-sourcepos="57:3-57:15">&lt;resources&gt;</code> section, so they become fixed colors and do not follow dark
 mode. Text styles become fixed-size system fonts.</li>
-<li data-sourcepos="52:1-54:11">Only iOS documents (<code data-sourcepos="52:23-52:54">targetRuntime=&quot;iOS.CocoaTouch&quot;</code>). Each document produces
+<li data-sourcepos="59:1-61:11">Only iOS documents (<code data-sourcepos="59:23-59:54">targetRuntime=&quot;iOS.CocoaTouch&quot;</code>). Each document produces
 one nib per view controller and view; there are no per-device-idiom
 variants.</li>
 </ul>
-<h2 id="asset-catalogs-xcassets-assetkit" data-sourcepos="56:1-56:41">Asset catalogs (<code data-sourcepos="56:20-56:30">.xcassets</code>, AssetKit)<a href="#asset-catalogs-xcassets-assetkit" aria-label="Link to heading 'Asset catalogs (.xcassets, AssetKit)'" data-heading-content="Asset catalogs (.xcassets, AssetKit)" class="anchor"></a></h2>
-<p data-sourcepos="58:1-60:43">Asset catalogs are compiled by <code data-sourcepos="58:32-58:43">idl-actool</code>, a small Swift wrapper around
-<a data-sourcepos="59:1-59:59" href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a>. It is a separate
+<h2 id="asset-catalogs-xcassets-assetkit" data-sourcepos="63:1-63:41">Asset catalogs (<code data-sourcepos="63:20-63:30">.xcassets</code>, AssetKit)<a href="#asset-catalogs-xcassets-assetkit" aria-label="Link to heading 'Asset catalogs (.xcassets, AssetKit)'" data-heading-content="Asset catalogs (.xcassets, AssetKit)" class="anchor"></a></h2>
+<p data-sourcepos="65:1-67:43">Asset catalogs are compiled by <code data-sourcepos="65:32-65:43">idl-actool</code>, a small Swift wrapper around
+<a data-sourcepos="66:1-66:59" href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a>. It is a separate
 binary because AssetKit is a Swift library.</p>
-<ul data-sourcepos="62:1-78:81">
-<li data-sourcepos="62:1-67:36">Build it with <code data-sourcepos="62:17-62:34">zig build actool</code>. This needs <code data-sourcepos="62:48-62:54">swift</code> on PATH. By default it
+<ul data-sourcepos="69:1-85:81">
+<li data-sourcepos="69:1-74:36">Build it with <code data-sourcepos="69:17-69:34">zig build actool</code>. This needs <code data-sourcepos="69:48-69:54">swift</code> on PATH. By default it
 uses the toolchain’s shared Swift runtime (about 1.2 MB here). Swift embeds
 a runtime search path pointing at that toolchain: if you remove it, rebuild
-<code data-sourcepos="65:3-65:14">idl-actool</code>. Use <code data-sourcepos="65:21-65:59">zig build actool -Dactool-static=true</code> for a standalone
+<code data-sourcepos="72:3-72:14">idl-actool</code>. Use <code data-sourcepos="72:21-72:59">zig build actool -Dactool-static=true</code> for a standalone
 Swift runtime (about 59 MB here). xtool’s private embedded runtime cannot
 be shared with another executable.</li>
-<li data-sourcepos="68:1-70:40">Only image sets, color sets and one app icon are supported, as far as AssetKit
+<li data-sourcepos="75:1-77:40">Only image sets, color sets and one app icon are supported, as far as AssetKit
 supports them. Data sets, symbol sets, sprite atlases, on-demand resource tags
 and named app icon alternates are not.</li>
-<li data-sourcepos="71:1-74:32">App icons need an explicit <code data-sourcepos="71:30-71:36">scale</code> for every image, e.g. iPhone <code data-sourcepos="71:67-71:73">60x60</code> @2x
+<li data-sourcepos="78:1-81:32">App icons need an explicit <code data-sourcepos="78:30-78:36">scale</code> for every image, e.g. iPhone <code data-sourcepos="78:67-78:73">60x60</code> @2x
 and @3x. Xcode’s single 1024 pt “universal” icon has no scale and AssetKit
-rejects it. The <code data-sourcepos="73:19-73:28">app_icon</code> setting is not passed on: AssetKit uses whichever
-<code data-sourcepos="74:3-74:15">.appiconset</code> the catalog has.</li>
-<li data-sourcepos="75:1-75:65">One <code data-sourcepos="75:7-75:17">.xcassets</code> per target. Merge catalogs if you have several.</li>
-<li data-sourcepos="76:1-76:51">SVG images need <code data-sourcepos="76:19-76:32">rsvg-convert</code> (librsvg) on PATH.</li>
-<li data-sourcepos="77:1-78:81">Catalogs, storyboards, XIBs and strings are cached by input content and compiler
+rejects it. The <code data-sourcepos="80:19-80:28">app_icon</code> setting is not passed on: AssetKit uses whichever
+<code data-sourcepos="81:3-81:15">.appiconset</code> the catalog has.</li>
+<li data-sourcepos="82:1-82:65">One <code data-sourcepos="82:7-82:17">.xcassets</code> per target. Merge catalogs if you have several.</li>
+<li data-sourcepos="83:1-83:51">SVG images need <code data-sourcepos="83:19-83:32">rsvg-convert</code> (librsvg) on PATH.</li>
+<li data-sourcepos="84:1-85:81">Catalogs, storyboards, XIBs and strings are cached by input content and compiler
 identity. Direct-target bundling/signing/packaging also skip unchanged outputs.</li>
 </ul>
-<h2 id="project-model" data-sourcepos="80:1-80:16">Project model<a href="#project-model" aria-label="Link to heading 'Project model'" data-heading-content="Project model" class="anchor"></a></h2>
-<ul data-sourcepos="82:1-110:67">
-<li data-sourcepos="82:1-89:63"><code data-sourcepos="82:3-82:10">direct</code> targets can be apps, dynamic frameworks, dylibs, app extensions or
+<h2 id="project-model" data-sourcepos="87:1-87:16">Project model<a href="#project-model" aria-label="Link to heading 'Project model'" data-heading-content="Project model" class="anchor"></a></h2>
+<ul data-sourcepos="89:1-117:67">
+<li data-sourcepos="89:1-96:63"><code data-sourcepos="89:3-89:10">direct</code> targets can be apps, dynamic frameworks, dylibs, app extensions or
 static (objects + Swift module) targets; see “Products” in the configuration
 reference. Only apps are packaged; the other kinds are built for an app’s
-<code data-sourcepos="85:3-85:8">link</code>/<code data-sourcepos="85:10-85:16">embed</code> lists. Watch apps, test bundles, XCFrameworks and real <code data-sourcepos="85:73-85:76">.a</code>
+<code data-sourcepos="92:3-92:8">link</code>/<code data-sourcepos="92:10-92:16">embed</code> lists. Watch apps, test bundles, XCFrameworks and real <code data-sourcepos="92:73-92:76">.a</code>
 archives are not supported, and the generated Xcode project and xtool
-builder only handle app targets. Prebuilt <code data-sourcepos="87:45-87:56">.framework</code> resources are copied
-to <code data-sourcepos="88:6-88:18">Frameworks/</code> (without Headers, Modules or _CodeSignature) and ad-hoc
-signed, and <code data-sourcepos="89:15-89:43">@executable_path/Frameworks</code> is always an rpath.</li>
-<li data-sourcepos="90:1-92:43">Debug/release profiles are supported. Arbitrary additional configurations and
-profile-dependent source/dependency graphs are not. Omitting <code data-sourcepos="91:64-91:67">-c</code> preserves
+builder only handle app targets. Prebuilt <code data-sourcepos="94:45-94:56">.framework</code> resources are copied
+to <code data-sourcepos="95:6-95:18">Frameworks/</code> (without Headers, Modules or _CodeSignature) and ad-hoc
+signed, and <code data-sourcepos="96:15-96:43">@executable_path/Frameworks</code> is always an rpath.</li>
+<li data-sourcepos="97:1-99:43">Debug/release profiles are supported. Arbitrary additional configurations and
+profile-dependent source/dependency graphs are not. Omitting <code data-sourcepos="98:64-98:67">-c</code> preserves
 the legacy unprofiled flags/output paths.</li>
-<li data-sourcepos="93:1-93:76">Debug symbols stay in object files; no <code data-sourcepos="93:42-93:48">.dSYM</code> archive/export is produced.</li>
-<li data-sourcepos="94:1-96:60">C-family incremental compilation remains mtime/depfile-based; content-based
+<li data-sourcepos="100:1-100:76">Debug symbols stay in object files; no <code data-sourcepos="100:42-100:48">.dSYM</code> archive/export is produced.</li>
+<li data-sourcepos="101:1-103:60">C-family incremental compilation remains mtime/depfile-based; content-based
 caching applies to resources and final bundle/IPA state. This is a local cache,
 not a cross-machine hermetic/reproducible build guarantee.</li>
-<li data-sourcepos="97:1-101:47">Resources are flattened into the bundle root like Xcode does, except that
-<code data-sourcepos="98:3-98:12">*.lproj/</code> folders and package directories (<code data-sourcepos="98:47-98:55">.bundle</code>, <code data-sourcepos="98:58-98:69">.framework</code>,
-<code data-sourcepos="99:3-99:13">.mlmodelc</code>) are kept. Two resources with the same file name are an error.
-A <code data-sourcepos="100:5-100:16">.xcstrings</code> file and an <code data-sourcepos="100:30-100:57">.lproj/Localizable.strings</code> resource that
+<li data-sourcepos="104:1-108:47">Resources are flattened into the bundle root like Xcode does, except that
+<code data-sourcepos="105:3-105:12">*.lproj/</code> folders and package directories (<code data-sourcepos="105:47-105:55">.bundle</code>, <code data-sourcepos="105:58-105:69">.framework</code>,
+<code data-sourcepos="106:3-106:13">.mlmodelc</code>) are kept. Two resources with the same file name are an error.
+A <code data-sourcepos="107:5-107:16">.xcstrings</code> file and an <code data-sourcepos="107:30-107:57">.lproj/Localizable.strings</code> resource that
 produce the same language file will conflict.</li>
-<li data-sourcepos="102:1-103:76">Swift uses whole-module compilation, so changing a Swift source recompiles
+<li data-sourcepos="109:1-110:76">Swift uses whole-module compilation, so changing a Swift source recompiles
 all Swift in the target. Debug compilation and linking are separate steps.</li>
-<li data-sourcepos="104:1-107:20">Swift compiles before the target’s C-family sources. If a target mixes them,
-idl generates <code data-sourcepos="105:17-105:34">&lt;Module&gt;-Swift.h</code> and puts it on the include path, so
-Objective-C can <code data-sourcepos="106:19-106:44">#import &quot;&lt;Name&gt;-Swift.h&quot;</code>. Swift calls Objective-C through
-<code data-sourcepos="107:3-107:19">bridging_header</code>.</li>
-<li data-sourcepos="108:1-109:7">Swift <code data-sourcepos="108:9-108:17">defines</code> must be plain flags. <code data-sourcepos="108:40-108:51">NAME=VALUE</code> only applies to C-family
+<li data-sourcepos="111:1-114:20">Swift compiles before the target’s C-family sources. If a target mixes them,
+idl generates <code data-sourcepos="112:17-112:34">&lt;Module&gt;-Swift.h</code> and puts it on the include path, so
+Objective-C can <code data-sourcepos="113:19-113:44">#import &quot;&lt;Name&gt;-Swift.h&quot;</code>. Swift calls Objective-C through
+<code data-sourcepos="114:3-114:19">bridging_header</code>.</li>
+<li data-sourcepos="115:1-116:7">Swift <code data-sourcepos="115:9-115:17">defines</code> must be plain flags. <code data-sourcepos="115:40-115:51">NAME=VALUE</code> only applies to C-family
 code.</li>
-<li data-sourcepos="110:1-110:67">Only <code data-sourcepos="110:8-110:14">arm64</code> device builds are tested. There is no simulator SDK.</li>
+<li data-sourcepos="117:1-117:67">Only <code data-sourcepos="117:8-117:14">arm64</code> device builds are tested. There is no simulator SDK.</li>
 </ul>
-<h2 id="xtool-builder" data-sourcepos="112:1-112:16">xtool builder<a href="#xtool-builder" aria-label="Link to heading 'xtool builder'" data-heading-content="xtool builder" class="anchor"></a></h2>
-<ul data-sourcepos="114:1-127:57">
-<li data-sourcepos="114:1-118:18">
-<p data-sourcepos="114:3-118:18">xtool targets pass <code data-sourcepos="114:22-114:33">resources:</code> to xtool.yml, which copies them verbatim into
-the app root (<code data-sourcepos="115:17-115:24">.lproj</code> folders, plain files). Resources that need a compiler
-(<code data-sourcepos="116:4-116:14">.xcassets</code>, storyboards, XIBs, <code data-sourcepos="116:36-116:47">.xcstrings</code>, Core Data, Metal, Core ML) are
-rejected; use <code data-sourcepos="117:17-117:33">builder: direct</code> for those. xtool manages its own build and
+<h2 id="xtool-builder" data-sourcepos="119:1-119:16">xtool builder<a href="#xtool-builder" aria-label="Link to heading 'xtool builder'" data-heading-content="xtool builder" class="anchor"></a></h2>
+<ul data-sourcepos="121:1-134:57">
+<li data-sourcepos="121:1-125:18">
+<p data-sourcepos="121:3-125:18">xtool targets pass <code data-sourcepos="121:22-121:33">resources:</code> to xtool.yml, which copies them verbatim into
+the app root (<code data-sourcepos="122:17-122:24">.lproj</code> folders, plain files). Resources that need a compiler
+(<code data-sourcepos="123:4-123:14">.xcassets</code>, storyboards, XIBs, <code data-sourcepos="123:36-123:47">.xcstrings</code>, Core Data, Metal, Core ML) are
+rejected; use <code data-sourcepos="124:17-124:33">builder: direct</code> for those. xtool manages its own build and
 packaging cache.</p>
 </li>
-<li data-sourcepos="120:1-122:13">
-<p data-sourcepos="120:3-122:13">SwiftPM cannot mix Swift and C-family files in one target, so an xtool
-target is either all Swift or all C/Objective-C. Use <code data-sourcepos="121:56-121:72">builder: direct</code> for
+<li data-sourcepos="127:1-129:13">
+<p data-sourcepos="127:3-129:13">SwiftPM cannot mix Swift and C-family files in one target, so an xtool
+target is either all Swift or all C/Objective-C. Use <code data-sourcepos="128:56-128:72">builder: direct</code> for
 mixed code.</p>
 </li>
-<li data-sourcepos="123:1-125:14">
-<p data-sourcepos="123:3-125:14">An xtool target with Objective-C must not name its <code data-sourcepos="123:54-123:61">main()</code> file <code data-sourcepos="123:68-123:75">main.m</code>:
+<li data-sourcepos="130:1-132:14">
+<p data-sourcepos="130:3-132:14">An xtool target with Objective-C must not name its <code data-sourcepos="130:54-130:61">main()</code> file <code data-sourcepos="130:68-130:75">main.m</code>:
 SwiftPM would treat it as an executable target. The example uses
-<code data-sourcepos="125:3-125:13">appmain.m</code>.</p>
+<code data-sourcepos="132:3-132:13">appmain.m</code>.</p>
 </li>
-<li data-sourcepos="126:1-127:57">
-<p data-sourcepos="126:3-127:57">The generated <code data-sourcepos="126:17-126:31">Package.swift</code> has one library target. For anything more
-complex, write your own and set <code data-sourcepos="127:35-127:56">package_swift: false</code>.</p>
+<li data-sourcepos="133:1-134:57">
+<p data-sourcepos="133:3-134:57">The generated <code data-sourcepos="133:17-133:31">Package.swift</code> has one library target. For anything more
+complex, write your own and set <code data-sourcepos="134:35-134:56">package_swift: false</code>.</p>
 </li>
 </ul>
-<h2 id="toolchain" data-sourcepos="129:1-129:12">Toolchain<a href="#toolchain" aria-label="Link to heading 'Toolchain'" data-heading-content="Toolchain" class="anchor"></a></h2>
-<ul data-sourcepos="131:1-144:69">
-<li data-sourcepos="131:1-132:64">
-<p data-sourcepos="131:3-132:64"><code data-sourcepos="131:3-131:14">idl-actool</code> must support <code data-sourcepos="131:29-131:39">--version</code>; rebuild it with <code data-sourcepos="131:58-131:75">zig build actool</code> when
+<h2 id="toolchain" data-sourcepos="136:1-136:12">Toolchain<a href="#toolchain" aria-label="Link to heading 'Toolchain'" data-heading-content="Toolchain" class="anchor"></a></h2>
+<ul data-sourcepos="138:1-151:69">
+<li data-sourcepos="138:1-139:64">
+<p data-sourcepos="138:3-139:64"><code data-sourcepos="138:3-138:14">idl-actool</code> must support <code data-sourcepos="138:29-138:39">--version</code>; rebuild it with <code data-sourcepos="138:58-138:75">zig build actool</code> when
 upgrading idl from a version whose helper lacked that command.</p>
 </li>
-<li data-sourcepos="133:1-135:60">
-<p data-sourcepos="133:3-135:60">xtool’s entitlement-rewrite path can drop executable ZIP permission bits.
+<li data-sourcepos="140:1-142:60">
+<p data-sourcepos="140:3-142:60">xtool’s entitlement-rewrite path can drop executable ZIP permission bits.
 idl normalizes the main executable’s ZIP metadata without changing its code
 bytes or signature, then performs normal IPA verification.</p>
 </li>
-<li data-sourcepos="137:1-139:41">
-<p data-sourcepos="137:3-139:41">xtool’s <code data-sourcepos="137:11-137:20">ld64.lld</code> prints <code data-sourcepos="137:29-138:15">This version of lld does not support linking for platform iOS</code>. The output is correct: the Mach-O has <code data-sourcepos="138:56-138:73">LC_BUILD_VERSION</code>
-platform iOS. <code data-sourcepos="139:17-139:28">idl verify</code> checks this.</p>
+<li data-sourcepos="144:1-146:41">
+<p data-sourcepos="144:3-146:41">xtool’s <code data-sourcepos="144:11-144:20">ld64.lld</code> prints <code data-sourcepos="144:29-145:15">This version of lld does not support linking for platform iOS</code>. The output is correct: the Mach-O has <code data-sourcepos="145:56-145:73">LC_BUILD_VERSION</code>
+platform iOS. <code data-sourcepos="146:17-146:28">idl verify</code> checks this.</p>
 </li>
-<li data-sourcepos="140:1-141:9">
-<p data-sourcepos="140:3-141:9">File and header paths are case-sensitive on Linux, unlike a default macOS
+<li data-sourcepos="147:1-148:9">
+<p data-sourcepos="147:3-148:9">File and header paths are case-sensitive on Linux, unlike a default macOS
 volume.</p>
 </li>
-<li data-sourcepos="142:1-144:69">
-<p data-sourcepos="142:3-144:69"><code data-sourcepos="142:3-142:7">idl</code> does not install or download tools. Install the Swift toolchain,
-Darwin SDK, ldid and xtool yourself. <code data-sourcepos="143:40-143:50">idl check</code> lists what is missing.
-<code data-sourcepos="144:3-144:14">idl-actool</code> is built from this repository with <code data-sourcepos="144:51-144:68">zig build actool</code>.</p>
+<li data-sourcepos="149:1-151:69">
+<p data-sourcepos="149:3-151:69"><code data-sourcepos="149:3-149:7">idl</code> does not install or download tools. Install the Swift toolchain,
+Darwin SDK, ldid and xtool yourself. <code data-sourcepos="150:40-150:50">idl check</code> lists what is missing.
+<code data-sourcepos="151:3-151:14">idl-actool</code> is built from this repository with <code data-sourcepos="151:51-151:68">zig build actool</code>.</p>
 </li>
 </ul>
-<h2 id="configuration-parsing-zig-yaml-01x" data-sourcepos="146:1-146:41">Configuration parsing (zig-yaml 0.1.x)<a href="#configuration-parsing-zig-yaml-01x" aria-label="Link to heading 'Configuration parsing (zig-yaml 0.1.x)'" data-heading-content="Configuration parsing (zig-yaml 0.1.x)" class="anchor"></a></h2>
-<p data-sourcepos="148:1-149:8"><code data-sourcepos="148:1-148:5">idl</code> uses the subset of YAML that config files need. Known issues with the
+<h2 id="configuration-parsing-zig-yaml-01x" data-sourcepos="153:1-153:41">Configuration parsing (zig-yaml 0.1.x)<a href="#configuration-parsing-zig-yaml-01x" aria-label="Link to heading 'Configuration parsing (zig-yaml 0.1.x)'" data-heading-content="Configuration parsing (zig-yaml 0.1.x)" class="anchor"></a></h2>
+<p data-sourcepos="155:1-156:8"><code data-sourcepos="155:1-155:5">idl</code> uses the subset of YAML that config files need. Known issues with the
 library:</p>
-<ul data-sourcepos="151:1-158:46">
-<li data-sourcepos="151:1-153:6">A key with an empty value followed by a sibling key (<code data-sourcepos="151:56-151:61">key:</code> then
-<code data-sourcepos="152:3-152:12">other: x</code>) is parsed as a nested mapping. Write <code data-sourcepos="152:52-152:59">key: ~</code> or leave the key
+<ul data-sourcepos="158:1-165:46">
+<li data-sourcepos="158:1-160:6">A key with an empty value followed by a sibling key (<code data-sourcepos="158:56-158:61">key:</code> then
+<code data-sourcepos="159:3-159:12">other: x</code>) is parsed as a nested mapping. Write <code data-sourcepos="159:52-159:59">key: ~</code> or leave the key
 out.</li>
-<li data-sourcepos="154:1-157:45">Comments and trailing whitespace are removed before parsing, so
-<code data-sourcepos="155:3-155:22">key: value  # note</code> works. A <code data-sourcepos="155:33-155:35">#</code> inside quotes or one not preceded by
-whitespace (<code data-sourcepos="156:15-156:35">url: http://x/#frag</code>) is kept. Multi-line quoted strings and
-block scalars (<code data-sourcepos="157:18-157:20">|</code>, <code data-sourcepos="157:23-157:25">&gt;</code>) are not supported.</li>
-<li data-sourcepos="158:1-158:46">Anchors, aliases and tags are not supported.</li>
+<li data-sourcepos="161:1-164:45">Comments and trailing whitespace are removed before parsing, so
+<code data-sourcepos="162:3-162:22">key: value  # note</code> works. A <code data-sourcepos="162:33-162:35">#</code> inside quotes or one not preceded by
+whitespace (<code data-sourcepos="163:15-163:35">url: http://x/#frag</code>) is kept. Multi-line quoted strings and
+block scalars (<code data-sourcepos="164:18-164:20">|</code>, <code data-sourcepos="164:23-164:25">&gt;</code>) are not supported.</li>
+<li data-sourcepos="165:1-165:46">Anchors, aliases and tags are not supported.</li>
 </ul>
-<h2 id="packaging" data-sourcepos="160:1-160:12">Packaging<a href="#packaging" aria-label="Link to heading 'Packaging'" data-heading-content="Packaging" class="anchor"></a></h2>
-<ul data-sourcepos="162:1-166:52">
-<li data-sourcepos="162:1-164:15">The IPA writer does not support ZIP64, so an IPA and each file in it must be
+<h2 id="packaging" data-sourcepos="167:1-167:12">Packaging<a href="#packaging" aria-label="Link to heading 'Packaging'" data-heading-content="Packaging" class="anchor"></a></h2>
+<ul data-sourcepos="169:1-173:52">
+<li data-sourcepos="169:1-171:15">The IPA writer does not support ZIP64, so an IPA and each file in it must be
 smaller than 4 GiB. Timestamps are fixed at 1980-01-01 so output is
 reproducible.</li>
-<li data-sourcepos="165:1-166:52">Symlinks are rejected in sources, resources, package directories and Xcode
+<li data-sourcepos="172:1-173:52">Symlinks are rejected in sources, resources, package directories and Xcode
 project output, and are never written into an IPA.</li>
 </ul>
 
