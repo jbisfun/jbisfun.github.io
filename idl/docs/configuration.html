@@ -631,15 +631,15 @@ before each xtool build. <code data-sourcepos="193:26-193:32">.idl/</code> is di
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="199:1-199:69">
+<tr data-sourcepos="199:1-199:77">
 <td data-sourcepos="199:2-199:9"><code data-sourcepos="199:3-199:8">type</code></td>
 <td data-sourcepos="199:11-199:17"><code data-sourcepos="199:12-199:16">app</code></td>
-<td data-sourcepos="199:19-199:68"><code data-sourcepos="199:20-199:24">app</code>, <code data-sourcepos="199:27-199:37">framework</code>, <code data-sourcepos="199:40-199:46">dylib</code>, <code data-sourcepos="199:49-199:55">appex</code> or <code data-sourcepos="199:60-199:67">static</code></td>
+<td data-sourcepos="199:19-199:76"><code data-sourcepos="199:20-199:24">app</code>, <code data-sourcepos="199:27-199:37">framework</code>, <code data-sourcepos="199:40-199:46">dylib</code>, <code data-sourcepos="199:49-199:55">appex</code>, <code data-sourcepos="199:58-199:65">static</code> or <code data-sourcepos="199:70-199:75">test</code></td>
 </tr>
-<tr data-sourcepos="200:1-200:80">
+<tr data-sourcepos="200:1-200:112">
 <td data-sourcepos="200:2-200:9"><code data-sourcepos="200:3-200:8">link</code></td>
 <td data-sourcepos="200:11-200:16"><code data-sourcepos="200:12-200:15">[]</code></td>
-<td data-sourcepos="200:18-200:79">project <code data-sourcepos="200:27-200:37">framework</code>/<code data-sourcepos="200:39-200:45">dylib</code>/<code data-sourcepos="200:47-200:54">static</code> targets to link against</td>
+<td data-sourcepos="200:18-200:111">project <code data-sourcepos="200:27-200:37">framework</code>/<code data-sourcepos="200:39-200:45">dylib</code>/<code data-sourcepos="200:47-200:54">static</code> targets to link against (<code data-sourcepos="200:81-200:86">test</code> targets: <code data-sourcepos="200:97-200:104">static</code> only)</td>
 </tr>
 <tr data-sourcepos="201:1-201:99">
 <td data-sourcepos="201:2-201:10"><code data-sourcepos="201:3-201:9">embed</code></td>
@@ -655,7 +655,7 @@ before each xtool build. <code data-sourcepos="193:26-193:32">.idl/</code> is di
 </table>
 <p data-sourcepos="204:1-205:47"><code data-sourcepos="204:1-204:13">idl build X</code> builds X plus every target it links or embeds, with dependencies
 first. Cycles are an error. Each kind produces:</p>
-<ul data-sourcepos="207:1-221:41">
+<ul data-sourcepos="207:1-223:65">
 <li data-sourcepos="207:1-210:36"><code data-sourcepos="207:3-207:13">framework</code>: <code data-sourcepos="207:16-207:50">&lt;build&gt;/products/&lt;name&gt;.framework</code> (binary, generated Info.plist
 with <code data-sourcepos="208:8-208:13">FMWK</code>, resources), install name <code data-sourcepos="208:41-208:72">@rpath/&lt;name&gt;.framework/&lt;name&gt;</code>, bundle
 signed with ldid. Dependents link with <code data-sourcepos="209:42-209:76">-F &lt;build&gt;/link -framework &lt;name&gt;</code>.
@@ -671,189 +671,262 @@ a Swift <code data-sourcepos="218:11-218:17">@main</code> (WidgetKit <code data-
 <li data-sourcepos="219:1-221:41"><code data-sourcepos="219:3-219:10">static</code>: compiled objects plus <code data-sourcepos="219:35-219:54">&lt;name&gt;.swiftmodule</code> and <code data-sourcepos="219:60-219:75">&lt;name&gt;-Swift.h</code>. A
 linking target receives the objects in its link, <code data-sourcepos="220:52-220:55">-I</code> for the module, and the
 header dir. Not signed. No <code data-sourcepos="221:30-221:40">bundle_id</code>.</li>
+<li data-sourcepos="222:1-223:65"><code data-sourcepos="222:3-222:8">test</code>: unit tests for the Linux host, built and run only by <code data-sourcepos="222:64-222:73">idl test</code> (see
+<a data-sourcepos="223:3-223:39" href="#host-test-targets-type-test">tests</a>). <code data-sourcepos="223:43-223:53">idl build</code> skips them.</li>
 </ul>
-<p data-sourcepos="223:1-226:71">Swift in non-app targets is compiled with <code data-sourcepos="223:43-223:61">-parse-as-library</code> and module name
-<code data-sourcepos="224:1-224:8">&lt;name&gt;</code>. <code data-sourcepos="224:11-224:22">post_build</code> runs in the target directory with <code data-sourcepos="224:58-224:66">IDL_IPA</code>, <code data-sourcepos="224:69-224:77">IDL_APP</code>,
-<code data-sourcepos="225:1-225:15">IDL_BUILD_DIR</code>, <code data-sourcepos="225:18-225:29">IDL_TARGET</code>, <code data-sourcepos="225:32-225:36">IDL</code> (path of the running idl) and, with <code data-sourcepos="225:74-225:77">-c</code>,
-<code data-sourcepos="226:1-226:19">IDL_CONFIGURATION</code> set. A command that exits non-zero fails the build.</p>
-<p data-sourcepos="228:1-232:20">In <code data-sourcepos="228:4-228:10">info:</code>, <code data-sourcepos="228:13-228:20">Key: ~</code> removes a key inherited from <code data-sourcepos="228:51-228:62">info_plist</code>. Info.plist and
-entitlement expansion can also use <code data-sourcepos="229:36-229:50">$(GIT_BRANCH)</code> and <code data-sourcepos="229:56-229:70">$(GIT_COMMIT)</code> from the
+<p data-sourcepos="225:1-228:71">Swift in non-app targets is compiled with <code data-sourcepos="225:43-225:61">-parse-as-library</code> and module name
+<code data-sourcepos="226:1-226:8">&lt;name&gt;</code>. <code data-sourcepos="226:11-226:22">post_build</code> runs in the target directory with <code data-sourcepos="226:58-226:66">IDL_IPA</code>, <code data-sourcepos="226:69-226:77">IDL_APP</code>,
+<code data-sourcepos="227:1-227:15">IDL_BUILD_DIR</code>, <code data-sourcepos="227:18-227:29">IDL_TARGET</code>, <code data-sourcepos="227:32-227:36">IDL</code> (path of the running idl) and, with <code data-sourcepos="227:74-227:77">-c</code>,
+<code data-sourcepos="228:1-228:19">IDL_CONFIGURATION</code> set. A command that exits non-zero fails the build.</p>
+<p data-sourcepos="230:1-234:20">In <code data-sourcepos="230:4-230:10">info:</code>, <code data-sourcepos="230:13-230:20">Key: ~</code> removes a key inherited from <code data-sourcepos="230:51-230:62">info_plist</code>. Info.plist and
+entitlement expansion can also use <code data-sourcepos="231:36-231:50">$(GIT_BRANCH)</code> and <code data-sourcepos="231:56-231:70">$(GIT_COMMIT)</code> from the
 project root’s git checkout (environment variables override them). Source and
-resource entries may use <code data-sourcepos="231:26-231:28">*</code> in their last path component, e.g.
-<code data-sourcepos="232:1-232:19">Resources/*.lproj</code>.</p>
-<h3 id="formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" data-sourcepos="234:1-234:69">Formatting, linting and tests (<code data-sourcepos="234:36-234:44">idl fmt</code>, <code data-sourcepos="234:47-234:56">idl lint</code>, <code data-sourcepos="234:59-234:68">idl test</code>)<a href="#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" aria-label="Link to heading 'Formatting, linting and tests (idl fmt, idl lint, idl test)'" data-heading-content="Formatting, linting and tests (idl fmt, idl lint, idl test)" class="anchor"></a></h3>
-<p data-sourcepos="236:1-241:43">idl only orchestrates the tools. It generates their configurations from YAML
-into <code data-sourcepos="237:6-237:29">.idl/quality/&lt;target&gt;/</code>, so no hand-written <code data-sourcepos="237:51-237:65">.clang-format</code> or
-<code data-sourcepos="238:1-238:15">.swift-format</code> files are needed. It passes the configs explicitly, runs the
+resource entries may use <code data-sourcepos="233:26-233:28">*</code> in their last path component, e.g.
+<code data-sourcepos="234:1-234:19">Resources/*.lproj</code>.</p>
+<h3 id="formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" data-sourcepos="236:1-236:69">Formatting, linting and tests (<code data-sourcepos="236:36-236:44">idl fmt</code>, <code data-sourcepos="236:47-236:56">idl lint</code>, <code data-sourcepos="236:59-236:68">idl test</code>)<a href="#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" aria-label="Link to heading 'Formatting, linting and tests (idl fmt, idl lint, idl test)'" data-heading-content="Formatting, linting and tests (idl fmt, idl lint, idl test)" class="anchor"></a></h3>
+<p data-sourcepos="238:1-243:43">idl only orchestrates the tools. It generates their configurations from YAML
+into <code data-sourcepos="239:6-239:29">.idl/quality/&lt;target&gt;/</code>, so no hand-written <code data-sourcepos="239:51-239:65">.clang-format</code> or
+<code data-sourcepos="240:1-240:15">.swift-format</code> files are needed. It passes the configs explicitly, runs the
 tools in parallel, and merges their output into one de-duplicated report:
-<code data-sourcepos="240:1-240:48">file:line:col: severity: message [flag] (tool)</code>, followed by a per-tool
+<code data-sourcepos="242:1-242:48">file:line:col: severity: message [flag] (tool)</code>, followed by a per-tool
 summary and the most frequent flags/checks.</p>
-<p data-sourcepos="243:1-243:40"><code data-sourcepos="243:1-243:9">format:</code> (maps merge with <code data-sourcepos="243:28-243:38">defaults:</code>):</p>
-<table data-sourcepos="245:1-252:130" class="table table-sm table-striped">
+<p data-sourcepos="245:1-245:40"><code data-sourcepos="245:1-245:9">format:</code> (maps merge with <code data-sourcepos="245:28-245:38">defaults:</code>):</p>
+<table data-sourcepos="247:1-254:130" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="245:1-245:27">
-<th data-sourcepos="245:2-245:6">Key</th>
-<th data-sourcepos="245:8-245:16">Default</th>
-<th data-sourcepos="245:18-245:26">Meaning</th>
+<tr data-sourcepos="247:1-247:27">
+<th data-sourcepos="247:2-247:6">Key</th>
+<th data-sourcepos="247:8-247:16">Default</th>
+<th data-sourcepos="247:18-247:26">Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="247:1-247:120">
-<td data-sourcepos="247:2-247:11"><code data-sourcepos="247:3-247:10">indent</code></td>
-<td data-sourcepos="247:13-247:17"><code data-sourcepos="247:14-247:16">4</code></td>
-<td data-sourcepos="247:19-247:119">indent width (clang-format <code data-sourcepos="247:47-247:59">IndentWidth</code>/<code data-sourcepos="247:61-247:82">ObjCBlockIndentWidth</code>, swift-format <code data-sourcepos="247:98-247:117">indentation.spaces</code>)</td>
+<tr data-sourcepos="249:1-249:120">
+<td data-sourcepos="249:2-249:11"><code data-sourcepos="249:3-249:10">indent</code></td>
+<td data-sourcepos="249:13-249:17"><code data-sourcepos="249:14-249:16">4</code></td>
+<td data-sourcepos="249:19-249:119">indent width (clang-format <code data-sourcepos="249:47-249:59">IndentWidth</code>/<code data-sourcepos="249:61-249:82">ObjCBlockIndentWidth</code>, swift-format <code data-sourcepos="249:98-249:117">indentation.spaces</code>)</td>
 </tr>
-<tr data-sourcepos="248:1-248:75">
-<td data-sourcepos="248:2-248:16"><code data-sourcepos="248:3-248:15">line_length</code></td>
-<td data-sourcepos="248:18-248:22"><code data-sourcepos="248:19-248:21">0</code></td>
-<td data-sourcepos="248:24-248:74">0 = never re-wrap (clang-format <code data-sourcepos="248:57-248:72">ColumnLimit: 0</code>)</td>
+<tr data-sourcepos="250:1-250:75">
+<td data-sourcepos="250:2-250:16"><code data-sourcepos="250:3-250:15">line_length</code></td>
+<td data-sourcepos="250:18-250:22"><code data-sourcepos="250:19-250:21">0</code></td>
+<td data-sourcepos="250:24-250:74">0 = never re-wrap (clang-format <code data-sourcepos="250:57-250:72">ColumnLimit: 0</code>)</td>
 </tr>
-<tr data-sourcepos="249:1-249:107">
-<td data-sourcepos="249:2-249:17"><code data-sourcepos="249:3-249:16">clang_format</code></td>
-<td data-sourcepos="249:19-249:24">none</td>
-<td data-sourcepos="249:26-249:106">extra clang-format keys; they override the generated ones (nested maps allowed)</td>
+<tr data-sourcepos="251:1-251:107">
+<td data-sourcepos="251:2-251:17"><code data-sourcepos="251:3-251:16">clang_format</code></td>
+<td data-sourcepos="251:19-251:24">none</td>
+<td data-sourcepos="251:26-251:106">extra clang-format keys; they override the generated ones (nested maps allowed)</td>
 </tr>
-<tr data-sourcepos="250:1-250:85">
-<td data-sourcepos="250:2-250:17"><code data-sourcepos="250:3-250:16">swift_format</code></td>
-<td data-sourcepos="250:19-250:24">none</td>
-<td data-sourcepos="250:26-250:84">extra swift-format JSON keys, deep-merged (e.g. <code data-sourcepos="250:75-250:82">rules:</code>)</td>
+<tr data-sourcepos="252:1-252:85">
+<td data-sourcepos="252:2-252:17"><code data-sourcepos="252:3-252:16">swift_format</code></td>
+<td data-sourcepos="252:19-252:24">none</td>
+<td data-sourcepos="252:26-252:84">extra swift-format JSON keys, deep-merged (e.g. <code data-sourcepos="252:75-252:82">rules:</code>)</td>
 </tr>
-<tr data-sourcepos="251:1-251:91">
-<td data-sourcepos="251:2-251:12"><code data-sourcepos="251:3-251:11">exclude</code></td>
-<td data-sourcepos="251:14-251:19"><code data-sourcepos="251:15-251:18">[]</code></td>
-<td data-sourcepos="251:21-251:90">source paths or directories never formatted (<code data-sourcepos="251:67-251:69">*</code> per path component)</td>
+<tr data-sourcepos="253:1-253:91">
+<td data-sourcepos="253:2-253:12"><code data-sourcepos="253:3-253:11">exclude</code></td>
+<td data-sourcepos="253:14-253:19"><code data-sourcepos="253:15-253:18">[]</code></td>
+<td data-sourcepos="253:21-253:90">source paths or directories never formatted (<code data-sourcepos="253:67-253:69">*</code> per path component)</td>
 </tr>
-<tr data-sourcepos="252:1-252:130">
-<td data-sourcepos="252:2-252:19"><code data-sourcepos="252:3-252:18">editor_configs</code></td>
-<td data-sourcepos="252:21-252:29"><code data-sourcepos="252:22-252:28">false</code></td>
-<td data-sourcepos="252:31-252:129"><code data-sourcepos="252:32-252:40">idl gen</code> also writes <code data-sourcepos="252:54-252:68">.clang-format</code>, <code data-sourcepos="252:71-252:83">.clang-tidy</code> and <code data-sourcepos="252:89-252:103">.swift-format</code> for clangd/sourcekit-lsp</td>
+<tr data-sourcepos="254:1-254:130">
+<td data-sourcepos="254:2-254:19"><code data-sourcepos="254:3-254:18">editor_configs</code></td>
+<td data-sourcepos="254:21-254:29"><code data-sourcepos="254:22-254:28">false</code></td>
+<td data-sourcepos="254:31-254:129"><code data-sourcepos="254:32-254:40">idl gen</code> also writes <code data-sourcepos="254:54-254:68">.clang-format</code>, <code data-sourcepos="254:71-254:83">.clang-tidy</code> and <code data-sourcepos="254:89-254:103">.swift-format</code> for clangd/sourcekit-lsp</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="254:1-256:45"><code data-sourcepos="254:1-254:31">idl fmt [--check] [target...]</code> formats C, Objective-C, C++, Objective-C++ and
-headers with clang-format, and Swift with swift-format. <code data-sourcepos="255:57-255:65">--check</code> changes
+<p data-sourcepos="256:1-258:45"><code data-sourcepos="256:1-256:31">idl fmt [--check] [target...]</code> formats C, Objective-C, C++, Objective-C++ and
+headers with clang-format, and Swift with swift-format. <code data-sourcepos="257:57-257:65">--check</code> changes
 nothing and exits 1 if any file would change.</p>
-<p data-sourcepos="258:1-258:8"><code data-sourcepos="258:1-258:7">lint:</code>:</p>
-<table data-sourcepos="260:1-268:84" class="table table-sm table-striped">
+<p data-sourcepos="260:1-260:8"><code data-sourcepos="260:1-260:7">lint:</code>:</p>
+<table data-sourcepos="262:1-270:84" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="260:1-260:27">
-<th data-sourcepos="260:2-260:6">Key</th>
-<th data-sourcepos="260:8-260:16">Default</th>
-<th data-sourcepos="260:18-260:26">Meaning</th>
+<tr data-sourcepos="262:1-262:27">
+<th data-sourcepos="262:2-262:6">Key</th>
+<th data-sourcepos="262:8-262:16">Default</th>
+<th data-sourcepos="262:18-262:26">Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="262:1-262:75">
-<td data-sourcepos="262:2-262:13"><code data-sourcepos="262:3-262:12">warnings</code></td>
-<td data-sourcepos="262:15-262:25"><code data-sourcepos="262:16-262:24">[-Wall]</code></td>
-<td data-sourcepos="262:27-262:74">clang warning flags added to the compiler pass</td>
+<tr data-sourcepos="264:1-264:75">
+<td data-sourcepos="264:2-264:13"><code data-sourcepos="264:3-264:12">warnings</code></td>
+<td data-sourcepos="264:15-264:25"><code data-sourcepos="264:16-264:24">[-Wall]</code></td>
+<td data-sourcepos="264:27-264:74">clang warning flags added to the compiler pass</td>
 </tr>
-<tr data-sourcepos="263:1-263:70">
-<td data-sourcepos="263:2-263:16"><code data-sourcepos="263:3-263:15">swift_flags</code></td>
-<td data-sourcepos="263:18-263:23"><code data-sourcepos="263:19-263:22">[]</code></td>
-<td data-sourcepos="263:25-263:69">extra swiftc flags for the Swift type-check</td>
+<tr data-sourcepos="265:1-265:70">
+<td data-sourcepos="265:2-265:16"><code data-sourcepos="265:3-265:15">swift_flags</code></td>
+<td data-sourcepos="265:18-265:23"><code data-sourcepos="265:19-265:22">[]</code></td>
+<td data-sourcepos="265:25-265:69">extra swiftc flags for the Swift type-check</td>
 </tr>
-<tr data-sourcepos="264:1-264:82">
-<td data-sourcepos="264:2-264:12"><code data-sourcepos="264:3-264:11">exclude</code></td>
-<td data-sourcepos="264:14-264:19"><code data-sourcepos="264:15-264:18">[]</code></td>
-<td data-sourcepos="264:21-264:81">paths not linted; diagnostics located there are dropped too</td>
+<tr data-sourcepos="266:1-266:82">
+<td data-sourcepos="266:2-266:12"><code data-sourcepos="266:3-266:11">exclude</code></td>
+<td data-sourcepos="266:14-266:19"><code data-sourcepos="266:15-266:18">[]</code></td>
+<td data-sourcepos="266:21-266:81">paths not linted; diagnostics located there are dropped too</td>
 </tr>
-<tr data-sourcepos="265:1-265:64">
-<td data-sourcepos="265:2-265:15"><code data-sourcepos="265:3-265:14">clang_tidy</code></td>
-<td data-sourcepos="265:17-265:22">auto</td>
-<td data-sourcepos="265:24-265:63">run clang-tidy (auto = when installed)</td>
+<tr data-sourcepos="267:1-267:64">
+<td data-sourcepos="267:2-267:15"><code data-sourcepos="267:3-267:14">clang_tidy</code></td>
+<td data-sourcepos="267:17-267:22">auto</td>
+<td data-sourcepos="267:24-267:63">run clang-tidy (auto = when installed)</td>
 </tr>
-<tr data-sourcepos="266:1-266:134">
-<td data-sourcepos="266:2-266:22"><code data-sourcepos="266:3-266:21">clang_tidy_checks</code></td>
-<td data-sourcepos="266:24-266:34">idl’s set</td>
-<td data-sourcepos="266:36-266:133">clang-tidy <code data-sourcepos="266:48-266:55">Checks</code>; default is clang-analyzer, bugprone and performance checks minus noisy ones</td>
+<tr data-sourcepos="268:1-268:134">
+<td data-sourcepos="268:2-268:22"><code data-sourcepos="268:3-268:21">clang_tidy_checks</code></td>
+<td data-sourcepos="268:24-268:34">idl’s set</td>
+<td data-sourcepos="268:36-268:133">clang-tidy <code data-sourcepos="268:48-268:55">Checks</code>; default is clang-analyzer, bugprone and performance checks minus noisy ones</td>
 </tr>
-<tr data-sourcepos="267:1-267:80">
-<td data-sourcepos="267:2-267:12"><code data-sourcepos="267:3-267:11">analyze</code></td>
-<td data-sourcepos="267:14-267:22"><code data-sourcepos="267:15-267:21">false</code></td>
-<td data-sourcepos="267:24-267:79">also run the clang static analyzer (<code data-sourcepos="267:61-267:77">clang --analyze</code>)</td>
+<tr data-sourcepos="269:1-269:80">
+<td data-sourcepos="269:2-269:12"><code data-sourcepos="269:3-269:11">analyze</code></td>
+<td data-sourcepos="269:14-269:22"><code data-sourcepos="269:15-269:21">false</code></td>
+<td data-sourcepos="269:24-269:79">also run the clang static analyzer (<code data-sourcepos="269:61-269:77">clang --analyze</code>)</td>
 </tr>
-<tr data-sourcepos="268:1-268:84">
-<td data-sourcepos="268:2-268:17"><code data-sourcepos="268:3-268:16">swift_format</code></td>
-<td data-sourcepos="268:19-268:27"><code data-sourcepos="268:20-268:26">false</code></td>
-<td data-sourcepos="268:29-268:83">also run <code data-sourcepos="268:39-268:57">swift-format lint</code> with the generated style</td>
+<tr data-sourcepos="270:1-270:84">
+<td data-sourcepos="270:2-270:17"><code data-sourcepos="270:3-270:16">swift_format</code></td>
+<td data-sourcepos="270:19-270:27"><code data-sourcepos="270:20-270:26">false</code></td>
+<td data-sourcepos="270:29-270:83">also run <code data-sourcepos="270:39-270:57">swift-format lint</code> with the generated style</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="270:1-280:11"><code data-sourcepos="270:1-270:22">idl lint [target...]</code> first builds the targets and their dependencies
-incrementally, so that Swift modules and generated <code data-sourcepos="271:52-271:69">&lt;Module&gt;-Swift.h</code> headers
+<p data-sourcepos="272:1-282:11"><code data-sourcepos="272:1-272:22">idl lint [target...]</code> first builds the targets and their dependencies
+incrementally, so that Swift modules and generated <code data-sourcepos="273:52-273:69">&lt;Module&gt;-Swift.h</code> headers
 exist. It then re-runs each compiler with the target’s exact build flags. Every
-C-family file gets <code data-sourcepos="273:20-273:40">clang -fsyntax-only</code>, with the target’s <code data-sourcepos="273:61-273:64">-w</code>, <code data-sourcepos="273:67-273:75">-Werror</code>
-and depfile flags removed and <code data-sourcepos="274:31-274:45">lint.warnings</code> added. Each Swift module gets
-<code data-sourcepos="275:1-275:19">swiftc -typecheck</code> with warnings enabled. clang-tidy, the static analyzer and
-<code data-sourcepos="276:1-276:19">swift-format lint</code> reuse the same flags. Diagnostics from the SDK, from
+C-family file gets <code data-sourcepos="275:20-275:40">clang -fsyntax-only</code>, with the target’s <code data-sourcepos="275:61-275:64">-w</code>, <code data-sourcepos="275:67-275:75">-Werror</code>
+and depfile flags removed and <code data-sourcepos="276:31-276:45">lint.warnings</code> added. Each Swift module gets
+<code data-sourcepos="277:1-277:19">swiftc -typecheck</code> with warnings enabled. clang-tidy, the static analyzer and
+<code data-sourcepos="278:1-278:19">swift-format lint</code> reuse the same flags. Diagnostics from the SDK, from
 excluded paths, and duplicates of the same header warning across translation
-units are dropped. Options: <code data-sourcepos="278:29-278:38">--werror</code>, <code data-sourcepos="278:41-278:51">--analyze</code>, <code data-sourcepos="278:54-278:61">--tidy</code>/<code data-sourcepos="278:63-278:73">--no-tidy</code>,
-<code data-sourcepos="279:1-279:4">-q</code> (summary only) and <code data-sourcepos="279:25-279:33">--max N</code>. Errors exit 1, and so do warnings with
-<code data-sourcepos="280:1-280:10">--werror</code>.</p>
-<p data-sourcepos="282:1-284:31"><code data-sourcepos="282:1-282:8">tests:</code> (apps only) is a list of commands (argv lists). <code data-sourcepos="282:58-282:79">idl test [target...]</code>
-builds the targets without running <code data-sourcepos="283:36-283:47">post_build</code> (unless <code data-sourcepos="283:57-283:68">--no-build</code>). It then
+units are dropped. Options: <code data-sourcepos="280:29-280:38">--werror</code>, <code data-sourcepos="280:41-280:51">--analyze</code>, <code data-sourcepos="280:54-280:61">--tidy</code>/<code data-sourcepos="280:63-280:73">--no-tidy</code>,
+<code data-sourcepos="281:1-281:4">-q</code> (summary only) and <code data-sourcepos="281:25-281:33">--max N</code>. Errors exit 1, and so do warnings with
+<code data-sourcepos="282:1-282:10">--werror</code>.</p>
+<p data-sourcepos="284:1-286:31"><code data-sourcepos="284:1-284:8">tests:</code> (apps only) is a list of commands (argv lists). <code data-sourcepos="284:58-284:79">idl test [target...]</code>
+builds the targets without running <code data-sourcepos="285:36-285:47">post_build</code> (unless <code data-sourcepos="285:57-285:68">--no-build</code>). It then
 checks each app’s built bundle:</p>
-<ul data-sourcepos="285:1-294:43">
-<li data-sourcepos="285:1-287:9">Every Mach-O must be arm64, built for iOS, and signed. Embedded code must
+<ul data-sourcepos="287:1-296:43">
+<li data-sourcepos="287:1-289:9">Every Mach-O must be arm64, built for iOS, and signed. Embedded code must
 not require a newer iOS than the app’s MinimumOSVersion; extensions are
 exempt.</li>
-<li data-sourcepos="288:1-290:70">Every <code data-sourcepos="288:9-288:16">@rpath</code>/<code data-sourcepos="288:18-288:31">@loader_path</code>/<code data-sourcepos="288:33-288:50">@executable_path</code> dependency must resolve
+<li data-sourcepos="290:1-292:70">Every <code data-sourcepos="290:9-290:16">@rpath</code>/<code data-sourcepos="290:18-290:31">@loader_path</code>/<code data-sourcepos="290:33-290:50">@executable_path</code> dependency must resolve
 inside the bundle, using the image’s own rpaths. System libraries must exist
 in the SDK. Private frameworks and weak links only produce warnings.</li>
-<li data-sourcepos="291:1-292:22">Every framework and extension needs an Info.plist and an executable, with
+<li data-sourcepos="293:1-294:22">Every framework and extension needs an Info.plist and an executable, with
 string version keys.</li>
-<li data-sourcepos="293:1-294:43">Every extension’s bundle ID must be prefixed by the app’s, and it must have
-<code data-sourcepos="294:3-294:15">NSExtension</code>/<code data-sourcepos="294:17-294:42">EXAppExtensionAttributes</code>.</li>
+<li data-sourcepos="295:1-296:43">Every extension’s bundle ID must be prefixed by the app’s, and it must have
+<code data-sourcepos="296:3-296:15">NSExtension</code>/<code data-sourcepos="296:17-296:42">EXAppExtensionAttributes</code>.</li>
 </ul>
-<p data-sourcepos="296:1-298:56">After the checks, the <code data-sourcepos="296:23-296:30">tests:</code> commands run in the target directory with
-<code data-sourcepos="297:1-297:9">IDL_IPA</code>, <code data-sourcepos="297:12-297:20">IDL_APP</code>, <code data-sourcepos="297:23-297:37">IDL_BUILD_DIR</code>, <code data-sourcepos="297:40-297:51">IDL_TARGET</code> and <code data-sourcepos="297:57-297:61">IDL</code> set. Output is
-one PASS/FAIL line per check or command, then a summary.</p>
-<p data-sourcepos="300:1-302:37">Tool paths can be set under <code data-sourcepos="300:29-300:40">toolchain:</code> as <code data-sourcepos="300:45-300:58">clang_format</code>, <code data-sourcepos="300:61-300:72">clang_tidy</code> and
-<code data-sourcepos="301:1-301:14">swift_format</code> (swift-format ships with the swiftly toolchain). A missing
+<p data-sourcepos="298:1-299:66">After the checks, the <code data-sourcepos="298:23-298:30">tests:</code> commands run in the target directory with
+<code data-sourcepos="299:1-299:9">IDL_IPA</code>, <code data-sourcepos="299:12-299:20">IDL_APP</code>, <code data-sourcepos="299:23-299:37">IDL_BUILD_DIR</code>, <code data-sourcepos="299:40-299:51">IDL_TARGET</code> and <code data-sourcepos="299:57-299:61">IDL</code> set.</p>
+<h4 id="host-test-targets-type-test" data-sourcepos="301:1-301:37">Host test targets (<code data-sourcepos="301:25-301:36">type: test</code>)<a href="#host-test-targets-type-test" aria-label="Link to heading 'Host test targets (type: test)'" data-heading-content="Host test targets (type: test)" class="anchor"></a></h4>
+<p data-sourcepos="303:1-305:47">iOS binaries cannot run on Linux and the iPhoneOS SDK has no XCTest, so a
+<code data-sourcepos="304:1-304:12">type: test</code> target is compiled for and run on the Linux host, together with
+the <code data-sourcepos="305:5-305:12">static</code> targets it <code data-sourcepos="305:25-305:30">link</code>s (transitively):</p>
+<pre class="syntax-highlighting" data-sourcepos="307:1-318:3"><code class="language-yaml"><span class="hl-source hl-yaml">  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">CalcCore</span>            <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> code under test; also linked into apps
+</span>    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">static</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">dir</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Core</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Sources</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Foundation</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>  <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> tested code must be host-portable
+</span>  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">CalcCoreTests</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">test</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">dir</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Tests</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Sources</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>        <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> the test files
+</span>    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">link</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">CalcCore</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>          <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> static targets under test
+</span></span></code></pre>
+<ul data-sourcepos="320:1-355:14">
+<li data-sourcepos="320:1-331:60">Swift: idl writes a SwiftPM package to <code data-sourcepos="320:42-320:67">&lt;build_dir&gt;/test/&lt;name&gt;/</code> (one
+library target per tested static target, named after it, and one test
+target) and runs <code data-sourcepos="322:20-322:46">swift build --build-tests</code> and <code data-sourcepos="322:52-322:63">swift test</code> with the
+<code data-sourcepos="323:3-323:9">swift</code> next to <code data-sourcepos="323:19-323:36">toolchain.swiftc</code>. SwiftPM discovers XCTest and
+swift-testing tests; <code data-sourcepos="324:24-324:50">@testable import CalcCore</code> works. SwiftPM does not
+accept target paths outside the package and idl does not create symlinks,
+so the sources are copied into the package (only changed files are
+rewritten); paths in compiler and test output point back at the original
+files. Carried over per target: <code data-sourcepos="328:35-328:49">swift_version</code> (language mode), <code data-sourcepos="328:68-328:76">defines</code>
+without <code data-sourcepos="329:11-329:13">=</code>, <code data-sourcepos="329:16-329:29">include_dirs</code>, <code data-sourcepos="329:32-329:51">quote_include_dirs</code>, <code data-sourcepos="329:54-329:65">swiftflags</code>,
+<code data-sourcepos="330:3-330:13">libraries</code> and <code data-sourcepos="330:19-330:27">ldflags</code>. Without <code data-sourcepos="330:38-330:41">-c</code> or with <code data-sourcepos="330:51-330:60">-c debug</code> SwiftPM builds
+debug; <code data-sourcepos="331:10-331:21">-c release</code> builds release with <code data-sourcepos="331:43-331:59">-enable-testing</code>.</li>
+<li data-sourcepos="332:1-338:9">C, C++ (Objective-C only with a host runtime): host <code data-sourcepos="332:55-332:68">toolchain.cc</code>/<code data-sourcepos="332:70-332:74">cxx</code>
+compiles the test sources and the tested static targets’ sources (each with
+its own <code data-sourcepos="334:11-334:15">opt</code>, <code data-sourcepos="334:18-334:26">defines</code>, <code data-sourcepos="334:29-334:42">include_dirs</code>, <code data-sourcepos="334:45-334:64">quote_include_dirs</code>, <code data-sourcepos="334:67-334:74">cflags</code>;
+the tests also get the tested targets’ <code data-sourcepos="335:42-335:55">include_dirs</code>) into
+<code data-sourcepos="336:3-336:34">&lt;build_dir&gt;/test/&lt;name&gt;/&lt;name&gt;</code>, links <code data-sourcepos="336:43-336:53">libraries</code>/<code data-sourcepos="336:55-336:63">ldflags</code>, and runs it
+in the target directory. Exit status 0 is a pass. Incremental like direct
+builds.</li>
+<li data-sourcepos="339:1-340:27">One language per target: Swift tests link Swift static targets, C-family
+tests link C-family ones.</li>
+<li data-sourcepos="341:1-345:14"><code data-sourcepos="341:3-341:14">frameworks</code> may only name Foundation, FoundationEssentials,
+FoundationNetworking, FoundationXML, Dispatch, XCTest or Testing; the same
+applies to every static target a test target links. UIKit or SwiftUI code
+cannot be tested on the host. Test targets do not inherit <code data-sourcepos="344:61-344:72">frameworks</code> from
+<code data-sourcepos="345:3-345:13">defaults:</code>.</li>
+<li data-sourcepos="346:1-350:52">Test targets need no <code data-sourcepos="346:24-346:34">bundle_id</code>. Not allowed on them: <code data-sourcepos="346:58-346:73">builder: xtool</code>,
+<code data-sourcepos="347:3-347:13">xcodeproj</code>, <code data-sourcepos="347:16-347:27">post_build</code>, <code data-sourcepos="347:30-347:37">tests:</code>, <code data-sourcepos="347:40-347:46">embed</code>, resources, Info.plist,
+entitlements, <code data-sourcepos="348:17-348:33">weak_frameworks</code>, <code data-sourcepos="348:36-348:51">framework_dirs</code>, <code data-sourcepos="348:54-348:70">bridging_header</code>.
+Nothing may <code data-sourcepos="349:15-349:20">link</code> or <code data-sourcepos="349:25-349:31">embed</code> a test target. <code data-sourcepos="349:48-349:64">configurations:</code> and the
+<code data-sourcepos="350:3-350:6">-c</code> output directories work as for other targets.</li>
+<li data-sourcepos="351:1-355:14"><code data-sourcepos="351:3-351:11">idl gen</code> writes <code data-sourcepos="351:20-351:42">compile_commands.json</code> with host flags for test targets
+(when <code data-sourcepos="352:9-352:32">compile_commands: true</code>). <code data-sourcepos="352:36-352:46">idl clean</code> removes <code data-sourcepos="352:56-352:68">&lt;build_dir&gt;</code>.
+<code data-sourcepos="353:3-353:12">idl lint</code> skips test targets; <code data-sourcepos="353:34-353:42">idl fmt</code> formats them. <code data-sourcepos="353:58-353:68">idl build</code>,
+<code data-sourcepos="354:3-354:12">idl lint</code>, <code data-sourcepos="354:15-354:27">idl install</code> and <code data-sourcepos="354:33-354:47">idl xcodeproj</code> reject an explicitly named
+test target.</li>
+</ul>
+<p data-sourcepos="357:1-359:53"><code data-sourcepos="357:1-357:10">idl test</code> with no target names checks every app and runs every test target;
+names select apps and/or test targets. <code data-sourcepos="358:40-358:51">--no-build</code> runs the existing outputs
+(<code data-sourcepos="359:2-359:26">swift test --skip-build</code>, the existing executable).</p>
+<p data-sourcepos="361:1-362:74">Output (stdout) has one result line per app check, <code data-sourcepos="361:52-361:59">tests:</code> command and test
+target, then a summary; tool output and <code data-sourcepos="362:41-362:45">==&gt;</code> progress lines come between:</p>
+<pre class="syntax-highlighting" data-sourcepos="364:1-375:3"><code><span class="hl-text hl-plain">PASS &lt;app&gt; bundle checks
+FAIL &lt;app&gt; bundle checks (&lt;n&gt; error(s))   # or &quot;(error)&quot;: bundle missing/unreadable
+PASS &lt;app&gt;: &lt;command and arguments&gt;
+FAIL &lt;app&gt;: &lt;command and arguments&gt;
+PASS &lt;test target&gt; tests
+FAIL &lt;test target&gt; tests (build failed)
+FAIL &lt;test target&gt; tests (exit code &lt;n&gt;)
+FAIL &lt;test target&gt; tests (error)          # configuration or missing tool; message on stderr
+
+&lt;passed&gt; passed, &lt;failed&gt; failed
+</span></code></pre>
+<p data-sourcepos="377:1-379:7">Exit status: 0 when everything passed, 1 when anything failed (stderr ends
+with <code data-sourcepos="378:6-378:26">error: tests failed</code>) or the project could not be loaded, 2 for usage
+errors.</p>
+<p data-sourcepos="381:1-383:37">Tool paths can be set under <code data-sourcepos="381:29-381:40">toolchain:</code> as <code data-sourcepos="381:45-381:58">clang_format</code>, <code data-sourcepos="381:61-381:72">clang_tidy</code> and
+<code data-sourcepos="382:1-382:14">swift_format</code> (swift-format ships with the swiftly toolchain). A missing
 optional tool is skipped with a note.</p>
-<h3 id="code-generation" data-sourcepos="304:1-304:19">Code generation<a href="#code-generation" aria-label="Link to heading 'Code generation'" data-heading-content="Code generation" class="anchor"></a></h3>
-<table data-sourcepos="306:1-311:79" class="table table-sm table-striped">
+<h3 id="code-generation" data-sourcepos="385:1-385:19">Code generation<a href="#code-generation" aria-label="Link to heading 'Code generation'" data-heading-content="Code generation" class="anchor"></a></h3>
+<table data-sourcepos="387:1-392:79" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="306:1-306:29">
-<th data-sourcepos="306:2-306:6">Key</th>
-<th data-sourcepos="306:8-306:16">Default</th>
-<th data-sourcepos="306:18-306:28">Generates</th>
+<tr data-sourcepos="387:1-387:29">
+<th data-sourcepos="387:2-387:6">Key</th>
+<th data-sourcepos="387:8-387:16">Default</th>
+<th data-sourcepos="387:18-387:28">Generates</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="308:1-308:78">
-<td data-sourcepos="308:2-308:14"><code data-sourcepos="308:3-308:13">xcodeproj</code></td>
-<td data-sourcepos="308:16-308:24"><code data-sourcepos="308:17-308:23">false</code></td>
-<td data-sourcepos="308:26-308:77"><code data-sourcepos="308:27-308:50">&lt;dir&gt;/&lt;name&gt;.xcodeproj</code> (project + shared scheme)</td>
+<tr data-sourcepos="389:1-389:78">
+<td data-sourcepos="389:2-389:14"><code data-sourcepos="389:3-389:13">xcodeproj</code></td>
+<td data-sourcepos="389:16-389:24"><code data-sourcepos="389:17-389:23">false</code></td>
+<td data-sourcepos="389:26-389:77"><code data-sourcepos="389:27-389:50">&lt;dir&gt;/&lt;name&gt;.xcodeproj</code> (project + shared scheme)</td>
 </tr>
-<tr data-sourcepos="309:1-309:86">
-<td data-sourcepos="309:2-309:21"><code data-sourcepos="309:3-309:20">compile_commands</code></td>
-<td data-sourcepos="309:23-309:31"><code data-sourcepos="309:24-309:30">false</code></td>
-<td data-sourcepos="309:33-309:85"><code data-sourcepos="309:34-309:62">&lt;dir&gt;/compile_commands.json</code> (direct targets only)</td>
+<tr data-sourcepos="390:1-390:86">
+<td data-sourcepos="390:2-390:21"><code data-sourcepos="390:3-390:20">compile_commands</code></td>
+<td data-sourcepos="390:23-390:31"><code data-sourcepos="390:24-390:30">false</code></td>
+<td data-sourcepos="390:33-390:85"><code data-sourcepos="390:34-390:62">&lt;dir&gt;/compile_commands.json</code> (direct targets only)</td>
 </tr>
-<tr data-sourcepos="310:1-310:73">
-<td data-sourcepos="310:2-310:18"><code data-sourcepos="310:3-310:17">package_swift</code></td>
-<td data-sourcepos="310:20-310:27"><code data-sourcepos="310:21-310:26">true</code></td>
-<td data-sourcepos="310:29-310:72"><code data-sourcepos="310:30-310:50">&lt;dir&gt;/Package.swift</code> (xtool targets only)</td>
+<tr data-sourcepos="391:1-391:73">
+<td data-sourcepos="391:2-391:18"><code data-sourcepos="391:3-391:17">package_swift</code></td>
+<td data-sourcepos="391:20-391:27"><code data-sourcepos="391:21-391:26">true</code></td>
+<td data-sourcepos="391:29-391:72"><code data-sourcepos="391:30-391:50">&lt;dir&gt;/Package.swift</code> (xtool targets only)</td>
 </tr>
-<tr data-sourcepos="311:1-311:79">
-<td data-sourcepos="311:2-311:18"><code data-sourcepos="311:3-311:17">configuration</code></td>
-<td data-sourcepos="311:20-311:30"><code data-sourcepos="311:21-311:29">release</code></td>
-<td data-sourcepos="311:32-311:78">xtool build configuration (<code data-sourcepos="311:60-311:66">debug</code>/<code data-sourcepos="311:68-311:76">release</code>)</td>
+<tr data-sourcepos="392:1-392:79">
+<td data-sourcepos="392:2-392:18"><code data-sourcepos="392:3-392:17">configuration</code></td>
+<td data-sourcepos="392:20-392:30"><code data-sourcepos="392:21-392:29">release</code></td>
+<td data-sourcepos="392:32-392:78">xtool build configuration (<code data-sourcepos="392:60-392:66">debug</code>/<code data-sourcepos="392:68-392:76">release</code>)</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="313:1-316:23">xtool targets always get a generated <code data-sourcepos="313:38-313:48">xtool.yml</code>. Generated files start with a
-<code data-sourcepos="314:1-314:35">Generated by idl from idlproj.yml</code> marker, and <code data-sourcepos="314:49-314:53">idl</code> refuses to overwrite a
-file without that marker. To keep a hand-written <code data-sourcepos="315:50-315:64">Package.swift</code>, set
-<code data-sourcepos="316:1-316:22">package_swift: false</code>.</p>
-<p data-sourcepos="318:1-319:10">An xtool target must have exactly one <code data-sourcepos="318:39-318:47">sources</code> entry: the SwiftPM target
+<p data-sourcepos="394:1-397:23">xtool targets always get a generated <code data-sourcepos="394:38-394:48">xtool.yml</code>. Generated files start with a
+<code data-sourcepos="395:1-395:35">Generated by idl from idlproj.yml</code> marker, and <code data-sourcepos="395:49-395:53">idl</code> refuses to overwrite a
+file without that marker. To keep a hand-written <code data-sourcepos="396:50-396:64">Package.swift</code>, set
+<code data-sourcepos="397:1-397:22">package_swift: false</code>.</p>
+<p data-sourcepos="399:1-400:10">An xtool target must have exactly one <code data-sourcepos="399:39-399:47">sources</code> entry: the SwiftPM target
 directory.</p>
-<h2 id="configurations" data-sourcepos="321:1-321:17">configurations<a href="#configurations" aria-label="Link to heading 'configurations'" data-heading-content="configurations" class="anchor"></a></h2>
-<p data-sourcepos="323:1-324:48">Select with <code data-sourcepos="323:13-323:22">-c debug</code> / <code data-sourcepos="323:26-323:50">--configuration release</code> on <code data-sourcepos="323:55-323:61">build</code>, <code data-sourcepos="323:64-323:72">install</code>,
-<code data-sourcepos="324:1-324:7">check</code>, <code data-sourcepos="324:10-324:14">gen</code>, <code data-sourcepos="324:17-324:27">xcodeproj</code>, <code data-sourcepos="324:30-324:35">list</code> and <code data-sourcepos="324:41-324:47">clean</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="326:1-344:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+<h2 id="configurations" data-sourcepos="402:1-402:17">configurations<a href="#configurations" aria-label="Link to heading 'configurations'" data-heading-content="configurations" class="anchor"></a></h2>
+<p data-sourcepos="404:1-405:48">Select with <code data-sourcepos="404:13-404:22">-c debug</code> / <code data-sourcepos="404:26-404:50">--configuration release</code> on <code data-sourcepos="404:55-404:61">build</code>, <code data-sourcepos="404:64-404:72">install</code>,
+<code data-sourcepos="405:1-405:7">check</code>, <code data-sourcepos="405:10-405:14">gen</code>, <code data-sourcepos="405:17-405:27">xcodeproj</code>, <code data-sourcepos="405:30-405:35">list</code> and <code data-sourcepos="405:41-405:47">clean</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="407:1-425:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">debug</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">info</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
       <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">My App Debug</span>
@@ -871,31 +944,31 @@ directory.</p>
         <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
           <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 </span></code></pre>
-<p data-sourcepos="346:1-351:73">Built-in debug settings: <code data-sourcepos="346:26-346:35">opt: -O0</code>, <code data-sourcepos="346:38-346:56">swift_opt: -Onone</code>, <code data-sourcepos="346:59-346:79">debug_symbols: true</code>,
-and an additional <code data-sourcepos="347:19-347:25">DEBUG</code> define. Built-in release settings: <code data-sourcepos="347:62-347:66">-Os</code>, <code data-sourcepos="347:69-347:72">-O</code>, no
-DWARF; an inherited YAML <code data-sourcepos="348:26-348:41">get-task-allow</code> is set to false. Profile overrides
+<p data-sourcepos="427:1-432:73">Built-in debug settings: <code data-sourcepos="427:26-427:35">opt: -O0</code>, <code data-sourcepos="427:38-427:56">swift_opt: -Onone</code>, <code data-sourcepos="427:59-427:79">debug_symbols: true</code>,
+and an additional <code data-sourcepos="428:19-428:25">DEBUG</code> define. Built-in release settings: <code data-sourcepos="428:62-428:66">-Os</code>, <code data-sourcepos="428:69-428:72">-O</code>, no
+DWARF; an inherited YAML <code data-sourcepos="429:26-429:41">get-task-allow</code> is set to false. Profile overrides
 can explicitly change those defaults. No entitlement file is manufactured
 for an app that requested no capabilities. For a legacy entitlement-file
 input, explicitly override entitlements in the release profile if needed.</p>
-<p data-sourcepos="353:1-356:58">Precedence, lowest first: <code data-sourcepos="353:27-353:36">defaults</code> -&gt; target -&gt; built-in profile -&gt; global
-<code data-sourcepos="354:1-354:23">configurations.&lt;name&gt;</code> -&gt; target <code data-sourcepos="354:35-354:57">configurations.&lt;name&gt;</code>. Mappings merge
-recursively, lists replace rather than append, and <code data-sourcepos="355:52-355:54">~</code> clears an optional
-value. <code data-sourcepos="356:8-356:14">DEBUG</code> is appended after merging for debug builds.</p>
-<p data-sourcepos="358:1-361:65">Supported profile overrides: <code data-sourcepos="358:30-358:40">bundle_id</code>, <code data-sourcepos="358:43-358:47">opt</code>, <code data-sourcepos="358:50-358:60">swift_opt</code>, <code data-sourcepos="358:63-358:77">debug_symbols</code>,
-<code data-sourcepos="359:1-359:9">defines</code>, <code data-sourcepos="359:12-359:17">info</code>, <code data-sourcepos="359:20-359:33">entitlements</code>, <code data-sourcepos="359:36-359:47">plist_vars</code>, <code data-sourcepos="359:50-359:60">build_dir</code>, <code data-sourcepos="359:63-359:70">cflags</code>,
-<code data-sourcepos="360:1-360:12">swiftflags</code>, <code data-sourcepos="360:15-360:23">ldflags</code>, <code data-sourcepos="360:26-360:33">strict</code>, <code data-sourcepos="360:36-360:41">sign</code>. Targets, source lists and dependencies
+<p data-sourcepos="434:1-437:58">Precedence, lowest first: <code data-sourcepos="434:27-434:36">defaults</code> -&gt; target -&gt; built-in profile -&gt; global
+<code data-sourcepos="435:1-435:23">configurations.&lt;name&gt;</code> -&gt; target <code data-sourcepos="435:35-435:57">configurations.&lt;name&gt;</code>. Mappings merge
+recursively, lists replace rather than append, and <code data-sourcepos="436:52-436:54">~</code> clears an optional
+value. <code data-sourcepos="437:8-437:14">DEBUG</code> is appended after merging for debug builds.</p>
+<p data-sourcepos="439:1-442:65">Supported profile overrides: <code data-sourcepos="439:30-439:40">bundle_id</code>, <code data-sourcepos="439:43-439:47">opt</code>, <code data-sourcepos="439:50-439:60">swift_opt</code>, <code data-sourcepos="439:63-439:77">debug_symbols</code>,
+<code data-sourcepos="440:1-440:9">defines</code>, <code data-sourcepos="440:12-440:17">info</code>, <code data-sourcepos="440:20-440:33">entitlements</code>, <code data-sourcepos="440:36-440:47">plist_vars</code>, <code data-sourcepos="440:50-440:60">build_dir</code>, <code data-sourcepos="440:63-440:70">cflags</code>,
+<code data-sourcepos="441:1-441:12">swiftflags</code>, <code data-sourcepos="441:15-441:23">ldflags</code>, <code data-sourcepos="441:26-441:33">strict</code>, <code data-sourcepos="441:36-441:41">sign</code>. Targets, source lists and dependencies
 are not profile-dependent. Unknown profile names/keys are errors.</p>
-<p data-sourcepos="363:1-367:68">Profile output paths are <code data-sourcepos="363:26-363:45">&lt;build_dir&gt;/debug/</code> and <code data-sourcepos="363:51-363:72">&lt;build_dir&gt;/release/</code>, for
+<p data-sourcepos="444:1-448:68">Profile output paths are <code data-sourcepos="444:26-444:45">&lt;build_dir&gt;/debug/</code> and <code data-sourcepos="444:51-444:72">&lt;build_dir&gt;/release/</code>, for
 both builders (xtool’s IPA is copied to that profile path). Xcode receives
 matching optimization, defines, debug-symbol, signing and metadata settings.
-With no <code data-sourcepos="366:9-366:12">-c</code>, legacy flags and output paths are preserved; the old target
-<code data-sourcepos="367:1-367:16">configuration:</code> key still chooses xtool’s underlying configuration.</p>
-<h2 id="defaults" data-sourcepos="369:1-369:11">defaults<a href="#defaults" aria-label="Link to heading 'defaults'" data-heading-content="defaults" class="anchor"></a></h2>
-<p data-sourcepos="371:1-373:73"><code data-sourcepos="371:1-371:11">defaults:</code> accepts any target key except <code data-sourcepos="371:43-371:48">name</code>, <code data-sourcepos="371:51-371:55">dir</code> and <code data-sourcepos="371:61-371:71">bundle_id</code>. A
-target overrides defaults recursively for mappings (<code data-sourcepos="372:53-372:58">info</code>, <code data-sourcepos="372:61-372:74">entitlements</code>, etc.);
-lists are replaced, not merged, and <code data-sourcepos="373:37-373:39">~</code> clears an optional mapping/value.</p>
-<h2 id="complete-example" data-sourcepos="375:1-375:19">Complete example<a href="#complete-example" aria-label="Link to heading 'Complete example'" data-heading-content="Complete example" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="377:1-415:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+With no <code data-sourcepos="447:9-447:12">-c</code>, legacy flags and output paths are preserved; the old target
+<code data-sourcepos="448:1-448:16">configuration:</code> key still chooses xtool’s underlying configuration.</p>
+<h2 id="defaults" data-sourcepos="450:1-450:11">defaults<a href="#defaults" aria-label="Link to heading 'defaults'" data-heading-content="defaults" class="anchor"></a></h2>
+<p data-sourcepos="452:1-454:73"><code data-sourcepos="452:1-452:11">defaults:</code> accepts any target key except <code data-sourcepos="452:43-452:48">name</code>, <code data-sourcepos="452:51-452:55">dir</code> and <code data-sourcepos="452:61-452:71">bundle_id</code>. A
+target overrides defaults recursively for mappings (<code data-sourcepos="453:53-453:58">info</code>, <code data-sourcepos="453:61-453:74">entitlements</code>, etc.);
+lists are replaced, not merged, and <code data-sourcepos="454:37-454:39">~</code> clears an optional mapping/value.</p>
+<h2 id="complete-example" data-sourcepos="456:1-456:19">Complete example<a href="#complete-example" aria-label="Link to heading 'Complete example'" data-heading-content="Complete example" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="458:1-496:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">jobs</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-numeric hl-integer hl-decimal hl-yaml">8</span>
 
 <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">defaults</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>

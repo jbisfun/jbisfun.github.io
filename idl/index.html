@@ -276,35 +276,36 @@ Debug/release artifacts are isolated. Direct builds cache resource compilation,
 bundling, signing and packaging; concurrent build/gen/clean operations are locked.
 See <a data-sourcepos="45:5-45:70" href="docs/workflows.html#strict-preflight-and-build-profiles">workflows</a>.</p>
 <h2 id="code-quality" data-sourcepos="47:1-47:15">Code quality<a href="#code-quality" aria-label="Link to heading 'Code quality'" data-heading-content="Code quality" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="49:5-51:108"><code><span class="hl-text hl-plain">idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
+<pre class="syntax-highlighting" data-sourcepos="49:5-52:118"><code><span class="hl-text hl-plain">idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
 idl lint [--analyze]   # clang -Wall, swiftc -typecheck, clang-tidy, analyzer, all with the real build flags
-idl test               # bundle checks (arm64/iOS/signed, @rpath resolution, plists) + `tests:` commands
+idl test               # bundle checks (arm64/iOS/signed, @rpath resolution, plists) + `tests:` commands,
+                       # and `type: test` targets: XCTest/swift-testing (SwiftPM) or C tests run on the Linux host
 </span></code></pre>
-<p data-sourcepos="53:1-54:106">idl only orchestrates installed tools and merges their diagnostics into one
-report. See <a data-sourcepos="54:13-54:105" href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">configuration</a>.</p>
-<h2 id="layout" data-sourcepos="56:1-56:9">Layout<a href="#layout" aria-label="Link to heading 'Layout'" data-heading-content="Layout" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="58:5-64:36"><code><span class="hl-text hl-plain">idlproj.yml        configuration for the examples in this repository
+<p data-sourcepos="54:1-55:106">idl only orchestrates installed tools and merges their diagnostics into one
+report. See <a data-sourcepos="55:13-55:105" href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">configuration</a>.</p>
+<h2 id="layout" data-sourcepos="57:1-57:9">Layout<a href="#layout" aria-label="Link to heading 'Layout'" data-heading-content="Layout" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="59:5-65:36"><code><span class="hl-text hl-plain">idlproj.yml        configuration for the examples in this repository
 build.zig(.zon)    Zig build; pulls zig-clap, zig-yaml, zig-xml and libplist
 src/               the idl tool (see docs/architecture.md)
 tools/idl-actool/  Swift wrapper around AssetKit for .xcassets
 examples/          ObjC, Swift, storyboard/XIB/asset-catalog and xtool/SwiftPM
-                   apps, plus xcconfig patterns
+                   apps, host unit tests (swift-tests, c-tests), plus xcconfig patterns
 docs/              documentation
 </span></code></pre>
-<h2 id="documentation" data-sourcepos="66:1-66:16">Documentation<a href="#documentation" aria-label="Link to heading 'Documentation'" data-heading-content="Documentation" class="anchor"></a></h2>
-<ul data-sourcepos="68:1-72:38">
-<li data-sourcepos="68:1-68:44"><a data-sourcepos="68:3-68:44" href="docs/getting-started.html">Getting started</a></li>
-<li data-sourcepos="69:1-69:48"><a data-sourcepos="69:3-69:48" href="docs/configuration.html">idlproj.yml reference</a></li>
-<li data-sourcepos="70:1-70:39"><a data-sourcepos="70:3-70:39" href="docs/workflows.html">Common workflows</a></li>
-<li data-sourcepos="71:1-71:42"><a data-sourcepos="71:3-71:42" href="docs/limitations.html">Known limitations</a></li>
-<li data-sourcepos="72:1-72:38"><a data-sourcepos="72:3-72:38" href="docs/architecture.html">Architecture</a></li>
+<h2 id="documentation" data-sourcepos="67:1-67:16">Documentation<a href="#documentation" aria-label="Link to heading 'Documentation'" data-heading-content="Documentation" class="anchor"></a></h2>
+<ul data-sourcepos="69:1-73:38">
+<li data-sourcepos="69:1-69:44"><a data-sourcepos="69:3-69:44" href="docs/getting-started.html">Getting started</a></li>
+<li data-sourcepos="70:1-70:48"><a data-sourcepos="70:3-70:48" href="docs/configuration.html">idlproj.yml reference</a></li>
+<li data-sourcepos="71:1-71:39"><a data-sourcepos="71:3-71:39" href="docs/workflows.html">Common workflows</a></li>
+<li data-sourcepos="72:1-72:42"><a data-sourcepos="72:3-72:42" href="docs/limitations.html">Known limitations</a></li>
+<li data-sourcepos="73:1-73:38"><a data-sourcepos="73:3-73:38" href="docs/architecture.html">Architecture</a></li>
 </ul>
-<h2 id="tests" data-sourcepos="74:1-74:8">Tests<a href="#tests" aria-label="Link to heading 'Tests'" data-heading-content="Tests" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="76:5-78:80"><code><span class="hl-text hl-plain">zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
+<h2 id="tests" data-sourcepos="75:1-75:8">Tests<a href="#tests" aria-label="Link to heading 'Tests'" data-heading-content="Tests" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="77:5-79:80"><code><span class="hl-text hl-plain">zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
 zig build check      # idl check
 zig build examples   # idl build --gen for every example (real arm64 builds)
 </span></code></pre>
-<p data-sourcepos="80:1-81:50">Ad-hoc <code data-sourcepos="80:8-80:13">ldid</code> signatures are not provisioning. Re-sign an IPA with your usual
+<p data-sourcepos="81:1-82:50">Ad-hoc <code data-sourcepos="81:8-81:13">ldid</code> signatures are not provisioning. Re-sign an IPA with your usual
 signing or sideloading tool before you install it.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

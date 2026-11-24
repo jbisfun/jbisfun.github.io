@@ -253,7 +253,7 @@ collision-checked resource plan, and caches resource and bundle outputs.</p>
                          └─► verify: zip reader + plist + Mach-O parser
 </span></code></pre>
 <h2 id="source-map" data-sourcepos="21:1-21:13">Source map<a href="#source-map" aria-label="Link to heading 'Source map'" data-heading-content="Source map" class="anchor"></a></h2>
-<table data-sourcepos="23:1-48:100" class="table table-sm table-striped">
+<table data-sourcepos="23:1-49:100" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="23:1-23:25">
 <th data-sourcepos="23:2-23:7">File</th>
@@ -289,126 +289,130 @@ collision-checked resource plan, and caches resource and bundle outputs.</p>
 <td data-sourcepos="31:2-31:20"><code data-sourcepos="31:3-31:19">src/builder.zig</code></td>
 <td data-sourcepos="31:22-31:113">parallel incremental compile, link, bundle assembly, signing, packaging, xtool runs, clean</td>
 </tr>
-<tr data-sourcepos="32:1-32:129">
-<td data-sourcepos="32:2-32:20"><code data-sourcepos="32:3-32:19">src/codegen.zig</code></td>
-<td data-sourcepos="32:22-32:128"><code data-sourcepos="32:23-32:33">xtool.yml</code>, <code data-sourcepos="32:36-32:50">Package.swift</code>, <code data-sourcepos="32:53-32:75">compile_commands.json</code>, protection against overwriting non-generated files</td>
+<tr data-sourcepos="32:1-32:121">
+<td data-sourcepos="32:2-32:21"><code data-sourcepos="32:3-32:20">src/hosttest.zig</code></td>
+<td data-sourcepos="32:23-32:120"><code data-sourcepos="32:24-32:35">type: test</code> targets: SwiftPM package (copied sources) + <code data-sourcepos="32:81-32:92">swift test</code>, or host clang build + run</td>
 </tr>
-<tr data-sourcepos="33:1-33:93">
-<td data-sourcepos="33:2-33:20"><code data-sourcepos="33:3-33:19">src/pbxproj.zig</code></td>
-<td data-sourcepos="33:22-33:92">deterministic Xcode project + scheme; atomic, symlink-safe publishing</td>
+<tr data-sourcepos="33:1-33:129">
+<td data-sourcepos="33:2-33:20"><code data-sourcepos="33:3-33:19">src/codegen.zig</code></td>
+<td data-sourcepos="33:22-33:128"><code data-sourcepos="33:23-33:33">xtool.yml</code>, <code data-sourcepos="33:36-33:50">Package.swift</code>, <code data-sourcepos="33:53-33:75">compile_commands.json</code>, protection against overwriting non-generated files</td>
 </tr>
-<tr data-sourcepos="34:1-34:106">
-<td data-sourcepos="34:2-34:21"><code data-sourcepos="34:3-34:20">src/metadata.zig</code></td>
-<td data-sourcepos="34:23-34:105">YAML-driven Info.plist and entitlements, shared by direct, Xcode and xtool builds</td>
+<tr data-sourcepos="34:1-34:93">
+<td data-sourcepos="34:2-34:20"><code data-sourcepos="34:3-34:19">src/pbxproj.zig</code></td>
+<td data-sourcepos="34:22-34:92">deterministic Xcode project + scheme; atomic, symlink-safe publishing</td>
 </tr>
-<tr data-sourcepos="35:1-35:83">
-<td data-sourcepos="35:2-35:18"><code data-sourcepos="35:3-35:17">src/plist.zig</code></td>
-<td data-sourcepos="35:20-35:82">libplist wrapper, Xcode <code data-sourcepos="35:45-35:52">$(VAR)</code> expansion, CLI value parsing</td>
+<tr data-sourcepos="35:1-35:106">
+<td data-sourcepos="35:2-35:21"><code data-sourcepos="35:3-35:20">src/metadata.zig</code></td>
+<td data-sourcepos="35:23-35:105">YAML-driven Info.plist and entitlements, shared by direct, Xcode and xtool builds</td>
 </tr>
-<tr data-sourcepos="36:1-36:71">
-<td data-sourcepos="36:2-36:22"><code data-sourcepos="36:3-36:21">src/xcstrings.zig</code></td>
-<td data-sourcepos="36:24-36:70">String Catalog to <code data-sourcepos="36:43-36:52">.strings</code> / <code data-sourcepos="36:56-36:69">.stringsdict</code></td>
+<tr data-sourcepos="36:1-36:83">
+<td data-sourcepos="36:2-36:18"><code data-sourcepos="36:3-36:17">src/plist.zig</code></td>
+<td data-sourcepos="36:20-36:82">libplist wrapper, Xcode <code data-sourcepos="36:45-36:52">$(VAR)</code> expansion, CLI value parsing</td>
 </tr>
-<tr data-sourcepos="37:1-37:89">
-<td data-sourcepos="37:2-37:16"><code data-sourcepos="37:3-37:15">src/zip.zig</code></td>
-<td data-sourcepos="37:18-37:88">deterministic ZIP writer (std.compress.flate) and CRC-checking reader</td>
+<tr data-sourcepos="37:1-37:71">
+<td data-sourcepos="37:2-37:22"><code data-sourcepos="37:3-37:21">src/xcstrings.zig</code></td>
+<td data-sourcepos="37:24-37:70">String Catalog to <code data-sourcepos="37:43-37:52">.strings</code> / <code data-sourcepos="37:56-37:69">.stringsdict</code></td>
 </tr>
-<tr data-sourcepos="38:1-38:63">
-<td data-sourcepos="38:2-38:18"><code data-sourcepos="38:3-38:17">src/macho.zig</code></td>
-<td data-sourcepos="38:20-38:62">Mach-O header and load-command inspection</td>
+<tr data-sourcepos="38:1-38:89">
+<td data-sourcepos="38:2-38:16"><code data-sourcepos="38:3-38:15">src/zip.zig</code></td>
+<td data-sourcepos="38:18-38:88">deterministic ZIP writer (std.compress.flate) and CRC-checking reader</td>
 </tr>
-<tr data-sourcepos="39:1-39:66">
-<td data-sourcepos="39:2-39:19"><code data-sourcepos="39:3-39:18">src/verify.zig</code></td>
-<td data-sourcepos="39:21-39:65">IPA validation used by <code data-sourcepos="39:45-39:51">build</code> and <code data-sourcepos="39:57-39:64">verify</code></td>
+<tr data-sourcepos="39:1-39:63">
+<td data-sourcepos="39:2-39:18"><code data-sourcepos="39:3-39:17">src/macho.zig</code></td>
+<td data-sourcepos="39:20-39:62">Mach-O header and load-command inspection</td>
 </tr>
-<tr data-sourcepos="40:1-40:96">
-<td data-sourcepos="40:2-40:19"><code data-sourcepos="40:3-40:18">src/ibtool.zig</code></td>
-<td data-sourcepos="40:21-40:95"><code data-sourcepos="40:22-40:27">.xib</code> / <code data-sourcepos="40:31-40:43">.storyboard</code> to nib object graphs (port of davidquesada/ibtool)</td>
+<tr data-sourcepos="40:1-40:66">
+<td data-sourcepos="40:2-40:19"><code data-sourcepos="40:3-40:18">src/verify.zig</code></td>
+<td data-sourcepos="40:21-40:65">IPA validation used by <code data-sourcepos="40:45-40:51">build</code> and <code data-sourcepos="40:57-40:64">verify</code></td>
 </tr>
-<tr data-sourcepos="41:1-41:86">
-<td data-sourcepos="41:2-41:16"><code data-sourcepos="41:3-41:15">src/nib.zig</code></td>
-<td data-sourcepos="41:18-41:85">NIBArchive object model, encoder and decoder (<code data-sourcepos="41:65-41:83">idl ibtool --dump</code>)</td>
+<tr data-sourcepos="41:1-41:96">
+<td data-sourcepos="41:2-41:19"><code data-sourcepos="41:3-41:18">src/ibtool.zig</code></td>
+<td data-sourcepos="41:21-41:95"><code data-sourcepos="41:22-41:27">.xib</code> / <code data-sourcepos="41:31-41:43">.storyboard</code> to nib object graphs (port of davidquesada/ibtool)</td>
 </tr>
-<tr data-sourcepos="42:1-42:64">
-<td data-sourcepos="42:2-42:19"><code data-sourcepos="42:3-42:18">src/xmldom.zig</code></td>
-<td data-sourcepos="42:21-42:63">small DOM over zig-xml’s streaming reader</td>
+<tr data-sourcepos="42:1-42:86">
+<td data-sourcepos="42:2-42:16"><code data-sourcepos="42:3-42:15">src/nib.zig</code></td>
+<td data-sourcepos="42:18-42:85">NIBArchive object model, encoder and decoder (<code data-sourcepos="42:65-42:83">idl ibtool --dump</code>)</td>
 </tr>
-<tr data-sourcepos="43:1-43:104">
-<td data-sourcepos="43:2-43:21"><code data-sourcepos="43:3-43:20">tools/idl-actool</code></td>
-<td data-sourcepos="43:23-43:103">Swift wrapper around AssetKit; separate executable, built by <code data-sourcepos="43:85-43:102">zig build actool</code></td>
+<tr data-sourcepos="43:1-43:64">
+<td data-sourcepos="43:2-43:19"><code data-sourcepos="43:3-43:18">src/xmldom.zig</code></td>
+<td data-sourcepos="43:21-43:63">small DOM over zig-xml’s streaming reader</td>
 </tr>
-<tr data-sourcepos="44:1-44:93">
-<td data-sourcepos="44:2-44:22"><code data-sourcepos="44:3-44:21">src/jimpactor.zig</code></td>
-<td data-sourcepos="44:24-44:92">client for Jimpactor’s local IPC protocol v1 (<code data-sourcepos="44:71-44:79">devices</code>, <code data-sourcepos="44:82-44:90">install</code>)</td>
+<tr data-sourcepos="44:1-44:104">
+<td data-sourcepos="44:2-44:21"><code data-sourcepos="44:3-44:20">tools/idl-actool</code></td>
+<td data-sourcepos="44:23-44:103">Swift wrapper around AssetKit; separate executable, built by <code data-sourcepos="44:85-44:102">zig build actool</code></td>
 </tr>
-<tr data-sourcepos="45:1-45:90">
-<td data-sourcepos="45:2-45:21"><code data-sourcepos="45:3-45:20">src/scaffold.zig</code></td>
-<td data-sourcepos="45:23-45:89"><code data-sourcepos="45:24-45:33">idl init</code> (sources are embedded from <code data-sourcepos="45:62-45:72">examples/</code> by <code data-sourcepos="45:77-45:87">build.zig</code>)</td>
+<tr data-sourcepos="45:1-45:93">
+<td data-sourcepos="45:2-45:22"><code data-sourcepos="45:3-45:21">src/jimpactor.zig</code></td>
+<td data-sourcepos="45:24-45:92">client for Jimpactor’s local IPC protocol v1 (<code data-sourcepos="45:71-45:79">devices</code>, <code data-sourcepos="45:82-45:90">install</code>)</td>
 </tr>
-<tr data-sourcepos="46:1-46:89">
-<td data-sourcepos="46:2-46:19"><code data-sourcepos="46:3-46:18">src/fsutil.zig</code></td>
-<td data-sourcepos="46:21-46:88">discovery rules shared with Xcode, path validation, symlink checks</td>
+<tr data-sourcepos="46:1-46:90">
+<td data-sourcepos="46:2-46:21"><code data-sourcepos="46:3-46:20">src/scaffold.zig</code></td>
+<td data-sourcepos="46:23-46:89"><code data-sourcepos="46:24-46:33">idl init</code> (sources are embedded from <code data-sourcepos="46:62-46:72">examples/</code> by <code data-sourcepos="46:77-46:87">build.zig</code>)</td>
 </tr>
-<tr data-sourcepos="47:1-47:65">
-<td data-sourcepos="47:2-47:17"><code data-sourcepos="47:3-47:16">src/diag.zig</code></td>
-<td data-sourcepos="47:19-47:64">the single user-facing error message channel</td>
+<tr data-sourcepos="47:1-47:89">
+<td data-sourcepos="47:2-47:19"><code data-sourcepos="47:3-47:18">src/fsutil.zig</code></td>
+<td data-sourcepos="47:21-47:88">discovery rules shared with Xcode, path validation, symlink checks</td>
 </tr>
-<tr data-sourcepos="48:1-48:100">
-<td data-sourcepos="48:2-48:16"><code data-sourcepos="48:3-48:15">src/sys.zig</code></td>
-<td data-sourcepos="48:18-48:99">process-wide <code data-sourcepos="48:32-48:39">std.Io</code> and environment (set once in <code data-sourcepos="48:70-48:75">main</code>), file/process helpers</td>
+<tr data-sourcepos="48:1-48:65">
+<td data-sourcepos="48:2-48:17"><code data-sourcepos="48:3-48:16">src/diag.zig</code></td>
+<td data-sourcepos="48:19-48:64">the single user-facing error message channel</td>
+</tr>
+<tr data-sourcepos="49:1-49:100">
+<td data-sourcepos="49:2-49:16"><code data-sourcepos="49:3-49:15">src/sys.zig</code></td>
+<td data-sourcepos="49:18-49:99">process-wide <code data-sourcepos="49:32-49:39">std.Io</code> and environment (set once in <code data-sourcepos="49:70-49:75">main</code>), file/process helpers</td>
 </tr>
 </tbody>
 </table>
-<h2 id="dependencies" data-sourcepos="50:1-50:15">Dependencies<a href="#dependencies" aria-label="Link to heading 'Dependencies'" data-heading-content="Dependencies" class="anchor"></a></h2>
-<p data-sourcepos="52:1-52:47">All dependencies are pinned in <code data-sourcepos="52:32-52:46">build.zig.zon</code>:</p>
-<ul data-sourcepos="54:1-70:52">
-<li data-sourcepos="54:1-54:47"><strong data-sourcepos="54:3-54:14">zig-clap</strong>: argument parsing and help text.</li>
-<li data-sourcepos="55:1-58:28"><strong data-sourcepos="55:3-55:14">zig-yaml</strong>: YAML tokenizer and parser, pinned to a Zig 0.17 port of
-upstream <code data-sourcepos="56:12-56:17">main</code> (0.3.0; upstream has no 0.17 release). <code data-sourcepos="56:58-56:62">idl</code> walks its <code data-sourcepos="56:74-56:79">Tree</code> directly
-rather than using <code data-sourcepos="57:21-57:32">Yaml.parse</code>, because the typed parser coerces <code data-sourcepos="57:68-57:74">16.10</code> to
+<h2 id="dependencies" data-sourcepos="51:1-51:15">Dependencies<a href="#dependencies" aria-label="Link to heading 'Dependencies'" data-heading-content="Dependencies" class="anchor"></a></h2>
+<p data-sourcepos="53:1-53:47">All dependencies are pinned in <code data-sourcepos="53:32-53:46">build.zig.zon</code>:</p>
+<ul data-sourcepos="55:1-71:52">
+<li data-sourcepos="55:1-55:47"><strong data-sourcepos="55:3-55:14">zig-clap</strong>: argument parsing and help text.</li>
+<li data-sourcepos="56:1-59:28"><strong data-sourcepos="56:3-56:14">zig-yaml</strong>: YAML tokenizer and parser, pinned to a Zig 0.17 port of
+upstream <code data-sourcepos="57:12-57:17">main</code> (0.3.0; upstream has no 0.17 release). <code data-sourcepos="57:58-57:62">idl</code> walks its <code data-sourcepos="57:74-57:79">Tree</code> directly
+rather than using <code data-sourcepos="58:21-58:32">Yaml.parse</code>, because the typed parser coerces <code data-sourcepos="58:68-58:74">16.10</code> to
 a float and drops quoting.</li>
-<li data-sourcepos="59:1-62:60"><strong data-sourcepos="59:3-59:14">libplist</strong> (libimobiledevice): reads and writes XML, binary, JSON and
-OpenStep plists. It is fetched as <code data-sourcepos="60:37-60:59">git+https://…#2.8.1</code> (pinned to a commit)
-and compiled from C source by <code data-sourcepos="61:33-61:47">buildLibplist</code> in <code data-sourcepos="61:52-61:62">build.zig</code> instead of its
+<li data-sourcepos="60:1-63:60"><strong data-sourcepos="60:3-60:14">libplist</strong> (libimobiledevice): reads and writes XML, binary, JSON and
+OpenStep plists. It is fetched as <code data-sourcepos="61:37-61:59">git+https://…#2.8.1</code> (pinned to a commit)
+and compiled from C source by <code data-sourcepos="62:33-62:47">buildLibplist</code> in <code data-sourcepos="62:52-62:62">build.zig</code> instead of its
 autotools build. Only the C core is built, not libplist++.</li>
-<li data-sourcepos="63:1-64:42"><strong data-sourcepos="63:3-63:13">zig-xml</strong> (ianprime0509): XML reader for Interface Builder documents.
+<li data-sourcepos="64:1-65:42"><strong data-sourcepos="64:3-64:13">zig-xml</strong> (ianprime0509): XML reader for Interface Builder documents.
 Pinned to release 0.2.2 (Zig 0.16/0.17).</li>
-<li data-sourcepos="65:1-67:8"><strong data-sourcepos="65:3-65:14">AssetKit</strong> (xtool-org): <code data-sourcepos="65:29-65:39">.xcassets</code> to <code data-sourcepos="65:44-65:55">Assets.car</code>, used only by
-<code data-sourcepos="66:3-66:20">tools/idl-actool</code> (Swift package, pinned to 1.0.0). It is not linked into
-<code data-sourcepos="67:3-67:7">idl</code>.</li>
-<li data-sourcepos="68:1-70:52"><strong data-sourcepos="68:3-68:13">Zig std</strong>: deflate, CRC-32, SHA-1, JSON, processes and <code data-sourcepos="68:60-68:72">translate-c</code>
-(<code data-sourcepos="69:4-69:12">plist.h</code> is translated by <code data-sourcepos="69:31-69:41">build.zig</code>; Zig 0.16+ has no <code data-sourcepos="69:61-69:70">@cImport</code>). <code data-sourcepos="69:74-69:78">idl</code> makes no
+<li data-sourcepos="66:1-68:8"><strong data-sourcepos="66:3-66:14">AssetKit</strong> (xtool-org): <code data-sourcepos="66:29-66:39">.xcassets</code> to <code data-sourcepos="66:44-66:55">Assets.car</code>, used only by
+<code data-sourcepos="67:3-67:20">tools/idl-actool</code> (Swift package, pinned to 1.0.0). It is not linked into
+<code data-sourcepos="68:3-68:7">idl</code>.</li>
+<li data-sourcepos="69:1-71:52"><strong data-sourcepos="69:3-69:13">Zig std</strong>: deflate, CRC-32, SHA-1, JSON, processes and <code data-sourcepos="69:60-69:72">translate-c</code>
+(<code data-sourcepos="70:4-70:12">plist.h</code> is translated by <code data-sourcepos="70:31-70:41">build.zig</code>; Zig 0.16+ has no <code data-sourcepos="70:61-70:70">@cImport</code>). <code data-sourcepos="70:74-70:78">idl</code> makes no
 network requests except to Jimpactor on 127.0.0.1.</li>
 </ul>
-<h2 id="design-notes" data-sourcepos="72:1-72:15">Design notes<a href="#design-notes" aria-label="Link to heading 'Design notes'" data-heading-content="Design notes" class="anchor"></a></h2>
-<ul data-sourcepos="74:1-102:22">
-<li data-sourcepos="74:1-77:78"><strong data-sourcepos="74:3-74:28">Deterministic codegen.</strong> Xcode object IDs are
-<code data-sourcepos="75:3-75:45">SHA1(&quot;pbxprojgen:&lt;section&gt;:&lt;key&gt;&quot;)[0..12]</code>, so the same input always gives
-the same <code data-sourcepos="76:12-76:28">project.pbxproj</code>. Low-level IDs retain compatibility with the earlier
+<h2 id="design-notes" data-sourcepos="73:1-73:15">Design notes<a href="#design-notes" aria-label="Link to heading 'Design notes'" data-heading-content="Design notes" class="anchor"></a></h2>
+<ul data-sourcepos="75:1-103:22">
+<li data-sourcepos="75:1-78:78"><strong data-sourcepos="75:3-75:28">Deterministic codegen.</strong> Xcode object IDs are
+<code data-sourcepos="76:3-76:45">SHA1(&quot;pbxprojgen:&lt;section&gt;:&lt;key&gt;&quot;)[0..12]</code>, so the same input always gives
+the same <code data-sourcepos="77:12-77:28">project.pbxproj</code>. Low-level IDs retain compatibility with the earlier
 Python generator; profile-specific settings intentionally extend the output.</li>
-<li data-sourcepos="78:1-82:44"><strong data-sourcepos="78:3-78:22">Safe publishing.</strong> A new <code data-sourcepos="78:30-78:41">.xcodeproj</code> is written to a private sibling
+<li data-sourcepos="79:1-83:44"><strong data-sourcepos="79:3-79:22">Safe publishing.</strong> A new <code data-sourcepos="79:30-79:41">.xcodeproj</code> is written to a private sibling
 directory and moved into place with directory-FD-relative, no-follow
-operations (<code data-sourcepos="80:15-80:44">fstatat(AT_SYMLINK_NOFOLLOW)</code>, <code data-sourcepos="80:47-80:66">openat(O_NOFOLLOW)</code>,
-<code data-sourcepos="81:3-81:12">renameat</code>). A symlink swapped in at the last moment can therefore not
+operations (<code data-sourcepos="81:15-81:44">fstatat(AT_SYMLINK_NOFOLLOW)</code>, <code data-sourcepos="81:47-81:66">openat(O_NOFOLLOW)</code>,
+<code data-sourcepos="82:3-82:12">renameat</code>). A symlink swapped in at the last moment can therefore not
 redirect the write. Unit tests cover this.</li>
-<li data-sourcepos="83:1-84:46"><strong data-sourcepos="83:3-83:41">Never overwrite hand-written files.</strong> Generated source-tree files carry a
+<li data-sourcepos="84:1-85:46"><strong data-sourcepos="84:3-84:41">Never overwrite hand-written files.</strong> Generated source-tree files carry a
 marker, and files without it are left alone.</li>
-<li data-sourcepos="85:1-87:69"><strong data-sourcepos="85:3-85:35">Preflight before compilation.</strong> All selected tools are probed before any
+<li data-sourcepos="86:1-88:69"><strong data-sourcepos="86:3-86:35">Preflight before compilation.</strong> All selected tools are probed before any
 resource compiler runs; all resource plans are prepared before application
 compilation starts. Strict mode rejects unsupported/omitted inputs.</li>
-<li data-sourcepos="88:1-91:74"><strong data-sourcepos="88:3-88:25">Incremental builds.</strong> Each object has a <code data-sourcepos="88:45-88:50">.cmd</code> command/tool fingerprint and
-clang’s <code data-sourcepos="89:11-89:16">-MMD</code> depfile lists headers. Resources use SHA-256 content-addressed
+<li data-sourcepos="89:1-92:74"><strong data-sourcepos="89:3-89:25">Incremental builds.</strong> Each object has a <code data-sourcepos="89:45-89:50">.cmd</code> command/tool fingerprint and
+clang’s <code data-sourcepos="90:11-90:16">-MMD</code> depfile lists headers. Resources use SHA-256 content-addressed
 cache entries and verify their output tree on hits. Bundling/signing/ZIP skip
 only if input fingerprints and both the payload and IPA integrity match.</li>
-<li data-sourcepos="92:1-94:72"><strong data-sourcepos="92:3-92:14">Locking.</strong> Build/check/gen/clean hold OS advisory locks in <code data-sourcepos="92:64-92:80">.idl/build.lock</code>.
+<li data-sourcepos="93:1-95:72"><strong data-sourcepos="93:3-93:14">Locking.</strong> Build/check/gen/clean hold OS advisory locks in <code data-sourcepos="93:64-93:80">.idl/build.lock</code>.
 Lock files are never unlinked during cleanup; closing the descriptor releases
 the lock. Builds acquire every selected lock before modifying outputs.</li>
-<li data-sourcepos="95:1-97:71"><strong data-sourcepos="95:3-95:25">Profile generation.</strong> YAML maps deep-merge into resolved debug/release
-targets. Metadata for each is written under <code data-sourcepos="96:47-96:63">.idl/&lt;profile&gt;/</code>; Xcode receives
+<li data-sourcepos="96:1-98:71"><strong data-sourcepos="96:3-96:25">Profile generation.</strong> YAML maps deep-merge into resolved debug/release
+targets. Metadata for each is written under <code data-sourcepos="97:47-97:63">.idl/&lt;profile&gt;/</code>; Xcode receives
 both profiles, while xtool’s manifests describe the selected profile.</li>
-<li data-sourcepos="98:1-99:75"><strong data-sourcepos="98:3-98:24">Reproducible IPAs.</strong> Entries are sorted, timestamps are fixed and Unix
+<li data-sourcepos="99:1-100:75"><strong data-sourcepos="99:3-99:24">Reproducible IPAs.</strong> Entries are sorted, timestamps are fixed and Unix
 modes are preserved. Deflate is used only when it makes an entry smaller.</li>
-<li data-sourcepos="100:1-102:22"><strong data-sourcepos="100:3-100:25">Scoped environment.</strong> The swiftly bin directory is appended to <code data-sourcepos="100:68-100:73">PATH</code>, not
+<li data-sourcepos="101:1-103:22"><strong data-sourcepos="101:3-101:25">Scoped environment.</strong> The swiftly bin directory is appended to <code data-sourcepos="101:68-101:73">PATH</code>, not
 prepended, and only in the environment passed to child processes. Host
 tools keep priority.</li>
 </ul>

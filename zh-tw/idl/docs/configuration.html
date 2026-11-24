@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>idlproj.yml 參考 · jbisfun wiki</title>
+  <title>idlproj.yml 參考文件 · jbisfun wiki</title>
   <meta name="color-scheme" content="light dark">
   <script>
     // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
@@ -203,7 +203,7 @@
 
   <li>
 
-    <a href="configuration.html" class="active" aria-current="page">idlproj.yml 參考</a>
+    <a href="configuration.html" class="active" aria-current="page">idlproj.yml 參考文件</a>
 
 
   </li>
@@ -238,21 +238,21 @@
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;configuration.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
-      <h1 id="idlprojyml-reference" data-sourcepos="1:1-1:20">idlproj.yml 參考<a href="#idlprojyml-reference" aria-label="Link to heading 'idlproj.yml 參考'" data-heading-content="idlproj.yml 參考" class="anchor"></a></h1>
-<p data-sourcepos="3:1-3:62"><code data-sourcepos="3:1-3:13">idlproj.yml</code> 是唯一的設定檔。它有四個頂層鍵：</p>
-<pre class="syntax-highlighting" data-sourcepos="5:1-10:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> optional: where the compilers and SDK live
-</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">defaults</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>  <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> optional: target keys applied to every target
-</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span> <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> optional: debug/release overrides
-</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>   <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> required: one entry per app
+      <h1 id="idlprojyml-reference" data-sourcepos="1:1-1:26">idlproj.yml 參考文件<a href="#idlprojyml-reference" aria-label="Link to heading 'idlproj.yml 參考文件'" data-heading-content="idlproj.yml 參考文件" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:75"><code data-sourcepos="3:1-3:13">idlproj.yml</code> 是唯一的設定檔。它包含四個頂層鍵（keys）：</p>
+<pre class="syntax-highlighting" data-sourcepos="5:1-10:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 選填：編譯器與 SDK 的位置
+</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">defaults</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>  <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 選填：套用至所有目標的預設鍵
+</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-mapping hl-yaml"><span class="hl-punctuation hl-definition hl-mapping hl-begin hl-yaml">{</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-mapping hl-end hl-yaml">}</span></span> <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 選填：除錯/發布模式的覆寫設定
+</span><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>   <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span> <span class="hl-constant hl-numeric hl-float hl-decimal hl-yaml"><span class="hl-punctuation hl-separator hl-decimal hl-yaml">.</span>..</span> <span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>   <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 必填：每個應用程式各佔一筆
 </span></span></code></pre>
-<p data-sourcepos="12:1-12:266"><code data-sourcepos="12:1-12:5">idl</code> 會拒絕未知的鍵，因此像 <code data-sourcepos="12:41-12:49">sorces:</code> 這樣的拼字錯誤會變成錯誤，而不是被忽略。版本號請寫成文字，也可以加上引號：<code data-sourcepos="12:162-12:176">min_ios: 16.0</code> 與 <code data-sourcepos="12:182-12:198">min_ios: &quot;16.0&quot;</code> 都代表字串 <code data-sourcepos="12:216-12:221">16.0</code>，而 <code data-sourcepos="12:229-12:235">16.10</code> 絕不會被讀成浮點數。</p>
+<p data-sourcepos="12:1-12:284"><code data-sourcepos="12:1-12:5">idl</code> 會拒絕未知的鍵，因此像是 <code data-sourcepos="12:44-12:52">sorces:</code> 這樣的拼字錯誤會被視為錯誤而非忽略。版本號碼以文字形式書寫，您可以選擇加上引號：<code data-sourcepos="12:174-12:188">min_ios: 16.0</code> 與 <code data-sourcepos="12:194-12:210">min_ios: &quot;16.0&quot;</code> 皆表示字串 <code data-sourcepos="12:228-12:233">16.0</code>，且 <code data-sourcepos="12:241-12:247">16.10</code> 永遠不會被讀取為浮點數。</p>
 <h2 id="toolchain" data-sourcepos="14:1-14:12">toolchain<a href="#toolchain" aria-label="Link to heading 'toolchain'" data-heading-content="toolchain" class="anchor"></a></h2>
-<table data-sourcepos="16:1-27:143" class="table table-sm table-striped">
+<table data-sourcepos="16:1-27:146" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="16:1-16:28">
 <th data-sourcepos="16:2-16:6">鍵</th>
 <th data-sourcepos="16:8-16:18">預設值</th>
-<th data-sourcepos="16:20-16:27">說明</th>
+<th data-sourcepos="16:20-16:27">意義</th>
 </tr>
 </thead>
 <tbody>
@@ -266,75 +266,75 @@
 <td data-sourcepos="19:10-19:46">bundle 中最新的 <code data-sourcepos="19:31-19:45">iPhoneOS*.sdk</code></td>
 <td data-sourcepos="19:48-19:75">明確指定的 SDK 路徑</td>
 </tr>
-<tr data-sourcepos="20:1-20:103">
+<tr data-sourcepos="20:1-20:112">
 <td data-sourcepos="20:2-20:16"><code data-sourcepos="20:3-20:15">swiftly_bin</code></td>
 <td data-sourcepos="20:18-20:47"><code data-sourcepos="20:19-20:46">~/.local/share/swiftly/bin</code></td>
-<td data-sourcepos="20:49-20:102">附加到 idl 所執行每個工具的 <code data-sourcepos="20:89-20:94">PATH</code> 末端</td>
+<td data-sourcepos="20:49-20:111">加入至 <code data-sourcepos="20:60-20:65">PATH</code> 末尾，供 idl 執行的每個工具使用</td>
 </tr>
-<tr data-sourcepos="21:1-21:128">
+<tr data-sourcepos="21:1-21:131">
 <td data-sourcepos="21:2-21:26"><code data-sourcepos="21:3-21:6">cc</code> / <code data-sourcepos="21:10-21:14">cxx</code> / <code data-sourcepos="21:18-21:25">swiftc</code></td>
 <td data-sourcepos="21:28-21:59"><code data-sourcepos="21:29-21:35">clang</code> / <code data-sourcepos="21:39-21:47">clang++</code> / <code data-sourcepos="21:51-21:58">swiftc</code></td>
-<td data-sourcepos="21:61-21:127">編譯器，依名稱在 <code data-sourcepos="21:87-21:92">PATH</code> 上尋找，或直接給定路徑</td>
+<td data-sourcepos="21:61-21:130">編譯器，透過名稱在 <code data-sourcepos="21:90-21:95">PATH</code> 中查找，或直接提供路徑</td>
 </tr>
-<tr data-sourcepos="22:1-22:71">
+<tr data-sourcepos="22:1-22:81">
 <td data-sourcepos="22:2-22:10"><code data-sourcepos="22:3-22:9">xtool</code></td>
 <td data-sourcepos="22:12-22:20"><code data-sourcepos="22:13-22:19">xtool</code></td>
-<td data-sourcepos="22:22-22:70">xtool 可執行檔（<code data-sourcepos="22:44-22:59">builder: xtool</code> 需要）</td>
+<td data-sourcepos="22:22-22:80">xtool 執行檔（當使用 <code data-sourcepos="22:51-22:66">builder: xtool</code> 時需要）</td>
 </tr>
-<tr data-sourcepos="23:1-23:81">
+<tr data-sourcepos="23:1-23:84">
 <td data-sourcepos="23:2-23:9"><code data-sourcepos="23:3-23:8">ldid</code></td>
 <td data-sourcepos="23:11-23:18"><code data-sourcepos="23:12-23:17">ldid</code></td>
-<td data-sourcepos="23:20-23:80">ldid 路徑或指令名稱（目標需要簽署時使用）</td>
+<td data-sourcepos="23:20-23:83">ldid 路徑或指令名稱（當目標需要簽署時需要）</td>
 </tr>
-<tr data-sourcepos="24:1-24:68">
+<tr data-sourcepos="24:1-24:65">
 <td data-sourcepos="24:2-24:9"><code data-sourcepos="24:3-24:8">jobs</code></td>
 <td data-sourcepos="24:11-24:15"><code data-sourcepos="24:12-24:14">0</code></td>
-<td data-sourcepos="24:17-24:67">平行編譯工作的數量（<code data-sourcepos="24:48-24:50">0</code> = CPU 數量）</td>
+<td data-sourcepos="24:17-24:64">平行編譯工作數（<code data-sourcepos="24:42-24:44">0</code> = CPU 核心數）</td>
 </tr>
-<tr data-sourcepos="25:1-25:133">
+<tr data-sourcepos="25:1-25:151">
 <td data-sourcepos="25:2-25:11"><code data-sourcepos="25:3-25:10">actool</code></td>
 <td data-sourcepos="25:13-25:26"><code data-sourcepos="25:14-25:25">idl-actool</code></td>
-<td data-sourcepos="25:28-25:132">資產目錄編譯器（<code data-sourcepos="25:53-25:70">zig build actool</code>）；可為路徑，或在 PATH 與 <code data-sourcepos="25:108-25:112">idl</code> 旁尋找的名稱</td>
+<td data-sourcepos="25:28-25:150">資源目錄編譯器（<code data-sourcepos="25:53-25:70">zig build actool</code>）；可以是路徑，或是透過 PATH 及位於 <code data-sourcepos="25:123-25:127">idl</code> 旁來查找的名稱</td>
 </tr>
-<tr data-sourcepos="26:1-26:279">
+<tr data-sourcepos="26:1-26:284">
 <td data-sourcepos="26:2-26:15"><code data-sourcepos="26:3-26:14">appintents</code></td>
 <td data-sourcepos="26:17-26:47"><code data-sourcepos="26:18-26:46">appintentsmetadataprocessor</code></td>
-<td data-sourcepos="26:49-26:278">App Intents 中繼資料處理器（<a data-sourcepos="26:86-26:179" href="https://codeberg.org/viraptor/re-appintentsmetadataprocessor">re-appintentsmetadataprocessor</a>，與 Xcode 的 CLI 相同）；可為路徑或 PATH 上的名稱。<code data-sourcepos="26:249-26:261">app_intents</code> 目標需要它</td>
+<td data-sourcepos="26:49-26:283">App Intents 中繼資料處理器（<a data-sourcepos="26:86-26:179" href="https://codeberg.org/viraptor/re-appintentsmetadataprocessor">re-appintentsmetadataprocessor</a>，與 Xcode 相同的 CLI）；可以是路徑或 PATH 上的名稱。<code data-sourcepos="26:251-26:263">app_intents</code> 目標需要此項</td>
 </tr>
-<tr data-sourcepos="27:1-27:143">
+<tr data-sourcepos="27:1-27:146">
 <td data-sourcepos="27:2-27:18"><code data-sourcepos="27:3-27:17">jimpactor_dir</code></td>
 <td data-sourcepos="27:20-27:75"><code data-sourcepos="27:21-27:48">$XDG_CONFIG_HOME/Jimpactor</code> 或 <code data-sourcepos="27:54-27:74">~/.config/Jimpactor</code></td>
-<td data-sourcepos="27:77-27:142">Jimpactor 資料夾，供 <code data-sourcepos="27:104-27:116">idl devices</code> 與 <code data-sourcepos="27:122-27:134">idl install</code> 使用</td>
+<td data-sourcepos="27:77-27:145">Jimpactor 資料目錄，供 <code data-sourcepos="27:107-27:119">idl devices</code> 與 <code data-sourcepos="27:125-27:137">idl install</code> 使用</td>
 </tr>
 </tbody>
 </table>
 <p data-sourcepos="29:1-29:32">路徑中的 <code data-sourcepos="29:14-29:16">~</code> 會被展開。</p>
-<h2 id="targets" data-sourcepos="31:1-31:10">targets<a href="#targets" aria-label="Link to heading 'targets'" data-heading-content="targets" class="anchor"></a></h2>
-<p data-sourcepos="33:1-33:159">每個目標是一個對應（mapping）。目標內的路徑相對於其 <code data-sourcepos="33:75-33:79">dir</code>，且必須位於其內（不可使用絕對路徑，也不可使用 <code data-sourcepos="33:150-33:153">..</code>）。</p>
-<h3 id="identity" data-sourcepos="35:1-35:12">Identity<a href="#identity" aria-label="Link to heading 'Identity'" data-heading-content="Identity" class="anchor"></a></h3>
-<table data-sourcepos="37:1-45:75" class="table table-sm table-striped">
+<h2 id="targets" data-sourcepos="31:1-31:19">目標 (targets)<a href="#targets" aria-label="Link to heading '目標 (targets)'" data-heading-content="目標 (targets)" class="anchor"></a></h2>
+<p data-sourcepos="33:1-33:146">每個目標都是一個映射。目標內的路徑是相對於其 <code data-sourcepos="33:68-33:72">dir</code>，且必須保持在該目錄內（不能使用絕對路徑或 <code data-sourcepos="33:137-33:140">..</code>）。</p>
+<h3 id="identity" data-sourcepos="35:1-35:16">識別資訊<a href="#identity" aria-label="Link to heading '識別資訊'" data-heading-content="識別資訊" class="anchor"></a></h3>
+<table data-sourcepos="37:1-45:77" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="37:1-37:28">
 <th data-sourcepos="37:2-37:6">鍵</th>
 <th data-sourcepos="37:8-37:18">預設值</th>
-<th data-sourcepos="37:20-37:27">說明</th>
+<th data-sourcepos="37:20-37:27">意義</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="39:1-39:83">
+<tr data-sourcepos="39:1-39:80">
 <td data-sourcepos="39:2-39:9"><code data-sourcepos="39:3-39:8">name</code></td>
 <td data-sourcepos="39:11-39:18">必填</td>
-<td data-sourcepos="39:20-39:82">產品名稱、可執行檔名稱，以及 Xcode 目標名稱</td>
+<td data-sourcepos="39:20-39:79">產品名稱、可執行檔名稱以及 Xcode 目標名稱</td>
 </tr>
 <tr data-sourcepos="40:1-40:47">
 <td data-sourcepos="40:2-40:14"><code data-sourcepos="40:3-40:13">bundle_id</code></td>
 <td data-sourcepos="40:16-40:23">必填</td>
 <td data-sourcepos="40:25-40:46"><code data-sourcepos="40:26-40:45">CFBundleIdentifier</code></td>
 </tr>
-<tr data-sourcepos="41:1-41:59">
+<tr data-sourcepos="41:1-41:56">
 <td data-sourcepos="41:2-41:8"><code data-sourcepos="41:3-41:7">dir</code></td>
 <td data-sourcepos="41:10-41:14"><code data-sourcepos="41:11-41:13">.</code></td>
-<td data-sourcepos="41:16-41:58">目標資料夾，相對於 <code data-sourcepos="41:45-41:57">idlproj.yml</code></td>
+<td data-sourcepos="41:16-41:55">目標目錄，相對於 <code data-sourcepos="41:42-41:54">idlproj.yml</code></td>
 </tr>
 <tr data-sourcepos="42:1-42:109">
 <td data-sourcepos="42:2-42:12"><code data-sourcepos="42:3-42:11">builder</code></td>
@@ -351,136 +351,136 @@
 <td data-sourcepos="44:19-44:23"><code data-sourcepos="44:20-44:22">1</code></td>
 <td data-sourcepos="44:25-44:71"><code data-sourcepos="44:26-44:50">CURRENT_PROJECT_VERSION</code> / <code data-sourcepos="44:54-44:70">CFBundleVersion</code></td>
 </tr>
-<tr data-sourcepos="45:1-45:75">
+<tr data-sourcepos="45:1-45:77">
 <td data-sourcepos="45:2-45:12"><code data-sourcepos="45:3-45:11">min_ios</code></td>
 <td data-sourcepos="45:14-45:21"><code data-sourcepos="45:15-45:20">16.0</code></td>
-<td data-sourcepos="45:23-45:74">部署目標、triple 後綴與 <code data-sourcepos="45:56-45:73">MinimumOSVersion</code></td>
+<td data-sourcepos="45:23-45:76">部署目標、三元組後綴與 <code data-sourcepos="45:58-45:75">MinimumOSVersion</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="sources-and-compilation" data-sourcepos="47:1-47:27">Sources and compilation<a href="#sources-and-compilation" aria-label="Link to heading 'Sources and compilation'" data-heading-content="Sources and compilation" class="anchor"></a></h3>
-<table data-sourcepos="49:1-70:207" class="table table-sm table-striped">
+<h3 id="sources-and-compilation" data-sourcepos="47:1-47:19">來源與編譯<a href="#sources-and-compilation" aria-label="Link to heading '來源與編譯'" data-heading-content="來源與編譯" class="anchor"></a></h3>
+<table data-sourcepos="49:1-70:203" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="49:1-49:28">
 <th data-sourcepos="49:2-49:6">鍵</th>
 <th data-sourcepos="49:8-49:18">預設值</th>
-<th data-sourcepos="49:20-49:27">說明</th>
+<th data-sourcepos="49:20-49:27">意義</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="51:1-51:116">
+<tr data-sourcepos="51:1-51:110">
 <td data-sourcepos="51:2-51:12"><code data-sourcepos="51:3-51:11">sources</code></td>
 <td data-sourcepos="51:14-51:26"><code data-sourcepos="51:15-51:25">[Sources]</code></td>
-<td data-sourcepos="51:28-51:115">檔案或資料夾，會遞迴掃描。支援：<code data-sourcepos="51:77-51:114">.c .m .mm .cc .cpp .cxx .s .S .swift</code></td>
+<td data-sourcepos="51:28-51:109">檔案或目錄，遞迴掃描。支援：<code data-sourcepos="51:71-51:108">.c .m .mm .cc .cpp .cxx .s .S .swift</code></td>
 </tr>
 <tr data-sourcepos="52:1-52:35">
 <td data-sourcepos="52:2-52:9"><code data-sourcepos="52:3-52:8">arch</code></td>
 <td data-sourcepos="52:11-52:19"><code data-sourcepos="52:12-52:18">arm64</code></td>
 <td data-sourcepos="52:21-52:34">目標架構</td>
 </tr>
-<tr data-sourcepos="53:1-53:55">
+<tr data-sourcepos="53:1-53:52">
 <td data-sourcepos="53:2-53:8"><code data-sourcepos="53:3-53:7">opt</code></td>
 <td data-sourcepos="53:10-53:16"><code data-sourcepos="53:11-53:15">-Os</code></td>
-<td data-sourcepos="53:18-53:54">C 系列程式碼的最佳化旗標</td>
+<td data-sourcepos="53:18-53:51">C 系列程式碼的優化旗標</td>
 </tr>
-<tr data-sourcepos="54:1-54:49">
+<tr data-sourcepos="54:1-54:46">
 <td data-sourcepos="54:2-54:14"><code data-sourcepos="54:3-54:13">swift_opt</code></td>
 <td data-sourcepos="54:16-54:21"><code data-sourcepos="54:17-54:20">-O</code></td>
-<td data-sourcepos="54:23-54:48">Swift 的最佳化旗標</td>
+<td data-sourcepos="54:23-54:45">Swift 的優化旗標</td>
 </tr>
-<tr data-sourcepos="55:1-55:78">
+<tr data-sourcepos="55:1-55:75">
 <td data-sourcepos="55:2-55:18"><code data-sourcepos="55:3-55:17">debug_symbols</code></td>
 <td data-sourcepos="55:20-55:28"><code data-sourcepos="55:21-55:27">false</code></td>
-<td data-sourcepos="55:30-55:77">在 C 系列與 Swift 物件檔中輸出 DWARF</td>
+<td data-sourcepos="55:30-55:74">在 C 系列與 Swift 物件中產生 DWARF</td>
 </tr>
-<tr data-sourcepos="56:1-56:89">
+<tr data-sourcepos="56:1-56:95">
 <td data-sourcepos="56:2-56:11"><code data-sourcepos="56:3-56:10">strict</code></td>
 <td data-sourcepos="56:13-56:21"><code data-sourcepos="56:14-56:20">false</code></td>
-<td data-sourcepos="56:23-56:88">拒絕不支援的資源與 IB 功能，而不是警告／略過</td>
+<td data-sourcepos="56:23-56:94">拒絕不支援的資源與 IB 功能，而非僅發出警告或跳過</td>
 </tr>
 <tr data-sourcepos="57:1-57:49">
 <td data-sourcepos="57:2-57:18"><code data-sourcepos="57:3-57:17">swift_version</code></td>
 <td data-sourcepos="57:20-57:26"><code data-sourcepos="57:21-57:25">5.0</code></td>
 <td data-sourcepos="57:28-57:48">寫入 Xcode 專案</td>
 </tr>
-<tr data-sourcepos="58:1-58:123">
+<tr data-sourcepos="58:1-58:120">
 <td data-sourcepos="58:2-58:12"><code data-sourcepos="58:3-58:11">defines</code></td>
 <td data-sourcepos="58:14-58:19"><code data-sourcepos="58:15-58:18">[]</code></td>
-<td data-sourcepos="58:21-58:122"><code data-sourcepos="58:22-58:27">NAME</code> 或 <code data-sourcepos="58:33-58:44">NAME=VALUE</code>。兩種形式都會傳給 C 系列程式碼；只有 <code data-sourcepos="58:100-58:105">NAME</code> 會傳給 Swift</td>
+<td data-sourcepos="58:21-58:119"><code data-sourcepos="58:22-58:27">NAME</code> 或 <code data-sourcepos="58:33-58:44">NAME=VALUE</code>。兩種形式都會傳給 C 系列程式碼；僅 <code data-sourcepos="58:97-58:102">NAME</code> 會傳給 Swift</td>
 </tr>
-<tr data-sourcepos="59:1-59:57">
+<tr data-sourcepos="59:1-59:53">
 <td data-sourcepos="59:2-59:17"><code data-sourcepos="59:3-59:16">include_dirs</code></td>
 <td data-sourcepos="59:19-59:24"><code data-sourcepos="59:20-59:23">[]</code></td>
-<td data-sourcepos="59:26-59:56">給 clang 與 swiftc 的 <code data-sourcepos="59:52-59:55">-I</code></td>
+<td data-sourcepos="59:26-59:52">clang 與 swiftc 的 <code data-sourcepos="59:48-59:51">-I</code></td>
 </tr>
-<tr data-sourcepos="60:1-60:91">
+<tr data-sourcepos="60:1-60:95">
 <td data-sourcepos="60:2-60:20"><code data-sourcepos="60:3-60:19">bridging_header</code></td>
-<td data-sourcepos="60:22-60:26">無</td>
-<td data-sourcepos="60:28-60:90">Swift 匯入的 Objective-C 標頭（<code data-sourcepos="60:66-60:86">-import-objc-header</code>）</td>
+<td data-sourcepos="60:22-60:27">none</td>
+<td data-sourcepos="60:29-60:94">Swift 匯入的 Objective-C 標頭檔（<code data-sourcepos="60:70-60:90">-import-objc-header</code>）</td>
 </tr>
-<tr data-sourcepos="61:1-61:173">
+<tr data-sourcepos="61:1-61:164">
 <td data-sourcepos="61:2-61:23"><code data-sourcepos="61:3-61:22">quote_include_dirs</code></td>
 <td data-sourcepos="61:25-61:30"><code data-sourcepos="61:26-61:29">[]</code></td>
-<td data-sourcepos="61:32-61:172"><code data-sourcepos="61:33-61:41">-iquote</code> 資料夾（clang，以及透過 <code data-sourcepos="61:76-61:81">-Xcc</code> 的 swiftc）：只有 <code data-sourcepos="61:106-61:121">#include &quot;...&quot;</code> 看得到它們，與 Xcode 的 header map 相同</td>
+<td data-sourcepos="61:32-61:163"><code data-sourcepos="61:33-61:41">-iquote</code> 目錄（clang，以及透過 <code data-sourcepos="61:73-61:78">-Xcc</code> 的 swiftc）：僅 <code data-sourcepos="61:100-61:115">#include &quot;...&quot;</code> 會看到它們，如同 Xcode 的標頭映射</td>
 </tr>
-<tr data-sourcepos="62:1-62:79">
+<tr data-sourcepos="62:1-62:72">
 <td data-sourcepos="62:2-62:19"><code data-sourcepos="62:3-62:18">framework_dirs</code></td>
 <td data-sourcepos="62:21-62:26"><code data-sourcepos="62:22-62:25">[]</code></td>
-<td data-sourcepos="62:28-62:78">給 clang、swiftc 與連結器的 <code data-sourcepos="62:64-62:67">-F</code> 資料夾</td>
+<td data-sourcepos="62:28-62:71">clang、swiftc 與連結器的 <code data-sourcepos="62:60-62:63">-F</code> 目錄</td>
 </tr>
-<tr data-sourcepos="63:1-63:61">
+<tr data-sourcepos="63:1-63:57">
 <td data-sourcepos="63:2-63:15"><code data-sourcepos="63:3-63:14">dead_strip</code></td>
 <td data-sourcepos="63:17-63:24"><code data-sourcepos="63:18-63:23">true</code></td>
-<td data-sourcepos="63:26-63:60">將 <code data-sourcepos="63:31-63:43">-dead_strip</code> 傳給連結器</td>
+<td data-sourcepos="63:26-63:56">傳給連結器 <code data-sourcepos="63:43-63:55">-dead_strip</code></td>
 </tr>
-<tr data-sourcepos="64:1-64:61">
+<tr data-sourcepos="64:1-64:60">
 <td data-sourcepos="64:2-64:26"><code data-sourcepos="64:3-64:10">cflags</code> / <code data-sourcepos="64:14-64:25">swiftflags</code></td>
 <td data-sourcepos="64:28-64:33"><code data-sourcepos="64:29-64:32">[]</code></td>
-<td data-sourcepos="64:35-64:60">額外的編譯器旗標</td>
+<td data-sourcepos="64:35-64:59">額外的編譯器旗標</td>
 </tr>
 <tr data-sourcepos="65:1-65:86">
 <td data-sourcepos="65:2-65:12"><code data-sourcepos="65:3-65:11">ldflags</code></td>
 <td data-sourcepos="65:14-65:19"><code data-sourcepos="65:15-65:18">[]</code></td>
-<td data-sourcepos="65:21-65:85">額外的連結器引數，每個都以 <code data-sourcepos="65:62-65:77">-Xlinker &lt;arg&gt;</code> 傳遞</td>
+<td data-sourcepos="65:21-65:85">額外的連結器參數，每個都以 <code data-sourcepos="65:62-65:77">-Xlinker &lt;arg&gt;</code> 傳遞</td>
 </tr>
-<tr data-sourcepos="66:1-66:83">
+<tr data-sourcepos="66:1-66:80">
 <td data-sourcepos="66:2-66:15"><code data-sourcepos="66:3-66:14">frameworks</code></td>
 <td data-sourcepos="66:17-66:39"><code data-sourcepos="66:18-66:38">[UIKit, Foundation]</code></td>
-<td data-sourcepos="66:41-66:82">SDK framework（<code data-sourcepos="66:58-66:60">X</code> 或 <code data-sourcepos="66:66-66:78">X.framework</code>）</td>
+<td data-sourcepos="66:41-66:79">SDK 框架（<code data-sourcepos="66:55-66:57">X</code> 或 <code data-sourcepos="66:63-66:75">X.framework</code>）</td>
 </tr>
-<tr data-sourcepos="67:1-67:53">
+<tr data-sourcepos="67:1-67:49">
 <td data-sourcepos="67:2-67:20"><code data-sourcepos="67:3-67:19">weak_frameworks</code></td>
 <td data-sourcepos="67:22-67:27"><code data-sourcepos="67:23-67:26">[]</code></td>
-<td data-sourcepos="67:29-67:52">弱連結的 framework</td>
+<td data-sourcepos="67:29-67:48">弱連結的框架</td>
 </tr>
 <tr data-sourcepos="68:1-68:63">
 <td data-sourcepos="68:2-68:14"><code data-sourcepos="68:3-68:13">libraries</code></td>
 <td data-sourcepos="68:16-68:21"><code data-sourcepos="68:17-68:20">[]</code></td>
 <td data-sourcepos="68:23-68:62"><code data-sourcepos="68:24-68:27">-l</code> 函式庫，例如 <code data-sourcepos="68:48-68:61">[z, sqlite3]</code></td>
 </tr>
-<tr data-sourcepos="69:1-69:83">
+<tr data-sourcepos="69:1-69:72">
 <td data-sourcepos="69:2-69:14"><code data-sourcepos="69:3-69:13">build_dir</code></td>
 <td data-sourcepos="69:16-69:24"><code data-sourcepos="69:17-69:23">build</code></td>
-<td data-sourcepos="69:26-69:82">物件檔、應用程式 bundle 與 IPA 的存放位置</td>
+<td data-sourcepos="69:26-69:71">物件、應用程式套件與 IPA 的位置</td>
 </tr>
-<tr data-sourcepos="70:1-70:207">
+<tr data-sourcepos="70:1-70:203">
 <td data-sourcepos="70:2-70:16"><code data-sourcepos="70:3-70:15">app_intents</code></td>
-<td data-sourcepos="70:18-70:129">當 <code data-sourcepos="70:23-70:34">frameworks</code> 含有 <code data-sourcepos="70:43-70:54">AppIntents</code> 或 <code data-sourcepos="70:60-70:70">WidgetKit</code>，或所連結的 static 目標含有 intent 時為開啟</td>
-<td data-sourcepos="70:131-70:206">將 App Intents 中繼資料擷取到 <code data-sourcepos="70:170-70:190">Metadata.appintents</code>（見下文）</td>
+<td data-sourcepos="70:18-70:125">當 <code data-sourcepos="70:23-70:34">frameworks</code> 包含 <code data-sourcepos="70:43-70:54">AppIntents</code> 或 <code data-sourcepos="70:60-70:70">WidgetKit</code>，或已連結的靜態目標具有 intents 時開啟</td>
+<td data-sourcepos="70:127-70:202">將 App Intents 中繼資料提取至 <code data-sourcepos="70:166-70:186">Metadata.appintents</code>（見下文）</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="72:1-72:306">若目標含有任何 <code data-sourcepos="72:23-72:30">.swift</code> 檔案，swiftc 會以單一整個模組編譯所有 Swift 來源，並連結由 clang 編譯的物件檔。Debug 建置會將 Swift 編譯成持久的 <code data-sourcepos="72:184-72:193">.swift.o</code> 並另外連結，保留 DWARF 而不需要 <code data-sourcepos="72:239-72:248">dsymutil</code>。否則由 clang 連結。C++ 來源會加上 <code data-sourcepos="72:297-72:303">-lc++</code>。</p>
-<h3 id="app-intents-metadata" data-sourcepos="74:1-74:24">App Intents metadata<a href="#app-intents-metadata" aria-label="Link to heading 'App Intents metadata'" data-heading-content="App Intents metadata" class="anchor"></a></h3>
-<p data-sourcepos="76:1-76:400">iOS 會讀取 bundle 的 <code data-sourcepos="76:26-76:46">Metadata.appintents</code> 來找出它的 App Intents：Shortcuts 動作、<code data-sourcepos="76:97-76:120">AppIntentConfiguration</code> 小工具設定，以及互動式小工具按鈕（<code data-sourcepos="76:173-76:189">Button(intent:)</code>）。沒有它的話，intent 雖然能編譯但永遠不會執行。對於 <code data-sourcepos="76:267-76:279">app_intents</code> 目標（應用程式、appex 或 framework），idl 會執行 Xcode 的 ExtractAppIntentsMetadata 步驟所做的事：</p>
-<ol data-sourcepos="78:1-80:93">
-<li data-sourcepos="78:1-78:139">swiftc 寫出模組的常數值（<code data-sourcepos="78:38-78:62">-emit-const-values-path</code>，並以 App Intents 協定清單作為 <code data-sourcepos="78:104-78:133">-const-gather-protocols-file</code>）。</li>
-<li data-sourcepos="79:1-79:214">連結之後，<code data-sourcepos="79:19-79:40">toolchain.appintents</code> 會讀取二進位檔、來源與常數值（<code data-sourcepos="79:87-79:113">--compile-time-extraction</code>），並寫出 <code data-sourcepos="79:130-79:167">&lt;obj&gt;/appintents/Metadata.appintents</code>（<code data-sourcepos="79:171-79:191">extract.actionsdata</code>、<code data-sourcepos="79:195-79:208">version.json</code>）。</li>
-<li data-sourcepos="80:1-80:93">bundle 會在其根目錄取得它，例如 <code data-sourcepos="80:48-80:90">PlugIns/Widgets.appex/Metadata.appintents</code>。</li>
+<p data-sourcepos="72:1-72:306">如果目標有任何 <code data-sourcepos="72:23-72:30">.swift</code> 檔案，swiftc 會以單一整個模組編譯所有 Swift 來源，並連結由 clang 編譯的物件。除錯組建會將 Swift 編譯為持久的 <code data-sourcepos="72:181-72:190">.swift.o</code> 並單獨連結，保留 DWARF 而無需 <code data-sourcepos="72:233-72:242">dsymutil</code>。否則由 clang 進行連結。C++ 來源會加入 <code data-sourcepos="72:297-72:303">-lc++</code>。</p>
+<h3 id="app-intents-metadata" data-sourcepos="74:1-74:34">應用程式意圖中繼資料<a href="#app-intents-metadata" aria-label="Link to heading '應用程式意圖中繼資料'" data-heading-content="應用程式意圖中繼資料" class="anchor"></a></h3>
+<p data-sourcepos="76:1-76:426">iOS 會讀取套件（bundle）的 <code data-sourcepos="76:36-76:56">Metadata.appintents</code> 來尋找其應用程式意圖：捷徑動作、<code data-sourcepos="76:106-76:129">AppIntentConfiguration</code> 小工具設定以及互動式小工具按鈕（<code data-sourcepos="76:179-76:195">Button(intent:)</code>）。若缺少此檔案，意圖雖能編譯但無法執行。對於具有 <code data-sourcepos="76:272-76:284">app_intents</code> 的目標（應用程式、應用程式擴展或框架），idl 會執行與 Xcode 的「ExtractAppIntentsMetadata」步驟相同的工作：</p>
+<ol data-sourcepos="78:1-80:92">
+<li data-sourcepos="78:1-78:149">swiftc 會寫入模組的常數值（使用 <code data-sourcepos="78:48-78:72">-emit-const-values-path</code>，並將 App Intents 協議列表作為 <code data-sourcepos="78:114-78:143">-const-gather-protocols-file</code>）。</li>
+<li data-sourcepos="79:1-79:230">連結之後，<code data-sourcepos="79:19-79:40">toolchain.appintents</code> 會讀取二進位檔案、來源檔案與常數值（<code data-sourcepos="79:96-79:122">--compile-time-extraction</code>），並寫入 <code data-sourcepos="79:139-79:176">&lt;obj&gt;/appintents/Metadata.appintents</code>（包含 <code data-sourcepos="79:187-79:207">extract.actionsdata</code>、<code data-sourcepos="79:211-79:224">version.json</code>）。</li>
+<li data-sourcepos="80:1-80:92">該檔案位於套件的根目錄，例如 <code data-sourcepos="80:47-80:89">PlugIns/Widgets.appex/Metadata.appintents</code>。</li>
 </ol>
-<p data-sourcepos="82:1-82:398">含有 <code data-sourcepos="82:8-82:20">app_intents</code> 的 <code data-sourcepos="82:26-82:33">static</code> 目標只會記錄其常數值；每個連結它的 bundle 會將該 static 模組與自己的模組一併擷取（因此由應用程式與其小工具擴充功能共用的 intent，例如必須在應用程式中執行的 <code data-sourcepos="82:257-82:277">AudioPlaybackIntent</code>，會放在由兩者連結的同一個 static 目標中）。連結這樣的目標會為該 bundle 開啟擷取功能。</p>
-<p data-sourcepos="84:1-84:258">未宣告任何 intent 的模組不會產生中繼資料。在預設情況下（<code data-sourcepos="84:81-84:92">frameworks</code> 中有 WidgetKit/AppIntents），缺少處理器只會是警告；使用 <code data-sourcepos="84:167-84:185">app_intents: true</code> 或 <code data-sourcepos="84:191-84:200">--strict</code> 時則是錯誤。<code data-sourcepos="84:220-84:239">app_intents: false</code> 會將它關閉。</p>
-<p data-sourcepos="86:1-86:117">WidgetKit 擴充功能是一個 <code data-sourcepos="86:33-86:39">appex</code>，具有 Swift 的 <code data-sourcepos="86:60-86:79">@main WidgetBundle</code>，且 <code data-sourcepos="86:87-86:95">ldflags</code> 中沒有進入點：</p>
+<p data-sourcepos="82:1-82:397">具有 <code data-sourcepos="82:8-82:20">app_intents</code> 的靜態（static）目標僅記錄其常數值；每個連結它的套件都會將其靜態模組與自身的常數值一併提取（因此，由應用程式及其小工具擴展共用且必須在應用程式中執行的意圖，例如 <code data-sourcepos="82:260-82:280">AudioPlaybackIntent</code>，會位於一個同時被兩者連結的靜態目標中）。連結此類目標會為該套件啟用提取功能。</p>
+<p data-sourcepos="84:1-84:264">宣告無任何意圖的模組不會產生中繼資料。預設情況下（WidgetKit/AppIntents 位於 <code data-sourcepos="84:104-84:115">frameworks</code>），若缺少處理器會發出警告；若設定 <code data-sourcepos="84:168-84:186">app_intents: true</code> 或 <code data-sourcepos="84:192-84:201">--strict</code>，則視為錯誤。<code data-sourcepos="84:223-84:242">app_intents: false</code> 會關閉此檢查。</p>
+<p data-sourcepos="86:1-86:116">WidgetKit 擴展是一種具有 Swift <code data-sourcepos="86:39-86:58">@main WidgetBundle</code> 且無 <code data-sourcepos="86:67-86:75">ldflags</code> 進入點（entry point）的 <code data-sourcepos="86:107-86:113">appex</code>：</p>
 <pre class="syntax-highlighting" data-sourcepos="88:1-98:3"><code class="language-yaml"><span class="hl-source hl-yaml">  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Widgets</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">appex</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">com.example.app.widgets</span>
@@ -491,74 +491,81 @@
       <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">NSExtension</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
         <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">NSExtensionPointIdentifier</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">com.apple.widgetkit-extension</span>
 </span></code></pre>
-<h3 id="bundle" data-sourcepos="100:1-100:10">Bundle<a href="#bundle" aria-label="Link to heading 'Bundle'" data-heading-content="Bundle" class="anchor"></a></h3>
-<table data-sourcepos="102:1-112:95" class="table table-sm table-striped">
+<h3 id="bundle" data-sourcepos="100:1-100:10">套件<a href="#bundle" aria-label="Link to heading '套件'" data-heading-content="套件" class="anchor"></a></h3>
+<table data-sourcepos="102:1-112:91" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="102:1-102:28">
 <th data-sourcepos="102:2-102:6">鍵</th>
 <th data-sourcepos="102:8-102:18">預設值</th>
-<th data-sourcepos="102:20-102:27">說明</th>
+<th data-sourcepos="102:20-102:27">意義</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="104:1-104:122">
+<tr data-sourcepos="104:1-104:123">
 <td data-sourcepos="104:2-104:15"><code data-sourcepos="104:3-104:14">info_plist</code></td>
-<td data-sourcepos="104:17-104:21">無</td>
-<td data-sourcepos="104:23-104:121">選用的基底 Info.plist（XML、二進位、JSON 或 OpenStep）；否則完全由 YAML 產生</td>
+<td data-sourcepos="104:17-104:22">none</td>
+<td data-sourcepos="104:24-104:122">可選的基礎 Info.plist（XML、二進位、JSON 或 OpenStep）；否則完全由 YAML 產生</td>
 </tr>
-<tr data-sourcepos="105:1-105:61">
+<tr data-sourcepos="105:1-105:62">
 <td data-sourcepos="105:2-105:9"><code data-sourcepos="105:3-105:8">info</code></td>
-<td data-sourcepos="105:11-105:15">無</td>
-<td data-sourcepos="105:17-105:60">合併到 Info.plist 的鍵（見下文）</td>
+<td data-sourcepos="105:11-105:16">none</td>
+<td data-sourcepos="105:18-105:61">合併至 Info.plist 的鍵（見下文）</td>
 </tr>
-<tr data-sourcepos="106:1-106:75">
+<tr data-sourcepos="106:1-106:74">
 <td data-sourcepos="106:2-106:15"><code data-sourcepos="106:3-106:14">plist_vars</code></td>
-<td data-sourcepos="106:17-106:21">無</td>
-<td data-sourcepos="106:23-106:74">Info.plist 與 entitlements 額外的 <code data-sourcepos="106:62-106:69">$(VAR)</code> 值</td>
+<td data-sourcepos="106:17-106:22">none</td>
+<td data-sourcepos="106:24-106:73">Info.plist 和權限設定的額外 <code data-sourcepos="106:61-106:68">$(VAR)</code> 值</td>
 </tr>
-<tr data-sourcepos="107:1-107:129">
+<tr data-sourcepos="107:1-107:113">
 <td data-sourcepos="107:2-107:17"><code data-sourcepos="107:3-107:16">entitlements</code></td>
-<td data-sourcepos="107:19-107:23">無</td>
-<td data-sourcepos="107:25-107:128">entitlement 鍵的 YAML 對應，或明確的舊版 plist 路徑；不會隱含加入任何 capability</td>
+<td data-sourcepos="107:19-107:24">none</td>
+<td data-sourcepos="107:26-107:112">權限鍵的 YAML 映射，或明確的舊版 plist 路徑；不會隱式新增功能</td>
 </tr>
-<tr data-sourcepos="108:1-108:105">
+<tr data-sourcepos="108:1-108:94">
 <td data-sourcepos="108:2-108:14"><code data-sourcepos="108:3-108:13">resources</code></td>
 <td data-sourcepos="108:16-108:21"><code data-sourcepos="108:17-108:20">[]</code></td>
-<td data-sourcepos="108:23-108:104">複製到 bundle 中的檔案或資料夾（請參閱<a data-sourcepos="108:77-108:100" href="limitations.html">限制</a>）</td>
+<td data-sourcepos="108:23-108:93">複製到套件中的檔案或目錄（見<a data-sourcepos="108:66-108:89" href="limitations.html">限制</a>）</td>
 </tr>
-<tr data-sourcepos="109:1-109:114">
+<tr data-sourcepos="109:1-109:118">
 <td data-sourcepos="109:2-109:9"><code data-sourcepos="109:3-109:8">sign</code></td>
 <td data-sourcepos="109:11-109:53"><code data-sourcepos="109:12-109:19">direct</code> 為 <code data-sourcepos="109:25-109:30">true</code>，<code data-sourcepos="109:34-109:40">xtool</code> 為 <code data-sourcepos="109:46-109:52">false</code></td>
-<td data-sourcepos="109:55-109:113">以 ldid 進行 ad-hoc 簽署／將 <code data-sourcepos="109:92-109:99">--sign</code> 傳給 xtool</td>
+<td data-sourcepos="109:55-109:117">使用 ldid 進行臨時簽章 / 將 <code data-sourcepos="109:93-109:100">--sign</code> 傳遞給 xtool</td>
 </tr>
 <tr data-sourcepos="110:1-110:71">
 <td data-sourcepos="110:2-110:13"><code data-sourcepos="110:3-110:12">app_icon</code></td>
 <td data-sourcepos="110:15-110:25"><code data-sourcepos="110:16-110:24">AppIcon</code></td>
-<td data-sourcepos="110:27-110:70">Xcode 專案中的資產目錄圖示名稱</td>
+<td data-sourcepos="110:27-110:70">Xcode 專案中的資源目錄圖示名稱</td>
 </tr>
-<tr data-sourcepos="111:1-111:133">
+<tr data-sourcepos="111:1-111:132">
 <td data-sourcepos="111:2-111:9"><code data-sourcepos="111:3-111:8">icon</code></td>
-<td data-sourcepos="111:11-111:15">無</td>
-<td data-sourcepos="111:17-111:132">僅限 xtool 目標：複製到應用程式根目錄並設為 <code data-sourcepos="111:80-111:97">CFBundleIconFile</code> 的 PNG（xtool 的 <code data-sourcepos="111:119-111:128">iconPath</code>）</td>
+<td data-sourcepos="111:11-111:16">none</td>
+<td data-sourcepos="111:18-111:131">僅限 xtool 目標：複製到應用程式根目錄的 PNG，並設為 <code data-sourcepos="111:91-111:108">CFBundleIconFile</code>（xtool <code data-sourcepos="111:118-111:127">iconPath</code>）</td>
 </tr>
-<tr data-sourcepos="112:1-112:95">
+<tr data-sourcepos="112:1-112:91">
 <td data-sourcepos="112:2-112:18"><code data-sourcepos="112:3-112:17">device_family</code></td>
 <td data-sourcepos="112:20-112:26"><code data-sourcepos="112:21-112:25">1,2</code></td>
-<td data-sourcepos="112:28-112:94">產生的 <code data-sourcepos="112:39-112:54">UIDeviceFamily</code> 與 Xcode 的 <code data-sourcepos="112:70-112:93">TARGETED_DEVICE_FAMILY</code></td>
+<td data-sourcepos="112:28-112:90">產生的 <code data-sourcepos="112:39-112:54">UIDeviceFamily</code> 和 Xcode <code data-sourcepos="112:66-112:89">TARGETED_DEVICE_FAMILY</code></td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="114:1-114:35">Info.plist 的處理依序如下：</p>
-<ol data-sourcepos="116:1-120:202">
-<li data-sourcepos="116:1-116:529">從空字典（或明確的 <code data-sourcepos="116:32-116:43">info_plist</code> 基底）開始。加入任何缺少的標準鍵：<code data-sourcepos="116:96-116:115">CFBundleExecutable</code>、<code data-sourcepos="116:119-116:138">CFBundleIdentifier</code>、<code data-sourcepos="116:142-116:155">CFBundleName</code>、<code data-sourcepos="116:159-116:179">CFBundlePackageType</code>、<code data-sourcepos="116:183-116:213">CFBundleInfoDictionaryVersion</code>、<code data-sourcepos="116:217-116:244">CFBundleShortVersionString</code>、<code data-sourcepos="116:248-116:264">CFBundleVersion</code>。同時將顯示名稱預設為目標名稱，開發地區預設為 <code data-sourcepos="116:335-116:338">en</code>，<code data-sourcepos="116:342-116:361">LSRequiresIPhoneOS</code> 預設為 true，裝置家族預設為 <code data-sourcepos="116:402-116:416">device_family</code>，方向預設為直向，並且除非設定了啟動 storyboard，否則 <code data-sourcepos="116:492-116:507">UILaunchScreen</code> 預設為空字典。</li>
-<li data-sourcepos="117:1-117:269">合併 <code data-sourcepos="117:11-117:17">info:</code> 對應。未加引號的 <code data-sourcepos="117:44-117:49">true</code>/<code data-sourcepos="117:51-117:57">false</code> 會變成布林值，未加引號的整數會變成 <code data-sourcepos="117:111-117:121">&lt;integer&gt;</code>，清單會變成陣列，對應會變成字典，加引號的值則維持為字串。像 <code data-sourcepos="117:213-117:229">CFBundleVersion</code> 這類版本鍵一律維持為字串。</li>
-<li data-sourcepos="118:1-118:45">將 <code data-sourcepos="118:8-118:25">MinimumOSVersion</code> 設為 <code data-sourcepos="118:34-118:42">min_ios</code>。</li>
-<li data-sourcepos="119:1-119:68">對於 direct 建置，合併資產編譯器產生的圖示鍵。</li>
-<li data-sourcepos="120:1-120:202">展開每個字串中的 <code data-sourcepos="120:29-120:36">$(VAR)</code>、<code data-sourcepos="120:40-120:47">${VAR}</code> 與 <code data-sourcepos="120:53-120:69">$(VAR:modifier)</code>。值依序來自 <code data-sourcepos="120:89-120:100">plist_vars</code>、內建變數，然後是環境變數。未知的變數會變成空字串。modifier 會被忽略。</li>
+<p data-sourcepos="114:1-114:32">Info.plist 處理順序如下：</p>
+<ol data-sourcepos="116:1-124:205">
+<li data-sourcepos="116:1-119:287">從空字典（或明確的 <code data-sourcepos="116:32-116:43">info_plist</code> 基礎）開始。新增任何缺少的標準鍵：<code data-sourcepos="116:96-116:115">CFBundleExecutable</code>、
+<code data-sourcepos="117:4-117:23">CFBundleIdentifier</code>、
+<code data-sourcepos="118:4-118:17">CFBundleName</code>、<code data-sourcepos="118:21-118:41">CFBundlePackageType</code>、<code data-sourcepos="118:45-118:75">CFBundleInfoDictionaryVersion</code>、
+<code data-sourcepos="119:4-119:31">CFBundleShortVersionString</code>、<code data-sourcepos="119:35-119:51">CFBundleVersion</code>。此外，顯示名稱預設為目標名稱，開發區域預設為 <code data-sourcepos="119:122-119:125">en</code>，<code data-sourcepos="119:129-119:148">LSRequiresIPhoneOS</code> 為 true，裝置家族為 <code data-sourcepos="119:177-119:191">device_family</code>，方向為縱向，且除非已配置啟動故事板，否則 <code data-sourcepos="119:256-119:271">UILaunchScreen</code> 為空字典。</li>
+<li data-sourcepos="120:1-121:42">合併 <code data-sourcepos="120:11-120:17">info:</code> 映射。未加引號的 <code data-sourcepos="120:44-120:49">true</code>/<code data-sourcepos="120:51-120:57">false</code> 變成布林值，未加引號的整數變成 <code data-sourcepos="120:105-120:115">&lt;integer&gt;</code>，列表變成陣列，映射變成字典，而加引號的值保持字串。版本鍵如
+<code data-sourcepos="121:4-121:20">CFBundleVersion</code> 始終保持字串。</li>
+<li data-sourcepos="122:1-122:45">將 <code data-sourcepos="122:8-122:25">MinimumOSVersion</code> 設為 <code data-sourcepos="122:34-122:42">min_ios</code>。</li>
+<li data-sourcepos="123:1-123:66">對於直接建構，合併資源編譯器產生的圖示鍵。</li>
+<li data-sourcepos="124:1-124:205">在所有字串中展開 <code data-sourcepos="124:29-124:36">$(VAR)</code>、<code data-sourcepos="124:40-124:47">${VAR}</code> 和 <code data-sourcepos="124:53-124:69">$(VAR:modifier)</code>。值來自 <code data-sourcepos="124:83-124:94">plist_vars</code>，然後是內建變數，最後是環境變數。未知的變數會變成空字串。修飾詞會被忽略。</li>
 </ol>
-<p data-sourcepos="122:1-122:260">內建變數：<code data-sourcepos="122:16-122:32">EXECUTABLE_NAME</code>、<code data-sourcepos="122:36-122:49">PRODUCT_NAME</code>、<code data-sourcepos="122:53-122:65">TARGET_NAME</code>、<code data-sourcepos="122:69-122:89">PRODUCT_MODULE_NAME</code>、<code data-sourcepos="122:93-122:119">PRODUCT_BUNDLE_IDENTIFIER</code>、<code data-sourcepos="122:123-122:151">PRODUCT_BUNDLE_PACKAGE_TYPE</code>、<code data-sourcepos="122:155-122:173">MARKETING_VERSION</code>、<code data-sourcepos="122:177-122:201">CURRENT_PROJECT_VERSION</code>、<code data-sourcepos="122:205-122:232">IPHONEOS_DEPLOYMENT_TARGET</code>、<code data-sourcepos="122:236-122:257">DEVELOPMENT_LANGUAGE</code>。</p>
-<p data-sourcepos="124:1-124:22">不需要手寫 XML：</p>
-<pre class="syntax-highlighting" data-sourcepos="126:1-141:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+<p data-sourcepos="126:1-129:56">內建變數：<code data-sourcepos="126:16-126:32">EXECUTABLE_NAME</code>、<code data-sourcepos="126:36-126:49">PRODUCT_NAME</code>、<code data-sourcepos="126:53-126:65">TARGET_NAME</code>、
+<code data-sourcepos="127:1-127:21">PRODUCT_MODULE_NAME</code>、<code data-sourcepos="127:25-127:51">PRODUCT_BUNDLE_IDENTIFIER</code>、
+<code data-sourcepos="128:1-128:29">PRODUCT_BUNDLE_PACKAGE_TYPE</code>、<code data-sourcepos="128:33-128:51">MARKETING_VERSION</code>、<code data-sourcepos="128:55-128:79">CURRENT_PROJECT_VERSION</code>、
+<code data-sourcepos="129:1-129:28">IPHONEOS_DEPLOYMENT_TARGET</code>、<code data-sourcepos="129:32-129:53">DEVELOPMENT_LANGUAGE</code>。</p>
+<p data-sourcepos="131:1-131:25">不需要手寫的 XML：</p>
+<pre class="syntax-highlighting" data-sourcepos="133:1-148:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">MyApp</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">com.example.myapp</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">version</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span>1.0<span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
@@ -573,188 +580,241 @@
       <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
       <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">com.apple.security.application-groups</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span>group.com.example.myapp<span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
 </span></code></pre>
-<p data-sourcepos="143:1-143:532">若是程式化建立的 UI，請省略 storyboard 鍵。不需要任何 capability 時，請省略 <code data-sourcepos="143:101-143:114">entitlements</code>；<code data-sourcepos="143:118-143:133">get-task-allow</code> 是需要時才選用，並非 release 的預設值。Entitlements 支援與 <code data-sourcepos="143:212-143:217">info</code> 相同的 YAML 型別與變數展開。它們只是請求，並非佈建：Apple 的 capability 仍然需要適當的簽署身分／描述檔。明確指定的 <code data-sourcepos="143:379-143:390">info_plist</code> 或字串值的 <code data-sourcepos="143:408-143:447">entitlements: Support/App.entitlements</code> 仍然受到支援。缺少的明確檔案會是錯誤，絕不會被默默忽略。</p>
-<p data-sourcepos="145:1-145:632"><code data-sourcepos="145:1-145:9">idl gen</code> 與 <code data-sourcepos="145:15-145:29">idl xcodeproj</code> 會在每個目標資料夾內寫入 <code data-sourcepos="145:68-145:84">.idl/Info.plist</code>，並在有設定時寫入 <code data-sourcepos="145:113-145:137">.idl/Entitlements.plist</code>。Xcode 與 xtool 會參照這些產生的檔案。編輯 YAML 後，請先執行 <code data-sourcepos="145:221-145:229">idl gen</code>，再於 Xcode 中建置。<code data-sourcepos="145:258-145:270">.idl/debug/</code> 與 <code data-sourcepos="145:276-145:290">.idl/release/</code> 兩組中繼資料也會一併產生；Xcode 的設定會參照與其對應的那一組。變數會在產生時依各設定檔展開，並不會由 Xcode 從 YAML 重新求值。Direct 建置會自行產生 bundle 中繼資料；xtool 的中繼資料會在每次 xtool 建置前重新產生。<code data-sourcepos="145:585-145:591">.idl/</code> 是可拋棄的，應加入 gitignore。</p>
-<h3 id="products" data-sourcepos="147:1-147:12">Products<a href="#products" aria-label="Link to heading 'Products'" data-heading-content="Products" class="anchor"></a></h3>
-<table data-sourcepos="149:1-154:169" class="table table-sm table-striped">
+<p data-sourcepos="150:1-151:120">若使用程式化介面，可省略故事板鍵。若不需要功能，可省略 <code data-sourcepos="150:83-150:96">entitlements</code>；<code data-sourcepos="150:100-150:115">get-task-allow</code> 是選配加入，而非發行預設值。權限支援與 <code data-sourcepos="150:175-150:180">info</code> 相同的 YAML 類型和變數展開。它們是請求，而非配置設定：Apple 功能仍需要適當的簽章身份/設定檔。明確的 <code data-sourcepos="150:325-150:336">info_plist</code> 或字串值的
+<code data-sourcepos="151:1-151:44">entitlements: Support/App.entitlementments</code> 仍然受支援。缺少明確檔案會視為錯誤，不會靜默忽略。</p>
+<p data-sourcepos="153:1-154:287"><code data-sourcepos="153:1-153:9">idl gen</code> 和 <code data-sourcepos="153:15-153:29">idl xcodeproj</code> 會寫入 <code data-sourcepos="153:41-153:57">.idl/Info.plist</code> 以及（若已配置）每個目標目錄內的 <code data-sourcepos="153:108-153:132">.idl/Entitlements.plist</code>。Xcode 和 xtool 參考這些產生的檔案。在 Xcode 中建構前，請執行 <code data-sourcepos="153:217-153:225">idl gen</code> 以編輯 YAML。<code data-sourcepos="153:244-153:256">.idl/debug/</code> 和 <code data-sourcepos="153:262-153:276">.idl/release/</code> 的元資料集也會產生；
+Xcode 配置會參考其對應的集合。變數會在產生時使用各設定檔進行展開，而非由 Xcode 從 YAML 重新評估。直接建構會自行產生套件元資料；xtool 元資料會在每次 xtool 建構前重新產生。<code data-sourcepos="154:240-154:246">.idl/</code> 是可丟棄的，應納入 gitignore。</p>
+<h3 id="products" data-sourcepos="156:1-156:10">產品<a href="#products" aria-label="Link to heading '產品'" data-heading-content="產品" class="anchor"></a></h3>
+<table data-sourcepos="158:1-163:173" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="149:1-149:28">
-<th data-sourcepos="149:2-149:6">鍵</th>
-<th data-sourcepos="149:8-149:18">預設值</th>
-<th data-sourcepos="149:20-149:27">說明</th>
+<tr data-sourcepos="158:1-158:28">
+<th data-sourcepos="158:2-158:6">鍵</th>
+<th data-sourcepos="158:8-158:18">預設值</th>
+<th data-sourcepos="158:20-158:27">意義</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="151:1-151:73">
-<td data-sourcepos="151:2-151:9"><code data-sourcepos="151:3-151:8">type</code></td>
-<td data-sourcepos="151:11-151:17"><code data-sourcepos="151:12-151:16">app</code></td>
-<td data-sourcepos="151:19-151:72"><code data-sourcepos="151:20-151:24">app</code>、<code data-sourcepos="151:28-151:38">framework</code>、<code data-sourcepos="151:42-151:48">dylib</code>、<code data-sourcepos="151:52-151:58">appex</code> 或 <code data-sourcepos="151:64-151:71">static</code></td>
+<tr data-sourcepos="160:1-160:82">
+<td data-sourcepos="160:2-160:9"><code data-sourcepos="160:3-160:8">type</code></td>
+<td data-sourcepos="160:11-160:17"><code data-sourcepos="160:12-160:16">app</code></td>
+<td data-sourcepos="160:19-160:81"><code data-sourcepos="160:20-160:24">app</code>、<code data-sourcepos="160:28-160:38">framework</code>、<code data-sourcepos="160:42-160:48">dylib</code>、<code data-sourcepos="160:52-160:58">appex</code>、<code data-sourcepos="160:62-160:69">static</code> 或 <code data-sourcepos="160:75-160:80">test</code></td>
 </tr>
-<tr data-sourcepos="152:1-152:74">
-<td data-sourcepos="152:2-152:9"><code data-sourcepos="152:3-152:8">link</code></td>
-<td data-sourcepos="152:11-152:16"><code data-sourcepos="152:12-152:15">[]</code></td>
-<td data-sourcepos="152:18-152:73">要連結的專案 <code data-sourcepos="152:38-152:48">framework</code>/<code data-sourcepos="152:50-152:56">dylib</code>/<code data-sourcepos="152:58-152:65">static</code> 目標</td>
+<tr data-sourcepos="161:1-161:114">
+<td data-sourcepos="161:2-161:9"><code data-sourcepos="161:3-161:8">link</code></td>
+<td data-sourcepos="161:11-161:16"><code data-sourcepos="161:12-161:15">[]</code></td>
+<td data-sourcepos="161:18-161:113">專案中需連結的 <code data-sourcepos="161:41-161:51">framework</code>/<code data-sourcepos="161:53-161:59">dylib</code>/<code data-sourcepos="161:61-161:68">static</code> 目標（<code data-sourcepos="161:79-161:84">test</code> 目標：僅限 <code data-sourcepos="161:102-161:109">static</code>）</td>
 </tr>
-<tr data-sourcepos="153:1-153:109">
-<td data-sourcepos="153:2-153:10"><code data-sourcepos="153:3-153:9">embed</code></td>
-<td data-sourcepos="153:12-153:17"><code data-sourcepos="153:13-153:16">[]</code></td>
-<td data-sourcepos="153:19-153:108">僅限應用程式：要複製到 bundle 中的專案 <code data-sourcepos="153:74-153:84">framework</code>/<code data-sourcepos="153:86-153:92">dylib</code>/<code data-sourcepos="153:94-153:100">appex</code> 目標</td>
+<tr data-sourcepos="162:1-162:107">
+<td data-sourcepos="162:2-162:10"><code data-sourcepos="162:3-162:9">embed</code></td>
+<td data-sourcepos="162:12-162:17"><code data-sourcepos="162:13-162:16">[]</code></td>
+<td data-sourcepos="162:19-162:106">僅限應用程式：需複製到套件中的專案 <code data-sourcepos="162:72-162:82">framework</code>/<code data-sourcepos="162:84-162:90">dylib</code>/<code data-sourcepos="162:92-162:98">appex</code> 目標</td>
 </tr>
-<tr data-sourcepos="154:1-154:169">
-<td data-sourcepos="154:2-154:15"><code data-sourcepos="154:3-154:14">post_build</code></td>
-<td data-sourcepos="154:17-154:22"><code data-sourcepos="154:18-154:21">[]</code></td>
-<td data-sourcepos="154:24-154:168">僅限應用程式：IPA 建置並驗證後，依序執行的指令（argv 清單）或指令清單；可用 <code data-sourcepos="154:134-154:160">idl build --no-post-build</code> 略過</td>
+<tr data-sourcepos="163:1-163:173">
+<td data-sourcepos="163:2-163:15"><code data-sourcepos="163:3-163:14">post_build</code></td>
+<td data-sourcepos="163:17-163:22"><code data-sourcepos="163:18-163:21">[]</code></td>
+<td data-sourcepos="163:24-163:172">僅限應用程式：在 IPA 建立並驗證後依序執行的指令（argv 列表）或指令列表；可透過 <code data-sourcepos="163:138-163:164">idl build --no-post-build</code> 跳過</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="156:1-156:146"><code data-sourcepos="156:1-156:13">idl build X</code> 會建置 X 以及它所連結或嵌入的每個目標，並先建置相依項目。循環相依是錯誤。每種類型會產生：</p>
-<ul data-sourcepos="158:1-161:223">
-<li data-sourcepos="158:1-158:304"><code data-sourcepos="158:3-158:13">framework</code>：<code data-sourcepos="158:17-158:51">&lt;build&gt;/products/&lt;name&gt;.framework</code>（二進位檔、帶有 <code data-sourcepos="158:77-158:82">FMWK</code> 的產生 Info.plist、資源），install name 為 <code data-sourcepos="158:136-158:167">@rpath/&lt;name&gt;.framework/&lt;name&gt;</code>，bundle 以 ldid 簽署。相依者以 <code data-sourcepos="158:209-158:243">-F &lt;build&gt;/link -framework &lt;name&gt;</code> 連結。應用程式會將它嵌入 <code data-sourcepos="158:282-158:294">Frameworks/</code> 之下。</li>
-<li data-sourcepos="159:1-159:161"><code data-sourcepos="159:3-159:9">dylib</code>：<code data-sourcepos="159:13-159:43">&lt;build&gt;/products/&lt;name&gt;.dylib</code>，install name 為 <code data-sourcepos="159:64-159:84">@rpath/&lt;name&gt;.dylib</code>，嵌入 <code data-sourcepos="159:95-159:107">Frameworks/</code> 之下。沒有 <code data-sourcepos="159:125-159:135">bundle_id</code>、Info.plist 或資源。</li>
-<li data-sourcepos="160:1-160:465"><code data-sourcepos="160:3-160:9">appex</code>：<code data-sourcepos="160:13-160:43">&lt;build&gt;/products/&lt;name&gt;.appex</code>（帶有 <code data-sourcepos="160:54-160:59">XPC!</code> 的 Info.plist、entitlements，以 <code data-sourcepos="160:97-160:111">-I&lt;bundle_id&gt;</code> 簽署），以 <code data-sourcepos="160:129-160:153">-fapplication-extension</code> / <code data-sourcepos="160:157-160:180">-application-extension</code> 建置。Rpath 包含 <code data-sourcepos="160:204-160:238">@executable_path/../../Frameworks</code>。應用程式會將它嵌入 <code data-sourcepos="160:270-160:279">PlugIns/</code> 之下。進入點來自 <code data-sourcepos="160:306-160:314">ldflags</code>（例如給鍵盤這類主要類別擴充功能的 <code data-sourcepos="160:367-160:390">[-e, _NSExtensionMain]</code>），或 Swift 的 <code data-sourcepos="160:411-160:417">@main</code>（WidgetKit <code data-sourcepos="160:431-160:444">WidgetBundle</code>、ExtensionKit）。</li>
-<li data-sourcepos="161:1-161:223"><code data-sourcepos="161:3-161:10">static</code>：編譯後的物件檔加上 <code data-sourcepos="161:42-161:61">&lt;name&gt;.swiftmodule</code> 與 <code data-sourcepos="161:67-161:82">&lt;name&gt;-Swift.h</code>。進行連結的目標會在其連結中收到這些物件檔，以及模組的 <code data-sourcepos="161:165-161:168">-I</code> 與標頭資料夾。不簽署。沒有 <code data-sourcepos="161:210-161:220">bundle_id</code>。</li>
+<p data-sourcepos="165:1-165:143"><code data-sourcepos="165:1-165:13">idl build X</code> 會建立 X 以及它連結或嵌入的所有目標，優先處理相依性。循環相依會視為錯誤。每種類型產生：</p>
+<ul data-sourcepos="167:1-176:75">
+<li data-sourcepos="167:1-168:226"><code data-sourcepos="167:3-167:13">framework</code>：<code data-sourcepos="167:17-167:51">&lt;build&gt;/products/&lt;name&gt;.framework</code>（二進位檔、生成的 Info.plist
+包含 <code data-sourcepos="168:10-168:15">FMWK</code>、資源），安裝路徑為 <code data-sourcepos="168:47-168:78">@rpath/&lt;name&gt;.framework/&lt;name&gt;</code>，套件使用 ldid 簽署。相依目標使用 <code data-sourcepos="168:128-168:162">-F &lt;build&gt;/link -framework &lt;name&gt;</code> 進行連結。應用程式會將其嵌入 <code data-sourcepos="168:207-168:219">Frameworks/</code> 下。</li>
+<li data-sourcepos="169:1-169:157"><code data-sourcepos="169:3-169:9">dylib</code>：<code data-sourcepos="169:13-169:43">&lt;build&gt;/products/&lt;name&gt;.dylib</code>，安裝路徑為 <code data-sourcepos="169:63-169:83">@rpath/&lt;name&gt;.dylib</code>，嵌入於 <code data-sourcepos="169:97-169:109">Frameworks/</code> 下。無 <code data-sourcepos="169:121-169:131">bundle_id</code>、Info.plist 或資源。</li>
+<li data-sourcepos="170:1-173:71"><code data-sourcepos="170:3-170:9">appex</code>：<code data-sourcepos="170:13-170:43">&lt;build&gt;/products/&lt;name&gt;.appex</code>（包含 <code data-sourcepos="170:54-170:59">XPC!</code> 的 Info.plist、權限宣告，使用 <code data-sourcepos="170:100-170:114">-I&lt;bundle_id&gt;</code> 簽署），以 <code data-sourcepos="170:132-170:156">-fapplication-extension</code> /
+<code data-sourcepos="171:3-171:26">-application-extension</code> 編譯。Rpaths 包含 <code data-sourcepos="171:51-171:85">@executable_path/../../Frameworks</code>。應用程式會將其嵌入 <code data-sourcepos="171:117-171:126">PlugIns/</code> 下。進入點來自 <code data-sourcepos="171:150-171:158">ldflags</code>（例如
+<code data-sourcepos="172:3-172:28">[ -e, _NSExtensionMain ]</code> 用於主類別的擴充功能，如鍵盤）或
+Swift 的 <code data-sourcepos="173:13-173:19">@main</code>（WidgetKit 的 <code data-sourcepos="173:37-173:50">WidgetBundle</code>、ExtensionKit）。</li>
+<li data-sourcepos="174:1-174:223"><code data-sourcepos="174:3-174:10">static</code>：編譯後的物件加上 <code data-sourcepos="174:39-174:58">&lt;name&gt;.swiftmodule</code> 和 <code data-sourcepos="174:64-174:79">&lt;name&gt;-Swift.h</code>。一個連結目標會在其連結中包含這些物件，使用 <code data-sourcepos="174:147-174:150">-I</code> 指定模組路徑，以及標頭目錄。未簽署。無 <code data-sourcepos="174:210-174:220">bundle_id</code>。</li>
+<li data-sourcepos="175:1-176:75"><code data-sourcepos="175:3-175:8">test</code>：Linux 主機的單元測試，僅由 <code data-sourcepos="175:49-175:58">idl test</code> 建立並執行（請參閱
+<a data-sourcepos="176:3-176:39" href="#host-test-targets-type-test">tests</a>）。<code data-sourcepos="176:46-176:56">idl build</code> 會跳過它們。</li>
 </ul>
-<p data-sourcepos="163:1-163:355">非應用程式目標中的 Swift 會以 <code data-sourcepos="163:42-163:60">-parse-as-library</code> 與模組名稱 <code data-sourcepos="163:78-163:85">&lt;name&gt;</code> 編譯。<code data-sourcepos="163:96-163:107">post_build</code> 會在目標資料夾中執行，並設定 <code data-sourcepos="163:152-163:160">IDL_IPA</code>、<code data-sourcepos="163:164-163:172">IDL_APP</code>、<code data-sourcepos="163:176-163:190">IDL_BUILD_DIR</code>、<code data-sourcepos="163:194-163:205">IDL_TARGET</code>、<code data-sourcepos="163:209-163:213">IDL</code>（正在執行的 idl 的路徑），以及在使用 <code data-sourcepos="163:268-163:271">-c</code> 時設定 <code data-sourcepos="163:283-163:301">IDL_CONFIGURATION</code>。以非零狀態結束的指令會使建置失敗。</p>
-<p data-sourcepos="165:1-165:334">在 <code data-sourcepos="165:5-165:11">info:</code> 中，<code data-sourcepos="165:19-165:26">Key: ~</code> 會移除從 <code data-sourcepos="165:41-165:52">info_plist</code> 繼承的鍵。Info.plist 與 entitlement 的展開也可以使用來自專案根目錄 git 工作目錄的 <code data-sourcepos="165:162-165:176">$(GIT_BRANCH)</code> 與 <code data-sourcepos="165:182-165:196">$(GIT_COMMIT)</code>（環境變數會覆寫它們）。來源與資源項目可以在其最後一個路徑元件中使用 <code data-sourcepos="165:300-165:302">*</code>，例如 <code data-sourcepos="165:313-165:331">Resources/*.lproj</code>。</p>
-<h3 id="formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" data-sourcepos="167:1-167:69">Formatting, linting and tests (<code data-sourcepos="167:36-167:44">idl fmt</code>, <code data-sourcepos="167:47-167:56">idl lint</code>, <code data-sourcepos="167:59-167:68">idl test</code>)<a href="#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" aria-label="Link to heading 'Formatting, linting and tests (idl fmt, idl lint, idl test)'" data-heading-content="Formatting, linting and tests (idl fmt, idl lint, idl test)" class="anchor"></a></h3>
-<p data-sourcepos="169:1-169:400">idl 只負責協調這些工具。它會從 YAML 將其設定產生到 <code data-sourcepos="169:72-169:95">.idl/quality/&lt;target&gt;/</code> 中，因此不需要手寫的 <code data-sourcepos="169:128-169:142">.clang-format</code> 或 <code data-sourcepos="169:148-169:162">.swift-format</code> 檔案。它會明確傳遞設定、平行執行這些工具，並將其輸出合併成一份去除重複的報告：<code data-sourcepos="169:281-169:328">file:line:col: severity: message [flag] (tool)</code>，接著是各工具的摘要，以及最常出現的旗標／檢查。</p>
-<p data-sourcepos="171:1-171:49"><code data-sourcepos="171:1-171:9">format:</code>（對應會與 <code data-sourcepos="171:26-171:36">defaults:</code> 合併）：</p>
-<table data-sourcepos="173:1-180:141" class="table table-sm table-striped">
+<p data-sourcepos="178:1-181:76">非應用程式目標中的 Swift 以 <code data-sourcepos="178:39-178:57">-parse-as-library</code> 編譯，模組名稱為
+<code data-sourcepos="179:1-179:8">&lt;name&gt;</code>。<code data-sourcepos="179:12-179:23">post_build</code> 在目標目錄中執行，並設定 <code data-sourcepos="179:62-179:70">IDL_IPA</code>、<code data-sourcepos="179:74-179:82">IDL_APP</code>、
+<code data-sourcepos="180:1-180:15">IDL_BUILD_DIR</code>、<code data-sourcepos="180:19-180:30">IDL_TARGET</code>、<code data-sourcepos="180:34-180:38">IDL</code>（正在執行的 idl 路徑），以及使用 <code data-sourcepos="180:87-180:90">-c</code> 時設定的
+<code data-sourcepos="181:1-181:19">IDL_CONFIGURATION</code>。若指令以非零狀態碼結束，則視為失敗。</p>
+<p data-sourcepos="183:1-184:22">在 <code data-sourcepos="183:5-183:11">info:</code> 中，<code data-sourcepos="183:19-183:26">Key: ~</code> 會移除從 <code data-sourcepos="183:41-183:52">info_plist</code> 繼承的鍵。Info.plist 和權限宣告展開也可使用專案根目錄 git checkout 中的 <code data-sourcepos="183:149-183:163">$(GIT_BRANCH)</code> 和 <code data-sourcepos="183:169-183:183">$(GIT_COMMIT)</code>（環境變數會覆蓋它們）。來源和資源項目可在其最後一個路徑元件中使用 <code data-sourcepos="183:284-183:286">*</code>，例如
+<code data-sourcepos="184:1-184:19">Resources/*.lproj</code>。</p>
+<h3 id="formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" data-sourcepos="186:1-186:76">格式化、程式碼檢查與測試 (<code data-sourcepos="186:43-186:51">idl fmt</code>, <code data-sourcepos="186:54-186:63">idl lint</code>, <code data-sourcepos="186:66-186:75">idl test</code>)<a href="#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test" aria-label="Link to heading '格式化、程式碼檢查與測試 (idl fmt, idl lint, idl test)'" data-heading-content="格式化、程式碼檢查與測試 (idl fmt, idl lint, idl test)" class="anchor"></a></h3>
+<p data-sourcepos="188:1-189:118">idl 僅負責協調這些工具。它會將 YAML 設定轉換為 <code data-sourcepos="188:66-188:89">.idl/quality/&lt;target&gt;/</code> 目錄下的格式，因此不需要手動撰寫的 <code data-sourcepos="188:143-188:157">.clang-format</code> 或 <code data-sourcepos="188:163-188:177">.swift-format</code> 檔案。它會明確傳遞設定、平行執行工具，並將輸出合併為一份去重複的報告：
+<code data-sourcepos="189:1-189:48">file:line:col: severity: message [flag] (tool)</code>，接著是各工具的摘要以及最常見的旗標/檢查項目。</p>
+<p data-sourcepos="191:1-191:46"><code data-sourcepos="191:1-191:9">format:</code>（與 <code data-sourcepos="191:17-191:27">defaults:</code> 進行合併）：</p>
+<table data-sourcepos="193:1-200:141" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="173:1-173:28">
-<th data-sourcepos="173:2-173:6">鍵</th>
-<th data-sourcepos="173:8-173:18">預設值</th>
-<th data-sourcepos="173:20-173:27">說明</th>
+<tr data-sourcepos="193:1-193:27">
+<th data-sourcepos="193:2-193:6">Key</th>
+<th data-sourcepos="193:8-193:16">Default</th>
+<th data-sourcepos="193:18-193:26">Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="175:1-175:132">
-<td data-sourcepos="175:2-175:11"><code data-sourcepos="175:3-175:10">indent</code></td>
-<td data-sourcepos="175:13-175:17"><code data-sourcepos="175:14-175:16">4</code></td>
-<td data-sourcepos="175:19-175:131">縮排寬度（clang-format 的 <code data-sourcepos="175:52-175:64">IndentWidth</code>/<code data-sourcepos="175:66-175:87">ObjCBlockIndentWidth</code>，swift-format 的 <code data-sourcepos="175:108-175:127">indentation.spaces</code>）</td>
+<tr data-sourcepos="195:1-195:124">
+<td data-sourcepos="195:2-195:11"><code data-sourcepos="195:3-195:10">indent</code></td>
+<td data-sourcepos="195:13-195:17"><code data-sourcepos="195:14-195:16">4</code></td>
+<td data-sourcepos="195:19-195:123">縮排寬度（clang-format <code data-sourcepos="195:48-195:60">IndentWidth</code>/<code data-sourcepos="195:62-195:83">ObjCBlockIndentWidth</code>、swift-format <code data-sourcepos="195:100-195:119">indentation.spaces</code>）</td>
 </tr>
-<tr data-sourcepos="176:1-176:83">
-<td data-sourcepos="176:2-176:16"><code data-sourcepos="176:3-176:15">line_length</code></td>
-<td data-sourcepos="176:18-176:22"><code data-sourcepos="176:19-176:21">0</code></td>
-<td data-sourcepos="176:24-176:82">0 = 永不重新換行（clang-format <code data-sourcepos="176:63-176:78">ColumnLimit: 0</code>）</td>
+<tr data-sourcepos="196:1-196:83">
+<td data-sourcepos="196:2-196:16"><code data-sourcepos="196:3-196:15">line_length</code></td>
+<td data-sourcepos="196:18-196:22"><code data-sourcepos="196:19-196:21">0</code></td>
+<td data-sourcepos="196:24-196:82">0 = 永不重新換行（clang-format <code data-sourcepos="196:63-196:78">ColumnLimit: 0</code>）</td>
 </tr>
-<tr data-sourcepos="177:1-177:101">
-<td data-sourcepos="177:2-177:17"><code data-sourcepos="177:3-177:16">clang_format</code></td>
-<td data-sourcepos="177:19-177:23">無</td>
-<td data-sourcepos="177:25-177:100">額外的 clang-format 鍵；會覆寫產生的鍵（允許巢狀對應）</td>
+<tr data-sourcepos="197:1-197:120">
+<td data-sourcepos="197:2-197:17"><code data-sourcepos="197:3-197:16">clang_format</code></td>
+<td data-sourcepos="197:19-197:24">none</td>
+<td data-sourcepos="197:26-197:119">額外的 clang-format 鍵值；它們會覆蓋自動產生的設定（允許巢狀映射）</td>
 </tr>
-<tr data-sourcepos="178:1-178:97">
-<td data-sourcepos="178:2-178:17"><code data-sourcepos="178:3-178:16">swift_format</code></td>
-<td data-sourcepos="178:19-178:23">無</td>
-<td data-sourcepos="178:25-178:96">額外的 swift-format JSON 鍵，以深層合併（例如 <code data-sourcepos="178:85-178:92">rules:</code>）</td>
+<tr data-sourcepos="198:1-198:98">
+<td data-sourcepos="198:2-198:17"><code data-sourcepos="198:3-198:16">swift_format</code></td>
+<td data-sourcepos="198:19-198:24">none</td>
+<td data-sourcepos="198:26-198:97">額外的 swift-format JSON 鍵值，深度合併（例如 <code data-sourcepos="198:86-198:93">rules:</code>）</td>
 </tr>
-<tr data-sourcepos="179:1-179:99">
-<td data-sourcepos="179:2-179:12"><code data-sourcepos="179:3-179:11">exclude</code></td>
-<td data-sourcepos="179:14-179:19"><code data-sourcepos="179:15-179:18">[]</code></td>
-<td data-sourcepos="179:21-179:98">永不格式化的來源路徑或資料夾（每個路徑元件可用 <code data-sourcepos="179:92-179:94">*</code>）</td>
+<tr data-sourcepos="199:1-199:105">
+<td data-sourcepos="199:2-199:12"><code data-sourcepos="199:3-199:11">exclude</code></td>
+<td data-sourcepos="199:14-199:19"><code data-sourcepos="199:15-199:18">[]</code></td>
+<td data-sourcepos="199:21-199:104">永遠不進行格式化的來源路徑或目錄（每個路徑元件使用 <code data-sourcepos="199:98-199:100">*</code>）</td>
 </tr>
-<tr data-sourcepos="180:1-180:141">
-<td data-sourcepos="180:2-180:19"><code data-sourcepos="180:3-180:18">editor_configs</code></td>
-<td data-sourcepos="180:21-180:29"><code data-sourcepos="180:22-180:28">false</code></td>
-<td data-sourcepos="180:31-180:140"><code data-sourcepos="180:32-180:40">idl gen</code> 也會寫入 <code data-sourcepos="180:55-180:69">.clang-format</code>、<code data-sourcepos="180:73-180:85">.clang-tidy</code> 與 <code data-sourcepos="180:91-180:105">.swift-format</code>，供 clangd/sourcekit-lsp 使用</td>
+<tr data-sourcepos="200:1-200:141">
+<td data-sourcepos="200:2-200:19"><code data-sourcepos="200:3-200:18">editor_configs</code></td>
+<td data-sourcepos="200:21-200:29"><code data-sourcepos="200:22-200:28">false</code></td>
+<td data-sourcepos="200:31-200:140"><code data-sourcepos="200:32-200:40">idl gen</code> 也會寫入 <code data-sourcepos="200:55-200:69">.clang-format</code>、<code data-sourcepos="200:73-200:85">.clang-tidy</code> 和 <code data-sourcepos="200:91-200:105">.swift-format</code>，供 clangd/sourcekit-lsp 使用</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="182:1-182:241"><code data-sourcepos="182:1-182:31">idl fmt [--check] [target...]</code> 會以 clang-format 格式化 C、Objective-C、C++、Objective-C++ 與標頭檔，並以 swift-format 格式化 Swift。<code data-sourcepos="182:154-182:162">--check</code> 不會變更任何內容，且若有任何檔案會被變更就以 1 結束。</p>
-<p data-sourcepos="184:1-184:10"><code data-sourcepos="184:1-184:7">lint:</code>：</p>
-<table data-sourcepos="186:1-194:81" class="table table-sm table-striped">
+<p data-sourcepos="202:1-202:234"><code data-sourcepos="202:1-202:31">idl fmt [--check] [target...]</code> 使用 clang-format 格式化 C、Objective-C、C++、Objective-C++ 及標頭檔，並使用 swift-format 格式化 Swift。<code data-sourcepos="202:157-202:165">--check</code> 不會修改任何檔案，若有任何檔案會變更則回傳 1。</p>
+<p data-sourcepos="204:1-204:10"><code data-sourcepos="204:1-204:7">lint:</code>：</p>
+<table data-sourcepos="206:1-214:84" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="186:1-186:28">
-<th data-sourcepos="186:2-186:6">鍵</th>
-<th data-sourcepos="186:8-186:18">預設值</th>
-<th data-sourcepos="186:20-186:27">說明</th>
+<tr data-sourcepos="206:1-206:27">
+<th data-sourcepos="206:2-206:6">Key</th>
+<th data-sourcepos="206:8-206:16">Default</th>
+<th data-sourcepos="206:18-206:26">Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="188:1-188:72">
-<td data-sourcepos="188:2-188:13"><code data-sourcepos="188:3-188:12">warnings</code></td>
-<td data-sourcepos="188:15-188:25"><code data-sourcepos="188:16-188:24">[-Wall]</code></td>
-<td data-sourcepos="188:27-188:71">加入編譯器階段的 clang 警告旗標</td>
+<tr data-sourcepos="208:1-208:75">
+<td data-sourcepos="208:2-208:13"><code data-sourcepos="208:3-208:12">warnings</code></td>
+<td data-sourcepos="208:15-208:25"><code data-sourcepos="208:16-208:24">[-Wall]</code></td>
+<td data-sourcepos="208:27-208:74">新增至編譯器階段的 clang 警告旗標</td>
 </tr>
-<tr data-sourcepos="189:1-189:68">
-<td data-sourcepos="189:2-189:16"><code data-sourcepos="189:3-189:15">swift_flags</code></td>
-<td data-sourcepos="189:18-189:23"><code data-sourcepos="189:19-189:22">[]</code></td>
-<td data-sourcepos="189:25-189:67">Swift 型別檢查額外的 swiftc 旗標</td>
+<tr data-sourcepos="209:1-209:68">
+<td data-sourcepos="209:2-209:16"><code data-sourcepos="209:3-209:15">swift_flags</code></td>
+<td data-sourcepos="209:18-209:23"><code data-sourcepos="209:19-209:22">[]</code></td>
+<td data-sourcepos="209:25-209:67">Swift 類型檢查的額外 swiftc 旗標</td>
 </tr>
-<tr data-sourcepos="190:1-190:98">
-<td data-sourcepos="190:2-190:12"><code data-sourcepos="190:3-190:11">exclude</code></td>
-<td data-sourcepos="190:14-190:19"><code data-sourcepos="190:15-190:18">[]</code></td>
-<td data-sourcepos="190:21-190:97">不進行 lint 的路徑；位於這些路徑的診斷訊息也會被捨棄</td>
+<tr data-sourcepos="210:1-210:107">
+<td data-sourcepos="210:2-210:12"><code data-sourcepos="210:3-210:11">exclude</code></td>
+<td data-sourcepos="210:14-210:19"><code data-sourcepos="210:15-210:18">[]</code></td>
+<td data-sourcepos="210:21-210:106">不進行程式碼檢查的路徑；位於這些路徑的診斷資訊也會被捨棄</td>
 </tr>
-<tr data-sourcepos="191:1-191:68">
-<td data-sourcepos="191:2-191:15"><code data-sourcepos="191:3-191:14">clang_tidy</code></td>
-<td data-sourcepos="191:17-191:22">auto</td>
-<td data-sourcepos="191:24-191:67">執行 clang-tidy（auto = 已安裝時）</td>
+<tr data-sourcepos="211:1-211:71">
+<td data-sourcepos="211:2-211:15"><code data-sourcepos="211:3-211:14">clang_tidy</code></td>
+<td data-sourcepos="211:17-211:22">auto</td>
+<td data-sourcepos="211:24-211:70">執行 clang-tidy（auto = 當已安裝時）</td>
 </tr>
-<tr data-sourcepos="192:1-192:156">
-<td data-sourcepos="192:2-192:22"><code data-sourcepos="192:3-192:21">clang_tidy_checks</code></td>
-<td data-sourcepos="192:24-192:38">idl 的集合</td>
-<td data-sourcepos="192:40-192:155">clang-tidy 的 <code data-sourcepos="192:56-192:63">Checks</code>；預設為 clang-analyzer、bugprone 與 performance 檢查，並排除較吵雜的項目</td>
+<tr data-sourcepos="212:1-212:145">
+<td data-sourcepos="212:2-212:22"><code data-sourcepos="212:3-212:21">clang_tidy_checks</code></td>
+<td data-sourcepos="212:24-212:34">idl’s set</td>
+<td data-sourcepos="212:36-212:144">clang-tidy <code data-sourcepos="212:48-212:55">Checks</code>；預設為 clang-analyzer、bugprone 和 performance 檢查，排除較吵雜的項目</td>
 </tr>
-<tr data-sourcepos="193:1-193:83">
-<td data-sourcepos="193:2-193:12"><code data-sourcepos="193:3-193:11">analyze</code></td>
-<td data-sourcepos="193:14-193:22"><code data-sourcepos="193:15-193:21">false</code></td>
-<td data-sourcepos="193:24-193:82">同時執行 clang 靜態分析器（<code data-sourcepos="193:62-193:78">clang --analyze</code>）</td>
+<tr data-sourcepos="213:1-213:83">
+<td data-sourcepos="213:2-213:12"><code data-sourcepos="213:3-213:11">analyze</code></td>
+<td data-sourcepos="213:14-213:22"><code data-sourcepos="213:15-213:21">false</code></td>
+<td data-sourcepos="213:24-213:82">同時執行 clang 靜態分析器（<code data-sourcepos="213:62-213:78">clang --analyze</code>）</td>
 </tr>
-<tr data-sourcepos="194:1-194:81">
-<td data-sourcepos="194:2-194:17"><code data-sourcepos="194:3-194:16">swift_format</code></td>
-<td data-sourcepos="194:19-194:27"><code data-sourcepos="194:20-194:26">false</code></td>
-<td data-sourcepos="194:29-194:80">同時以產生的樣式執行 <code data-sourcepos="194:61-194:79">swift-format lint</code></td>
+<tr data-sourcepos="214:1-214:84">
+<td data-sourcepos="214:2-214:17"><code data-sourcepos="214:3-214:16">swift_format</code></td>
+<td data-sourcepos="214:19-214:27"><code data-sourcepos="214:20-214:26">false</code></td>
+<td data-sourcepos="214:29-214:83">同時使用產生的樣式執行 <code data-sourcepos="214:64-214:82">swift-format lint</code></td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="196:1-196:784"><code data-sourcepos="196:1-196:22">idl lint [target...]</code> 會先以增量方式建置目標及其相依項目，讓 Swift 模組與產生的 <code data-sourcepos="196:107-196:124">&lt;Module&gt;-Swift.h</code> 標頭存在。接著它會以目標的確切建置旗標重新執行每個編譯器。每個 C 系列檔案會執行 <code data-sourcepos="196:244-196:264">clang -fsyntax-only</code>，並移除目標的 <code data-sourcepos="196:287-196:290">-w</code>、<code data-sourcepos="196:294-196:302">-Werror</code> 與 depfile 旗標，再加入 <code data-sourcepos="196:335-196:349">lint.warnings</code>。每個 Swift 模組會執行啟用警告的 <code data-sourcepos="196:397-196:415">swiftc -typecheck</code>。clang-tidy、靜態分析器與 <code data-sourcepos="196:451-196:469">swift-format lint</code> 會重複使用相同的旗標。來自 SDK、被排除路徑的診斷訊息，以及同一標頭警告在多個編譯單元間的重複項目都會被捨棄。選項：<code data-sourcepos="196:640-196:649">--werror</code>、<code data-sourcepos="196:653-196:663">--analyze</code>、<code data-sourcepos="196:667-196:674">--tidy</code>/<code data-sourcepos="196:676-196:686">--no-tidy</code>、<code data-sourcepos="196:690-196:693">-q</code>（僅摘要）與 <code data-sourcepos="196:713-196:721">--max N</code>。錯誤會以 1 結束，使用 <code data-sourcepos="196:756-196:765">--werror</code> 時警告也是。</p>
-<p data-sourcepos="198:1-198:222"><code data-sourcepos="198:1-198:8">tests:</code>（僅限應用程式）是指令清單（argv 清單）。<code data-sourcepos="198:68-198:89">idl test [target...]</code> 會建置目標而不執行 <code data-sourcepos="198:119-198:130">post_build</code>（除非使用 <code data-sourcepos="198:147-198:158">--no-build</code>）。接著它會檢查每個應用程式已建置的 bundle：</p>
-<ul data-sourcepos="199:1-202:143">
-<li data-sourcepos="199:1-199:172">每個 Mach-O 都必須是 arm64、為 iOS 建置且已簽署。嵌入的程式碼不得要求比應用程式的 MinimumOSVersion 更新的 iOS；擴充功能則除外。</li>
-<li data-sourcepos="200:1-200:220">每個 <code data-sourcepos="200:10-200:17">@rpath</code>/<code data-sourcepos="200:19-200:32">@loader_path</code>/<code data-sourcepos="200:34-200:51">@executable_path</code> 相依項目都必須能在 bundle 內解析，使用映像本身的 rpath。系統函式庫必須存在於 SDK 中。私有 framework 與弱連結只會產生警告。</li>
-<li data-sourcepos="201:1-201:97">每個 framework 與擴充功能都需要 Info.plist 與可執行檔，且版本鍵為字串。</li>
-<li data-sourcepos="202:1-202:143">每個擴充功能的 bundle ID 都必須以應用程式的 bundle ID 為前綴，且必須具有 <code data-sourcepos="202:101-202:113">NSExtension</code>/<code data-sourcepos="202:115-202:140">EXAppExtensionAttributes</code>。</li>
+<p data-sourcepos="216:1-216:765"><code data-sourcepos="216:1-216:22">idl lint [target...]</code> 首先增量式地建構目標及其相依性，以便 Swift 模組和產生的 <code data-sourcepos="216:104-216:121">&lt;Module&gt;-Swift.h</code> 標頭檔存在。接著它會以目標的精確建構旗標重新執行每個編譯器。每個 C-family 檔案都會獲得 <code data-sourcepos="216:248-216:268">clang -fsyntax-only</code>，移除目標的 <code data-sourcepos="216:288-216:291">-w</code>、<code data-sourcepos="216:295-216:303">-Werror</code> 和 depfile 旗標，並新增 <code data-sourcepos="216:336-216:350">lint.warnings</code>。每個 Swift 模組會獲得 <code data-sourcepos="216:383-216:401">swiftc -typecheck</code> 並啟用警告。clang-tidy、靜態分析器和 <code data-sourcepos="216:453-216:471">swift-format lint</code> 會共用相同的旗標。來自 SDK、排除路徑的診斷資訊，以及跨翻譯單元重複的相同標頭警告會被捨棄。選項：<code data-sourcepos="216:615-216:624">--werror</code>、<code data-sourcepos="216:628-216:638">--analyze</code>、<code data-sourcepos="216:642-216:649">--tidy</code>/<code data-sourcepos="216:651-216:661">--no-tidy</code>、<code data-sourcepos="216:665-216:668">-q</code>（僅摘要）和 <code data-sourcepos="216:688-216:696">--max N</code>。錯誤會回傳 1，若使用 <code data-sourcepos="216:730-216:739">--werror</code>，警告也會回傳 1。</p>
+<p data-sourcepos="218:1-219:128"><code data-sourcepos="218:1-218:8">tests:</code>（僅限應用程式）是命令列表（argv 列表）。<code data-sourcepos="218:68-218:89">idl test [target...]</code>
+建構目標但不執行 <code data-sourcepos="219:26-219:37">post_build</code>（除非指定 <code data-sourcepos="219:54-219:65">--no-build</code>）。接著它會檢查每個應用程式的已建構套件：</p>
+<ul data-sourcepos="220:1-223:129">
+<li data-sourcepos="220:1-220:169">每個 Mach-O 必須是 arm64、為 iOS 建構，且已簽署。嵌入式程式碼不得要求比應用程式的 MinimumOSVersion 更新的 iOS；擴充功能除外。</li>
+<li data-sourcepos="221:1-221:202">每個 <code data-sourcepos="221:10-221:17">@rpath</code>/<code data-sourcepos="221:19-221:32">@loader_path</code>/<code data-sourcepos="221:34-221:51">@executable_path</code> 相依性必須在套件內解析，使用影像自身的 rpaths。系統函式庫必須存在於 SDK 中。私有框架和弱連結僅產生警告。</li>
+<li data-sourcepos="222:1-222:101">每個框架和擴充功能都需要 Info.plist 和可執行檔，並包含字串版本的鍵值。</li>
+<li data-sourcepos="223:1-223:129">每個擴充功能的 bundle ID 必須以應用程式的為前綴，且必須具有 <code data-sourcepos="223:87-223:99">NSExtension</code>/<code data-sourcepos="223:101-223:126">EXAppExtensionAttributes</code>。</li>
 </ul>
-<p data-sourcepos="204:1-204:210">檢查之後，<code data-sourcepos="204:16-204:23">tests:</code> 指令會在目標資料夾中執行，並設定 <code data-sourcepos="204:74-204:82">IDL_IPA</code>、<code data-sourcepos="204:86-204:94">IDL_APP</code>、<code data-sourcepos="204:98-204:112">IDL_BUILD_DIR</code>、<code data-sourcepos="204:116-204:127">IDL_TARGET</code> 與 <code data-sourcepos="204:133-204:137">IDL</code>。輸出是每個檢查或指令各一行 PASS/FAIL，然後是摘要。</p>
-<p data-sourcepos="206:1-206:194">工具路徑可在 <code data-sourcepos="206:20-206:31">toolchain:</code> 下以 <code data-sourcepos="206:40-206:53">clang_format</code>、<code data-sourcepos="206:57-206:68">clang_tidy</code> 與 <code data-sourcepos="206:74-206:87">swift_format</code> 設定（swift-format 隨 swiftly 工具鏈提供）。缺少的選用工具會被略過並附上說明。</p>
-<h3 id="code-generation" data-sourcepos="208:1-208:19">Code generation<a href="#code-generation" aria-label="Link to heading 'Code generation'" data-heading-content="Code generation" class="anchor"></a></h3>
-<table data-sourcepos="210:1-215:75" class="table table-sm table-striped">
+<p data-sourcepos="225:1-225:146">檢查完成後，<code data-sourcepos="225:19-225:26">tests:</code> 中的命令會在目標目錄中執行，並設定 <code data-sourcepos="225:80-225:88">IDL_IPA</code>、<code data-sourcepos="225:92-225:100">IDL_APP</code>、<code data-sourcepos="225:104-225:118">IDL_BUILD_DIR</code>、<code data-sourcepos="225:122-225:133">IDL_TARGET</code> 和 <code data-sourcepos="225:139-225:143">IDL</code>。</p>
+<h4 id="host-test-targets-type-test" data-sourcepos="227:1-227:41">主機測試目標（<code data-sourcepos="227:27-227:38">type: test</code>）<a href="#host-test-targets-type-test" aria-label="Link to heading '主機測試目標（type: test）'" data-heading-content="主機測試目標（type: test）" class="anchor"></a></h4>
+<p data-sourcepos="229:1-229:203">iOS 二進位檔案無法在 Linux 上執行，且 iPhoneOS SDK 沒有 XCTest，因此 <code data-sourcepos="229:88-229:99">type: test</code> 目標會在 Linux 主機上編譯並執行，同時連結其靜態（static）目標（遞迴地）：</p>
+<pre class="syntax-highlighting" data-sourcepos="231:1-242:3"><code class="language-yaml"><span class="hl-source hl-yaml">  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">CalcCore</span>            <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 被測試的程式碼；也會被應用程式連結
+</span>    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">static</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">dir</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Core</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Sources</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Foundation</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>  <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 被測試的程式碼必須支援主機平台
+</span>  <span class="hl-punctuation hl-definition hl-block hl-sequence hl-item hl-yaml">-</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">name</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">CalcCoreTests</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">type</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">test</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">dir</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">Tests</span>
+    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">Sources</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>        <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 測試檔案
+</span>    <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">link</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-meta hl-flow-sequence hl-yaml"><span class="hl-punctuation hl-definition hl-sequence hl-begin hl-yaml">[</span><span class="hl-string hl-unquoted hl-plain hl-in hl-yaml">CalcCore</span><span class="hl-punctuation hl-definition hl-sequence hl-end hl-yaml">]</span></span>          <span class="hl-comment hl-line hl-number-sign hl-yaml"><span class="hl-punctuation hl-definition hl-comment hl-line hl-number-sign hl-yaml">#</span> 被測試的靜態目標
+</span></span></code></pre>
+<ul data-sourcepos="244:1-249:326">
+<li data-sourcepos="244:1-244:905">Swift：idl 會寫入一個 SwiftPM 套件至 <code data-sourcepos="244:49-244:74">&lt;build_dir&gt;/test/&lt;name&gt;/</code>（每個被測試的靜態目標對應一個程式庫目標，名稱與之相同，以及一個測試目標），並執行 <code data-sourcepos="244:199-244:225">swift build --build-tests</code> 和 <code data-sourcepos="244:231-244:242">swift test</code>，其中 <code data-sourcepos="244:253-244:259">swift</code> 位於 <code data-sourcepos="244:268-244:285">toolchain.swiftc</code> 旁邊。SwiftPM 會發現 XCTest 和 swift-testing 測試；<code data-sourcepos="244:348-244:374">@testable import CalcCore</code> 可用。SwiftPM 不接受套件範圍外的目標路徑，且 idl 不會建立符號連結，因此來源檔案會被複製到套件中（僅變更的檔案會被重寫）；編譯器和測試輸出中的路徑會指向原始檔案。每個目標繼承：<code data-sourcepos="244:632-244:646">swift_version</code>（語言模式）、不含 <code data-sourcepos="244:675-244:677">=</code> 的 <code data-sourcepos="244:683-244:691">defines</code>、<code data-sourcepos="244:695-244:708">include_dirs</code>、<code data-sourcepos="244:712-244:731">quote_include_dirs</code>、<code data-sourcepos="244:735-244:746">swiftflags</code>、<code data-sourcepos="244:750-244:760">libraries</code> 和 <code data-sourcepos="244:766-244:774">ldflags</code>。若未指定 <code data-sourcepos="244:791-244:794">-c</code> 或指定 <code data-sourcepos="244:806-244:815">-c debug</code>，SwiftPM 會編譯為 debug；<code data-sourcepos="244:848-244:859">-c release</code> 則以 <code data-sourcepos="244:868-244:884">-enable-testing</code> 編譯為 release。</li>
+<li data-sourcepos="245:1-245:490">C, C++（僅在具有主機執行階段時支援 Objective-C）：主機的 <code data-sourcepos="245:79-245:92">toolchain.cc</code>/<code data-sourcepos="245:94-245:98">cxx</code> 會編譯測試來源檔案和被測試靜態目標的來源檔案（每個都有各自的 <code data-sourcepos="245:191-245:195">opt</code>、<code data-sourcepos="245:199-245:207">defines</code>、<code data-sourcepos="245:211-245:224">include_dirs</code>、<code data-sourcepos="245:228-245:247">quote_include_dirs</code>、<code data-sourcepos="245:251-245:258">cflags</code>；測試也會獲得被測試目標的 <code data-sourcepos="245:299-245:312">include_dirs</code>）至 <code data-sourcepos="245:320-245:351">&lt;build_dir&gt;/test/&lt;name&gt;/&lt;name&gt;</code>，連結 <code data-sourcepos="245:362-245:372">libraries</code>/<code data-sourcepos="245:374-245:382">ldflags</code>，並在目標目錄中執行它。退出狀態 0 表示通過。與直接編譯一樣支援增量編譯。</li>
+<li data-sourcepos="246:1-246:109">每個目標一種語言：Swift 測試連結 Swift 靜態目標，C-family 測試連結 C-family 目標。</li>
+<li data-sourcepos="247:1-247:317"><code data-sourcepos="247:3-247:14">frameworks</code> 僅可指定 Foundation、FoundationEssentials、FoundationNetworking、FoundationXML、Dispatch、XCTest 或 Testing；測試目標所連結的每個靜態目標也適用相同規則。UIKit 或 SwiftUI 程式碼無法在主機上進行測試。測試目標不會從 <code data-sourcepos="247:284-247:294">defaults:</code> 繼承 <code data-sourcepos="247:303-247:314">frameworks</code>。</li>
+<li data-sourcepos="248:1-248:364">測試目標不需要 <code data-sourcepos="248:25-248:35">bundle_id</code>。不允許在它們上使用：<code data-sourcepos="248:69-248:84">builder: xtool</code>、<code data-sourcepos="248:88-248:98">xcodeproj</code>、<code data-sourcepos="248:102-248:113">post_build</code>、<code data-sourcepos="248:117-248:124">tests:</code>、<code data-sourcepos="248:128-248:134">embed</code>、資源、Info.plist、entitlements、<code data-sourcepos="248:175-248:191">weak_frameworks</code>、<code data-sourcepos="248:195-248:210">framework_dirs</code>、<code data-sourcepos="248:214-248:230">bridging_header</code>。沒有任何東西可以 <code data-sourcepos="248:259-248:264">link</code> 或 <code data-sourcepos="248:270-248:276">embed</code> 測試目標。<code data-sourcepos="248:293-248:309">configurations:</code> 和 <code data-sourcepos="248:315-248:318">-c</code> 輸出目錄的行為與其他目標相同。</li>
+<li data-sourcepos="249:1-249:326"><code data-sourcepos="249:3-249:11">idl gen</code> 會寫入 <code data-sourcepos="249:23-249:45">compile_commands.json</code>，包含測試目標的主機旗標（當 <code data-sourcepos="249:89-249:112">compile_commands: true</code> 時）。<code data-sourcepos="249:123-249:133">idl clean</code> 會移除 <code data-sourcepos="249:145-249:157">&lt;build_dir&gt;</code>。<code data-sourcepos="249:161-249:170">idl lint</code> 會跳過測試目標；<code data-sourcepos="249:196-249:204">idl fmt</code> 會格式化它們。<code data-sourcepos="249:227-249:237">idl build</code>、<code data-sourcepos="249:241-249:250">idl lint</code>、<code data-sourcepos="249:254-249:266">idl install</code> 和 <code data-sourcepos="249:272-249:286">idl xcodeproj</code> 會拒絕明確指定的測試目標。</li>
+</ul>
+<p data-sourcepos="251:1-251:236"><code data-sourcepos="251:1-251:10">idl test</code> 若無目標名稱，則檢查每個應用程式並執行每個測試目標；名稱可選擇應用程式和/或測試目標。<code data-sourcepos="251:139-251:150">--no-build</code> 會執行現有的輸出（<code data-sourcepos="251:179-251:203">swift test --skip-build</code>，現有的可執行檔案）。</p>
+<p data-sourcepos="253:1-253:172">輸出（stdout）每行包含一個應用程式檢查結果、<code data-sourcepos="253:64-253:71">tests:</code> 命令和測試目標的結果，然後是摘要；工具輸出和 <code data-sourcepos="253:140-253:144">==&gt;</code> 進度行則穿插其間：</p>
+<pre class="syntax-highlighting" data-sourcepos="255:1-266:3"><code><span class="hl-text hl-plain">PASS &lt;app&gt; bundle checks
+FAIL &lt;app&gt; bundle checks (&lt;n&gt; error(s))   # 或 &quot;(error)&quot;: 套件遺失/無法讀取
+PASS &lt;app&gt;: &lt;command and arguments&gt;
+FAIL &lt;app&gt;: &lt;command and arguments&gt;
+PASS &lt;test target&gt; tests
+FAIL &lt;test target&gt; tests (build failed)
+FAIL &lt;test target&gt; tests (exit code &lt;n&gt;)
+FAIL &lt;test target&gt; tests (error)          # 組態或工具遺失；訊息在 stderr 上
+
+&lt;passed&gt; passed, &lt;failed&gt; failed
+</span></code></pre>
+<p data-sourcepos="268:1-268:159">退出狀態：若全部通過則為 0，若有任何失敗（stderr 以 <code data-sourcepos="268:74-268:94">error: tests failed</code> 結尾）或無法載入專案則為 1，使用錯誤則為 2。</p>
+<p data-sourcepos="270:1-271:118">工具路徑可在 <code data-sourcepos="270:20-270:31">toolchain:</code> 下設定為 <code data-sourcepos="270:46-270:59">clang_format</code>、<code data-sourcepos="270:63-270:74">clang_tidy</code> 和
+<code data-sourcepos="271:1-271:14">swift_format</code>（swift-format 隨 swiftly toolchain 提供）。若缺少可選工具，則會跳過並附帶註記。</p>
+<h3 id="code-generation" data-sourcepos="273:1-273:19">程式碼產生<a href="#code-generation" aria-label="Link to heading '程式碼產生'" data-heading-content="程式碼產生" class="anchor"></a></h3>
+<table data-sourcepos="275:1-280:75" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="210:1-210:28">
-<th data-sourcepos="210:2-210:6">鍵</th>
-<th data-sourcepos="210:8-210:18">預設值</th>
-<th data-sourcepos="210:20-210:27">產生</th>
+<tr data-sourcepos="275:1-275:28">
+<th data-sourcepos="275:2-275:6">鍵</th>
+<th data-sourcepos="275:8-275:18">預設值</th>
+<th data-sourcepos="275:20-275:27">產生</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="212:1-212:80">
-<td data-sourcepos="212:2-212:14"><code data-sourcepos="212:3-212:13">xcodeproj</code></td>
-<td data-sourcepos="212:16-212:24"><code data-sourcepos="212:17-212:23">false</code></td>
-<td data-sourcepos="212:26-212:79"><code data-sourcepos="212:27-212:50">&lt;dir&gt;/&lt;name&gt;.xcodeproj</code>（專案 + 共用 scheme）</td>
+<tr data-sourcepos="277:1-277:79">
+<td data-sourcepos="277:2-277:14"><code data-sourcepos="277:3-277:13">xcodeproj</code></td>
+<td data-sourcepos="277:16-277:24"><code data-sourcepos="277:17-277:23">false</code></td>
+<td data-sourcepos="277:26-277:78"><code data-sourcepos="277:27-277:50">&lt;dir&gt;/&lt;name&gt;.xcodeproj</code>（專案 + 共用方案）</td>
 </tr>
-<tr data-sourcepos="213:1-213:90">
-<td data-sourcepos="213:2-213:21"><code data-sourcepos="213:3-213:20">compile_commands</code></td>
-<td data-sourcepos="213:23-213:31"><code data-sourcepos="213:24-213:30">false</code></td>
-<td data-sourcepos="213:33-213:89"><code data-sourcepos="213:34-213:62">&lt;dir&gt;/compile_commands.json</code>（僅限 direct 目標）</td>
+<tr data-sourcepos="278:1-278:85">
+<td data-sourcepos="278:2-278:21"><code data-sourcepos="278:3-278:20">compile_commands</code></td>
+<td data-sourcepos="278:23-278:31"><code data-sourcepos="278:24-278:30">false</code></td>
+<td data-sourcepos="278:33-278:84"><code data-sourcepos="278:34-278:62">&lt;dir&gt;/compile_commands.json</code>（僅直接目標）</td>
 </tr>
-<tr data-sourcepos="214:1-214:77">
-<td data-sourcepos="214:2-214:18"><code data-sourcepos="214:3-214:17">package_swift</code></td>
-<td data-sourcepos="214:20-214:27"><code data-sourcepos="214:21-214:26">true</code></td>
-<td data-sourcepos="214:29-214:76"><code data-sourcepos="214:30-214:50">&lt;dir&gt;/Package.swift</code>（僅限 xtool 目標）</td>
+<tr data-sourcepos="279:1-279:74">
+<td data-sourcepos="279:2-279:18"><code data-sourcepos="279:3-279:17">package_swift</code></td>
+<td data-sourcepos="279:20-279:27"><code data-sourcepos="279:21-279:26">true</code></td>
+<td data-sourcepos="279:29-279:73"><code data-sourcepos="279:30-279:50">&lt;dir&gt;/Package.swift</code>（僅 xtool 目標）</td>
 </tr>
-<tr data-sourcepos="215:1-215:75">
-<td data-sourcepos="215:2-215:18"><code data-sourcepos="215:3-215:17">configuration</code></td>
-<td data-sourcepos="215:20-215:30"><code data-sourcepos="215:21-215:29">release</code></td>
-<td data-sourcepos="215:32-215:74">xtool 建置設定（<code data-sourcepos="215:54-215:60">debug</code>/<code data-sourcepos="215:62-215:70">release</code>）</td>
+<tr data-sourcepos="280:1-280:75">
+<td data-sourcepos="280:2-280:18"><code data-sourcepos="280:3-280:17">configuration</code></td>
+<td data-sourcepos="280:20-280:30"><code data-sourcepos="280:21-280:29">release</code></td>
+<td data-sourcepos="280:32-280:74">xtool 建構組態（<code data-sourcepos="280:54-280:60">debug</code>/<code data-sourcepos="280:62-280:70">release</code>）</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="217:1-217:239">xtool 目標一律會產生 <code data-sourcepos="217:29-217:39">xtool.yml</code>。產生的檔案開頭會有 <code data-sourcepos="217:71-217:105">Generated by idl from idlproj.yml</code> 標記，而 <code data-sourcepos="217:120-217:124">idl</code> 拒絕覆寫沒有該標記的檔案。若要保留手寫的 <code data-sourcepos="217:187-217:201">Package.swift</code>，請設定 <code data-sourcepos="217:215-217:236">package_swift: false</code>。</p>
-<p data-sourcepos="219:1-219:83">xtool 目標必須恰好有一個 <code data-sourcepos="219:35-219:43">sources</code> 項目：即 SwiftPM 目標資料夾。</p>
-<h2 id="configurations" data-sourcepos="221:1-221:17">configurations<a href="#configurations" aria-label="Link to heading 'configurations'" data-heading-content="configurations" class="anchor"></a></h2>
-<p data-sourcepos="223:1-223:132">在 <code data-sourcepos="223:5-223:11">build</code>、<code data-sourcepos="223:15-223:23">install</code>、<code data-sourcepos="223:27-223:33">check</code>、<code data-sourcepos="223:37-223:41">gen</code>、<code data-sourcepos="223:45-223:55">xcodeproj</code>、<code data-sourcepos="223:59-223:64">list</code> 與 <code data-sourcepos="223:70-223:76">clean</code> 上以 <code data-sourcepos="223:85-223:94">-c debug</code> / <code data-sourcepos="223:98-223:122">--configuration release</code> 選取：</p>
-<pre class="syntax-highlighting" data-sourcepos="225:1-243:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+<p data-sourcepos="282:1-284:25">xtool 目標一律會產生 <code data-sourcepos="282:29-282:39">xtool.yml</code>。產生的檔案以
+<code data-sourcepos="283:1-283:35">Generated by idl from idlproj.yml</code> 標記開頭，且 <code data-sourcepos="283:56-283:60">idl</code> 拒絕覆蓋沒有該標記的檔案。若要保留手寫的 <code data-sourcepos="283:123-283:137">Package.swift</code>，請設定
+<code data-sourcepos="284:1-284:22">package_swift: false</code>。</p>
+<p data-sourcepos="286:1-286:76">xtool 目標必須恰好有一個 <code data-sourcepos="286:35-286:43">sources</code> 條目：SwiftPM 目標目錄。</p>
+<h2 id="configurations" data-sourcepos="288:1-288:9">組態<a href="#configurations" aria-label="Link to heading '組態'" data-heading-content="組態" class="anchor"></a></h2>
+<p data-sourcepos="290:1-291:115">在 <code data-sourcepos="290:5-290:11">build</code>、<code data-sourcepos="290:15-290:23">install</code>、
+<code data-sourcepos="291:1-291:7">check</code>、<code data-sourcepos="291:11-291:15">gen</code>、<code data-sourcepos="291:19-291:29">xcodeproj</code>、<code data-sourcepos="291:33-291:38">list</code> 和 <code data-sourcepos="291:44-291:50">clean</code> 上使用 <code data-sourcepos="291:62-291:71">-c debug</code> / <code data-sourcepos="291:75-291:99">--configuration release</code> 進行選擇：</p>
+<pre class="syntax-highlighting" data-sourcepos="293:1-311:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">debug</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
     <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">info</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
       <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml">My App Debug</span>
@@ -772,14 +832,19 @@
         <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
           <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 </span></code></pre>
-<p data-sourcepos="245:1-245:479">內建的 debug 設定：<code data-sourcepos="245:26-245:35">opt: -O0</code>、<code data-sourcepos="245:39-245:57">swift_opt: -Onone</code>、<code data-sourcepos="245:61-245:81">debug_symbols: true</code>，以及額外的 <code data-sourcepos="245:101-245:107">DEBUG</code> 定義。內建的 release 設定：<code data-sourcepos="245:145-245:149">-Os</code>、<code data-sourcepos="245:153-245:156">-O</code>、無 DWARF；繼承而來的 YAML <code data-sourcepos="245:193-245:208">get-task-allow</code> 會設為 false。設定檔覆寫可以明確變更這些預設值。對於未請求任何 capability 的應用程式，不會憑空產生 entitlement 檔案。對於舊版 entitlement 檔案輸入，如有需要，請在 release 設定檔中明確覆寫 entitlements。</p>
-<p data-sourcepos="247:1-247:277">優先順序，由低到高：<code data-sourcepos="247:31-247:40">defaults</code> -&gt; 目標 -&gt; 內建設定檔 -&gt; 全域 <code data-sourcepos="247:81-247:103">configurations.&lt;name&gt;</code> -&gt; 目標的 <code data-sourcepos="247:118-247:140">configurations.&lt;name&gt;</code>。對應會遞迴合併，清單是取代而非附加，而 <code data-sourcepos="247:202-247:204">~</code> 會清除選用的值。<code data-sourcepos="247:230-247:236">DEBUG</code> 會在 debug 建置合併之後附加。</p>
-<p data-sourcepos="249:1-249:314">支援的設定檔覆寫：<code data-sourcepos="249:28-249:38">bundle_id</code>、<code data-sourcepos="249:42-249:46">opt</code>、<code data-sourcepos="249:50-249:60">swift_opt</code>、<code data-sourcepos="249:64-249:78">debug_symbols</code>、<code data-sourcepos="249:82-249:90">defines</code>、<code data-sourcepos="249:94-249:99">info</code>、<code data-sourcepos="249:103-249:116">entitlements</code>、<code data-sourcepos="249:120-249:131">plist_vars</code>、<code data-sourcepos="249:135-249:145">build_dir</code>、<code data-sourcepos="249:149-249:156">cflags</code>、<code data-sourcepos="249:160-249:171">swiftflags</code>、<code data-sourcepos="249:175-249:183">ldflags</code>、<code data-sourcepos="249:187-249:194">strict</code>、<code data-sourcepos="249:198-249:203">sign</code>。目標、來源清單與相依項目不會隨設定檔而異。未知的設定檔名稱／鍵會是錯誤。</p>
-<p data-sourcepos="251:1-251:375">設定檔的輸出路徑是 <code data-sourcepos="251:29-251:48">&lt;build_dir&gt;/debug/</code> 與 <code data-sourcepos="251:54-251:75">&lt;build_dir&gt;/release/</code>，兩種建置器皆然（xtool 的 IPA 會被複製到該設定檔路徑）。Xcode 會收到相符的最佳化、定義、除錯符號、簽署與中繼資料設定。未使用 <code data-sourcepos="251:256-251:259">-c</code> 時，會保留舊版旗標與輸出路徑；舊的目標 <code data-sourcepos="251:319-251:334">configuration:</code> 鍵仍會選擇 xtool 底層的設定。</p>
-<h2 id="defaults" data-sourcepos="253:1-253:11">defaults<a href="#defaults" aria-label="Link to heading 'defaults'" data-heading-content="defaults" class="anchor"></a></h2>
-<p data-sourcepos="255:1-255:238"><code data-sourcepos="255:1-255:11">defaults:</code> 接受除了 <code data-sourcepos="255:26-255:31">name</code>、<code data-sourcepos="255:35-255:39">dir</code> 與 <code data-sourcepos="255:45-255:55">bundle_id</code> 之外的任何目標鍵。目標對於對應（<code data-sourcepos="255:105-255:110">info</code>、<code data-sourcepos="255:114-255:127">entitlements</code> 等）會遞迴覆寫預設值；清單是被取代，而非合併，而 <code data-sourcepos="255:202-255:204">~</code> 會清除選用的對應／值。</p>
-<h2 id="complete-example" data-sourcepos="257:1-257:19">Complete example<a href="#complete-example" aria-label="Link to heading 'Complete example'" data-heading-content="Complete example" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="259:1-297:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
+<p data-sourcepos="313:1-314:259">內建偵錯設定：<code data-sourcepos="313:22-313:31">opt: -O0</code>、<code data-sourcepos="313:35-313:53">swift_opt: -Onone</code>、<code data-sourcepos="313:57-313:77">debug_symbols: true</code>，以及額外的 <code data-sourcepos="313:97-313:103">DEBUG</code> 定義。內建發行設定：<code data-sourcepos="313:135-313:139">-Os</code>、<code data-sourcepos="313:143-313:146">-O</code>，無
+DWARF；繼承的 YAML <code data-sourcepos="314:24-314:39">get-task-allow</code> 設為 false。設定檔覆寫可明確變更這些預設值。若應用程式要求無功能，則不會製造權限檔案。對於舊版權限檔案輸入，如有需要，請在發行設定檔中明確覆寫權限。</p>
+<p data-sourcepos="316:1-317:181">優先順序（由低到高）：<code data-sourcepos="316:34-316:43">defaults</code> -&gt; 目標 -&gt; 內建設定檔 -&gt; 全域
+<code data-sourcepos="317:1-317:23">configurations.&lt;name&gt;</code> -&gt; 目標 <code data-sourcepos="317:35-317:57">configurations.&lt;name&gt;</code>。對應會遞迴合併，清單取代而非附加，且 <code data-sourcepos="317:116-317:118">~</code> 清除可選值。<code data-sourcepos="317:138-317:144">DEBUG</code> 會在偵錯組建合併後附加。</p>
+<p data-sourcepos="319:1-321:147">支援的設定檔覆寫：<code data-sourcepos="319:28-319:38">bundle_id</code>、<code data-sourcepos="319:42-319:46">opt</code>、<code data-sourcepos="319:50-319:60">swift_opt</code>、<code data-sourcepos="319:64-319:78">debug_symbols</code>、
+<code data-sourcepos="320:1-320:9">defines</code>、<code data-sourcepos="320:13-320:18">info</code>、<code data-sourcepos="320:22-320:35">entitlements</code>、<code data-sourcepos="320:39-320:50">plist_vars</code>、<code data-sourcepos="320:54-320:64">build_dir</code>、<code data-sourcepos="320:68-320:75">cflags</code>、
+<code data-sourcepos="321:1-321:12">swiftflags</code>、<code data-sourcepos="321:16-321:24">ldflags</code>、<code data-sourcepos="321:28-321:35">strict</code>、<code data-sourcepos="321:39-321:44">sign</code>。目標、來源清單和相依性不依賴設定檔。未知的設定檔名稱/鍵會視為錯誤。</p>
+<p data-sourcepos="323:1-324:54">設定檔輸出路徑為 <code data-sourcepos="323:26-323:45">&lt;build_dir&gt;/debug/</code> 和 <code data-sourcepos="323:51-323:72">&lt;build_dir&gt;/release/</code>，適用於兩種建構器（xtool 的 IPA 會複製到該設定檔路徑）。Xcode 接收匹配的優化、定義、偵錯符號、簽章和中繼資料設定。若無 <code data-sourcepos="323:244-323:247">-c</code>，則保留舊版旗標和輸出路徑；舊的目標
+<code data-sourcepos="324:1-324:16">configuration:</code> 鍵仍選擇 xtool 的底層組態。</p>
+<h2 id="defaults" data-sourcepos="326:1-326:12">預設值<a href="#defaults" aria-label="Link to heading '預設值'" data-heading-content="預設值" class="anchor"></a></h2>
+<p data-sourcepos="328:1-328:232"><code data-sourcepos="328:1-328:11">defaults:</code> 接受任何目標鍵，除了 <code data-sourcepos="328:44-328:49">name</code>、<code data-sourcepos="328:53-328:57">dir</code> 和 <code data-sourcepos="328:63-328:73">bundle_id</code>。一個目標會遞迴覆寫預設值的對應（<code data-sourcepos="328:125-328:130">info</code>、<code data-sourcepos="328:134-328:147">entitlements</code> 等）；清單會被取代，不會合併，且 <code data-sourcepos="328:198-328:200">~</code> 會清除可選的對應/值。</p>
+<h2 id="complete-example" data-sourcepos="330:1-330:15">完整範例<a href="#complete-example" aria-label="Link to heading '完整範例'" data-heading-content="完整範例" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="332:1-370:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
   <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">jobs</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span> <span class="hl-constant hl-numeric hl-integer hl-decimal hl-yaml">8</span>
 
 <span class="hl-string hl-unquoted hl-plain hl-out hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">defaults</span></span><span class="hl-punctuation hl-separator hl-key-value hl-mapping hl-yaml">:</span>
