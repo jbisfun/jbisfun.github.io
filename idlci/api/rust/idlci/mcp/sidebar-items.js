@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["err","serve"],"struct":["IdArgs","IdlciMcp","JobArgs","JobsArgs","LogArgs","QueueArgs","WaitArgs"],"type":["ToolResult"]};

@@ -109,6 +109,15 @@
         </li>
 
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
           <ul class="dropdown-menu">
 
@@ -201,7 +210,7 @@
 
   <li>
 
-    <a href="getting-started.html">開始使用</a>
+    <a href="getting-started.html">快速入門</a>
 
 
   </li>
@@ -231,95 +240,100 @@
 
       <h1 id="known-limitations" data-sourcepos="1:1-1:14">已知限制<a href="#known-limitations" aria-label="Link to heading '已知限制'" data-heading-content="已知限制" class="anchor"></a></h1>
 <h2 id="signing-and-installing" data-sourcepos="3:1-3:18">簽署與安裝<a href="#signing-and-installing" aria-label="Link to heading '簽署與安裝'" data-heading-content="簽署與安裝" class="anchor"></a></h2>
-<ul data-sourcepos="5:1-7:127">
-<li data-sourcepos="5:1-5:146">簽章是 ad-hoc <code data-sourcepos="5:20-5:25">ldid</code> 簽章。它們讓 bundle 在結構上完整，但並非 Apple 的佈建（provisioning）。安裝前請重新簽署。</li>
-<li data-sourcepos="6:1-6:144">此工具尚未將本處建置的任何 IPA 安裝或執行於裝置上。檢查僅限於結構層面：ZIP、plist 與 Mach-O 載入指令。</li>
-<li data-sourcepos="7:1-7:127">xtool 目標除非設定 <code data-sourcepos="7:28-7:39">sign: true</code>，否則不會簽署；該設定會將 <code data-sourcepos="7:80-7:87">--sign</code> 傳給 xtool，且需要登入 xtool。</li>
+<ul data-sourcepos="5:1-7:110">
+<li data-sourcepos="5:1-5:146">簽章為臨時的 <code data-sourcepos="5:22-5:27">ldid</code> 簽章。它們使套件結構完整，但並非 Apple 的配發（provisioning）格式。安裝前請重新簽署。</li>
+<li data-sourcepos="6:1-6:138">此工具鏈尚未在此處建構的 IPA 已在裝置上安裝或執行。檢查是結構性的：ZIP、plist 與 Mach-O 載入命令。</li>
+<li data-sourcepos="7:1-7:110">xtool 目標未簽署，除非 <code data-sourcepos="7:34-7:45">sign: true</code>，這會將 <code data-sourcepos="7:59-7:66">--sign</code> 傳遞給 xtool，並需要 xtool 登入。</li>
 </ul>
-<h2 id="xcode-only-build-steps" data-sourcepos="9:1-9:31">僅限 Xcode 的建置步驟<a href="#xcode-only-build-steps" aria-label="Link to heading '僅限 Xcode 的建置步驟'" data-heading-content="僅限 Xcode 的建置步驟" class="anchor"></a></h2>
-<p data-sourcepos="11:1-11:156">這些工具在 Linux 上沒有對應的替代品。寬鬆建置會發出警告並略過其輸入；<code data-sourcepos="11:101-11:110">--strict</code> 則會在應用程式編譯前拒絕它們：</p>
-<ul data-sourcepos="13:1-14:108">
+<h2 id="xcode-only-build-steps" data-sourcepos="9:1-9:31">僅限 Xcode 的建構步驟<a href="#xcode-only-build-steps" aria-label="Link to heading '僅限 Xcode 的建構步驟'" data-heading-content="僅限 Xcode 的建構步驟" class="anchor"></a></h2>
+<p data-sourcepos="11:1-11:169">這些工具在此處沒有 Linux 替代品。寬鬆模式（permissive）建構會發出警告並跳過其輸入；<code data-sourcepos="11:117-11:126">--strict</code> 則在應用程式編譯前拒絕它們：</p>
+<ul data-sourcepos="13:1-14:102">
 <li data-sourcepos="13:1-13:51">Core Data 模型（<code data-sourcepos="13:22-13:36">.xcdatamodeld</code>、<code data-sourcepos="13:40-13:45">momc</code>）。</li>
-<li data-sourcepos="14:1-14:108">Metal 著色器（<code data-sourcepos="14:21-14:28">.metal</code>）會列在產生的 Xcode 專案中，但 <code data-sourcepos="14:73-14:80">direct</code> 建置不會編譯它們。</li>
+<li data-sourcepos="14:1-14:102">Metal 著色器（<code data-sourcepos="14:21-14:28">.metal</code>）列於產生的 Xcode 專案中，但未被 <code data-sourcepos="14:76-14:83">direct</code> 建構所編譯。</li>
 </ul>
-<p data-sourcepos="16:1-16:388">App Intents 中繼資料需要外部處理器（<code data-sourcepos="16:49-16:70">toolchain.appintents</code>，即 re-appintentsmetadataprocessor）。所連結 <code data-sourcepos="16:124-16:131">static</code> 目標中的 intent 會被擷取到每個連結它們的 bundle 中；<code data-sourcepos="16:203-16:213">framework</code> 目標會帶有自己的 <code data-sourcepos="16:240-16:260">Metadata.appintents</code>，但相依者不會參照它（<code data-sourcepos="16:294-16:315">--metadata-file-list</code>）。App Shortcuts 片語的在地化（<code data-sourcepos="16:357-16:370">.stringsdata</code>）不會產生。</p>
-<p data-sourcepos="18:1-18:114">字串目錄（<code data-sourcepos="18:16-18:27">.xcstrings</code>）、storyboard、XIB 與資產目錄都能在 Linux 上編譯，但有下列限制。</p>
-<h2 id="storyboards-and-xibs-idl-ibtool" data-sourcepos="20:1-20:39">Storyboard 與 XIB（<code data-sourcepos="20:25-20:36">idl ibtool</code>）<a href="#storyboards-and-xibs-idl-ibtool" aria-label="Link to heading 'Storyboard 與 XIB（idl ibtool）'" data-heading-content="Storyboard 與 XIB（idl ibtool）" class="anchor"></a></h2>
-<p data-sourcepos="22:1-22:187">此編譯器是 <a data-sourcepos="22:17-22:77" href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a> 的 Zig 移植版，後者是經逆向工程的 NIB 寫入器。Apple 的格式沒有公開文件，因此：</p>
-<ul data-sourcepos="24:1-29:175">
-<li data-sourcepos="24:1-24:247"><strong data-sourcepos="24:3-24:33">尚未在裝置上驗證。</strong> 輸出可由 idl 自己的讀取器解碼，且具有與 Xcode 的 nib 相同的 NIBArchive 版面配置，但尚無任何由 <code data-sourcepos="24:161-24:165">idl</code> 產生的 nib 曾在裝置上被 UIKit 載入。在依賴它之前請先測試。</li>
-<li data-sourcepos="25:1-25:1015"><strong data-sourcepos="25:3-25:34">僅支援 UIKit 的子集。</strong> 支援的元素：檢視控制器（一般、導覽、表格）、<code data-sourcepos="25:102-25:107">view</code>、<code data-sourcepos="25:111-25:117">label</code>、<code data-sourcepos="25:121-25:128">button</code>（依狀態設定標題）、<code data-sourcepos="25:159-25:169">imageView</code>、<code data-sourcepos="25:173-25:182">textView</code>、<code data-sourcepos="25:186-25:196">searchBar</code>、<code data-sourcepos="25:200-25:214">navigationBar</code>/<code data-sourcepos="25:216-25:231">navigationItem</code>/<code data-sourcepos="25:233-25:247">barButtonItem</code>、具有模糊/鮮明效果的 <code data-sourcepos="25:280-25:297">visualEffectView</code>、含原型儲存格的 <code data-sourcepos="25:323-25:333">tableView</code>、frame、自動調整大小遮罩、顏色、字型、限制條件、outlet、action 與 segue（<code data-sourcepos="25:433-25:438">show</code>、<code data-sourcepos="25:442-25:453">showDetail</code>、<code data-sourcepos="25:457-25:470">presentation</code>、<code data-sourcepos="25:474-25:479">push</code>、<code data-sourcepos="25:483-25:489">modal</code>、<code data-sourcepos="25:493-25:501">replace</code>、<code data-sourcepos="25:505-25:512">custom</code>，以及 <code data-sourcepos="25:523-25:542">rootViewController</code> 關聯）。<code data-sourcepos="25:556-25:566">textField</code>、<code data-sourcepos="25:570-25:577">switch</code>、<code data-sourcepos="25:581-25:588">slider</code>、<code data-sourcepos="25:592-25:603">scrollView</code>、<code data-sourcepos="25:607-25:629">activityIndicatorView</code> 與 <code data-sourcepos="25:635-25:648">progressView</code> 只會取得其類別、frame 與顏色，不會有各自的屬性。其他任何項目（堆疊檢視、集合檢視、分頁列控制器、影像、手勢辨識器、使用者定義的執行階段屬性、特徵變化、在地化）在寬鬆建置中會被略過並附上診斷訊息；嚴格建置則會在應用程式編譯前拒絕不支援的節點與屬性。</li>
-<li data-sourcepos="26:1-26:150"><strong data-sourcepos="26:3-26:36">安全區域版面配置指南</strong>會被視為擁有它們的檢視，因此指向安全區域的限制條件會改為固定在該檢視的邊緣。</li>
-<li data-sourcepos="27:1-27:71">參照到不支援物件的限制條件會被捨棄並發出警告。</li>
-<li data-sourcepos="28:1-28:201">具名顏色（<code data-sourcepos="28:18-28:30">systemColor</code> / <code data-sourcepos="28:34-28:39">name</code>）透過文件自身的 <code data-sourcepos="28:65-28:77">&lt;resources&gt;</code> 區段解析，因此會變成固定顏色，不會跟隨深色模式。文字樣式會變成固定大小的系統字型。</li>
-<li data-sourcepos="29:1-29:175">僅支援 iOS 文件（<code data-sourcepos="29:26-29:57">targetRuntime=&quot;iOS.CocoaTouch&quot;</code>）。每份文件會為每個檢視控制器與檢視各產生一個 nib；沒有依裝置慣用語區分的變體。</li>
+<p data-sourcepos="16:1-16:377">App Intents 的元資料需要外部處理器（<code data-sourcepos="16:49-16:70">toolchain.appintents</code>、re-appintentsmetadataprocessor）。連結至 <code data-sourcepos="16:120-16:127">static</code> 目標的 Intents 會提取到每個連結它們的套件中；<code data-sourcepos="16:192-16:202">framework</code> 目標擁有自己的 <code data-sourcepos="16:226-16:246">Metadata.appintents</code>，但相依項目不會參照它（<code data-sourcepos="16:283-16:304">--metadata-file-list</code>）。App Shortcuts 的片語本地化（<code data-sourcepos="16:346-16:359">.stringsdata</code>）尚未產生。</p>
+<p data-sourcepos="18:1-18:101">字串目錄（<code data-sourcepos="18:16-18:27">.xcstrings</code>）、故事板、XIB 與資產目錄在 Linux 上編譯，限制如下。</p>
+<h2 id="storyboards-and-xibs-idl-ibtool" data-sourcepos="20:1-20:37">故事板與 XIB（<code data-sourcepos="20:23-20:34">idl ibtool</code>）<a href="#storyboards-and-xibs-idl-ibtool" aria-label="Link to heading '故事板與 XIB（idl ibtool）'" data-heading-content="故事板與 XIB（idl ibtool）" class="anchor"></a></h2>
+<p data-sourcepos="22:1-22:181">編譯器是 <a data-sourcepos="22:14-22:74" href="https://github.com/davidquesada/ibtool">davidquesada/ibtool</a> 的 Zig 移植版本，這是一個逆向工程的 NIB 寫入器。Apple 的格式未文件化，因此：</p>
+<ul data-sourcepos="24:1-29:157">
+<li data-sourcepos="24:1-24:229"><strong data-sourcepos="24:3-24:33">尚未在裝置上驗證。</strong> 輸出可透過 idl 自身的讀取器解碼，並具有與 Xcode nibs 相同的 NIBArchive 配置，但 <code data-sourcepos="24:140-24:144">idl</code> 產生的任何 nib 都尚未由 UIKit 在裝置上載入。依賴前請先測試。</li>
+<li data-sourcepos="25:1-25:993"><strong data-sourcepos="25:3-25:24">UIKit 的子集。</strong> 支援的元件：視圖控制器（純、導航、表格）、<code data-sourcepos="25:89-25:94">view</code>、<code data-sourcepos="25:98-25:104">label</code>、<code data-sourcepos="25:108-25:115">button</code>（每個狀態的標題）、<code data-sourcepos="25:146-25:156">imageView</code>、<code data-sourcepos="25:160-25:169">textView</code>、<code data-sourcepos="25:173-25:183">searchBar</code>、<code data-sourcepos="25:187-25:201">navigationBar</code>/<code data-sourcepos="25:203-25:218">navigationItem</code>/<code data-sourcepos="25:220-25:234">barButtonItem</code>、具有模糊/飽和度的 <code data-sourcepos="25:264-25:281">visualEffectView</code>、具有原型儲存格、框架、自動調整大小遮罩、顏色、字型、約束、連接埠、動作與轉場（<code data-sourcepos="25:402-25:407">show</code>、<code data-sourcepos="25:411-25:422">showDetail</code>、<code data-sourcepos="25:426-25:439">presentation</code>、<code data-sourcepos="25:443-25:448">push</code>、<code data-sourcepos="25:452-25:458">modal</code>、<code data-sourcepos="25:462-25:470">replace</code>、<code data-sourcepos="25:474-25:481">custom</code>，以及 <code data-sourcepos="25:492-25:511">rootViewController</code> 關係）的 <code data-sourcepos="25:526-25:536">tableView</code>。<code data-sourcepos="25:540-25:550">textField</code>、<code data-sourcepos="25:554-25:561">switch</code>、<code data-sourcepos="25:565-25:572">slider</code>、<code data-sourcepos="25:576-25:587">scrollView</code>、<code data-sourcepos="25:591-25:613">activityIndicatorView</code> 與 <code data-sourcepos="25:619-25:632">progressView</code> 獲得其類別、框架與顏色，但沒有它們自己的屬性。其他任何內容（堆疊視圖、集合視圖、標籤列控制器、影像、手勢識別器、使用者定義的執行階段屬性、特質變化、本地化）會被跳過，寬鬆建構會發出診斷訊息；嚴格建構會在應用程式編譯前拒絕不支援的節點與屬性。</li>
+<li data-sourcepos="26:1-26:124"><strong data-sourcepos="26:3-26:30">安全區域佈局指南</strong> 被視為擁有它們的視圖，因此對安全區域的約束會固定到視圖的邊緣。</li>
+<li data-sourcepos="27:1-27:62">參照不支援物件的約束會被捨棄並發出警告。</li>
+<li data-sourcepos="28:1-28:192">命名顏色（<code data-sourcepos="28:18-28:30">systemColor</code> / <code data-sourcepos="28:34-28:39">name</code>）透過文件自身的 <code data-sourcepos="28:65-28:77">&lt;resources&gt;</code> 區段解析，因此變成固定顏色且不跟隨深色模式。文字樣式變成固定大小的系統字型。</li>
+<li data-sourcepos="29:1-29:157">僅限 iOS 文件（<code data-sourcepos="29:23-29:54">targetRuntime=&quot;iOS.CocoaTouch&quot;</code>）。每個文件為每個視圖控制器與視圖產生一個 nib；沒有每裝置類型的變體。</li>
 </ul>
 <h2 id="asset-catalogs-xcassets-assetkit" data-sourcepos="31:1-31:43">資產目錄（<code data-sourcepos="31:19-31:29">.xcassets</code>、AssetKit）<a href="#asset-catalogs-xcassets-assetkit" aria-label="Link to heading '資產目錄（.xcassets、AssetKit）'" data-heading-content="資產目錄（.xcassets、AssetKit）" class="anchor"></a></h2>
-<p data-sourcepos="33:1-33:216">資產目錄由 <code data-sourcepos="33:17-33:28">idl-actool</code> 編譯，它是包裝 <a data-sourcepos="33:52-33:110" href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a> 的小型 Swift 封裝程式。因為 AssetKit 是 Swift 函式庫，所以它是獨立的二進位檔。</p>
-<ul data-sourcepos="35:1-40:161">
-<li data-sourcepos="35:1-35:435">以 <code data-sourcepos="35:7-35:24">zig build actool</code> 建置。這需要 PATH 上有 <code data-sourcepos="35:57-35:63">swift</code>。預設會使用工具鏈共用的 Swift 執行階段（此處約 1.2 MB）。Swift 會內嵌指向該工具鏈的執行階段搜尋路徑：若你移除了它，請重新建置 <code data-sourcepos="35:244-35:255">idl-actool</code>。使用 <code data-sourcepos="35:266-35:304">zig build actool -Dactool-static=true</code> 可取得獨立的 Swift 執行階段（此處約 59 MB）。xtool 私有的內嵌執行階段無法與其他可執行檔共用。</li>
-<li data-sourcepos="36:1-36:213">僅支援影像集、顏色集與一個應用程式圖示，且以 AssetKit 所支援的範圍為限。資料集、符號集、sprite atlas、隨選資源標籤與具名的替代應用程式圖示皆不支援。</li>
-<li data-sourcepos="37:1-37:284">應用程式圖示的每張影像都需要明確的 <code data-sourcepos="37:55-37:61">scale</code>，例如 iPhone 的 <code data-sourcepos="37:83-37:89">60x60</code> @2x 與 @3x。Xcode 單一的 1024 pt「universal」圖示沒有 scale，AssetKit 會拒絕它。<code data-sourcepos="37:188-37:197">app_icon</code> 設定不會被傳遞：AssetKit 會使用目錄中既有的任一個 <code data-sourcepos="37:269-37:281">.appiconset</code>。</li>
-<li data-sourcepos="38:1-38:77">每個目標僅能有一個 <code data-sourcepos="38:31-38:41">.xcassets</code>。若有多個，請合併目錄。</li>
-<li data-sourcepos="39:1-39:61">SVG 影像需要 PATH 上有 <code data-sourcepos="39:32-39:45">rsvg-convert</code>（librsvg）。</li>
-<li data-sourcepos="40:1-40:161">目錄、storyboard、XIB 與字串會依輸入內容與編譯器身分進行快取。direct 目標的打包／簽署／封裝也會略過未變更的輸出。</li>
+<p data-sourcepos="33:1-33:219">資產目錄由 <code data-sourcepos="33:17-33:28">idl-actool</code> 編譯，這是 <a data-sourcepos="33:46-33:104" href="https://github.com/xtool-org/AssetKit">xtool-org/AssetKit</a> 的小型 Swift 包裝函式。由於 AssetKit 是一個 Swift 程式庫，因此它是獨立的二進位檔案。</p>
+<ul data-sourcepos="35:1-40:158">
+<li data-sourcepos="35:1-35:465">使用 <code data-sourcepos="35:10-35:27">zig build actool</code> 建置。這需要 PATH 中有 <code data-sourcepos="35:60-35:66">swift</code>。預設情況下，它使用工具鏈的共用 Swift 執行階段（在此約為 1.2 MB）。Swift 會嵌入一個指向該工具鏈的執行階段搜尋路徑：如果您移除它，請重新建置 <code data-sourcepos="35:268-35:279">idl-actool</code>。使用 <code data-sourcepos="35:290-35:328">zig build actool -Dactool-static=true</code> 可獲得獨立的 Swift 執行階段（在此約為 59 MB）。xtool 私有的嵌入式執行階段無法與其他可執行檔共用。</li>
+<li data-sourcepos="36:1-36:202">僅支援 AssetKit 所支援的影像集、色彩集和一個應用程式圖示。資料集、符號集、Sprite 精靈圖集、按需資源標籤和具名應用程式圖示替代方案則不支援。</li>
+<li data-sourcepos="37:1-37:278">應用程式圖示需要每個影像明確的 <code data-sourcepos="37:49-37:55">scale</code>，例如 iPhone 的 <code data-sourcepos="37:77-37:83">60x60</code> @2x 和 @3x。Xcode 單一的 1024 pt「通用」圖示沒有比例，AssetKit 會拒絕它。<code data-sourcepos="37:179-37:188">app_icon</code> 設定不會傳遞下去：AssetKit 會使用目錄中所擁有的任何 <code data-sourcepos="37:263-37:275">.appiconset</code>。</li>
+<li data-sourcepos="38:1-38:74">每個目標一個 <code data-sourcepos="38:22-38:32">.xcassets</code>。如果您有多個，請合併目錄。</li>
+<li data-sourcepos="39:1-39:61">SVG 影像需要 PATH 中有 <code data-sourcepos="39:32-39:45">rsvg-convert</code>（librsvg）。</li>
+<li data-sourcepos="40:1-40:158">目錄、故事板、XIB 和字串會根據輸入內容和編譯器身分進行快取。直接目標的捆綁/簽署/封裝也會跳過未變更的輸出。</li>
 </ul>
 <h2 id="project-model" data-sourcepos="42:1-42:15">專案模型<a href="#project-model" aria-label="Link to heading '專案模型'" data-heading-content="專案模型" class="anchor"></a></h2>
-<ul data-sourcepos="44:1-52:60">
-<li data-sourcepos="44:1-44:647"><code data-sourcepos="44:3-44:10">direct</code> 目標可以是應用程式、動態 framework、dylib、應用程式擴充功能或 static（物件 + Swift 模組）目標；請參閱設定參考中的「Products」。只有應用程式會被封裝；其他種類是為了應用程式的 <code data-sourcepos="44:253-44:258">link</code>/<code data-sourcepos="44:260-44:266">embed</code> 清單而建置。Watch 應用程式、測試 bundle、XCFramework 與真正的 <code data-sourcepos="44:348-44:351">.a</code> 封存檔皆不支援，而且產生的 Xcode 專案與 xtool 建置器只處理應用程式目標。預先建置的 <code data-sourcepos="44:470-44:481">.framework</code> 資源會被複製到 <code data-sourcepos="44:505-44:517">Frameworks/</code>（不含 Headers、Modules 或 _CodeSignature）並以 ad-hoc 方式簽署，而 <code data-sourcepos="44:600-44:628">@executable_path/Frameworks</code> 一律是 rpath。</li>
-<li data-sourcepos="45:1-45:194">支援 debug/release 設定檔。任意額外的設定，以及隨設定檔而異的來源／相依圖，則不支援。省略 <code data-sourcepos="45:130-45:133">-c</code> 會保留舊版未使用設定檔的旗標／輸出路徑。</li>
-<li data-sourcepos="46:1-46:80">除錯符號會留在物件檔中；不會產生 <code data-sourcepos="46:52-46:58">.dSYM</code> 封存檔／匯出。</li>
-<li data-sourcepos="47:1-47:215">C 系列的增量編譯仍以 mtime／depfile 為基礎；以內容為基礎的快取適用於資源以及最終的 bundle／IPA 狀態。這是本機快取，並不保證跨機器的封閉式／可重現建置。</li>
-<li data-sourcepos="48:1-48:303">資源會像 Xcode 一樣被攤平到 bundle 根目錄，但 <code data-sourcepos="48:64-48:73">*.lproj/</code> 資料夾與套件目錄（<code data-sourcepos="48:102-48:110">.bundle</code>、<code data-sourcepos="48:114-48:125">.framework</code>、<code data-sourcepos="48:129-48:139">.mlmodelc</code>）會被保留。兩個檔名相同的資源會造成錯誤。產生相同語言檔案的 <code data-sourcepos="48:231-48:242">.xcstrings</code> 檔與 <code data-sourcepos="48:251-48:278">.lproj/Localizable.strings</code> 資源會發生衝突。</li>
-<li data-sourcepos="49:1-49:150">Swift 使用整個模組編譯，因此變更任一 Swift 來源會重新編譯目標中的所有 Swift。除錯編譯與連結是分開的步驟。</li>
-<li data-sourcepos="50:1-50:250">Swift 會先於目標的 C 系列來源編譯。若目標混用兩者，idl 會產生 <code data-sourcepos="50:89-50:106">&lt;Module&gt;-Swift.h</code> 並將其放入 include 路徑，因此 Objective-C 可以 <code data-sourcepos="50:167-50:192">#import &quot;&lt;Name&gt;-Swift.h&quot;</code>。Swift 則透過 <code data-sourcepos="50:212-50:228">bridging_header</code> 呼叫 Objective-C。</li>
-<li data-sourcepos="51:1-51:95">Swift 的 <code data-sourcepos="51:13-51:21">defines</code> 必須是單純的旗標。<code data-sourcepos="51:50-51:61">NAME=VALUE</code> 僅適用於 C 系列程式碼。</li>
-<li data-sourcepos="52:1-52:60">僅測試過 <code data-sourcepos="52:16-52:22">arm64</code> 裝置建置。沒有模擬器 SDK。</li>
+<ul data-sourcepos="44:1-52:57">
+<li data-sourcepos="44:1-44:631"><code data-sourcepos="44:3-44:10">direct</code> 目標可以是應用程式、動態程式庫、dylibs、應用程式延伸模組或靜態（物件 + Swift 模組）目標；請參閱設定參考中的「產品」。僅應用程式會進行封裝；其他種類是為應用程式的 <code data-sourcepos="44:247-44:252">link</code>/<code data-sourcepos="44:254-44:260">embed</code> 清單所建置。不支援 Watch 應用程式、測試套件、XCFrameworks 和真正的 <code data-sourcepos="44:352-44:355">.a</code> 封存檔，產生的 Xcode 專案和 xtool 建構器僅處理應用程式目標。預先建置的 <code data-sourcepos="44:456-44:467">.framework</code> 資源會複製到 <code data-sourcepos="44:488-44:500">Frameworks/</code>（不含 Headers、Modules 或 _CodeSignature）並進行臨時簽署，且 <code data-sourcepos="44:578-44:606">@executable_path/Frameworks</code> 始終是一個 rpath。</li>
+<li data-sourcepos="45:1-45:170">支援偵錯/發行設定檔。不支援任意其他設定檔和設定檔相依的來源/相依圖表。省略 <code data-sourcepos="45:114-45:117">-c</code> 會保留舊版未設定檔的旗標/輸出路徑。</li>
+<li data-sourcepos="46:1-46:78">偵錯符號保留在物件檔案中；不會產生 <code data-sourcepos="46:55-46:61">.dSYM</code> 封存/匯出。</li>
+<li data-sourcepos="47:1-47:183">C 家族的增量編譯仍基於 mtime/depfile；內容基礎快取適用於資源和最終捆綁/IPA 狀態。這是本機快取，並非跨機器的封閉/可重現建構保證。</li>
+<li data-sourcepos="48:1-48:313">資源會像 Xcode 一樣展平到捆綁根目錄中，但 <code data-sourcepos="48:62-48:71">*.lproj/</code> 資料夾和套件目錄（<code data-sourcepos="48:100-48:108">.bundle</code>、<code data-sourcepos="48:112-48:123">.framework</code>、<code data-sourcepos="48:127-48:137">.mlmodelc</code>）會保留。兩個具有相同檔案名稱的資源會產生錯誤。產生相同語言檔案的 <code data-sourcepos="48:238-48:249">.xcstrings</code> 檔案和 <code data-sourcepos="48:261-48:288">.lproj/Localizable.strings</code> 資源會發生衝突。</li>
+<li data-sourcepos="49:1-49:141">Swift 使用全模組編譯，因此變更 Swift 來源會重新編譯目標中的所有 Swift。偵錯編譯和連結是獨立的步驟。</li>
+<li data-sourcepos="50:1-50:253">Swift 在目標的 C 家族來源之前編譯。如果目標混合了它們，idl 會產生 <code data-sourcepos="50:95-50:112">&lt;Module&gt;-Swift.h</code> 並將其放在包含路徑上，以便 Objective-C 可以 <code data-sourcepos="50:173-50:198">#import &quot;&lt;Name&gt;-Swift.h&quot;</code>。Swift 透過 <code data-sourcepos="50:215-50:231">bridging_header</code> 呼叫 Objective-C。</li>
+<li data-sourcepos="51:1-51:85">Swift <code data-sourcepos="51:9-51:17">defines</code> 必須是純旗標。<code data-sourcepos="51:40-51:51">NAME=VALUE</code> 僅適用於 C 家族程式碼。</li>
+<li data-sourcepos="52:1-52:57">僅測試 <code data-sourcepos="52:13-52:19">arm64</code> 裝置建構。沒有模擬器 SDK。</li>
 </ul>
-<h2 id="xtool-builder" data-sourcepos="54:1-54:18">xtool 建置器<a href="#xtool-builder" aria-label="Link to heading 'xtool 建置器'" data-heading-content="xtool 建置器" class="anchor"></a></h2>
-<ul data-sourcepos="56:1-60:129">
-<li data-sourcepos="56:1-56:362">
-<p data-sourcepos="56:3-56:362">xtool 目標會將 <code data-sourcepos="56:22-56:33">resources:</code> 傳給 xtool.yml，後者會將它們原樣複製到應用程式根目錄（<code data-sourcepos="56:111-56:118">.lproj</code> 資料夾、一般檔案）。需要編譯器處理的資源（<code data-sourcepos="56:183-56:193">.xcassets</code>、storyboard、XIB、<code data-sourcepos="56:216-56:227">.xcstrings</code>、Core Data、Metal、Core ML）會被拒絕；這類資源請使用 <code data-sourcepos="56:298-56:314">builder: direct</code>。xtool 自行管理其建置與封裝快取。</p>
+<h2 id="xtool-builder" data-sourcepos="54:1-54:18">xtool 建構器<a href="#xtool-builder" aria-label="Link to heading 'xtool 建構器'" data-heading-content="xtool 建構器" class="anchor"></a></h2>
+<ul data-sourcepos="56:1-61:132">
+<li data-sourcepos="56:1-56:349">
+<p data-sourcepos="56:3-56:349">xtool 目標會將 <code data-sourcepos="56:22-56:33">resources:</code> 傳遞至 xtool.yml，並將其原樣複製到應用程式根目錄（<code data-sourcepos="56:105-56:112">.lproj</code> 資料夾、純檔案）。需要編譯器的資源（<code data-sourcepos="56:168-56:178">.xcassets</code>、故事板、XIB、<code data-sourcepos="56:200-56:211">.xcstrings</code>、Core Data、Metal、Core ML）會被拒絕；請對這些使用 <code data-sourcepos="56:279-56:295">builder: direct</code>。xtool 會管理其自身的建構與封裝快取。</p>
 </li>
-<li data-sourcepos="58:1-58:185">
-<p data-sourcepos="58:3-58:185">SwiftPM 無法在同一個目標中混用 Swift 與 C 系列檔案，因此 xtool 目標若非全為 Swift，就是全為 C/Objective-C。混合程式碼請使用 <code data-sourcepos="58:166-58:182">builder: direct</code>。</p>
+<li data-sourcepos="58:1-58:194">
+<p data-sourcepos="58:3-58:194">SwiftPM 無法在同一個目標中混合 Swift 和 C 系列檔案，因此 xtool 目標要麼全是 Swift，要麼全是 C/Objective-C。對於混合程式碼，請使用 <code data-sourcepos="58:175-58:191">builder: direct</code>。</p>
 </li>
-<li data-sourcepos="59:1-59:154">
-<p data-sourcepos="59:3-59:154">含有 Objective-C 的 xtool 目標不得將其 <code data-sourcepos="59:51-59:58">main()</code> 檔案命名為 <code data-sourcepos="59:76-59:83">main.m</code>：SwiftPM 會將它視為可執行目標。範例使用 <code data-sourcepos="59:141-59:151">appmain.m</code>。</p>
+<li data-sourcepos="59:1-60:16">
+<p data-sourcepos="59:3-60:16">具有 Objective-C 的 xtool 目標，其 <code data-sourcepos="59:45-59:52">main()</code> 檔案的名稱不能是 <code data-sourcepos="59:79-59:86">main.m</code>：SwiftPM 會將其視為可執行目標。範例使用的是
+<code data-sourcepos="60:3-60:13">appmain.m</code>。</p>
 </li>
-<li data-sourcepos="60:1-60:129">
-<p data-sourcepos="60:3-60:129">產生的 <code data-sourcepos="60:13-60:27">Package.swift</code> 只有一個函式庫目標。若需求更複雜，請自行撰寫並設定 <code data-sourcepos="60:105-60:126">package_swift: false</code>。</p>
-</li>
-</ul>
-<h2 id="toolchain" data-sourcepos="62:1-62:12">工具鏈<a href="#toolchain" aria-label="Link to heading '工具鏈'" data-heading-content="工具鏈" class="anchor"></a></h2>
-<ul data-sourcepos="64:1-70:201">
-<li data-sourcepos="64:1-64:145">
-<p data-sourcepos="64:3-64:145"><code data-sourcepos="64:3-64:14">idl-actool</code> 必須支援 <code data-sourcepos="64:29-64:39">--version</code>；從其輔助程式缺少該指令的版本升級 idl 時，請以 <code data-sourcepos="64:109-64:126">zig build actool</code> 重新建置它。</p>
-</li>
-<li data-sourcepos="65:1-65:232">
-<p data-sourcepos="65:3-65:232">xtool 的 entitlement 改寫路徑可能會遺失可執行檔的 ZIP 權限位元。idl 會在不變更其程式碼位元組或簽章的情況下正規化主要可執行檔的 ZIP 中繼資料，然後執行一般的 IPA 驗證。</p>
-</li>
-<li data-sourcepos="67:1-68:123">
-<p data-sourcepos="67:3-68:123">xtool 的 <code data-sourcepos="67:13-67:22">ld64.lld</code> 會印出 <code data-sourcepos="67:34-68:15">This version of lld does not support linking for platform iOS</code>。輸出是正確的：該 Mach-O 具有 <code data-sourcepos="68:58-68:75">LC_BUILD_VERSION</code> 平台 iOS。<code data-sourcepos="68:90-68:101">idl verify</code> 會檢查這一點。</p>
-</li>
-<li data-sourcepos="69:1-69:97">
-<p data-sourcepos="69:3-69:97">在 Linux 上，檔案與標頭路徑區分大小寫，這與預設的 macOS 磁碟區不同。</p>
-</li>
-<li data-sourcepos="70:1-70:201">
-<p data-sourcepos="70:3-70:201"><code data-sourcepos="70:3-70:7">idl</code> 不會安裝或下載工具。請自行安裝 Swift 工具鏈、Darwin SDK、ldid 與 xtool。<code data-sourcepos="70:103-70:113">idl check</code> 會列出缺少的項目。<code data-sourcepos="70:142-70:153">idl-actool</code> 由本儲存庫以 <code data-sourcepos="70:174-70:191">zig build actool</code> 建置。</p>
+<li data-sourcepos="61:1-61:132">
+<p data-sourcepos="61:3-61:132">產生的 <code data-sourcepos="61:13-61:27">Package.swift</code> 有一個程式庫目標。對於更複雜的情況，請自行撰寫並設定 <code data-sourcepos="61:108-61:129">package_swift: false</code>。</p>
 </li>
 </ul>
-<h2 id="configuration-parsing-zig-yaml" data-sourcepos="72:1-72:35">設定解析（zig-yaml 0.1.x）<a href="#configuration-parsing-zig-yaml" aria-label="Link to heading '設定解析（zig-yaml 0.1.x）'" data-heading-content="設定解析（zig-yaml 0.1.x）" class="anchor"></a></h2>
-<p data-sourcepos="74:1-74:75"><code data-sourcepos="74:1-74:5">idl</code> 使用設定檔所需的 YAML 子集。該函式庫的已知問題：</p>
-<ul data-sourcepos="76:1-78:38">
-<li data-sourcepos="76:1-76:138">值為空的鍵後面接著同層的鍵（<code data-sourcepos="76:45-76:50">key:</code> 然後 <code data-sourcepos="76:59-76:68">other: x</code>）會被解析為巢狀對應。請寫成 <code data-sourcepos="76:112-76:119">key: ~</code> 或省略該鍵。</li>
-<li data-sourcepos="77:1-77:242">註解與結尾空白會在解析前移除，因此 <code data-sourcepos="77:55-77:74">key: value  # note</code> 可正常運作。引號內的 <code data-sourcepos="77:107-77:109">#</code>，或前面沒有空白的 <code data-sourcepos="77:138-77:140">#</code>（<code data-sourcepos="77:144-77:164">url: http://x/#frag</code>）會被保留。不支援多行引號字串與區塊純量（<code data-sourcepos="77:228-77:230">|</code>、<code data-sourcepos="77:234-77:236">&gt;</code>）。</li>
-<li data-sourcepos="78:1-78:38">不支援錨點、別名與標籤。</li>
+<h2 id="toolchain" data-sourcepos="63:1-63:12">工具鏈<a href="#toolchain" aria-label="Link to heading '工具鏈'" data-heading-content="工具鏈" class="anchor"></a></h2>
+<ul data-sourcepos="65:1-72:74">
+<li data-sourcepos="65:1-65:151">
+<p data-sourcepos="65:3-65:151"><code data-sourcepos="65:3-65:14">idl-actool</code> 必須支援 <code data-sourcepos="65:29-65:39">--version</code>；當升級 idl 至其輔助程式缺乏該命令的版本時，請使用 <code data-sourcepos="65:115-65:132">zig build actool</code> 重新建構它。</p>
+</li>
+<li data-sourcepos="66:1-66:216">
+<p data-sourcepos="66:3-66:216">xtool 的權限重寫路徑可能會遺漏可執行 ZIP 的權限位元。idl 會正規化主要可執行檔案的 ZIP 中繼資料，而不改變其程式碼位元組或簽章，然後執行正常的 IPA 驗證。</p>
+</li>
+<li data-sourcepos="68:1-69:46">
+<p data-sourcepos="68:3-69:46">xtool 的 <code data-sourcepos="68:13-68:22">ld64.lld</code> 會列印 <code data-sourcepos="68:34-68:96">This version of lld does not support linking for platform iOS</code>。輸出是正確的：Mach-O 具有 <code data-sourcepos="68:135-68:152">LC_BUILD_VERSION</code>
+平台 iOS。<code data-sourcepos="69:16-69:27">idl verify</code> 會檢查此項。</p>
+</li>
+<li data-sourcepos="70:1-70:100">
+<p data-sourcepos="70:3-70:100">檔案和標頭路徑在 Linux 上是區分大小寫的，這與預設的 macOS 磁碟區不同。</p>
+</li>
+<li data-sourcepos="71:1-72:74">
+<p data-sourcepos="71:3-72:74"><code data-sourcepos="71:3-71:7">idl</code> 不會安裝或下載工具。請自行安裝 Swift 工具鏈、Darwin SDK、ldid 和 xtool。<code data-sourcepos="71:103-71:113">idl check</code> 會列出缺少的項目。
+<code data-sourcepos="72:3-72:14">idl-actool</code> 是透過此儲存庫使用 <code data-sourcepos="72:44-72:61">zig build actool</code> 建構的。</p>
+</li>
 </ul>
-<h2 id="packaging" data-sourcepos="80:1-80:9">封裝<a href="#packaging" aria-label="Link to heading '封裝'" data-heading-content="封裝" class="anchor"></a></h2>
-<ul data-sourcepos="82:1-83:112">
-<li data-sourcepos="82:1-82:145">IPA 寫入器不支援 ZIP64，因此 IPA 與其中每個檔案都必須小於 4 GiB。時間戳記固定為 1980-01-01，使輸出可重現。</li>
-<li data-sourcepos="83:1-83:112">來源、資源、套件目錄與 Xcode 專案輸出中的符號連結會被拒絕，且絕不會寫入 IPA。</li>
+<h2 id="configuration-parsing-zig-yaml" data-sourcepos="74:1-74:29">設定解析（zig-yaml）<a href="#configuration-parsing-zig-yaml" aria-label="Link to heading '設定解析（zig-yaml）'" data-heading-content="設定解析（zig-yaml）" class="anchor"></a></h2>
+<p data-sourcepos="76:1-76:78"><code data-sourcepos="76:1-76:5">idl</code> 使用設定檔案所需的 YAML 子集。該函式庫的已知問題：</p>
+<ul data-sourcepos="78:1-82:38">
+<li data-sourcepos="78:1-79:85">具有空值的金鑰後接兄弟金鑰（<code data-sourcepos="78:45-78:50">key:</code> 然後
+<code data-sourcepos="79:3-79:12">other: x</code>）會被解析為巢狀映射。請寫成 <code data-sourcepos="79:56-79:63">key: ~</code> 或省略該金鑰。</li>
+<li data-sourcepos="80:1-81:181">註解和尾隨空白會在解析前移除，因此
+<code data-sourcepos="81:3-81:22">key: value  # note</code> 可以運作。引號內的 <code data-sourcepos="81:52-81:54">#</code> 或前面沒有空白的 <code data-sourcepos="81:81-81:83">#</code>（<code data-sourcepos="81:87-81:107">url: http://x/#frag</code>）會被保留。支援多行引號字串和區塊標量（<code data-sourcepos="81:168-81:170">|</code>, <code data-sourcepos="81:173-81:175">&gt;</code>）。</li>
+<li data-sourcepos="82:1-82:38">不支援錨點、別名和標籤。</li>
+</ul>
+<h2 id="packaging" data-sourcepos="84:1-84:9">封裝<a href="#packaging" aria-label="Link to heading '封裝'" data-heading-content="封裝" class="anchor"></a></h2>
+<ul data-sourcepos="86:1-87:113">
+<li data-sourcepos="86:1-86:157">IPA 寫入器不支援 ZIP64，因此 IPA 及其中的每個檔案必須小於 4 GiB。時間戳記固定為 1980-01-01，以便輸出具有可重複性。</li>
+<li data-sourcepos="87:1-87:113">來源、資源、套件目錄和 Xcode 專案輸出中的符號連結會被拒絕，且不會寫入 IPA 中。</li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

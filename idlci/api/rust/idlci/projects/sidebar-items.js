@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["KINDS","SKIP"],"fn":["discover","git_info","head_oid","idl_path","parse_list","repo_name","resolve","targets"],"struct":["Project","Target"]};

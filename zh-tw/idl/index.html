@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>在 Linux 上開發 iOS · jbisfun wiki</title>
+  <title>在 Linux 上進行 iOS 開發 · jbisfun wiki</title>
   <meta name="color-scheme" content="light dark">
   <script>
     // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
@@ -109,6 +109,15 @@
         </li>
 
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
           <ul class="dropdown-menu">
 
@@ -201,7 +210,7 @@
 
   <li>
 
-    <a href="docs&#x2f;getting-started.html">開始使用</a>
+    <a href="docs&#x2f;getting-started.html">快速入門</a>
 
 
   </li>
@@ -229,67 +238,63 @@
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;idl&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
-      <h1 id="ios-development-on-linux" data-sourcepos="1:1-1:25">在 Linux 上開發 iOS<a href="#ios-development-on-linux" aria-label="Link to heading '在 Linux 上開發 iOS'" data-heading-content="在 Linux 上開發 iOS" class="anchor"></a></h1>
-<p data-sourcepos="3:1-4:27"><code data-sourcepos="3:1-3:5">idl</code> 是一個小型 Zig 工具，可在 Linux 上建置 Objective-C、Swift、C 與 C++ 的 iOS 應用程式。只要一個檔案 <code data-sourcepos="3:133-3:145">idlproj.yml</code>，就能設定工具鏈與每一個應用程式。
-<code data-sourcepos="4:1-4:5">idl</code> 會根據該檔案：</p>
-<ul data-sourcepos="6:1-8:222">
-<li data-sourcepos="6:1-7:102">產生程式碼：具確定性的 <code data-sourcepos="6:37-6:48">.xcodeproj</code> 專案（含共用 scheme）、供 xtool 使用的
-<code data-sourcepos="7:3-7:13">xtool.yml</code> 與 <code data-sourcepos="7:19-7:33">Package.swift</code>，以及供 clangd / sourcekit-lsp 使用的 <code data-sourcepos="7:80-7:102">compile_commands.json</code></li>
-<li data-sourcepos="8:1-8:222">執行建置：呼叫 clang、swiftc、xtool 的 <code data-sourcepos="8:52-8:61">ld64.lld</code> 與 <code data-sourcepos="8:67-8:72">ldid</code>，處理 Info.plist、編譯 storyboard、XIB 與資源目錄（asset catalog）、複製資源、進行 ad-hoc 簽署、寫出 IPA，並檢查結果</li>
+      <h1 id="ios-development-on-linux" data-sourcepos="1:1-1:32">在 Linux 上進行 iOS 開發<a href="#ios-development-on-linux" aria-label="Link to heading '在 Linux 上進行 iOS 開發'" data-heading-content="在 Linux 上進行 iOS 開發" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:210"><code data-sourcepos="3:1-3:5">idl</code> 是一個小型的 Zig 工具，可在 Linux 上建構 Objective-C、Swift、C 和 C++ iOS 應用程式。單一檔案 <code data-sourcepos="3:126-3:138">idlproj.yml</code> 即可設定工具鏈與所有應用程式。透過該檔案，<code data-sourcepos="3:203-3:207">idl</code>：</p>
+<ul data-sourcepos="5:1-6:225">
+<li data-sourcepos="5:1-5:185">產生程式碼：具有共用方案的確定性 <code data-sourcepos="5:52-5:63">.xcodeproj</code> 專案、用於 xtool 的 <code data-sourcepos="5:91-5:101">xtool.yml</code> + <code data-sourcepos="5:105-5:119">Package.swift</code>，以及用於 clangd / sourcekit-lsp 的 <code data-sourcepos="5:163-5:185">compile_commands.json</code></li>
+<li data-sourcepos="6:1-6:225">執行建構：呼叫 clang、swiftc、xtool 的 <code data-sourcepos="6:52-6:61">ld64.lld</code> 和 <code data-sourcepos="6:67-6:72">ldid</code>，處理 Info.plist、編譯 storyboards、XIBs 與資產目錄（asset catalogs）、複製資源、進行 ad-hoc 簽章、寫入 IPA，並檢查結果</li>
 </ul>
-<p data-sourcepos="10:1-10:67">建置步驟來自 LiveContainer 所使用的 Linux 建置方式。</p>
-<h2 id="quick-start" data-sourcepos="12:1-12:15">快速開始<a href="#quick-start" aria-label="Link to heading '快速開始'" data-heading-content="快速開始" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="14:5-18:86"><code><span class="hl-text hl-plain">xtool setup                   # Darwin SDK -&gt; ~/.swiftpm/swift-sdks/darwin.artifactbundle
-zig build                     # builds ./zig-out/bin/idl (Zig 0.14.1)
-./zig-out/bin/idl check       # verify the toolchain
-zig build actool              # optional: .xcassets compiler (needs swift)
-./zig-out/bin/idl build --strict -c release  # preflight, then build every example
+<p data-sourcepos="8:1-8:61">建構步驟來自 LiveContainer 所使用的 Linux 建構。</p>
+<h2 id="quick-start" data-sourcepos="10:1-10:15">快速開始<a href="#quick-start" aria-label="Link to heading '快速開始'" data-heading-content="快速開始" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="12:5-16:90"><code><span class="hl-text hl-plain">xtool setup                   # Darwin SDK -&gt; ~/.swiftpm/swift-sdks/darwin.artifactbundle
+zig build                     # 建構 ./zig-out/bin/idl (Zig 0.17.1)
+./zig-out/bin/idl check       # 驗證工具鏈
+zig build actool              # 選填：.xcassets 編譯器（需要 swift）
+./zig-out/bin/idl build --strict -c release  # 預先檢查，然後建構每個範例
 </span></code></pre>
-<p data-sourcepos="20:1-21:204">透過 <a data-sourcepos="20:8-20:60" href="https://github.com/jpdagostin0/jimpactor">Jimpactor</a> 安裝到手機上。
-Jimpactor 是一個側載（sideloading）系統匣應用程式，會使用你的 Apple 帳號為 IPA 簽署（其他選項請見 <a data-sourcepos="21:131-21:198" href="docs/workflows.html#install-on-a-device-through-jimpactor">workflows</a>）：</p>
-<pre class="syntax-highlighting" data-sourcepos="23:5-24:33"><code><span class="hl-text hl-plain">idl devices list
+<p data-sourcepos="18:1-18:259">透過 <a data-sourcepos="18:8-18:60" href="https://github.com/jpdagostin0/jimpactor">Jimpactor</a> 安裝至手機，這是一個側載托盤應用程式，會使用您的 Apple 帳戶為 IPA 簽章（其他選項請見 <a data-sourcepos="18:183-18:253" href="docs/workflows.html#install-on-a-device-through-jimpactor">工作流程</a>）：</p>
+<pre class="syntax-highlighting" data-sourcepos="20:5-21:33"><code><span class="hl-text hl-plain">idl devices list
 idl install &quot;My iPhone&quot; MyApp
 </span></code></pre>
-<p data-sourcepos="26:1-26:27">建立新的應用程式：</p>
-<pre class="syntax-highlighting" data-sourcepos="28:5-29:25"><code><span class="hl-text hl-plain">idl init MyApp --lang swift --bundle-id com.example.myapp
+<p data-sourcepos="23:1-23:24">建立新應用程式：</p>
+<pre class="syntax-highlighting" data-sourcepos="25:5-26:25"><code><span class="hl-text hl-plain">idl init MyApp --lang swift --bundle-id com.example.myapp
 cd MyApp &amp;&amp; idl build
 </span></code></pre>
-<h2 id="build-automation" data-sourcepos="31:1-31:18">建置自動化<a href="#build-automation" aria-label="Link to heading '建置自動化'" data-heading-content="建置自動化" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="33:5-35:39"><code><span class="hl-text hl-plain">idl check --strict -c release
+<h2 id="build-automation" data-sourcepos="28:1-28:18">建構自動化<a href="#build-automation" aria-label="Link to heading '建構自動化'" data-heading-content="建構自動化" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="30:5-32:39"><code><span class="hl-text hl-plain">idl check --strict -c release
 idl build --strict -c debug MyApp
 idl build --strict -c release MyApp
 </span></code></pre>
-<p data-sourcepos="37:1-38:236">YAML 的 <code data-sourcepos="37:10-37:26">configurations:</code> 可覆寫旗標、套件組合識別、中繼資料與權限（entitlements）。
-Debug／release 產出物彼此隔離。直接建置會快取資源編譯、打包、簽署與封裝；同時進行的 build／gen／clean 操作會被鎖定。請見 <a data-sourcepos="38:168-38:233" href="docs/workflows.html#strict-preflight-and-build-profiles">workflows</a>。</p>
-<h2 id="code-quality" data-sourcepos="40:1-40:18">程式碼品質<a href="#code-quality" aria-label="Link to heading '程式碼品質'" data-heading-content="程式碼品質" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="42:5-44:108"><code><span class="hl-text hl-plain">idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format, configs generated from YAML
-idl lint [--analyze]   # clang -Wall, swiftc -typecheck, clang-tidy, analyzer, all with the real build flags
-idl test               # bundle checks (arm64/iOS/signed, @rpath resolution, plists) + `tests:` commands
+<p data-sourcepos="34:1-34:310">YAML <code data-sourcepos="34:6-34:22">configurations:</code> 覆寫旗標、套件識別、中繼資料和權限。Debug/release 產物是隔離的。直接建構會快取資源編譯、捆綁、簽章和封裝；並行的建構/產生/清理操作會進行鎖定。請參閱 <a data-sourcepos="34:239-34:307" href="docs/workflows.html#strict-preflight-and-build-profiles">工作流程</a>。</p>
+<h2 id="code-quality" data-sourcepos="36:1-36:18">程式碼品質<a href="#code-quality" aria-label="Link to heading '程式碼品質'" data-heading-content="程式碼品質" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="38:5-40:108"><code><span class="hl-text hl-plain">idl fmt [--check]      # clang-format (C/ObjC/C++/ObjC++) + swift-format，設定檔由 YAML 產生
+idl lint [--analyze]   # clang -Wall, swiftc -typecheck, clang-tidy, analyzer，皆使用實際建構旗標
+idl test               # 套件檢查（arm64/iOS/已簽章、@rpath 解析、plists）+ `tests:` 指令
 </span></code></pre>
-<p data-sourcepos="46:1-46:194">idl 只負責協調已安裝的工具，並將它們的診斷訊息合併成一份報告。請見 <a data-sourcepos="46:99-46:191" href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">configuration</a>。</p>
-<h2 id="layout" data-sourcepos="48:1-48:15">目錄配置<a href="#layout" aria-label="Link to heading '目錄配置'" data-heading-content="目錄配置" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="50:5-56:36"><code><span class="hl-text hl-plain">idlproj.yml        configuration for the examples in this repository
-build.zig(.zon)    Zig build; pulls zig-clap, zig-yaml, zig-xml and libplist
-src/               the idl tool (see docs/architecture.md)
-tools/idl-actool/  Swift wrapper around AssetKit for .xcassets
-examples/          ObjC, Swift, storyboard/XIB/asset-catalog and xtool/SwiftPM
-                   apps, plus xcconfig patterns
-docs/              documentation
+<p data-sourcepos="42:1-42:190">idl 僅負責協調已安裝的工具，並將它們的診斷資訊合併為單一報告。請參閱 <a data-sourcepos="42:102-42:187" href="docs/configuration.html#formatting-linting-and-tests-idl-fmt-idl-lint-idl-test">設定</a>。</p>
+<h2 id="layout" data-sourcepos="44:1-44:15">目錄結構<a href="#layout" aria-label="Link to heading '目錄結構'" data-heading-content="目錄結構" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="46:5-52:29"><code><span class="hl-text hl-plain">idlproj.yml        本儲存庫中範例的設定
+build.zig(.zon)    Zig 建構；拉取 zig-clap、zig-yaml、zig-xml 和 libplist
+src/               idl 工具（請參閱 docs/architecture.md）
+tools/idl-actool/  AssetKit 的 Swift 包裝函式，用於 .xcassets
+examples/          ObjC、Swift、storyboard/XIB/資產目錄及 xtool/SwiftPM
+                   應用程式，以及 xcconfig 樣式
+docs/              文件
 </span></code></pre>
-<h2 id="documentation" data-sourcepos="58:1-58:9">文件<a href="#documentation" aria-label="Link to heading '文件'" data-heading-content="文件" class="anchor"></a></h2>
-<ul data-sourcepos="60:1-64:32">
-<li data-sourcepos="60:1-60:41"><a data-sourcepos="60:3-60:41" href="docs/getting-started.html">開始使用</a></li>
-<li data-sourcepos="61:1-61:45"><a data-sourcepos="61:3-61:45" href="docs/configuration.html">idlproj.yml 參考</a></li>
-<li data-sourcepos="62:1-62:41"><a data-sourcepos="62:3-62:41" href="docs/workflows.html">常見工作流程</a></li>
-<li data-sourcepos="63:1-63:37"><a data-sourcepos="63:3-63:37" href="docs/limitations.html">已知限制</a></li>
-<li data-sourcepos="64:1-64:32"><a data-sourcepos="64:3-64:32" href="docs/architecture.html">架構</a></li>
+<h2 id="documentation" data-sourcepos="54:1-54:9">文件<a href="#documentation" aria-label="Link to heading '文件'" data-heading-content="文件" class="anchor"></a></h2>
+<ul data-sourcepos="56:1-60:32">
+<li data-sourcepos="56:1-56:41"><a data-sourcepos="56:3-56:41" href="docs/getting-started.html">入門指南</a></li>
+<li data-sourcepos="57:1-57:51"><a data-sourcepos="57:3-57:51" href="docs/configuration.html">idlproj.yml 參考資料</a></li>
+<li data-sourcepos="58:1-58:41"><a data-sourcepos="58:3-58:41" href="docs/workflows.html">常見工作流程</a></li>
+<li data-sourcepos="59:1-59:37"><a data-sourcepos="59:3-59:37" href="docs/limitations.html">已知限制</a></li>
+<li data-sourcepos="60:1-60:32"><a data-sourcepos="60:3-60:32" href="docs/architecture.html">架構</a></li>
 </ul>
-<h2 id="tests" data-sourcepos="66:1-66:9">測試<a href="#tests" aria-label="Link to heading '測試'" data-heading-content="測試" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="68:5-70:80"><code><span class="hl-text hl-plain">zig build test       # unit tests (config, plist, pbxproj, zip, Mach-O, nib, ibtool, ...)
+<h2 id="tests" data-sourcepos="62:1-62:9">測試<a href="#tests" aria-label="Link to heading '測試'" data-heading-content="測試" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="64:5-66:92"><code><span class="hl-text hl-plain">zig build test       # 單元測試（設定、plist、pbxproj、zip、Mach-O、nib、ibtool、...）
 zig build check      # idl check
-zig build examples   # idl build --gen for every example (real arm64 builds)
+zig build examples   # idl build --gen 為每個範例執行（實際的 arm64 建構）
 </span></code></pre>
-<p data-sourcepos="72:1-72:142">Ad-hoc <code data-sourcepos="72:8-72:13">ldid</code> 簽章並不等同於佈建（provisioning）。安裝 IPA 之前，請先使用你慣用的簽署或側載工具重新簽署。</p>
+<p data-sourcepos="68:1-68:115">ad-hoc <code data-sourcepos="68:8-68:13">ldid</code> 簽章並非 provisioning。安裝前，請使用您常用的簽章或側載工具重新簽章 IPA。</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

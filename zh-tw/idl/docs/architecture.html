@@ -109,6 +109,15 @@
         </li>
 
         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
           <ul class="dropdown-menu">
 
@@ -201,7 +210,7 @@
 
   <li>
 
-    <a href="getting-started.html">開始使用</a>
+    <a href="getting-started.html">快速入門</a>
 
 
   </li>
@@ -230,20 +239,20 @@
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;docs&#x2f;architecture.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
       <h1 id="architecture" data-sourcepos="1:1-1:8">架構<a href="#architecture" aria-label="Link to heading '架構'" data-heading-content="架構" class="anchor"></a></h1>
-<p data-sourcepos="3:1-3:317"><code data-sourcepos="3:1-3:5">idl</code> 是單一的 Zig 執行檔（libplist 已編譯進去；只以動態方式連結 libc）。它讀取 <code data-sourcepos="3:108-3:120">idlproj.yml</code>，然後產生檔案或執行外部編譯器。它不包含通用的工作語言：它追蹤編譯器相依關係、準備經過衝突檢查的資源計畫，並快取資源與 bundle 的輸出。</p>
+<p data-sourcepos="3:1-3:300"><code data-sourcepos="3:1-3:5">idl</code> 是一個單一的 Zig 可執行檔（libplist 已編譯為靜態；僅動態連結 libc）。它讀取 <code data-sourcepos="3:111-3:123">idlproj.yml</code>，並產生檔案或執行外部編譯器。它不包含通用任務語言：會追蹤編譯器相依性、準備碰撞檢查的資源計畫，並快取資源與套件輸出。</p>
 <pre class="syntax-highlighting" data-sourcepos="5:1-16:3"><code><span class="hl-text hl-plain">idlproj.yml ──► config ──► codegen ─► .xcodeproj, xtool.yml, Package.swift, compile_commands.json
                   │
                   └──► builder ─► clang / clang++ / swiftc ─► ld64.lld (xtool SDK)
-                         │            (parallel, incremental)
+                         │            (平行、增量式)
                          ├─► plist (libplist): Info.plist, entitlements
                          ├─► resources: xcstrings, ibtool (storyboard/xib ─► nib),
                          │              idl-actool (xcassets ─► Assets.car)
-                         ├─► ldid (from PATH or toolchain.ldid)
+                         ├─► ldid (來自 PATH 或 toolchain.ldid)
                          ├─► zip writer ─► .ipa
                          └─► verify: zip reader + plist + Mach-O parser
 </span></code></pre>
-<h2 id="source-map" data-sourcepos="18:1-18:18">原始碼對照<a href="#source-map" aria-label="Link to heading '原始碼對照'" data-heading-content="原始碼對照" class="anchor"></a></h2>
-<table data-sourcepos="20:1-44:63" class="table table-sm table-striped">
+<h2 id="source-map" data-sourcepos="18:1-18:18">來源對應表<a href="#source-map" aria-label="Link to heading '來源對應表'" data-heading-content="來源對應表" class="anchor"></a></h2>
+<table data-sourcepos="20:1-45:114" class="table table-sm table-striped">
 <thead>
 <tr data-sourcepos="20:1-20:19">
 <th data-sourcepos="20:2-20:9">檔案</th>
@@ -251,130 +260,127 @@
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="22:1-22:90">
+<tr data-sourcepos="22:1-22:84">
 <td data-sourcepos="22:2-22:17"><code data-sourcepos="22:3-22:16">src/main.zig</code></td>
-<td data-sourcepos="22:19-22:89">CLI：zig-clap 頂層命令，加上每個子命令各自的解析器</td>
+<td data-sourcepos="22:19-22:83">CLI：zig-clap 頂層指令，以及每個子指令的解析器</td>
 </tr>
 <tr data-sourcepos="23:1-23:99">
 <td data-sourcepos="23:2-23:19"><code data-sourcepos="23:3-23:18">src/config.zig</code></td>
-<td data-sourcepos="23:21-23:98"><code data-sourcepos="23:22-23:34">idlproj.yml</code> 結構描述、合併 <code data-sourcepos="23:58-23:67">defaults</code>、驗證、向上搜尋檔案</td>
+<td data-sourcepos="23:21-23:98"><code data-sourcepos="23:22-23:34">idlproj.yml</code> 結構定義、合併 <code data-sourcepos="23:58-23:67">defaults</code>、驗證、向上檔案搜尋</td>
 </tr>
-<tr data-sourcepos="24:1-24:113">
+<tr data-sourcepos="24:1-24:100">
 <td data-sourcepos="24:2-24:18"><code data-sourcepos="24:3-24:17">src/ynode.zig</code></td>
-<td data-sourcepos="24:20-24:112">建立在 zig-yaml 解析樹上的無損 YAML 檢視（保留純量文字；移除註解）</td>
+<td data-sourcepos="24:20-24:99">zig-yaml 解析樹的無損 YAML 檢視（保留純量文字；移除註解）</td>
 </tr>
-<tr data-sourcepos="25:1-25:105">
+<tr data-sourcepos="25:1-25:101">
 <td data-sourcepos="25:2-25:22"><code data-sourcepos="25:3-25:21">src/toolchain.zig</code></td>
-<td data-sourcepos="25:24-25:104">SDK／編譯器／ldid 探索、編譯器與連結器旗標組合、<code data-sourcepos="25:93-25:103">idl check</code></td>
+<td data-sourcepos="25:24-25:100">SDK/編譯器/ldid 發現、編譯器與連結器旗標集合、<code data-sourcepos="25:89-25:99">idl check</code></td>
 </tr>
-<tr data-sourcepos="26:1-26:113">
+<tr data-sourcepos="26:1-26:105">
 <td data-sourcepos="26:2-26:22"><code data-sourcepos="26:3-26:21">src/resources.zig</code></td>
-<td data-sourcepos="26:24-26:112">資源快取、嚴格驗證、輸出衝突計畫，以及 storyboard／nib 參照檢查</td>
+<td data-sourcepos="26:24-26:104">資源快取、嚴格驗證、輸出碰撞計畫與 storyboard/nib 參考檢查</td>
 </tr>
-<tr data-sourcepos="27:1-27:117">
+<tr data-sourcepos="27:1-27:100">
 <td data-sourcepos="27:2-27:23"><code data-sourcepos="27:3-27:22">src/buildstate.zig</code></td>
-<td data-sourcepos="27:25-27:116">SHA-256 目錄樹指紋、快取記錄／輸出完整性，以及每個資料夾的 OS 鎖</td>
+<td data-sourcepos="27:25-27:99">SHA-256 樹狀指紋、快取記錄/輸出完整性與每目錄 OS 鎖定</td>
 </tr>
-<tr data-sourcepos="28:1-28:109">
+<tr data-sourcepos="28:1-28:108">
 <td data-sourcepos="28:2-28:20"><code data-sourcepos="28:3-28:19">src/builder.zig</code></td>
-<td data-sourcepos="28:22-28:108">平行增量編譯、連結、bundle 組裝、簽署、封裝、xtool 執行、清除</td>
+<td data-sourcepos="28:22-28:107">平行增量編譯、連結、套件組裝、簽署、打包、xtool 執行、清理</td>
 </tr>
-<tr data-sourcepos="29:1-29:124">
+<tr data-sourcepos="29:1-29:109">
 <td data-sourcepos="29:2-29:20"><code data-sourcepos="29:3-29:19">src/codegen.zig</code></td>
-<td data-sourcepos="29:22-29:123"><code data-sourcepos="29:23-29:33">xtool.yml</code>、<code data-sourcepos="29:37-29:51">Package.swift</code>、<code data-sourcepos="29:55-29:77">compile_commands.json</code>，以及防止覆寫非產生檔案的保護</td>
+<td data-sourcepos="29:22-29:108"><code data-sourcepos="29:23-29:33">xtool.yml</code>、<code data-sourcepos="29:37-29:51">Package.swift</code>、<code data-sourcepos="29:55-29:77">compile_commands.json</code>、防止覆蓋非產生檔案</td>
 </tr>
-<tr data-sourcepos="30:1-30:101">
+<tr data-sourcepos="30:1-30:94">
 <td data-sourcepos="30:2-30:20"><code data-sourcepos="30:3-30:19">src/pbxproj.zig</code></td>
-<td data-sourcepos="30:22-30:100">具確定性的 Xcode 專案與 scheme；原子性、防符號連結的發佈</td>
+<td data-sourcepos="30:22-30:93">確定性 Xcode 專案與方案；原子、符號連結安全的發布</td>
 </tr>
-<tr data-sourcepos="31:1-31:120">
+<tr data-sourcepos="31:1-31:110">
 <td data-sourcepos="31:2-31:21"><code data-sourcepos="31:3-31:20">src/metadata.zig</code></td>
-<td data-sourcepos="31:23-31:119">由 YAML 驅動的 Info.plist 與 entitlements，供直接建置、Xcode 與 xtool 建置共用</td>
+<td data-sourcepos="31:23-31:109">YAML 驅動的 Info.plist 與 entitlements，由直接、Xcode 與 xtool 建置共用</td>
 </tr>
-<tr data-sourcepos="32:1-32:80">
+<tr data-sourcepos="32:1-32:83">
 <td data-sourcepos="32:2-32:18"><code data-sourcepos="32:3-32:17">src/plist.zig</code></td>
-<td data-sourcepos="32:20-32:79">libplist 包裝層、Xcode <code data-sourcepos="32:48-32:55">$(VAR)</code> 展開、CLI 值解析</td>
+<td data-sourcepos="32:20-32:82">libplist 包裝函式、Xcode <code data-sourcepos="32:51-32:58">$(VAR)</code> 展開、CLI 值解析</td>
 </tr>
-<tr data-sourcepos="33:1-33:79">
+<tr data-sourcepos="33:1-33:75">
 <td data-sourcepos="33:2-33:22"><code data-sourcepos="33:3-33:21">src/xcstrings.zig</code></td>
-<td data-sourcepos="33:24-33:78">將 String Catalog 轉為 <code data-sourcepos="33:51-33:60">.strings</code> / <code data-sourcepos="33:64-33:77">.stringsdict</code></td>
+<td data-sourcepos="33:24-33:74">String Catalog 轉為 <code data-sourcepos="33:47-33:56">.strings</code> / <code data-sourcepos="33:60-33:73">.stringsdict</code></td>
 </tr>
-<tr data-sourcepos="34:1-34:102">
+<tr data-sourcepos="34:1-34:90">
 <td data-sourcepos="34:2-34:16"><code data-sourcepos="34:3-34:15">src/zip.zig</code></td>
-<td data-sourcepos="34:18-34:101">具確定性的 ZIP 寫入器（std.compress.flate）與會檢查 CRC 的讀取器</td>
+<td data-sourcepos="34:18-34:89">確定性 ZIP 寫入器（std.compress.flate）與 CRC 檢查讀取器</td>
 </tr>
 <tr data-sourcepos="35:1-35:56">
 <td data-sourcepos="35:2-35:18"><code data-sourcepos="35:3-35:17">src/macho.zig</code></td>
-<td data-sourcepos="35:20-35:55">Mach-O 標頭與載入命令檢查</td>
+<td data-sourcepos="35:20-35:55">Mach-O 標頭與載入指令檢查</td>
 </tr>
-<tr data-sourcepos="36:1-36:64">
+<tr data-sourcepos="36:1-36:67">
 <td data-sourcepos="36:2-36:19"><code data-sourcepos="36:3-36:18">src/verify.zig</code></td>
-<td data-sourcepos="36:21-36:63"><code data-sourcepos="36:22-36:28">build</code> 與 <code data-sourcepos="36:34-36:41">verify</code> 使用的 IPA 驗證</td>
+<td data-sourcepos="36:21-36:66">IPA 驗證，供 <code data-sourcepos="36:39-36:45">build</code> 與 <code data-sourcepos="36:51-36:58">verify</code> 使用</td>
 </tr>
-<tr data-sourcepos="37:1-37:105">
+<tr data-sourcepos="37:1-37:101">
 <td data-sourcepos="37:2-37:19"><code data-sourcepos="37:3-37:18">src/ibtool.zig</code></td>
-<td data-sourcepos="37:21-37:104">將 <code data-sourcepos="37:26-37:31">.xib</code> / <code data-sourcepos="37:35-37:47">.storyboard</code> 轉為 nib 物件圖（移植自 davidquesada/ibtool）</td>
+<td data-sourcepos="37:21-37:100"><code data-sourcepos="37:22-37:27">.xib</code> / <code data-sourcepos="37:31-37:43">.storyboard</code> 轉為 nib 物件圖（davidquesada/ibtool 移植版）</td>
 </tr>
 <tr data-sourcepos="38:1-38:92">
 <td data-sourcepos="38:2-38:16"><code data-sourcepos="38:3-38:15">src/nib.zig</code></td>
 <td data-sourcepos="38:18-38:91">NIBArchive 物件模型、編碼器與解碼器（<code data-sourcepos="38:69-38:87">idl ibtool --dump</code>）</td>
 </tr>
-<tr data-sourcepos="39:1-39:72">
+<tr data-sourcepos="39:1-39:66">
 <td data-sourcepos="39:2-39:19"><code data-sourcepos="39:3-39:18">src/xmldom.zig</code></td>
-<td data-sourcepos="39:21-39:71">建立在 zig-xml 串流讀取器上的小型 DOM</td>
+<td data-sourcepos="39:21-39:65">基於 zig-xml 串流讀取器的輕量 DOM</td>
 </tr>
-<tr data-sourcepos="40:1-40:106">
+<tr data-sourcepos="40:1-40:109">
 <td data-sourcepos="40:2-40:21"><code data-sourcepos="40:3-40:20">tools/idl-actool</code></td>
-<td data-sourcepos="40:23-40:105">AssetKit 的 Swift 包裝層；獨立的執行檔，由 <code data-sourcepos="40:80-40:97">zig build actool</code> 建置</td>
+<td data-sourcepos="40:23-40:108">AssetKit 的 Swift 包裝函式；獨立可執行檔，由 <code data-sourcepos="40:83-40:100">zig build actool</code> 建置</td>
 </tr>
-<tr data-sourcepos="41:1-41:96">
+<tr data-sourcepos="41:1-41:102">
 <td data-sourcepos="41:2-41:22"><code data-sourcepos="41:3-41:21">src/jimpactor.zig</code></td>
-<td data-sourcepos="41:24-41:95">Jimpactor 本機 IPC 協定 v1 的用戶端（<code data-sourcepos="41:71-41:79">devices</code>、<code data-sourcepos="41:83-41:91">install</code>）</td>
+<td data-sourcepos="41:24-41:101">Jimpactor 本機 IPC 通訊協定 v1 的客戶端（<code data-sourcepos="41:77-41:85">devices</code>、<code data-sourcepos="41:89-41:97">install</code>）</td>
 </tr>
-<tr data-sourcepos="42:1-42:88">
+<tr data-sourcepos="42:1-42:85">
 <td data-sourcepos="42:2-42:21"><code data-sourcepos="42:3-42:20">src/scaffold.zig</code></td>
-<td data-sourcepos="42:23-42:87"><code data-sourcepos="42:24-42:33">idl init</code>（原始碼由 <code data-sourcepos="42:50-42:60">build.zig</code> 從 <code data-sourcepos="42:66-42:76">examples/</code> 內嵌）</td>
+<td data-sourcepos="42:23-42:84"><code data-sourcepos="42:24-42:33">idl init</code>（來源由 <code data-sourcepos="42:47-42:57">build.zig</code> 從 <code data-sourcepos="42:63-42:73">examples/</code> 嵌入）</td>
 </tr>
 <tr data-sourcepos="43:1-43:90">
 <td data-sourcepos="43:2-43:19"><code data-sourcepos="43:3-43:18">src/fsutil.zig</code></td>
-<td data-sourcepos="43:21-43:89">與 Xcode 共用的探索規則、路徑驗證、符號連結檢查</td>
+<td data-sourcepos="43:21-43:89">與 Xcode 共用的發現規則、路徑驗證、符號連結檢查</td>
 </tr>
 <tr data-sourcepos="44:1-44:63">
 <td data-sourcepos="44:2-44:17"><code data-sourcepos="44:3-44:16">src/diag.zig</code></td>
-<td data-sourcepos="44:19-44:62">唯一面向使用者的錯誤訊息通道</td>
+<td data-sourcepos="44:19-44:62">單一使用者可見的錯誤訊息通道</td>
+</tr>
+<tr data-sourcepos="45:1-45:114">
+<td data-sourcepos="45:2-45:16"><code data-sourcepos="45:3-45:15">src/sys.zig</code></td>
+<td data-sourcepos="45:18-45:113">程序層級的 <code data-sourcepos="45:35-45:42">std.Io</code> 與環境（在 <code data-sourcepos="45:60-45:65">main</code> 中設定一次）、檔案/程序輔助函式</td>
 </tr>
 </tbody>
 </table>
-<h2 id="dependencies" data-sourcepos="46:1-46:15">相依套件<a href="#dependencies" aria-label="Link to heading '相依套件'" data-heading-content="相依套件" class="anchor"></a></h2>
-<p data-sourcepos="48:1-48:62">所有相依套件都已在 <code data-sourcepos="48:29-48:43">build.zig.zon</code> 中固定版本：</p>
-<ul data-sourcepos="50:1-59:148">
-<li data-sourcepos="50:1-50:47"><strong data-sourcepos="50:3-50:14">zig-clap</strong>：引數解析與說明文字。</li>
-<li data-sourcepos="51:1-51:201"><strong data-sourcepos="51:3-51:14">zig-yaml</strong>：YAML 詞法分析器與解析器。<code data-sourcepos="51:53-51:57">idl</code> 直接走訪它的 <code data-sourcepos="51:78-51:83">Tree</code>，而不使用 <code data-sourcepos="51:100-51:111">Yaml.parse</code>，因為具型別的解析器會將 <code data-sourcepos="51:149-51:155">16.10</code> 強制轉換成浮點數，並丟失引號。</li>
-<li data-sourcepos="52:1-54:65"><strong data-sourcepos="52:3-52:14">libplist</strong>（libimobiledevice）：讀寫 XML、二進位、JSON 與
-OpenStep 格式的 plist。它以 <code data-sourcepos="53:37-53:59">git+https://…#2.8.1</code>（固定在某個 commit）取得，並由 <code data-sourcepos="53:104-53:114">build.zig</code> 中的 <code data-sourcepos="53:123-53:137">buildLibplist</code> 以 C 原始碼編譯，而不使用其
-autotools 建置。只建置 C 核心，不建置 libplist++。</li>
-<li data-sourcepos="55:1-55:135"><strong data-sourcepos="55:3-55:13">zig-xml</strong>（ianprime0509）：用於 Interface Builder 文件的 XML 讀取器。固定在最後一個支援 Zig 0.14 的 commit。</li>
-<li data-sourcepos="56:1-58:10"><strong data-sourcepos="56:3-56:14">AssetKit</strong>（xtool-org）：將 <code data-sourcepos="56:37-56:47">.xcassets</code> 轉為 <code data-sourcepos="56:56-56:67">Assets.car</code>，僅供
-<code data-sourcepos="57:3-57:20">tools/idl-actool</code> 使用（Swift 套件，固定在 1.0.0）。它不會連結進
-<code data-sourcepos="58:3-58:7">idl</code>。</li>
-<li data-sourcepos="59:1-59:148"><strong data-sourcepos="59:3-59:13">Zig std</strong>：deflate、CRC-32、SHA-1、JSON 與行程。除了連到 127.0.0.1 上的 Jimpactor 之外，<code data-sourcepos="59:110-59:114">idl</code> 不會發出任何網路請求。</li>
+<h2 id="dependencies" data-sourcepos="47:1-47:12">相依性<a href="#dependencies" aria-label="Link to heading '相依性'" data-heading-content="相依性" class="anchor"></a></h2>
+<p data-sourcepos="49:1-49:55">所有相依性皆已固定版本於 <code data-sourcepos="49:38-49:52">build.zig.zon</code>：</p>
+<ul data-sourcepos="51:1-56:206">
+<li data-sourcepos="51:1-51:47"><strong data-sourcepos="51:3-51:14">zig-clap</strong>：參數解析與說明文字。</li>
+<li data-sourcepos="52:1-52:277"><strong data-sourcepos="52:3-52:14">zig-yaml</strong>：YAML 詞法分析器與解析器，固定版本為上游 <code data-sourcepos="52:75-52:80">main</code>（0.3.0；上游無 0.17 版）的 Zig 0.17 移植版。<code data-sourcepos="52:138-52:142">idl</code> 直接遍歷其 <code data-sourcepos="52:160-52:165">Tree</code>，而非使用 <code data-sourcepos="52:182-52:193">Yaml.parse</code>，因為型別化解析器會將 <code data-sourcepos="52:228-52:234">16.10</code> 強制轉換為浮點數並遺漏引號。</li>
+<li data-sourcepos="53:1-53:318"><strong data-sourcepos="53:3-53:14">libplist</strong>（libimobiledevice）：讀取與寫入 XML、二進位、JSON 和 OpenStep plists。它以 <code data-sourcepos="53:108-53:130">git+https://…#2.8.1</code> 取得（固定版本至特定提交），並在 <code data-sourcepos="53:181-53:191">build.zig</code> 中由 <code data-sourcepos="53:200-53:214">buildLibplist</code> 從 C 原始碼編譯，而非使用其 autotools 建構。僅建構 C 核心，不包含 libplist++。</li>
+<li data-sourcepos="54:1-54:121"><strong data-sourcepos="54:3-54:13">zig-xml</strong>（ianprime0509）：Interface Builder 文件的 XML 讀取器。固定版本為 0.2.2（Zig 0.16/0.17）。</li>
+<li data-sourcepos="55:1-55:174"><strong data-sourcepos="55:3-55:14">AssetKit</strong>（xtool-org）：將 <code data-sourcepos="55:37-55:47">.xcassets</code> 轉換為 <code data-sourcepos="55:59-55:70">Assets.car</code>，僅由 <code data-sourcepos="55:81-55:98">tools/idl-actool</code> 使用（Swift 套件，固定版本為 1.0.0）。它未連結至 <code data-sourcepos="55:167-55:171">idl</code>。</li>
+<li data-sourcepos="56:1-56:206"><strong data-sourcepos="56:3-56:13">Zig std</strong>：deflate、CRC-32、SHA-1、JSON、程序與 <code data-sourcepos="56:61-56:73">translate-c</code>（<code data-sourcepos="56:77-56:85">plist.h</code> 由 <code data-sourcepos="56:91-56:101">build.zig</code> 轉換；Zig 0.16+ 無 <code data-sourcepos="56:126-56:135">@cImport</code>）。<code data-sourcepos="56:142-56:146">idl</code> 僅向 Jimpactor（位於 127.0.0.1）發出網路請求。</li>
 </ul>
-<h2 id="design-notes" data-sourcepos="61:1-61:15">設計筆記<a href="#design-notes" aria-label="Link to heading '設計筆記'" data-heading-content="設計筆記" class="anchor"></a></h2>
-<ul data-sourcepos="63:1-76:178">
-<li data-sourcepos="63:1-65:84"><strong data-sourcepos="63:3-63:36">確定性的程式碼產生。</strong> Xcode 物件 ID 為
-<code data-sourcepos="64:3-64:45">SHA1(&quot;pbxprojgen:&lt;section&gt;:&lt;key&gt;&quot;)[0..12]</code>，因此相同的輸入永遠產生相同的 <code data-sourcepos="64:92-64:108">project.pbxproj</code>。底層 ID 與早期的
-Python 產生器保持相容；特定設定檔的設定則刻意擴充了輸出。</li>
-<li data-sourcepos="66:1-67:138"><strong data-sourcepos="66:3-66:21">安全發佈。</strong> 新的 <code data-sourcepos="66:30-66:41">.xcodeproj</code> 會寫入私有的同層資料夾，再以相對於資料夾 FD、不跟隨符號連結的操作（<code data-sourcepos="66:142-66:171">fstatat(AT_SYMLINK_NOFOLLOW)</code>、<code data-sourcepos="66:175-66:194">openat(O_NOFOLLOW)</code>、
-<code data-sourcepos="67:3-67:12">renameat</code>）移到定位。因此，在最後一刻被換入的符號連結無法重新導向寫入。單元測試涵蓋了這一點。</li>
-<li data-sourcepos="68:1-68:118"><strong data-sourcepos="68:3-68:33">絕不覆寫手寫檔案。</strong> 產生的原始碼樹檔案帶有標記，沒有標記的檔案則不會被動到。</li>
-<li data-sourcepos="69:1-69:223"><strong data-sourcepos="69:3-69:27">編譯前先預檢。</strong> 在任何資源編譯器執行之前，會先探測所有選定的工具；在應用程式編譯開始之前，會先準備所有資源計畫。嚴格模式會拒絕不支援或遺漏的輸入。</li>
-<li data-sourcepos="70:1-70:314"><strong data-sourcepos="70:3-70:21">增量建置。</strong> 每個物件檔都有 <code data-sourcepos="70:45-70:50">.cmd</code> 命令／工具指紋，而 clang 的 <code data-sourcepos="70:90-70:95">-MMD</code> depfile 會列出標頭檔。資源使用 SHA-256 內容定址的快取項目，並在命中時驗證其輸出樹。打包／簽署／ZIP 僅在輸入指紋以及 payload 與 IPA 的完整性都相符時才會略過。</li>
-<li data-sourcepos="71:1-71:222"><strong data-sourcepos="71:3-71:15">鎖定。</strong> Build／check／gen／clean 會在 <code data-sourcepos="71:52-71:68">.idl/build.lock</code> 中持有 OS 建議性鎖。清除時絕不會 unlink 鎖定檔；關閉描述子即釋放鎖。建置會在修改輸出之前取得所有選定的鎖。</li>
-<li data-sourcepos="72:1-73:163"><strong data-sourcepos="72:3-72:24">設定檔產生。</strong> YAML 對應表會深度合併成解析後的 debug／release
-目標。每個設定檔的中繼資料寫在 <code data-sourcepos="73:49-73:65">.idl/&lt;profile&gt;/</code> 之下；Xcode 會取得兩個設定檔，而 xtool 的資訊清單則描述選定的設定檔。</li>
-<li data-sourcepos="74:1-75:70"><strong data-sourcepos="74:3-74:25">可重現的 IPA。</strong> 項目會排序、時間戳記固定，且 Unix
-模式會保留。只有在能讓項目變小時才使用 Deflate。</li>
-<li data-sourcepos="76:1-76:178"><strong data-sourcepos="76:3-76:30">限定範圍的環境。</strong> swiftly 的 bin 資料夾會附加在 <code data-sourcepos="76:70-76:75">PATH</code> 之後，而非放在前面，而且只用於傳給子行程的環境。主機工具保有優先權。</li>
+<h2 id="design-notes" data-sourcepos="58:1-58:21">設計注意事項<a href="#design-notes" aria-label="Link to heading '設計注意事項'" data-heading-content="設計注意事項" class="anchor"></a></h2>
+<ul data-sourcepos="60:1-70:142">
+<li data-sourcepos="60:1-61:228"><strong data-sourcepos="60:3-60:33">確定性程式碼產生。</strong> Xcode 物件 ID 為
+<code data-sourcepos="61:3-61:45">SHA1(&quot;pbxprojgen:&lt;section&gt;:&lt;key&gt;&quot;)[0..12]</code>，因此相同的輸入總是會產生相同的 <code data-sourcepos="61:95-61:111">project.pbxproj</code>。低層級 ID 保留與早期 Python 產生器的相容性；特定設定檔的設定有意地擴充輸出內容。</li>
+<li data-sourcepos="62:1-63:138"><strong data-sourcepos="62:3-62:21">安全發布。</strong> 新的 <code data-sourcepos="62:30-62:41">.xcodeproj</code> 寫入私有相鄰目錄，並透過目錄 FD 相對、不跟隨符號連結的操作（<code data-sourcepos="62:131-62:160">fstatat(AT_SYMLINK_NOFOLLOW)</code>、<code data-sourcepos="62:164-62:183">openat(O_NOFOLLOW)</code>、
+<code data-sourcepos="63:3-63:12">renameat</code>）移至正確位置。因此，最後一刻交換的符號連結不會重定向寫入作業。單元測試涵蓋此部分。</li>
+<li data-sourcepos="64:1-64:127"><strong data-sourcepos="64:3-64:33">永不覆蓋手寫檔案。</strong> 產生的原始碼樹狀結構檔案帶有標記，沒有該標記的檔案則保持不變。</li>
+<li data-sourcepos="65:1-65:200"><strong data-sourcepos="65:3-65:24">編譯前預檢。</strong> 所有選定的工具在資源編譯器執行前進行探測；所有資源計畫在應用程式編譯開始前準備完畢。嚴格模式會拒絕不支援/遺漏的輸入。</li>
+<li data-sourcepos="66:1-66:302"><strong data-sourcepos="66:3-66:21">增量建構。</strong> 每個物件都有 <code data-sourcepos="66:42-66:47">.cmd</code> 命令/工具指紋，且 clang 的 <code data-sourcepos="66:85-66:90">-MMD</code> 相依檔案列出標頭檔。資源使用 SHA-256 內容尋址快取項目，並在命中時驗證其輸出樹狀結構。僅在輸入指紋與有效載荷及 IPA 完整性相符時，跳過捆綁/簽署/ZIP。</li>
+<li data-sourcepos="67:1-67:245"><strong data-sourcepos="67:3-67:15">鎖定。</strong> 建構/檢查/產生/清除在 <code data-sourcepos="67:48-67:64">.idl/build.lock</code> 中持有作業系統建議性鎖定。清理期間永不解除連結鎖定檔案；關閉描述元即釋放鎖定。建構會在修改輸出內容前取得所有選定的鎖定。</li>
+<li data-sourcepos="68:1-68:227"><strong data-sourcepos="68:3-68:24">設定檔產生。</strong> YAML 將深層合併映射至解析後的 debug/release 目標。每個設定檔的中繼資料寫入 <code data-sourcepos="68:128-68:144">.idl/&lt;profile&gt;/</code> 下；Xcode 接收兩個設定檔，而 xtool 的清單描述所選的設定檔。</li>
+<li data-sourcepos="69:1-69:130"><strong data-sourcepos="69:3-69:26">可重現的 IPAs。</strong> 項目已排序，時間戳記固定，Unix 模式保留。僅在使項目變小時才使用 Deflate。</li>
+<li data-sourcepos="70:1-70:142"><strong data-sourcepos="70:3-70:21">範圍環境。</strong> swiftly 的二進位目錄附加至 <code data-sourcepos="70:59-70:64">PATH</code>，而非前置，且僅傳遞給子程序。主機工具保持優先順序。</li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

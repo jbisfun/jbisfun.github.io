@@ -1,0 +1,9 @@
+(function() {
+    const implementors = Object.fromEntries([["idlci",[["impl JsonSchema for <a class=\"enum\" href=\"idlci/db/enum.Command.html\" title=\"enum idlci::db::Command\">Command</a>",0],["impl JsonSchema for <a class=\"enum\" href=\"idlci/db/enum.Configuration.html\" title=\"enum idlci::db::Configuration\">Configuration</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.IdArgs.html\" title=\"struct idlci::mcp::IdArgs\">IdArgs</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.JobArgs.html\" title=\"struct idlci::mcp::JobArgs\">JobArgs</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.JobsArgs.html\" title=\"struct idlci::mcp::JobsArgs\">JobsArgs</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.LogArgs.html\" title=\"struct idlci::mcp::LogArgs\">LogArgs</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/db/struct.NewJob.html\" title=\"struct idlci::db::NewJob\">NewJob</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.QueueArgs.html\" title=\"struct idlci::mcp::QueueArgs\">QueueArgs</a>",0],["impl JsonSchema for <a class=\"enum\" href=\"idlci/db/enum.Status.html\" title=\"enum idlci::db::Status\">Status</a>",0],["impl JsonSchema for <a class=\"struct\" href=\"idlci/mcp/struct.WaitArgs.html\" title=\"struct idlci::mcp::WaitArgs\">WaitArgs</a>",0]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":59,"fragment_lengths":[1346]}
