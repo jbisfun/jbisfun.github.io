@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -501,160 +500,155 @@ sandbox?</a> for more details.</p>
 </ul>
 <p data-sourcepos="23:1-24:101">Sandboxing applies only to Zed Agent. It does not sandbox Zed itself, language servers, extensions, tasks, your normal
 terminal tabs, <a data-sourcepos="24:16-24:54" href="external-agents.html">External Agents</a>, or <a data-sourcepos="24:60-24:100" href="terminal-threads.html">Terminal Threads</a>.</p>
-<blockquote data-sourcepos="26:1-28:38">
-<p data-sourcepos="26:3-28:38"><strong data-sourcepos="26:3-26:10">Note</strong>: Under some conditions, sandboxes on Windows are weaker than those on
-Linux and MacOS, and may not prevent all escape attempts. See
-<a data-sourcepos="28:3-28:21" href="#windows">Windows</a> for more detail.</p>
-</blockquote>
-<h2 id="sandboxed-tools" data-sourcepos="30:1-30:37">Sandboxed Tools<a href="#sandboxed-tools" aria-label="Link to heading 'Sandboxed Tools'" data-heading-content="Sandboxed Tools" class="anchor"></a></h2>
-<p data-sourcepos="32:1-32:75">Zed Agent sandboxing currently applies to the <code data-sourcepos="32:47-32:56">terminal</code> and <code data-sourcepos="32:62-32:68">fetch</code> tools.</p>
-<table data-sourcepos="34:1-37:118" class="table table-sm table-striped">
+<h2 id="sandboxed-tools" data-sourcepos="26:1-26:37">Sandboxed Tools<a href="#sandboxed-tools" aria-label="Link to heading 'Sandboxed Tools'" data-heading-content="Sandboxed Tools" class="anchor"></a></h2>
+<p data-sourcepos="28:1-28:75">Zed Agent sandboxing currently applies to the <code data-sourcepos="28:47-28:56">terminal</code> and <code data-sourcepos="28:62-28:68">fetch</code> tools.</p>
+<table data-sourcepos="30:1-33:118" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="34:1-34:118">
-<th data-sourcepos="34:2-34:13">Tool</th>
-<th data-sourcepos="34:15-34:117">What sandboxing limits</th>
+<tr data-sourcepos="30:1-30:118">
+<th data-sourcepos="30:2-30:13">Tool</th>
+<th data-sourcepos="30:15-30:117">What sandboxing limits</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="36:1-36:118">
-<td data-sourcepos="36:2-36:13"><code data-sourcepos="36:3-36:12">terminal</code></td>
-<td data-sourcepos="36:15-36:117">Filesystem writes and outbound network access for commands the agent runs; Git metadata is protected.</td>
+<tr data-sourcepos="32:1-32:118">
+<td data-sourcepos="32:2-32:13"><code data-sourcepos="32:3-32:12">terminal</code></td>
+<td data-sourcepos="32:15-32:117">Filesystem writes and outbound network access for commands the agent runs; Git metadata is protected.</td>
 </tr>
-<tr data-sourcepos="37:1-37:118">
-<td data-sourcepos="37:2-37:13"><code data-sourcepos="37:3-37:9">fetch</code></td>
-<td data-sourcepos="37:15-37:117">Hosts which can be accessed.</td>
+<tr data-sourcepos="33:1-33:118">
+<td data-sourcepos="33:2-33:13"><code data-sourcepos="33:3-33:9">fetch</code></td>
+<td data-sourcepos="33:15-33:117">Hosts which can be accessed.</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="39:1-41:27">Tools are still governed by <a data-sourcepos="39:29-39:69" href="tool-permissions.html">Tool Permissions</a>, <a data-sourcepos="39:72-40:30" href="agent-profiles.html">Agent
+<p data-sourcepos="35:1-37:27">Tools are still governed by <a data-sourcepos="35:29-35:69" href="tool-permissions.html">Tool Permissions</a>, <a data-sourcepos="35:72-36:30" href="agent-profiles.html">Agent
 Profiles</a>, and project trust, but they are not currently
 run inside this OS sandbox.</p>
-<h2 id="requirements" data-sourcepos="43:1-43:31">Requirements<a href="#requirements" aria-label="Link to heading 'Requirements'" data-heading-content="Requirements" class="anchor"></a></h2>
-<p data-sourcepos="45:1-46:48">Sandboxing is supported, in some form, on all platforms. In order to sandbox a
-<code data-sourcepos="46:1-46:10">terminal</code> tool call, the following is required:</p>
-<ul data-sourcepos="48:1-49:36">
-<li data-sourcepos="48:1-48:126">On Linux, a runnable, non-setuid <code data-sourcepos="48:36-48:42">bwrap</code> binary must be on the <code data-sourcepos="48:66-48:72">$PATH</code>. See <a data-sourcepos="48:79-48:125" href="#installing-bubblewrap">Installing Bubblewrap</a>.</li>
-<li data-sourcepos="49:1-49:36">On Windows, WSL must be available.</li>
+<h2 id="requirements" data-sourcepos="39:1-39:31">Requirements<a href="#requirements" aria-label="Link to heading 'Requirements'" data-heading-content="Requirements" class="anchor"></a></h2>
+<p data-sourcepos="41:1-42:48">Sandboxing is supported, in some form, on all platforms. In order to sandbox a
+<code data-sourcepos="42:1-42:10">terminal</code> tool call, the following is required:</p>
+<ul data-sourcepos="44:1-45:207">
+<li data-sourcepos="44:1-44:126">On Linux, a runnable, non-setuid <code data-sourcepos="44:36-44:42">bwrap</code> binary must be on the <code data-sourcepos="44:66-44:72">$PATH</code>. See <a data-sourcepos="44:79-44:125" href="#installing-bubblewrap">Installing Bubblewrap</a>.</li>
+<li data-sourcepos="45:1-45:207">On Windows, Windows 11 with Process Security Environment support: version 24H2, 25H2, or 26H1 with the August 2026 update or later, or 26H2 with the September 2026 update or later. See <a data-sourcepos="45:188-45:206" href="#windows">Windows</a>.</li>
 </ul>
-<p data-sourcepos="51:1-51:41">There are no extra requirements on MacOS.</p>
-<p data-sourcepos="53:1-53:59">The <code data-sourcepos="53:5-53:11">fetch</code> tool has no extra requirements on any platform.</p>
-<h2 id="default-access" data-sourcepos="55:1-55:35">Default Access<a href="#default-access" aria-label="Link to heading 'Default Access'" data-heading-content="Default Access" class="anchor"></a></h2>
-<p data-sourcepos="57:1-57:69">By default, sandboxed Zed Agent tool actions have these restrictions:</p>
-<table data-sourcepos="59:1-67:208" class="table table-sm table-striped">
+<p data-sourcepos="47:1-47:41">There are no extra requirements on MacOS.</p>
+<p data-sourcepos="49:1-49:59">The <code data-sourcepos="49:5-49:11">fetch</code> tool has no extra requirements on any platform.</p>
+<h2 id="default-access" data-sourcepos="51:1-51:35">Default Access<a href="#default-access" aria-label="Link to heading 'Default Access'" data-heading-content="Default Access" class="anchor"></a></h2>
+<p data-sourcepos="53:1-53:69">By default, sandboxed Zed Agent tool actions have these restrictions:</p>
+<table data-sourcepos="55:1-63:208" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="59:1-59:208">
-<th data-sourcepos="59:2-59:22">Access type</th>
-<th data-sourcepos="59:24-59:207">Default behavior</th>
+<tr data-sourcepos="55:1-55:208">
+<th data-sourcepos="55:2-55:22">Access type</th>
+<th data-sourcepos="55:24-55:207">Default behavior</th>
 </tr>
 </thead>
 <tbody>
+<tr data-sourcepos="57:1-57:208">
+<td data-sourcepos="57:2-57:22">Filesystem reads</td>
+<td data-sourcepos="57:24-57:207">Terminal commands can read most of the filesystem, including protected Git metadata.</td>
+</tr>
+<tr data-sourcepos="58:1-58:208">
+<td data-sourcepos="58:2-58:22">Project writes</td>
+<td data-sourcepos="58:24-58:207">Terminal commands can write inside open project directories, except for protected Git metadata.</td>
+</tr>
+<tr data-sourcepos="59:1-59:208">
+<td data-sourcepos="59:2-59:22">Git metadata</td>
+<td data-sourcepos="59:24-59:207"><code data-sourcepos="59:25-59:30">.git</code> directories and linked worktree Git metadata remain readable but are not writable while sandboxed.</td>
+</tr>
+<tr data-sourcepos="60:1-60:208">
+<td data-sourcepos="60:2-60:22">Temporary files</td>
+<td data-sourcepos="60:24-60:207">Terminal commands receive a writable temporary location. The exact behavior differs by platform.</td>
+</tr>
 <tr data-sourcepos="61:1-61:208">
-<td data-sourcepos="61:2-61:22">Filesystem reads</td>
-<td data-sourcepos="61:24-61:207">Terminal commands can read most of the filesystem, including protected Git metadata.</td>
+<td data-sourcepos="61:2-61:22">Other writes</td>
+<td data-sourcepos="61:24-61:207">Writes outside the default writable locations are blocked unless you approve a broader sandbox request.</td>
 </tr>
 <tr data-sourcepos="62:1-62:208">
-<td data-sourcepos="62:2-62:22">Project writes</td>
-<td data-sourcepos="62:24-62:207">Terminal commands can write inside open project directories, except for protected Git metadata.</td>
+<td data-sourcepos="62:2-62:22">Outbound networking</td>
+<td data-sourcepos="62:24-62:207">Network access is blocked unless you approve a host-specific or unrestricted network sandbox request.</td>
 </tr>
 <tr data-sourcepos="63:1-63:208">
-<td data-sourcepos="63:2-63:22">Git metadata</td>
-<td data-sourcepos="63:24-63:207"><code data-sourcepos="63:25-63:30">.git</code> directories and linked worktree Git metadata remain readable but are not writable while sandboxed.</td>
-</tr>
-<tr data-sourcepos="64:1-64:208">
-<td data-sourcepos="64:2-64:22">Temporary files</td>
-<td data-sourcepos="64:24-64:207">Terminal commands receive a writable temporary location. The exact behavior differs by platform.</td>
-</tr>
-<tr data-sourcepos="65:1-65:208">
-<td data-sourcepos="65:2-65:22">Other writes</td>
-<td data-sourcepos="65:24-65:207">Writes outside the default writable locations are blocked unless you approve a broader sandbox request.</td>
-</tr>
-<tr data-sourcepos="66:1-66:208">
-<td data-sourcepos="66:2-66:22">Outbound networking</td>
-<td data-sourcepos="66:24-66:207">Network access is blocked unless you approve a host-specific or unrestricted network sandbox request. Host-specific enforcement is not available on every platform.</td>
-</tr>
-<tr data-sourcepos="67:1-67:208">
-<td data-sourcepos="67:2-67:22">Local IPC sockets</td>
-<td data-sourcepos="67:24-67:207">Sandboxed commands cannot open Unix-domain sockets (for example, to the desktop session bus or a container daemon), which could otherwise be used to run commands outside the sandbox.</td>
+<td data-sourcepos="63:2-63:22">Local IPC sockets</td>
+<td data-sourcepos="63:24-63:207">Sandboxed commands cannot open Unix-domain sockets (for example, to the desktop session bus or a container daemon), which could otherwise be used to run commands outside the sandbox.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="trust" data-sourcepos="69:1-69:45">How much can I trust the sandbox?<a href="#trust" aria-label="Link to heading 'How much can I trust the sandbox?'" data-heading-content="How much can I trust the sandbox?" class="anchor"></a></h2>
-<p data-sourcepos="71:1-72:42">Enabling sandboxing dramatically reduces the risk of various kinds of attacks.
+<h2 id="trust" data-sourcepos="65:1-65:45">How much can I trust the sandbox?<a href="#trust" aria-label="Link to heading 'How much can I trust the sandbox?'" data-heading-content="How much can I trust the sandbox?" class="anchor"></a></h2>
+<p data-sourcepos="67:1-68:42">Enabling sandboxing dramatically reduces the risk of various kinds of attacks.
 However, it does not fully eliminate them.</p>
-<p data-sourcepos="74:1-78:45">Firstly, sandboxing relies on OS-level features, which may contain bugs.
+<p data-sourcepos="70:1-74:45">Firstly, sandboxing relies on OS-level features, which may contain bugs.
 Operating systems have historically had bugs in security features. And while we
 have tested thoroughly, there may also be bugs in Zed’s implementation. These
 could allow privilege escalation - for example, allow an agent to write to a
 file that it should only have read access to.</p>
-<p data-sourcepos="80:1-83:13">Sandboxing also only applies the restrictions that the user requested. If an
+<p data-sourcepos="76:1-79:13">Sandboxing also only applies the restrictions that the user requested. If an
 agent requests write access to your home directory, sandboxing will not (and
 should not!) do anything to prevent an agent adding a malicious key to
-<code data-sourcepos="83:1-83:12">$HOME/.ssh</code>.</p>
-<p data-sourcepos="85:1-90:40">Be careful with what you grant the agent. At any point in time, you can view the
+<code data-sourcepos="79:1-79:12">$HOME/.ssh</code>.</p>
+<p data-sourcepos="81:1-86:40">Be careful with what you grant the agent. At any point in time, you can view the
 state of the sandbox by hovering the padlock icon in the top right of the
 thread. If an agent is requesting an overly broad permission, deny it, and ask
 it to use a smaller grant. When requesting elevated privileges, agents must
-provide a <code data-sourcepos="89:11-89:18">reason</code>, which is displayed in the prompt. Read it, and decide
+provide a <code data-sourcepos="85:11-85:18">reason</code>, which is displayed in the prompt. Read it, and decide
 whether it makes sense before approving.</p>
-<p data-sourcepos="92:1-93:72">Also, sandboxing restricts <strong data-sourcepos="92:28-92:35">only</strong> what the <code data-sourcepos="92:46-92:55">terminal</code> and <code data-sourcepos="92:61-92:67">fetch</code> tools in the
-Zed agent can do. It has <strong data-sourcepos="93:26-93:38">no effect</strong> on other parts of Zed, including:</p>
-<ul data-sourcepos="95:1-98:13">
-<li data-sourcepos="95:1-95:18">Language servers</li>
-<li data-sourcepos="96:1-96:25">The built-in git client</li>
-<li data-sourcepos="97:1-97:22">The regular terminal</li>
-<li data-sourcepos="98:1-98:13">And more…</li>
+<p data-sourcepos="88:1-89:72">Also, sandboxing restricts <strong data-sourcepos="88:28-88:35">only</strong> what the <code data-sourcepos="88:46-88:55">terminal</code> and <code data-sourcepos="88:61-88:67">fetch</code> tools in the
+Zed agent can do. It has <strong data-sourcepos="89:26-89:38">no effect</strong> on other parts of Zed, including:</p>
+<ul data-sourcepos="91:1-94:13">
+<li data-sourcepos="91:1-91:18">Language servers</li>
+<li data-sourcepos="92:1-92:25">The built-in git client</li>
+<li data-sourcepos="93:1-93:22">The regular terminal</li>
+<li data-sourcepos="94:1-94:13">And more…</li>
 </ul>
-<p data-sourcepos="100:1-101:80">Even when sandboxing is enabled, you should remain vigilant. A malicious or
+<p data-sourcepos="96:1-97:80">Even when sandboxing is enabled, you should remain vigilant. A malicious or
 unaligned agent may use these side channels to escalate privileges. For example:</p>
-<ul data-sourcepos="103:1-113:10">
-<li data-sourcepos="103:1-104:76">An agent may add a malicious Rust procedural macro to your codebase, which
-will be automatically executed by <code data-sourcepos="104:37-104:51">rust-analyzer</code> <strong data-sourcepos="104:53-104:75">outside the sandbox</strong>.</li>
-<li data-sourcepos="105:1-107:11">An agent may modify a <code data-sourcepos="105:25-105:34">Makefile</code> to inject a malicious script, which is
-executed <strong data-sourcepos="106:12-106:34">outside the sandbox</strong> when you next run <code data-sourcepos="106:54-106:59">make</code> in the built-in
+<ul data-sourcepos="99:1-109:10">
+<li data-sourcepos="99:1-100:76">An agent may add a malicious Rust procedural macro to your codebase, which
+will be automatically executed by <code data-sourcepos="100:37-100:51">rust-analyzer</code> <strong data-sourcepos="100:53-100:75">outside the sandbox</strong>.</li>
+<li data-sourcepos="101:1-103:11">An agent may modify a <code data-sourcepos="101:25-101:34">Makefile</code> to inject a malicious script, which is
+executed <strong data-sourcepos="102:12-102:34">outside the sandbox</strong> when you next run <code data-sourcepos="102:54-102:59">make</code> in the built-in
 terminal.</li>
-<li data-sourcepos="108:1-113:10">The agent cannot write to your repository’s protected <code data-sourcepos="108:57-108:62">.git</code> directory, but it
+<li data-sourcepos="104:1-109:10">The agent cannot write to your repository’s protected <code data-sourcepos="104:57-104:62">.git</code> directory, but it
 can create a submodule under your project whose Git metadata (including config
-such as <code data-sourcepos="110:11-110:26">core.fsmonitor</code>) it fully controls. That metadata may then be executed
-<strong data-sourcepos="111:3-111:25">outside the sandbox</strong> when you subsequently run Git commands in a regular
+such as <code data-sourcepos="106:11-106:26">core.fsmonitor</code>) it fully controls. That metadata may then be executed
+<strong data-sourcepos="107:3-107:25">outside the sandbox</strong> when you subsequently run Git commands in a regular
 terminal. Your shell prompt may even execute Git commands every time it
 renders!</li>
 </ul>
-<p data-sourcepos="115:1-115:67">There are steps you can take to mitigate these issues. For example:</p>
-<ul data-sourcepos="117:1-121:45">
-<li data-sourcepos="117:1-118:29">disable language servers that execute user-defined code from the project (such
+<p data-sourcepos="111:1-111:67">There are steps you can take to mitigate these issues. For example:</p>
+<ul data-sourcepos="113:1-117:45">
+<li data-sourcepos="113:1-114:29">disable language servers that execute user-defined code from the project (such
 as Rust procedural macros).</li>
-<li data-sourcepos="119:1-120:30">use a shell prompt that reports Git status without executing
+<li data-sourcepos="115:1-116:30">use a shell prompt that reports Git status without executing
 repository-defined programs.</li>
-<li data-sourcepos="121:1-121:45">review the diff before running <code data-sourcepos="121:34-121:45">git commit</code></li>
+<li data-sourcepos="117:1-117:45">review the diff before running <code data-sourcepos="117:34-117:45">git commit</code></li>
 </ul>
-<p data-sourcepos="123:1-125:9">But none of this changes the fundamental principle: <strong data-sourcepos="123:53-124:40">a sandbox is not a
+<p data-sourcepos="119:1-121:9">But none of this changes the fundamental principle: <strong data-sourcepos="119:53-120:40">a sandbox is not a
 substitute for good security practices</strong>. It is one layer in a defense-in-depth
 strategy.</p>
-<p data-sourcepos="127:1-130:8">Zed’s default profile aims to strike a balance between security and convenience,
+<p data-sourcepos="123:1-126:8">Zed’s default profile aims to strike a balance between security and convenience,
 but we encourage you to tune your settings based on your own security
 requirements and risk profile. A disabled sandbox is not a very effective
 sandbox.</p>
-<h2 id="approval-prompts" data-sourcepos="132:1-132:39">Approval Prompts<a href="#approval-prompts" aria-label="Link to heading 'Approval Prompts'" data-heading-content="Approval Prompts" class="anchor"></a></h2>
-<p data-sourcepos="134:1-135:70">When the agent needs access outside the default sandbox, Zed shows a sandbox approval prompt before the tool action runs.
+<h2 id="approval-prompts" data-sourcepos="128:1-128:39">Approval Prompts<a href="#approval-prompts" aria-label="Link to heading 'Approval Prompts'" data-heading-content="Approval Prompts" class="anchor"></a></h2>
+<p data-sourcepos="130:1-131:70">When the agent needs access outside the default sandbox, Zed shows a sandbox approval prompt before the tool action runs.
 Depending on what the tool requested, the prompt can ask you to allow:</p>
-<ul data-sourcepos="137:1-141:48">
-<li data-sourcepos="137:1-137:73">network access to specific hosts, such as <code data-sourcepos="137:45-137:56">github.com</code> or <code data-sourcepos="137:61-137:73">*.npmjs.org</code></li>
-<li data-sourcepos="138:1-138:28">network access to any host</li>
-<li data-sourcepos="139:1-139:43">write access to specific filesystem paths</li>
-<li data-sourcepos="140:1-140:63">unrestricted filesystem writes, except protected Git metadata</li>
-<li data-sourcepos="141:1-141:48">running a terminal command without the sandbox</li>
+<ul data-sourcepos="133:1-137:48">
+<li data-sourcepos="133:1-133:73">network access to specific hosts, such as <code data-sourcepos="133:45-133:56">github.com</code> or <code data-sourcepos="133:61-133:73">*.npmjs.org</code></li>
+<li data-sourcepos="134:1-134:28">network access to any host</li>
+<li data-sourcepos="135:1-135:43">write access to specific filesystem paths</li>
+<li data-sourcepos="136:1-136:63">unrestricted filesystem writes, except protected Git metadata</li>
+<li data-sourcepos="137:1-137:48">running a terminal command without the sandbox</li>
 </ul>
-<p data-sourcepos="143:1-143:36">You can grant a sandbox request for:</p>
-<ul data-sourcepos="145:1-147:8">
-<li data-sourcepos="145:1-145:17">one tool action</li>
-<li data-sourcepos="146:1-146:32">the rest of the current thread</li>
-<li data-sourcepos="147:1-147:8">always</li>
+<p data-sourcepos="139:1-139:36">You can grant a sandbox request for:</p>
+<ul data-sourcepos="141:1-143:8">
+<li data-sourcepos="141:1-141:17">one tool action</li>
+<li data-sourcepos="142:1-142:32">the rest of the current thread</li>
+<li data-sourcepos="143:1-143:8">always</li>
 </ul>
-<p data-sourcepos="149:1-150:50">Approvals for the rest of the thread are remembered only for that thread. Approvals granted with “always” are saved in
-<code data-sourcepos="150:1-150:15">settings.json</code> under <code data-sourcepos="150:23-150:49">agent.sandbox_permissions</code>.</p>
-<h2 id="persistent-sandbox-permissions" data-sourcepos="152:1-152:67">Persistent Sandbox Permissions<a href="#persistent-sandbox-permissions" aria-label="Link to heading 'Persistent Sandbox Permissions'" data-heading-content="Persistent Sandbox Permissions" class="anchor"></a></h2>
-<p data-sourcepos="154:1-154:101">If you want to pre-approve common sandbox requests, add persistent permissions to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="156:1-165:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+<p data-sourcepos="145:1-146:50">Approvals for the rest of the thread are remembered only for that thread. Approvals granted with “always” are saved in
+<code data-sourcepos="146:1-146:15">settings.json</code> under <code data-sourcepos="146:23-146:49">agent.sandbox_permissions</code>.</p>
+<h2 id="persistent-sandbox-permissions" data-sourcepos="148:1-148:67">Persistent Sandbox Permissions<a href="#persistent-sandbox-permissions" aria-label="Link to heading 'Persistent Sandbox Permissions'" data-heading-content="Persistent Sandbox Permissions" class="anchor"></a></h2>
+<p data-sourcepos="150:1-150:101">If you want to pre-approve common sandbox requests, add persistent permissions to your settings file:</p>
+<pre class="syntax-highlighting" data-sourcepos="152:1-161:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
   </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
     </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>sandbox_permissions<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
       </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>network_hosts<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-sequence hl-json"><span class="hl-punctuation hl-section hl-sequence hl-begin hl-json">[</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>github.com<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-sequence hl-json">,</span> <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>*.npmjs.org<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-section hl-sequence hl-end hl-json">]</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
@@ -663,113 +657,110 @@ Depending on what the tool requested, the prompt can ask you to allow:</p>
   <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 </span></code></pre>
-<p data-sourcepos="167:1-167:26">The available options are:</p>
-<table data-sourcepos="169:1-175:140" class="table table-sm table-striped">
+<p data-sourcepos="163:1-163:26">The available options are:</p>
+<table data-sourcepos="165:1-171:140" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="169:1-169:140">
-<th data-sourcepos="169:2-169:23">Setting</th>
-<th data-sourcepos="169:25-169:139">Description</th>
+<tr data-sourcepos="165:1-165:140">
+<th data-sourcepos="165:2-165:23">Setting</th>
+<th data-sourcepos="165:25-165:139">Description</th>
 </tr>
 </thead>
 <tbody>
+<tr data-sourcepos="167:1-167:140">
+<td data-sourcepos="167:2-167:23"><code data-sourcepos="167:3-167:17">network_hosts</code></td>
+<td data-sourcepos="167:25-167:139">Hosts that sandboxed tools may reach without prompting. Entries can be exact hostnames or leading-<code data-sourcepos="167:124-167:127">*.</code> wildcards.</td>
+</tr>
+<tr data-sourcepos="168:1-168:140">
+<td data-sourcepos="168:2-168:23"><code data-sourcepos="168:3-168:19">allow_all_hosts</code></td>
+<td data-sourcepos="168:25-168:139">Allow sandboxed tools to reach any host without prompting.</td>
+</tr>
+<tr data-sourcepos="169:1-169:140">
+<td data-sourcepos="169:2-169:23"><code data-sourcepos="169:3-169:15">write_paths</code></td>
+<td data-sourcepos="169:25-169:139">Directory subtrees that sandboxed terminal commands may write to without prompting. Paths are absolute.</td>
+</tr>
+<tr data-sourcepos="170:1-170:140">
+<td data-sourcepos="170:2-170:23"><code data-sourcepos="170:3-170:22">allow_fs_write_all</code></td>
+<td data-sourcepos="170:25-170:139">Allow sandboxed terminal commands to write anywhere except protected Git metadata without prompting.</td>
+</tr>
 <tr data-sourcepos="171:1-171:140">
-<td data-sourcepos="171:2-171:23"><code data-sourcepos="171:3-171:17">network_hosts</code></td>
-<td data-sourcepos="171:25-171:139">Hosts that sandboxed tools may reach without prompting. Entries can be exact hostnames or leading-<code data-sourcepos="171:124-171:127">*.</code> wildcards.</td>
-</tr>
-<tr data-sourcepos="172:1-172:140">
-<td data-sourcepos="172:2-172:23"><code data-sourcepos="172:3-172:19">allow_all_hosts</code></td>
-<td data-sourcepos="172:25-172:139">Allow sandboxed tools to reach any host without prompting.</td>
-</tr>
-<tr data-sourcepos="173:1-173:140">
-<td data-sourcepos="173:2-173:23"><code data-sourcepos="173:3-173:15">write_paths</code></td>
-<td data-sourcepos="173:25-173:139">Directory subtrees that sandboxed terminal commands may write to without prompting. Paths are absolute.</td>
-</tr>
-<tr data-sourcepos="174:1-174:140">
-<td data-sourcepos="174:2-174:23"><code data-sourcepos="174:3-174:22">allow_fs_write_all</code></td>
-<td data-sourcepos="174:25-174:139">Allow sandboxed terminal commands to write anywhere except protected Git metadata without prompting.</td>
-</tr>
-<tr data-sourcepos="175:1-175:140">
-<td data-sourcepos="175:2-175:23"><code data-sourcepos="175:3-175:21">allow_unsandboxed</code></td>
-<td data-sourcepos="175:25-175:139">Turn sandboxing off entirely for Zed Agent terminal commands. The fetch tool will have no restrictions.</td>
+<td data-sourcepos="171:2-171:23"><code data-sourcepos="171:3-171:21">allow_unsandboxed</code></td>
+<td data-sourcepos="171:25-171:139">Turn sandboxing off entirely for Zed Agent terminal commands. The fetch tool will have no restrictions.</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="177:1-178:20">Prefer narrow grants, such as a specific host or write path, over <code data-sourcepos="177:67-177:83">allow_all_hosts</code>, <code data-sourcepos="177:86-177:105">allow_fs_write_all</code>, or
-<code data-sourcepos="178:1-178:19">allow_unsandboxed</code>.</p>
-<h2 id="git-metadata" data-sourcepos="180:1-180:31">Git Metadata<a href="#git-metadata" aria-label="Link to heading 'Git Metadata'" data-heading-content="Git Metadata" class="anchor"></a></h2>
-<p data-sourcepos="182:1-184:83">Git metadata writes are not grantable while a terminal command is sandboxed. This includes writes to <code data-sourcepos="182:102-182:107">.git</code> directories,
+<p data-sourcepos="173:1-174:20">Prefer narrow grants, such as a specific host or write path, over <code data-sourcepos="173:67-173:83">allow_all_hosts</code>, <code data-sourcepos="173:86-173:105">allow_fs_write_all</code>, or
+<code data-sourcepos="174:1-174:19">allow_unsandboxed</code>.</p>
+<h2 id="git-metadata" data-sourcepos="176:1-176:31">Git Metadata<a href="#git-metadata" aria-label="Link to heading 'Git Metadata'" data-heading-content="Git Metadata" class="anchor"></a></h2>
+<p data-sourcepos="178:1-180:83">Git metadata writes are not grantable while a terminal command is sandboxed. This includes writes to <code data-sourcepos="178:102-178:107">.git</code> directories,
 linked worktree metadata, refs, the index, hooks, local Git config, and other Git-controlled metadata files. Approving a
-specific writable path or <code data-sourcepos="184:27-184:46">allow_fs_write_all</code> does not make Git metadata writable.</p>
-<h2 id="platform-support" data-sourcepos="186:1-186:39">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h2>
-<p data-sourcepos="188:1-189:25">Sandboxing uses different operating system mechanisms on each platform. The user-facing prompts are similar, but the
+specific writable path or <code data-sourcepos="180:27-180:46">allow_fs_write_all</code> does not make Git metadata writable.</p>
+<h2 id="platform-support" data-sourcepos="182:1-182:39">Platform Support<a href="#platform-support" aria-label="Link to heading 'Platform Support'" data-heading-content="Platform Support" class="anchor"></a></h2>
+<p data-sourcepos="184:1-185:25">Sandboxing uses different operating system mechanisms on each platform. The user-facing prompts are similar, but the
 enforcement details vary.</p>
-<h3 id="macos" data-sourcepos="191:1-191:18">macOS<a href="#macos" aria-label="Link to heading 'macOS'" data-heading-content="macOS" class="anchor"></a></h3>
-<p data-sourcepos="193:1-193:67">On macOS, Zed uses Apple’s Seatbelt sandbox through <code data-sourcepos="193:53-193:66">sandbox-exec</code>.</p>
-<p data-sourcepos="195:1-195:28">Sandboxed terminal commands:</p>
-<ul data-sourcepos="197:1-204:284">
-<li data-sourcepos="197:1-197:25">can read the filesystem</li>
-<li data-sourcepos="198:1-198:74">can write inside open project directories, except protected Git metadata</li>
-<li data-sourcepos="199:1-199:94">can write to a per-thread temporary directory exposed through <code data-sourcepos="199:65-199:73">$TMPDIR</code>, <code data-sourcepos="199:76-199:81">$TMP</code>, and <code data-sourcepos="199:88-199:94">$TEMP</code></li>
-<li data-sourcepos="200:1-200:33">can read protected Git metadata</li>
-<li data-sourcepos="201:1-201:79">cannot write protected Git metadata, even if you approve broader write access</li>
-<li data-sourcepos="202:1-202:84">cannot write elsewhere unless you approve additional paths or broader write access</li>
-<li data-sourcepos="203:1-203:60">cannot reach the network unless you approve network access</li>
-<li data-sourcepos="204:1-204:284">can reach only an allowlist of macOS system (Mach) services that developer tooling needs; services that could be abused to escape the sandbox (LaunchServices and launchd, which can launch processes outside it), read the clipboard (the pasteboard), or capture audio are not reachable</li>
+<h3 id="macos" data-sourcepos="187:1-187:18">macOS<a href="#macos" aria-label="Link to heading 'macOS'" data-heading-content="macOS" class="anchor"></a></h3>
+<p data-sourcepos="189:1-189:67">On macOS, Zed uses Apple’s Seatbelt sandbox through <code data-sourcepos="189:53-189:66">sandbox-exec</code>.</p>
+<p data-sourcepos="191:1-191:28">Sandboxed terminal commands:</p>
+<ul data-sourcepos="193:1-200:284">
+<li data-sourcepos="193:1-193:25">can read the filesystem</li>
+<li data-sourcepos="194:1-194:74">can write inside open project directories, except protected Git metadata</li>
+<li data-sourcepos="195:1-195:94">can write to a per-thread temporary directory exposed through <code data-sourcepos="195:65-195:73">$TMPDIR</code>, <code data-sourcepos="195:76-195:81">$TMP</code>, and <code data-sourcepos="195:88-195:94">$TEMP</code></li>
+<li data-sourcepos="196:1-196:33">can read protected Git metadata</li>
+<li data-sourcepos="197:1-197:79">cannot write protected Git metadata, even if you approve broader write access</li>
+<li data-sourcepos="198:1-198:84">cannot write elsewhere unless you approve additional paths or broader write access</li>
+<li data-sourcepos="199:1-199:60">cannot reach the network unless you approve network access</li>
+<li data-sourcepos="200:1-200:284">can reach only an allowlist of macOS system (Mach) services that developer tooling needs; services that could be abused to escape the sandbox (LaunchServices and launchd, which can launch processes outside it), read the clipboard (the pasteboard), or capture audio are not reachable</li>
 </ul>
-<p data-sourcepos="206:1-208:79">When network access is approved on macOS, Zed uses an HTTP/HTTPS proxy so access can be limited to approved hosts.
+<p data-sourcepos="202:1-204:79">When network access is approved on macOS, Zed uses an HTTP/HTTPS proxy so access can be limited to approved hosts.
 Tools that do not honor proxy environment variables, such as SSH, FTP, and raw socket clients, may not work even after host-specific network access is approved.
 For networked terminal commands, prefer HTTPS URLs over SSH URLs when possible.</p>
-<h3 id="linux" data-sourcepos="210:1-210:18">Linux<a href="#linux" aria-label="Link to heading 'Linux'" data-heading-content="Linux" class="anchor"></a></h3>
-<p data-sourcepos="212:1-212:69">On Linux, Zed uses <a data-sourcepos="212:20-212:43" href="https://github.com/containers/bubblewrap">Bubblewrap</a> (<code data-sourcepos="212:46-212:52">bwrap</code>) for sandboxing.</p>
-<p data-sourcepos="214:1-217:53">Zed only uses a non-setuid <code data-sourcepos="214:28-214:34">bwrap</code> binary. Its sandbox is built entirely on unprivileged user namespaces, so a setuid-root
-<code data-sourcepos="215:1-215:7">bwrap</code> provides no extra functionality, and running one would mean executing root-privileged setup with arguments partly
-derived from model-influenced input. If the only <code data-sourcepos="216:50-216:56">bwrap</code> found on your <code data-sourcepos="216:72-216:77">PATH</code> is setuid-root, Zed refuses to run it;
+<h3 id="linux" data-sourcepos="206:1-206:18">Linux<a href="#linux" aria-label="Link to heading 'Linux'" data-heading-content="Linux" class="anchor"></a></h3>
+<p data-sourcepos="208:1-208:69">On Linux, Zed uses <a data-sourcepos="208:20-208:43" href="https://github.com/containers/bubblewrap">Bubblewrap</a> (<code data-sourcepos="208:46-208:52">bwrap</code>) for sandboxing.</p>
+<p data-sourcepos="210:1-213:53">Zed only uses a non-setuid <code data-sourcepos="210:28-210:34">bwrap</code> binary. Its sandbox is built entirely on unprivileged user namespaces, so a setuid-root
+<code data-sourcepos="211:1-211:7">bwrap</code> provides no extra functionality, and running one would mean executing root-privileged setup with arguments partly
+derived from model-influenced input. If the only <code data-sourcepos="212:50-212:56">bwrap</code> found on your <code data-sourcepos="212:72-212:77">PATH</code> is setuid-root, Zed refuses to run it;
 install a non-setuid Bubblewrap to enable sandboxing.</p>
-<p data-sourcepos="219:1-219:28">Sandboxed terminal commands:</p>
-<ul data-sourcepos="221:1-226:60">
-<li data-sourcepos="221:1-221:68">can read the filesystem, including protected Git metadata contents</li>
-<li data-sourcepos="222:1-222:74">can write inside open project directories, except protected Git metadata</li>
-<li data-sourcepos="223:1-223:245">can write to <code data-sourcepos="223:16-223:21">/tmp</code>, which is backed by a fresh temporary filesystem and is cleared between terminal tool calls (when you approve unrestricted filesystem writes, <code data-sourcepos="223:165-223:170">/tmp</code> is instead your real host <code data-sourcepos="223:198-223:203">/tmp</code> rather than a fresh temporary filesystem)</li>
-<li data-sourcepos="224:1-224:37">cannot write protected Git metadata</li>
-<li data-sourcepos="225:1-225:84">cannot write elsewhere unless you approve additional paths or broader write access</li>
-<li data-sourcepos="226:1-226:60">cannot reach the network unless you approve network access</li>
+<p data-sourcepos="215:1-215:28">Sandboxed terminal commands:</p>
+<ul data-sourcepos="217:1-222:60">
+<li data-sourcepos="217:1-217:68">can read the filesystem, including protected Git metadata contents</li>
+<li data-sourcepos="218:1-218:74">can write inside open project directories, except protected Git metadata</li>
+<li data-sourcepos="219:1-219:245">can write to <code data-sourcepos="219:16-219:21">/tmp</code>, which is backed by a fresh temporary filesystem and is cleared between terminal tool calls (when you approve unrestricted filesystem writes, <code data-sourcepos="219:165-219:170">/tmp</code> is instead your real host <code data-sourcepos="219:198-219:203">/tmp</code> rather than a fresh temporary filesystem)</li>
+<li data-sourcepos="220:1-220:37">cannot write protected Git metadata</li>
+<li data-sourcepos="221:1-221:84">cannot write elsewhere unless you approve additional paths or broader write access</li>
+<li data-sourcepos="222:1-222:60">cannot reach the network unless you approve network access</li>
 </ul>
-<p data-sourcepos="228:1-230:47">When host-specific network access is approved on Linux, Zed uses an HTTP/HTTPS proxy so access can be limited to approved
+<p data-sourcepos="224:1-226:47">When host-specific network access is approved on Linux, Zed uses an HTTP/HTTPS proxy so access can be limited to approved
 hosts. Tools that do not honor proxy environment variables, such as SSH, FTP, and raw socket clients, may not work even
 after host-specific network access is approved.</p>
-<p data-sourcepos="232:1-233:46">If Bubblewrap is unavailable or cannot create a sandbox in the current environment, Zed may run the command without the OS
+<p data-sourcepos="228:1-229:46">If Bubblewrap is unavailable or cannot create a sandbox in the current environment, Zed may run the command without the OS
 sandbox and show a warning in the tool output.</p>
-<blockquote data-sourcepos="235:1-239:42">
-<p data-sourcepos="235:3-239:42"><strong data-sourcepos="235:3-235:13">Warning</strong>: On Linux and WSL, restrictions on filesystem objects are
-determined at <em data-sourcepos="236:17-236:39">sandbox creation time</em>. Among other things, this means that an
-agent given access to a non-Git-repo directory <code data-sourcepos="237:50-237:55">/foo</code> could create
-<code data-sourcepos="238:3-238:13">/foo/.git</code>. See <a data-sourcepos="238:20-238:62" href="#trust">How much can I trust the sandbox?</a> for more
+<blockquote data-sourcepos="231:1-235:42">
+<p data-sourcepos="231:3-235:42"><strong data-sourcepos="231:3-231:13">Warning</strong>: On Linux and Windows, restrictions on filesystem objects are
+determined at <em data-sourcepos="232:17-232:39">sandbox creation time</em>. Among other things, this means that an
+agent given access to a non-Git-repo directory <code data-sourcepos="233:50-233:55">/foo</code> could create
+<code data-sourcepos="234:3-234:13">/foo/.git</code>. See <a data-sourcepos="234:20-234:62" href="#trust">How much can I trust the sandbox?</a> for more
 information on the implications of this.</p>
 </blockquote>
-<h4 id="installing-bubblewrap" data-sourcepos="241:1-241:51">Installing Bubblewrap<a href="#installing-bubblewrap" aria-label="Link to heading 'Installing Bubblewrap'" data-heading-content="Installing Bubblewrap" class="anchor"></a></h4>
-<p data-sourcepos="243:1-244:78">Zed needs a runnable, non-setuid <code data-sourcepos="243:34-243:40">bwrap</code> binary on your <code data-sourcepos="243:57-243:63">$PATH</code>. Installing
-<code data-sourcepos="244:1-244:12">bubblewrap</code> from your distribution’s package manager is usually all you need.</p>
-<p data-sourcepos="246:1-246:39">You can test whether it’s working with:</p>
-<pre class="syntax-highlighting" data-sourcepos="248:1-250:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">bwrap</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>ro-bind</span> / /<span class="hl-keyword hl-operator hl-end-of-options hl-shell"> --</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> echo <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>working<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span></span>
+<h4 id="installing-bubblewrap" data-sourcepos="237:1-237:51">Installing Bubblewrap<a href="#installing-bubblewrap" aria-label="Link to heading 'Installing Bubblewrap'" data-heading-content="Installing Bubblewrap" class="anchor"></a></h4>
+<p data-sourcepos="239:1-240:78">Zed needs a runnable, non-setuid <code data-sourcepos="239:34-239:40">bwrap</code> binary on your <code data-sourcepos="239:57-239:63">$PATH</code>. Installing
+<code data-sourcepos="240:1-240:12">bubblewrap</code> from your distribution’s package manager is usually all you need.</p>
+<p data-sourcepos="242:1-242:39">You can test whether it’s working with:</p>
+<pre class="syntax-highlighting" data-sourcepos="244:1-246:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">bwrap</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"><span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>ro-bind</span> / /<span class="hl-keyword hl-operator hl-end-of-options hl-shell"> --</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> echo <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>working<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span></span>
 </span></code></pre>
-<p data-sourcepos="252:1-255:25">“Non-setuid” here refers to the <a data-sourcepos="252:33-252:56" href="https://en.wikipedia.org/wiki/Setuid">setuid bit</a>. Historically,
+<p data-sourcepos="248:1-251:25">“Non-setuid” here refers to the <a data-sourcepos="248:33-248:56" href="https://en.wikipedia.org/wiki/Setuid">setuid bit</a>. Historically,
 bubblewrap has shipped both a setuid and non-setuid binary. The setuid binary is
-being phased out for security concerns, and so Zed’s sandbox <em data-sourcepos="254:62-255:24">explicitly rejects
-setuid <code data-sourcepos="255:8-255:14">bwrap</code> binaries</em>.</p>
-<h5 id="installing-bubblewrap-ubuntu" data-sourcepos="257:1-257:66">Ubuntu-specific requirements<a href="#installing-bubblewrap-ubuntu" aria-label="Link to heading 'Ubuntu-specific requirements'" data-heading-content="Ubuntu-specific requirements" class="anchor"></a></h5>
-<blockquote data-sourcepos="259:1-259:56">
-<p data-sourcepos="259:3-259:56"><strong data-sourcepos="259:3-259:11">Note:</strong> The following does not affect Ubuntu on WSL.</p>
-</blockquote>
-<p data-sourcepos="261:1-263:35">Bubblewrap relies on a Linux kernel feature known as “namespaces”. Unprivileged
+being phased out for security concerns, and so Zed’s sandbox <em data-sourcepos="250:62-251:24">explicitly rejects
+setuid <code data-sourcepos="251:8-251:14">bwrap</code> binaries</em>.</p>
+<h5 id="installing-bubblewrap-ubuntu" data-sourcepos="253:1-253:66">Ubuntu-specific requirements<a href="#installing-bubblewrap-ubuntu" aria-label="Link to heading 'Ubuntu-specific requirements'" data-heading-content="Ubuntu-specific requirements" class="anchor"></a></h5>
+<p data-sourcepos="255:1-257:35">Bubblewrap relies on a Linux kernel feature known as “namespaces”. Unprivileged
 users on many systems can create namespaces, but historically, this feature has
 been used for a variety of attacks.</p>
-<p data-sourcepos="265:1-267:38">In response to this, in Ubuntu 23.10, Canonical <a data-sourcepos="265:49-266:21" href="https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces">added a security
+<p data-sourcepos="259:1-261:38">In response to this, in Ubuntu 23.10, Canonical <a data-sourcepos="259:49-260:21" href="https://ubuntu.com/blog/ubuntu-23-10-restricted-unprivileged-user-namespaces">added a security
 measure</a> that restricts unprivileged user namespaces. These
 restrictions are enforced by AppArmor.</p>
-<p data-sourcepos="269:1-271:52">Because of this, you may also need to install an AppArmor profile for bubblewrap
+<p data-sourcepos="263:1-265:52">Because of this, you may also need to install an AppArmor profile for bubblewrap
 after you install it. This is a configuration file that gives bubblewrap the
-ability to create namespaces without needing <code data-sourcepos="271:46-271:51">sudo</code>.</p>
-<pre class="syntax-highlighting" data-sourcepos="273:1-287:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> apt install bubblewrap</span>
+ability to create namespaces without needing <code data-sourcepos="265:46-265:51">sudo</code>.</p>
+<pre class="syntax-highlighting" data-sourcepos="267:1-281:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> apt install bubblewrap</span>
 
 <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> On Ubuntu 25.04 and later, `apparmor` ships with a profile for bubblewrap by default.</span><span class="hl-comment hl-line hl-number-sign hl-shell">
 </span><span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> Make sure you&#39;re up-to-date</span><span class="hl-comment hl-line hl-number-sign hl-shell">
@@ -783,96 +774,35 @@ ability to create namespaces without needing <code data-sourcepos="271:46-271:51
 </span>  /etc/apparmor.d/bwrap-userns-restrict</span>
 <span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">sudo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> apparmor_parser<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>r</span> /etc/apparmor.d/bwrap-userns-restrict</span>
 </span></code></pre>
-<h3 id="windows" data-sourcepos="289:1-289:22">Windows<a href="#windows" aria-label="Link to heading 'Windows'" data-heading-content="Windows" class="anchor"></a></h3>
-<p data-sourcepos="291:1-291:89">On Windows, Zed Agent sandboxing is supported only when the agent action runs inside WSL.</p>
-<blockquote data-sourcepos="293:1-299:24">
-<p data-sourcepos="293:3-299:24"><strong data-sourcepos="293:3-293:13">Warning</strong>: Due to limitations in WSL’s implementation, it is possible that a
-terminal command may write outside sandbox grants when the user has given
-write access to any path that resides on the NTFS drive. This includes the
-current-project grant for projects stored on NTFS. Zed will show a warning
-when this happens. In practice, we believe this is difficult to exploit, but
-security cannot be guaranteed. See <a data-sourcepos="298:38-298:66" href="#why-ntfs-compromise">below</a> for a more
-technical explanation.</p>
-</blockquote>
-<p data-sourcepos="301:1-303:69">Zed uses the Linux Bubblewrap sandbox inside WSL because WSL provides the Linux process and filesystem primitives that
-Bubblewrap needs. Native Windows processes do not currently have the same sandbox integration in Zed, so a native Windows
-command cannot be confined by Zed Agent’s OS sandbox in the same way.</p>
-<p data-sourcepos="305:1-305:122">When running inside WSL, the Linux sandboxing behavior applies, including the requirement that <code data-sourcepos="305:96-305:102">bwrap</code> not be setuid-root:</p>
-<ul data-sourcepos="307:1-310:193">
-<li data-sourcepos="307:1-307:48">filesystem isolation is provided by Bubblewrap</li>
-<li data-sourcepos="308:1-308:73">protected Git metadata contents remain readable, but writes are blocked</li>
-<li data-sourcepos="309:1-309:50"><code data-sourcepos="309:3-309:8">/tmp</code> is temporary for sandboxed terminal calls</li>
-<li data-sourcepos="310:1-310:193">network access is all-or-nothing rather than host-specific, so host-specific network requests are rejected and the agent must request unrestricted network access when network access is needed</li>
+<h3 id="windows" data-sourcepos="283:1-283:22">Windows<a href="#windows" aria-label="Link to heading 'Windows'" data-heading-content="Windows" class="anchor"></a></h3>
+<p data-sourcepos="285:1-287:23">On Windows, Zed runs sandboxed terminal commands in a Windows AppContainer.
+Windows 10 isn’t supported; see <a data-sourcepos="286:33-286:61" href="#requirements">Requirements</a>. If the sandbox can’t be created, Zed asks whether to run
+the command without it.</p>
+<p data-sourcepos="289:1-289:28">Sandboxed terminal commands:</p>
+<ul data-sourcepos="291:1-298:60">
+<li data-sourcepos="291:1-291:91">run in PowerShell rather than Git Bash, and so do commands you approve to run unsandboxed</li>
+<li data-sourcepos="292:1-292:41">can read the filesystem on local drives</li>
+<li data-sourcepos="293:1-293:74">can write inside open project directories, except protected Git metadata</li>
+<li data-sourcepos="294:1-294:129">can write to a per-command temporary directory exposed through <code data-sourcepos="294:66-294:73">%TEMP%</code> and <code data-sourcepos="294:79-294:85">%TMP%</code>, which is removed when the command finishes</li>
+<li data-sourcepos="295:1-295:33">can read protected Git metadata</li>
+<li data-sourcepos="296:1-296:79">cannot write protected Git metadata, even if you approve broader write access</li>
+<li data-sourcepos="297:1-297:84">cannot write elsewhere unless you approve additional paths or broader write access</li>
+<li data-sourcepos="298:1-298:60">cannot reach the network unless you approve network access</li>
 </ul>
-<p data-sourcepos="312:1-316:105">If WSL is not installed, or if you choose to run a command without the sandbox, Zed falls back to the standard terminal
-behavior of running in your native shell. It selects the shell using the usual preference order: a bash (scoop’s bash or
-Git Bash) when one is installed, otherwise PowerShell, and finally <code data-sourcepos="314:68-314:76">cmd.exe</code>. Because the command then runs against native
-Windows paths instead of WSL’s Linux filesystem, path conventions change accordingly (for example <code data-sourcepos="315:99-315:106">C:\...</code> or <code data-sourcepos="315:111-315:118">/c/...</code>
-rather than WSL’s <code data-sourcepos="316:19-316:30">/mnt/c/...</code>), so a command written for the sandboxed WSL shell may behave differently.</p>
-<h4 id="why-ntfs-compromise" data-sourcepos="318:1-318:71">Why do NTFS objects compromise the sandbox?<a href="#why-ntfs-compromise" aria-label="Link to heading 'Why do NTFS objects compromise the sandbox?'" data-heading-content="Why do NTFS objects compromise the sandbox?" class="anchor"></a></h4>
-<p data-sourcepos="320:1-321:9">In general, the security of the filesystem sandbox relies on two things
-matching:</p>
-<ul data-sourcepos="323:1-324:51">
-<li data-sourcepos="323:1-323:57">The path that the user was presented when they approved</li>
-<li data-sourcepos="324:1-324:51">The filesystem object to which access was granted</li>
+<p data-sourcepos="300:1-302:55">When host-specific network access is approved on Windows, Zed uses an HTTP/HTTPS proxy so access can be limited to
+approved hosts. The proxy is set through the proxy environment variables and as the command’s WinHTTP proxy. Tools that
+honor neither may need the proxy configured explicitly.</p>
+<p data-sourcepos="304:1-304:90">Some programs aren’t yet compatible with AppContainer and have to run without the sandbox.</p>
+<h2 id="choosing-what-to-approve" data-sourcepos="306:1-306:55">Choosing What to Approve<a href="#choosing-what-to-approve" aria-label="Link to heading 'Choosing What to Approve'" data-heading-content="Choosing What to Approve" class="anchor"></a></h2>
+<p data-sourcepos="308:1-308:92">When reviewing a sandbox prompt, prefer the narrowest permission that lets the task proceed:</p>
+<ul data-sourcepos="310:1-314:68">
+<li data-sourcepos="310:1-310:76">approve a specific host instead of all hosts when the destination is known</li>
+<li data-sourcepos="311:1-311:73">approve a specific write path instead of unrestricted filesystem writes</li>
+<li data-sourcepos="312:1-312:84">approve unsandboxed execution only when the command cannot work inside the sandbox</li>
+<li data-sourcepos="313:1-313:48">use one-time approvals for unfamiliar commands</li>
+<li data-sourcepos="314:1-314:68">use thread or always approvals only for access you expect to reuse</li>
 </ul>
-<p data-sourcepos="326:1-327:52">If a user believes they granted access to <code data-sourcepos="326:43-326:54">/foo/hello</code>, but they actually granted
-access to <code data-sourcepos="327:11-327:22">/bar/world</code>, then the sandbox has failed.</p>
-<p data-sourcepos="329:1-329:58">On Linux, this “filesystem object” is called an <strong data-sourcepos="329:49-329:57">inode</strong>.</p>
-<p data-sourcepos="331:1-333:24">But <code data-sourcepos="331:5-331:16">/foo/hello</code> doesn’t refer to an inode. Loosely, it refers to a location
-where an inode might exist. It may refer to one inode at one point in time,
-and another inode later.</p>
-<p data-sourcepos="335:1-339:10">And because of symlinks, it’s possible for an agent with write access to <code data-sourcepos="335:74-335:79">/foo</code>
-to change <code data-sourcepos="336:11-336:20">/foo/bar</code> to point to <code data-sourcepos="336:34-336:42">/secret</code>, even if they have no write access to
-<code data-sourcepos="337:1-337:9">/secret</code>. If this happens, even though the agent has access to <code data-sourcepos="337:65-337:70">/foo</code>, we
-cannot also grant access to <code data-sourcepos="338:29-338:38">/foo/bar</code>, since that would grant access to
-<code data-sourcepos="339:1-339:9">/secret</code>.</p>
-<p data-sourcepos="341:1-341:54">This means that we must only refer to paths which are:</p>
-<ul data-sourcepos="343:1-345:40">
-<li data-sourcepos="343:1-343:38">canonical (i.e. contain no symlinks)</li>
-<li data-sourcepos="344:1-344:10">absolute</li>
-<li data-sourcepos="345:1-345:40">unchanged since we validated the above</li>
-</ul>
-<p data-sourcepos="347:1-350:74">On non-WSL-Linux, we can do this by simply opening the path to get a “file
-descriptor”, which identifies the <strong data-sourcepos="348:35-348:43">inode</strong> directly, so holding the file
-descriptor allows us to “pin” the correct inode. This also works just fine on
-WSL when the path in question refers to an object in the Linux filesystem.</p>
-<p data-sourcepos="352:1-358:67">However, WSL allows accessing files stored in the Windows drive. For example,
-the file <code data-sourcepos="353:10-353:25">C:\foo\bar.txt</code> can be accessed from Linux at <code data-sourcepos="353:57-353:76">/mnt/c/foo/bar.txt</code>,
-using a mechanism similar to a network drive. Unfortunately, inode pinning is
-not guaranteed to work for these. While we can still pin the inode for
-<code data-sourcepos="356:1-356:20">/mnt/c/foo/bar.txt</code>, this doesn’t pin the underlying Windows filesystem object,
-and so it’s possible for this to change during the lifetime of a sandbox, which
-could potentially allow writes outside the confines of the sandbox.</p>
-<h4 id="how-big-a-risk" data-sourcepos="360:1-360:58">How big a risk is this in practice?<a href="#how-big-a-risk" aria-label="Link to heading 'How big a risk is this in practice?'" data-heading-content="How big a risk is this in practice?" class="anchor"></a></h4>
-<p data-sourcepos="362:1-363:10"><strong data-sourcepos="362:1-363:10">In our testing, we have not been able to exploit this issue to escape the
-sandbox.</strong></p>
-<p data-sourcepos="365:1-369:54">In practice, the mapping tends to be quite stable. This is because the inode
-that gets generated in the Linux filesystem is derived from the <em data-sourcepos="366:65-366:80">file reference</em>
-(very loosely, a “Windows inode”), which has similar stability to a Linux inode.
-The standard “rename a subcomponent” attack seems to produce a different inode
-number, and so the in-sandbox check would fail-closed.</p>
-<p data-sourcepos="371:1-374:22">But, crucially, <em data-sourcepos="371:17-371:38">it is not guaranteed</em>. This is the behaviour we observed in
-testing, but could not find documentation guaranteeing this behaviour in all
-circumstances, for all Windows/WSL versions past and present, regardless of
-configuration options.</p>
-<p data-sourcepos="376:1-379:47">Zed’s sandbox has been designed with the aim of being totally unbreakable, even
-in the presence of a motivated attacker with full control over the files in your
-project running as a standard user. It does <em data-sourcepos="378:45-378:49">not</em> assume a
-mostly-benevolent-but-sometimes-careless agent.</p>
-<p data-sourcepos="381:1-383:79">Given this, we cannot give the same guarantees about sandbox security as we do
-for more standard cases. However, even with this weakened guarantee, the sandbox
-still helps keep you much safer than without it, so it’s worth keeping enabled.</p>
-<h2 id="choosing-what-to-approve" data-sourcepos="385:1-385:55">Choosing What to Approve<a href="#choosing-what-to-approve" aria-label="Link to heading 'Choosing What to Approve'" data-heading-content="Choosing What to Approve" class="anchor"></a></h2>
-<p data-sourcepos="387:1-387:92">When reviewing a sandbox prompt, prefer the narrowest permission that lets the task proceed:</p>
-<ul data-sourcepos="389:1-393:68">
-<li data-sourcepos="389:1-389:76">approve a specific host instead of all hosts when the destination is known</li>
-<li data-sourcepos="390:1-390:73">approve a specific write path instead of unrestricted filesystem writes</li>
-<li data-sourcepos="391:1-391:84">approve unsandboxed execution only when the command cannot work inside the sandbox</li>
-<li data-sourcepos="392:1-392:48">use one-time approvals for unfamiliar commands</li>
-<li data-sourcepos="393:1-393:68">use thread or always approvals only for access you expect to reuse</li>
-</ul>
-<p data-sourcepos="395:1-396:8">If a command fails because the sandbox blocked access, ask the agent why it needs that access before approving a broader
+<p data-sourcepos="316:1-317:8">If a command fails because the sandbox blocked access, ask the agent why it needs that access before approving a broader
 request.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

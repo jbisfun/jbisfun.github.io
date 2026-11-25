@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -640,27 +639,30 @@ scripts/extract.py
 </tbody>
 </table>
 <p data-sourcepos="175:1-175:99">Each skill is a direct child of the skills root. Nesting skills inside subfolders is not supported.</p>
-<h3 id="project-local-trust" data-sourcepos="177:1-177:57">Project-local Skills and Trust<a href="#project-local-trust" aria-label="Link to heading 'Project-local Skills and Trust'" data-heading-content="Project-local Skills and Trust" class="anchor"></a></h3>
-<p data-sourcepos="179:1-179:200">Project-local skills only load from <a data-sourcepos="179:37-179:77" href="../worktree-trust.html">trusted worktrees</a>. Skills from a freshly cloned or untrusted project are excluded from the catalog and slash commands until you grant trust.</p>
-<p data-sourcepos="181:1-181:140">This prevents a malicious project from injecting instructions into your agent’s system prompt before you’ve reviewed what the project ships.</p>
-<h3 id="override-behavior" data-sourcepos="183:1-183:42">Override Behavior<a href="#override-behavior" aria-label="Link to heading 'Override Behavior'" data-heading-content="Override Behavior" class="anchor"></a></h3>
-<p data-sourcepos="185:1-185:177">If a global and a project-local skill share the same name, the project-local skill takes precedence. This lets a project customize or replace a global skill for its own context.</p>
-<h3 id="editing-skill-files" data-sourcepos="187:1-187:46">Editing Skill Files<a href="#editing-skill-files" aria-label="Link to heading 'Editing Skill Files'" data-heading-content="Editing Skill Files" class="anchor"></a></h3>
-<p data-sourcepos="189:1-189:230">The agent cannot edit <code data-sourcepos="189:23-189:32">SKILL.md</code> files or their bundled resources without your explicit authorization, even in a trusted project. This prevents a compromised conversation from modifying the skills that govern future conversations.</p>
-<h2 id="agent-path-boundaries" data-sourcepos="191:1-191:49">Agent Path Boundaries<a href="#agent-path-boundaries" aria-label="Link to heading 'Agent Path Boundaries'" data-heading-content="Agent Path Boundaries" class="anchor"></a></h2>
-<p data-sourcepos="193:1-193:208">Zed Skills apply to the Zed Agent. <a data-sourcepos="193:36-193:74" href="external-agents.html">External Agents</a> and Terminal Threads may have their own native skills, prompts, or instruction systems. Configure those in the External Agent or CLI.</p>
-<h2 id="limitations" data-sourcepos="195:1-195:29">Limitations<a href="#limitations" aria-label="Link to heading 'Limitations'" data-heading-content="Limitations" class="anchor"></a></h2>
-<ul data-sourcepos="197:1-200:224">
-<li data-sourcepos="197:1-197:149"><strong data-sourcepos="197:3-197:23">Flat layout only.</strong> Skills must be direct children of the skills root. Nested folders like <code data-sourcepos="197:96-197:129">~/.agents/skills/group/my-skill/</code> are not discovered.</li>
-<li data-sourcepos="198:1-198:200"><strong data-sourcepos="198:3-198:26">50KB catalog budget.</strong> The total size of all skill names and descriptions is capped at 50KB. Skills that don’t fit are dropped from the catalog with a warning in the UI. Keep descriptions concise.</li>
-<li data-sourcepos="199:1-199:376"><strong data-sourcepos="199:3-199:25">No remote registry.</strong> Zed does not discover or load skills from remote locations at runtime, and custom search paths are not supported. (You can still import a skill once from a GitHub URL — see <a data-sourcepos="199:202-199:236" href="#create-your-own">Create your own</a>.) Skills are loaded from <code data-sourcepos="199:263-199:281">~/.agents/skills/</code> and <code data-sourcepos="199:287-199:314">&lt;worktree&gt;/.agents/skills/</code> only. Use a symlink if you need to point at another location.</li>
-<li data-sourcepos="200:1-200:224"><strong data-sourcepos="200:3-200:18">Live reload.</strong> Adding, removing, or editing a <code data-sourcepos="200:51-200:60">SKILL.md</code> takes effect immediately without restarting your session. Changes to a skill’s <code data-sourcepos="200:141-200:146">name</code> or <code data-sourcepos="200:151-200:163">description</code> invalidate the model’s prompt cache for the current session.</li>
+<h3 id="remote-projects" data-sourcepos="177:1-177:38">Remote Projects<a href="#remote-projects" aria-label="Link to heading 'Remote Projects'" data-heading-content="Remote Projects" class="anchor"></a></h3>
+<p data-sourcepos="179:1-179:294">In a remote project (SSH, WSL, or a dev container), global skills come from <code data-sourcepos="179:77-179:95">~/.agents/skills/</code> on the remote machine, not your local one. The <strong data-sourcepos="179:144-179:151">User</strong> tab of the skills page lists, creates, and deletes skills on the remote machine. The agent also reads, creates, and edits global skills there.</p>
+<p data-sourcepos="181:1-181:206">Skills <a data-sourcepos="181:8-181:68" href="instructions.html#migrating-from-rules">migrated from Rules</a> live on your local machine, so they aren’t available in remote projects. Copy them to the remote’s <code data-sourcepos="181:169-181:187">~/.agents/skills/</code> to use them there.</p>
+<h3 id="project-local-trust" data-sourcepos="183:1-183:57">Project-local Skills and Trust<a href="#project-local-trust" aria-label="Link to heading 'Project-local Skills and Trust'" data-heading-content="Project-local Skills and Trust" class="anchor"></a></h3>
+<p data-sourcepos="185:1-185:200">Project-local skills only load from <a data-sourcepos="185:37-185:77" href="../worktree-trust.html">trusted worktrees</a>. Skills from a freshly cloned or untrusted project are excluded from the catalog and slash commands until you grant trust.</p>
+<p data-sourcepos="187:1-187:140">This prevents a malicious project from injecting instructions into your agent’s system prompt before you’ve reviewed what the project ships.</p>
+<h3 id="override-behavior" data-sourcepos="189:1-189:42">Override Behavior<a href="#override-behavior" aria-label="Link to heading 'Override Behavior'" data-heading-content="Override Behavior" class="anchor"></a></h3>
+<p data-sourcepos="191:1-191:177">If a global and a project-local skill share the same name, the project-local skill takes precedence. This lets a project customize or replace a global skill for its own context.</p>
+<h3 id="editing-skill-files" data-sourcepos="193:1-193:46">Editing Skill Files<a href="#editing-skill-files" aria-label="Link to heading 'Editing Skill Files'" data-heading-content="Editing Skill Files" class="anchor"></a></h3>
+<p data-sourcepos="195:1-195:230">The agent cannot edit <code data-sourcepos="195:23-195:32">SKILL.md</code> files or their bundled resources without your explicit authorization, even in a trusted project. This prevents a compromised conversation from modifying the skills that govern future conversations.</p>
+<h2 id="agent-path-boundaries" data-sourcepos="197:1-197:49">Agent Path Boundaries<a href="#agent-path-boundaries" aria-label="Link to heading 'Agent Path Boundaries'" data-heading-content="Agent Path Boundaries" class="anchor"></a></h2>
+<p data-sourcepos="199:1-199:208">Zed Skills apply to the Zed Agent. <a data-sourcepos="199:36-199:74" href="external-agents.html">External Agents</a> and Terminal Threads may have their own native skills, prompts, or instruction systems. Configure those in the External Agent or CLI.</p>
+<h2 id="limitations" data-sourcepos="201:1-201:29">Limitations<a href="#limitations" aria-label="Link to heading 'Limitations'" data-heading-content="Limitations" class="anchor"></a></h2>
+<ul data-sourcepos="203:1-206:224">
+<li data-sourcepos="203:1-203:149"><strong data-sourcepos="203:3-203:23">Flat layout only.</strong> Skills must be direct children of the skills root. Nested folders like <code data-sourcepos="203:96-203:129">~/.agents/skills/group/my-skill/</code> are not discovered.</li>
+<li data-sourcepos="204:1-204:200"><strong data-sourcepos="204:3-204:26">50KB catalog budget.</strong> The total size of all skill names and descriptions is capped at 50KB. Skills that don’t fit are dropped from the catalog with a warning in the UI. Keep descriptions concise.</li>
+<li data-sourcepos="205:1-205:376"><strong data-sourcepos="205:3-205:25">No remote registry.</strong> Zed does not discover or load skills from remote locations at runtime, and custom search paths are not supported. (You can still import a skill once from a GitHub URL — see <a data-sourcepos="205:202-205:236" href="#create-your-own">Create your own</a>.) Skills are loaded from <code data-sourcepos="205:263-205:281">~/.agents/skills/</code> and <code data-sourcepos="205:287-205:314">&lt;worktree&gt;/.agents/skills/</code> only. Use a symlink if you need to point at another location.</li>
+<li data-sourcepos="206:1-206:224"><strong data-sourcepos="206:3-206:18">Live reload.</strong> Adding, removing, or editing a <code data-sourcepos="206:51-206:60">SKILL.md</code> takes effect immediately without restarting your session. Changes to a skill’s <code data-sourcepos="206:141-206:146">name</code> or <code data-sourcepos="206:151-206:163">description</code> invalidate the model’s prompt cache for the current session.</li>
 </ul>
-<h2 id="see-also" data-sourcepos="202:1-202:11">See also<a href="#see-also" aria-label="Link to heading 'See also'" data-heading-content="See also" class="anchor"></a></h2>
-<ul data-sourcepos="204:1-206:68">
-<li data-sourcepos="204:1-204:33"><a data-sourcepos="204:3-204:33" href="agent-panel.html">Agent Panel</a></li>
-<li data-sourcepos="205:1-205:43"><a data-sourcepos="205:3-205:43" href="tool-permissions.html">Tool Permissions</a></li>
-<li data-sourcepos="206:1-206:68"><a data-sourcepos="206:3-206:68" href="https://agentskills.io/specification">Agent Skills specification</a></li>
+<h2 id="see-also" data-sourcepos="208:1-208:11">See also<a href="#see-also" aria-label="Link to heading 'See also'" data-heading-content="See also" class="anchor"></a></h2>
+<ul data-sourcepos="210:1-212:68">
+<li data-sourcepos="210:1-210:33"><a data-sourcepos="210:3-210:33" href="agent-panel.html">Agent Panel</a></li>
+<li data-sourcepos="211:1-211:43"><a data-sourcepos="211:3-211:43" href="tool-permissions.html">Tool Permissions</a></li>
+<li data-sourcepos="212:1-212:68"><a data-sourcepos="212:3-212:68" href="https://agentskills.io/specification">Agent Skills specification</a></li>
 </ul>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

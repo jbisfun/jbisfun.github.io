@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferry · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;ferry&#x2f;index.html">
+
+  <link rel="icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.ico" sizes="32x32">
+  <link rel="icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;apple-touch-icon.png">
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="..&#x2f;index.html"><img src="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ferry&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs&#x2f;ARCHITECTURE.html">架構</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;ferry&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="ferry" data-sourcepos="1:1-1:7">Ferry<a href="#ferry" aria-label="Link to heading 'Ferry'" data-heading-content="Ferry" class="anchor"></a></h1>
+<p data-sourcepos="3:1-5:39">iOS 側載（sideloading）工具，適用於 Linux，以 Zig 編寫：簽署 IPAs 並透過 USB
+或 Wi-Fi 安裝。有一個守護程序（daemon）負責管理裝置與工作、一個 CLI (<code data-sourcepos="4:95-4:101">ferry</code>) 和一個
+GUI (<code data-sourcepos="5:6-5:16">ferry-gui</code>，基於 dvui/SDL3)。</p>
+<p data-sourcepos="7:1-8:30">Jimpactor 的後繼架構。請參閱 <a data-sourcepos="7:39-7:82" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>
+了解變更內容及原因。</p>
+<h2 id="build" data-sourcepos="10:1-10:9">建置<a href="#build" aria-label="Link to heading '建置'" data-heading-content="建置" class="anchor"></a></h2>
+<p data-sourcepos="12:1-13:61">需要 Zig 0.17.1 以及 libimobiledevice、libplist、libzip、OpenSSL 和
+FreeType 開發套件，並需有正在運行的 <code data-sourcepos="13:50-13:58">usbmuxd</code>。</p>
+<pre class="syntax-highlighting" data-sourcepos="15:1-19:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build                 <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> zig-out/bin/{ferry,ferryd,ferry-gui}</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>Dgui</span><span class="hl-keyword hl-operator hl-assignment hl-option hl-shell">=</span>false     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 僅 CLI + 守護程序</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build test            <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 每個模組的測試，各模組獨立進行</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="21:1-21:201">部分相依套件（translate-c）位於 codeberg.org。如果您的 DNS 無法解析該網域，<code data-sourcepos="21:99-21:152">tools/fetch-codeberg.sh &lt;owner/repo&gt; &lt;commit&gt; &lt;hash&gt;</code> 會透過 1.1.1.1 下載並填充套件快取。</p>
+<p data-sourcepos="23:1-24:76"><code data-sourcepos="23:1-23:26">tools/install-desktop.sh</code> 為 <code data-sourcepos="23:32-23:42">ferry-gui</code> 新增啟動器項目和圖示。
+<code data-sourcepos="24:1-24:40">FERRY_GUI_SCREENSHOT=out.png ferry-gui</code> 會渲染一幀至 PNG 並退出。</p>
+<h2 id="coming-from-jimpactor" data-sourcepos="26:1-26:23">從 Jimpactor 遷移<a href="#coming-from-jimpactor" aria-label="Link to heading '從 Jimpactor 遷移'" data-heading-content="從 Jimpactor 遷移" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="28:1-30:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> import jimpactor        <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 或點擊「從 Jimpactor 匯入」按鈕</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="32:1-35:53">這會複製 Jimpactor 的配對記錄（裝置出現時傳遞給 usbmuxd），並將每個 <code data-sourcepos="32:93-32:110">xkit/data/&lt;TEAM&gt;</code> 憑證 + 金鑰轉換為身份
+<code data-sourcepos="33:1-33:18">jimpactor-&lt;TEAM&gt;</code>。Jimpactor 不保留設定檔（provisioning profiles），因此該身份在首次簽署每個應用程式時會向 <code data-sourcepos="33:138-33:152">jimpactor-cli</code>（透過 <code data-sourcepos="33:163-33:178">$JIMPACTOR_CLI</code>、<code data-sourcepos="33:182-33:187">PATH</code> 或
+<code data-sourcepos="34:1-34:26">~/projs/jimpactor/target</code> 找到）請求設定檔，並將其快取於 <code data-sourcepos="34:74-34:112">identities/jimpactor-&lt;TEAM&gt;/profiles/</code>。Wi-Fi 裝置清單、
+Tailscale 金鑰和 anisette 資料則未被使用。</p>
+<h2 id="use" data-sourcepos="37:1-37:9">使用<a href="#use" aria-label="Link to heading '使用'" data-heading-content="使用" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="39:1-50:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> import jimpactor</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> identity add team<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>p12</span> cert.p12<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>password</span> ...<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>profile</span> app.mobileprovision</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> devices</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> install MyApp.ipa                  <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 連接了一個裝置</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> install <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>JP&#39;s iPhone<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> MyApp.ipa<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>b</span> com.me.myapp</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> sign MyApp.ipa<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>o</span> signed.ipa</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> apps / info / uninstall <span class="hl-keyword hl-operator hl-assignment hl-redirection hl-shell">&lt;</span>bundle<span class="hl-keyword hl-operator hl-assignment hl-redirection hl-shell">&gt;</span>
+</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> watch                              <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 即時裝置 + 工作事件</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> daemon start</span><span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">stop</span></span><span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">status</span></span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> schema                             <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> 協定 JSON Schema</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="52:1-53:193"><code data-sourcepos="52:1-52:7">ferry</code> 若有運行的守護程序則會使用它，因此其工作也會顯示在
+GUI 中。否則，它會在進程內執行所有操作。GUI 會自行啟動守護程序。資料存放在 <code data-sourcepos="53:109-53:121">$FERRY_HOME</code>，或 <code data-sourcepos="53:129-53:145">~/.config/ferry</code>。通訊端為 <code data-sourcepos="53:162-53:190">$XDG_RUNTIME_DIR/ferry.sock</code>。</p>
+<h2 id="languages" data-sourcepos="55:1-55:9">語言<a href="#languages" aria-label="Link to heading '語言'" data-heading-content="語言" class="anchor"></a></h2>
+<p data-sourcepos="57:1-60:72">英文和繁體中文（zh_TW）。語言設定遵循 <code data-sourcepos="57:55-57:60">LANG</code> /
+<code data-sourcepos="58:1-58:13">LC_MESSAGES</code> / <code data-sourcepos="58:17-58:26">LANGUAGE</code>（zh_TW、zh_HK 和 zh_Hant 皆會選取 繁體中文），或
+<code data-sourcepos="59:1-59:18">FERRY_LANG=zh_TW</code> 強制指定。GUI 也在標頭中提供語言選擇器。GUI 使用桌面的介面字型（GNOME <code data-sourcepos="59:118-59:128">font-name</code>，透過
+fontconfig）以及，對於中文，使用系統的 Noto Sans CJK TC。</p>
+<p data-sourcepos="62:1-65:65">翻譯為 GNU gettext 目錄檔，位於 <code data-sourcepos="62:42-62:46">po/</code>。它們在建置時以
+<code data-sourcepos="63:1-63:16">msgfmt --check</code> 編譯並嵌入二進位檔案中，因此即使系統上未產生 <code data-sourcepos="63:85-63:91">zh_TW</code> 區域設定也能運作。要新增字串：將其包裝在 <code data-sourcepos="63:154-63:164">tr(&quot;...&quot;)</code> 中（或 <code data-sourcepos="63:176-63:180">trf</code>/<code data-sourcepos="63:182-63:186">trl</code>/<code data-sourcepos="63:188-63:194">failT</code>/<code data-sourcepos="63:196-63:200">say</code>，帶有 <code data-sourcepos="63:211-63:215">{0}</code>
+佔位符），執行 <code data-sourcepos="64:23-64:37">zig build pot</code>，然後
+<code data-sourcepos="65:1-65:38">msgmerge -U po/zh_TW.po po/ferry.pot</code>，並翻譯新的條目。</p>
+<p data-sourcepos="67:1-67:173"><code data-sourcepos="67:1-67:33">tests/make-test-identity.sh DIR</code> 建立一個一次性憑證和設定檔，讓您可以嘗試簽署而無需 Apple 帳戶。裝置不會接受以其簽署的應用程式。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry&#x2f;blob&#x2f;master&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家&#x2f;地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

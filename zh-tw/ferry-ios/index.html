@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferry for iOS · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">
+
+  <link rel="icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.ico" sizes="32x32">
+  <link rel="icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;apple-touch-icon.png">
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="..&#x2f;index.html"><img src="..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ferry-ios&#x2f;index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry-ios">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs&#x2f;ARCHITECTURE.html">架構</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;ferry-ios&#x2f;index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="ferry-for-ios" data-sourcepos="1:1-1:15">Ferry for iOS<a href="#ferry-for-ios" aria-label="Link to heading 'Ferry for iOS'" data-heading-content="Ferry for iOS" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:195">在裝置上為 iPhone 和 iPad 進行側載，採用 SwiftUI。它是 <a data-sourcepos="3:72-3:88" href="../ferry">Ferry</a>（Linux）的 iOS 兄弟版本，涵蓋了 SideStore 的功能，無需 JIT 且提供更原生的介面：</p>
+<ul data-sourcepos="5:1-9:178">
+<li data-sourcepos="5:1-5:139">使用任何 Apple ID 登入（支援雙重驗證、免費或付費團隊）；憑證、App ID 和裝置註冊均由系統自動處理。</li>
+<li data-sourcepos="6:1-6:126">從「檔案」、Safari、AirDrop 或來源安裝 <code data-sourcepos="6:54-6:59">.ipa</code> 檔案；在過期前重新整理，並在前一天收到提醒。</li>
+<li data-sourcepos="7:1-7:139">來源：AltStore 格式的儲存庫（v1 和 v2 版面配置）以及 GitHub 儲存庫，其發布版本的 <code data-sourcepos="7:112-7:117">.ipa</code> 資產即為版本。</li>
+<li data-sourcepos="8:1-8:191">權限：查看 IPA 中的每個二進位檔請求了哪些權限、免費 Apple ID 無法獲得哪些權限、來源宣告了哪些，以及之後配置文件實際授予了哪些權限。</li>
+<li data-sourcepos="9:1-9:178">微調：注入 <code data-sourcepos="9:19-9:26">.dylib</code> 和 <code data-sourcepos="9:32-9:43">.framework</code>、移除連結的函式庫、重新命名、變更 bundle id、版本或最低 iOS 版本、移除擴展、啟用「檔案」共用。</li>
+</ul>
+<h2 id="how-it-works-without-a-computer-or-jit" data-sourcepos="11:1-11:50">如何在沒有電腦或 JIT 的情況下運作<a href="#how-it-works-without-a-computer-or-jit" aria-label="Link to heading '如何在沒有電腦或 JIT 的情況下運作'" data-heading-content="如何在沒有電腦或 JIT 的情況下運作" class="anchor"></a></h2>
+<p data-sourcepos="13:1-13:267">迴路 VPN（LocalDevVPN 或 StosVPN）將 <code data-sourcepos="13:44-13:53">10.7.0.1</code> 路由至手機本身的 <code data-sourcepos="13:80-13:90">lockdownd</code>。透過手機的配對文件，Ferry 像電腦一樣與之通訊：使用 AFC 上傳、<code data-sourcepos="13:180-13:199">installation_proxy</code> 安裝。沒有程式在偵錯器中執行，因此不需要 JIT。</p>
+<h2 id="layout" data-sourcepos="15:1-15:15">版面配置<a href="#layout" aria-label="Link to heading '版面配置'" data-heading-content="版面配置" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="17:1-21:3"><code><span class="hl-text hl-plain">core/      Rust 靜態函式庫：登入、供應、簽署、注入、安裝
+App/       SwiftUI 應用程式（Core 橋接、模型、檢視）
+idlproj.yml
+</span></code></pre>
+<p data-sourcepos="23:1-23:57">請參閱 <a data-sourcepos="23:11-23:54" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>。</p>
+<h2 id="build-linux" data-sourcepos="25:1-25:20">建置（Linux）<a href="#build-linux" aria-label="Link to heading '建置（Linux）'" data-heading-content="建置（Linux）" class="anchor"></a></h2>
+<p data-sourcepos="27:1-27:132">需要 <code data-sourcepos="27:8-27:20">xtool setup</code>（Darwin SDK）、swiftly 的 Swift 工具鏈、<code data-sourcepos="27:70-27:106">rustup target add aarch64-apple-ios</code>，以及 <a data-sourcepos="27:117-27:129" href="../idl">idl</a>。</p>
+<pre class="syntax-highlighting" data-sourcepos="29:1-35:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">core/build-ios.sh            <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> core/out/libferry_core.a + ferry_core.h</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">idl</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>c</span> release         <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build/release/Ferry.ipa（ad-hoc 簽署）</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">idl</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> test<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>c</span> release          <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> bundle 檢查</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">cargo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> test<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>manifest-path</span> core/Cargo.toml</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">cargo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> run<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>manifest-path</span> core/Cargo.toml<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>example</span> smoke<span class="hl-keyword hl-operator hl-end-of-options hl-shell"> --</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> App.ipa <span class="hl-keyword hl-control hl-regexp hl-set hl-begin hl-shell">[</span>tweak.dylib<span class="hl-keyword hl-control hl-regexp hl-set hl-end hl-shell">]</span></span>
+</span></code></pre>
+<p data-sourcepos="37:1-37:228">IPA 必須重新簽署才能安裝（例如透過 Jimpactor 或桌面版 Ferry 執行 <code data-sourcepos="37:87-37:112">idl install &lt;udid&gt; Ferry</code>）。之後，一旦你將它的 IPA 加入程式庫，Ferry 就會像其他應用程式一樣自行重新整理。</p>
+<p data-sourcepos="39:1-39:209">在裝置上，anisette 需要僅解譯器（TCI）的 Unicorn for iOS：使用 <code data-sourcepos="39:81-39:138">bash ~/projs/WaffleStore/AnisetteKit/MacADI/build-ios.sh</code> 建置它，或將 <code data-sourcepos="39:159-39:175">UNICORN_IOS_DIR</code> 指向你自己的建置版本。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry-ios&#x2f;blob&#x2f;master&#x2f;README.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家&#x2f;地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

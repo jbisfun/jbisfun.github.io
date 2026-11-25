@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -589,42 +588,44 @@ Copying an image and pasting it is also supported.</p>
 <p data-sourcepos="163:1-163:133">Configure automatic compaction with <code data-sourcepos="163:37-163:56">agent.auto_compact</code>. See <a data-sourcepos="163:63-163:120" href="agent-settings.html#automatic-compaction">Agent Settings</a> for options.</p>
 <h2 id="changing-models" data-sourcepos="165:1-165:37">Changing Models<a href="#changing-models" aria-label="Link to heading 'Changing Models'" data-heading-content="Changing Models" class="anchor"></a></h2>
 <p data-sourcepos="167:1-167:304">After you’ve configured your LLM providers—either via <a data-sourcepos="167:57-167:89" href="use-api-access.html">API access</a> or through <a data-sourcepos="167:102-167:153" href="../account/zed-hosted-models.html">Zed-hosted models</a>—you can switch between their models by clicking on the model selector on the message editor or by using the <code data-sourcepos="167:265-167:292">agent::ToggleModelSelector</code> keybinding.</p>
-<blockquote data-sourcepos="169:1-170:164">
-<p data-sourcepos="169:3-170:164">The same model can be offered via multiple providers - for example, Claude Sonnet 4.5 is available via Zed Pro, OpenRouter, Anthropic directly, and more.
-Make sure you’ve selected the correct model <strong data-sourcepos="170:47-170:60"><em data-sourcepos="170:49-170:58">provider</em></strong> for the model you’d like to use, delineated by the logo to the left of the model in the model selector.</p>
+<p data-sourcepos="169:1-169:198">Picking a model in the Zed Agent also saves it as <code data-sourcepos="169:51-169:71">agent.default_model</code>, so new threads start with it. Thinking, effort, and fast mode changes are saved too when the thread is on your default model.</p>
+<p data-sourcepos="171:1-171:561">To change the model, profile, or thinking effort for the current thread only, pick it with <code data-sourcepos="171:92-171:115">menu::SecondaryConfirm</code> instead of <code data-sourcepos="171:128-171:134">Enter</code>, or hold <code data-sourcepos="171:145-171:149">Cmd</code> on macOS (<code data-sourcepos="171:161-171:166">Ctrl</code> on Linux and Windows) while you click it. The thread is then thread-only: nothing you change in it is saved as a default, and a dot appears next to the selectors. To leave thread-only mode, click the dot and choose Reset to Defaults (<code data-sourcepos="171:402-171:431">agent::ResetThreadToDefaults</code>) to go back to your defaults, or Save as Default (<code data-sourcepos="171:483-171:511">agent::SaveThreadAsDefaults</code>) to make what the thread is on your new defaults.</p>
+<blockquote data-sourcepos="173:1-174:164">
+<p data-sourcepos="173:3-174:164">The same model can be offered via multiple providers - for example, Claude Sonnet 4.5 is available via Zed Pro, OpenRouter, Anthropic directly, and more.
+Make sure you’ve selected the correct model <strong data-sourcepos="174:47-174:60"><em data-sourcepos="174:49-174:58">provider</em></strong> for the model you’d like to use, delineated by the logo to the left of the model in the model selector.</p>
 </blockquote>
-<h3 id="favoriting-models" data-sourcepos="172:1-172:21">Favoriting Models<a href="#favoriting-models" aria-label="Link to heading 'Favoriting Models'" data-heading-content="Favoriting Models" class="anchor"></a></h3>
-<p data-sourcepos="174:1-174:220">You can mark specific models as favorites either through the model selector, by clicking on the star icon button that appears as you hover the model, or through your settings via the <code data-sourcepos="174:184-174:206">agent.favorite_models</code> settings key.</p>
-<p data-sourcepos="176:1-176:98">Cycle through your favorites with <code data-sourcepos="176:35-176:62">agent::CycleFavoriteModels</code> without opening the model selector.</p>
-<h2 id="using-tools" data-sourcepos="178:1-178:42">Using Tools and Profiles<a href="#using-tools" aria-label="Link to heading 'Using Tools and Profiles'" data-heading-content="Using Tools and Profiles" class="anchor"></a></h2>
-<p data-sourcepos="180:1-180:192">The Agent Panel supports tool calling, which enables agentic editing. Zed includes <a data-sourcepos="180:84-180:111" href="tools.html">built-in tools</a> for searching your codebase, editing files, running terminal commands, and more.</p>
-<p data-sourcepos="182:1-182:251">Use <a data-sourcepos="182:5-182:41" href="agent-profiles.html">Agent Profiles</a> to choose which built-in tools and MCP tools are available in a Zed Agent thread. Use <a data-sourcepos="182:129-182:169" href="tool-permissions.html">Tool Permissions</a> to control whether permission-gated tool calls are allowed, denied, or confirmed.</p>
-<p data-sourcepos="184:1-184:56">You can add external tools with <a data-sourcepos="184:33-184:55" href="mcp.html">MCP Servers</a>.</p>
-<h3 id="model-support" data-sourcepos="186:1-186:34">Model Support<a href="#model-support" aria-label="Link to heading 'Model Support'" data-heading-content="Model Support" class="anchor"></a></h3>
-<p data-sourcepos="188:1-190:82">Tool calling needs to be individually supported by each model and model provider.
+<h3 id="favoriting-models" data-sourcepos="176:1-176:21">Favoriting Models<a href="#favoriting-models" aria-label="Link to heading 'Favoriting Models'" data-heading-content="Favoriting Models" class="anchor"></a></h3>
+<p data-sourcepos="178:1-178:220">You can mark specific models as favorites either through the model selector, by clicking on the star icon button that appears as you hover the model, or through your settings via the <code data-sourcepos="178:184-178:206">agent.favorite_models</code> settings key.</p>
+<p data-sourcepos="180:1-180:175">Cycle through your favorites with <code data-sourcepos="180:35-180:62">agent::CycleFavoriteModels</code> without opening the model selector. This also saves the model as your default, unless the thread is thread-only.</p>
+<h2 id="using-tools" data-sourcepos="182:1-182:42">Using Tools and Profiles<a href="#using-tools" aria-label="Link to heading 'Using Tools and Profiles'" data-heading-content="Using Tools and Profiles" class="anchor"></a></h2>
+<p data-sourcepos="184:1-184:192">The Agent Panel supports tool calling, which enables agentic editing. Zed includes <a data-sourcepos="184:84-184:111" href="tools.html">built-in tools</a> for searching your codebase, editing files, running terminal commands, and more.</p>
+<p data-sourcepos="186:1-186:251">Use <a data-sourcepos="186:5-186:41" href="agent-profiles.html">Agent Profiles</a> to choose which built-in tools and MCP tools are available in a Zed Agent thread. Use <a data-sourcepos="186:129-186:169" href="tool-permissions.html">Tool Permissions</a> to control whether permission-gated tool calls are allowed, denied, or confirmed.</p>
+<p data-sourcepos="188:1-188:56">You can add external tools with <a data-sourcepos="188:33-188:55" href="mcp.html">MCP Servers</a>.</p>
+<h3 id="model-support" data-sourcepos="190:1-190:34">Model Support<a href="#model-support" aria-label="Link to heading 'Model Support'" data-heading-content="Model Support" class="anchor"></a></h3>
+<p data-sourcepos="192:1-194:82">Tool calling needs to be individually supported by each model and model provider.
 Therefore, despite the presence of built-in tools, some models may not have the ability to pick them up.
 You should see a “No tools” label if you select a model that falls into this case.</p>
-<p data-sourcepos="192:1-192:93">All <a data-sourcepos="192:5-192:56" href="../account/zed-hosted-models.html">Zed-hosted models</a> support tool calling out-of-the-box.</p>
-<h3 id="mcp-servers" data-sourcepos="194:1-194:30">MCP Servers<a href="#mcp-servers" aria-label="Link to heading 'MCP Servers'" data-heading-content="MCP Servers" class="anchor"></a></h3>
-<p data-sourcepos="196:1-197:96">Similarly to the built-in tools, some models may not support all tools included in a given MCP Server.
+<p data-sourcepos="196:1-196:93">All <a data-sourcepos="196:5-196:56" href="../account/zed-hosted-models.html">Zed-hosted models</a> support tool calling out-of-the-box.</p>
+<h3 id="mcp-servers" data-sourcepos="198:1-198:30">MCP Servers<a href="#mcp-servers" aria-label="Link to heading 'MCP Servers'" data-heading-content="MCP Servers" class="anchor"></a></h3>
+<p data-sourcepos="200:1-201:96">Similarly to the built-in tools, some models may not support all tools included in a given MCP Server.
 Zed’s UI will inform you about this via a warning icon that appears close to the model selector.</p>
-<h2 id="errors-and-debugging" data-sourcepos="199:1-199:47">Errors and Debugging<a href="#errors-and-debugging" aria-label="Link to heading 'Errors and Debugging'" data-heading-content="Errors and Debugging" class="anchor"></a></h2>
-<p data-sourcepos="201:1-201:149">If you hit an error or unusual LLM behavior, open the thread as Markdown with <code data-sourcepos="201:79-201:113">agent::OpenActiveThreadAsMarkdown</code> and attach it to your GitHub issue.</p>
-<p data-sourcepos="203:1-203:150">You can also open threads as Markdown by clicking on the file icon button, to the right of the thumbs down button, when focused on the panel’s editor.</p>
-<h2 id="feedback" data-sourcepos="205:1-205:23">Feedback<a href="#feedback" aria-label="Link to heading 'Feedback'" data-heading-content="Feedback" class="anchor"></a></h2>
-<p data-sourcepos="207:1-207:75">You can rate agent responses to help improve Zed’s system prompt and tools.</p>
-<blockquote data-sourcepos="209:1-215:30">
-<p data-sourcepos="209:3-215:30"><strong data-sourcepos="209:3-209:14">Warning:</strong> Rating an AI response sends the conversation thread to Zed. The
+<h2 id="errors-and-debugging" data-sourcepos="203:1-203:47">Errors and Debugging<a href="#errors-and-debugging" aria-label="Link to heading 'Errors and Debugging'" data-heading-content="Errors and Debugging" class="anchor"></a></h2>
+<p data-sourcepos="205:1-205:149">If you hit an error or unusual LLM behavior, open the thread as Markdown with <code data-sourcepos="205:79-205:113">agent::OpenActiveThreadAsMarkdown</code> and attach it to your GitHub issue.</p>
+<p data-sourcepos="207:1-207:150">You can also open threads as Markdown by clicking on the file icon button, to the right of the thumbs down button, when focused on the panel’s editor.</p>
+<h2 id="feedback" data-sourcepos="209:1-209:23">Feedback<a href="#feedback" aria-label="Link to heading 'Feedback'" data-heading-content="Feedback" class="anchor"></a></h2>
+<p data-sourcepos="211:1-211:75">You can rate agent responses to help improve Zed’s system prompt and tools.</p>
+<blockquote data-sourcepos="213:1-219:30">
+<p data-sourcepos="213:3-219:30"><strong data-sourcepos="213:3-213:14">Warning:</strong> Rating an AI response sends the conversation thread to Zed. The
 conversation thread includes your messages, AI responses, and thread metadata.
-See <a data-sourcepos="211:7-211:55" href="ai-improvement.html">Feedback and Training Data</a> and
-<a data-sourcepos="212:3-212:41" href="privacy-and-security.html">AI Privacy</a> for more information.
-<strong data-sourcepos="213:3-213:69"><em data-sourcepos="213:5-213:67">If you don’t want data persisted on Zed’s servers, don’t rate</em></strong>.
+See <a data-sourcepos="215:7-215:55" href="ai-improvement.html">Feedback and Training Data</a> and
+<a data-sourcepos="216:3-216:41" href="privacy-and-security.html">AI Privacy</a> for more information.
+<strong data-sourcepos="217:3-217:69"><em data-sourcepos="217:5-217:67">If you don’t want data persisted on Zed’s servers, don’t rate</em></strong>.
 We will not collect data for improving Zed’s agent experience without you
 explicitly rating responses.</p>
 </blockquote>
-<p data-sourcepos="217:1-218:108">To help improve Zed’s system prompt and tools, rate responses with the thumbs up/down controls at the end of each response.
+<p data-sourcepos="221:1-222:108">To help improve Zed’s system prompt and tools, rate responses with the thumbs up/down controls at the end of each response.
 In case of a thumbs down, a new text area will show up where you can add more specifics about what happened.</p>
-<p data-sourcepos="220:1-220:120">You can provide feedback on the thread at any point after the agent responds, and multiple times within the same thread.</p>
+<p data-sourcepos="224:1-224:120">You can provide feedback on the thread at any point after the agent responds, and multiple times within the same thread.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

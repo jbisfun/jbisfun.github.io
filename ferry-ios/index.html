@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferry for iOS · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;zh-tw&#x2f;ferry-ios&#x2f;index.html">
+
+  <link rel="icon" href="..&#x2f;_assets&#x2f;icons&#x2f;favicon.ico" sizes="32x32">
+  <link rel="icon" href="..&#x2f;_assets&#x2f;icons&#x2f;favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="..&#x2f;_assets&#x2f;icons&#x2f;apple-touch-icon.png">
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="..&#x2f;index.html"><img src="..&#x2f;_assets&#x2f;icons&#x2f;icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;zh-tw&#x2f;ferry-ios&#x2f;index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry-ios">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs&#x2f;ARCHITECTURE.html">Architecture</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ferry-ios" data-radar-file="README.md">
+
+
+      <h1 id="ferry-for-ios" data-sourcepos="1:1-1:15">Ferry for iOS<a href="#ferry-for-ios" aria-label="Link to heading 'Ferry for iOS'" data-heading-content="Ferry for iOS" class="anchor"></a></h1>
+<p data-sourcepos="3:1-5:22">On-device sideloading for iPhone and iPad, in SwiftUI. It’s the iOS sibling of
+<a data-sourcepos="4:1-4:17" href="../ferry">Ferry</a> (Linux) and covers what SideStore does, without JIT and with a
+more native interface:</p>
+<ul data-sourcepos="7:1-18:10">
+<li data-sourcepos="7:1-8:46">Sign in with any Apple ID (2FA, free or paid team); certificates, App IDs
+and device registration are handled for you.</li>
+<li data-sourcepos="9:1-10:53">Install <code data-sourcepos="9:11-9:16">.ipa</code> files from Files, Safari, AirDrop or a source; refresh them
+before they expire, with a reminder the day before.</li>
+<li data-sourcepos="11:1-12:62">Sources: AltStore-format repositories (v1 and v2 layouts) and GitHub
+repositories, whose releases’ <code data-sourcepos="12:33-12:38">.ipa</code> assets become versions.</li>
+<li data-sourcepos="13:1-15:27">Entitlements: see what every binary in an IPA asks for, which of those a
+free Apple ID can’t get, what the source declares, and afterwards what the
+profile actually granted.</li>
+<li data-sourcepos="16:1-18:10">Tweaks: inject <code data-sourcepos="16:18-16:25">.dylib</code>s and <code data-sourcepos="16:32-16:43">.framework</code>s, remove linked libraries, rename,
+change the bundle id, version or minimum iOS, drop extensions, enable Files
+sharing.</li>
+</ul>
+<h2 id="how-it-works-without-a-computer-or-jit" data-sourcepos="20:1-20:41">How it works without a computer or JIT<a href="#how-it-works-without-a-computer-or-jit" aria-label="Link to heading 'How it works without a computer or JIT'" data-heading-content="How it works without a computer or JIT" class="anchor"></a></h2>
+<p data-sourcepos="22:1-25:30">A loopback VPN (LocalDevVPN or StosVPN) routes <code data-sourcepos="22:48-22:57">10.7.0.1</code> to the phone’s own
+<code data-sourcepos="23:1-23:11">lockdownd</code>. With the phone’s pairing file, Ferry talks to it like a computer
+would: AFC to upload, <code data-sourcepos="24:23-24:42">installation_proxy</code> to install. Nothing runs in the
+debugger, so no JIT is needed.</p>
+<h2 id="layout" data-sourcepos="27:1-27:9">Layout<a href="#layout" aria-label="Link to heading 'Layout'" data-heading-content="Layout" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="29:1-33:3"><code><span class="hl-text hl-plain">core/      Rust static library: login, provisioning, signing, injection, install
+App/       SwiftUI app (Core bridge, models, views)
+idlproj.yml
+</span></code></pre>
+<p data-sourcepos="35:1-35:49">See <a data-sourcepos="35:5-35:48" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>.</p>
+<h2 id="build-linux" data-sourcepos="37:1-37:16">Build (Linux)<a href="#build-linux" aria-label="Link to heading 'Build (Linux)'" data-heading-content="Build (Linux)" class="anchor"></a></h2>
+<p data-sourcepos="39:1-40:42">Needs <code data-sourcepos="39:7-39:19">xtool setup</code> (Darwin SDK), swiftly’s Swift toolchain, <code data-sourcepos="39:62-40:22">rustup target add aarch64-apple-ios</code>, and <a data-sourcepos="40:29-40:41" href="../idl">idl</a>.</p>
+<pre class="syntax-highlighting" data-sourcepos="42:1-48:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">core/build-ios.sh            <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> core/out/libferry_core.a + ferry_core.h</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">idl</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>c</span> release         <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> build/release/Ferry.ipa (ad-hoc signed)</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">idl</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> test<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>c</span> release          <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> bundle checks</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">cargo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> test<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>manifest-path</span> core/Cargo.toml</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">cargo</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> run<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>manifest-path</span> core/Cargo.toml<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>example</span> smoke<span class="hl-keyword hl-operator hl-end-of-options hl-shell"> --</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> App.ipa <span class="hl-keyword hl-control hl-regexp hl-set hl-begin hl-shell">[</span>tweak.dylib<span class="hl-keyword hl-control hl-regexp hl-set hl-end hl-shell">]</span></span>
+</span></code></pre>
+<p data-sourcepos="50:1-52:40">The IPA must be re-signed to install (e.g. <code data-sourcepos="50:44-50:69">idl install &lt;udid&gt; Ferry</code> through
+Jimpactor, or desktop Ferry). After that Ferry refreshes itself like any other
+app in its library once you add its IPA.</p>
+<p data-sourcepos="54:1-56:36">On-device anisette needs the interpreter-only (TCI) Unicorn for iOS: build it
+with <code data-sourcepos="55:6-55:63">bash ~/projs/WaffleStore/AnisetteKit/MacADI/build-ios.sh</code> or point
+<code data-sourcepos="56:1-56:17">UNICORN_IOS_DIR</code> at your own build.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry-ios&#x2f;blob&#x2f;master&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

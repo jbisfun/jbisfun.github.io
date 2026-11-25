@@ -1,2 +1,2 @@
-createSrcSidebar('[["omnisette",["",[],["adi_libraries.rs","adi_proxy.rs","anisette_headers_provider.rs","lib.rs","mac_anisette.rs","mac_libraries.rs","remote_anisette_v1.rs","store_services_core.rs"]]]]');
-//{"start":19,"fragment_lengths":[183]}
+createSrcSidebar('[["omnisette",["",[],["adi_libraries.rs","adi_proxy.rs","anisette_headers_provider.rs","client_info.rs","lib.rs","mac_anisette.rs","mac_libraries.rs","remote_anisette_v1.rs","store_services_core.rs"]]],["omnisette",["",[],["adi_libraries.rs","adi_proxy.rs","anisette_headers_provider.rs","lib.rs","mac_anisette.rs","mac_libraries.rs","remote_anisette_v1.rs","store_services_core.rs"]]]]');
+//{"start":19,"fragment_lengths":[200,184]}

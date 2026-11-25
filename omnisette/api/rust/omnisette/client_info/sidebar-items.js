@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BLOCKED","CANDIDATES","USER_AGENT"],"fn":["for_identity","is_blocked","sanitize"]};

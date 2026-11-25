@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -495,21 +494,24 @@
 <li data-sourcepos="17:1-17:49"><code data-sourcepos="17:3-17:7">Ask</code>: focuses on read-only codebase questions.</li>
 <li data-sourcepos="18:1-18:35"><code data-sourcepos="18:3-18:11">Minimal</code>: uses no project tools.</li>
 </ul>
-<h2 id="configure-profiles" data-sourcepos="20:1-20:43">Configure Profiles<a href="#configure-profiles" aria-label="Link to heading 'Configure Profiles'" data-heading-content="Configure Profiles" class="anchor"></a></h2>
-<p data-sourcepos="22:1-22:89">Open the profile selector in the <a data-sourcepos="22:34-22:64" href="agent-panel.html">Agent Panel</a>, then click <code data-sourcepos="22:78-22:88">Configure</code>.</p>
-<p data-sourcepos="24:1-24:66">You can also run <code data-sourcepos="24:18-24:40">agent::ManageProfiles</code> from the command palette.</p>
-<p data-sourcepos="26:1-26:32">From the profile modal, you can:</p>
-<ul data-sourcepos="28:1-33:24">
-<li data-sourcepos="28:1-28:25">create a custom profile</li>
-<li data-sourcepos="29:1-29:26">fork an existing profile</li>
-<li data-sourcepos="30:1-30:35">configure a profile default model</li>
-<li data-sourcepos="31:1-31:26">configure built-in tools</li>
-<li data-sourcepos="32:1-32:21">configure MCP tools</li>
-<li data-sourcepos="33:1-33:24">delete custom profiles</li>
+<h2 id="switch-profiles" data-sourcepos="20:1-20:37">Switch Profiles<a href="#switch-profiles" aria-label="Link to heading 'Switch Profiles'" data-heading-content="Switch Profiles" class="anchor"></a></h2>
+<p data-sourcepos="22:1-22:266">Picking a profile in the <a data-sourcepos="22:26-22:56" href="agent-panel.html">Agent Panel</a> also saves it as <code data-sourcepos="22:75-22:97">agent.default_profile</code>, so new threads start with it. To change it for the current thread only, pick it with <code data-sourcepos="22:185-22:208">menu::SecondaryConfirm</code>; see <a data-sourcepos="22:215-22:265" href="agent-panel.html#changing-models">Changing Models</a>.</p>
+<p data-sourcepos="24:1-24:81">Cycling profiles with <code data-sourcepos="24:23-24:48">agent::CycleModeSelector</code> only changes the current thread.</p>
+<h2 id="configure-profiles" data-sourcepos="26:1-26:43">Configure Profiles<a href="#configure-profiles" aria-label="Link to heading 'Configure Profiles'" data-heading-content="Configure Profiles" class="anchor"></a></h2>
+<p data-sourcepos="28:1-28:89">Open the profile selector in the <a data-sourcepos="28:34-28:64" href="agent-panel.html">Agent Panel</a>, then click <code data-sourcepos="28:78-28:88">Configure</code>.</p>
+<p data-sourcepos="30:1-30:66">You can also run <code data-sourcepos="30:18-30:40">agent::ManageProfiles</code> from the command palette.</p>
+<p data-sourcepos="32:1-32:32">From the profile modal, you can:</p>
+<ul data-sourcepos="34:1-39:24">
+<li data-sourcepos="34:1-34:25">create a custom profile</li>
+<li data-sourcepos="35:1-35:26">fork an existing profile</li>
+<li data-sourcepos="36:1-36:35">configure a profile default model</li>
+<li data-sourcepos="37:1-37:26">configure built-in tools</li>
+<li data-sourcepos="38:1-38:21">configure MCP tools</li>
+<li data-sourcepos="39:1-39:24">delete custom profiles</li>
 </ul>
-<h2 id="settings" data-sourcepos="35:1-35:36">Profiles and Settings<a href="#settings" aria-label="Link to heading 'Profiles and Settings'" data-heading-content="Profiles and Settings" class="anchor"></a></h2>
-<p data-sourcepos="37:1-37:60">Profiles are stored under <code data-sourcepos="37:27-37:42">agent.profiles</code> in your settings.</p>
-<pre class="syntax-highlighting" data-sourcepos="39:1-61:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+<h2 id="settings" data-sourcepos="41:1-41:36">Profiles and Settings<a href="#settings" aria-label="Link to heading 'Profiles and Settings'" data-heading-content="Profiles and Settings" class="anchor"></a></h2>
+<p data-sourcepos="43:1-43:60">Profiles are stored under <code data-sourcepos="43:27-43:42">agent.profiles</code> in your settings.</p>
+<pre class="syntax-highlighting" data-sourcepos="45:1-67:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
   </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
     </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>profiles<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
       </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>ask<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
@@ -531,32 +533,32 @@
   <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 </span></code></pre>
-<p data-sourcepos="63:1-63:99">The exact model IDs and provider IDs depend on your configured <a data-sourcepos="63:64-63:98" href="llm-providers.html">LLM Providers</a>.</p>
-<h2 id="profiles-vs-tool-permissions" data-sourcepos="65:1-65:64">Profiles vs. Tool Permissions<a href="#profiles-vs-tool-permissions" aria-label="Link to heading 'Profiles vs. Tool Permissions'" data-heading-content="Profiles vs. Tool Permissions" class="anchor"></a></h2>
-<table data-sourcepos="67:1-70:136" class="table table-sm table-striped">
+<p data-sourcepos="69:1-69:99">The exact model IDs and provider IDs depend on your configured <a data-sourcepos="69:64-69:98" href="llm-providers.html">LLM Providers</a>.</p>
+<h2 id="profiles-vs-tool-permissions" data-sourcepos="71:1-71:64">Profiles vs. Tool Permissions<a href="#profiles-vs-tool-permissions" aria-label="Link to heading 'Profiles vs. Tool Permissions'" data-heading-content="Profiles vs. Tool Permissions" class="anchor"></a></h2>
+<table data-sourcepos="73:1-76:136" class="table table-sm table-striped">
 <thead>
-<tr data-sourcepos="67:1-67:136">
-<th data-sourcepos="67:2-67:19">Setting</th>
-<th data-sourcepos="67:21-67:91">Controls</th>
-<th data-sourcepos="67:93-67:135">Example</th>
+<tr data-sourcepos="73:1-73:136">
+<th data-sourcepos="73:2-73:19">Setting</th>
+<th data-sourcepos="73:21-73:91">Controls</th>
+<th data-sourcepos="73:93-73:135">Example</th>
 </tr>
 </thead>
 <tbody>
-<tr data-sourcepos="69:1-69:136">
-<td data-sourcepos="69:2-69:19">Agent profile</td>
-<td data-sourcepos="69:21-69:91">Whether a tool is available in a profile</td>
-<td data-sourcepos="69:93-69:135">Disable <code data-sourcepos="69:102-69:111">terminal</code> in a read-only profile</td>
+<tr data-sourcepos="75:1-75:136">
+<td data-sourcepos="75:2-75:19">Agent profile</td>
+<td data-sourcepos="75:21-75:91">Whether a tool is available in a profile</td>
+<td data-sourcepos="75:93-75:135">Disable <code data-sourcepos="75:102-75:111">terminal</code> in a read-only profile</td>
 </tr>
-<tr data-sourcepos="70:1-70:136">
-<td data-sourcepos="70:2-70:19">Tool permissions</td>
-<td data-sourcepos="70:21-70:91">Whether a permission-gated tool call is allowed, denied, or confirmed</td>
-<td data-sourcepos="70:93-70:135">Always confirm <code data-sourcepos="70:109-70:118">terminal</code> commands</td>
+<tr data-sourcepos="76:1-76:136">
+<td data-sourcepos="76:2-76:19">Tool permissions</td>
+<td data-sourcepos="76:21-76:91">Whether a permission-gated tool call is allowed, denied, or confirmed</td>
+<td data-sourcepos="76:93-76:135">Always confirm <code data-sourcepos="76:109-76:118">terminal</code> commands</td>
 </tr>
 </tbody>
 </table>
-<p data-sourcepos="72:1-72:223">If a tool is not available in the active profile, the Zed Agent cannot use it. If the tool is available and permission-gated, <a data-sourcepos="72:127-72:167" href="tool-permissions.html">Tool Permissions</a> still controls whether the tool call requires approval.</p>
-<h2 id="agent-path-boundaries" data-sourcepos="74:1-74:49">Agent Path Boundaries<a href="#agent-path-boundaries" aria-label="Link to heading 'Agent Path Boundaries'" data-heading-content="Agent Path Boundaries" class="anchor"></a></h2>
-<p data-sourcepos="76:1-76:193">Agent profiles apply to the Zed Agent. External Agents and <a data-sourcepos="76:60-76:100" href="terminal-threads.html">Terminal Threads</a> do not use Zed Agent profiles unless their integration explicitly supports similar behavior.</p>
+<p data-sourcepos="78:1-78:223">If a tool is not available in the active profile, the Zed Agent cannot use it. If the tool is available and permission-gated, <a data-sourcepos="78:127-78:167" href="tool-permissions.html">Tool Permissions</a> still controls whether the tool call requires approval.</p>
+<h2 id="agent-path-boundaries" data-sourcepos="80:1-80:49">Agent Path Boundaries<a href="#agent-path-boundaries" aria-label="Link to heading 'Agent Path Boundaries'" data-heading-content="Agent Path Boundaries" class="anchor"></a></h2>
+<p data-sourcepos="82:1-82:193">Agent profiles apply to the Zed Agent. External Agents and <a data-sourcepos="82:60-82:100" href="terminal-threads.html">Terminal Threads</a> do not use Zed Agent profiles unless their integration explicitly supports similar behavior.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -598,22 +597,23 @@
 </table>
 <p data-sourcepos="138:1-138:70">For Zed’s native agent configuration, see <a data-sourcepos="138:43-138:69" href="zed-agent.html">Zed Agent</a>.</p>
 <h2 id="agent-auth-config" data-sourcepos="140:1-140:54">Agent-Specific Auth and Config<a href="#agent-auth-config" aria-label="Link to heading 'Agent-Specific Auth and Config'" data-heading-content="Agent-Specific Auth and Config" class="anchor"></a></h2>
-<p data-sourcepos="142:1-142:127">External Agents may have their own sign-in flow, API key setup, subscription behavior, environment variables, and config files.</p>
-<p data-sourcepos="144:1-144:9">Examples:</p>
-<ul data-sourcepos="146:1-149:69">
-<li data-sourcepos="146:1-146:65">Claude Agent may use Claude Code auth and Claude-native config.</li>
-<li data-sourcepos="147:1-147:87">Codex may use ChatGPT login, Codex API keys, OpenAI API keys, or Codex-native config.</li>
-<li data-sourcepos="148:1-148:117">Cursor subscriptions do not configure Zed’s LLM provider settings; use Cursor’s agent or CLI setup where available.</li>
-<li data-sourcepos="149:1-149:69">Pi Coding Agent is an agent harness. Configure provider auth in Pi.</li>
+<p data-sourcepos="142:1-142:185">When an agent offers model selection, mode, thinking effort, or a Fast Mode toggle, those controls appear in the message composer. Open <strong data-sourcepos="142:137-142:153">Agent Options</strong> for the agent’s other settings.</p>
+<p data-sourcepos="144:1-144:127">External Agents may have their own sign-in flow, API key setup, subscription behavior, environment variables, and config files.</p>
+<p data-sourcepos="146:1-146:9">Examples:</p>
+<ul data-sourcepos="148:1-151:69">
+<li data-sourcepos="148:1-148:65">Claude Agent may use Claude Code auth and Claude-native config.</li>
+<li data-sourcepos="149:1-149:87">Codex may use ChatGPT login, Codex API keys, OpenAI API keys, or Codex-native config.</li>
+<li data-sourcepos="150:1-150:117">Cursor subscriptions do not configure Zed’s LLM provider settings; use Cursor’s agent or CLI setup where available.</li>
+<li data-sourcepos="151:1-151:69">Pi Coding Agent is an agent harness. Configure provider auth in Pi.</li>
 </ul>
-<p data-sourcepos="151:1-151:138">If an External Agent supports subscription-backed behavior, configure that in the agent unless the agent’s Zed integration says otherwise.</p>
-<h2 id="remote-projects" data-sourcepos="153:1-153:37">Remote Projects<a href="#remote-projects" aria-label="Link to heading 'Remote Projects'" data-heading-content="Remote Projects" class="anchor"></a></h2>
-<p data-sourcepos="155:1-155:186">External Agents may read credentials locally, remotely, or through their own sign-in flow. Check the specific agent’s setup path when using SSH, dev containers, or other remote projects.</p>
-<p data-sourcepos="157:1-157:120">Zed LLM provider API keys saved in the local keychain are not automatically the same as an External Agent’s credentials.</p>
-<h2 id="custom-agents" data-sourcepos="159:1-159:33">Custom Agents<a href="#custom-agents" aria-label="Link to heading 'Custom Agents'" data-heading-content="Custom Agents" class="anchor"></a></h2>
-<p data-sourcepos="161:1-161:118">Use custom agents when you are developing an ACP-compatible agent or need to run an agent that is not in the registry.</p>
-<p data-sourcepos="163:1-163:189">Open <a data-sourcepos="163:6-163:42" href="agent-settings.html">Agent Settings</a>, go to the <strong data-sourcepos="163:55-163:73">External Agents</strong> page, click <code data-sourcepos="163:87-163:97">Add Agent</code>, and choose <code data-sourcepos="163:111-163:128">Add Custom Agent</code>. Zed opens your settings file with an <code data-sourcepos="163:168-163:182">agent_servers</code> entry.</p>
-<pre class="syntax-highlighting" data-sourcepos="165:1-176:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
+<p data-sourcepos="153:1-153:138">If an External Agent supports subscription-backed behavior, configure that in the agent unless the agent’s Zed integration says otherwise.</p>
+<h2 id="remote-projects" data-sourcepos="155:1-155:37">Remote Projects<a href="#remote-projects" aria-label="Link to heading 'Remote Projects'" data-heading-content="Remote Projects" class="anchor"></a></h2>
+<p data-sourcepos="157:1-157:186">External Agents may read credentials locally, remotely, or through their own sign-in flow. Check the specific agent’s setup path when using SSH, dev containers, or other remote projects.</p>
+<p data-sourcepos="159:1-159:120">Zed LLM provider API keys saved in the local keychain are not automatically the same as an External Agent’s credentials.</p>
+<h2 id="custom-agents" data-sourcepos="161:1-161:33">Custom Agents<a href="#custom-agents" aria-label="Link to heading 'Custom Agents'" data-heading-content="Custom Agents" class="anchor"></a></h2>
+<p data-sourcepos="163:1-163:118">Use custom agents when you are developing an ACP-compatible agent or need to run an agent that is not in the registry.</p>
+<p data-sourcepos="165:1-165:189">Open <a data-sourcepos="165:6-165:42" href="agent-settings.html">Agent Settings</a>, go to the <strong data-sourcepos="165:55-165:73">External Agents</strong> page, click <code data-sourcepos="165:87-165:97">Add Agent</code>, and choose <code data-sourcepos="165:111-165:128">Add Custom Agent</code>. Zed opens your settings file with an <code data-sourcepos="165:168-165:182">agent_servers</code> entry.</p>
+<pre class="syntax-highlighting" data-sourcepos="167:1-178:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
   </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>agent_servers<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
     </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>my-agent<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-section hl-mapping hl-begin hl-json">{</span>
       </span><span class="hl-meta hl-mapping hl-key hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>type<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span></span><span class="hl-meta hl-mapping hl-json"><span class="hl-punctuation hl-separator hl-mapping hl-key-value hl-json">:</span> </span><span class="hl-meta hl-mapping hl-value hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span>custom<span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span><span class="hl-punctuation hl-separator hl-mapping hl-pair hl-json">,</span>
@@ -624,21 +624,21 @@
   <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 <span class="hl-punctuation hl-section hl-mapping hl-end hl-json">}</span></span>
 </span></code></pre>
-<p data-sourcepos="178:1-178:92">Registry-installed agents can also have per-agent settings under <code data-sourcepos="178:66-178:91">agent_servers.&lt;agent-id&gt;</code>.</p>
-<h2 id="extension-agents" data-sourcepos="180:1-180:48">Extension-Provided Agents<a href="#extension-agents" aria-label="Link to heading 'Extension-Provided Agents'" data-heading-content="Extension-Provided Agents" class="anchor"></a></h2>
-<p data-sourcepos="182:1-182:205">Extension-provided agents are deprecated. The <a data-sourcepos="182:47-182:71" href="#registry">ACP Registry</a> is now the way to install agents, and previously installed extension agents are automatically migrated to their registry equivalents.</p>
-<p data-sourcepos="184:1-184:75">For details, see <a data-sourcepos="184:18-184:74" href="../extensions/agent-servers.html">Agent Server Extensions</a>.</p>
-<h2 id="importing-threads" data-sourcepos="186:1-186:41">Importing Threads<a href="#importing-threads" aria-label="Link to heading 'Importing Threads'" data-heading-content="Importing Threads" class="anchor"></a></h2>
-<p data-sourcepos="188:1-188:174">Zed can import existing threads from configured External Agents so they appear in your <a data-sourcepos="188:88-188:138" href="agent-panel.html#multiple-threads">Thread History</a> alongside the rest of your threads.</p>
-<p data-sourcepos="190:1-190:334">Open the Threads Sidebar with <code data-sourcepos="190:31-190:71">multi_workspace::ToggleWorkspaceSidebar</code>, then open Thread History by clicking the clock icon at the bottom of the sidebar or running <code data-sourcepos="190:166-190:202">agents_sidebar::ToggleThreadHistory</code> from the Command Palette. Click <strong data-sourcepos="190:236-190:253">Import Threads</strong>, choose the agents you want to import from, then click <strong data-sourcepos="190:310-190:327">Import Threads</strong> again.</p>
-<p data-sourcepos="192:1-192:195">Zed connects to each selected agent over ACP and adds sessions that are not already in your history. Imported threads are archived entries; open one to restore it and continue where you left off.</p>
-<p data-sourcepos="194:1-194:200">Only configured External Agents appear in the import dialog. Sessions without an associated working directory are skipped, and re-importing is safe because threads already in your history are skipped.</p>
-<h2 id="mcp" data-sourcepos="196:1-196:13">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
-<p data-sourcepos="198:1-198:150">Zed-configured <a data-sourcepos="198:16-198:38" href="mcp.html">MCP servers</a> may be forwarded to External Agents over ACP. External Agents may also read their own native MCP configuration.</p>
-<p data-sourcepos="200:1-200:136">If an MCP tool does not appear in an External Agent, check both Zed’s MCP server configuration and the agent’s native MCP configuration.</p>
-<h2 id="debugging-agents" data-sourcepos="202:1-202:32">Debugging<a href="#debugging-agents" aria-label="Link to heading 'Debugging'" data-heading-content="Debugging" class="anchor"></a></h2>
-<p data-sourcepos="204:1-204:102">Use <code data-sourcepos="204:5-204:22">dev::OpenAcpLogs</code> from the Command Palette to inspect messages between Zed and an External Agent.</p>
-<p data-sourcepos="206:1-206:60">Include ACP logs when reporting issues with External Agents.</p>
+<p data-sourcepos="180:1-180:92">Registry-installed agents can also have per-agent settings under <code data-sourcepos="180:66-180:91">agent_servers.&lt;agent-id&gt;</code>.</p>
+<h2 id="extension-agents" data-sourcepos="182:1-182:48">Extension-Provided Agents<a href="#extension-agents" aria-label="Link to heading 'Extension-Provided Agents'" data-heading-content="Extension-Provided Agents" class="anchor"></a></h2>
+<p data-sourcepos="184:1-184:205">Extension-provided agents are deprecated. The <a data-sourcepos="184:47-184:71" href="#registry">ACP Registry</a> is now the way to install agents, and previously installed extension agents are automatically migrated to their registry equivalents.</p>
+<p data-sourcepos="186:1-186:75">For details, see <a data-sourcepos="186:18-186:74" href="../extensions/agent-servers.html">Agent Server Extensions</a>.</p>
+<h2 id="importing-threads" data-sourcepos="188:1-188:41">Importing Threads<a href="#importing-threads" aria-label="Link to heading 'Importing Threads'" data-heading-content="Importing Threads" class="anchor"></a></h2>
+<p data-sourcepos="190:1-190:174">Zed can import existing threads from configured External Agents so they appear in your <a data-sourcepos="190:88-190:138" href="agent-panel.html#multiple-threads">Thread History</a> alongside the rest of your threads.</p>
+<p data-sourcepos="192:1-192:334">Open the Threads Sidebar with <code data-sourcepos="192:31-192:71">multi_workspace::ToggleWorkspaceSidebar</code>, then open Thread History by clicking the clock icon at the bottom of the sidebar or running <code data-sourcepos="192:166-192:202">agents_sidebar::ToggleThreadHistory</code> from the Command Palette. Click <strong data-sourcepos="192:236-192:253">Import Threads</strong>, choose the agents you want to import from, then click <strong data-sourcepos="192:310-192:327">Import Threads</strong> again.</p>
+<p data-sourcepos="194:1-194:195">Zed connects to each selected agent over ACP and adds sessions that are not already in your history. Imported threads are archived entries; open one to restore it and continue where you left off.</p>
+<p data-sourcepos="196:1-196:200">Only configured External Agents appear in the import dialog. Sessions without an associated working directory are skipped, and re-importing is safe because threads already in your history are skipped.</p>
+<h2 id="mcp" data-sourcepos="198:1-198:13">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
+<p data-sourcepos="200:1-200:150">Zed-configured <a data-sourcepos="200:16-200:38" href="mcp.html">MCP servers</a> may be forwarded to External Agents over ACP. External Agents may also read their own native MCP configuration.</p>
+<p data-sourcepos="202:1-202:136">If an MCP tool does not appear in an External Agent, check both Zed’s MCP server configuration and the agent’s native MCP configuration.</p>
+<h2 id="debugging-agents" data-sourcepos="204:1-204:32">Debugging<a href="#debugging-agents" aria-label="Link to heading 'Debugging'" data-heading-content="Debugging" class="anchor"></a></h2>
+<p data-sourcepos="206:1-206:102">Use <code data-sourcepos="206:5-206:22">dev::OpenAcpLogs</code> from the Command Palette to inspect messages between Zed and an External Agent.</p>
+<p data-sourcepos="208:1-208:60">Include ACP logs when reporting issues with External Agents.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

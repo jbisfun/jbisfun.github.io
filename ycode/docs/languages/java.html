@@ -46,6 +46,10 @@
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
 
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
@@ -113,6 +117,8 @@
           <ul class="dropdown-menu">
 
             <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
 
           </ul>
         </li>
@@ -185,13 +191,6 @@
 
 
   <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ycode">Source on GitHub</a></li>
-
-</ul>
-
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="..&#x2f;..&#x2f;api&#x2f;rust&#x2f;lua_hooks&#x2f;index.html">lua_hooks</a> <span class="badge text-bg-secondary">Rust</span></li>
 
 </ul>
 
@@ -496,11 +495,11 @@
 <p data-sourcepos="16:1-16:50">You will need to install a Java runtime (OpenJDK).</p>
 <ul data-sourcepos="18:1-21:51">
 <li data-sourcepos="18:1-18:31">macOS: <code data-sourcepos="18:10-18:31">brew install openjdk</code></li>
-<li data-sourcepos="19:1-19:85">Ubuntu: <code data-sourcepos="19:11-19:85">sudo add-apt-repository ppa:openjdk-23 &amp;&amp; sudo apt-get install openjdk-23</code></li>
+<li data-sourcepos="19:1-19:47">Ubuntu: <code data-sourcepos="19:11-19:47">sudo apt-get install openjdk-25-jdk</code></li>
 <li data-sourcepos="20:1-20:34">Windows: <code data-sourcepos="20:12-20:34">choco install openjdk</code></li>
 <li data-sourcepos="21:1-21:51">Arch Linux: <code data-sourcepos="21:15-21:51">sudo pacman -S jre-openjdk-headless</code></li>
 </ul>
-<p data-sourcepos="23:1-23:72">Or manually download and install <a data-sourcepos="23:34-23:71" href="https://jdk.java.net/23/">OpenJDK 23</a>.</p>
+<p data-sourcepos="23:1-23:72">Or manually download and install <a data-sourcepos="23:34-23:71" href="https://jdk.java.net/25/">OpenJDK 25</a>.</p>
 <h2 id="extension-install" data-sourcepos="25:1-25:20">Extension Install<a href="#extension-install" aria-label="Link to heading 'Extension Install'" data-heading-content="Extension Install" class="anchor"></a></h2>
 <p data-sourcepos="27:1-27:89">You can install by opening <code data-sourcepos="27:28-27:44">zed::Extensions</code>(<code data-sourcepos="27:46-27:62">zed::Extensions</code>) and searching for <code data-sourcepos="27:83-27:88">java</code>.</p>
 <h2 id="quick-start-and-configuration" data-sourcepos="29:1-29:32">Quick start and configuration<a href="#quick-start-and-configuration" aria-label="Link to heading 'Quick start and configuration'" data-heading-content="Quick start and configuration" class="anchor"></a></h2>
@@ -510,7 +509,7 @@
 <p data-sourcepos="33:3-33:175">It is generally recommended to open projects with the Zed-project root at the Java project root folder (where you would commonly have your <code data-sourcepos="33:142-33:150">pom.xml</code> or <code data-sourcepos="33:155-33:168">build.gradle</code> file).</p>
 </li>
 <li data-sourcepos="35:1-35:422">
-<p data-sourcepos="35:3-35:422">By default the extension will download and run the latest official version of JDTLS for you, but this requires Java version 21 to be available on your system via either the <code data-sourcepos="35:176-35:187">$JAVA_HOME</code> environment variable or as a <code data-sourcepos="35:218-35:229">java(.exe)</code> executable on your <code data-sourcepos="35:250-35:256">$PATH</code>. If your project requires a lower Java version in the environment, you can specify a different JDK to use for running JDTLS via the <code data-sourcepos="35:390-35:400">java_home</code> configuration option.</p>
+<p data-sourcepos="35:3-35:422">By default the extension will download and run the latest official version of JDTLS for you, but this requires Java version 25 to be available on your system via either the <code data-sourcepos="35:176-35:187">$JAVA_HOME</code> environment variable or as a <code data-sourcepos="35:218-35:229">java(.exe)</code> executable on your <code data-sourcepos="35:250-35:256">$PATH</code>. If your project requires a lower Java version in the environment, you can specify a different JDK to use for running JDTLS via the <code data-sourcepos="35:390-35:400">java_home</code> configuration option.</p>
 </li>
 <li data-sourcepos="37:1-37:286">
 <p data-sourcepos="37:3-37:286">You can provide a <strong data-sourcepos="37:21-37:54">custom launch script for JDTLS</strong>, by adding an executable named <code data-sourcepos="37:87-37:93">jdtls</code> (or <code data-sourcepos="37:99-37:109">jdtls.bat</code> on Windows) to your <code data-sourcepos="37:131-37:137">$PATH</code> environment variable. If this is present, the extension will skip downloading and launching a managed instance and use the one from the environment.</p>
@@ -524,7 +523,7 @@
   &quot;lsp&quot;: {
     &quot;jdtls&quot;: {
       &quot;settings&quot;: {
-        &quot;java_home&quot;: &quot;/path/to/your/JDK21+&quot;,
+        &quot;java_home&quot;: &quot;/path/to/your/JDK25+&quot;,
         &quot;lombok_support&quot;: true,
       },
     },

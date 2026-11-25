@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferry · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="..&#x2f;zh-tw&#x2f;ferry&#x2f;index.html">
+
+  <link rel="icon" href="..&#x2f;_assets&#x2f;icons&#x2f;favicon.ico" sizes="32x32">
+  <link rel="icon" href="..&#x2f;_assets&#x2f;icons&#x2f;favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="..&#x2f;_assets&#x2f;icons&#x2f;apple-touch-icon.png">
+  <link rel="stylesheet" href="..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="..&#x2f;index.html"><img src="..&#x2f;_assets&#x2f;icons&#x2f;icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;zh-tw&#x2f;ferry&#x2f;index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs&#x2f;ARCHITECTURE.html">Architecture</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ferry" data-radar-file="README.md">
+
+
+      <h1 id="ferry" data-sourcepos="1:1-1:7">Ferry<a href="#ferry" aria-label="Link to heading 'Ferry'" data-heading-content="Ferry" class="anchor"></a></h1>
+<p data-sourcepos="3:1-5:29">iOS sideloading for Linux, written in Zig: sign IPAs and install them over USB
+or Wi-Fi. There is a daemon that owns devices and jobs, a CLI (<code data-sourcepos="4:64-4:70">ferry</code>) and a
+GUI (<code data-sourcepos="5:6-5:16">ferry-gui</code>, dvui/SDL3).</p>
+<p data-sourcepos="7:1-8:25">The successor layout to Jimpactor. See <a data-sourcepos="7:40-7:83" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>
+for what changed and why.</p>
+<h2 id="build" data-sourcepos="10:1-10:8">Build<a href="#build" aria-label="Link to heading 'Build'" data-heading-content="Build" class="anchor"></a></h2>
+<p data-sourcepos="12:1-13:56">Needs Zig 0.17.1 and the libimobiledevice, libplist, libzip, OpenSSL and
+FreeType development packages, plus a running <code data-sourcepos="13:47-13:55">usbmuxd</code>.</p>
+<pre class="syntax-highlighting" data-sourcepos="15:1-19:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build                 <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> zig-out/bin/{ferry,ferryd,ferry-gui}</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>Dgui</span><span class="hl-keyword hl-operator hl-assignment hl-option hl-shell">=</span>false     <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> CLI + daemon only</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">zig</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> build test            <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> every module&#39;s tests, each module on its own</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="21:1-23:44">Some dependencies (translate-c) live on codeberg.org. If your DNS can’t
+resolve it, <code data-sourcepos="22:13-22:66">tools/fetch-codeberg.sh &lt;owner/repo&gt; &lt;commit&gt; &lt;hash&gt;</code> downloads
+through 1.1.1.1 and seeds the package cache.</p>
+<p data-sourcepos="25:1-26:78"><code data-sourcepos="25:1-25:26">tools/install-desktop.sh</code> adds a launcher entry and icon for <code data-sourcepos="25:63-25:73">ferry-gui</code>.
+<code data-sourcepos="26:1-26:40">FERRY_GUI_SCREENSHOT=out.png ferry-gui</code> renders one frame to a PNG and quits.</p>
+<h2 id="coming-from-jimpactor" data-sourcepos="28:1-28:24">Coming from Jimpactor<a href="#coming-from-jimpactor" aria-label="Link to heading 'Coming from Jimpactor'" data-heading-content="Coming from Jimpactor" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="30:1-32:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> import jimpactor        <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> or the &quot;Import from Jimpactor&quot; button</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="34:1-40:45">This copies Jimpactor’s pairing records (handed to usbmuxd when the device
+appears) and turns each <code data-sourcepos="35:25-35:42">xkit/data/&lt;TEAM&gt;</code> certificate + key into an identity
+<code data-sourcepos="36:1-36:18">jimpactor-&lt;TEAM&gt;</code>. Jimpactor doesn’t keep provisioning profiles, so that
+identity asks <code data-sourcepos="37:15-37:29">jimpactor-cli</code> (found via <code data-sourcepos="37:42-37:57">$JIMPACTOR_CLI</code>, <code data-sourcepos="37:60-37:65">PATH</code> or
+<code data-sourcepos="38:1-38:26">~/projs/jimpactor/target</code>) for a profile the first time each app is signed and
+caches it in <code data-sourcepos="39:14-39:52">identities/jimpactor-&lt;TEAM&gt;/profiles/</code>. Wi-Fi device lists,
+Tailscale keys and anisette data aren’t used.</p>
+<h2 id="use" data-sourcepos="42:1-42:6">Use<a href="#use" aria-label="Link to heading 'Use'" data-heading-content="Use" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="44:1-55:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> import jimpactor</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> identity add team<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>p12</span> cert.p12<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>password</span> ...<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> --</span>profile</span> app.mobileprovision</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> devices</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> install MyApp.ipa                  <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> one device connected</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> install <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span>JP&#39;s iPhone<span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> MyApp.ipa<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>b</span> com.me.myapp</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> sign MyApp.ipa<span class="hl-variable hl-parameter hl-option hl-shell"><span class="hl-punctuation hl-definition hl-parameter hl-shell"> -</span>o</span> signed.ipa</span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> apps / info / uninstall <span class="hl-keyword hl-operator hl-assignment hl-redirection hl-shell">&lt;</span>bundle<span class="hl-keyword hl-operator hl-assignment hl-redirection hl-shell">&gt;</span>
+</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> watch                              <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> live device + job events</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> daemon start</span><span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">stop</span></span><span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">status</span></span>
+<span class="hl-meta hl-function-call hl-shell"><span class="hl-variable hl-function hl-shell">ferry</span></span><span class="hl-meta hl-function-call hl-arguments hl-shell"> schema                             <span class="hl-comment hl-line hl-number-sign hl-shell"><span class="hl-punctuation hl-definition hl-comment hl-begin hl-shell">#</span></span><span class="hl-comment hl-line hl-number-sign hl-shell"> protocol JSON Schema</span><span class="hl-comment hl-line hl-number-sign hl-shell">
+</span></span></span></code></pre>
+<p data-sourcepos="57:1-60:40"><code data-sourcepos="57:1-57:7">ferry</code> uses the daemon if one is running, so its jobs also show up in the
+GUI. Otherwise it runs everything in-process. The GUI starts the daemon
+itself. Data lives in <code data-sourcepos="59:23-59:35">$FERRY_HOME</code>, or else <code data-sourcepos="59:46-59:62">~/.config/ferry</code>. The
+socket is <code data-sourcepos="60:11-60:39">$XDG_RUNTIME_DIR/ferry.sock</code>.</p>
+<h2 id="languages" data-sourcepos="62:1-62:12">Languages<a href="#languages" aria-label="Link to heading 'Languages'" data-heading-content="Languages" class="anchor"></a></h2>
+<p data-sourcepos="64:1-68:60">English and Traditional Chinese (zh_TW). The language follows <code data-sourcepos="64:63-64:68">LANG</code> /
+<code data-sourcepos="65:1-65:13">LC_MESSAGES</code> / <code data-sourcepos="65:17-65:26">LANGUAGE</code> (zh_TW, zh_HK and zh_Hant all select 繁體中文), or
+<code data-sourcepos="66:1-66:18">FERRY_LANG=zh_TW</code> to force it. The GUI also has a language picker in the
+header. The GUI uses the desktop’s interface font (GNOME <code data-sourcepos="67:58-67:68">font-name</code>, through
+fontconfig) and, for Chinese, the system’s Noto Sans CJK TC.</p>
+<p data-sourcepos="70:1-75:70">Translations are GNU gettext catalogs in <code data-sourcepos="70:42-70:46">po/</code>. They’re compiled with
+<code data-sourcepos="71:1-71:16">msgfmt --check</code> at build time and embedded in the binaries, so they work
+even when the <code data-sourcepos="72:15-72:21">zh_TW</code> locale isn’t generated on the system. To add strings:
+wrap them in <code data-sourcepos="73:14-73:24">tr(&quot;...&quot;)</code> (or <code data-sourcepos="73:30-73:34">trf</code>/<code data-sourcepos="73:36-73:40">trl</code>/<code data-sourcepos="73:42-73:48">failT</code>/<code data-sourcepos="73:50-73:54">say</code> with <code data-sourcepos="73:61-73:65">{0}</code>
+placeholders), run <code data-sourcepos="74:20-74:34">zig build pot</code>, then
+<code data-sourcepos="75:1-75:38">msgmerge -U po/zh_TW.po po/ferry.pot</code>, and translate the new entries.</p>
+<p data-sourcepos="77:1-79:15"><code data-sourcepos="77:1-77:33">tests/make-test-identity.sh DIR</code> creates a throwaway certificate and profile
+so you can try signing without an Apple account. Devices won’t accept apps
+signed with it.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry&#x2f;blob&#x2f;master&#x2f;README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Add to Radar</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

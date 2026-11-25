@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>架構 · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;docs&#x2f;ARCHITECTURE.html">
+
+  <link rel="icon" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.ico" sizes="32x32">
+  <link rel="icon" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;apple-touch-icon.png">
+  <link rel="stylesheet" href="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;style.css">
+  <script type="module" src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="..&#x2f;..&#x2f;index.html"><img src="..&#x2f;..&#x2f;..&#x2f;_assets&#x2f;icons&#x2f;icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;apple-codesign&#x2f;index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;AppStoreAuth&#x2f;index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;FairplayedKit&#x2f;index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item active" href="..&#x2f;index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ferry-ios&#x2f;index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idl&#x2f;index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ios-webusb&#x2f;index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;MacADICore&#x2f;index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;omnisette&#x2f;index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;xkit&#x2f;index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;browser-ios&#x2f;index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calculator-ios&#x2f;index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;calendar-ios&#x2f;index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;camera-ios&#x2f;index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;clock-ios&#x2f;index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;commons-ios&#x2f;index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;contacts-ios&#x2f;index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;documents-ios&#x2f;index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;file-manager-ios&#x2f;index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;gallery-ios&#x2f;index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;keyboard-ios&#x2f;index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;launcher-ios&#x2f;index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;messages-ios&#x2f;index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;music-player-ios&#x2f;index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;notes-ios&#x2f;index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;paint-ios&#x2f;index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;phone-ios&#x2f;index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;settings-ios&#x2f;index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;thank-you-ios&#x2f;index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;voice-recorder-ios&#x2f;index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;fossify-ios&#x2f;widgets-ios&#x2f;index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;idlci&#x2f;index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-tweaks&#x2f;index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;dotenv&#x2f;index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;issues&#x2f;index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;pull&#x2f;index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;radar&#x2f;index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;tool&#x2f;index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;wiki&#x2f;index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode&#x2f;index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-hermes&#x2f;index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-idl&#x2f;index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-manager&#x2f;index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-offline&#x2f;index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-pull&#x2f;index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;ycode-radar&#x2f;index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;docs&#x2f;ARCHITECTURE.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="ARCHITECTURE.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="..&#x2f;index.html">README</a></li>
+
+
+  <li><a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ARCHITECTURE.html" class="active" aria-current="page">架構</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="..&#x2f;..&#x2f;..&#x2f;ferry&#x2f;docs&#x2f;ARCHITECTURE.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="architecture" data-sourcepos="1:1-1:8">架構<a href="#architecture" aria-label="Link to heading '架構'" data-heading-content="架構" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:232">Ferry 執行 Jimpactor 所做的功能（簽署 IPA、透過 USB/Wi-Fi 安裝它們，以及管理裝置），並且其設計旨在避免 Jimpactor 累積的結構問題。本檔案列出這些問題及取代每個問題的規則。</p>
+<h2 id="jimpactors-problems-and-what-replaces-them" data-sourcepos="5:1-5:46">Jimpactor 的問題，以及其取代方案<a href="#jimpactors-problems-and-what-replaces-them" aria-label="Link to heading 'Jimpactor 的問題，以及其取代方案'" data-heading-content="Jimpactor 的問題，以及其取代方案" class="anchor"></a></h2>
+<ol data-sourcepos="7:1-38:190">
+<li data-sourcepos="7:1-9:395">
+<p data-sourcepos="7:4-7:391">GUI 程序即為後端。裝置發現、工作執行緒和安裝都位於 <code data-sourcepos="7:78-7:83">iced</code> 應用程式內部。其他工具（idl、<code data-sourcepos="7:127-7:146">jimpactor-cli tray</code>）只能透過新增到重新啟動監聽器的 IPC 通道來存取該狀態：TCP 在 127.0.0.1 上，以及一個連接埠檔案和一個權杖檔案。如果視窗未執行，<code data-sourcepos="7:326-7:338">idl install</code> 會失敗並顯示「無法連線至 Jimpactor」。</p>
+<p data-sourcepos="9:4-9:395">Ferry：<code data-sourcepos="9:12-9:19">ferryd</code> 擁有裝置和工作。GUI 和 CLI 是位於 <code data-sourcepos="9:67-9:84">$XDG_RUNTIME_DIR</code> 中 Unix socket 上的平等客戶端，該目錄模式為 0700，因此標準檔案權限即可進行存取控制，無需權杖。兩個客戶端都會按需啟動後端服務。CLI 即使沒有後端服務也能運作：它在程序內執行相同的服務（<code data-sourcepos="9:348-9:356">--local</code>，或在無監聽時自動執行）。</p>
+</li>
+<li data-sourcepos="11:1-14:334">
+<p data-sourcepos="11:4-12:164">協定被寫了兩次。
+Rust IPC 類型、手寫的 <code data-sourcepos="12:32-12:48">ipc.schema.json</code>（附有一個檢查兩者是否一致的測試），以及 idl 中獨立的客戶端都描述了相同的協定。</p>
+<p data-sourcepos="14:4-14:334">Ferry：每個方法的參數和結果類型在 <code data-sourcepos="14:52-14:65">lib/protocol</code> 中宣告一次。後端服務、程序內路徑和每個客戶端都透過這些類型進行編碼/解碼，而 <code data-sourcepos="14:180-14:193">ferry schema</code> 會在編譯時從它們產生 JSON Schema。<code data-sourcepos="14:240-14:249">protocol</code> 沒有依賴項，因此任何 Zig 工具（包括 idl）都可以直接匯入它。</p>
+</li>
+<li data-sourcepos="16:1-19:322">
+<p data-sourcepos="16:4-17:309">一個雜湊式的實用程式套件。
+<code data-sourcepos="17:4-17:16">plume_utils</code> 包含裝置存取、簽署、來源、JIT、Tailscale、IPC、重新整理、微調和應用程式資料，並引入了 idevice、mdns-sd、xkit、reqwest、tailscale、goblin、image 和 zip。任何只需要裝置存取的工具（ios-webusb）都必須全部採用或重新實作它們。</p>
+<p data-sourcepos="19:4-19:322">Ferry：每個關注點一個模組，且每個模組都在 <code data-sourcepos="19:64-19:74">build.zig</code> 中命名其匯入項。<code data-sourcepos="19:100-19:107">device</code>（libimobiledevice）無法看見 <code data-sourcepos="19:143-19:151">signing</code>；<code data-sourcepos="19:155-19:159">ipa</code> 無法看見 <code data-sourcepos="19:174-19:181">device</code>；只有 <code data-sourcepos="19:192-19:197">core</code> 看見一切。在其他地方使用 <code data-sourcepos="19:236-19:243">device</code> 僅需額外負擔 <code data-sourcepos="19:264-19:269">diag</code> + <code data-sourcepos="19:273-19:279">plist</code> + libimobiledevice，而無其他更多。</p>
+</li>
+<li data-sourcepos="21:1-24:285">
+<p data-sourcepos="21:4-22:219">設定檔選擇分散在各層之間。
+plume 簽署器和 xkit 橋接器是兩個簽署路徑，而「單一設定檔」的後備機制必須在 <code data-sourcepos="22:110-22:125">select_profile</code>（signer.rs）中重複一次，並在 <code data-sourcepos="22:166-22:186">Device::install_app</code>（device.rs）中再次重複。</p>
+<p data-sourcepos="24:4-24:285">Ferry：提供者只回答一個問題：「哪個憑證 + 設定檔 + 最終 bundle id？」（<code data-sourcepos="24:100-24:117">provision.choose</code>，已進行單元測試）。簽署器僅負責簽署。安裝管線向提供者詢問一次並將答案傳遞下去。此步驟之後沒有任何東西會質疑它。</p>
+</li>
+<li data-sourcepos="26:1-29:250">
+<p data-sourcepos="26:4-27:172">業務邏輯位於 UI 中。
+<code data-sourcepos="27:4-27:18">screen/mod.rs</code>（約 1.9k 行）和 <code data-sourcepos="27:41-27:53">settings.rs</code>（約 1.7k 行）將流程控制與小部件混合在一起，而 <code data-sourcepos="27:121-27:135">jimpactor-cli</code> 擁有相同流程的獨立副本。</p>
+<p data-sourcepos="29:4-29:250">Ferry：流程位於 <code data-sourcepos="29:25-29:43">core/pipeline.zig</code> 中，作為報告進度（檢查 → 設定檔 → 簽署 → 上傳 → 安裝）的有序步驟。GUI 和 CLI 僅呈現 <code data-sourcepos="29:168-29:180">job.updated</code> 事件，因此兩者顯示相同的步驟和相同的錯誤文字。</p>
+</li>
+<li data-sourcepos="31:1-34:171">
+<p data-sourcepos="31:4-32:64">核心功能受特徵閥控管。
+<code data-sourcepos="32:4-32:15">plume_core</code> 若沒有 <code data-sourcepos="32:27-32:45">--features tweaks</code> 則無法編譯。</p>
+<p data-sourcepos="34:4-34:171">Ferry：每個模組都能獨立建構和測試（<code data-sourcepos="34:54-34:69">zig build test</code> 將每個模組的測試作為獨立的二進位檔執行）。GUI 是可選的（<code data-sourcepos="34:153-34:165">-Dgui=false</code>）。</p>
+</li>
+<li data-sourcepos="36:1-38:190">
+<p data-sourcepos="36:4-36:148">長壽命的裝置工作執行緒具有脆弱的句柄。一個遺漏的 AFC <code data-sourcepos="36:81-36:89">close()</code> 觸發了偵錯斷言並殺死了 Wi-Fi 工作執行緒。</p>
+<p data-sourcepos="38:4-38:190">Ferry：每個裝置呼叫都會開啟其自己的 idevice/lockdown/service 句柄，並在每個路徑上使用 <code data-sourcepos="38:117-38:123">defer</code> 釋放它們。沒有會卡住的每裝置工作執行緒存在。</p>
+</li>
+</ol>
+<h2 id="module-graph" data-sourcepos="40:1-40:15">模組圖形<a href="#module-graph" aria-label="Link to heading '模組圖形'" data-heading-content="模組圖形" class="anchor"></a></h2>
+<pre class="syntax-highlighting" data-sourcepos="42:1-55:3"><code><span class="hl-text hl-plain">diag ─┬─ plist ─┬─ ipa         libzip
+      │         ├─ device      libimobiledevice (usbmuxd: USB + Wi-Fi)
+      │         └─ provision   identities: files | exec plugin
+      └─ signing               zsign (vendored C++, C ABI shim)
+protocol                       wire types + schema, no deps
+migrate = plist + provision + signing + device + ipa   (importers, e.g. Jimpactor)
+core   = ipa + device + provision + signing + migrate + protocol
+client = protocol
+
+ferryd = core + protocol
+ferry       = core + client + protocol + clap
+ferry-gui = client + protocol + dvui (SDL3)
+</span></code></pre>
+<h2 id="identities-where-certificates-come-from" data-sourcepos="57:1-57:33">身分識別（憑證來源）<a href="#identities-where-certificates-come-from" aria-label="Link to heading '身分識別（憑證來源）'" data-heading-content="身分識別（憑證來源）" class="anchor"></a></h2>
+<p data-sourcepos="59:1-59:52"><code data-sourcepos="59:1-59:27">&lt;data&gt;/identities/&lt;name&gt;/</code> 是以下其中之一：</p>
+<ul data-sourcepos="61:1-65:141">
+<li data-sourcepos="61:1-62:127">files：<code data-sourcepos="61:11-61:17">*.p12</code> 加上可選的 <code data-sourcepos="61:35-61:44">password</code> 檔案，以及一個或多個
+<code data-sourcepos="62:3-62:21">*.mobileprovision</code>。涵蓋付費團隊以及從 Xcode、Jimpactor（<code data-sourcepos="62:73-62:92">account export-p12</code>）或 AltServer 匯出的憑證。</li>
+<li data-sourcepos="63:1-65:141">exec：<code data-sourcepos="63:10-63:24">provider.json</code> = <code data-sourcepos="63:28-63:51">{&quot;exec&quot;: [&quot;cmd&quot;, ...]}</code>。該命令將請求 <code data-sourcepos="63:74-63:103">{&quot;bundle_id&quot;, &quot;udid&quot;, &quot;ipa&quot;}</code> 作為其最後一個參數，並輸出
+<code data-sourcepos="64:3-64:47">{&quot;p12&quot;, &quot;password&quot;, &quot;profile&quot;, &quot;bundle_id&quot;}</code>。從 Jimpactor 匯入的身分識別會搭配 <code data-sourcepos="64:96-64:121">ferry provider jimpactor</code> 使用，這會快取設定檔並向 <code data-sourcepos="64:160-64:174">jimpactor-cli</code> 請求新的設定檔（<code data-sourcepos="64:200-64:212">lib/migrate</code>）。這是免費帳戶 Apple ID 設定的接縫：一個建立在現有 Rust
+xkit + omnisette crates 之上的輔助程式可以作為獨立程序插入此處，而無需將 HTTP/SRP/anisette 堆疊連結至後端。</li>
+</ul>
+<p data-sourcepos="67:1-68:254">設定檔選擇順序為：針對 bundle id 的精確設定檔；接著是
+<code data-sourcepos="68:1-68:15">&lt;id&gt;.&lt;TEAMID&gt;</code>（AltStore/SideStore/Jimpactor 免費帳戶慣例，會重新識別應用程式）；然後是萬用字元。過期的設定檔以及不包含目標裝置的設定檔會被跳過，錯誤訊息會列出每個設定檔被拒絕的原因。</p>
+<h2 id="translations" data-sourcepos="70:1-70:9">翻譯<a href="#translations" aria-label="Link to heading '翻譯'" data-heading-content="翻譯" class="anchor"></a></h2>
+<p data-sourcepos="72:1-72:125"><code data-sourcepos="72:1-72:10">lib/i18n</code> 沒有相依性。它在建置時讀取嵌入的 gettext .mo 目錄，前端與 <code data-sourcepos="72:92-72:97">core</code> 都透過它進行翻譯。</p>
+<p data-sourcepos="74:1-74:206">步驟名稱與工作狀態以英文鍵值（<code data-sourcepos="74:46-74:54">inspect</code>、<code data-sourcepos="74:58-74:63">sign</code>、<code data-sourcepos="74:67-74:74">failed</code>）透過協議傳輸。每個客戶端會為顯示目的進行翻譯，因此不同語言的客戶端可以共用同一個後端。</p>
+<p data-sourcepos="76:1-76:72">工作標題與結果訊息由後端撰寫，使用啟動者的語言。</p>
+<p data-sourcepos="78:1-78:113">低層級程式庫診斷（<code data-sourcepos="78:28-78:35">device</code>、<code data-sourcepos="78:39-78:49">provision</code>、<code data-sourcepos="78:53-78:61">signing</code>）保持英文。這些程式庫不依賴 <code data-sourcepos="78:105-78:110">i18n</code>。</p>
+<h2 id="not-built-yet" data-sourcepos="80:1-80:15">尚未建置<a href="#not-built-yet" aria-label="Link to heading '尚未建置'" data-heading-content="尚未建置" class="anchor"></a></h2>
+<ul data-sourcepos="82:1-85:119">
+<li data-sourcepos="82:1-82:79">Apple ID 登入 / 免費帳戶設定：一個包裝 xkit 的 exec provider。</li>
+<li data-sourcepos="83:1-83:100">iOS 17+ RemotePairing / Tailscale / JIT。libimobiledevice 僅涵蓋透過 usbmuxd 的 lockdown。</li>
+<li data-sourcepos="84:1-84:100">自動重新整理排程（後端是自然的家：一個排隊 <code data-sourcepos="84:67-84:75">install</code> 工作的計時器）。</li>
+<li data-sourcepos="85:1-85:119">來源、tweak 注入 UI（<code data-sourcepos="85:30-85:53">signing.Options.inject</code> 已經將 dylibs 傳遞給 zsign）、應用程式資料備份。</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https:&#x2f;&#x2f;github.com&#x2f;jbisfun&#x2f;ferry&#x2f;blob&#x2f;master&#x2f;docs&#x2f;ARCHITECTURE.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家&#x2f;地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

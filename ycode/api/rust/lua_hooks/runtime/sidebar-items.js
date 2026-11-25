@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["merge_json","pattern_matches"],"struct":["Runtime","StatusButton"],"trait":["Host"]};
