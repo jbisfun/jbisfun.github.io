@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/migrate/vs-code.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/migrate/vs-code.md">
 
 
       <h1 id="how-to-migrate-from-vs-code-to-zed" data-sourcepos="6:1-6:36">How to Migrate from VS Code to Zed<a href="#how-to-migrate-from-vs-code-to-zed" aria-label="Link to heading 'How to Migrate from VS Code to Zed'" data-heading-content="How to Migrate from VS Code to Zed" class="anchor"></a></h1>
@@ -1247,16 +1247,16 @@ Zed takes a different approach:</p>
 <p data-sourcepos="340:1-340:86">Zed exposes advanced settings for power users who want to fine-tune their environment.</p>
 <p data-sourcepos="342:1-342:29">Here are a few useful tweaks:</p>
 <p data-sourcepos="344:1-344:19"><strong data-sourcepos="344:1-344:19">Format on Save:</strong></p>
-<pre class="syntax-highlighting" data-sourcepos="346:1-348:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;format_on_save&quot;</span>: <span class="hl-string">&quot;on&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="346:1-348:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format_on_save</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="350:1-350:26"><strong data-sourcepos="350:1-350:26">Enable direnv support:</strong></p>
-<pre class="syntax-highlighting" data-sourcepos="352:1-354:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;load_direnv&quot;</span>: <span class="hl-string">&quot;shell_hook&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="352:1-354:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">load_direnv</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">shell_hook</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="356:1-356:117"><strong data-sourcepos="356:1-356:16">Custom Tasks</strong>: Define build or run commands in your <code data-sourcepos="356:56-356:67">tasks.json</code> (accessed via command palette: <code data-sourcepos="356:100-356:115">zed::OpenTasks</code>):</p>
 <pre class="syntax-highlighting" data-sourcepos="358:1-365:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;build&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;cargo build&quot;</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">cargo build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 ]
 </span></code></pre>

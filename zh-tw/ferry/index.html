@@ -213,7 +213,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ferry">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../ferry/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -227,31 +227,31 @@ GUI (<code data-sourcepos="5:6-5:16">ferry-gui</code>，基於 dvui/SDL3)。</p>
 <h2 id="build" data-sourcepos="10:1-10:9">建置<a href="#build" aria-label="Link to heading '建置'" data-heading-content="建置" class="anchor"></a></h2>
 <p data-sourcepos="12:1-13:61">需要 Zig 0.17.1 以及 libimobiledevice、libplist、libzip、OpenSSL 和
 FreeType 開發套件，並需有正在運行的 <code data-sourcepos="13:50-13:58">usbmuxd</code>。</p>
-<pre class="syntax-highlighting" data-sourcepos="15:1-19:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zig</span> build                 <span class="hl-comment"># zig-out/bin/{ferry,ferryd,ferry-gui}</span>
-<span class="hl-function">zig</span> build <span class="hl-constant">-Dgui=false</span>     <span class="hl-comment"># 僅 CLI + 守護程序</span>
-<span class="hl-function">zig</span> build test            <span class="hl-comment"># 每個模組的測試，各模組獨立進行</span>
+<pre class="syntax-highlighting" data-sourcepos="15:1-19:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zig</span> build                 <span class="hl-comment hl-line hl-shell"># zig-out/bin/{ferry,ferryd,ferry-gui}</span>
+<span class="hl-variable hl-function hl-shell">zig</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-Dgui=false</span>     <span class="hl-comment hl-line hl-shell"># 僅 CLI + 守護程序</span>
+<span class="hl-variable hl-function hl-shell">zig</span> build test            <span class="hl-comment hl-line hl-shell"># 每個模組的測試，各模組獨立進行</span>
 </span></code></pre>
 <p data-sourcepos="21:1-21:201">部分相依套件（translate-c）位於 codeberg.org。如果您的 DNS 無法解析該網域，<code data-sourcepos="21:99-21:152">tools/fetch-codeberg.sh &lt;owner/repo&gt; &lt;commit&gt; &lt;hash&gt;</code> 會透過 1.1.1.1 下載並填充套件快取。</p>
 <p data-sourcepos="23:1-24:76"><code data-sourcepos="23:1-23:26">tools/install-desktop.sh</code> 為 <code data-sourcepos="23:32-23:42">ferry-gui</code> 新增啟動器項目和圖示。
 <code data-sourcepos="24:1-24:40">FERRY_GUI_SCREENSHOT=out.png ferry-gui</code> 會渲染一幀至 PNG 並退出。</p>
 <h2 id="coming-from-jimpactor" data-sourcepos="26:1-26:23">從 Jimpactor 遷移<a href="#coming-from-jimpactor" aria-label="Link to heading '從 Jimpactor 遷移'" data-heading-content="從 Jimpactor 遷移" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="28:1-30:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ferry</span> import jimpactor        <span class="hl-comment"># 或點擊「從 Jimpactor 匯入」按鈕</span>
+<pre class="syntax-highlighting" data-sourcepos="28:1-30:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ferry</span> import jimpactor        <span class="hl-comment hl-line hl-shell"># 或點擊「從 Jimpactor 匯入」按鈕</span>
 </span></code></pre>
 <p data-sourcepos="32:1-35:53">這會複製 Jimpactor 的配對記錄（裝置出現時傳遞給 usbmuxd），並將每個 <code data-sourcepos="32:93-32:110">xkit/data/&lt;TEAM&gt;</code> 憑證 + 金鑰轉換為身份
 <code data-sourcepos="33:1-33:18">jimpactor-&lt;TEAM&gt;</code>。Jimpactor 不保留設定檔（provisioning profiles），因此該身份在首次簽署每個應用程式時會向 <code data-sourcepos="33:138-33:152">jimpactor-cli</code>（透過 <code data-sourcepos="33:163-33:178">$JIMPACTOR_CLI</code>、<code data-sourcepos="33:182-33:187">PATH</code> 或
 <code data-sourcepos="34:1-34:26">~/projs/jimpactor/target</code> 找到）請求設定檔，並將其快取於 <code data-sourcepos="34:74-34:112">identities/jimpactor-&lt;TEAM&gt;/profiles/</code>。Wi-Fi 裝置清單、
 Tailscale 金鑰和 anisette 資料則未被使用。</p>
 <h2 id="use" data-sourcepos="37:1-37:9">使用<a href="#use" aria-label="Link to heading '使用'" data-heading-content="使用" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="39:1-50:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ferry</span> import jimpactor
-<span class="hl-function">ferry</span> identity add team <span class="hl-constant">--p12</span> cert.p12 <span class="hl-constant">--password</span> ... <span class="hl-constant">--profile</span> app.mobileprovision
-<span class="hl-function">ferry</span> devices
-<span class="hl-function">ferry</span> install MyApp.ipa                  <span class="hl-comment"># 連接了一個裝置</span>
-<span class="hl-function">ferry</span> install <span class="hl-string">&quot;JP&#39;s iPhone&quot;</span> MyApp.ipa <span class="hl-constant">-b</span> com.me.myapp
-<span class="hl-function">ferry</span> sign MyApp.ipa <span class="hl-constant">-o</span> signed.ipa
-<span class="hl-function">ferry</span> apps / info / uninstall <span class="hl-operator">&lt;</span>bundle<span class="hl-operator">&gt;</span>
-ferry watch                              <span class="hl-comment"># 即時裝置 + 工作事件</span>
-<span class="hl-function">ferry</span> daemon start<span class="hl-operator">|</span><span class="hl-function">stop</span><span class="hl-operator">|</span><span class="hl-function">status</span>
-<span class="hl-function">ferry</span> schema                             <span class="hl-comment"># 協定 JSON Schema</span>
+<pre class="syntax-highlighting" data-sourcepos="39:1-50:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ferry</span> import jimpactor
+<span class="hl-variable hl-function hl-shell">ferry</span> identity add team <span class="hl-variable hl-parameter hl-option hl-shell">--p12</span> cert.p12 <span class="hl-variable hl-parameter hl-option hl-shell">--password</span> ... <span class="hl-variable hl-parameter hl-option hl-shell">--profile</span> app.mobileprovision
+<span class="hl-variable hl-function hl-shell">ferry</span> devices
+<span class="hl-variable hl-function hl-shell">ferry</span> install MyApp.ipa                  <span class="hl-comment hl-line hl-shell"># 連接了一個裝置</span>
+<span class="hl-variable hl-function hl-shell">ferry</span> install <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">JP&#39;s iPhone</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> MyApp.ipa <span class="hl-variable hl-parameter hl-option hl-shell">-b</span> com.me.myapp
+<span class="hl-variable hl-function hl-shell">ferry</span> sign MyApp.ipa <span class="hl-variable hl-parameter hl-option hl-shell">-o</span> signed.ipa
+<span class="hl-variable hl-function hl-shell">ferry</span> apps / info / uninstall <span class="hl-keyword hl-operator hl-shell">&lt;</span>bundle<span class="hl-keyword hl-operator hl-shell">&gt;</span>
+ferry watch                              <span class="hl-comment hl-line hl-shell"># 即時裝置 + 工作事件</span>
+<span class="hl-variable hl-function hl-shell">ferry</span> daemon start<span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-variable hl-function hl-shell">stop</span><span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span><span class="hl-variable hl-function hl-shell">status</span>
+<span class="hl-variable hl-function hl-shell">ferry</span> schema                             <span class="hl-comment hl-line hl-shell"># 協定 JSON Schema</span>
 </span></code></pre>
 <p data-sourcepos="52:1-53:193"><code data-sourcepos="52:1-52:7">ferry</code> 若有運行的守護程序則會使用它，因此其工作也會顯示在
 GUI 中。否則，它會在進程內執行所有操作。GUI 會自行啟動守護程序。資料存放在 <code data-sourcepos="53:109-53:121">$FERRY_HOME</code>，或 <code data-sourcepos="53:129-53:145">~/.config/ferry</code>。通訊端為 <code data-sourcepos="53:162-53:190">$XDG_RUNTIME_DIR/ferry.sock</code>。</p>

@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/telemetry.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/telemetry.md">
 
 
       <h1 id="telemetry-in-zed" data-sourcepos="6:1-6:18">Telemetry in Zed<a href="#telemetry-in-zed" aria-label="Link to heading 'Telemetry in Zed'" data-heading-content="Telemetry in Zed" class="anchor"></a></h1>
@@ -503,9 +503,9 @@
 <h2 id="configuring-telemetry-settings" data-sourcepos="15:1-15:33">Configuring Telemetry Settings<a href="#configuring-telemetry-settings" aria-label="Link to heading 'Configuring Telemetry Settings'" data-heading-content="Configuring Telemetry Settings" class="anchor"></a></h2>
 <p data-sourcepos="17:1-18:157">You have full control over what data is sent out by Zed.
 To enable or disable some or all telemetry types, open Settings (<code data-sourcepos="18:66-18:84">zed::OpenSettings</code>) and search for “telemetry”, or add the following to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="20:1-25:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;telemetry&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;diagnostics&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;metrics&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+<pre class="syntax-highlighting" data-sourcepos="20:1-25:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">telemetry</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">diagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">metrics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
 },
 </span></code></pre>
 <h2 id="dataflow" data-sourcepos="27:1-27:11">Dataflow<a href="#dataflow" aria-label="Link to heading 'Dataflow'" data-heading-content="Dataflow" class="anchor"></a></h2>

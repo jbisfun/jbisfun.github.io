@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -504,18 +504,18 @@
 <h2 id="using-the-tailwind-css-language-server-with-astro" data-sourcepos="13:1-13:52">Using the Tailwind CSS Language Server with Astro<a href="#using-the-tailwind-css-language-server-with-astro" aria-label="Link to heading 'Using the Tailwind CSS Language Server with Astro'" data-heading-content="Using the Tailwind CSS Language Server with Astro" class="anchor"></a></h2>
 <p data-sourcepos="15:1-15:365">To get all the features (autocomplete, linting, etc.) from the <a data-sourcepos="15:64-15:205" href="https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme">Tailwind CSS language server</a> in Astro files, you need to configure the language server so that it knows about where to look for CSS classes by adding the following to your <code data-sourcepos="15:350-15:364">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="17:1-37:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;tailwindcss-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;includeLanguages&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;astro&quot;</span>: <span class="hl-string">&quot;html&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tailwindcss-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">includeLanguages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">astro</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         },
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;experimental&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;classRegex&quot;</span>: [
-            <span class="hl-string">&quot;class=</span><span class="hl-escape">\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\&quot;</span><span class="hl-string">&quot;</span>,
-            <span class="hl-string">&quot;class=&#39;([^&#39;]*)&#39;&quot;</span>,
-            <span class="hl-string">&quot;class:list=</span><span class="hl-escape">\&quot;</span><span class="hl-string">{([^}]*)}</span><span class="hl-escape">\&quot;</span><span class="hl-string">&quot;</span>,
-            <span class="hl-string">&quot;class:list=&#39;{([^}]*)}&#39;&quot;</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">experimental</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">classRegex</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=&#39;([^&#39;]*)&#39;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class:list=</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">{([^}]*)}</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class:list=&#39;{([^}]*)}&#39;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
           ]
         }
       }

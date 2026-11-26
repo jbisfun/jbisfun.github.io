@@ -198,7 +198,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="fossify-ios/commons-ios" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="fossify-ios/commons-ios" data-radar-repo="fossify-ios/commons-ios" data-radar-file="README.md">
 
 
       <h1 id="commons-ios" data-sourcepos="1:1-1:13">commons-ios<a href="#commons-ios" aria-label="Link to heading 'commons-ios'" data-heading-content="commons-ios" class="anchor"></a></h1>
@@ -226,17 +226,17 @@
 <li data-sourcepos="24:1-24:169"><code data-sourcepos="24:3-24:16">ColorShading</code>: <code data-sourcepos="24:19-24:40">UInt32.darkened(by:)</code> / <code data-sourcepos="24:44-24:59">lightened(by:)</code> / <code data-sourcepos="24:63-24:81">alphaAdjusted(_:)</code> / <code data-sourcepos="24:85-24:98">contrastARGB</code> (Commons’ darkenColor / lightenColor / adjustAlpha / getContrastColor)</li>
 </ul>
 <p data-sourcepos="26:1-26:124">Apps check it out next to themselves in the pull workspace (<code data-sourcepos="26:61-26:85">fossify-ios/commons-ios</code>) and build it as an idl static target:</p>
-<pre class="syntax-highlighting" data-sourcepos="28:1-40:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">FossifyCalculator</span>
-    <span class="hl-property">link</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">FossifyCommons</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-comment"># ...</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">FossifyCommons</span>
-    <span class="hl-property">type</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">static</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">../commons-ios</span>
-    <span class="hl-property">min_ios</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;17.0&quot;</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">frameworks</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">SwiftUI</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">UIKit</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">Foundation</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">swift_version</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;5.0&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="28:1-40:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">FossifyCalculator</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">link</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">FossifyCommons</span>]
+    <span class="hl-comment hl-line hl-yaml"># ...</span>
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">FossifyCommons</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">type</span>: <span class="hl-string hl-quoted hl-double hl-yaml">static</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">../commons-ios</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">min_ios</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">17.0</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">SwiftUI</span>, <span class="hl-string hl-quoted hl-double hl-yaml">UIKit</span>, <span class="hl-string hl-quoted hl-double hl-yaml">Foundation</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">swift_version</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">5.0</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="42:1-42:30">GPL-3.0, like Fossify Commons.</p>
 

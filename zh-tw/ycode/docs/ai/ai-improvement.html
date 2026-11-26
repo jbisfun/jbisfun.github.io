@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -563,15 +563,15 @@ collection and retention.</p>
 <p data-sourcepos="84:1-85:28">Certain files are always excluded from Edit Prediction training data collection,
 regardless of opt-in status:</p>
 <pre class="syntax-highlighting" data-sourcepos="87:1-101:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;edit_predictions&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;disabled_globs&quot;</span>: [
-      <span class="hl-string">&quot;**/.env*&quot;</span>,
-      <span class="hl-string">&quot;**/*.pem&quot;</span>,
-      <span class="hl-string">&quot;**/*.key&quot;</span>,
-      <span class="hl-string">&quot;**/*.cert&quot;</span>,
-      <span class="hl-string">&quot;**/*.crt&quot;</span>,
-      <span class="hl-string">&quot;**/.dev.vars&quot;</span>,
-      <span class="hl-string">&quot;**/secrets.yml&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">edit_predictions</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">disabled_globs</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/.env*</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/*.pem</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/*.key</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/*.cert</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/*.crt</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/.dev.vars</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/secrets.yml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     ]
   }
 }
@@ -580,8 +580,8 @@ regardless of opt-in status:</p>
 <a data-sourcepos="104:1-104:97" href="https://zed.dev/docs/reference/all-settings#edit-predictions"><code data-sourcepos="104:2-104:34">edit_predictions.disabled_globs</code></a>
 in your Zed settings file (<a data-sourcepos="105:28-105:78" href="../configuring-zed.html#settings-files">how to edit</a>):</p>
 <pre class="syntax-highlighting" data-sourcepos="107:1-113:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;edit_predictions&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;disabled_globs&quot;</span>: [<span class="hl-string">&quot;secret_dir/*&quot;</span>, <span class="hl-string">&quot;**/*.log&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">edit_predictions</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">disabled_globs</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">secret_dir/*</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/*.log</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
   }
 }
 </span></code></pre>

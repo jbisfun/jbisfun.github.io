@@ -205,7 +205,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="tool">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../tool/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -224,27 +224,27 @@
 </ul>
 <p data-sourcepos="14:1-14:186">需要 <code data-sourcepos="14:8-14:17">patchelf</code>。僅支援 homebrew/core 的 formula；cask/mas/vscode 項目會被忽略。已規劃從原始碼建置 bottle；目前所有內容都是從 Linuxbrew bottle 倒入。</p>
 <h2 id="standalone" data-sourcepos="16:1-16:15">獨立使用<a href="#standalone" aria-label="Link to heading '獨立使用'" data-heading-content="獨立使用" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="18:1-24:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">printf</span> <span class="hl-string">&#39;brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n&#39;</span> <span class="hl-operator">&gt;</span> Brewfile
-<span class="hl-function">tool</span> sync            <span class="hl-comment"># pour into the store, link ./.tool</span>
-<span class="hl-function">eval</span> <span class="hl-string">&quot;</span><span class="hl-embedded">$(</span><span class="hl-function">tool</span><span class="hl-embedded"> env)</span><span class="hl-string">&quot;</span>   <span class="hl-comment"># .tool/bin on PATH</span>
-<span class="hl-function">tool</span> list
-<span class="hl-function">tool</span> gc
+<pre class="syntax-highlighting" data-sourcepos="18:1-24:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-support hl-function hl-shell">printf</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-shell">brew &quot;jq&quot;\nbrew &quot;ripgrep&quot;\n</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&#39;</span></span> <span class="hl-keyword hl-operator hl-shell">&gt;</span> Brewfile
+<span class="hl-variable hl-function hl-shell">tool</span> sync            <span class="hl-comment hl-line hl-shell"># pour into the store, link ./.tool</span>
+<span class="hl-support hl-function hl-shell">eval</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">$(</span><span class="hl-variable hl-function hl-shell">tool</span><span class="hl-string hl-quoted hl-double hl-shell"> env)</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-shell"># .tool/bin on PATH</span>
+<span class="hl-variable hl-function hl-shell">tool</span> list
+<span class="hl-variable hl-function hl-shell">tool</span> gc
 </span></code></pre>
 <h2 id="in-a-pull-workspace" data-sourcepos="26:1-26:24">在 pull 工作區中<a href="#in-a-pull-workspace" aria-label="Link to heading '在 pull 工作區中'" data-heading-content="在 pull 工作區中" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="28:1-33:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">pull</span> tool add jq ripgrep      <span class="hl-comment"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
-<span class="hl-function">pull</span> tool import Brewfile     <span class="hl-comment"># merge an existing Brewfile into the pullfile</span>
-<span class="hl-function">pull</span> tool sync                <span class="hl-comment"># links $PULL_ROOT/.pull/tool</span>
-<span class="hl-function">pull</span> env                      <span class="hl-comment"># PATH includes $PULL_ROOT/.pull/tool/bin</span>
+<pre class="syntax-highlighting" data-sourcepos="28:1-33:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">pull</span> tool add jq ripgrep      <span class="hl-comment hl-line hl-shell"># pullfile `tool` = {brew = [jq, ripgrep]}, then sync</span>
+<span class="hl-variable hl-function hl-shell">pull</span> tool import Brewfile     <span class="hl-comment hl-line hl-shell"># merge an existing Brewfile into the pullfile</span>
+<span class="hl-variable hl-function hl-shell">pull</span> tool sync                <span class="hl-comment hl-line hl-shell"># links $PULL_ROOT/.pull/tool</span>
+<span class="hl-variable hl-function hl-shell">pull</span> env                      <span class="hl-comment hl-line hl-shell"># PATH includes $PULL_ROOT/.pull/tool/bin</span>
 </span></code></pre>
 <p data-sourcepos="35:1-35:18">Pullfile 區段：</p>
-<pre class="syntax-highlighting" data-sourcepos="37:1-46:3"><code class="language-xml"><span class="hl-text hl-plain">&lt;key&gt;tool&lt;/key&gt;
-&lt;dict&gt;
-  &lt;key&gt;brew&lt;/key&gt;
-  &lt;array&gt;
-    &lt;string&gt;jq&lt;/string&gt;
-    &lt;dict&gt;&lt;key&gt;name&lt;/key&gt;&lt;string&gt;openssl@3&lt;/string&gt;&lt;key&gt;link&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;
-  &lt;/array&gt;
-&lt;/dict&gt;
+<pre class="syntax-highlighting" data-sourcepos="37:1-46:3"><code class="language-xml"><span class="hl-text hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>tool<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span><span class="hl-invalid hl-illegal hl-xml">
+</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+  <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>brew<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+  <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+    <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>jq<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+    <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>name<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>openssl@3<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>link<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">false</span><span class="hl-punctuation hl-definition hl-tag hl-xml">/&gt;&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+  <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
 </span></code></pre>
 <p data-sourcepos="48:1-48:95">建構於 stout crate 之上（stout-bundle、stout-fetch、stout-install、stout-resolve）。</p>
 

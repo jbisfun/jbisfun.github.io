@@ -205,18 +205,18 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="radar">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../radar/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
       <h1 id="radar" data-sourcepos="1:1-1:7">radar<a href="#radar" aria-label="Link to heading 'radar'" data-heading-content="radar" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:319">給代理程式的報告。每份報告都指向 pull 工作區中的某一行程式碼，並記錄儲存庫、檔案、行號、該行的文字、可選的備註，以及提交時間。CLI 是無狀態的：每次執行都會開啟位於 <code data-sourcepos="3:240-3:268">&lt;workspace&gt;/issues/radar.db</code> 的 PoloDB 資料庫，完成工作後即結束。</p>
-<pre class="syntax-highlighting" data-sourcepos="5:1-11:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">radar</span> add pull src/main.rs 42 <span class="hl-constant">--note</span> <span class="hl-string">&quot;panics on an empty pullfile&quot;</span>   <span class="hl-comment"># the line text is read from the file</span>
-<span class="hl-function">radar</span> list [--all] [--json]
-<span class="hl-function">radar</span> close 3 / radar reopen 3 / radar rm 3
-<span class="hl-function">radar</span> export        <span class="hl-comment"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
-<span class="hl-function">radar</span> mcp [--root DIR]   <span class="hl-comment"># MCP server (stdio): add/list/close/reopen/rm/export</span>
+<pre class="syntax-highlighting" data-sourcepos="5:1-11:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">radar</span> add pull src/main.rs 42 <span class="hl-variable hl-parameter hl-option hl-shell">--note</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">panics on an empty pullfile</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-shell"># the line text is read from the file</span>
+<span class="hl-variable hl-function hl-shell">radar</span> list [--all] [--json]
+<span class="hl-variable hl-function hl-shell">radar</span> close 3 / radar reopen 3 / radar rm 3
+<span class="hl-variable hl-function hl-shell">radar</span> export        <span class="hl-comment hl-line hl-shell"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
+<span class="hl-variable hl-function hl-shell">radar</span> mcp [--root DIR]   <span class="hl-comment hl-line hl-shell"># MCP server (stdio): add/list/close/reopen/rm/export</span>
 </span></code></pre>
 <p data-sourcepos="13:1-13:109">工作區根目錄為 <code data-sourcepos="13:23-13:34">$PULL_ROOT</code>，否則是目前目錄上層最近、含有 <code data-sourcepos="13:81-13:96">pullfile.plist</code> 的目錄。</p>
 <p data-sourcepos="15:1-16:161">同一時間只有一個處理程序能開啟 <code data-sourcepos="15:47-15:56">radar.db</code>，因此每個指令都只為單一操作開啟它，若另一個處理程序正在使用，則會稍待片刻。這也包括 <code data-sourcepos="15:184-15:194">radar mcp</code>，它會在每次工具呼叫時才開啟，所以代理程式連線期間 CLI 仍可正常運作。

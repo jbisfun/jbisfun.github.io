@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/uninstall.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/uninstall.md">
 
 
       <h1 id="uninstall" data-sourcepos="6:1-6:11">Uninstall<a href="#uninstall" aria-label="Link to heading 'Uninstall'" data-heading-content="Uninstall" class="anchor"></a></h1>
@@ -506,10 +506,10 @@
 </ol>
 <h3 id="homebrew-installation" data-sourcepos="21:1-21:25">Homebrew Installation<a href="#homebrew-installation" aria-label="Link to heading 'Homebrew Installation'" data-heading-content="Homebrew Installation" class="anchor"></a></h3>
 <p data-sourcepos="23:1-23:63">If you installed Zed using Homebrew, use the following command:</p>
-<pre class="syntax-highlighting" data-sourcepos="25:1-27:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> uninstall <span class="hl-constant">--cask</span> zed
+<pre class="syntax-highlighting" data-sourcepos="25:1-27:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> uninstall <span class="hl-variable hl-parameter hl-option hl-shell">--cask</span> zed
 </span></code></pre>
 <p data-sourcepos="29:1-29:27">Or for the preview version:</p>
-<pre class="syntax-highlighting" data-sourcepos="31:1-33:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> uninstall <span class="hl-constant">--cask</span> zed@preview
+<pre class="syntax-highlighting" data-sourcepos="31:1-33:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> uninstall <span class="hl-variable hl-parameter hl-option hl-shell">--cask</span> zed@preview
 </span></code></pre>
 <h3 id="removing-user-data-optional" data-sourcepos="35:1-35:33">Removing User Data (Optional)<a href="#removing-user-data-optional" aria-label="Link to heading 'Removing User Data (Optional)'" data-heading-content="Removing User Data (Optional)" class="anchor"></a></h3>
 <p data-sourcepos="37:1-37:58">To completely remove all Zed configuration files and data:</p>
@@ -531,14 +531,14 @@
 <h2 id="linux" data-sourcepos="50:1-50:8">Linux<a href="#linux" aria-label="Link to heading 'Linux'" data-heading-content="Linux" class="anchor"></a></h2>
 <h3 id="standard-uninstall" data-sourcepos="52:1-52:22">Standard Uninstall<a href="#standard-uninstall" aria-label="Link to heading 'Standard Uninstall'" data-heading-content="Standard Uninstall" class="anchor"></a></h3>
 <p data-sourcepos="54:1-54:64">If Zed was installed using the default installation script, run:</p>
-<pre class="syntax-highlighting" data-sourcepos="56:1-58:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="56:1-58:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <p data-sourcepos="60:1-60:149">You’ll be prompted whether to keep or delete your preferences. After making a choice, you should see a message that Zed was successfully uninstalled.</p>
 <p data-sourcepos="62:1-62:52">If the <code data-sourcepos="62:8-62:12">zed</code> command is not found in your PATH, try:</p>
-<pre class="syntax-highlighting" data-sourcepos="64:1-66:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-function">/.local/bin/zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="64:1-66:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-variable hl-function hl-shell">/.local/bin/zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <p data-sourcepos="68:1-68:3">or:</p>
-<pre class="syntax-highlighting" data-sourcepos="70:1-72:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-function">/.local/zed.app/bin/zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="70:1-72:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-variable hl-function hl-shell">/.local/zed.app/bin/zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <h3 id="package-manager" data-sourcepos="74:1-74:19">Package Manager<a href="#package-manager" aria-label="Link to heading 'Package Manager'" data-heading-content="Package Manager" class="anchor"></a></h3>
 <p data-sourcepos="76:1-76:191">If you installed Zed using a package manager (such as Flatpak, Snap, or a distribution-specific package manager), consult that package manager’s documentation for uninstallation instructions.</p>

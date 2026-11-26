@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -498,10 +498,10 @@
       <h1 id="zed-on-linux" data-sourcepos="6:1-6:14">Zed on Linux<a href="#zed-on-linux" aria-label="Link to heading 'Zed on Linux'" data-heading-content="Zed on Linux" class="anchor"></a></h1>
 <h2 id="standard-installation" data-sourcepos="8:1-8:24">Standard Installation<a href="#standard-installation" aria-label="Link to heading 'Standard Installation'" data-heading-content="Standard Installation" class="anchor"></a></h2>
 <p data-sourcepos="10:1-10:107">The installation script on the <a data-sourcepos="10:32-10:67" href="https://zed.dev/download">download</a> page is the fastest way to install Zed:</p>
-<pre class="syntax-highlighting" data-sourcepos="12:1-14:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">curl</span> <span class="hl-constant">-f</span> https://zed.dev/install.sh <span class="hl-operator">|</span> <span class="hl-function">sh</span>
+<pre class="syntax-highlighting" data-sourcepos="12:1-14:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">curl</span> <span class="hl-variable hl-parameter hl-option hl-shell">-f</span> https://zed.dev/install.sh <span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span> <span class="hl-variable hl-function hl-shell">sh</span>
 </span></code></pre>
 <p data-sourcepos="16:1-16:114">We also offer a preview build of Zed which receives updates about a week ahead of stable. You can install it with:</p>
-<pre class="syntax-highlighting" data-sourcepos="18:1-20:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">curl</span> <span class="hl-constant">-f</span> https://zed.dev/install.sh <span class="hl-operator">|</span> <span class="hl-property">ZED_CHANNEL</span>=preview <span class="hl-function">sh</span>
+<pre class="syntax-highlighting" data-sourcepos="18:1-20:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">curl</span> <span class="hl-variable hl-parameter hl-option hl-shell">-f</span> https://zed.dev/install.sh <span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">ZED_CHANNEL</span>=preview <span class="hl-variable hl-function hl-shell">sh</span>
 </span></code></pre>
 <p data-sourcepos="22:1-22:59">The Zed installed by the script works best on systems that:</p>
 <ul data-sourcepos="24:1-27:62">
@@ -553,29 +553,29 @@
 (<a data-sourcepos="77:4-77:112" href="https://cloud.zed.dev/releases/preview/latest/download?asset=zed&amp;arch=aarch64&amp;os=linux&amp;source=docs">preview</a>)</li>
 </ul>
 <p data-sourcepos="79:1-79:128">Then ensure that the <code data-sourcepos="79:22-79:26">zed</code> binary in the tarball is on your path. The easiest way is to unpack the tarball and create a symlink:</p>
-<pre class="syntax-highlighting" data-sourcepos="81:1-87:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">mkdir</span> <span class="hl-constant">-p</span> ~/.local
-<span class="hl-comment"># extract zed to ~/.local/zed.app/</span>
-<span class="hl-function">tar</span> <span class="hl-constant">-xvf</span> <span class="hl-operator">&lt;</span>path/to/download<span class="hl-operator">&gt;</span>.tar.gz -C ~/.local
-<span class="hl-comment"># link the zed binary to ~/.local/bin (or another directory in your $PATH)</span>
-<span class="hl-function">ln</span> <span class="hl-constant">-sf</span> ~/.local/zed.app/bin/zed ~/.local/bin/zed
+<pre class="syntax-highlighting" data-sourcepos="81:1-87:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">mkdir</span> <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> ~/.local
+<span class="hl-comment hl-line hl-shell"># extract zed to ~/.local/zed.app/</span>
+<span class="hl-variable hl-function hl-shell">tar</span> <span class="hl-variable hl-parameter hl-option hl-shell">-xvf</span> <span class="hl-keyword hl-operator hl-shell">&lt;</span>path/to/download<span class="hl-keyword hl-operator hl-shell">&gt;</span>.tar.gz -C ~/.local
+<span class="hl-comment hl-line hl-shell"># link the zed binary to ~/.local/bin (or another directory in your $PATH)</span>
+<span class="hl-variable hl-function hl-shell">ln</span> <span class="hl-variable hl-parameter hl-option hl-shell">-sf</span> ~/.local/zed.app/bin/zed ~/.local/bin/zed
 </span></code></pre>
 <p data-sourcepos="89:1-89:120">If you’d like integration with an XDG-compatible desktop environment, you will also need to install the <code data-sourcepos="89:105-89:114">.desktop</code> file:</p>
-<pre class="syntax-highlighting" data-sourcepos="91:1-95:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">install</span> <span class="hl-constant">-D</span> ~/.local/zed.app/share/applications/dev.zed.Zed.desktop <span class="hl-constant">-t</span> ~/.local/share/applications
-<span class="hl-function">sed</span> <span class="hl-constant">-i</span> <span class="hl-string">&quot;s|Icon=zed|Icon=</span><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-string">/.local/zed.app/share/icons/hicolor/512x512/apps/zed.png|g&quot;</span> ~/.local/share/applications/dev.zed.Zed.desktop
-<span class="hl-function">sed</span> <span class="hl-constant">-i</span> <span class="hl-string">&quot;s|Exec=zed|Exec=</span><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-string">/.local/zed.app/bin/zed|g&quot;</span> ~/.local/share/applications/dev.zed.Zed.desktop
+<pre class="syntax-highlighting" data-sourcepos="91:1-95:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">install</span> <span class="hl-variable hl-parameter hl-option hl-shell">-D</span> ~/.local/zed.app/share/applications/dev.zed.Zed.desktop <span class="hl-variable hl-parameter hl-option hl-shell">-t</span> ~/.local/share/applications
+<span class="hl-variable hl-function hl-shell">sed</span> <span class="hl-variable hl-parameter hl-option hl-shell">-i</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">s|Icon=zed|Icon=</span><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-string hl-quoted hl-double hl-shell">/.local/zed.app/share/icons/hicolor/512x512/apps/zed.png|g</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> ~/.local/share/applications/dev.zed.Zed.desktop
+<span class="hl-variable hl-function hl-shell">sed</span> <span class="hl-variable hl-parameter hl-option hl-shell">-i</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">s|Exec=zed|Exec=</span><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-string hl-quoted hl-double hl-shell">/.local/zed.app/bin/zed|g</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> ~/.local/share/applications/dev.zed.Zed.desktop
 </span></code></pre>
 <h2 id="uninstalling-zed" data-sourcepos="97:1-97:19">Uninstalling Zed<a href="#uninstalling-zed" aria-label="Link to heading 'Uninstalling Zed'" data-heading-content="Uninstalling Zed" class="anchor"></a></h2>
 <h3 id="standard-uninstall" data-sourcepos="99:1-99:22">Standard Uninstall<a href="#standard-uninstall" aria-label="Link to heading 'Standard Uninstall'" data-heading-content="Standard Uninstall" class="anchor"></a></h3>
 <p data-sourcepos="101:1-101:145">If Zed was installed using the default installation script, it can be uninstalled by supplying the <code data-sourcepos="101:100-101:112">--uninstall</code> flag to the <code data-sourcepos="101:126-101:130">zed</code> shell command:</p>
-<pre class="syntax-highlighting" data-sourcepos="103:1-105:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="103:1-105:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <p data-sourcepos="107:1-107:242">Note that this will uninstall the Zed variant that the symlink points to. If you have multiple, parallel installations (such as both Stable and Preview), then you should instead use its absolute path as described further down in this section.</p>
 <p data-sourcepos="109:1-109:201">If there are no errors, the shell will then prompt you whether you’d like to keep your preferences or delete them. After making a choice, you should see a message that Zed was successfully uninstalled.</p>
 <p data-sourcepos="111:1-111:111">In the case that the <code data-sourcepos="111:22-111:26">zed</code> shell command was not found in your PATH, you can try one of the following commands:</p>
-<pre class="syntax-highlighting" data-sourcepos="113:1-115:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-function">/.local/bin/zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="113:1-115:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-variable hl-function hl-shell">/.local/bin/zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <p data-sourcepos="117:1-117:50">or the absolute path to your installation, such as</p>
-<pre class="syntax-highlighting" data-sourcepos="119:1-121:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-function">/.local/zed.app/bin/zed</span> <span class="hl-constant">--uninstall</span>
+<pre class="syntax-highlighting" data-sourcepos="119:1-121:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-variable hl-function hl-shell">/.local/zed.app/bin/zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--uninstall</span>
 </span></code></pre>
 <p data-sourcepos="123:1-123:327">The first case might fail if a symlink was not properly established between <code data-sourcepos="123:77-123:98">$HOME/.local/bin/zed</code> and <code data-sourcepos="123:104-123:133">$HOME/.local/zed.app/bin/zed</code>, or if the symlink was overwritten by having parallel installations of different versions of Zed. But the second command should always work as long as Zed was installed to its default location.</p>
 <p data-sourcepos="125:1-125:239">If Zed was installed to a different location (such as the <code data-sourcepos="125:59-125:75">zed-preview.app</code> variant), you must invoke the <code data-sourcepos="125:107-125:111">zed</code> binary stored in that installation directory and pass the <code data-sourcepos="125:171-125:183">--uninstall</code> flag to it in the same format as the previous commands.</p>
@@ -621,18 +621,18 @@
 <p data-sourcepos="201:1-201:172">If Vulkan is configured correctly, and Zed is still not working for you, please <a data-sourcepos="201:81-201:134" href="https://github.com/zed-industries/zed">file an issue</a> with as much information as possible.</p>
 <p data-sourcepos="203:1-203:309">When reporting issues where Zed fails to start due to graphics initialization errors on GitHub, it can be impossible to run the <code data-sourcepos="203:129-203:163">zed::CopySystemSpecsIntoClipboard</code> command like we instruct you to in our issue template. We provide an alternative way to collect the system specs specifically for this situation.</p>
 <p data-sourcepos="205:1-205:45">Passing the <code data-sourcepos="205:13-205:28">--system-specs</code> flag to Zed like</p>
-<pre class="syntax-highlighting" data-sourcepos="207:1-209:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> <span class="hl-constant">--system-specs</span>
+<pre class="syntax-highlighting" data-sourcepos="207:1-209:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">--system-specs</span>
 </span></code></pre>
 <p data-sourcepos="211:1-211:198">will print the system specs to the terminal like so. It is strongly recommended to copy the output verbatim into the issue on GitHub, as it uses markdown formatting to ensure the output is readable.</p>
 <p data-sourcepos="213:1-213:245">Additionally, it is extremely beneficial to provide the contents of your Zed log when reporting such issues. The log is usually located at <code data-sourcepos="213:140-213:172">~/.local/share/zed/logs/Zed.log</code>. The recommended process for producing a helpful log file is as follows:</p>
-<pre class="syntax-highlighting" data-sourcepos="215:1-220:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">truncate</span> <span class="hl-constant">-s</span> 0 ~/.local/share/zed/logs/Zed.log <span class="hl-comment"># Clear the log file</span>
-<span class="hl-property">ZED_LOG</span>=wgpu=info <span class="hl-function">zed</span> .
-<span class="hl-function">cat</span> ~/.local/share/zed/logs/Zed.log
-<span class="hl-comment"># copy the output</span>
+<pre class="syntax-highlighting" data-sourcepos="215:1-220:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">truncate</span> <span class="hl-variable hl-parameter hl-option hl-shell">-s</span> 0 ~/.local/share/zed/logs/Zed.log <span class="hl-comment hl-line hl-shell"># Clear the log file</span>
+<span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">ZED_LOG</span>=wgpu=info <span class="hl-variable hl-function hl-shell">zed</span> .
+<span class="hl-variable hl-function hl-shell">cat</span> ~/.local/share/zed/logs/Zed.log
+<span class="hl-comment hl-line hl-shell"># copy the output</span>
 </span></code></pre>
 <p data-sourcepos="222:1-222:45">Or, if you have the Zed cli setup, you can do</p>
-<pre class="syntax-highlighting" data-sourcepos="224:1-227:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-property">ZED_LOG</span>=wgpu=info <span class="hl-function">/path/to/zed/cli</span> <span class="hl-constant">--foreground</span> .
-<span class="hl-comment"># copy the output</span>
+<pre class="syntax-highlighting" data-sourcepos="224:1-227:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">ZED_LOG</span>=wgpu=info <span class="hl-variable hl-function hl-shell">/path/to/zed/cli</span> <span class="hl-variable hl-parameter hl-option hl-shell">--foreground</span> .
+<span class="hl-comment hl-line hl-shell"># copy the output</span>
 </span></code></pre>
 <p data-sourcepos="229:1-229:109">It is also highly recommended when pasting the log into a github issue, to do so with the following template:</p>
 <blockquote data-sourcepos="231:1-231:112">
@@ -678,19 +678,19 @@
 <li data-sourcepos="284:1-290:6">
 <p data-sourcepos="284:4-284:39"><strong data-sourcepos="284:4-284:39">Install the PipeWire ALSA plugin</strong></p>
 <p data-sourcepos="286:4-286:32">On Debian-based systems, run:</p>
-<pre class="syntax-highlighting" data-sourcepos="288:4-290:6"><code class="language-bash"><span class="hl-source hl-shell"><span class="hl-function">sudo</span> apt install pipewire-alsa
+<pre class="syntax-highlighting" data-sourcepos="288:4-290:6"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">sudo</span> apt install pipewire-alsa
 </span></code></pre>
 </li>
 <li data-sourcepos="292:1-304:6">
 <p data-sourcepos="292:4-292:37"><strong data-sourcepos="292:4-292:37">Configure ALSA to use PipeWire</strong></p>
 <p data-sourcepos="294:4-294:145">Add the following configuration to your ALSA settings file. You can use either <code data-sourcepos="294:83-294:95">~/.asoundrc</code> (user-level) or <code data-sourcepos="294:113-294:130">/etc/asound.conf</code> (system-wide):</p>
-<pre class="syntax-highlighting" data-sourcepos="296:4-304:6"><code class="language-bash"><span class="hl-source hl-shell"><span class="hl-function">pcm.!default</span> {
-    <span class="hl-function">type</span> pipewire
-<span class="hl-function">}</span>
+<pre class="syntax-highlighting" data-sourcepos="296:4-304:6"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">pcm.!default</span> {
+    <span class="hl-support hl-function hl-shell">type</span> pipewire
+<span class="hl-variable hl-function hl-shell">}</span>
 
-<span class="hl-function">ctl.!default</span> {
-    <span class="hl-function">type</span> pipewire
-<span class="hl-function">}</span>
+<span class="hl-variable hl-function hl-shell">ctl.!default</span> {
+    <span class="hl-support hl-function hl-shell">type</span> pipewire
+<span class="hl-variable hl-function hl-shell">}</span>
 </span></code></pre>
 </li>
 <li data-sourcepos="306:1-306:26">
@@ -707,16 +707,16 @@
 <p data-sourcepos="316:1-316:106">If you want to customize the scale factor beyond what Zed detects automatically, you have several options:</p>
 <h4 id="check-your-current-scale-factor" data-sourcepos="318:1-318:36">Check your current scale factor<a href="#check-your-current-scale-factor" aria-label="Link to heading 'Check your current scale factor'" data-heading-content="Check your current scale factor" class="anchor"></a></h4>
 <p data-sourcepos="320:1-320:41">You can verify if you have <code data-sourcepos="320:28-320:36">Xft.dpi</code> set:</p>
-<pre class="syntax-highlighting" data-sourcepos="322:1-324:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xrdb</span> <span class="hl-constant">-query</span> <span class="hl-operator">|</span> <span class="hl-function">grep</span> Xft.dpi
+<pre class="syntax-highlighting" data-sourcepos="322:1-324:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xrdb</span> <span class="hl-variable hl-parameter hl-option hl-shell">-query</span> <span class="hl-keyword hl-operator hl-logical hl-pipe hl-shell">|</span> <span class="hl-variable hl-function hl-shell">grep</span> Xft.dpi
 </span></code></pre>
 <p data-sourcepos="326:1-326:203">If this command returns no output, Zed is using RandR (X11’s monitor management extension) to automatically calculate the scale factor based on your monitor’s reported resolution and physical dimensions.</p>
 <h4 id="option-1-set-xftdpi-x-resources-database" data-sourcepos="328:1-328:49">Option 1: Set Xft.dpi (X Resources Database)<a href="#option-1-set-xftdpi-x-resources-database" aria-label="Link to heading 'Option 1: Set Xft.dpi (X Resources Database)'" data-heading-content="Option 1: Set Xft.dpi (X Resources Database)" class="anchor"></a></h4>
 <p data-sourcepos="330:1-330:196"><code data-sourcepos="330:1-330:9">Xft.dpi</code> is a standard X11 setting that many applications use for consistent font and UI scaling. Setting this ensures Zed scales the same way as other X11 applications that respect this setting.</p>
 <p data-sourcepos="332:1-332:40">Edit or create the <code data-sourcepos="332:20-332:34">~/.Xresources</code> file:</p>
-<pre class="syntax-highlighting" data-sourcepos="334:1-336:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">vim</span> ~/.Xresources
+<pre class="syntax-highlighting" data-sourcepos="334:1-336:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">vim</span> ~/.Xresources
 </span></code></pre>
 <p data-sourcepos="338:1-338:36">Add this line with your desired DPI:</p>
-<pre class="syntax-highlighting" data-sourcepos="340:1-342:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">Xft.dpi:</span> 96
+<pre class="syntax-highlighting" data-sourcepos="340:1-342:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">Xft.dpi:</span> 96
 </span></code></pre>
 <p data-sourcepos="344:1-344:18">Common DPI values:</p>
 <ul data-sourcepos="346:1-349:22">
@@ -726,19 +726,19 @@
 <li data-sourcepos="349:1-349:22"><code data-sourcepos="349:3-349:7">288</code> for 3x scaling</li>
 </ul>
 <p data-sourcepos="351:1-351:23">Load the configuration:</p>
-<pre class="syntax-highlighting" data-sourcepos="353:1-355:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xrdb</span> <span class="hl-constant">-merge</span> ~/.Xresources
+<pre class="syntax-highlighting" data-sourcepos="353:1-355:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xrdb</span> <span class="hl-variable hl-parameter hl-option hl-shell">-merge</span> ~/.Xresources
 </span></code></pre>
 <p data-sourcepos="357:1-357:43">Restart Zed for the changes to take effect.</p>
 <h4 id="option-2-use-the-gpui_x11_scale_factor-environment-variable" data-sourcepos="359:1-359:65">Option 2: Use the GPUI_X11_SCALE_FACTOR environment variable<a href="#option-2-use-the-gpui_x11_scale_factor-environment-variable" aria-label="Link to heading 'Option 2: Use the GPUI_X11_SCALE_FACTOR environment variable'" data-heading-content="Option 2: Use the GPUI_X11_SCALE_FACTOR environment variable" class="anchor"></a></h4>
 <p data-sourcepos="361:1-361:105">This Zed-specific environment variable directly sets the scale factor, bypassing all automatic detection.</p>
-<pre class="syntax-highlighting" data-sourcepos="363:1-365:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-property">GPUI_X11_SCALE_FACTOR</span>=1.5 <span class="hl-function">zed</span>
+<pre class="syntax-highlighting" data-sourcepos="363:1-365:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">GPUI_X11_SCALE_FACTOR</span>=1.5 <span class="hl-variable hl-function hl-shell">zed</span>
 </span></code></pre>
 <p data-sourcepos="367:1-367:151">You can use decimal values (e.g., <code data-sourcepos="367:35-367:40">1.25</code>, <code data-sourcepos="367:43-367:47">1.5</code>, <code data-sourcepos="367:50-367:54">2.0</code>) or set <code data-sourcepos="367:64-367:92">GPUI_X11_SCALE_FACTOR=randr</code> to force RandR-based detection even when <code data-sourcepos="367:135-367:143">Xft.dpi</code> is set.</p>
 <p data-sourcepos="369:1-369:70">To make this permanent, add it to your shell profile or desktop entry.</p>
 <h4 id="option-3-adjust-system-wide-randr-dpi" data-sourcepos="371:1-371:43">Option 3: Adjust system-wide RandR DPI<a href="#option-3-adjust-system-wide-randr-dpi" aria-label="Link to heading 'Option 3: Adjust system-wide RandR DPI'" data-heading-content="Option 3: Adjust system-wide RandR DPI" class="anchor"></a></h4>
 <p data-sourcepos="373:1-373:131">This changes the reported DPI for your entire X11 session, affecting how RandR calculates scaling for all applications that use it.</p>
 <p data-sourcepos="375:1-375:43">Add this to your <code data-sourcepos="375:18-375:28">.xprofile</code> or <code data-sourcepos="375:33-375:42">.xinitrc</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="377:1-379:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xrandr</span> <span class="hl-constant">--dpi</span> 192
+<pre class="syntax-highlighting" data-sourcepos="377:1-379:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xrandr</span> <span class="hl-variable hl-parameter hl-option hl-shell">--dpi</span> 192
 </span></code></pre>
 <p data-sourcepos="381:1-381:154">Replace <code data-sourcepos="381:9-381:13">192</code> with your desired DPI value. This affects the system globally and will be used by Zed’s automatic RandR detection when <code data-sourcepos="381:134-381:142">Xft.dpi</code> is not set.</p>
 <h3 id="font-rendering-parameters" data-sourcepos="383:1-383:29">Font rendering parameters<a href="#font-rendering-parameters" aria-label="Link to heading 'Font rendering parameters'" data-heading-content="Font rendering parameters" class="anchor"></a></h3>

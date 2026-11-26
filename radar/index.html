@@ -205,7 +205,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="radar" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="radar" data-radar-repo="radar" data-radar-file="README.md">
 
 
       <h1 id="radar" data-sourcepos="1:1-1:7">radar<a href="#radar" aria-label="Link to heading 'radar'" data-heading-content="radar" class="anchor"></a></h1>
@@ -213,11 +213,11 @@
 <p data-sourcepos="3:3-3:195">Superseded by <code data-sourcepos="3:17-3:30">cpull report</code> (line-anchored cpull issues; see cpull’s docs/report.md). Move the reports over with <code data-sourcepos="3:117-3:194">radar list --all --json &gt; radar.json &amp;&amp; pull cpull report migrate radar.json</code>.</p>
 </blockquote>
 <p data-sourcepos="5:1-5:302">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. The CLI is stateless: every run opens the PoloDB database at <code data-sourcepos="5:248-5:276">&lt;workspace&gt;/issues/radar.db</code>, does its work and exits.</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-13:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">radar</span> add pull src/main.rs 42 <span class="hl-constant">--note</span> <span class="hl-string">&quot;panics on an empty pullfile&quot;</span>   <span class="hl-comment"># the line text is read from the file</span>
-<span class="hl-function">radar</span> list [--all] [--json]
-<span class="hl-function">radar</span> close 3 / radar reopen 3 / radar rm 3
-<span class="hl-function">radar</span> export        <span class="hl-comment"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
-<span class="hl-function">radar</span> mcp [--root DIR]   <span class="hl-comment"># MCP server (stdio): add/list/close/reopen/rm/export</span>
+<pre class="syntax-highlighting" data-sourcepos="7:1-13:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">radar</span> add pull src/main.rs 42 <span class="hl-variable hl-parameter hl-option hl-shell">--note</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">panics on an empty pullfile</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-shell"># the line text is read from the file</span>
+<span class="hl-variable hl-function hl-shell">radar</span> list [--all] [--json]
+<span class="hl-variable hl-function hl-shell">radar</span> close 3 / radar reopen 3 / radar rm 3
+<span class="hl-variable hl-function hl-shell">radar</span> export        <span class="hl-comment hl-line hl-shell"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
+<span class="hl-variable hl-function hl-shell">radar</span> mcp [--root DIR]   <span class="hl-comment hl-line hl-shell"># MCP server (stdio): add/list/close/reopen/rm/export</span>
 </span></code></pre>
 <p data-sourcepos="15:1-15:114">The workspace root is <code data-sourcepos="15:23-15:34">$PULL_ROOT</code>, or the nearest directory above the current one that contains <code data-sourcepos="15:98-15:113">pullfile.plist</code>.</p>
 <p data-sourcepos="17:1-21:60">Only one process can have <code data-sourcepos="17:27-17:36">radar.db</code> open at a time, so every command opens it for a

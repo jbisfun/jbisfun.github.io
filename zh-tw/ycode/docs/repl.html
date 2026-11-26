@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -526,39 +526,39 @@
 <h3 id="cell-mode" data-sourcepos="46:1-46:13">Cell mode<a href="#cell-mode" aria-label="Link to heading 'Cell mode'" data-heading-content="Cell mode" class="anchor"></a></h3>
 <p data-sourcepos="48:1-48:266">Zed supports <a data-sourcepos="48:14-48:99" href="https://jupytext.readthedocs.io/en/latest/formats-scripts.html">notebooks as scripts</a> using the <code data-sourcepos="48:111-48:116"># %%</code> cell separator in Python and <code data-sourcepos="48:147-48:153">// %%</code> in TypeScript. This allows you to write code in a single file and run it as if it were a notebook, cell by cell.</p>
 <p data-sourcepos="50:1-50:98">The <code data-sourcepos="50:5-50:15">repl::Run</code> command will run each block of code between the <code data-sourcepos="50:65-50:70"># %%</code> markers as a separate cell.</p>
-<pre class="syntax-highlighting" data-sourcepos="52:1-62:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment"># %% Cell 1</span>
-<span class="hl-keyword">import</span> <span class="hl-variable">time</span>
-<span class="hl-keyword">import</span> <span class="hl-variable">numpy</span> <span class="hl-keyword">as</span> <span class="hl-variable">np</span>
+<pre class="syntax-highlighting" data-sourcepos="52:1-62:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment hl-line hl-python"># %% Cell 1</span>
+<span class="hl-keyword hl-control hl-python">import</span> time
+<span class="hl-keyword hl-control hl-python">import</span> numpy <span class="hl-keyword hl-control hl-python">as</span> np
 
-<span class="hl-comment"># %% Cell 2</span>
-<span class="hl-keyword">import</span> <span class="hl-variable">matplotlib</span>.<span class="hl-variable">pyplot</span> <span class="hl-keyword">as</span> <span class="hl-variable">plt</span>
-<span class="hl-keyword">import</span> <span class="hl-variable">matplotlib</span>.<span class="hl-variable">pyplot</span> <span class="hl-keyword">as</span> <span class="hl-variable">plt</span>
-<span class="hl-keyword">from</span> <span class="hl-variable">matplotlib</span> <span class="hl-keyword">import</span> <span class="hl-variable">style</span>
-<span class="hl-variable">style</span>.<span class="hl-variable">use</span>(<span class="hl-string">&#39;ggplot&#39;</span>)
+<span class="hl-comment hl-line hl-python"># %% Cell 2</span>
+<span class="hl-keyword hl-control hl-python">import</span> matplotlib.pyplot <span class="hl-keyword hl-control hl-python">as</span> plt
+<span class="hl-keyword hl-control hl-python">import</span> matplotlib.pyplot <span class="hl-keyword hl-control hl-python">as</span> plt
+<span class="hl-keyword hl-control hl-python">from</span> matplotlib <span class="hl-keyword hl-control hl-python">import</span> style
+style.<span class="hl-variable hl-function hl-python">use</span>(<span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-python">ggplot</span><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-end hl-python">&#39;</span></span>)
 </span></code></pre>
 <h2 id="language-specific-instructions" data-sourcepos="64:1-64:33">Language specific instructions<a href="#language-specific-instructions" aria-label="Link to heading 'Language specific instructions'" data-heading-content="Language specific instructions" class="anchor"></a></h2>
 <h3 id="python" data-sourcepos="66:1-66:10">Python<a href="#python" aria-label="Link to heading 'Python'" data-heading-content="Python" class="anchor"></a></h3>
 <h4 id="global-environment" data-sourcepos="68:1-68:23">Global environment<a href="#global-environment" aria-label="Link to heading 'Global environment'" data-heading-content="Global environment" class="anchor"></a></h4>
 <p data-sourcepos="70:1-70:63">To set up your current Python to have an available kernel, run:</p>
-<pre class="syntax-highlighting" data-sourcepos="72:1-75:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">pip</span> install ipykernel
-<span class="hl-function">python</span> <span class="hl-constant">-m</span> ipykernel install <span class="hl-constant">--user</span>
+<pre class="syntax-highlighting" data-sourcepos="72:1-75:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">pip</span> install ipykernel
+<span class="hl-variable hl-function hl-shell">python</span> <span class="hl-variable hl-parameter hl-option hl-shell">-m</span> ipykernel install <span class="hl-variable hl-parameter hl-option hl-shell">--user</span>
 </span></code></pre>
 <h4 id="conda-environment" data-sourcepos="77:1-77:22">Conda Environment<a href="#conda-environment" aria-label="Link to heading 'Conda Environment'" data-heading-content="Conda Environment" class="anchor"></a></h4>
-<pre class="syntax-highlighting" data-sourcepos="79:1-83:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">source</span> activate myenv
-<span class="hl-function">conda</span> install ipykernel
-<span class="hl-function">python</span> <span class="hl-constant">-m</span> ipykernel install <span class="hl-constant">--user</span> <span class="hl-constant">--name</span> myenv <span class="hl-constant">--display-name</span> <span class="hl-string">&quot;Python (myenv)&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="79:1-83:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-support hl-function hl-shell">source</span> activate myenv
+<span class="hl-variable hl-function hl-shell">conda</span> install ipykernel
+<span class="hl-variable hl-function hl-shell">python</span> <span class="hl-variable hl-parameter hl-option hl-shell">-m</span> ipykernel install <span class="hl-variable hl-parameter hl-option hl-shell">--user</span> <span class="hl-variable hl-parameter hl-option hl-shell">--name</span> myenv <span class="hl-variable hl-parameter hl-option hl-shell">--display-name</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">Python (myenv)</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <h4 id="virtualenv-with-pip" data-sourcepos="85:1-85:24">Virtualenv with pip<a href="#virtualenv-with-pip" aria-label="Link to heading 'Virtualenv with pip'" data-heading-content="Virtualenv with pip" class="anchor"></a></h4>
-<pre class="syntax-highlighting" data-sourcepos="87:1-91:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">source</span> activate myenv
-<span class="hl-function">pip</span> install ipykernel
-<span class="hl-function">python</span> <span class="hl-constant">-m</span> ipykernel install <span class="hl-constant">--user</span> <span class="hl-constant">--name</span> myenv <span class="hl-constant">--display-name</span> <span class="hl-string">&quot;Python (myenv)&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="87:1-91:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-support hl-function hl-shell">source</span> activate myenv
+<span class="hl-variable hl-function hl-shell">pip</span> install ipykernel
+<span class="hl-variable hl-function hl-shell">python</span> <span class="hl-variable hl-parameter hl-option hl-shell">-m</span> ipykernel install <span class="hl-variable hl-parameter hl-option hl-shell">--user</span> <span class="hl-variable hl-parameter hl-option hl-shell">--name</span> myenv <span class="hl-variable hl-parameter hl-option hl-shell">--display-name</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">Python (myenv)</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <blockquote data-sourcepos="93:1-93:483">
 <p data-sourcepos="93:3-93:483">Note: <strong data-sourcepos="93:9-93:56">On macOS, your system Python will <em data-sourcepos="93:45-93:49">not</em> work</strong>. Either set up <a data-sourcepos="93:73-93:143" href="https://github.com/pyenv/pyenv?tab=readme-ov-file#installation">pyenv</a> or use a virtual environment. Zed uses separate selections for the Python <a data-sourcepos="93:219-93:268" href="configuring-languages.html#toolchains">toolchain</a> and REPL kernel. If diagnostics differ from the REPL, align the toolchain with the kernel using <code data-sourcepos="93:366-93:384">toolchain::Select</code>. Read more about the <a data-sourcepos="93:407-93:482" href="languages/python.html#selecting-a-toolchain">toolchain selector for Python</a>.</p>
 </blockquote>
 <h3 id="r-ark" data-sourcepos="95:1-95:18">R (Ark Kernel)<a href="#r-ark" aria-label="Link to heading 'R (Ark Kernel)'" data-heading-content="R (Ark Kernel)" class="anchor"></a></h3>
 <p data-sourcepos="97:1-97:202">Install <a data-sourcepos="97:9-97:56" href="https://github.com/posit-dev/ark/releases">Ark</a> by downloading the release for your operating system. For example, for macOS just unpack <code data-sourcepos="97:147-97:151">ark</code> binary and put it into <code data-sourcepos="97:176-97:191">/usr/local/bin</code>. Then run:</p>
-<pre class="syntax-highlighting" data-sourcepos="99:1-101:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ark</span> <span class="hl-constant">--install</span>
+<pre class="syntax-highlighting" data-sourcepos="99:1-101:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ark</span> <span class="hl-variable hl-parameter hl-option hl-shell">--install</span>
 </span></code></pre>
 <h3 id="r-xeus" data-sourcepos="103:1-103:19">R (Xeus Kernel)<a href="#r-xeus" aria-label="Link to heading 'R (Xeus Kernel)'" data-heading-content="R (Xeus Kernel)" class="anchor"></a></h3>
 <ul data-sourcepos="105:1-106:68">
@@ -572,7 +572,7 @@ TBD: Improve R REPL (Ark Kernel) instructions
 <ul data-sourcepos="114:1-114:126">
 <li data-sourcepos="114:1-114:126"><a data-sourcepos="114:3-114:84" href="https://docs.deno.com/runtime/manual/getting_started/installation/">Install Deno</a> and then install the Deno jupyter kernel:</li>
 </ul>
-<pre class="syntax-highlighting" data-sourcepos="116:1-118:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">deno</span> jupyter <span class="hl-constant">--install</span>
+<pre class="syntax-highlighting" data-sourcepos="116:1-118:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">deno</span> jupyter <span class="hl-variable hl-parameter hl-option hl-shell">--install</span>
 </span></code></pre>
 <!--
 TBD: Improve R REPL (Ark Kernel) instructions
@@ -621,12 +621,12 @@ TBD: Improve Julia REPL instructions
 <h3 id="setting-default-kernels" data-sourcepos="165:1-165:27">Setting Default Kernels<a href="#setting-default-kernels" aria-label="Link to heading 'Setting Default Kernels'" data-heading-content="Setting Default Kernels" class="anchor"></a></h3>
 <p data-sourcepos="167:1-167:131">To configure a different default kernel for a language, you can assign a kernel for any supported language in your <code data-sourcepos="167:116-167:130">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="169:1-180:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;jupyter&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;kernel_selections&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;python&quot;</span>: <span class="hl-string">&quot;conda-env&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;typescript&quot;</span>: <span class="hl-string">&quot;deno&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;javascript&quot;</span>: <span class="hl-string">&quot;deno&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;r&quot;</span>: <span class="hl-string">&quot;ark&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">jupyter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">kernel_selections</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">python</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">conda-env</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">typescript</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">deno</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">javascript</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">deno</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">r</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ark</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   }
 }
@@ -639,15 +639,15 @@ TBD: Improve Julia REPL instructions
 <h2 id="debugging-kernelspecs" data-sourcepos="192:1-192:24">Debugging Kernelspecs<a href="#debugging-kernelspecs" aria-label="Link to heading 'Debugging Kernelspecs'" data-heading-content="Debugging Kernelspecs" class="anchor"></a></h2>
 <p data-sourcepos="194:1-194:141">Available kernels are shown via the <code data-sourcepos="194:37-194:52">repl::Sessions</code> command. To refresh the kernels you can run, use the <code data-sourcepos="194:107-194:132">repl::RefreshKernelspecs</code> command.</p>
 <p data-sourcepos="196:1-196:100">If you have <code data-sourcepos="196:13-196:21">jupyter</code> installed, you can run <code data-sourcepos="196:46-196:70">jupyter kernelspec list</code> to see the available kernels.</p>
-<pre class="syntax-highlighting" data-sourcepos="198:1-208:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-operator">$</span><span class="hl-function"> </span><span class="hl-property">jupyter</span> kernelspec list
-<span class="hl-function">Available</span> kernels:
-  <span class="hl-function">ark</span>                   /Users/z/Library/Jupyter/kernels/ark
-  <span class="hl-function">conda-base</span>            /Users/z/Library/Jupyter/kernels/conda-base
-  <span class="hl-function">deno</span>                  /Users/z/Library/Jupyter/kernels/deno
-  <span class="hl-function">python-chatlab-dev</span>    /Users/z/Library/Jupyter/kernels/python-chatlab-dev
-  <span class="hl-function">python3</span>               /Users/z/Library/Jupyter/kernels/python3
-  <span class="hl-function">ruby</span>                  /Users/z/Library/Jupyter/kernels/ruby
-  <span class="hl-function">rust</span>                  /Users/z/Library/Jupyter/kernels/rust
+<pre class="syntax-highlighting" data-sourcepos="198:1-208:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-function hl-shell"> </span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">jupyter</span> kernelspec list
+<span class="hl-variable hl-function hl-shell">Available</span> kernels:
+  <span class="hl-variable hl-function hl-shell">ark</span>                   /Users/z/Library/Jupyter/kernels/ark
+  <span class="hl-variable hl-function hl-shell">conda-base</span>            /Users/z/Library/Jupyter/kernels/conda-base
+  <span class="hl-variable hl-function hl-shell">deno</span>                  /Users/z/Library/Jupyter/kernels/deno
+  <span class="hl-variable hl-function hl-shell">python-chatlab-dev</span>    /Users/z/Library/Jupyter/kernels/python-chatlab-dev
+  <span class="hl-variable hl-function hl-shell">python3</span>               /Users/z/Library/Jupyter/kernels/python3
+  <span class="hl-variable hl-function hl-shell">ruby</span>                  /Users/z/Library/Jupyter/kernels/ruby
+  <span class="hl-variable hl-function hl-shell">rust</span>                  /Users/z/Library/Jupyter/kernels/rust
 </span></code></pre>
 <blockquote data-sourcepos="210:1-210:293">
 <p data-sourcepos="210:3-210:293">Note: Zed makes best effort usage of <code data-sourcepos="210:40-210:51">sys.prefix</code> and <code data-sourcepos="210:57-210:70">CONDA_PREFIX</code> to find kernels in Python environments. If you want to explicitly control this, run <code data-sourcepos="210:156-210:236">python -m ipykernel install --user --name myenv --display-name &quot;Python (myenv)&quot;</code> to install the kernel directly while in the environment.</p>

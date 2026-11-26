@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -500,12 +500,12 @@
 <h1 id="regular-diagnostics" data-sourcepos="10:1-10:21">Regular diagnostics<a href="#regular-diagnostics" aria-label="Link to heading 'Regular diagnostics'" data-heading-content="Regular diagnostics" class="anchor"></a></h1>
 <p data-sourcepos="12:1-12:92">By default, Zed displays all diagnostics as underlined text in the editor and the scrollbar.</p>
 <p data-sourcepos="14:1-14:45">Editor diagnostics could be filtered with the</p>
-<pre class="syntax-highlighting" data-sourcepos="16:1-18:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;diagnostics_max_severity&quot;</span>: <span class="hl-constant hl-constant-builtin">null</span>
+<pre class="syntax-highlighting" data-sourcepos="16:1-18:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">diagnostics_max_severity</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">null</span>
 </span></code></pre>
 <p data-sourcepos="20:1-20:121">editor setting (possible values: <code data-sourcepos="20:34-20:40">&quot;off&quot;</code>, <code data-sourcepos="20:43-20:51">&quot;error&quot;</code>, <code data-sourcepos="20:54-20:64">&quot;warning&quot;</code>, <code data-sourcepos="20:67-20:74">&quot;info&quot;</code>, <code data-sourcepos="20:77-20:84">&quot;hint&quot;</code>, <code data-sourcepos="20:87-20:92">null</code> (default, all diagnostics)).</p>
 <p data-sourcepos="22:1-22:42">The scrollbar ones are configured with the</p>
-<pre class="syntax-highlighting" data-sourcepos="24:1-28:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;scrollbar&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;diagnostics&quot;</span>: <span class="hl-string">&quot;all&quot;</span>,
+<pre class="syntax-highlighting" data-sourcepos="24:1-28:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">scrollbar</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">diagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">all</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
 }
 </span></code></pre>
 <p data-sourcepos="30:1-30:101">configuration (possible values: <code data-sourcepos="30:33-30:40">&quot;none&quot;</code>, <code data-sourcepos="30:43-30:51">&quot;error&quot;</code>, <code data-sourcepos="30:54-30:64">&quot;warning&quot;</code>, <code data-sourcepos="30:67-30:81">&quot;information&quot;</code>, <code data-sourcepos="30:84-30:90">&quot;all&quot;</code> (default))</p>
@@ -514,10 +514,10 @@ Or, <code data-sourcepos="33:5-33:28">editor::GoToDiagnostic</code> and <code da
 <h1 id="inline-diagnostics-error-lens" data-sourcepos="35:1-35:33">Inline diagnostics (Error lens)<a href="#inline-diagnostics-error-lens" aria-label="Link to heading 'Inline diagnostics (Error lens)'" data-heading-content="Inline diagnostics (Error lens)" class="anchor"></a></h1>
 <p data-sourcepos="37:1-38:126">Zed supports showing diagnostics as a lens to the right of the code.
 This is disabled by default, but can either be temporarily turned on (or off) using the editor menu, or permanently, using the</p>
-<pre class="syntax-highlighting" data-sourcepos="40:1-47:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;diagnostics&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;inline&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;enabled&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;max_severity&quot;</span>: <span class="hl-constant hl-constant-builtin">null</span>, <span class="hl-comment">// same values as the `diagnostics_max_severity` from the editor settings</span>
+<pre class="syntax-highlighting" data-sourcepos="40:1-47:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">diagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">inline</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">enabled</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">max_severity</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">null</span>, <span class="hl-comment hl-line hl-json">// same values as the `diagnostics_max_severity` from the editor settings</span>
   }
 }
 </span></code></pre>
@@ -525,15 +525,15 @@ This is disabled by default, but can either be temporarily turned on (or off) us
 <h2 id="project-panel" data-sourcepos="51:1-51:16">Project Panel<a href="#project-panel" aria-label="Link to heading 'Project Panel'" data-heading-content="Project Panel" class="anchor"></a></h2>
 <p data-sourcepos="53:1-53:119"><a data-sourcepos="53:1-53:35" href="project-panel.html">Project panel</a> can have its entries coloured based on the severity of the diagnostics in the file.</p>
 <p data-sourcepos="55:1-55:17">To configure, use</p>
-<pre class="syntax-highlighting" data-sourcepos="57:1-61:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;project_panel&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;show_diagnostics&quot;</span>: <span class="hl-string">&quot;all&quot;</span>,
+<pre class="syntax-highlighting" data-sourcepos="57:1-61:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">project_panel</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">show_diagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">all</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
 }
 </span></code></pre>
 <p data-sourcepos="63:1-63:71">configuration (possible values: <code data-sourcepos="63:33-63:39">&quot;off&quot;</code>, <code data-sourcepos="63:42-63:51">&quot;errors&quot;</code>, <code data-sourcepos="63:54-63:60">&quot;all&quot;</code> (default))</p>
 <h2 id="editor-tabs" data-sourcepos="65:1-65:14">Editor tabs<a href="#editor-tabs" aria-label="Link to heading 'Editor tabs'" data-heading-content="Editor tabs" class="anchor"></a></h2>
 <p data-sourcepos="67:1-67:67">Similar to the project panel, editor tabs can be colorized with the</p>
-<pre class="syntax-highlighting" data-sourcepos="69:1-73:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;tabs&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;show_diagnostics&quot;</span>: <span class="hl-string">&quot;off&quot;</span>,
+<pre class="syntax-highlighting" data-sourcepos="69:1-73:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tabs</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">show_diagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">off</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
 }
 </span></code></pre>
 <p data-sourcepos="75:1-75:71">configuration (possible values: <code data-sourcepos="75:33-75:39">&quot;off&quot;</code> (default), <code data-sourcepos="75:52-75:61">&quot;errors&quot;</code>, <code data-sourcepos="75:64-75:70">&quot;all&quot;</code>)</p>

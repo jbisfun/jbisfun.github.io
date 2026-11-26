@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/nim.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/nim.md">
 
 
       <h1 id="nim" data-sourcepos="6:1-6:5">Nim<a href="#nim" aria-label="Link to heading 'Nim'" data-heading-content="Nim" class="anchor"></a></h1>
@@ -503,12 +503,12 @@ Report issues to: <a data-sourcepos="9:19-9:104" href="https://github.com/foxoma
 <h2 id="formatting" data-sourcepos="14:1-14:13">Formatting<a href="#formatting" aria-label="Link to heading 'Formatting'" data-heading-content="Formatting" class="anchor"></a></h2>
 <p data-sourcepos="16:1-16:188">To use <a data-sourcepos="16:8-16:60" href="https://github.com/arnetheduck/nph">arnetheduck/nph</a> as a formatter, follow the <a data-sourcepos="16:89-16:187" href="https://github.com/arnetheduck/nph?tab=readme-ov-file#installation">nph installation instructions</a>.</p>
 <p data-sourcepos="18:1-18:107">Configure formatting in Settings (<code data-sourcepos="18:35-18:53">zed::OpenSettings</code>) under Languages &gt; Nim, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="20:1-31:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Nim&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;external&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;nph&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;-&quot;</span>]
+<pre class="syntax-highlighting" data-sourcepos="20:1-31:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Nim</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">external</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">nph</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">-</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
         }
       }
     }

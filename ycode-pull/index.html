@@ -198,7 +198,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode-pull" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode-pull" data-radar-repo="ycode-pull" data-radar-file="README.md">
 
 
       <h1 id="ycode-pull" data-sourcepos="1:1-1:12">ycode-pull<a href="#ycode-pull" aria-label="Link to heading 'ycode-pull'" data-heading-content="ycode-pull" class="anchor"></a></h1>
@@ -221,33 +221,42 @@ working directory; it can be changed in
 the window. <code data-sourcepos="23:13-23:18">pull</code> must be on ycode’s PATH.</p>
 <h2 id="changes-panel" data-sourcepos="25:1-25:16">Changes panel<a href="#changes-panel" aria-label="Link to heading 'Changes panel'" data-heading-content="Changes panel" class="anchor"></a></h2>
 <p data-sourcepos="27:1-27:93">“pull: changes” toggles a left-dock panel with every repo’s changes, branch and ahead/behind.</p>
-<ul data-sourcepos="29:1-31:78">
+<ul data-sourcepos="29:1-38:26">
 <li data-sourcepos="29:1-29:88">Click a file to open it; tick it (or a repo) to stage via <code data-sourcepos="29:61-29:70">pull add</code> / <code data-sourcepos="29:74-29:87">pull unstage</code>.</li>
 <li data-sourcepos="30:1-30:92">Commit runs <code data-sourcepos="30:15-30:27">pull commit</code> (<code data-sourcepos="30:30-30:33">-a</code> if nothing is staged), with the pullfile’s lint and hooks.</li>
 <li data-sourcepos="31:1-31:78">Sync, Update and Push act on the whole workspace. Zed’s git panel is hidden.</li>
+<li data-sourcepos="32:1-38:26">CI (<a data-sourcepos="32:7-32:47" href="https://github.com/jbisfun/cpull">cpull</a>’s, run by the workspace server
+<code data-sourcepos="33:3-33:37">pull cpull open --web-listen ADDR</code>): every idl project with its last result, hover to
+queue a build or the tests; the active and recent jobs, click one for a live log tail,
+hover to cancel or retry. Globe buttons open the CI pages in the browser. Repos with CI
+projects show their status next to the name. It reads <code data-sourcepos="36:57-36:65">/ci/api</code> at the address in
+<code data-sourcepos="37:3-37:26">.pull/cpull/serve.addr</code> (curl) and writes through <code data-sourcepos="37:54-37:63">cpull ci</code>, so <code data-sourcepos="37:69-37:74">curl</code> and <code data-sourcepos="37:80-37:86">cpull</code>
+must be on ycode’s PATH.</li>
 </ul>
-<h2 id="jobs-panel" data-sourcepos="33:1-33:13">Jobs panel<a href="#jobs-panel" aria-label="Link to heading 'Jobs panel'" data-heading-content="Jobs panel" class="anchor"></a></h2>
-<p data-sourcepos="35:1-35:136">“pull: jobs” toggles a bottom-dock panel with the pullfile’s <code data-sourcepos="35:62-35:67">jobs</code> and ad-hoc sessions. The inspector shows the selected terminal live:</p>
-<ul data-sourcepos="37:1-38:52">
-<li data-sourcepos="37:1-37:87">type into it, send ctrl-c, start/stop/restart, load or unload a job, remove a session</li>
-<li data-sourcepos="38:1-38:52">open it in <code data-sourcepos="38:14-38:24">$TERMINAL</code> (via <code data-sourcepos="38:31-38:51">pull session attach</code>)</li>
+<h2 id="jobs-panel" data-sourcepos="40:1-40:13">Jobs panel<a href="#jobs-panel" aria-label="Link to heading 'Jobs panel'" data-heading-content="Jobs panel" class="anchor"></a></h2>
+<p data-sourcepos="42:1-42:136">“pull: jobs” toggles a bottom-dock panel with the pullfile’s <code data-sourcepos="42:62-42:67">jobs</code> and ad-hoc sessions. The inspector shows the selected terminal live:</p>
+<ul data-sourcepos="44:1-45:52">
+<li data-sourcepos="44:1-44:87">type into it, send ctrl-c, start/stop/restart, load or unload a job, remove a session</li>
+<li data-sourcepos="45:1-45:52">open it in <code data-sourcepos="45:14-45:24">$TERMINAL</code> (via <code data-sourcepos="45:31-45:51">pull session attach</code>)</li>
 </ul>
-<h2 id="issues-panel" data-sourcepos="40:1-40:15">Issues panel<a href="#issues-panel" aria-label="Link to heading 'Issues panel'" data-heading-content="Issues panel" class="anchor"></a></h2>
-<p data-sourcepos="42:1-44:96">“pull: issues” toggles a right-dock panel with the open <a data-sourcepos="42:57-42:97" href="https://github.com/jbisfun/cpull">cpull</a> (a fork of <a data-sourcepos="42:110-42:148" href="https://github.com/xit-vcs/haxy">haxy</a>)
-issues of every repo (<code data-sourcepos="43:23-43:48">pull cpull issues --json</code>): read one with its comments, close or reopen
-it, open cpull on the repo in <code data-sourcepos="44:31-44:41">$TERMINAL</code>, or sync (<code data-sourcepos="44:53-44:69">pull cpull sync</code>, also “pull: cpull sync”).</p>
-<h2 id="mcp" data-sourcepos="46:1-46:6">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
-<p data-sourcepos="48:1-51:38">In a pull workspace the plugin runs <code data-sourcepos="48:37-48:54">pull mcp-servers</code> and registers every server it
-returns (<code data-sourcepos="49:10-49:26">context_servers</code>, in-memory settings layer): <code data-sourcepos="49:56-49:79">pull mcp --root &lt;root&gt;</code> itself
+<h2 id="issues-panel" data-sourcepos="47:1-47:15">Issues panel<a href="#issues-panel" aria-label="Link to heading 'Issues panel'" data-heading-content="Issues panel" class="anchor"></a></h2>
+<p data-sourcepos="49:1-53:74">“pull: issues” toggles a right-dock panel with the open <a data-sourcepos="49:57-49:97" href="https://github.com/jbisfun/cpull">cpull</a> (a fork of <a data-sourcepos="49:110-49:148" href="https://github.com/xit-vcs/haxy">haxy</a>)
+issues of every repo (<code data-sourcepos="50:23-50:48">pull cpull issues --json</code>): read one with its comments, close or reopen
+it, open cpull on the repo in <code data-sourcepos="51:31-51:41">$TERMINAL</code> or its page in the browser, or sync (<code data-sourcepos="51:80-51:96">pull cpull sync</code>,
+also “pull: cpull sync”). “pull: open file in cpull” opens the active editor’s file at the cursor
+line in the workspace server’s files view (the repo’s checked-out branch).</p>
+<h2 id="mcp" data-sourcepos="55:1-55:6">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
+<p data-sourcepos="57:1-60:38">In a pull workspace the plugin runs <code data-sourcepos="57:37-57:54">pull mcp-servers</code> and registers every server it
+returns (<code data-sourcepos="58:10-58:26">context_servers</code>, in-memory settings layer): <code data-sourcepos="58:56-58:79">pull mcp --root &lt;root&gt;</code> itself
 (workspace, search, exec and terminal-session tools) plus whatever the pullfile’s
-<code data-sourcepos="51:1-51:13">mcp_servers</code> section configures, e.g.</p>
-<pre class="syntax-highlighting" data-sourcepos="53:5-57:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+<code data-sourcepos="60:1-60:13">mcp_servers</code> section configures, e.g.</p>
+<pre class="syntax-highlighting" data-sourcepos="62:5-66:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
 &lt;dict&gt;
-    &lt;key&gt;radar&lt;/key&gt;
+    &lt;key&gt;mytool&lt;/key&gt;
     &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
 &lt;/dict&gt;
 </span></code></pre>
-<p data-sourcepos="59:1-60:58">(<code data-sourcepos="59:2-59:10">command</code> defaults to the section key, resolved on PATH; <code data-sourcepos="59:59-59:69">PULL_ROOT</code> is set for these).
+<p data-sourcepos="68:1-69:58">(<code data-sourcepos="68:2-68:10">command</code> defaults to the section key, resolved on PATH; <code data-sourcepos="68:59-68:69">PULL_ROOT</code> is set for these).
 ycode forwards all of it to ACP agents such as Hermes too.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

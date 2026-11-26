@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/extensions/snippets.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/extensions/snippets.md">
 
 
       <h1 id="snippets" data-sourcepos="6:1-6:10">Snippets<a href="#snippets" aria-label="Link to heading 'Snippets'" data-heading-content="Snippets" class="anchor"></a></h1>
@@ -502,7 +502,7 @@
 <p data-sourcepos="18:1-19:127">Zed matches snippet files based on the lowercase name of the language (e.g. <code data-sourcepos="18:77-18:87">rust.json</code> for Rust).
 You can use <code data-sourcepos="19:13-19:27">snippets.json</code> as a file name to define snippets that will be available regardless of the current buffer language.</p>
 <p data-sourcepos="21:1-21:81">For example, here is an extension that provides snippets for Rust and TypeScript:</p>
-<pre class="syntax-highlighting" data-sourcepos="23:1-25:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-type">snippets</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">&quot;./snippets/rust.json&quot;</span><span class="hl-punctuation hl-punctuation-delimiter">,</span><span class="hl-property"> </span><span class="hl-string">&quot;./snippets/typescript.json&quot;</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+<pre class="syntax-highlighting" data-sourcepos="23:1-25:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">snippets</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-punctuation hl-definition hl-array hl-toml">[</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">./snippets/rust.json</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">./snippets/typescript.json</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span><span class="hl-punctuation hl-definition hl-array hl-toml">]</span>
 </span></code></pre>
 <p data-sourcepos="27:1-27:97">For more information on how to create snippets, see the <a data-sourcepos="27:57-27:96" href="../snippets.html">Snippets documentation</a>.</p>
 

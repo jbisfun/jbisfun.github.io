@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="README.md">
 
 
       <h1 id="ycode" data-sourcepos="1:1-1:7">ycode<a href="#ycode" aria-label="Link to heading 'ycode'" data-heading-content="ycode" class="anchor"></a></h1>
@@ -506,10 +506,10 @@ repo.</p>
 <p data-sourcepos="15:1-17:45">Hook files are <code data-sourcepos="15:16-15:42">~/.config/zed/hooks/*.lua</code> and <code data-sourcepos="15:48-15:56">*.x.lua</code>, plus one level of extension
 subdirectories (<code data-sourcepos="16:17-16:30">hooks/&lt;ext&gt;/</code>). <code data-sourcepos="16:34-16:41">.x.lua</code> files use directives modelled on
 <a data-sourcepos="17:1-17:44" href="https://theos.dev/docs/logos-syntax">Logos</a>:</p>
-<pre class="syntax-highlighting" data-sourcepos="19:1-26:3"><code class="language-lua"><span class="hl-source hl-lua">%<span class="hl-variable">hook</span> <span class="hl-variable">editor</span>
-- <span class="hl-variable">Copy</span>
-  %<span class="hl-variable">log</span>
-  %<span class="hl-variable">orig</span>
+<pre class="syntax-highlighting" data-sourcepos="19:1-26:3"><code class="language-lua"><span class="hl-source hl-lua">%<span class="hl-variable hl-other hl-lua">hook</span> <span class="hl-variable hl-other hl-lua">editor</span>
+- <span class="hl-variable hl-other hl-lua">Copy</span>
+  %<span class="hl-variable hl-other hl-lua">log</span>
+  %<span class="hl-variable hl-other hl-lua">orig</span>
 end
 %end
 </span></code></pre>
@@ -559,7 +559,7 @@ modules.</li>
 <h2 id="building" data-sourcepos="72:1-72:11">Building<a href="#building" aria-label="Link to heading 'Building'" data-heading-content="Building" class="anchor"></a></h2>
 <p data-sourcepos="74:1-75:84">The build is the same as upstream Zed (<a data-sourcepos="74:40-74:77" href="docs/development/linux.html">Linux</a>,
 <a data-sourcepos="75:1-75:38" href="docs/development/macos.html">macOS</a>, <a data-sourcepos="75:41-75:82" href="docs/development/windows.html">Windows</a>):</p>
-<pre class="syntax-highlighting" data-sourcepos="77:1-79:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> build <span class="hl-constant">-p</span> zed        <span class="hl-comment"># target/debug/zed</span>
+<pre class="syntax-highlighting" data-sourcepos="77:1-79:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> zed        <span class="hl-comment hl-line hl-shell"># target/debug/zed</span>
 </span></code></pre>
 <h2 id="license" data-sourcepos="81:1-81:10">License<a href="#license" aria-label="Link to heading 'License'" data-heading-content="License" class="anchor"></a></h2>
 <p data-sourcepos="83:1-84:47">ycode is licensed like upstream Zed: GPL-3.0-or-later, with Apache-2.0 components where

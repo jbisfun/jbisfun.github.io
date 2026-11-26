@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -500,41 +500,41 @@
 <h2 id="defining-debugger-extensions" data-sourcepos="10:1-10:31">Defining Debugger Extensions<a href="#defining-debugger-extensions" aria-label="Link to heading 'Defining Debugger Extensions'" data-heading-content="Defining Debugger Extensions" class="anchor"></a></h2>
 <p data-sourcepos="12:1-13:59">A given extension may provide one or more DAP servers.
 Each DAP server must be registered in the <code data-sourcepos="13:43-13:58">extension.toml</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="15:1-20:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">debug_adapters</span><span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-type">my-debug-adapter</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-comment"># Optional relative path to the JSON schema for the debug adapter configuration schema. Defaults to `debug_adapter_schemas/$DEBUG_ADAPTER_NAME_ID.json`.</span>
-<span class="hl-comment"># Note that while this field is optional, a schema is mandatory.</span>
-<span class="hl-type">schema_path</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;relative/path/to/schema.json&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="15:1-20:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">debug_adapters</span>.<span class="hl-entity hl-name hl-table hl-toml">my-debug-adapter</span>]
+<span class="hl-comment hl-line hl-toml"># Optional relative path to the JSON schema for the debug adapter configuration schema. Defaults to `debug_adapter_schemas/$DEBUG_ADAPTER_NAME_ID.json`.</span>
+<span class="hl-comment hl-line hl-toml"># Note that while this field is optional, a schema is mandatory.</span>
+<span class="hl-entity hl-name hl-tag hl-toml">schema_path</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">relative/path/to/schema.json</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="22:1-22:99">Then, in the Rust code for your extension, implement the <code data-sourcepos="22:58-22:73">get_dap_binary</code> method on your extension:</p>
-<pre class="syntax-highlighting" data-sourcepos="24:1-34:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">get_dap_binary</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">adapter_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">config</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">DebugTaskDefinition</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">user_provided_debug_adapter_path</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">Option</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">worktree</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-operator">&amp;</span><span class="hl-type">Worktree</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Result</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">DebugAdapterBinary</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">;</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="24:1-34:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">get_dap_binary</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">adapter_name</span>: <span class="hl-support hl-type hl-rust">String</span>,
+        <span class="hl-variable hl-parameter hl-rust">config</span>: <span class="hl-entity hl-name hl-type hl-rust">DebugTaskDefinition</span>,
+        <span class="hl-variable hl-parameter hl-rust">user_provided_debug_adapter_path</span>: <span class="hl-support hl-type hl-rust">Option</span>&lt;<span class="hl-support hl-type hl-rust">String</span>&gt;,
+        <span class="hl-variable hl-parameter hl-rust">worktree</span>: <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-entity hl-name hl-type hl-rust">Worktree</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Result</span>&lt;<span class="hl-entity hl-name hl-type hl-rust">DebugAdapterBinary</span>, <span class="hl-support hl-type hl-rust">String</span>&gt;;
+}
 </span></code></pre>
 <p data-sourcepos="36:1-36:162">This method should return the command to start up a debug adapter protocol server, along with any arguments or environment variables necessary for it to function.</p>
 <p data-sourcepos="38:1-38:276">If you need to download the DAP server from an external source (GitHub Releases, npm, etc.), you can also do that in this function. Make sure to check for updates only periodically, as this function is called whenever a user spawns a new debug session with your debug adapter.</p>
 <p data-sourcepos="40:1-41:85">You must also implement <code data-sourcepos="40:25-40:42">dap_request_kind</code>. This function is used to determine whether a given debug scenario will <em data-sourcepos="40:116-40:123">launch</em> a new debuggee or <em data-sourcepos="40:143-40:150">attach</em> to an existing one.
 We also use it to determine that a given debug scenario requires running a <em data-sourcepos="41:76-41:84">locator</em>.</p>
-<pre class="syntax-highlighting" data-sourcepos="43:1-51:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">dap_request_kind</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_adapter_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_config</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">Value</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Result</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">StartDebuggingRequestArgumentsRequest</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">;</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="43:1-51:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">dap_request_kind</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">_adapter_name</span>: <span class="hl-support hl-type hl-rust">String</span>,
+        <span class="hl-variable hl-parameter hl-rust">_config</span>: <span class="hl-entity hl-name hl-type hl-rust">Value</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Result</span>&lt;<span class="hl-entity hl-name hl-type hl-rust">StartDebuggingRequestArgumentsRequest</span>, <span class="hl-support hl-type hl-rust">String</span>&gt;;
+}
 </span></code></pre>
 <p data-sourcepos="53:1-53:181">These two functions are sufficient to expose your debug adapter in <code data-sourcepos="53:68-53:79">debug.json</code>-based user workflows, but you should strongly consider implementing <code data-sourcepos="53:149-53:172">dap_config_to_scenario</code> as well.</p>
-<pre class="syntax-highlighting" data-sourcepos="55:1-62:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">dap_config_to_scenario</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_adapter_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">DebugConfig</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Result</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">DebugScenario</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">;</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="55:1-62:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">dap_config_to_scenario</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">_adapter_name</span>: <span class="hl-entity hl-name hl-type hl-rust">DebugConfig</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Result</span>&lt;<span class="hl-entity hl-name hl-type hl-rust">DebugScenario</span>, <span class="hl-support hl-type hl-rust">String</span>&gt;;
+}
 </span></code></pre>
 <p data-sourcepos="64:1-66:221"><code data-sourcepos="64:1-64:24">dap_config_to_scenario</code> is used when the user spawns a session via new process modal UI. At a high level, it takes a generic debug configuration (that isn’t specific to any
 debug adapter) and tries to turn it into a concrete debug scenario for your adapter.
@@ -547,29 +547,29 @@ A locator locates the debug target and figures out how to spawn a debug session 
 </blockquote>
 <p data-sourcepos="75:1-75:248">Locators can (but don’t have to) be agnostic to the debug adapter they are used with. They are responsible for locating the debug target and figuring out how to spawn a debug session for it. This lets extensions share locator logic across adapters.</p>
 <p data-sourcepos="77:1-77:116">Your extension can define one or more debug locators. Each debug locator must be registered in the <code data-sourcepos="77:100-77:115">extension.toml</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="79:1-81:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">debug_locators</span><span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-type">my-debug-locator</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+<pre class="syntax-highlighting" data-sourcepos="79:1-81:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">debug_locators</span>.<span class="hl-entity hl-name hl-table hl-toml">my-debug-locator</span>]
 </span></code></pre>
 <p data-sourcepos="83:1-84:198">Locators have two components.
 First, each locator is run on each available task to figure out if any of the available locators can provide a debug scenario for a given task. This is done by calling <code data-sourcepos="84:169-84:197">dap_locator_create_scenario</code>.</p>
-<pre class="syntax-highlighting" data-sourcepos="86:1-96:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">dap_locator_create_scenario</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_locator_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_build_task</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">TaskTemplate</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_resolved_label</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_debug_adapter_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Option</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">DebugScenario</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">;</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="86:1-96:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">dap_locator_create_scenario</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">_locator_name</span>: <span class="hl-support hl-type hl-rust">String</span>,
+        <span class="hl-variable hl-parameter hl-rust">_build_task</span>: <span class="hl-entity hl-name hl-type hl-rust">TaskTemplate</span>,
+        <span class="hl-variable hl-parameter hl-rust">_resolved_label</span>: <span class="hl-support hl-type hl-rust">String</span>,
+        <span class="hl-variable hl-parameter hl-rust">_debug_adapter_name</span>: <span class="hl-support hl-type hl-rust">String</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Option</span>&lt;<span class="hl-entity hl-name hl-type hl-rust">DebugScenario</span>&gt;;
+}
 </span></code></pre>
 <p data-sourcepos="98:1-99:179">This function should return <code data-sourcepos="98:29-98:34">Some</code> debug scenario when that scenario defines a debugging counterpart to a given user task.
 Note that a <code data-sourcepos="99:13-99:27">DebugScenario</code> can include a <a data-sourcepos="99:43-99:82" href="../debugger.html#build-tasks">build task</a>. If there is one, we will execute <code data-sourcepos="99:118-99:134">run_dap_locator</code> after a build task is finished successfully.</p>
-<pre class="syntax-highlighting" data-sourcepos="101:1-109:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">run_dap_locator</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_locator_name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">_build_task</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-type">TaskTemplate</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Result</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span><span class="hl-type">DebugRequest</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-type">String</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span><span class="hl-punctuation hl-punctuation-delimiter">;</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="101:1-109:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">run_dap_locator</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">_locator_name</span>: <span class="hl-support hl-type hl-rust">String</span>,
+        <span class="hl-variable hl-parameter hl-rust">_build_task</span>: <span class="hl-entity hl-name hl-type hl-rust">TaskTemplate</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Result</span>&lt;<span class="hl-entity hl-name hl-type hl-rust">DebugRequest</span>, <span class="hl-support hl-type hl-rust">String</span>&gt;;
+}
 </span></code></pre>
 <p data-sourcepos="111:1-112:413"><code data-sourcepos="111:1-111:17">run_dap_locator</code> is useful in case you cannot determine a build target deterministically. Some build systems may produce artifacts whose names are not known up-front.
 Note however that you do <em data-sourcepos="112:26-112:30">not</em> need to go through a 2-phase resolution; if you can determine the full debug configuration with just <code data-sourcepos="112:133-112:161">dap_locator_create_scenario</code>, you can omit <code data-sourcepos="112:177-112:183">build</code> property on a returned <code data-sourcepos="112:208-112:222">DebugScenario</code>. Please also note that your locator <strong data-sourcepos="112:260-112:270">will be</strong> called with tasks it’s unlikely to accept; thus you should take some effort to return <code data-sourcepos="112:358-112:363">None</code> early before performing any expensive operations.</p>

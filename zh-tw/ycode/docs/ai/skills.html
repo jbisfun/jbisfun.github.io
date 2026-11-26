@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -542,11 +542,11 @@ Nothing is written to disk until they explicitly save, so a shared link can neve
 <p data-sourcepos="74:1-75:83">Add <code data-sourcepos="74:5-74:36">disable-model-invocation: true</code> to a skill’s frontmatter to stop the agent from picking it up autonomously.
 The skill still appears as a slash command, so you stay in control of when it runs.</p>
 <p data-sourcepos="77:1-77:114">This is useful for workflows you don’t want the agent triggering automatically, like deploy or release procedures.</p>
-<pre class="syntax-highlighting" data-sourcepos="79:1-85:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-punctuation hl-punctuation-special">---</span>
-<span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">deploy</span>
-<span class="hl-property">description</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Deploy the current branch to production.</span>
-<span class="hl-property">disable-model-invocation</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
-<span class="hl-punctuation hl-punctuation-special">---</span>
+<pre class="syntax-highlighting" data-sourcepos="79:1-85:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">deploy</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">description</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Deploy the current branch to production.</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">disable-model-invocation</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
+<span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
 </span></code></pre>
 <h2 id="skill-format" data-sourcepos="87:1-87:15">Skill Format<a href="#skill-format" aria-label="Link to heading 'Skill Format'" data-heading-content="Skill Format" class="anchor"></a></h2>
 <h3 id="folder-structure" data-sourcepos="89:1-89:20">Folder Structure<a href="#folder-structure" aria-label="Link to heading 'Folder Structure'" data-heading-content="Folder Structure" class="anchor"></a></h3>
@@ -561,12 +561,12 @@ The skill still appears as a slash command, so you stay in control of when it ru
 <h3 id="skill-md-format" data-sourcepos="103:1-103:19">SKILL.md format<a href="#skill-md-format" aria-label="Link to heading 'SKILL.md format'" data-heading-content="SKILL.md format" class="anchor"></a></h3>
 <p data-sourcepos="105:1-105:75"><code data-sourcepos="105:1-105:10">SKILL.md</code> starts with YAML frontmatter, followed by Markdown instructions.</p>
 <p data-sourcepos="107:1-107:20"><strong data-sourcepos="107:1-107:20">Minimal example:</strong></p>
-<pre class="syntax-highlighting" data-sourcepos="109:1-118:3"><code class="language-markdown"><span class="hl-text hl-plain">---
+<pre class="syntax-highlighting" data-sourcepos="109:1-118:3"><code class="language-markdown"><span class="hl-text hl-html hl-markdown">---
 name: my-skill
 description: What this skill does and when to use it.
 ---
 
-## Instructions
+<span class="hl-markup hl-heading hl-markdown"><span class="hl-punctuation hl-definition hl-heading hl-markdown">##</span></span> <span class="hl-markup hl-heading hl-markdown"><span class="hl-entity hl-name hl-section hl-markdown">Instructions</span></span>
 
 Step-by-step instructions for the agent...
 </span></code></pre>
@@ -612,7 +612,7 @@ Step-by-step instructions for the agent...
 <p data-sourcepos="141:1-141:70">Skills with invalid names fail to load and surface an error in the UI.</p>
 <h3 id="bundled-resources" data-sourcepos="143:1-143:21">Bundled Resources<a href="#bundled-resources" aria-label="Link to heading 'Bundled Resources'" data-heading-content="Bundled Resources" class="anchor"></a></h3>
 <p data-sourcepos="145:1-145:118">Keep the body of <code data-sourcepos="145:18-145:27">SKILL.md</code> under 500 lines. Move detailed material to reference files and link to them from the body:</p>
-<pre class="syntax-highlighting" data-sourcepos="147:1-152:3"><code class="language-markdown"><span class="hl-text hl-plain">See [reference guide](references/REFERENCE.md) for complete API details.
+<pre class="syntax-highlighting" data-sourcepos="147:1-152:3"><code class="language-markdown"><span class="hl-text hl-html hl-markdown">See [reference guide](references/REFERENCE.md) for complete API details.
 
 Run the extraction script:
 scripts/extract.py

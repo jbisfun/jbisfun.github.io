@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/bash.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/bash.md">
 
 
       <h1 id="bash" data-sourcepos="6:1-6:6">Bash<a href="#bash" aria-label="Link to heading 'Bash'" data-heading-content="Bash" class="anchor"></a></h1>
@@ -502,17 +502,17 @@
 <h2 id="configuration" data-sourcepos="13:1-13:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <p data-sourcepos="15:1-15:113">It is highly recommended to install <code data-sourcepos="15:37-15:48">shellcheck</code>, as <code data-sourcepos="15:54-15:75">bash-language-server</code> depends on it to provide diagnostics.</p>
 <h3 id="install-shellcheck" data-sourcepos="17:1-17:25">Install <code data-sourcepos="17:13-17:24">shellcheck</code>:<a href="#install-shellcheck" aria-label="Link to heading 'Install shellcheck:'" data-heading-content="Install shellcheck:" class="anchor"></a></h3>
-<pre class="syntax-highlighting" data-sourcepos="19:1-27:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> install shellcheck             <span class="hl-comment"># macOS (HomeBrew)</span>
-<span class="hl-function">apt-get</span> install shellcheck          <span class="hl-comment"># Ubuntu/Debian</span>
-<span class="hl-function">pacman</span> <span class="hl-constant">-S</span> shellcheck                <span class="hl-comment"># ArchLinux</span>
-<span class="hl-function">dnf</span> install shellcheck              <span class="hl-comment"># Fedora</span>
-<span class="hl-function">yum</span> install shellcheck              <span class="hl-comment"># CentOS/RHEL</span>
-<span class="hl-function">zypper</span> install shellcheck           <span class="hl-comment"># openSUSE</span>
-<span class="hl-function">choco</span> install shellcheck            <span class="hl-comment"># Windows (Chocolatey)</span>
+<pre class="syntax-highlighting" data-sourcepos="19:1-27:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> install shellcheck             <span class="hl-comment hl-line hl-shell"># macOS (HomeBrew)</span>
+<span class="hl-variable hl-function hl-shell">apt-get</span> install shellcheck          <span class="hl-comment hl-line hl-shell"># Ubuntu/Debian</span>
+<span class="hl-variable hl-function hl-shell">pacman</span> <span class="hl-variable hl-parameter hl-option hl-shell">-S</span> shellcheck                <span class="hl-comment hl-line hl-shell"># ArchLinux</span>
+<span class="hl-variable hl-function hl-shell">dnf</span> install shellcheck              <span class="hl-comment hl-line hl-shell"># Fedora</span>
+<span class="hl-variable hl-function hl-shell">yum</span> install shellcheck              <span class="hl-comment hl-line hl-shell"># CentOS/RHEL</span>
+<span class="hl-variable hl-function hl-shell">zypper</span> install shellcheck           <span class="hl-comment hl-line hl-shell"># openSUSE</span>
+<span class="hl-variable hl-function hl-shell">choco</span> install shellcheck            <span class="hl-comment hl-line hl-shell"># Windows (Chocolatey)</span>
 </span></code></pre>
 <p data-sourcepos="29:1-29:42">And verify it is available from your path:</p>
-<pre class="syntax-highlighting" data-sourcepos="31:1-34:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">which</span> shellcheck
-<span class="hl-function">shellcheck</span> <span class="hl-constant">--version</span>
+<pre class="syntax-highlighting" data-sourcepos="31:1-34:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">which</span> shellcheck
+<span class="hl-variable hl-function hl-shell">shellcheck</span> <span class="hl-variable hl-parameter hl-option hl-shell">--version</span>
 </span></code></pre>
 <p data-sourcepos="36:1-36:331">If you wish to customize the warnings/errors reported you just need to create a <code data-sourcepos="36:81-36:95">.shellcheckrc</code> file. You can do this in the root of your project or in your home directory (<code data-sourcepos="36:174-36:190">~/.shellcheckrc</code>). See: <a data-sourcepos="36:199-36:321" href="https://github.com/koalaman/shellcheck/wiki/Ignore#ignoring-one-or-more-types-of-errors-forever">shellcheck documentation</a> for more.</p>
 <h3 id="see-also" data-sourcepos="38:1-38:13">See also:<a href="#see-also" aria-label="Link to heading 'See also:'" data-heading-content="See also:" class="anchor"></a></h3>

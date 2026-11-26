@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -503,14 +503,14 @@
 </ul>
 <h2 id="setup" data-sourcepos="13:1-13:8">Setup<a href="#setup" aria-label="Link to heading 'Setup'" data-heading-content="Setup" class="anchor"></a></h2>
 <p data-sourcepos="15:1-15:84">Enable Helm language for Helm files by editing your <code data-sourcepos="15:53-15:72">.zed/settings.json</code> and adding:</p>
-<pre class="syntax-highlighting" data-sourcepos="17:1-28:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;file_types&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Helm&quot;</span>: [
-      <span class="hl-string">&quot;**/templates/**/*.tpl&quot;</span>,
-      <span class="hl-string">&quot;**/templates/**/*.yaml&quot;</span>,
-      <span class="hl-string">&quot;**/templates/**/*.yml&quot;</span>,
-      <span class="hl-string">&quot;**/helmfile.d/**/*.yaml&quot;</span>,
-      <span class="hl-string">&quot;**/helmfile.d/**/*.yml&quot;</span>,
-      <span class="hl-string">&quot;**/values*.yaml&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="17:1-28:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">file_types</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Helm</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/templates/**/*.tpl</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/templates/**/*.yaml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/templates/**/*.yml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/helmfile.d/**/*.yaml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/helmfile.d/**/*.yml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/values*.yaml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     ]
   }
 </span></code></pre>

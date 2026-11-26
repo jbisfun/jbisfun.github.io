@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wiki (src/wiki) · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="../../../cpull/docs/wiki.html">
+
+  <link rel="icon" href="../../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="../../../cpull/docs/wiki.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="wiki.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="integrate.html">Forge x CI x issues (src/integrate)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="wiki.html" class="active" aria-current="page">Wiki (src/wiki)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="cpull">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="wiki-srcwiki" data-sourcepos="1:1-1:19">Wiki (<code data-sourcepos="1:9-1:18">src/wiki</code>)<a href="#wiki-srcwiki" aria-label="Link to heading 'Wiki (src/wiki)'" data-heading-content="Wiki (src/wiki)" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:353">cpull builds the workspace wiki: one static site from every repo of a <a data-sourcepos="3:71-3:100" href="workspace.html">pull workspace</a>, the Zig port of the Rust <code data-sourcepos="3:128-3:133">wiki</code> tool. Its data (wiki.toml, templates, pages, client assets, translations) stays in the workspace’s <code data-sourcepos="3:234-3:239">wiki</code> repo. Output and build state live in <code data-sourcepos="3:278-3:302">$ROOT/.pull/cpull/wiki/</code> (<code data-sourcepos="3:305-3:311">dist/</code>, <code data-sourcepos="3:314-3:321">build/</code>; <code data-sourcepos="3:324-3:340">$CPULL_WIKI_DIR</code> moves them).</p>
+<ul data-sourcepos="5:1-8:121">
+<li data-sourcepos="5:1-5:95"><code data-sourcepos="5:3-5:30">cpull wiki build [--force]</code> builds <code data-sourcepos="5:39-5:45">dist/</code>, regenerating only what changed (git object ids).</li>
+<li data-sourcepos="6:1-6:150"><code data-sourcepos="6:3-6:22">cpull wiki publish</code> builds, mirrors <code data-sourcepos="6:40-6:46">dist/</code> into <code data-sourcepos="6:53-6:77">$ROOT/jbisfun.github.io</code> (or <code data-sourcepos="6:83-6:101">$WIKI_PUBLISH_DIR</code>) and stages it. The pull precommit hook runs it.</li>
+<li data-sourcepos="7:1-7:155">The workspace server (<code data-sourcepos="7:25-7:59">pull cpull open --web-listen ADDR</code>) serves the wiki live at <code data-sourcepos="7:86-7:93">/wiki/</code>, rebuilding at most every few seconds as pages are requested.</li>
+<li data-sourcepos="8:1-8:121">Pages are machine-translated only with <code data-sourcepos="8:42-8:59">WIKI_TRANSLATE=1</code>; otherwise the cached translations in the wiki repo are used.</li>
+</ul>
+<h2 id="code-highlighting" data-sourcepos="10:1-10:20">Code highlighting<a href="#code-highlighting" aria-label="Link to heading 'Code highlighting'" data-heading-content="Code highlighting" class="anchor"></a></h2>
+<p data-sourcepos="12:1-12:287">Fenced code is highlighted at build time with tree-sitter and the grammars’ own <code data-sourcepos="12:81-12:96">highlights.scm</code> queries (bash, C, CSS, diff, HTML, INI, JavaScript, JSON, Lua, Make, Markdown, Objective-C, Python, Ruby, Rust, Swift, TOML, TSX, TypeScript, XML, YAML, Zig). Other languages are plain text.</p>
+<p data-sourcepos="14:1-14:932">The output looks like the Rust wiki’s, which used syntect: every token is a span of TextMate scope classes (<code data-sourcepos="14:109-14:139">hl-keyword hl-control hl-rust</code>) inside the language’s scope (<code data-sourcepos="14:171-14:189">hl-source hl-rust</code>), and the stylesheet ends with syntect’s own CSS for those classes (<code data-sourcepos="14:259-14:282">src/wiki/highlight.css</code>, InspiredGitHub light and base16-ocean dark). <code data-sourcepos="14:330-14:344">highlight.zig</code> maps each tree-sitter capture to the scope syntect gave the same token, with per-language rules that can look at the node’s kind, its parent and its text (a function name in a call is a call, a TOML table header isn’t a key, bash builtins are <code data-sourcepos="14:589-14:606">support.function</code>), and puts syntect’s <code data-sourcepos="14:629-14:659">punctuation.definition.string</code> around string quotes. Over every code block of the last Rust-built site, 97% of the characters get the same colour; the rest are languages without a grammar here (R, PowerShell, Vue, …), syntect’s own parse errors, and SQL that syntect highlighted inside Python strings.</p>
+<h2 id="client-assets" data-sourcepos="16:1-16:16">Client assets<a href="#client-assets" aria-label="Link to heading 'Client assets'" data-heading-content="Client assets" class="anchor"></a></h2>
+<p data-sourcepos="18:1-18:414">esbuild bundles and minifies <code data-sourcepos="18:30-18:45">assets/main.js</code> (Bootstrap, clipboard.js) and <code data-sourcepos="18:77-18:94">assets/style.css</code> (with Bootstrap’s CSS) into <code data-sourcepos="18:124-18:137">dist/_assets</code>. It is a devDependency of the wiki repo, so <code data-sourcepos="18:183-18:196">pnpm install</code> there, which the npm packages and JSDoc already need, also brings the bundler at the version pnpm-lock.yaml pins. Nothing has to be on the PATH of what runs the build. <code data-sourcepos="18:366-18:380">$WIKI_ESBUILD</code> points at another esbuild binary.</p>
+<h2 id="the-wiki-and-the-forge" data-sourcepos="20:1-20:25">The wiki and the forge<a href="#the-wiki-and-the-forge" aria-label="Link to heading 'The wiki and the forge'" data-heading-content="The wiki and the forge" class="anchor"></a></h2>
+<p data-sourcepos="22:1-22:262">When the workspace server serves the wiki, each page it sends gets <code data-sourcepos="22:68-22:116">&lt;meta name=&quot;cpull-wiki&quot; content=&quot;/wiki/_cpull&quot;&gt;</code>. The wiki’s <code data-sourcepos="22:130-22:146">assets/forge.js</code> (bundled into every page) only runs when that tag is there, so the published site never shows or links any of this:</p>
+<ul data-sourcepos="24:1-26:235">
+<li data-sourcepos="24:1-24:193">Every page of a repo shows a link to the repo in cpull, its open issues and reports, and the status of its CI projects (<code data-sourcepos="24:123-24:140">/ci/api/projects</code>). The home page’s repo cards show their open issues.</li>
+<li data-sourcepos="25:1-25:143">A doc page lists the open reports anchored to its file. It highlights the reported lines, with a flag in the margin that links to each issue.</li>
+<li data-sourcepos="26:1-26:235">The right-click report menu files the report straight away. Select text, right-click, add a note and press “File report”. A toast links to the new issue. On the static site the menu copies the <code data-sourcepos="26:196-26:218">pull cpull report ...</code> command instead.</li>
+</ul>
+<p data-sourcepos="28:1-28:41">The API behind it (<code data-sourcepos="28:20-28:39">src/wiki/forge.zig</code>):</p>
+<ul data-sourcepos="30:1-32:249">
+<li data-sourcepos="30:1-30:122"><code data-sourcepos="30:3-30:39">GET /wiki/_cpull/page?repo=R&amp;file=F</code>: R’s cpull urls, open issue and report counts, and the open reports anchored to F.</li>
+<li data-sourcepos="31:1-31:59"><code data-sourcepos="31:3-31:26">GET /wiki/_cpull/repos</code>: the same counts for every repo.</li>
+<li data-sourcepos="32:1-32:249"><code data-sourcepos="32:3-32:28">POST /wiki/_cpull/report</code>: a JSON body <code data-sourcepos="32:43-32:85">{repo, file, line, quote?, note?, title?}</code> files a report with source <code data-sourcepos="32:114-32:119">wiki</code>, as <code data-sourcepos="32:125-32:138">cpull report</code> does. It returns <code data-sourcepos="32:157-32:192">{id, title, repo, file, line, url}</code>. The request must be same-origin and <code data-sourcepos="32:231-32:248">application/json</code>.</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/wiki.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家/地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

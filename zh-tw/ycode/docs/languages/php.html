@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -504,24 +504,24 @@
 </ul>
 <h2 id="install-php" data-sourcepos="14:1-14:14">Install PHP<a href="#install-php" aria-label="Link to heading 'Install PHP'" data-heading-content="Install PHP" class="anchor"></a></h2>
 <p data-sourcepos="16:1-16:76">The PHP extension requires PHP to be installed and available in your <code data-sourcepos="16:70-16:75">PATH</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="18:1-37:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-comment"># macOS via Homebrew</span>
-<span class="hl-function">brew</span> install php
+<pre class="syntax-highlighting" data-sourcepos="18:1-37:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-shell"># macOS via Homebrew</span>
+<span class="hl-variable hl-function hl-shell">brew</span> install php
 
-<span class="hl-comment"># Debian/Ubuntu</span>
-<span class="hl-function">sudo</span> apt-get install php-cli
+<span class="hl-comment hl-line hl-shell"># Debian/Ubuntu</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> apt-get install php-cli
 
-<span class="hl-comment"># CentOS 8+/RHEL</span>
-<span class="hl-function">sudo</span> dnf install php-cli
+<span class="hl-comment hl-line hl-shell"># CentOS 8+/RHEL</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> dnf install php-cli
 
-<span class="hl-comment"># Arch Linux</span>
-<span class="hl-function">sudo</span> pacman <span class="hl-constant">-S</span> php
+<span class="hl-comment hl-line hl-shell"># Arch Linux</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> pacman <span class="hl-variable hl-parameter hl-option hl-shell">-S</span> php
 
-<span class="hl-comment"># check PHP path</span>
-<span class="hl-comment">## macOS and Linux</span>
-<span class="hl-function">which</span> php
+<span class="hl-comment hl-line hl-shell"># check PHP path</span>
+<span class="hl-comment hl-line hl-shell">## macOS and Linux</span>
+<span class="hl-variable hl-function hl-shell">which</span> php
 
-<span class="hl-comment">## Windows</span>
-<span class="hl-function">where</span> php
+<span class="hl-comment hl-line hl-shell">## Windows</span>
+<span class="hl-variable hl-function hl-shell">where</span> php
 </span></code></pre>
 <h2 id="choosing-a-language-server" data-sourcepos="39:1-39:29">Choosing a language server<a href="#choosing-a-language-server" aria-label="Link to heading 'Choosing a language server'" data-heading-content="Choosing a language server" class="anchor"></a></h2>
 <p data-sourcepos="41:1-41:294">The PHP extension uses <a data-sourcepos="41:24-41:99" href="https://microsoft.github.io/language-server-protocol">LSP language servers</a> with Phpactor as the default. If you want to use other language servers that support Zed (e.g. Intelephense, PHP Tools or PHPantom), make sure to follow the documentation on how to implement it.</p>
@@ -529,14 +529,14 @@
 <p data-sourcepos="45:1-45:283"><a data-sourcepos="45:1-45:41" href="https://intelephense.com/">Intelephense</a> is a <a data-sourcepos="45:48-45:137" href="https://github.com/bmewburn/vscode-intelephense/blob/master/LICENSE.txt#L29">proprietary</a> language server for PHP operating under a freemium model. Certain features require purchase of a <a data-sourcepos="45:236-45:282" href="https://intelephense.com/buy">premium license</a>.</p>
 <p data-sourcepos="47:1-47:113">Configure language servers in Settings (<code data-sourcepos="47:41-47:59">zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="49:1-63:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;PHP&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [
-        <span class="hl-string">&quot;intelephense&quot;</span>,
-        <span class="hl-string">&quot;!phpactor&quot;</span>,
-        <span class="hl-string">&quot;!phptools&quot;</span>,
-        <span class="hl-string">&quot;!phpantom&quot;</span>,
-        <span class="hl-string">&quot;...&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">intelephense</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpactor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phptools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpantom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">...</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       ]
     }
   }
@@ -545,10 +545,10 @@
 <p data-sourcepos="65:1-65:196">To use the premium features, you can place your license file inside your home directory at <code data-sourcepos="65:92-65:119">~/intelephense/licence.txt</code> for macOS and Linux, or <code data-sourcepos="65:145-65:184">%USERPROFILE%/intelephense/licence.txt</code> on Windows.</p>
 <p data-sourcepos="67:1-67:174">Alternatively, you can pass the licence key or a path to a file containing the licence key as an initialization option. To do this, add the following to your <code data-sourcepos="67:159-67:173">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="69:1-79:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;intelephense&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;initialization_options&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;licenceKey&quot;</span>: <span class="hl-string">&quot;/path/to/licence.txt&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">intelephense</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">initialization_options</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">licenceKey</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/path/to/licence.txt</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       }
     }
   }
@@ -558,14 +558,14 @@
 <p data-sourcepos="83:1-83:215"><a data-sourcepos="83:1-83:38" href="https://www.devsense.com/">PHP Tools</a> is a proprietary language server that offers free and premium features. You need to <a data-sourcepos="83:124-83:181" href="https://www.devsense.com/en/purchase">purchase a license</a> to activate the premium features.</p>
 <p data-sourcepos="85:1-85:113">Configure language servers in Settings (<code data-sourcepos="85:41-85:59">zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="87:1-101:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;PHP&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [
-        <span class="hl-string">&quot;phptools&quot;</span>,
-        <span class="hl-string">&quot;!intelephense&quot;</span>,
-        <span class="hl-string">&quot;!phpactor&quot;</span>,
-        <span class="hl-string">&quot;!phpantom&quot;</span>,
-        <span class="hl-string">&quot;...&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">phptools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!intelephense</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpactor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpantom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">...</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       ]
     }
   }
@@ -573,10 +573,10 @@
 </span></code></pre>
 <p data-sourcepos="103:1-103:106">To use the premium features, you can add your license in <code data-sourcepos="103:58-103:81">initialization_options</code> in your <code data-sourcepos="103:91-103:105">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="105:1-115:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;phptools&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;initialization_options&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;0&quot;</span>: <span class="hl-string">&quot;your_license_key&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">phptools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">initialization_options</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">0</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">your_license_key</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       }
     }
   }
@@ -589,14 +589,14 @@
 <h3 id="phpactor" data-sourcepos="125:1-125:12">Phpactor<a href="#phpactor" aria-label="Link to heading 'Phpactor'" data-heading-content="Phpactor" class="anchor"></a></h3>
 <p data-sourcepos="127:1-127:113">Configure language servers in Settings (<code data-sourcepos="127:41-127:59">zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="129:1-143:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;PHP&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [
-        <span class="hl-string">&quot;phpactor&quot;</span>,
-        <span class="hl-string">&quot;!intelephense&quot;</span>,
-        <span class="hl-string">&quot;!phptools&quot;</span>,
-        <span class="hl-string">&quot;!phpantom&quot;</span>,
-        <span class="hl-string">&quot;...&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">phpactor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!intelephense</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phptools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpantom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">...</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       ]
     }
   }
@@ -605,14 +605,14 @@
 <h3 id="phpantom" data-sourcepos="145:1-145:12">PHPantom<a href="#phpantom" aria-label="Link to heading 'PHPantom'" data-heading-content="PHPantom" class="anchor"></a></h3>
 <p data-sourcepos="147:1-147:113">Configure language servers in Settings (<code data-sourcepos="147:41-147:59">zed::OpenSettings</code>) under Languages &gt; PHP, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="149:1-163:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;PHP&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [
-        <span class="hl-string">&quot;phpantom&quot;</span>,
-        <span class="hl-string">&quot;!phpactor&quot;</span>,
-        <span class="hl-string">&quot;!intelephense&quot;</span>,
-        <span class="hl-string">&quot;!phptools&quot;</span>,
-        <span class="hl-string">&quot;...&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">phpantom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phpactor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!intelephense</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">!phptools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">...</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       ]
     }
   }
@@ -627,17 +627,17 @@
 <p data-sourcepos="173:1-173:96">The PHP extension provides a debug adapter for PHP via Xdebug. There are several ways to use it:</p>
 <pre class="syntax-highlighting" data-sourcepos="175:1-191:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;PHP: Listen to Xdebug&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;Xdebug&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;port&quot;</span>: <span class="hl-number">9003</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP: Listen to Xdebug</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Xdebug</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">port</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">9003</span>
   },
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;PHP: Debug this test&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;Xdebug&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;vendor/bin/phpunit&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;args&quot;</span>: [<span class="hl-string">&quot;--filter&quot;</span>, <span class="hl-string">&quot;$ZED_SYMBOL&quot;</span>]
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">PHP: Debug this test</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Xdebug</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">vendor/bin/phpunit</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">args</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--filter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">$ZED_SYMBOL</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
   }
 ]
 </span></code></pre>
@@ -652,17 +652,17 @@
 <h2 id="using-the-tailwind-css-language-server-with-php" data-sourcepos="201:1-201:50">Using the Tailwind CSS Language Server with PHP<a href="#using-the-tailwind-css-language-server-with-php" aria-label="Link to heading 'Using the Tailwind CSS Language Server with PHP'" data-heading-content="Using the Tailwind CSS Language Server with PHP" class="anchor"></a></h2>
 <p data-sourcepos="203:1-203:363">To get all the features (autocomplete, linting, etc.) from the <a data-sourcepos="203:64-203:205" href="https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme">Tailwind CSS language server</a> in PHP files, you need to configure the language server so that it knows about where to look for CSS classes by adding the following to your <code data-sourcepos="203:348-203:362">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="205:1-224:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;tailwindcss-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;includeLanguages&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;php&quot;</span>: <span class="hl-string">&quot;html&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tailwindcss-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">includeLanguages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">php</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         },
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;experimental&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;classRegex&quot;</span>: [
-            <span class="hl-string">&quot;class=</span><span class="hl-escape">\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\&quot;</span><span class="hl-string">&quot;</span>,
-            <span class="hl-string">&quot;class=&#39;([^&#39;]*)&#39;&quot;</span>,
-            <span class="hl-string">&quot;class=</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">&quot;</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">experimental</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">classRegex</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=&#39;([^&#39;]*)&#39;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
           ]
         }
       }
@@ -681,19 +681,19 @@
 <h3 id="laravelblade" data-sourcepos="237:1-237:17">Laravel/Blade<a href="#laravelblade" aria-label="Link to heading 'Laravel/Blade'" data-heading-content="Laravel/Blade" class="anchor"></a></h3>
 <p data-sourcepos="239:1-239:90">For Laravel/Blade files, you may need additional configuration to handle Blade directives:</p>
 <pre class="syntax-highlighting" data-sourcepos="241:1-262:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;tailwindcss-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;includeLanguages&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;php&quot;</span>: <span class="hl-string">&quot;html&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;blade&quot;</span>: <span class="hl-string">&quot;html&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tailwindcss-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">includeLanguages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">php</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">blade</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         },
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;experimental&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;classRegex&quot;</span>: [
-            <span class="hl-string">&quot;class=</span><span class="hl-escape">\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\&quot;</span><span class="hl-string">&quot;</span>,
-            <span class="hl-string">&quot;class=&#39;([^&#39;]*)&#39;&quot;</span>,
-            <span class="hl-string">&quot;class=</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\\\&quot;</span><span class="hl-string">&quot;</span>,
-            <span class="hl-string">&quot;@class</span><span class="hl-escape">\\</span><span class="hl-string">(</span><span class="hl-escape">\\</span><span class="hl-string">[([^</span><span class="hl-escape">\\</span><span class="hl-string">]]*)</span><span class="hl-escape">\\</span><span class="hl-string">]</span><span class="hl-escape">\\</span><span class="hl-string">)&quot;</span>
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">experimental</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">classRegex</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=&#39;([^&#39;]*)&#39;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\\\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">@class</span><span class="hl-constant hl-character hl-escape hl-json">\\</span><span class="hl-string hl-quoted hl-double hl-json">(</span><span class="hl-constant hl-character hl-escape hl-json">\\</span><span class="hl-string hl-quoted hl-double hl-json">[([^</span><span class="hl-constant hl-character hl-escape hl-json">\\</span><span class="hl-string hl-quoted hl-double hl-json">]]*)</span><span class="hl-constant hl-character hl-escape hl-json">\\</span><span class="hl-string hl-quoted hl-double hl-json">]</span><span class="hl-constant hl-character hl-escape hl-json">\\</span><span class="hl-string hl-quoted hl-double hl-json">)</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
           ]
         }
       }

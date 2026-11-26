@@ -205,7 +205,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="idlci">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../idlci/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -214,12 +214,12 @@
 <p data-sourcepos="3:1-5:108">為 <a data-sourcepos="3:5-3:41" href="https://github.com/jbisfun/idl">idl</a> 專案的 <a data-sourcepos="3:53-3:91" href="https://github.com/jbisfun/pull">pull</a>
 工作區提供本機 CI：一個基於 SQLite 的工作佇列，執行 <code data-sourcepos="4:73-4:117">idl build|test|lint|fmt --check|check|clean</code>、
 Jenkins 風格的網頁介面、JSON API、git HEAD 監控，以及供代理程式使用的 MCP 伺服器。</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-14:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">idlci</span> serve [--root DIR] [--addr 127.0.0.1:8737] [--jobs 1] [--watch]   <span class="hl-comment"># UI at http://127.0.0.1:8737</span>
-<span class="hl-function">idlci</span> mcp                                    <span class="hl-comment"># stdio MCP server; starts `idlci serve` when needed</span>
-<span class="hl-function">idlci</span> queue fossify-ios/calculator-ios build [TARGET...] [-c release] [--strict] [--wait]
-<span class="hl-function">idlci</span> jobs [--status failed] [--project calculator-ios]
-<span class="hl-function">idlci</span> log 12 [-f]
-<span class="hl-function">idlci</span> cancel 12 / idlci retry 12
+<pre class="syntax-highlighting" data-sourcepos="7:1-14:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">idlci</span> serve [--root DIR] [--addr 127.0.0.1:8737] [--jobs 1] [--watch]   <span class="hl-comment hl-line hl-shell"># UI at http://127.0.0.1:8737</span>
+<span class="hl-variable hl-function hl-shell">idlci</span> mcp                                    <span class="hl-comment hl-line hl-shell"># stdio MCP server; starts `idlci serve` when needed</span>
+<span class="hl-variable hl-function hl-shell">idlci</span> queue fossify-ios/calculator-ios build [TARGET...] [-c release] [--strict] [--wait]
+<span class="hl-variable hl-function hl-shell">idlci</span> jobs [--status failed] [--project calculator-ios]
+<span class="hl-variable hl-function hl-shell">idlci</span> log 12 [-f]
+<span class="hl-variable hl-function hl-shell">idlci</span> cancel 12 / idlci retry 12
 </span></code></pre>
 <p data-sourcepos="16:1-17:158">根目錄為 <code data-sourcepos="16:14-16:21">--root</code>，否則為 <code data-sourcepos="16:35-16:46">$PULL_ROOT</code>，或最近的包含 <code data-sourcepos="16:69-16:84">pullfile.plist</code> 的父目錄。狀態存放於
 <code data-sourcepos="17:1-17:20">$ROOT/.pull/idlci/</code>（<code data-sourcepos="17:24-17:33">idlci.db</code>、<code data-sourcepos="17:37-17:51">logs/&lt;id&gt;.log</code>、<code data-sourcepos="17:55-17:66">serve.addr</code>、<code data-sourcepos="17:70-17:80">serve.log</code>）。工作由專案目錄執行 <code data-sourcepos="17:115-17:119">idl</code>，並使用伺服器的環境變數。</p>

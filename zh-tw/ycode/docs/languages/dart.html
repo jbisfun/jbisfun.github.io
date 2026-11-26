@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -506,16 +506,16 @@
 <p data-sourcepos="17:1-17:182">You can install dart from <a data-sourcepos="17:27-17:72" href="https://dart.dev/get-dart">dart.dev/get-dart</a> or via the <a data-sourcepos="17:85-17:182" href="https://fvm.app/documentation/getting-started/installation">Flutter Version Management CLI (fvm)</a></p>
 <h2 id="configuration" data-sourcepos="19:1-19:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <p data-sourcepos="21:1-21:77">The dart extension requires no configuration if you have <code data-sourcepos="21:58-21:63">dart</code> in your path:</p>
-<pre class="syntax-highlighting" data-sourcepos="23:1-26:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">which</span> dart
-<span class="hl-function">dart</span> <span class="hl-constant">--version</span>
+<pre class="syntax-highlighting" data-sourcepos="23:1-26:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">which</span> dart
+<span class="hl-variable hl-function hl-shell">dart</span> <span class="hl-variable hl-parameter hl-option hl-shell">--version</span>
 </span></code></pre>
 <p data-sourcepos="28:1-28:134">If you would like to use a specific dart binary or use dart via FVM you can specify the <code data-sourcepos="28:89-28:94">dart</code> binary in your Zed settings.jsons file:</p>
 <pre class="syntax-highlighting" data-sourcepos="30:1-41:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;dart&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;path&quot;</span>: <span class="hl-string">&quot;/opt/homebrew/bin/fvm&quot;</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;dart&quot;</span>, <span class="hl-string">&quot;language-server&quot;</span>, <span class="hl-string">&quot;--protocol=lsp&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dart</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/opt/homebrew/bin/fvm</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dart</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--protocol=lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
       }
     }
   }
@@ -524,10 +524,10 @@
 <h3 id="formatting" data-sourcepos="43:1-43:14">Formatting<a href="#formatting" aria-label="Link to heading 'Formatting'" data-heading-content="Formatting" class="anchor"></a></h3>
 <p data-sourcepos="45:1-45:195">Dart by-default uses a very conservative maximum line length (80). If you would like the dart LSP to permit a longer line length when auto-formatting, add the following to your Zed settings.json:</p>
 <pre class="syntax-highlighting" data-sourcepos="47:1-57:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;dart&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;lineLength&quot;</span>: <span class="hl-number">140</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dart</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lineLength</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">140</span>
       }
     }
   }

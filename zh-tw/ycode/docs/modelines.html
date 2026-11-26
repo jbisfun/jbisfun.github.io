@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -500,14 +500,14 @@
 <h2 id="configuration" data-sourcepos="5:1-5:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <p data-sourcepos="7:1-7:132">Use the <a data-sourcepos="7:9-7:70" href="reference/all-settings.html#modeline-lines"><code data-sourcepos="7:10-7:25">modeline_lines</code></a> setting to control how many lines Zed searches for modelines:</p>
 <pre class="syntax-highlighting" data-sourcepos="9:1-13:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;modeline_lines&quot;</span>: <span class="hl-number">5</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">modeline_lines</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">5</span>
 }
 </span></code></pre>
 <p data-sourcepos="15:1-15:48">Set to <code data-sourcepos="15:8-15:10">0</code> to disable modeline parsing entirely.</p>
 <h2 id="emacs" data-sourcepos="17:1-17:8">Emacs<a href="#emacs" aria-label="Link to heading 'Emacs'" data-heading-content="Emacs" class="anchor"></a></h2>
 <p data-sourcepos="19:1-19:152">Zed has some compatibility support for <a data-sourcepos="19:40-19:151" href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Specifying-File-Variables.html">Emacs file variables</a>.</p>
 <p data-sourcepos="21:1-21:8">Example:</p>
-<pre class="syntax-highlighting" data-sourcepos="23:1-25:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment"># -*- mode: python; tab-width: 4; indent-tabs-mode: nil; -*-</span>
+<pre class="syntax-highlighting" data-sourcepos="23:1-25:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment hl-line hl-python"># -*- mode: python; tab-width: 4; indent-tabs-mode: nil; -*-</span>
 </span></code></pre>
 <h3 id="supported-emacs-variables" data-sourcepos="27:1-27:29">Supported Emacs Variables<a href="#supported-emacs-variables" aria-label="Link to heading 'Supported Emacs Variables'" data-heading-content="Supported Emacs Variables" class="anchor"></a></h3>
 <table data-sourcepos="29:1-37:156" class="table table-sm table-striped">
@@ -559,7 +559,7 @@
 <h2 id="vim" data-sourcepos="39:1-39:6">Vim<a href="#vim" aria-label="Link to heading 'Vim'" data-heading-content="Vim" class="anchor"></a></h2>
 <p data-sourcepos="41:1-41:101">Zed has some compatibility support for <a data-sourcepos="41:40-41:100" href="https://vimhelp.org/options.txt.html#modeline">Vim modeline</a>.</p>
 <p data-sourcepos="43:1-43:8">Example:</p>
-<pre class="syntax-highlighting" data-sourcepos="45:1-47:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment"># vim: set ft=python ts=4 sw=4 et:</span>
+<pre class="syntax-highlighting" data-sourcepos="45:1-47:3"><code class="language-python"><span class="hl-source hl-python"><span class="hl-comment hl-line hl-python"># vim: set ft=python ts=4 sw=4 et:</span>
 </span></code></pre>
 <h3 id="supported-vim-options" data-sourcepos="49:1-49:25">Supported Vim Options<a href="#supported-vim-options" aria-label="Link to heading 'Supported Vim Options'" data-heading-content="Supported Vim Options" class="anchor"></a></h3>
 <table data-sourcepos="51:1-61:157" class="table table-sm table-striped">

@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -503,7 +503,7 @@
 </ol>
 <h2 id="code-completions" data-sourcepos="13:1-13:35">Language Server Code Completions<a href="#code-completions" aria-label="Link to heading 'Language Server Code Completions'" data-heading-content="Language Server Code Completions" class="anchor"></a></h2>
 <p data-sourcepos="15:1-15:233">When there is an appropriate language server available, Zed will provide completions of variable names, functions, and other symbols in the current file. You can disable these by adding the following to your Zed <code data-sourcepos="15:213-15:227">settings.json</code> file:</p>
-<pre class="syntax-highlighting" data-sourcepos="17:1-19:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;show_completions_on_input&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+<pre class="syntax-highlighting" data-sourcepos="17:1-19:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">show_completions_on_input</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
 </span></code></pre>
 <p data-sourcepos="21:1-21:134">You can manually trigger completions with <code data-sourcepos="21:43-21:54">ctrl-space</code> or by triggering the <code data-sourcepos="21:77-21:101">editor::ShowCompletions</code> action from the command palette.</p>
 <blockquote data-sourcepos="23:1-25:69">

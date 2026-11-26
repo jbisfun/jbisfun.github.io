@@ -213,7 +213,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ferry-ios">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../ferry-ios/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -237,11 +237,11 @@ idlproj.yml
 <p data-sourcepos="23:1-23:57">請參閱 <a data-sourcepos="23:11-23:54" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>。</p>
 <h2 id="build-linux" data-sourcepos="25:1-25:20">建置（Linux）<a href="#build-linux" aria-label="Link to heading '建置（Linux）'" data-heading-content="建置（Linux）" class="anchor"></a></h2>
 <p data-sourcepos="27:1-27:132">需要 <code data-sourcepos="27:8-27:20">xtool setup</code>（Darwin SDK）、swiftly 的 Swift 工具鏈、<code data-sourcepos="27:70-27:106">rustup target add aarch64-apple-ios</code>，以及 <a data-sourcepos="27:117-27:129" href="../idl">idl</a>。</p>
-<pre class="syntax-highlighting" data-sourcepos="29:1-35:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">core/build-ios.sh</span>            <span class="hl-comment"># core/out/libferry_core.a + ferry_core.h</span>
-<span class="hl-function">idl</span> build <span class="hl-constant">-c</span> release         <span class="hl-comment"># build/release/Ferry.ipa（ad-hoc 簽署）</span>
-<span class="hl-function">idl</span> test <span class="hl-constant">-c</span> release          <span class="hl-comment"># bundle 檢查</span>
-<span class="hl-function">cargo</span> test <span class="hl-constant">--manifest-path</span> core/Cargo.toml
-<span class="hl-function">cargo</span> run <span class="hl-constant">--manifest-path</span> core/Cargo.toml <span class="hl-constant">--example</span> smoke <span class="hl-constant">--</span> App.ipa [tweak.dylib]
+<pre class="syntax-highlighting" data-sourcepos="29:1-35:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">core/build-ios.sh</span>            <span class="hl-comment hl-line hl-shell"># core/out/libferry_core.a + ferry_core.h</span>
+<span class="hl-variable hl-function hl-shell">idl</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-c</span> release         <span class="hl-comment hl-line hl-shell"># build/release/Ferry.ipa（ad-hoc 簽署）</span>
+<span class="hl-variable hl-function hl-shell">idl</span> test <span class="hl-variable hl-parameter hl-option hl-shell">-c</span> release          <span class="hl-comment hl-line hl-shell"># bundle 檢查</span>
+<span class="hl-variable hl-function hl-shell">cargo</span> test <span class="hl-variable hl-parameter hl-option hl-shell">--manifest-path</span> core/Cargo.toml
+<span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">--manifest-path</span> core/Cargo.toml <span class="hl-variable hl-parameter hl-option hl-shell">--example</span> smoke <span class="hl-variable hl-parameter hl-option hl-shell">--</span> App.ipa [tweak.dylib]
 </span></code></pre>
 <p data-sourcepos="37:1-37:228">IPA 必須重新簽署才能安裝（例如透過 Jimpactor 或桌面版 Ferry 執行 <code data-sourcepos="37:87-37:112">idl install &lt;udid&gt; Ferry</code>）。之後，一旦你將它的 IPA 加入程式庫，Ferry 就會像其他應用程式一樣自行重新整理。</p>
 <p data-sourcepos="39:1-39:209">在裝置上，anisette 需要僅解譯器（TCI）的 Unicorn for iOS：使用 <code data-sourcepos="39:81-39:138">bash ~/projs/WaffleStore/AnisetteKit/MacADI/build-ios.sh</code> 建置它，或將 <code data-sourcepos="39:159-39:175">UNICORN_IOS_DIR</code> 指向你自己的建置版本。</p>

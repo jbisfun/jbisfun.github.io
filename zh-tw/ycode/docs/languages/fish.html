@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -506,17 +506,17 @@ Report issues to: <a data-sourcepos="9:19-9:102" href="https://github.com/hasit/
 <ol data-sourcepos="17:1-17:72">
 <li data-sourcepos="17:1-17:72">Ensure <code data-sourcepos="17:11-17:23">fish_indent</code> is available in your path and check the version:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="19:1-22:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">which</span> fish_indent
-<span class="hl-function">fish_indent</span> <span class="hl-constant">--version</span>
+<pre class="syntax-highlighting" data-sourcepos="19:1-22:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">which</span> fish_indent
+<span class="hl-variable hl-function hl-shell">fish_indent</span> <span class="hl-variable hl-parameter hl-option hl-shell">--version</span>
 </span></code></pre>
 <ol data-sourcepos="24:1-24:70" start="2">
 <li data-sourcepos="24:1-24:70">Configure Zed to automatically format fish code with <code data-sourcepos="24:57-24:69">fish_indent</code>:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="26:1-36:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Fish&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;external&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;fish_indent&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="26:1-36:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Fish</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">external</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">fish_indent</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         }
       }
     }

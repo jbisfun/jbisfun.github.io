@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/extensions/mcp-extensions.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/extensions/mcp-extensions.md">
 
 
       <h1 id="mcp-server-extensions" data-sourcepos="6:1-6:23">MCP Server Extensions<a href="#mcp-server-extensions" aria-label="Link to heading 'MCP Server Extensions'" data-heading-content="MCP Server Extensions" class="anchor"></a></h1>
@@ -501,22 +501,22 @@
 <h2 id="defining-mcp-extensions" data-sourcepos="12:1-12:26">Defining MCP Extensions<a href="#defining-mcp-extensions" aria-label="Link to heading 'Defining MCP Extensions'" data-heading-content="Defining MCP Extensions" class="anchor"></a></h2>
 <p data-sourcepos="14:1-15:59">A given extension may provide one or more MCP servers.
 Each MCP server must be registered in the <code data-sourcepos="15:43-15:58">extension.toml</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="17:1-19:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">context_servers</span><span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-type">my-context-server</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+<pre class="syntax-highlighting" data-sourcepos="17:1-19:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">context_servers</span>.<span class="hl-entity hl-name hl-table hl-toml">my-context-server</span>]
 </span></code></pre>
 <p data-sourcepos="21:1-21:107">Then, in the Rust code for your extension, implement the <code data-sourcepos="21:58-21:81">context_server_command</code> method on your extension:</p>
-<pre class="syntax-highlighting" data-sourcepos="23:1-37:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-keyword">impl</span> zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Extension</span> <span class="hl-keyword">for</span> <span class="hl-type">MyExtension</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-    <span class="hl-keyword">fn</span> <span class="hl-function">context_server_command</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-        <span class="hl-operator">&amp;</span><span class="hl-keyword">mut</span> <span class="hl-variable hl-variable-builtin">self</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">context_server_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-operator">&amp;</span><span class="hl-type">ContextServerId</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-variable hl-variable-parameter">project</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-operator">&amp;</span>zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Project</span><span class="hl-punctuation hl-punctuation-delimiter">,</span>
-    <span class="hl-punctuation hl-punctuation-bracket">)</span> -&gt; <span class="hl-type">Result</span><span class="hl-punctuation hl-punctuation-bracket">&lt;</span>zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Command</span><span class="hl-punctuation hl-punctuation-bracket">&gt;</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-        <span class="hl-constructor">Ok</span><span class="hl-punctuation hl-punctuation-bracket">(</span>zed<span class="hl-punctuation hl-punctuation-delimiter">::</span><span class="hl-type">Command</span> <span class="hl-punctuation hl-punctuation-bracket">{</span>
-            <span class="hl-property">command</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-function">get_path_to_context_server_executable</span><span class="hl-punctuation hl-punctuation-bracket">()</span>?<span class="hl-punctuation hl-punctuation-delimiter">,</span>
-            <span class="hl-property">args</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-function">get_args_for_context_server</span><span class="hl-punctuation hl-punctuation-bracket">()</span>?<span class="hl-punctuation hl-punctuation-delimiter">,</span>
-            <span class="hl-property">env</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-function">get_env_for_context_server</span><span class="hl-punctuation hl-punctuation-bracket">()</span>?<span class="hl-punctuation hl-punctuation-delimiter">,</span>
-        <span class="hl-punctuation hl-punctuation-bracket">})</span>
-    <span class="hl-punctuation hl-punctuation-bracket">}</span>
-<span class="hl-punctuation hl-punctuation-bracket">}</span>
+<pre class="syntax-highlighting" data-sourcepos="23:1-37:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-storage hl-type hl-rust">impl</span> zed::<span class="hl-entity hl-name hl-type hl-rust">Extension</span> <span class="hl-keyword hl-control hl-rust">for</span> <span class="hl-entity hl-name hl-type hl-rust">MyExtension</span> {
+    <span class="hl-storage hl-type hl-rust">fn</span> <span class="hl-entity hl-name hl-function hl-rust">context_server_command</span>(
+        <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-storage hl-modifier hl-rust">mut</span> <span class="hl-variable hl-language hl-rust">self</span>,
+        <span class="hl-variable hl-parameter hl-rust">context_server_id</span>: <span class="hl-keyword hl-operator hl-rust">&amp;</span><span class="hl-entity hl-name hl-type hl-rust">ContextServerId</span>,
+        <span class="hl-variable hl-parameter hl-rust">project</span>: <span class="hl-keyword hl-operator hl-rust">&amp;</span>zed::<span class="hl-entity hl-name hl-type hl-rust">Project</span>,
+    ) -&gt; <span class="hl-support hl-type hl-rust">Result</span>&lt;zed::<span class="hl-entity hl-name hl-type hl-rust">Command</span>&gt; {
+        <span class="hl-support hl-type hl-rust">Ok</span>(zed::<span class="hl-entity hl-name hl-type hl-rust">Command</span> {
+            command: <span class="hl-support hl-function hl-rust">get_path_to_context_server_executable</span>()<span class="hl-keyword hl-operator hl-rust">?</span>,
+            args: <span class="hl-support hl-function hl-rust">get_args_for_context_server</span>()<span class="hl-keyword hl-operator hl-rust">?</span>,
+            env: <span class="hl-support hl-function hl-rust">get_env_for_context_server</span>()<span class="hl-keyword hl-operator hl-rust">?</span>,
+        })
+    }
+}
 </span></code></pre>
 <p data-sourcepos="39:1-39:144">This method should return the command to start up an MCP server, along with any arguments or environment variables necessary for it to function.</p>
 <p data-sourcepos="41:1-41:131">If you need to download the MCP server from an external source (GitHub Releases, npm, etc.), you can also do that in this function.</p>

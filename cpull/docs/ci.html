@@ -225,6 +225,13 @@
 
   <li>
 
+    <a href="integrate.html">Forge x CI x issues (src/integrate)</a>
+
+
+  </li>
+
+  <li>
+
     <a href="local.html">local</a>
 
 
@@ -246,6 +253,13 @@
 
   <li>
 
+    <a href="wiki.html">Wiki (src/wiki)</a>
+
+
+  </li>
+
+  <li>
+
     <a href="workspace.html">workspace</a>
 
 
@@ -255,30 +269,35 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="cpull" data-radar-file="docs/ci.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="cpull" data-radar-repo="cpull" data-radar-file="docs/ci.md">
 
 
       <h1 id="ci-srcci" data-sourcepos="1:1-1:15">CI (<code data-sourcepos="1:7-1:14">src/ci</code>)<a href="#ci-srcci" aria-label="Link to heading 'CI (src/ci)'" data-heading-content="CI (src/ci)" class="anchor"></a></h1>
 <p data-sourcepos="3:1-5:75">cpull’s workspace server runs the CI for the <a data-sourcepos="3:46-3:82" href="https://github.com/jbisfun/idl">idl</a> projects
 of its pull workspace (every directory holding an <code data-sourcepos="4:51-4:63">idlproj.yml</code>, up to 5 levels down). It is
 a Zig port of idlci: same job queue, Jenkins-style pages, JSON API and CLI.</p>
-<ul data-sourcepos="7:1-14:44">
+<ul data-sourcepos="7:1-17:44">
 <li data-sourcepos="7:1-9:103"><strong data-sourcepos="7:3-7:12">Server</strong>: <code data-sourcepos="7:15-7:106">cpull --workspace DIR --web-listen ADDR [--ci-jobs N] [--ci-watch [--ci-watch-interval S]]</code>.
 Pages at <code data-sourcepos="8:12-8:16">/ci</code> (dashboard, <code data-sourcepos="8:30-8:50">/ci/projects/&lt;path&gt;</code>, <code data-sourcepos="8:53-8:62">/ci/jobs</code>, <code data-sourcepos="8:65-8:79">/ci/jobs/&lt;id&gt;</code> with a live
 console). <code data-sourcepos="9:13-9:24">--ci-watch</code> queues <code data-sourcepos="9:33-9:39">build</code> and <code data-sourcepos="9:45-9:50">test</code> when a project’s (or a target dir’s) git HEAD moves.</li>
 <li data-sourcepos="10:1-12:97"><strong data-sourcepos="10:3-10:9">API</strong> (idlci’s, under <code data-sourcepos="10:27-10:31">/ci</code>): <code data-sourcepos="10:35-10:54">GET /ci/api/health</code>, <code data-sourcepos="10:57-10:87">GET /ci/api/projects[/&lt;path&gt;]</code>,
 <code data-sourcepos="11:3-11:25">GET|POST /ci/api/jobs</code>, <code data-sourcepos="11:28-11:50">GET /ci/api/jobs/&lt;id&gt;</code>, <code data-sourcepos="11:53-11:95">POST /ci/api/jobs/&lt;id&gt;/cancel|retry[?by=]</code>,
 <code data-sourcepos="12:3-12:43">GET /ci/api/jobs/&lt;id&gt;/log?offset=|tail=</code>, <code data-sourcepos="12:46-12:75">GET /ci/api/jobs/&lt;id&gt;/events</code> (server-sent events).</li>
-<li data-sourcepos="13:1-13:70"><strong data-sourcepos="13:3-13:9">CLI</strong>: <code data-sourcepos="13:12-13:49">cpull ci queue|jobs|log|cancel|retry</code> (<code data-sourcepos="13:52-13:68">cpull ci --help</code>).</li>
-<li data-sourcepos="14:1-14:44"><strong data-sourcepos="14:3-14:9">MCP</strong>: pull’s <code data-sourcepos="14:19-14:24">ci_*</code> tools (<code data-sourcepos="14:33-14:42">pull mcp</code>).</li>
+<li data-sourcepos="13:1-13:82"><strong data-sourcepos="13:3-13:9">CLI</strong>: <code data-sourcepos="13:12-13:61">cpull ci queue|jobs|log|cancel|retry|patch|stack</code> (<code data-sourcepos="13:64-13:80">cpull ci --help</code>).</li>
+<li data-sourcepos="14:1-16:92"><strong data-sourcepos="14:3-14:23">Forge integration</strong> (<a data-sourcepos="14:26-14:53" href="integrate.html">integrate.md</a>): CI balls on the forge pages, CI for
+patches and stacks in work trees under <code data-sourcepos="15:42-15:63">.pull/cpull/ci/work/</code>, the <code data-sourcepos="15:70-15:87">cpull.require_ci</code> merge
+gate, <code data-sourcepos="16:9-16:12">ci</code> issues for failing default-branch jobs, and <code data-sourcepos="16:58-16:68">fixes #id</code> commits closing issues.</li>
+<li data-sourcepos="17:1-17:44"><strong data-sourcepos="17:3-17:9">MCP</strong>: pull’s <code data-sourcepos="17:19-17:24">ci_*</code> tools (<code data-sourcepos="17:33-17:42">pull mcp</code>).</li>
 </ul>
-<p data-sourcepos="16:1-22:88">State lives in <code data-sourcepos="16:16-16:38">$ROOT/.pull/cpull/ci/</code> (<code data-sourcepos="16:41-16:47">ci.db</code> with idlci’s schema, <code data-sourcepos="16:70-16:84">logs/&lt;id&gt;.log</code>,
-<code data-sourcepos="17:1-17:12">serve.lock</code>); the server writes its address to <code data-sourcepos="17:49-17:78">$ROOT/.pull/cpull/serve.addr</code>. On first start an
-existing <code data-sourcepos="18:10-18:31">.pull/idlci/idlci.db</code> is copied in, so the job history carries over. Only the server
-holding <code data-sourcepos="19:9-19:20">serve.lock</code> runs jobs; another one (e.g. a TUI on the same workspace) only queues and shows
-them. Jobs run <code data-sourcepos="20:16-20:20">idl</code> (<code data-sourcepos="20:23-20:34">$CPULL_IDL</code>, <code data-sourcepos="20:37-20:48">$IDLCI_IDL</code>, <code data-sourcepos="20:51-20:55">idl</code> on PATH or <code data-sourcepos="20:68-20:85">~/.local/bin/idl</code>) in their own
-process group with <code data-sourcepos="21:20-21:30">PULL_ROOT</code> set; cancel SIGTERMs the group, then SIGKILLs it after 5s. Jobs a
-previous server left running are marked failed on start and their process groups killed.</p>
+<p data-sourcepos="19:1-27:80">State lives in <code data-sourcepos="19:16-19:38">$ROOT/.pull/cpull/ci/</code> (<code data-sourcepos="19:41-19:47">ci.db</code> with idlci’s schema, <code data-sourcepos="19:70-19:84">logs/&lt;id&gt;.log</code>,
+<code data-sourcepos="20:1-20:12">serve.lock</code>); the server writes its address to <code data-sourcepos="20:49-20:78">$ROOT/.pull/cpull/serve.addr</code>. On first start an
+existing <code data-sourcepos="21:10-21:31">.pull/idlci/idlci.db</code> is copied in, so the job history carries over. Only the server
+holding <code data-sourcepos="22:9-22:20">serve.lock</code> runs jobs; another one (e.g. a TUI on the same workspace) only queues and shows
+them. Jobs run <code data-sourcepos="23:16-23:20">idl</code> (<code data-sourcepos="23:23-23:34">$CPULL_IDL</code>, <code data-sourcepos="23:37-23:48">$IDLCI_IDL</code>, <code data-sourcepos="23:51-23:55">idl</code> on PATH or <code data-sourcepos="23:68-23:85">~/.local/bin/idl</code>) in their own
+process group with <code data-sourcepos="24:20-24:30">PULL_ROOT</code> set; cancel SIGTERMs the group, then SIGKILLs it after 5s. Jobs a
+previous server left running are marked failed on start and their process groups killed. On
+SIGTERM/SIGINT/SIGHUP the server cancels its running jobs (process groups SIGTERMed, SIGKILLed
+after 5s) before it exits. Only the server running the jobs writes <code data-sourcepos="27:68-27:79">serve.addr</code>.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

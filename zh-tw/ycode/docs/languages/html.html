@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -503,41 +503,41 @@
 </ul>
 <p data-sourcepos="13:1-13:120">This extension is automatically installed, but if you do not want to use it, you can add the following to your settings:</p>
 <pre class="syntax-highlighting" data-sourcepos="15:1-21:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;auto_install_extensions&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;html&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">auto_install_extensions</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
   }
 }
 </span></code></pre>
 <h2 id="formatting" data-sourcepos="23:1-23:13">Formatting<a href="#formatting" aria-label="Link to heading 'Formatting'" data-heading-content="Formatting" class="anchor"></a></h2>
 <p data-sourcepos="25:1-25:73">By default Zed uses <a data-sourcepos="25:21-25:52" href="https://prettier.io/">Prettier</a> for formatting HTML.</p>
 <p data-sourcepos="27:1-27:108">Configure formatting in Settings (<code data-sourcepos="27:35-27:53">zed::OpenSettings</code>) under Languages &gt; HTML, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="29:1-35:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;HTML&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;format_on_save&quot;</span>: <span class="hl-string">&quot;off&quot;</span>,
+<pre class="syntax-highlighting" data-sourcepos="29:1-35:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">HTML</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format_on_save</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">off</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
     }
   }
 </span></code></pre>
 <p data-sourcepos="37:1-37:183">You can still trigger formatting manually with <code data-sourcepos="37:48-37:63">editor::Format</code> or by opening the <a data-sourcepos="37:83-37:122" href="../command-palette.html">command palette</a> (<code data-sourcepos="37:125-37:149">command_palette::Toggle</code>) and selecting “Format Document”.</p>
 <h3 id="lsp-formatting" data-sourcepos="39:1-39:18">LSP Formatting<a href="#lsp-formatting" aria-label="Link to heading 'LSP Formatting'" data-heading-content="LSP Formatting" class="anchor"></a></h3>
 <p data-sourcepos="41:1-41:205">To use the <code data-sourcepos="41:12-41:40">vscode-html-language-server</code> language server auto-formatting instead of Prettier, configure the formatter in Settings (<code data-sourcepos="41:132-41:150">zed::OpenSettings</code>) under Languages &gt; HTML, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="43:1-49:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;HTML&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: <span class="hl-string">&quot;language_server&quot;</span>,
+<pre class="syntax-highlighting" data-sourcepos="43:1-49:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">HTML</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
     }
   }
 </span></code></pre>
 <p data-sourcepos="51:1-51:173">You can customize various <a data-sourcepos="51:27-51:109" href="https://code.visualstudio.com/docs/languages/html#_formatting">formatting options</a> for <code data-sourcepos="51:115-51:143">vscode-html-language-server</code> via your Zed <code data-sourcepos="51:158-51:172">settings.json</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="53:1-70:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;vscode-html-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;html&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;format&quot;</span>: {
-            <span class="hl-comment">// Indent under &lt;html&gt; and &lt;head&gt; (default: false)</span>
-            <span class="hl-string hl-string-special hl-string-special-key">&quot;indentInnerHtml&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-            <span class="hl-comment">// Disable formatting inside &lt;svg&gt; or &lt;script&gt;</span>
-            <span class="hl-string hl-string-special hl-string-special-key">&quot;contentUnformatted&quot;</span>: <span class="hl-string">&quot;svg,script&quot;</span>,
-            <span class="hl-comment">// Add an extra newline before &lt;div&gt; and &lt;p&gt;</span>
-            <span class="hl-string hl-string-special hl-string-special-key">&quot;extraLiners&quot;</span>: <span class="hl-string">&quot;div,p&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="53:1-70:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">vscode-html-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+            <span class="hl-comment hl-line hl-json">// Indent under &lt;html&gt; and &lt;head&gt; (default: false)</span>
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">indentInnerHtml</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+            <span class="hl-comment hl-line hl-json">// Disable formatting inside &lt;svg&gt; or &lt;script&gt;</span>
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">contentUnformatted</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">svg,script</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+            <span class="hl-comment hl-line hl-json">// Add an extra newline before &lt;div&gt; and &lt;p&gt;</span>
+            <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">extraLiners</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">div,p</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
           }
         }
       }
@@ -547,11 +547,11 @@
 <h2 id="using-the-tailwind-css-language-server-with-html" data-sourcepos="72:1-72:51">Using the Tailwind CSS Language Server with HTML<a href="#using-the-tailwind-css-language-server-with-html" aria-label="Link to heading 'Using the Tailwind CSS Language Server with HTML'" data-heading-content="Using the Tailwind CSS Language Server with HTML" class="anchor"></a></h2>
 <p data-sourcepos="74:1-74:364">To get all the features (autocomplete, linting, etc.) from the <a data-sourcepos="74:64-74:205" href="https://github.com/tailwindlabs/tailwindcss-intellisense/tree/HEAD/packages/tailwindcss-language-server#readme">Tailwind CSS language server</a> in HTML files, you need to configure the language server so that it knows about where to look for CSS classes by adding the following to your <code data-sourcepos="74:349-74:363">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="76:1-88:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;tailwindcss-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;settings&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;experimental&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;classRegex&quot;</span>: [<span class="hl-string">&quot;class=</span><span class="hl-escape">\&quot;</span><span class="hl-string">([^</span><span class="hl-escape">\&quot;</span><span class="hl-string">]*)</span><span class="hl-escape">\&quot;</span><span class="hl-string">&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tailwindcss-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">settings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">experimental</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">classRegex</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">class=</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">([^</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">]*)</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
         }
       }
     }
@@ -559,9 +559,9 @@
 }
 </span></code></pre>
 <p data-sourcepos="90:1-90:128">With these settings, you will get completions for <a data-sourcepos="90:51-90:82" href="tailwindcss.html">Tailwind CSS</a> classes in HTML <code data-sourcepos="90:100-90:106">class</code> attributes. Examples:</p>
-<pre class="syntax-highlighting" data-sourcepos="92:1-96:3"><code class="language-html"><span class="hl-text hl-plain">&lt;div class=&quot;flex items-center &lt;completion here&gt;&quot;&gt;
-  &lt;p class=&quot;text-lg font-bold &lt;completion here&gt;&quot;&gt;Hello World&lt;/p&gt;
-&lt;/div&gt;
+<pre class="syntax-highlighting" data-sourcepos="92:1-96:3"><code class="language-html"><span class="hl-text hl-html hl-basic"><span class="hl-punctuation hl-definition hl-tag hl-html">&lt;</span><span class="hl-entity hl-name hl-tag hl-html">div</span> <span class="hl-entity hl-other hl-attribute-name hl-html">class</span>=&quot;<span class="hl-string hl-quoted hl-double hl-html">flex items-center &lt;completion here&gt;</span>&quot;<span class="hl-punctuation hl-definition hl-tag hl-html">&gt;</span>
+  <span class="hl-punctuation hl-definition hl-tag hl-html">&lt;</span><span class="hl-entity hl-name hl-tag hl-html">p</span> <span class="hl-entity hl-other hl-attribute-name hl-html">class</span>=&quot;<span class="hl-string hl-quoted hl-double hl-html">text-lg font-bold &lt;completion here&gt;</span>&quot;<span class="hl-punctuation hl-definition hl-tag hl-html">&gt;</span>Hello World<span class="hl-punctuation hl-definition hl-tag hl-html">&lt;/</span><span class="hl-entity hl-name hl-tag hl-html">p</span><span class="hl-punctuation hl-definition hl-tag hl-html">&gt;</span>
+<span class="hl-punctuation hl-definition hl-tag hl-html">&lt;/</span><span class="hl-entity hl-name hl-tag hl-html">div</span><span class="hl-punctuation hl-definition hl-tag hl-html">&gt;</span>
 </span></code></pre>
 <h2 id="see-also" data-sourcepos="98:1-98:11">See also<a href="#see-also" aria-label="Link to heading 'See also'" data-heading-content="See also" class="anchor"></a></h2>
 <ul data-sourcepos="100:1-102:31">

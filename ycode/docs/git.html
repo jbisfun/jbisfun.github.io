@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/git.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/git.md">
 
 
       <h1 id="git" data-sourcepos="6:1-6:5">Git<a href="#git" aria-label="Link to heading 'Git'" data-heading-content="Git" class="anchor"></a></h1>
@@ -532,9 +532,9 @@ In multi-folder projects, depth and activation are measured from each root folde
 <p data-sourcepos="72:1-72:247">By default, Zed highlights changed words within modified lines to make it easier to spot exactly what changed. To disable this globally, open the Settings Editor and go to <strong data-sourcepos="72:173-72:209">Languages &amp; Tools &gt; Miscellaneous</strong>, then turn off <strong data-sourcepos="72:226-72:246">Word Diff Enabled</strong>.</p>
 <p data-sourcepos="74:1-74:81">To disable word diff for specific languages only, add this to your settings.json:</p>
 <pre class="syntax-highlighting" data-sourcepos="76:1-84:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Markdown&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;word_diff_enabled&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Markdown</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">word_diff_enabled</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     }
   }
 }
@@ -545,7 +545,7 @@ In multi-folder projects, depth and activation are measured from each root folde
 <p data-sourcepos="92:1-92:120">Open the Settings Editor (<code data-sourcepos="92:27-92:45">zed::OpenSettings</code>) and search for “diff view style”. Select either <strong data-sourcepos="92:96-92:104">Split</strong> or <strong data-sourcepos="92:109-92:119">Unified</strong>.</p>
 <p data-sourcepos="94:1-94:56">To change the default, add this to your <code data-sourcepos="94:41-94:55">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="96:1-100:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;diff_view_style&quot;</span>: <span class="hl-string">&quot;unified&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">diff_view_style</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">unified</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
 }
 </span></code></pre>
 <p data-sourcepos="102:1-102:79">See <a data-sourcepos="102:5-102:43" href="configuring-zed.html">Configuring Zed</a> for more about the Settings Editor.</p>
@@ -712,10 +712,10 @@ Visit <a data-sourcepos="306:9-306:45" href="ai/quick-start.html">AI Quick Start
 <p data-sourcepos="308:1-309:99">You can specify your preferred model for this task by adding a <code data-sourcepos="308:64-308:85">commit_message_model</code> field to your agent settings.
 See <a data-sourcepos="309:5-309:77" href="ai/agent-settings.html#feature-specific-models">Feature-specific models</a> for more information.</p>
 <pre class="syntax-highlighting" data-sourcepos="311:1-320:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;agent&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;commit_message_model&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;provider&quot;</span>: <span class="hl-string">&quot;anthropic&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;model&quot;</span>: <span class="hl-string">&quot;claude-4-5-haiku&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">agent</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">commit_message_model</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">provider</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">anthropic</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">model</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">claude-4-5-haiku</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   }
 }
@@ -723,8 +723,8 @@ See <a data-sourcepos="309:5-309:77" href="ai/agent-settings.html#feature-specif
 <p data-sourcepos="322:1-322:175">To add custom commit instructions for the model, use the global <code data-sourcepos="322:65-322:75">AGENTS.md</code> file located at <code data-sourcepos="322:93-322:117">~/.config/zed/AGENTS.md</code> on macOS and Linux, <code data-sourcepos="322:139-322:163">%APPDATA%\Zed\AGENTS.md</code> on Windows.</p>
 <p data-sourcepos="324:1-324:140">To add custom instructions that apply only to commit message generation, use the <code data-sourcepos="324:82-324:110">commit_message_instructions</code> field in your agent settings:</p>
 <pre class="syntax-highlighting" data-sourcepos="326:1-332:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;agent&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;commit_message_instructions&quot;</span>: <span class="hl-string">&quot;Use the Conventional Commits format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;.&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">agent</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">commit_message_instructions</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Use the Conventional Commits format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;.</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -746,11 +746,11 @@ See <a data-sourcepos="337:7-337:71" href="ai/instructions.html#migrating-from-r
 <p data-sourcepos="353:1-353:288">Zed automatically identifies Git hosting providers by checking for keywords in your Git remote URL. For example, if your self-hosted URL contains <code data-sourcepos="353:147-353:154">gitlab</code>, <code data-sourcepos="353:157-353:163">gitea</code>, or other recognized provider names, Zed will automatically register that hosting provider without any configuration needed.</p>
 <p data-sourcepos="355:1-355:257">However, if your self-hosted Git instance URL doesn’t contain identifying keywords, you can manually configure Zed to create clickable links to your instance by adding a <code data-sourcepos="355:171-355:193">git_hosting_providers</code> setting so commit hashes and permalinks resolve to your domain:</p>
 <pre class="syntax-highlighting" data-sourcepos="357:1-367:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;git_hosting_providers&quot;</span>: [
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">git_hosting_providers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
     {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;provider&quot;</span>: <span class="hl-string">&quot;gitlab&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;name&quot;</span>: <span class="hl-string">&quot;Corp GitLab&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;base_url&quot;</span>: <span class="hl-string">&quot;https://git.example.corp&quot;</span>
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">provider</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">gitlab</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Corp GitLab</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">base_url</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">https://git.example.corp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   ]
 }
@@ -921,10 +921,10 @@ for the whole file (without a line selection).</p>
 </blockquote>
 <h2 id="git-cli-configuration" data-sourcepos="436:1-436:24">Git CLI Configuration<a href="#git-cli-configuration" aria-label="Link to heading 'Git CLI Configuration'" data-heading-content="Git CLI Configuration" class="anchor"></a></h2>
 <p data-sourcepos="438:1-438:213">If you would like to also use Zed for your <a data-sourcepos="438:44-438:149" href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_editor">git commit message editor</a> when committing from the command line you can use <code data-sourcepos="438:201-438:212">zed --wait</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="440:1-442:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">git</span> config <span class="hl-constant">--global</span> core.editor <span class="hl-string">&quot;zed --wait&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="440:1-442:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">git</span> config <span class="hl-variable hl-parameter hl-option hl-shell">--global</span> core.editor <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">zed --wait</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="444:1-444:81">Or add the following to your shell environment (in <code data-sourcepos="444:52-444:61">~/.zshrc</code>, <code data-sourcepos="444:64-444:74">~/.bashrc</code>, etc):</p>
-<pre class="syntax-highlighting" data-sourcepos="446:1-448:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-keyword">export</span> <span class="hl-property">GIT_EDITOR</span>=<span class="hl-string">&quot;zed --wait&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="446:1-448:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-storage hl-modifier hl-shell">export</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">GIT_EDITOR</span>=<span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">zed --wait</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

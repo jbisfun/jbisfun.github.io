@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -660,10 +660,10 @@ Depending on what the tool requested, the prompt can ask you to allow:</p>
 <h2 id="persistent-sandbox-permissions" data-sourcepos="148:1-148:33">Persistent Sandbox Permissions<a href="#persistent-sandbox-permissions" aria-label="Link to heading 'Persistent Sandbox Permissions'" data-heading-content="Persistent Sandbox Permissions" class="anchor"></a></h2>
 <p data-sourcepos="150:1-150:101">If you want to pre-approve common sandbox requests, add persistent permissions to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="152:1-161:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;agent&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;sandbox_permissions&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;network_hosts&quot;</span>: [<span class="hl-string">&quot;github.com&quot;</span>, <span class="hl-string">&quot;*.npmjs.org&quot;</span>],
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;write_paths&quot;</span>: [<span class="hl-string">&quot;/Users/you/.cache/my-tool&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">agent</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">sandbox_permissions</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">network_hosts</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">github.com</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">*.npmjs.org</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">write_paths</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/Users/you/.cache/my-tool</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
     }
   }
 }
@@ -755,7 +755,7 @@ information on the implications of this.</p>
 <p data-sourcepos="239:1-240:78">Zed needs a runnable, non-setuid <code data-sourcepos="239:34-239:40">bwrap</code> binary on your <code data-sourcepos="239:57-239:63">$PATH</code>. Installing
 <code data-sourcepos="240:1-240:12">bubblewrap</code> from your distribution’s package manager is usually all you need.</p>
 <p data-sourcepos="242:1-242:39">You can test whether it’s working with:</p>
-<pre class="syntax-highlighting" data-sourcepos="244:1-246:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">bwrap</span> <span class="hl-constant">--ro-bind</span> / / <span class="hl-constant">--</span> echo <span class="hl-string">&quot;working&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="244:1-246:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">bwrap</span> <span class="hl-variable hl-parameter hl-option hl-shell">--ro-bind</span> / / <span class="hl-variable hl-parameter hl-option hl-shell">--</span> echo <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">working</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="248:1-251:25">“Non-setuid” here refers to the <a data-sourcepos="248:33-248:56" href="https://en.wikipedia.org/wiki/Setuid">setuid bit</a>. Historically,
 bubblewrap has shipped both a setuid and non-setuid binary. The setuid binary is
@@ -771,19 +771,19 @@ restrictions are enforced by AppArmor.</p>
 <p data-sourcepos="263:1-265:52">Because of this, you may also need to install an AppArmor profile for bubblewrap
 after you install it. This is a configuration file that gives bubblewrap the
 ability to create namespaces without needing <code data-sourcepos="265:46-265:51">sudo</code>.</p>
-<pre class="syntax-highlighting" data-sourcepos="267:1-281:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">sudo</span> apt install bubblewrap
+<pre class="syntax-highlighting" data-sourcepos="267:1-281:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">sudo</span> apt install bubblewrap
 
-<span class="hl-comment"># On Ubuntu 25.04 and later, `apparmor` ships with a profile for bubblewrap by default.</span>
-<span class="hl-comment"># Make sure you&#39;re up-to-date</span>
-<span class="hl-function">sudo</span> apt install <span class="hl-constant">--only-upgrade</span> apparmor
+<span class="hl-comment hl-line hl-shell"># On Ubuntu 25.04 and later, `apparmor` ships with a profile for bubblewrap by default.</span>
+<span class="hl-comment hl-line hl-shell"># Make sure you&#39;re up-to-date</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> apt install <span class="hl-variable hl-parameter hl-option hl-shell">--only-upgrade</span> apparmor
 
-<span class="hl-comment"># On older versions, manually install the profile</span>
-<span class="hl-function">sudo</span> apt update
-<span class="hl-function">sudo</span> apt install apparmor-profiles apparmor-utils
-<span class="hl-function">sudo</span> install <span class="hl-constant">-m</span> 0644 \
+<span class="hl-comment hl-line hl-shell"># On older versions, manually install the profile</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> apt update
+<span class="hl-variable hl-function hl-shell">sudo</span> apt install apparmor-profiles apparmor-utils
+<span class="hl-variable hl-function hl-shell">sudo</span> install <span class="hl-variable hl-parameter hl-option hl-shell">-m</span> 0644 \
   /usr/share/apparmor/extra-profiles/bwrap-userns-restrict \
   /etc/apparmor.d/bwrap-userns-restrict
-<span class="hl-function">sudo</span> apparmor_parser <span class="hl-constant">-r</span> /etc/apparmor.d/bwrap-userns-restrict
+<span class="hl-variable hl-function hl-shell">sudo</span> apparmor_parser <span class="hl-variable hl-parameter hl-option hl-shell">-r</span> /etc/apparmor.d/bwrap-userns-restrict
 </span></code></pre>
 <h3 id="windows" data-sourcepos="283:1-283:11">Windows<a href="#windows" aria-label="Link to heading 'Windows'" data-heading-content="Windows" class="anchor"></a></h3>
 <p data-sourcepos="285:1-287:23">On Windows, Zed runs sandboxed terminal commands in a Windows AppContainer.

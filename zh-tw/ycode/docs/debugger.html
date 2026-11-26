@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -528,14 +528,14 @@ and more, in a consistent manner across different programming languages and runt
 <p data-sourcepos="44:1-44:265">For languages that don’t provide preconfigured debug tasks (this includes C, C++, and some extension-supported languages), you can define debug configurations in the <code data-sourcepos="44:167-44:183">.zed/debug.json</code> file in your project root. This file should be an array of configuration objects:</p>
 <pre class="syntax-highlighting" data-sourcepos="46:1-59:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;CodeLLDB&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;First configuration&quot;</span>
-    <span class="hl-comment">// ...</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">CodeLLDB</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">First configuration</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-comment hl-line hl-json">// ...</span>
   },
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;Debugpy&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;Second configuration&quot;</span>
-    <span class="hl-comment">// ...</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Debugpy</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Second configuration</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
+    <span class="hl-comment hl-line hl-json">// ...</span>
   }
 ]
 </span></code></pre>
@@ -560,18 +560,18 @@ Running unit tests or a debug build of your application is a good use case for l
 <p data-sourcepos="89:1-89:161">All other fields are provided by the debug adapter and can contain <a data-sourcepos="89:68-89:105" href="tasks.html#variables">task variables</a>. Most adapters support <code data-sourcepos="89:130-89:138">request</code>, <code data-sourcepos="89:141-89:149">program</code>, and <code data-sourcepos="89:156-89:160">cwd</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="91:1-108:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-comment">// The label for the debug configuration and used to identify the debug session inside the debug panel &amp; new process modal</span>
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;Example Start debugger config&quot;</span>,
-    <span class="hl-comment">// The debug adapter that Zed should use to debug the program</span>
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;Example adapter name&quot;</span>,
-    <span class="hl-comment">// Request:</span>
-    <span class="hl-comment">//  - launch: Zed will launch the program if specified, or show a debug terminal with the right configuration</span>
-    <span class="hl-comment">//  - attach: Zed will attach to a running program to debug it, or when the process_id is not specified, will show a process picker (only supported for node currently)</span>
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-comment">// The program to debug. This field supports path resolution with ~ or . symbols.</span>
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;path_to_program&quot;</span>,
-    <span class="hl-comment">// cwd: defaults to the current working directory of your project ($ZED_WORKTREE_ROOT)</span>
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;cwd&quot;</span>: <span class="hl-string">&quot;$ZED_WORKTREE_ROOT&quot;</span>
+    <span class="hl-comment hl-line hl-json">// The label for the debug configuration and used to identify the debug session inside the debug panel &amp; new process modal</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Example Start debugger config</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-comment hl-line hl-json">// The debug adapter that Zed should use to debug the program</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Example adapter name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-comment hl-line hl-json">// Request:</span>
+    <span class="hl-comment hl-line hl-json">//  - launch: Zed will launch the program if specified, or show a debug terminal with the right configuration</span>
+    <span class="hl-comment hl-line hl-json">//  - attach: Zed will attach to a running program to debug it, or when the process_id is not specified, will show a process picker (only supported for node currently)</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-comment hl-line hl-json">// The program to debug. This field supports path resolution with ~ or . symbols.</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path_to_program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-comment hl-line hl-json">// cwd: defaults to the current working directory of your project ($ZED_WORKTREE_ROOT)</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">cwd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">$ZED_WORKTREE_ROOT</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 ]
 </span></code></pre>
@@ -580,13 +580,13 @@ Running unit tests or a debug build of your application is a good use case for l
 <p data-sourcepos="114:1-114:203">Zed allows embedding a Zed task in the <code data-sourcepos="114:40-114:46">build</code> field that is run before the debugger starts. This is useful for setting up the environment or running any necessary setup steps before the debugger starts.</p>
 <pre class="syntax-highlighting" data-sourcepos="116:1-129:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;Build Binary&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;CodeLLDB&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;path_to_program&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;build&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;make&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;args&quot;</span>: [<span class="hl-string">&quot;build&quot;</span>, <span class="hl-string">&quot;-j8&quot;</span>]
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Build Binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">CodeLLDB</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path_to_program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">make</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">args</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">-j8</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
     }
   }
 ]
@@ -594,11 +594,11 @@ Running unit tests or a debug build of your application is a good use case for l
 <p data-sourcepos="131:1-131:72">Build tasks can also refer to the existing tasks by unsubstituted label:</p>
 <pre class="syntax-highlighting" data-sourcepos="133:1-143:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;Build Binary&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;CodeLLDB&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;path_to_program&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;build&quot;</span>: <span class="hl-string">&quot;my build task&quot;</span> <span class="hl-comment">// Or &quot;my build task for $ZED_FILE&quot;</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Build Binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">CodeLLDB</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path_to_program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">my build task</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> <span class="hl-comment hl-line hl-json">// Or &quot;my build task for $ZED_FILE&quot;</span>
   }
 ]
 </span></code></pre>
@@ -649,8 +649,8 @@ dock position, default width, and default height.</p>
 <li data-sourcepos="200:1-200:72"><code data-sourcepos="200:4-200:10">right</code> - The debug panel will be docked to the right side of the UI.</li>
 <li data-sourcepos="201:1-201:69"><code data-sourcepos="201:4-201:11">bottom</code> - The debug panel will be docked to the bottom of the UI.</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="203:1-207:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;debugger&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;dock&quot;</span>: <span class="hl-string">&quot;bottom&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="203:1-207:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dock</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bottom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
 },
 </span></code></pre>
 <h3 id="stepping-granularity" data-sourcepos="209:1-209:24">Stepping granularity<a href="#stepping-granularity" aria-label="Link to heading 'Stepping granularity'" data-heading-content="Stepping granularity" class="anchor"></a></h3>
@@ -666,8 +666,8 @@ The meaning of a statement is determined by the adapter and it may be considered
 For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)</code> could be considered to have 3 statements <code data-sourcepos="219:87-219:97">int i = 0</code>, <code data-sourcepos="219:100-219:107">i &lt; 10</code>, and <code data-sourcepos="219:114-219:118">i++</code>.</li>
 </ol>
 <pre class="syntax-highlighting" data-sourcepos="221:1-227:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;stepping_granularity&quot;</span>: <span class="hl-string">&quot;statement&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">stepping_granularity</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">statement</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -675,8 +675,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <li data-sourcepos="229:1-229:94">Line - The step should allow the program to run until the current source line has executed.</li>
 </ol>
 <pre class="syntax-highlighting" data-sourcepos="231:1-237:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;stepping_granularity&quot;</span>: <span class="hl-string">&quot;line&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">stepping_granularity</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">line</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -684,8 +684,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <li data-sourcepos="239:1-239:93">Instruction - The step should allow one instruction to execute (e.g. one x86 instruction).</li>
 </ol>
 <pre class="syntax-highlighting" data-sourcepos="241:1-247:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;stepping_granularity&quot;</span>: <span class="hl-string">&quot;instruction&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">stepping_granularity</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">instruction</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -698,8 +698,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <p data-sourcepos="255:1-255:11"><strong data-sourcepos="255:1-255:11">Options</strong></p>
 <p data-sourcepos="257:1-257:16"><code data-sourcepos="257:1-257:9">boolean</code> values</p>
 <pre class="syntax-highlighting" data-sourcepos="259:1-265:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;save_breakpoints&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">save_breakpoints</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
@@ -712,8 +712,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <p data-sourcepos="273:1-273:11"><strong data-sourcepos="273:1-273:11">Options</strong></p>
 <p data-sourcepos="275:1-275:16"><code data-sourcepos="275:1-275:9">boolean</code> values</p>
 <pre class="syntax-highlighting" data-sourcepos="277:1-283:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;button&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">button</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
@@ -726,8 +726,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <p data-sourcepos="291:1-291:11"><strong data-sourcepos="291:1-291:11">Options</strong></p>
 <p data-sourcepos="293:1-293:16"><code data-sourcepos="293:1-293:9">integer</code> values</p>
 <pre class="syntax-highlighting" data-sourcepos="295:1-301:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;timeout&quot;</span>: <span class="hl-number">3000</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">timeout</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">3000</span>
   }
 }
 </span></code></pre>
@@ -739,8 +739,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 </ul>
 <p data-sourcepos="309:1-309:11"><strong data-sourcepos="309:1-309:11">Options</strong></p>
 <pre class="syntax-highlighting" data-sourcepos="311:1-317:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;inlay_hints&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;show_value_hints&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">inlay_hints</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">show_value_hints</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
   }
 }
 </span></code></pre>
@@ -754,8 +754,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <p data-sourcepos="327:1-327:11"><strong data-sourcepos="327:1-327:11">Options</strong></p>
 <p data-sourcepos="329:1-329:16"><code data-sourcepos="329:1-329:9">boolean</code> values</p>
 <pre class="syntax-highlighting" data-sourcepos="331:1-337:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;log_dap_communications&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">log_dap_communications</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
@@ -768,8 +768,8 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 <p data-sourcepos="345:1-345:11"><strong data-sourcepos="345:1-345:11">Options</strong></p>
 <p data-sourcepos="347:1-347:16"><code data-sourcepos="347:1-347:9">boolean</code> values</p>
 <pre class="syntax-highlighting" data-sourcepos="349:1-355:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;debugger&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;format_dap_log_messages&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format_dap_log_messages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
@@ -781,10 +781,10 @@ For example <code data-sourcepos="219:16-219:44">for(int i = 0; i &lt; 10; i++)<
 </ul>
 <p data-sourcepos="363:1-363:232">You can pass <code data-sourcepos="363:14-363:21">binary</code>, <code data-sourcepos="363:24-363:29">args</code>, or both. <code data-sourcepos="363:41-363:48">binary</code> should be a path to a <em data-sourcepos="363:72-363:86">debug adapter</em> (like <code data-sourcepos="363:94-363:103">lldb-dap</code>) not a <em data-sourcepos="363:112-363:121">debugger</em> (like <code data-sourcepos="363:129-363:134">lldb</code> itself). The <code data-sourcepos="363:149-363:154">args</code> setting overrides any arguments that Zed would otherwise pass to the adapter.</p>
 <pre class="syntax-highlighting" data-sourcepos="365:1-374:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;dap&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;CodeLLDB&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: <span class="hl-string">&quot;/Users/name/bin/lldb-dap&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;args&quot;</span>: [<span class="hl-string">&quot;--wait-for-debugger&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dap</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">CodeLLDB</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/Users/name/bin/lldb-dap</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">args</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--wait-for-debugger</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
     }
   }
 }

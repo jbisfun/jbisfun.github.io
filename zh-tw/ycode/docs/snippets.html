@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -500,16 +500,16 @@
 <p data-sourcepos="10:1-10:128">The snippets are located in <code data-sourcepos="10:29-10:52">~/.config/zed/snippets</code> directory to which you can navigate with the <code data-sourcepos="10:99-10:120">snippets::OpenFolder</code> action.</p>
 <h2 id="example-configuration" data-sourcepos="12:1-12:24">Example configuration<a href="#example-configuration" aria-label="Link to heading 'Example configuration'" data-heading-content="Example configuration" class="anchor"></a></h2>
 <pre class="syntax-highlighting" data-sourcepos="14:1-28:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-comment">// Each snippet must have a name and body, but the prefix and description are optional.</span>
-  <span class="hl-comment">// The prefix is used to trigger the snippet, but when omitted then the name is used.</span>
-  <span class="hl-comment">// Use placeholders like $1, $2 or ${1:defaultValue} to define tab stops.</span>
-  <span class="hl-comment">// The $0 determines the final cursor position.</span>
-  <span class="hl-comment">// Placeholders with the same value are linked.</span>
-  <span class="hl-comment">// If the snippet contains the $ symbol outside of a placeholder, it must be escaped with two slashes (e.g. \\$var).</span>
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;Log to console&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;prefix&quot;</span>: <span class="hl-string">&quot;log&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;body&quot;</span>: [<span class="hl-string">&quot;console.info(</span><span class="hl-escape">\&quot;</span><span class="hl-string">Hello, ${1:World}!</span><span class="hl-escape">\&quot;</span><span class="hl-string">)&quot;</span>, <span class="hl-string">&quot;$0&quot;</span>],
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;description&quot;</span>: <span class="hl-string">&quot;Logs to console&quot;</span>
+  <span class="hl-comment hl-line hl-json">// Each snippet must have a name and body, but the prefix and description are optional.</span>
+  <span class="hl-comment hl-line hl-json">// The prefix is used to trigger the snippet, but when omitted then the name is used.</span>
+  <span class="hl-comment hl-line hl-json">// Use placeholders like $1, $2 or ${1:defaultValue} to define tab stops.</span>
+  <span class="hl-comment hl-line hl-json">// The $0 determines the final cursor position.</span>
+  <span class="hl-comment hl-line hl-json">// Placeholders with the same value are linked.</span>
+  <span class="hl-comment hl-line hl-json">// If the snippet contains the $ symbol outside of a placeholder, it must be escaped with two slashes (e.g. \\$var).</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Log to console</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">prefix</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">log</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">body</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">console.info(</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">Hello, ${1:World}!</span><span class="hl-constant hl-character hl-escape hl-json">\&quot;</span><span class="hl-string hl-quoted hl-double hl-json">)</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">$0</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">description</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Logs to console</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>

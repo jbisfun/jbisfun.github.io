@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/markdown.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/markdown.md">
 
 
       <h1 id="markdown" data-sourcepos="6:1-6:10">Markdown<a href="#markdown" aria-label="Link to heading 'Markdown'" data-heading-content="Markdown" class="anchor"></a></h1>
@@ -501,21 +501,21 @@
 </ul>
 <h2 id="syntax-highlighting-code-blocks" data-sourcepos="13:1-13:34">Syntax Highlighting Code Blocks<a href="#syntax-highlighting-code-blocks" aria-label="Link to heading 'Syntax Highlighting Code Blocks'" data-heading-content="Syntax Highlighting Code Blocks" class="anchor"></a></h2>
 <p data-sourcepos="15:1-15:413">Zed supports language-specific syntax highlighting of markdown code blocks by leveraging <a data-sourcepos="15:90-15:156" href="../extensions/languages.html#grammar">tree-sitter language grammars</a>. All <a data-sourcepos="15:163-15:204" href="../languages.html">Zed supported languages</a>, including those provided by official or community extensions, are available for use in markdown code blocks. All you need to do is provide a language name after the opening <kbd>```</kbd> code fence like so:</p>
-<pre class="syntax-highlighting" data-sourcepos="17:1-25:4"><code class="language-python"><span class="hl-source hl-python"><span class="hl-string">``</span>`<span class="hl-variable">python</span>
-<span class="hl-keyword">import</span> <span class="hl-variable">functools</span> <span class="hl-keyword">as</span> <span class="hl-variable">ft</span>
+<pre class="syntax-highlighting" data-sourcepos="17:1-25:4"><code class="language-python"><span class="hl-source hl-python"><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">`</span></span><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-end hl-python">`</span></span>`python
+<span class="hl-keyword hl-control hl-python">import</span> functools <span class="hl-keyword hl-control hl-python">as</span> ft
 
-<span class="hl-function">@</span><span class="hl-variable">ft</span><span class="hl-function">.</span><span class="hl-variable">lru_cache</span><span class="hl-function">(</span><span class="hl-variable">maxsize</span><span class="hl-operator">=</span><span class="hl-number">500</span><span class="hl-function">)</span>
-<span class="hl-keyword">def</span> <span class="hl-variable">fib</span>(<span class="hl-variable">n</span>):
-    <span class="hl-keyword">return</span> <span class="hl-variable">n</span> <span class="hl-keyword">if</span> <span class="hl-variable">n</span> <span class="hl-operator">&lt;</span> <span class="hl-number">2</span> <span class="hl-keyword">else</span> <span class="hl-variable">fib</span>(<span class="hl-variable">n</span> <span class="hl-operator">-</span> <span class="hl-number">1</span>) <span class="hl-operator">+</span> <span class="hl-variable">fib</span>(<span class="hl-variable">n</span> <span class="hl-operator">-</span> <span class="hl-number">2</span>)
-<span class="hl-string">``</span>`
+<span class="hl-entity hl-name hl-function hl-python">@</span>ft<span class="hl-entity hl-name hl-function hl-python">.</span><span class="hl-variable hl-function hl-python">lru_cache</span><span class="hl-entity hl-name hl-function hl-python">(</span>maxsize<span class="hl-keyword hl-operator hl-python">=</span><span class="hl-constant hl-numeric hl-python">500</span><span class="hl-entity hl-name hl-function hl-python">)</span>
+<span class="hl-keyword hl-control hl-python">def</span> <span class="hl-entity hl-name hl-function hl-python">fib</span>(n):
+    <span class="hl-keyword hl-control hl-python">return</span> n <span class="hl-keyword hl-control hl-python">if</span> n <span class="hl-keyword hl-operator hl-python">&lt;</span> <span class="hl-constant hl-numeric hl-python">2</span> <span class="hl-keyword hl-control hl-python">else</span> <span class="hl-variable hl-function hl-python">fib</span>(n <span class="hl-keyword hl-operator hl-python">-</span> <span class="hl-constant hl-numeric hl-python">1</span>) <span class="hl-keyword hl-operator hl-python">+</span> <span class="hl-variable hl-function hl-python">fib</span>(n <span class="hl-keyword hl-operator hl-python">-</span> <span class="hl-constant hl-numeric hl-python">2</span>)
+<span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-begin hl-python">`</span></span><span class="hl-string hl-quoted hl-double hl-python"><span class="hl-punctuation hl-definition hl-string hl-end hl-python">`</span></span>`
 </span></code></pre>
 <h2 id="configuration" data-sourcepos="27:1-27:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <h3 id="format" data-sourcepos="29:1-29:10">Format<a href="#format" aria-label="Link to heading 'Format'" data-heading-content="Format" class="anchor"></a></h3>
 <p data-sourcepos="31:1-31:227">Zed supports using Prettier to automatically re-format Markdown documents. You can trigger this manually via the <code data-sourcepos="31:114-31:129">editor::Format</code> action or via the <code data-sourcepos="31:149-31:164">editor::Format</code> keyboard shortcut. Alternately, you can enable format on save.</p>
 <p data-sourcepos="33:1-33:112">Configure formatting in Settings (<code data-sourcepos="33:35-33:53">zed::OpenSettings</code>) under Languages &gt; Markdown, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="35:1-41:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Markdown&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;format_on_save&quot;</span>: <span class="hl-string">&quot;on&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="35:1-41:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Markdown</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format_on_save</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   },
 </span></code></pre>
@@ -528,27 +528,27 @@
 </ul>
 <p data-sourcepos="51:1-51:75">Pressing Enter on an empty list item removes the marker and exits the list.</p>
 <p data-sourcepos="53:1-53:127">To disable this behavior, configure in Settings (<code data-sourcepos="53:50-53:68">zed::OpenSettings</code>) under Languages &gt; Markdown, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="55:1-61:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Markdown&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;extend_list_on_newline&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+<pre class="syntax-highlighting" data-sourcepos="55:1-61:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Markdown</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">extend_list_on_newline</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     }
   },
 </span></code></pre>
 <h3 id="list-indentation" data-sourcepos="63:1-63:20">List Indentation<a href="#list-indentation" aria-label="Link to heading 'List Indentation'" data-heading-content="List Indentation" class="anchor"></a></h3>
 <p data-sourcepos="65:1-65:150">Zed indents list items when you press Tab while the cursor is on a line containing only a list marker. This allows you to quickly create nested lists.</p>
 <p data-sourcepos="67:1-67:127">To disable this behavior, configure in Settings (<code data-sourcepos="67:50-67:68">zed::OpenSettings</code>) under Languages &gt; Markdown, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="69:1-75:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Markdown&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;indent_list_on_tab&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+<pre class="syntax-highlighting" data-sourcepos="69:1-75:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Markdown</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">indent_list_on_tab</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     }
   },
 </span></code></pre>
 <h3 id="trailing-whitespace" data-sourcepos="77:1-77:23">Trailing Whitespace<a href="#trailing-whitespace" aria-label="Link to heading 'Trailing Whitespace'" data-heading-content="Trailing Whitespace" class="anchor"></a></h3>
 <p data-sourcepos="79:1-79:177">By default Zed will remove trailing whitespace on save. If you rely on invisible trailing whitespace being converted to <code data-sourcepos="79:121-79:128">&lt;br /&gt;</code> in Markdown files you can disable this behavior.</p>
 <p data-sourcepos="81:1-81:101">Configure in Settings (<code data-sourcepos="81:24-81:42">zed::OpenSettings</code>) under Languages &gt; Markdown, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="83:1-89:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Markdown&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;remove_trailing_whitespace_on_save&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+<pre class="syntax-highlighting" data-sourcepos="83:1-89:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Markdown</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">remove_trailing_whitespace_on_save</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     }
   },
 </span></code></pre>

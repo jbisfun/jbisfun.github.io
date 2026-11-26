@@ -222,7 +222,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="wiki">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../wiki/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -230,8 +230,8 @@
       <h1 id="wiki" data-sourcepos="1:1-1:6">wiki<a href="#wiki" aria-label="Link to heading 'wiki'" data-heading-content="wiki" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:294">由 <a data-sourcepos="3:5-3:43" href="https://github.com/jbisfun/pull">pull</a> 工作區中的所有儲存庫所建構的靜態網站，發佈至 <a data-sourcepos="3:112-3:138" href="https://jbisfun.github.io">https://jbisfun.github.io</a>：每個儲存庫的 <code data-sourcepos="3:161-3:168">README</code> 即為其入口頁面，旁邊並列有 <code data-sourcepos="3:210-3:216">docs/</code> 資料夾以及由 rustdoc、LDoc 和 JSDoc 產生的程式碼參考文件。</p>
 <p data-sourcepos="5:1-5:427">這是一個 Rust 二進位檔案：使用 comrak 處理 Markdown、minijinja（Jinja2）模板，以及內建的 rolldown 來捆綁客戶端 JS（Bootstrap、clipboard.js）。Git 物件 ID 決定哪些內容需要重新產生。每個儲存庫的設定位於 <a data-sourcepos="5:262-5:283" href="https://github.com/jbisfun/wiki/blob/main/wiki.toml">wiki.toml</a>。該網站也提供繁體中文版本，位於 <code data-sourcepos="5:333-5:341">/zh-tw/</code>：Chrome 使用的 Fluent 字串與機器翻譯頁面快取在 <code data-sourcepos="5:406-5:420">translations/</code> 中。</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-10:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">just</span> build     <span class="hl-comment"># dist/</span>
-<span class="hl-function">just</span> publish   <span class="hl-comment"># 部署至 ../jbisfun.github.io</span>
+<pre class="syntax-highlighting" data-sourcepos="7:1-10:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">just</span> build     <span class="hl-comment hl-line hl-shell"># dist/</span>
+<span class="hl-variable hl-function hl-shell">just</span> publish   <span class="hl-comment hl-line hl-shell"># 部署至 ../jbisfun.github.io</span>
 </span></code></pre>
 <p data-sourcepos="12:1-12:84">文件：<a data-sourcepos="12:10-12:41" href="docs/index.html">docs/README.md</a>、<a data-sourcepos="12:45-12:81" href="docs/templating.html">模板語法</a>。</p>
 <p data-sourcepos="15:1-15:131">已發佈的網站採用 <a data-sourcepos="15:26-15:88" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 授權。與 Apple Inc. 無隸屬關係。</p>

@@ -241,7 +241,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="idl">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../../idl/docs/workflows.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -286,27 +286,27 @@ idl build --gen        # regenerate, then build
 <h2 id="editor-support-on-linux" data-sourcepos="52:1-52:30">Linux 上的編輯器支援<a href="#editor-support-on-linux" aria-label="Link to heading 'Linux 上的編輯器支援'" data-heading-content="Linux 上的編輯器支援" class="anchor"></a></h2>
 <p data-sourcepos="54:1-54:322">設定 <code data-sourcepos="54:8-54:31">compile_commands: true</code>（若要套用到所有目標，請放在 <code data-sourcepos="54:75-54:85">defaults:</code> 下），然後執行 <code data-sourcepos="54:109-54:117">idl gen</code>。clangd 會從目標資料夾讀取 <code data-sourcepos="54:156-54:178">compile_commands.json</code>，而 Swift 項目則包含供 sourcekit-lsp 使用的完整 swiftc 命令。請先執行一次 <code data-sourcepos="54:276-54:286">idl build</code>，讓 <code data-sourcepos="54:294-54:312">build/ModuleCache</code> 存在。</p>
 <h2 id="add-a-new-app-to-an-existing-idlprojyml" data-sourcepos="56:1-56:49">在既有的 idlproj.yml 中新增應用程式<a href="#add-a-new-app-to-an-existing-idlprojyml" aria-label="Link to heading '在既有的 idlproj.yml 中新增應用程式'" data-heading-content="在既有的 idlproj.yml 中新增應用程式" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="58:1-66:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Second</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">apps/second</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.second</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">entitlements</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">get-task-allow</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
+<pre class="syntax-highlighting" data-sourcepos="58:1-66:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Second</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">apps/second</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.second</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 </span></code></pre>
 <p data-sourcepos="68:1-68:138">若要取得起始檔案，請執行 <code data-sourcepos="68:38-68:72">idl init Second --dir apps/second</code>，然後將其目標項目移到你的主要 <code data-sourcepos="68:119-68:131">idlproj.yml</code> 中。</p>
 <h2 id="mix-swift-objective-c-and-c" data-sourcepos="70:1-70:37">混用 Swift、Objective-C 與 C++<a href="#mix-swift-objective-c-and-c" aria-label="Link to heading '混用 Swift、Objective-C 與 C++'" data-heading-content="混用 Swift、Objective-C 與 C++" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="72:1-76:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>                 <span class="hl-comment"># .swift, .m, .mm, .cpp all together</span>
-<span class="hl-property">bridging_header</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Sources/Bridge.h</span>  <span class="hl-comment"># Objective-C declarations Swift can see</span>
-<span class="hl-property">include_dirs</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+<pre class="syntax-highlighting" data-sourcepos="72:1-76:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]                 <span class="hl-comment hl-line hl-yaml"># .swift, .m, .mm, .cpp all together</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">bridging_header</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Sources/Bridge.h</span>  <span class="hl-comment hl-line hl-yaml"># Objective-C declarations Swift can see</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">include_dirs</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]
 </span></code></pre>
 <p data-sourcepos="78:1-79:78">clang 會將每個 C 系列檔案編譯成物件檔。接著 swiftc 會將所有 Swift
 檔案編譯成一個模組並連結這些物件檔。C++ 會加上 <code data-sourcepos="79:69-79:75">-lc++</code>。</p>
 <h2 id="infoplist-values-per-build" data-sourcepos="81:1-81:33">每次建置的 Info.plist 值<a href="#infoplist-values-per-build" aria-label="Link to heading '每次建置的 Info.plist 值'" data-heading-content="每次建置的 Info.plist 值" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="83:1-88:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">plist_vars</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">ENV_NAME</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">staging</span>
-<span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">CFBundleDisplayName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">MyApp $(ENV_NAME)</span>
+<pre class="syntax-highlighting" data-sourcepos="83:1-88:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">plist_vars</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">ENV_NAME</span>: <span class="hl-string hl-quoted hl-double hl-yaml">staging</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">MyApp $(ENV_NAME)</span>
 </span></code></pre>
 <p data-sourcepos="90:1-90:143">若某個值在不同機器或 CI 執行之間會有差異，請直接參照環境變數：未知的 <code data-sourcepos="90:102-90:109">$(VAR)</code> 會退而使用行程的環境。</p>
 <h2 id="storyboards-xibs-and-asset-catalogs" data-sourcepos="92:1-92:35">Storyboard、XIB 與資源目錄<a href="#storyboards-xibs-and-asset-catalogs" aria-label="Link to heading 'Storyboard、XIB 與資源目錄'" data-heading-content="Storyboard、XIB 與資源目錄" class="anchor"></a></h2>

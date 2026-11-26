@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -504,9 +504,9 @@
 <h2 id="configuration" data-sourcepos="13:1-13:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <p data-sourcepos="15:1-16:75">To automatically use the OpenTofu extension and language server when editing <code data-sourcepos="15:78-15:82">.tf</code> and <code data-sourcepos="15:88-15:96">.tfvars</code> files,
 either uninstall the Terraform extension or add this to your settings.json:</p>
-<pre class="syntax-highlighting" data-sourcepos="18:1-23:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;file_types&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;OpenTofu&quot;</span>: [<span class="hl-string">&quot;tf&quot;</span>],
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;OpenTofu Vars&quot;</span>: [<span class="hl-string">&quot;tfvars&quot;</span>]
+<pre class="syntax-highlighting" data-sourcepos="18:1-23:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">file_types</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">OpenTofu</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tf</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">OpenTofu Vars</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tfvars</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
 },
 </span></code></pre>
 <p data-sourcepos="25:1-25:108">See the <a data-sourcepos="25:9-25:107" href="https://github.com/opentofu/tofu-ls/blob/main/docs/SETTINGS.md">full list of server settings here</a>.</p>

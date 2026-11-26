@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -550,19 +550,19 @@ exclusions: list(
 <p data-sourcepos="62:1-62:198">Ensure that you have installed both the <a data-sourcepos="62:41-62:87" href="https://github.com/ocsmit/zed-r">ocsmit/zed-r</a> extension (for general R language awareness in Zed) and the <a data-sourcepos="62:149-62:187" href="https://posit-dev.github.io/air/">Air</a> extension.</p>
 <p data-sourcepos="64:1-64:111">Configure language servers in Settings (<code data-sourcepos="64:41-64:59">zed::OpenSettings</code>) under Languages &gt; R, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="66:1-74:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;R&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [<span class="hl-string">&quot;air&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">R</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">air</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
     }
   }
 }
 </span></code></pre>
 <p data-sourcepos="76:1-76:217">If you use the <code data-sourcepos="76:16-76:36">&quot;r_language_server&quot;</code> from <code data-sourcepos="76:43-76:73">REditorSupport/languageserver</code>, but would still like to use Air for formatting, configure in Settings (<code data-sourcepos="76:147-76:165">zed::OpenSettings</code>) under Languages &gt; R, or add to your settings file:</p>
 <pre class="syntax-highlighting" data-sourcepos="78:1-87:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;R&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;language_servers&quot;</span>: [<span class="hl-string">&quot;air&quot;</span>, <span class="hl-string">&quot;r_language_server&quot;</span>],
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;use_on_type_format&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">R</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_servers</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">air</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">r_language_server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">use_on_type_format</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     }
   }
 }
@@ -571,9 +571,9 @@ exclusions: list(
 <p data-sourcepos="91:1-91:228"><code data-sourcepos="91:1-91:21">&quot;r_language_server&quot;</code> provides on-type-formatting that differs from Air’s formatting rules. To avoid this entirely and let Air be fully in charge of formatting your R files, also set <code data-sourcepos="91:184-91:212">&quot;use_on_type_format&quot;: false</code> as shown above.</p>
 <h4 id="configuring-air" data-sourcepos="93:1-93:20">Configuring Air<a href="#configuring-air" aria-label="Link to heading 'Configuring Air'" data-heading-content="Configuring Air" class="anchor"></a></h4>
 <p data-sourcepos="95:1-95:95">Air is minimally configurable via an <code data-sourcepos="95:38-95:47">air.toml</code> file placed in the root folder of your project:</p>
-<pre class="syntax-highlighting" data-sourcepos="97:1-101:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">format</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">line-width</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-number">80</span>
-<span class="hl-type">indent-width</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-number">2</span>
+<pre class="syntax-highlighting" data-sourcepos="97:1-101:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">format</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">line-width</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-numeric hl-toml">80</span>
+<span class="hl-entity hl-name hl-tag hl-toml">indent-width</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-numeric hl-toml">2</span>
 </span></code></pre>
 <p data-sourcepos="103:1-103:123">For more details, refer to the Air documentation about <a data-sourcepos="103:56-103:122" href="https://posit-dev.github.io/air/configuration.html">configuration</a>.</p>
 <h3 id="styler" data-sourcepos="105:1-105:10">Styler<a href="#styler" aria-label="Link to heading 'Styler'" data-heading-content="Styler" class="anchor"></a></h3>

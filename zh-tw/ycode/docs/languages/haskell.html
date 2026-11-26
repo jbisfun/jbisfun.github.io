@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -503,17 +503,17 @@
 </ul>
 <h2 id="installing-hls" data-sourcepos="13:1-13:17">Installing HLS<a href="#installing-hls" aria-label="Link to heading 'Installing HLS'" data-heading-content="Installing HLS" class="anchor"></a></h2>
 <p data-sourcepos="15:1-16:3">Recommended method to <a data-sourcepos="15:23-15:131" href="https://haskell-language-server.readthedocs.io/en/latest/installation.html">install haskell-language-server</a> (HLS) is via <a data-sourcepos="15:146-15:192" href="https://www.haskell.org/ghcup/install/">ghcup</a> (<code data-sourcepos="15:195-16:1">curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh </code>):</p>
-<pre class="syntax-highlighting" data-sourcepos="18:1-21:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ghcup</span> install hls
-<span class="hl-function">which</span> haskell-language-server-wrapper
+<pre class="syntax-highlighting" data-sourcepos="18:1-21:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ghcup</span> install hls
+<span class="hl-variable hl-function hl-shell">which</span> haskell-language-server-wrapper
 </span></code></pre>
 <h2 id="configuring-hls" data-sourcepos="23:1-23:18">Configuring HLS<a href="#configuring-hls" aria-label="Link to heading 'Configuring HLS'" data-heading-content="Configuring HLS" class="anchor"></a></h2>
 <p data-sourcepos="25:1-25:115">If you need to configure haskell-language-server (hls) you can add configuration options to your Zed settings.json:</p>
 <pre class="syntax-highlighting" data-sourcepos="27:1-39:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;hls&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;initialization_options&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;haskell&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;formattingProvider&quot;</span>: <span class="hl-string">&quot;fourmolu&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">hls</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">initialization_options</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">haskell</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formattingProvider</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">fourmolu</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         }
       }
     }
@@ -523,11 +523,11 @@
 <p data-sourcepos="41:1-41:154">See the official <a data-sourcepos="41:18-41:131" href="https://haskell-language-server.readthedocs.io/en/latest/configuration.html">configuring haskell-language-server</a> docs for more options.</p>
 <p data-sourcepos="43:1-43:199">If you would like to use a specific hls binary, or perhaps use <a data-sourcepos="43:64-43:118" href="https://github.com/josephsumabat/static-ls">static-ls</a> as a drop-in replacement instead, you can specify the binary path and arguments:</p>
 <pre class="syntax-highlighting" data-sourcepos="45:1-56:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;hls&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;path&quot;</span>: <span class="hl-string">&quot;static-ls&quot;</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;--experimentalFeatures&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">hls</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">static-ls</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--experimentalFeatures</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
       }
     }
   }

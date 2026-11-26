@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/cpp.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/cpp.md">
 
 
       <h1 id="c" data-sourcepos="6:1-6:5">C++<a href="#c" aria-label="Link to heading 'C++'" data-heading-content="C++" class="anchor"></a></h1>
@@ -504,10 +504,10 @@
 <p data-sourcepos="17:1-17:212">By default, Zed will try to find a <code data-sourcepos="17:36-17:43">clangd</code> in your <code data-sourcepos="17:53-17:59">$PATH</code> and try to use that. If that binary successfully executes, it’s used. Otherwise, Zed will fall back to installing its own <code data-sourcepos="17:183-17:190">clangd</code> version and use that.</p>
 <p data-sourcepos="19:1-19:151">If you want to install a pre-release <code data-sourcepos="19:38-19:45">clangd</code> version instead you can instruct Zed to do so by setting <code data-sourcepos="19:104-19:116">pre_release</code> to <code data-sourcepos="19:121-19:126">true</code> in your <code data-sourcepos="19:136-19:150">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="21:1-31:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;clangd&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;fetch&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;pre_release&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">fetch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">pre_release</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
       }
     }
   }
@@ -515,10 +515,10 @@
 </span></code></pre>
 <p data-sourcepos="33:1-33:128">If you want to disable Zed looking for a <code data-sourcepos="33:42-33:49">clangd</code> binary, you can set <code data-sourcepos="33:71-33:93">ignore_system_version</code> to <code data-sourcepos="33:98-33:103">true</code> in your <code data-sourcepos="33:113-33:127">settings.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="35:1-45:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;clangd&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;ignore_system_version&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ignore_system_version</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
       }
     }
   }
@@ -526,11 +526,11 @@
 </span></code></pre>
 <p data-sourcepos="47:1-47:100">If you want to use a binary in a custom location, you can specify a <code data-sourcepos="47:69-47:74">path</code> and optional <code data-sourcepos="47:89-47:99">arguments</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="49:1-60:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;clangd&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;path&quot;</span>: <span class="hl-string">&quot;/path/to/clangd&quot;</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: []
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/path/to/clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: []
       }
     }
   }
@@ -540,11 +540,11 @@
 <h2 id="arguments" data-sourcepos="64:1-64:12">Arguments<a href="#arguments" aria-label="Link to heading 'Arguments'" data-heading-content="Arguments" class="anchor"></a></h2>
 <p data-sourcepos="66:1-66:349">You can pass any number of arguments to clangd. To see a full set of available options, run <code data-sourcepos="66:93-66:107">clangd --help</code> from the command line. For example with <code data-sourcepos="66:149-66:179">--function-arg-placeholders=0</code> completions contain only parentheses for function calls, while the default (<code data-sourcepos="66:257-66:287">--function-arg-placeholders=1</code>) completions also contain placeholders for method parameters.</p>
 <pre class="syntax-highlighting" data-sourcepos="68:1-79:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;clangd&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;binary&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;path&quot;</span>: <span class="hl-string">&quot;/path/to/clangd&quot;</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;--function-arg-placeholders=0&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">path</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/path/to/clangd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--function-arg-placeholders=0</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
       }
     }
   }
@@ -552,36 +552,36 @@
 </span></code></pre>
 <h2 id="formatting" data-sourcepos="81:1-81:13">Formatting<a href="#formatting" aria-label="Link to heading 'Formatting'" data-heading-content="Formatting" class="anchor"></a></h2>
 <p data-sourcepos="83:1-83:202">By default Zed will use the <code data-sourcepos="83:29-83:36">clangd</code> language server for formatting C++ code. Its formatter is the same as the <code data-sourcepos="83:112-83:125">clang-format</code> CLI tool. To configure this you can add a <code data-sourcepos="83:169-83:183">.clang-format</code> file. For example:</p>
-<pre class="syntax-highlighting" data-sourcepos="85:1-96:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-comment"># yaml-language-server: $schema=https://json.schemastore.org/clang-format-21.x.json</span>
-<span class="hl-punctuation hl-punctuation-special">---</span>
-<span class="hl-property">BasedOnStyle</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">LLVM</span>
-<span class="hl-property">IndentWidth</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-number">4</span>
-<span class="hl-punctuation hl-punctuation-special">---</span>
-<span class="hl-property">Language</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Cpp</span>
-<span class="hl-comment"># Force pointers to the type for C++.</span>
-<span class="hl-property">DerivePointerAlignment</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">false</span>
-<span class="hl-property">PointerAlignment</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Left</span>
-<span class="hl-punctuation hl-punctuation-special">---</span>
+<pre class="syntax-highlighting" data-sourcepos="85:1-96:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-comment hl-line hl-yaml"># yaml-language-server: $schema=https://json.schemastore.org/clang-format-21.x.json</span>
+<span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">BasedOnStyle</span>: <span class="hl-string hl-quoted hl-double hl-yaml">LLVM</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">IndentWidth</span>: <span class="hl-constant hl-numeric hl-yaml">4</span>
+<span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">Language</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Cpp</span>
+<span class="hl-comment hl-line hl-yaml"># Force pointers to the type for C++.</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">DerivePointerAlignment</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">false</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">PointerAlignment</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Left</span>
+<span class="hl-entity hl-other hl-document hl-begin hl-yaml">---</span>
 </span></code></pre>
 <p data-sourcepos="98:1-98:122">See <a data-sourcepos="98:5-98:90" href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html">Clang-Format Style Options</a> for a complete list of options.</p>
 <p data-sourcepos="100:1-100:134">You can trigger formatting via <code data-sourcepos="100:32-100:47">editor::Format</code> or the <code data-sourcepos="100:56-100:71">editor::Format</code> action from the command palette or by enabling format on save.</p>
 <p data-sourcepos="102:1-102:107">Configure formatting in Settings (<code data-sourcepos="102:35-102:53">zed::OpenSettings</code>) under Languages &gt; C++, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="104:1-111:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;C++&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;format_on_save&quot;</span>: <span class="hl-string">&quot;on&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;tab_size&quot;</span>: <span class="hl-number">2</span>
+<pre class="syntax-highlighting" data-sourcepos="104:1-111:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">C++</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">format_on_save</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tab_size</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">2</span>
     }
   }
 </span></code></pre>
 <h2 id="more-server-configuration" data-sourcepos="113:1-113:28">More server configuration<a href="#more-server-configuration" aria-label="Link to heading 'More server configuration'" data-heading-content="More server configuration" class="anchor"></a></h2>
 <p data-sourcepos="115:1-115:106">In the root of your project, it is generally common to create a <code data-sourcepos="115:65-115:73">.clangd</code> file to set extra configuration.</p>
-<pre class="syntax-highlighting" data-sourcepos="117:1-125:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-comment"># yaml-language-server: $schema=https://json.schemastore.org/clangd.json</span>
-<span class="hl-property">CompileFlags</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">Add</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-    <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-string">&quot;--include-directory=/path/to/include&quot;</span>
-<span class="hl-property">Diagnostics</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">MissingIncludes</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Strict</span>
-  <span class="hl-property">UnusedIncludes</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Strict</span>
+<pre class="syntax-highlighting" data-sourcepos="117:1-125:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-comment hl-line hl-yaml"># yaml-language-server: $schema=https://json.schemastore.org/clangd.json</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">CompileFlags</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">Add</span>:
+    - <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">--include-directory=/path/to/include</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+<span class="hl-entity hl-name hl-tag hl-yaml">Diagnostics</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">MissingIncludes</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Strict</span>
+  <span class="hl-entity hl-name hl-tag hl-yaml">UnusedIncludes</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Strict</span>
 </span></code></pre>
 <p data-sourcepos="127:1-127:130">For more advanced usage of clangd configuration file, take a look into their <a data-sourcepos="127:78-127:129" href="https://clangd.llvm.org/config.html">official page</a>.</p>
 <h2 id="compile-commands" data-sourcepos="129:1-129:19">Compile Commands<a href="#compile-commands" aria-label="Link to heading 'Compile Commands'" data-heading-content="Compile Commands" class="anchor"></a></h2>
@@ -604,15 +604,15 @@
 <h3 id="build-and-debug-binary" data-sourcepos="151:1-151:26">Build and Debug Binary<a href="#build-and-debug-binary" aria-label="Link to heading 'Build and Debug Binary'" data-heading-content="Build and Debug Binary" class="anchor"></a></h3>
 <pre class="syntax-highlighting" data-sourcepos="153:1-167:3"><code class="language-json"><span class="hl-source hl-json">[
   {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;label&quot;</span>: <span class="hl-string">&quot;Debug native binary&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;build&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;make&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;args&quot;</span>: [<span class="hl-string">&quot;-j8&quot;</span>],
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;cwd&quot;</span>: <span class="hl-string">&quot;$ZED_WORKTREE_ROOT&quot;</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">label</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Debug native binary</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">build</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">make</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">args</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">-j8</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">cwd</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">$ZED_WORKTREE_ROOT</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     },
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;$ZED_WORKTREE_ROOT/build/prog&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;request&quot;</span>: <span class="hl-string">&quot;launch&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;adapter&quot;</span>: <span class="hl-string">&quot;CodeLLDB&quot;</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">$ZED_WORKTREE_ROOT/build/prog</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">request</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">launch</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">adapter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">CodeLLDB</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 ]
 </span></code></pre>
@@ -625,9 +625,9 @@
 by running the command <code data-sourcepos="180:24-180:51">editor::SwitchSourceHeader</code> from the command palette or by setting
 a keybinding for the <code data-sourcepos="181:22-181:49">editor::SwitchSourceHeader</code> action.</p>
 <pre class="syntax-highlighting" data-sourcepos="183:1-190:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;context&quot;</span>: <span class="hl-string">&quot;Editor&quot;</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;bindings&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;alt-enter&quot;</span>: <span class="hl-string">&quot;editor::SwitchSourceHeader&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">context</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Editor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bindings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">alt-enter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">editor::SwitchSourceHeader</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>

@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/sml.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/sml.md">
 
 
       <h1 id="standard-ml" data-sourcepos="6:1-6:13">Standard ML<a href="#standard-ml" aria-label="Link to heading 'Standard ML'" data-heading-content="Standard ML" class="anchor"></a></h1>
@@ -506,9 +506,9 @@
 </ol>
 <h2 id="project-setup" data-sourcepos="18:1-18:16">Project setup<a href="#project-setup" aria-label="Link to heading 'Project setup'" data-heading-content="Project setup" class="anchor"></a></h2>
 <p data-sourcepos="20:1-20:142">For projects with more than one source file, Millet expects a single root group file. Create a <code data-sourcepos="20:96-20:108">millet.toml</code> in the directory you open in Zed:</p>
-<pre class="syntax-highlighting" data-sourcepos="22:1-26:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-type">version</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-number">1</span>
-<span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">workspace</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">root</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;sources.mlb&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="22:1-26:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-entity hl-name hl-tag hl-toml">version</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-constant hl-numeric hl-toml">1</span>
+[<span class="hl-entity hl-name hl-table hl-toml">workspace</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">root</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">sources.mlb</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="28:1-28:377">The root must be either an <a data-sourcepos="28:28-28:69" href="http://mlton.org/MLBasis">ML Basis (MLB)</a> file (<code data-sourcepos="28:77-28:82">.mlb</code>, used with MLton) or an <a data-sourcepos="28:108-28:178" href="https://www.smlnj.org/doc/CM/new.pdf">SML/NJ Compilation Manager (CM)</a> file (<code data-sourcepos="28:186-28:190">.cm</code>, used with SML/NJ). Files not transitively reachable from the root are not analyzed. See the <a data-sourcepos="28:285-28:359" href="https://github.com/azdavis/millet/blob/main/docs/manual.md">Millet manual</a> for more options.</p>
 

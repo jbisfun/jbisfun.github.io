@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -503,10 +503,10 @@
 <p data-sourcepos="16:1-16:105">After installation, Zed checks for updates automatically and prompts you when a new version is available.</p>
 <h3 id="homebrew" data-sourcepos="18:1-18:12">Homebrew<a href="#homebrew" aria-label="Link to heading 'Homebrew'" data-heading-content="Homebrew" class="anchor"></a></h3>
 <p data-sourcepos="20:1-20:40">You can also install Zed using Homebrew:</p>
-<pre class="syntax-highlighting" data-sourcepos="22:1-24:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> install <span class="hl-constant">--cask</span> zed
+<pre class="syntax-highlighting" data-sourcepos="22:1-24:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> install <span class="hl-variable hl-parameter hl-option hl-shell">--cask</span> zed
 </span></code></pre>
 <p data-sourcepos="26:1-26:24">For the preview version:</p>
-<pre class="syntax-highlighting" data-sourcepos="28:1-30:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> install <span class="hl-constant">--cask</span> zed@preview
+<pre class="syntax-highlighting" data-sourcepos="28:1-30:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> install <span class="hl-variable hl-parameter hl-option hl-shell">--cask</span> zed@preview
 </span></code></pre>
 <h3 id="building-from-source" data-sourcepos="32:1-32:24">Building from Source<a href="#building-from-source" aria-label="Link to heading 'Building from Source'" data-heading-content="Building from Source" class="anchor"></a></h3>
 <p data-sourcepos="34:1-34:92">To build Zed from source, see the <a data-sourcepos="34:35-34:91" href="development/macos.html">macOS development documentation</a>.</p>
@@ -524,9 +524,9 @@
 <li data-sourcepos="49:1-49:30">Run <code data-sourcepos="49:8-49:30">cli::InstallCliBinary</code></li>
 </ol>
 <p data-sourcepos="51:1-51:86">This creates a <code data-sourcepos="51:16-51:20">zed</code> command in <code data-sourcepos="51:33-51:48">/usr/local/bin</code>. You can then open files and folders:</p>
-<pre class="syntax-highlighting" data-sourcepos="53:1-57:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> .                    <span class="hl-comment"># Open current folder</span>
-<span class="hl-function">zed</span> file.txt             <span class="hl-comment"># Open a file</span>
-<span class="hl-function">zed</span> project/ file.txt    <span class="hl-comment"># Open a folder and a file</span>
+<pre class="syntax-highlighting" data-sourcepos="53:1-57:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> .                    <span class="hl-comment hl-line hl-shell"># Open current folder</span>
+<span class="hl-variable hl-function hl-shell">zed</span> file.txt             <span class="hl-comment hl-line hl-shell"># Open a file</span>
+<span class="hl-variable hl-function hl-shell">zed</span> project/ file.txt    <span class="hl-comment hl-line hl-shell"># Open a folder and a file</span>
 </span></code></pre>
 <p data-sourcepos="59:1-59:70">See the <a data-sourcepos="59:9-59:43" href="reference/cli.html">CLI Reference</a> for all available options.</p>
 <h2 id="uninstall" data-sourcepos="61:1-61:12">Uninstall<a href="#uninstall" aria-label="Link to heading 'Uninstall'" data-heading-content="Uninstall" class="anchor"></a></h2>
@@ -535,14 +535,14 @@
 <li data-sourcepos="64:1-64:42">Drag Zed from Applications to the Trash</li>
 <li data-sourcepos="65:1-65:51">Optionally, remove your settings and extensions:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="67:1-73:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">rm</span> <span class="hl-constant">-rf</span> ~/.config/zed
-<span class="hl-function">rm</span> <span class="hl-constant">-rf</span> ~/Library/Application\ Support/Zed
-<span class="hl-function">rm</span> <span class="hl-constant">-rf</span> ~/Library/Caches/Zed
-<span class="hl-function">rm</span> <span class="hl-constant">-rf</span> ~/Library/Logs/Zed
-<span class="hl-function">rm</span> <span class="hl-constant">-rf</span> ~/Library/Saved\ Application\ State/dev.zed.Zed.savedState
+<pre class="syntax-highlighting" data-sourcepos="67:1-73:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">rm</span> <span class="hl-variable hl-parameter hl-option hl-shell">-rf</span> ~/.config/zed
+<span class="hl-variable hl-function hl-shell">rm</span> <span class="hl-variable hl-parameter hl-option hl-shell">-rf</span> ~/Library/Application\ Support/Zed
+<span class="hl-variable hl-function hl-shell">rm</span> <span class="hl-variable hl-parameter hl-option hl-shell">-rf</span> ~/Library/Caches/Zed
+<span class="hl-variable hl-function hl-shell">rm</span> <span class="hl-variable hl-parameter hl-option hl-shell">-rf</span> ~/Library/Logs/Zed
+<span class="hl-variable hl-function hl-shell">rm</span> <span class="hl-variable hl-parameter hl-option hl-shell">-rf</span> ~/Library/Saved\ Application\ State/dev.zed.Zed.savedState
 </span></code></pre>
 <p data-sourcepos="75:1-75:41">If you installed the CLI, remove it with:</p>
-<pre class="syntax-highlighting" data-sourcepos="77:1-79:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">rm</span> /usr/local/bin/zed
+<pre class="syntax-highlighting" data-sourcepos="77:1-79:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">rm</span> /usr/local/bin/zed
 </span></code></pre>
 <h2 id="troubleshooting" data-sourcepos="81:1-81:18">Troubleshooting<a href="#troubleshooting" aria-label="Link to heading 'Troubleshooting'" data-heading-content="Troubleshooting" class="anchor"></a></h2>
 <h3 id="zed-wont-open-or-shows-damaged-warning" data-sourcepos="83:1-83:45">Zed won’t open or shows “damaged” warning<a href="#zed-wont-open-or-shows-damaged-warning" aria-label="Link to heading 'Zed won’t open or shows “damaged” warning'" data-heading-content="Zed won’t open or shows “damaged” warning" class="anchor"></a></h3>
@@ -554,7 +554,7 @@
 </ol>
 <p data-sourcepos="91:1-91:42">This tells macOS to trust the application.</p>
 <p data-sourcepos="93:1-93:54">If that doesn’t work, remove the quarantine attribute:</p>
-<pre class="syntax-highlighting" data-sourcepos="95:1-97:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xattr</span> <span class="hl-constant">-cr</span> /Applications/Zed.app
+<pre class="syntax-highlighting" data-sourcepos="95:1-97:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xattr</span> <span class="hl-variable hl-parameter hl-option hl-shell">-cr</span> /Applications/Zed.app
 </span></code></pre>
 <h3 id="cli-command-not-found" data-sourcepos="99:1-99:25">CLI command not found<a href="#cli-command-not-found" aria-label="Link to heading 'CLI command not found'" data-heading-content="CLI command not found" class="anchor"></a></h3>
 <p data-sourcepos="101:1-101:56">If the <code data-sourcepos="101:8-101:12">zed</code> command isn’t available after installation:</p>
@@ -566,19 +566,19 @@
 <h3 id="cant-install-cli" data-sourcepos="107:1-107:21">Can’t install CLI<a href="#cant-install-cli" aria-label="Link to heading 'Can’t install CLI'" data-heading-content="Can’t install CLI" class="anchor"></a></h3>
 <p data-sourcepos="109:1-109:249"><code data-sourcepos="109:1-109:23">cli::InstallCliBinary</code> writes a <code data-sourcepos="109:34-109:38">zed</code> symlink to <code data-sourcepos="109:51-109:66">/usr/local/bin</code>, which requires administrator privileges. If your macOS account isn’t in the <code data-sourcepos="109:145-109:151">admin</code> group, Zed can’t create that symlink and will report that it can’t install the CLI automatically.</p>
 <p data-sourcepos="111:1-111:126">Instead, you can add an alias pointing to the <code data-sourcepos="111:47-111:51">cli</code> binary bundled inside the app. The path depends on where Zed is installed:</p>
-<pre class="syntax-highlighting" data-sourcepos="113:1-122:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-comment"># Default install (Zed in /Applications)</span>
-<span class="hl-function">alias</span> zed=<span class="hl-string">&quot;/Applications/Zed.app/Contents/MacOS/cli&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="113:1-122:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-shell"># Default install (Zed in /Applications)</span>
+<span class="hl-support hl-function hl-shell">alias</span> zed=<span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">/Applications/Zed.app/Contents/MacOS/cli</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 
-<span class="hl-comment"># User install (Zed in ~/Applications)</span>
-<span class="hl-function">alias</span> zed=<span class="hl-string">&quot;</span><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-string">/Applications/Zed.app/Contents/MacOS/cli&quot;</span>
+<span class="hl-comment hl-line hl-shell"># User install (Zed in ~/Applications)</span>
+<span class="hl-support hl-function hl-shell">alias</span> zed=<span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-string hl-quoted hl-double hl-shell">/Applications/Zed.app/Contents/MacOS/cli</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 
-<span class="hl-comment"># Preview build (Zed Preview in ~/Applications)</span>
-<span class="hl-function">alias</span> zed=<span class="hl-string">&quot;</span><span class="hl-operator">$</span><span class="hl-property">HOME</span><span class="hl-string">/Applications/Zed Preview.app/Contents/MacOS/cli&quot;</span>
+<span class="hl-comment hl-line hl-shell"># Preview build (Zed Preview in ~/Applications)</span>
+<span class="hl-support hl-function hl-shell">alias</span> zed=<span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">HOME</span><span class="hl-string hl-quoted hl-double hl-shell">/Applications/Zed Preview.app/Contents/MacOS/cli</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="124:1-124:150">Add the line that matches your install to your shell configuration file. Use <code data-sourcepos="124:78-124:87">~/.zshrc</code> for Zsh (the default on modern macOS) or <code data-sourcepos="124:130-124:140">~/.bashrc</code> for Bash.</p>
 <p data-sourcepos="126:1-126:79">After you restart your shell, you will be able to use <code data-sourcepos="126:55-126:59">zed</code> from your terminal:</p>
-<pre class="syntax-highlighting" data-sourcepos="128:1-131:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> .              <span class="hl-comment"># Open current folder</span>
-<span class="hl-function">zed</span> file.txt       <span class="hl-comment"># Open a file</span>
+<pre class="syntax-highlighting" data-sourcepos="128:1-131:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> .              <span class="hl-comment hl-line hl-shell"># Open current folder</span>
+<span class="hl-variable hl-function hl-shell">zed</span> file.txt       <span class="hl-comment hl-line hl-shell"># Open a file</span>
 </span></code></pre>
 <h3 id="gpu-or-rendering-issues" data-sourcepos="133:1-133:27">GPU or rendering issues<a href="#gpu-or-rendering-issues" aria-label="Link to heading 'GPU or rendering issues'" data-heading-content="GPU or rendering issues" class="anchor"></a></h3>
 <p data-sourcepos="135:1-135:67">Zed uses Metal for rendering. If you experience graphical glitches:</p>

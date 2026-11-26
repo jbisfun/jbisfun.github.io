@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -513,18 +513,18 @@
 <ul data-sourcepos="20:1-37:5">
 <li data-sourcepos="20:1-24:5">
 <p data-sourcepos="20:3-20:82">Install <a data-sourcepos="20:11-20:82" href="https://developer.apple.com/xcode/resources/">Xcode command line tools</a></p>
-<pre class="syntax-highlighting" data-sourcepos="22:3-24:5"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xcode-select</span> <span class="hl-constant">--install</span>
+<pre class="syntax-highlighting" data-sourcepos="22:3-24:5"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xcode-select</span> <span class="hl-variable hl-parameter hl-option hl-shell">--install</span>
 </span></code></pre>
 </li>
 <li data-sourcepos="26:1-31:5">
 <p data-sourcepos="26:3-26:88">Ensure that the Xcode command line tools are using your newly installed copy of Xcode:</p>
-<pre class="syntax-highlighting" data-sourcepos="28:3-31:5"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">sudo</span> xcode-select <span class="hl-constant">--switch</span> /Applications/Xcode.app/Contents/Developer
-<span class="hl-function">sudo</span> xcodebuild <span class="hl-constant">-license</span> accept
+<pre class="syntax-highlighting" data-sourcepos="28:3-31:5"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">sudo</span> xcode-select <span class="hl-variable hl-parameter hl-option hl-shell">--switch</span> /Applications/Xcode.app/Contents/Developer
+<span class="hl-variable hl-function hl-shell">sudo</span> xcodebuild <span class="hl-variable hl-parameter hl-option hl-shell">-license</span> accept
 </span></code></pre>
 </li>
 <li data-sourcepos="33:1-37:5">
 <p data-sourcepos="33:3-33:106">Install <code data-sourcepos="33:11-33:17">cmake</code> (required by <a data-sourcepos="33:32-33:105" href="https://docs.rs/wasmtime-c-api-impl/latest/wasmtime_c_api/">a dependency</a>)</p>
-<pre class="syntax-highlighting" data-sourcepos="35:3-37:5"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">brew</span> install cmake
+<pre class="syntax-highlighting" data-sourcepos="35:3-37:5"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">brew</span> install cmake
 </span></code></pre>
 </li>
 </ul>
@@ -533,13 +533,13 @@ The bundled app requires macOS 12.0 (Monterey) or later.</p>
 <h2 id="building-zed-from-source" data-sourcepos="42:1-42:27">Building Zed from Source<a href="#building-zed-from-source" aria-label="Link to heading 'Building Zed from Source'" data-heading-content="Building Zed from Source" class="anchor"></a></h2>
 <p data-sourcepos="44:1-44:108">Once you have the dependencies installed, you can build Zed using <a data-sourcepos="44:67-44:107" href="https://doc.rust-lang.org/cargo/">Cargo</a>.</p>
 <p data-sourcepos="46:1-46:18">For a debug build:</p>
-<pre class="syntax-highlighting" data-sourcepos="48:1-50:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> run
+<pre class="syntax-highlighting" data-sourcepos="48:1-50:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> run
 </span></code></pre>
 <p data-sourcepos="52:1-52:20">For a release build:</p>
-<pre class="syntax-highlighting" data-sourcepos="54:1-56:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> run <span class="hl-constant">--release</span>
+<pre class="syntax-highlighting" data-sourcepos="54:1-56:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">--release</span>
 </span></code></pre>
 <p data-sourcepos="58:1-58:21">And to run the tests:</p>
-<pre class="syntax-highlighting" data-sourcepos="60:1-62:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> test <span class="hl-constant">--workspace</span>
+<pre class="syntax-highlighting" data-sourcepos="60:1-62:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> test <span class="hl-variable hl-parameter hl-option hl-shell">--workspace</span>
 </span></code></pre>
 <h2 id="visual-regression-tests" data-sourcepos="64:1-64:26">Visual Regression Tests<a href="#visual-regression-tests" aria-label="Link to heading 'Visual Regression Tests'" data-heading-content="Visual Regression Tests" class="anchor"></a></h2>
 <p data-sourcepos="66:1-66:183">Zed includes visual regression tests that capture screenshots of real Zed windows and compare them against baseline images. These tests require macOS with Screen Recording permission.</p>
@@ -552,7 +552,7 @@ The bundled app requires macOS 12.0 (Monterey) or later.</p>
 <li data-sourcepos="75:1-75:50">Restart your terminal after granting permission</li>
 </ol>
 <h3 id="running-visual-tests" data-sourcepos="77:1-77:24">Running Visual Tests<a href="#running-visual-tests" aria-label="Link to heading 'Running Visual Tests'" data-heading-content="Running Visual Tests" class="anchor"></a></h3>
-<pre class="syntax-highlighting" data-sourcepos="79:1-81:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> run <span class="hl-constant">-p</span> zed <span class="hl-constant">--bin</span> zed-visual-test-runner <span class="hl-constant">--features</span> visual-tests
+<pre class="syntax-highlighting" data-sourcepos="79:1-81:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> zed <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> zed-visual-test-runner <span class="hl-variable hl-parameter hl-option hl-shell">--features</span> visual-tests
 </span></code></pre>
 <h3 id="baseline-images" data-sourcepos="83:1-83:19">Baseline Images<a href="#baseline-images" aria-label="Link to heading 'Baseline Images'" data-heading-content="Baseline Images" class="anchor"></a></h3>
 <p data-sourcepos="85:1-87:21">Baseline images are stored in <code data-sourcepos="85:31-85:70">crates/zed/test_fixtures/visual_tests/</code> but are
@@ -560,14 +560,14 @@ The bundled app requires macOS 12.0 (Monterey) or later.</p>
 before running tests.</p>
 <h4 id="initial-setup" data-sourcepos="89:1-89:18">Initial Setup<a href="#initial-setup" aria-label="Link to heading 'Initial Setup'" data-heading-content="Initial Setup" class="anchor"></a></h4>
 <p data-sourcepos="91:1-91:79">Before making any UI changes, generate baseline images from a known-good state:</p>
-<pre class="syntax-highlighting" data-sourcepos="93:1-97:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">git</span> checkout origin/main
-<span class="hl-property">UPDATE_BASELINE</span>=1 <span class="hl-function">cargo</span> run <span class="hl-constant">-p</span> zed <span class="hl-constant">--bin</span> zed-visual-test-runner <span class="hl-constant">--features</span> visual-tests
-<span class="hl-function">git</span> checkout <span class="hl-constant">-</span>
+<pre class="syntax-highlighting" data-sourcepos="93:1-97:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">git</span> checkout origin/main
+<span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">UPDATE_BASELINE</span>=1 <span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> zed <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> zed-visual-test-runner <span class="hl-variable hl-parameter hl-option hl-shell">--features</span> visual-tests
+<span class="hl-variable hl-function hl-shell">git</span> checkout <span class="hl-variable hl-parameter hl-option hl-shell">-</span>
 </span></code></pre>
 <p data-sourcepos="99:1-99:60">This creates baselines that reflect the current expected UI.</p>
 <h4 id="updating-baselines" data-sourcepos="101:1-101:23">Updating Baselines<a href="#updating-baselines" aria-label="Link to heading 'Updating Baselines'" data-heading-content="Updating Baselines" class="anchor"></a></h4>
 <p data-sourcepos="103:1-103:79">When UI changes are intentional, update the baseline images after your changes:</p>
-<pre class="syntax-highlighting" data-sourcepos="105:1-107:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-property">UPDATE_BASELINE</span>=1 <span class="hl-function">cargo</span> run <span class="hl-constant">-p</span> zed <span class="hl-constant">--bin</span> zed-visual-test-runner <span class="hl-constant">--features</span> visual-tests
+<pre class="syntax-highlighting" data-sourcepos="105:1-107:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">UPDATE_BASELINE</span>=1 <span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> zed <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> zed-visual-test-runner <span class="hl-variable hl-parameter hl-option hl-shell">--features</span> visual-tests
 </span></code></pre>
 <blockquote data-sourcepos="109:1-110:59">
 <p data-sourcepos="109:3-110:59"><strong data-sourcepos="109:3-109:11">Note:</strong> In the future, baselines may be stored externally. For now, they
@@ -594,15 +594,15 @@ The debug symbols for every release are archived: <code data-sourcepos="118:51-1
 Each unresolved frame in the sample output prints its <code data-sourcepos="135:57-135:70">load address</code> and absolute address.</li>
 </ul>
 <p data-sourcepos="137:1-137:176">To profile a released build on your own machine with full symbols, download the matching <code data-sourcepos="137:90-137:100">zed.dwarf</code>, convert it into a <code data-sourcepos="137:121-137:127">.dSYM</code> bundle Spotlight can index, and re-run <code data-sourcepos="137:168-137:175">sample</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="139:1-142:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">mkdir</span> <span class="hl-constant">-p</span> Zed.dSYM/Contents/Resources/DWARF
-<span class="hl-function">cp</span> zed.dwarf Zed.dSYM/Contents/Resources/DWARF/zed
+<pre class="syntax-highlighting" data-sourcepos="139:1-142:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">mkdir</span> <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> Zed.dSYM/Contents/Resources/DWARF
+<span class="hl-variable hl-function hl-shell">cp</span> zed.dwarf Zed.dSYM/Contents/Resources/DWARF/zed
 </span></code></pre>
 <p data-sourcepos="144:1-144:71">Frames then resolve automatically, including file and line information.</p>
 <h2 id="troubleshooting" data-sourcepos="146:1-146:18">Troubleshooting<a href="#troubleshooting" aria-label="Link to heading 'Troubleshooting'" data-heading-content="Troubleshooting" class="anchor"></a></h2>
 <h3 id="error-compiling-metal-shaders" data-sourcepos="148:1-148:33">Error compiling metal shaders<a href="#error-compiling-metal-shaders" aria-label="Link to heading 'Error compiling metal shaders'" data-heading-content="Error compiling metal shaders" class="anchor"></a></h3>
-<pre class="syntax-highlighting" data-sourcepos="150:1-154:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">error:</span> failed to run custom build command for gpui v0.1.0 (<span class="hl-function">/Users/path/to/zed</span>)<span class="hl-function">`**
+<pre class="syntax-highlighting" data-sourcepos="150:1-154:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">error:</span> failed to run custom build command for gpui v0.1.0 (<span class="hl-variable hl-function hl-shell">/Users/path/to/zed</span>)<span class="hl-variable hl-function hl-shell">`**
 
-xcrun: error: unable to find utility </span><span class="hl-string">&quot;metal&quot;</span><span class="hl-function">, not a developer tool or in PATH
+xcrun: error: unable to find utility </span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">metal</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span><span class="hl-variable hl-function hl-shell">, not a developer tool or in PATH
 </span></span></code></pre>
 <p data-sourcepos="156:1-156:75">Try <code data-sourcepos="156:5-156:75">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</code></p>
 <p data-sourcepos="158:1-159:96">If you’re on macOS 26, try <code data-sourcepos="158:28-158:73">xcodebuild -downloadComponent MetalToolchain</code>.
@@ -611,10 +611,10 @@ If that command fails, run <code data-sourcepos="159:28-159:55">xcodebuild -runF
 <p data-sourcepos="163:1-163:36">Try <code data-sourcepos="163:5-163:17">cargo clean</code> and <code data-sourcepos="163:23-163:35">cargo build</code>.</p>
 <h3 id="error-dispatchdispatchh-file-not-found" data-sourcepos="165:1-165:47">Error: ‘dispatch/dispatch.h’ file not found<a href="#error-dispatchdispatchh-file-not-found" aria-label="Link to heading 'Error: ‘dispatch/dispatch.h’ file not found'" data-heading-content="Error: ‘dispatch/dispatch.h’ file not found" class="anchor"></a></h3>
 <p data-sourcepos="167:1-167:37">If you encounter an error similar to:</p>
-<pre class="syntax-highlighting" data-sourcepos="169:1-182:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">src/platform/mac/dispatch.h:1:10:</span> fatal error: <span class="hl-string">&#39;dispatch/dispatch.h&#39;</span> file not found
+<pre class="syntax-highlighting" data-sourcepos="169:1-182:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">src/platform/mac/dispatch.h:1:10:</span> fatal error: <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-shell">dispatch/dispatch.h</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&#39;</span></span> file not found
 
-<span class="hl-function">Caused</span> by:
-  <span class="hl-function">process</span> didn&#39;t exit successfully
+<span class="hl-variable hl-function hl-shell">Caused</span> by:
+  <span class="hl-variable hl-function hl-shell">process</span> didn&#39;t exit successfully
 
   --- stdout
   cargo:rustc-link-lib=framework=System
@@ -625,15 +625,15 @@ If that command fails, run <code data-sourcepos="159:28-159:55">xcodebuild -runF
   cargo:rerun-if-env-changed=BINDGEN_EXTRA_CLANG_ARGS
 </span></code></pre>
 <p data-sourcepos="184:1-184:111">This file is part of Xcode. Make sure the Xcode command line tools are installed and the path is set correctly:</p>
-<pre class="syntax-highlighting" data-sourcepos="186:1-189:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">xcode-select</span> <span class="hl-constant">--install</span>
-<span class="hl-function">sudo</span> xcode-select <span class="hl-constant">--switch</span> /Applications/Xcode.app/Contents/Developer
+<pre class="syntax-highlighting" data-sourcepos="186:1-189:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">xcode-select</span> <span class="hl-variable hl-parameter hl-option hl-shell">--install</span>
+<span class="hl-variable hl-function hl-shell">sudo</span> xcode-select <span class="hl-variable hl-parameter hl-option hl-shell">--switch</span> /Applications/Xcode.app/Contents/Developer
 </span></code></pre>
 <p data-sourcepos="191:1-191:70">Additionally, set the <code data-sourcepos="191:23-191:48">BINDGEN_EXTRA_CLANG_ARGS</code> environment variable:</p>
-<pre class="syntax-highlighting" data-sourcepos="193:1-195:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-keyword">export</span> <span class="hl-property">BINDGEN_EXTRA_CLANG_ARGS</span>=<span class="hl-string">&quot;--sysroot=</span><span class="hl-embedded">$(</span><span class="hl-function">xcrun</span><span class="hl-embedded"> </span><span class="hl-constant">--show-sdk-path</span><span class="hl-embedded">)</span><span class="hl-string">&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="193:1-195:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-storage hl-modifier hl-shell">export</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">BINDGEN_EXTRA_CLANG_ARGS</span>=<span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">--sysroot=$(</span><span class="hl-variable hl-function hl-shell">xcrun</span><span class="hl-string hl-quoted hl-double hl-shell"> </span><span class="hl-variable hl-parameter hl-option hl-shell">--show-sdk-path</span><span class="hl-string hl-quoted hl-double hl-shell">)</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="197:1-197:35">Then clean and rebuild the project:</p>
-<pre class="syntax-highlighting" data-sourcepos="199:1-202:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> clean
-<span class="hl-function">cargo</span> run
+<pre class="syntax-highlighting" data-sourcepos="199:1-202:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> clean
+<span class="hl-variable hl-function hl-shell">cargo</span> run
 </span></code></pre>
 <h3 id="tests-failing-due-to-too-many-open-files-os-error-24" data-sourcepos="204:1-204:60">Tests failing due to <code data-sourcepos="204:26-204:60">Too many open files (os error 24)</code><a href="#tests-failing-due-to-too-many-open-files-os-error-24" aria-label="Link to heading 'Tests failing due to Too many open files (os error 24)'" data-heading-content="Tests failing due to Too many open files (os error 24)" class="anchor"></a></h3>
 <p data-sourcepos="206:1-206:133">This error seems to be caused by OS resource constraints. Installing and running tests with <code data-sourcepos="206:93-206:107">cargo-nextest</code> should resolve the issue.</p>

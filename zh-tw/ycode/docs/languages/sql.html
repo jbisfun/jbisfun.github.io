@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -505,23 +505,23 @@
 <ol data-sourcepos="16:1-16:27">
 <li data-sourcepos="16:1-16:27">Install <code data-sourcepos="16:12-16:26">sql-formatter</code>:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="18:1-20:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">npm</span> install <span class="hl-constant">-g</span> sql-formatter
+<pre class="syntax-highlighting" data-sourcepos="18:1-20:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">npm</span> install <span class="hl-variable hl-parameter hl-option hl-shell">-g</span> sql-formatter
 </span></code></pre>
 <ol data-sourcepos="22:1-22:74" start="2">
 <li data-sourcepos="22:1-22:74">Ensure <code data-sourcepos="22:11-22:25">sql-formatter</code> is available in your path and check the version:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="24:1-27:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">which</span> sql-formatter
-<span class="hl-function">sql-formatter</span> <span class="hl-constant">--version</span>
+<pre class="syntax-highlighting" data-sourcepos="24:1-27:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">which</span> sql-formatter
+<span class="hl-variable hl-function hl-shell">sql-formatter</span> <span class="hl-variable hl-parameter hl-option hl-shell">--version</span>
 </span></code></pre>
 <ol data-sourcepos="29:1-29:110" start="3">
 <li data-sourcepos="29:1-29:110">Configure formatting in Settings (<code data-sourcepos="29:38-29:56">zed::OpenSettings</code>) under Languages &gt; SQL, or add to your settings file:</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="31:1-42:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;SQL&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;external&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;sql-formatter&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;--language&quot;</span>, <span class="hl-string">&quot;mysql&quot;</span>]
+<pre class="syntax-highlighting" data-sourcepos="31:1-42:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">SQL</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">external</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">sql-formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--language</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">mysql</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
         }
       }
     }
@@ -532,19 +532,19 @@
 <h3 id="advanced-formatting" data-sourcepos="48:1-48:23">Advanced Formatting<a href="#advanced-formatting" aria-label="Link to heading 'Advanced Formatting'" data-heading-content="Advanced Formatting" class="anchor"></a></h3>
 <p data-sourcepos="50:1-50:243">Sql-formatter also allows more precise control by providing <a data-sourcepos="50:61-50:171" href="https://github.com/sql-formatter-org/sql-formatter#configuration-options">sql-formatter configuration options</a>. To provide these, create a <code data-sourcepos="50:201-50:221">.sql-formatter.json</code> file in your project:</p>
 <pre class="syntax-highlighting" data-sourcepos="52:1-59:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;language&quot;</span>: <span class="hl-string">&quot;postgresql&quot;</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;tabWidth&quot;</span>: <span class="hl-number">2</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;keywordCase&quot;</span>: <span class="hl-string">&quot;upper&quot;</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;linesBetweenQueries&quot;</span>: <span class="hl-number">2</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">postgresql</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">tabWidth</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">2</span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">keywordCase</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">upper</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">linesBetweenQueries</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">2</span>
 }
 </span></code></pre>
 <p data-sourcepos="61:1-61:92">When using a <code data-sourcepos="61:14-61:34">.sql-formatter.json</code> file you can use a simplified Zed settings configuration:</p>
 <pre class="syntax-highlighting" data-sourcepos="63:1-75:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;SQL&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;external&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;sql-formatter&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">SQL</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">external</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">sql-formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
         }
       }
     }

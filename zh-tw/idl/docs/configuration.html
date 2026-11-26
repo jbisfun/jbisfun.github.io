@@ -241,17 +241,17 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="idl">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../../idl/docs/configuration.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
       <h1 id="idlprojyml-reference" data-sourcepos="1:1-1:26">idlproj.yml 參考文件<a href="#idlprojyml-reference" aria-label="Link to heading 'idlproj.yml 參考文件'" data-heading-content="idlproj.yml 參考文件" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:75"><code data-sourcepos="3:1-3:13">idlproj.yml</code> 是唯一的設定檔。它包含四個頂層鍵（keys）：</p>
-<pre class="syntax-highlighting" data-sourcepos="5:1-10:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">toolchain</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">{</span> <span class="hl-string">...</span> <span class="hl-punctuation hl-punctuation-bracket">}</span>   <span class="hl-comment"># 選填：編譯器與 SDK 的位置</span>
-<span class="hl-property">defaults</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>  <span class="hl-punctuation hl-punctuation-bracket">{</span> <span class="hl-string">...</span> <span class="hl-punctuation hl-punctuation-bracket">}</span>   <span class="hl-comment"># 選填：套用至所有目標的預設鍵</span>
-<span class="hl-property">configurations</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">{</span> <span class="hl-string">...</span> <span class="hl-punctuation hl-punctuation-bracket">}</span> <span class="hl-comment"># 選填：除錯/發布模式的覆寫設定</span>
-<span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>   <span class="hl-punctuation hl-punctuation-bracket">[</span> <span class="hl-string">...</span> <span class="hl-punctuation hl-punctuation-bracket">]</span>   <span class="hl-comment"># 必填：每個應用程式各佔一筆</span>
+<pre class="syntax-highlighting" data-sourcepos="5:1-10:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span>: { <span class="hl-string hl-quoted hl-double hl-yaml">...</span> }   <span class="hl-comment hl-line hl-yaml"># 選填：編譯器與 SDK 的位置</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">defaults</span>:  { <span class="hl-string hl-quoted hl-double hl-yaml">...</span> }   <span class="hl-comment hl-line hl-yaml"># 選填：套用至所有目標的預設鍵</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">configurations</span>: { <span class="hl-string hl-quoted hl-double hl-yaml">...</span> } <span class="hl-comment hl-line hl-yaml"># 選填：除錯/發布模式的覆寫設定</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:   [ <span class="hl-string hl-quoted hl-double hl-yaml">...</span> ]   <span class="hl-comment hl-line hl-yaml"># 必填：每個應用程式各佔一筆</span>
 </span></code></pre>
 <p data-sourcepos="12:1-12:284"><code data-sourcepos="12:1-12:5">idl</code> 會拒絕未知的鍵，因此像是 <code data-sourcepos="12:44-12:52">sorces:</code> 這樣的拼字錯誤會被視為錯誤而非忽略。版本號碼以文字形式書寫，您可以選擇加上引號：<code data-sourcepos="12:174-12:188">min_ios: 16.0</code> 與 <code data-sourcepos="12:194-12:210">min_ios: &quot;16.0&quot;</code> 皆表示字串 <code data-sourcepos="12:228-12:233">16.0</code>，且 <code data-sourcepos="12:241-12:247">16.10</code> 永遠不會被讀取為浮點數。</p>
 <h2 id="toolchain" data-sourcepos="14:1-14:12">toolchain<a href="#toolchain" aria-label="Link to heading 'toolchain'" data-heading-content="toolchain" class="anchor"></a></h2>
@@ -489,15 +489,15 @@
 <p data-sourcepos="82:1-82:397">具有 <code data-sourcepos="82:8-82:20">app_intents</code> 的靜態（static）目標僅記錄其常數值；每個連結它的套件都會將其靜態模組與自身的常數值一併提取（因此，由應用程式及其小工具擴展共用且必須在應用程式中執行的意圖，例如 <code data-sourcepos="82:260-82:280">AudioPlaybackIntent</code>，會位於一個同時被兩者連結的靜態目標中）。連結此類目標會為該套件啟用提取功能。</p>
 <p data-sourcepos="84:1-84:264">宣告無任何意圖的模組不會產生中繼資料。預設情況下（WidgetKit/AppIntents 位於 <code data-sourcepos="84:104-84:115">frameworks</code>），若缺少處理器會發出警告；若設定 <code data-sourcepos="84:168-84:186">app_intents: true</code> 或 <code data-sourcepos="84:192-84:201">--strict</code>，則視為錯誤。<code data-sourcepos="84:223-84:242">app_intents: false</code> 會關閉此檢查。</p>
 <p data-sourcepos="86:1-86:116">WidgetKit 擴展是一種具有 Swift <code data-sourcepos="86:39-86:58">@main WidgetBundle</code> 且無 <code data-sourcepos="86:67-86:75">ldflags</code> 進入點（entry point）的 <code data-sourcepos="86:107-86:113">appex</code>：</p>
-<pre class="syntax-highlighting" data-sourcepos="88:1-98:3"><code class="language-yaml"><span class="hl-source hl-yaml">  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Widgets</span>
-    <span class="hl-property">type</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">appex</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.app.widgets</span>
-    <span class="hl-property">min_ios</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;17.0&quot;</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Widgets</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">frameworks</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">SwiftUI</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">WidgetKit</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">AppIntents</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">NSExtension</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-        <span class="hl-property">NSExtensionPointIdentifier</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.apple.widgetkit-extension</span>
+<pre class="syntax-highlighting" data-sourcepos="88:1-98:3"><code class="language-yaml"><span class="hl-source hl-yaml">  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Widgets</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">type</span>: <span class="hl-string hl-quoted hl-double hl-yaml">appex</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.app.widgets</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">min_ios</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">17.0</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Widgets</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">SwiftUI</span>, <span class="hl-string hl-quoted hl-double hl-yaml">WidgetKit</span>, <span class="hl-string hl-quoted hl-double hl-yaml">AppIntents</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">NSExtension</span>:
+        <span class="hl-entity hl-name hl-tag hl-yaml">NSExtensionPointIdentifier</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.apple.widgetkit-extension</span>
 </span></code></pre>
 <h3 id="bundle" data-sourcepos="100:1-100:10">套件<a href="#bundle" aria-label="Link to heading '套件'" data-heading-content="套件" class="anchor"></a></h3>
 <table data-sourcepos="102:1-112:91" class="table table-sm table-striped">
@@ -573,20 +573,20 @@
 <code data-sourcepos="128:1-128:29">PRODUCT_BUNDLE_PACKAGE_TYPE</code>、<code data-sourcepos="128:33-128:51">MARKETING_VERSION</code>、<code data-sourcepos="128:55-128:79">CURRENT_PROJECT_VERSION</code>、
 <code data-sourcepos="129:1-129:28">IPHONEOS_DEPLOYMENT_TARGET</code>、<code data-sourcepos="129:32-129:53">DEVELOPMENT_LANGUAGE</code>。</p>
 <p data-sourcepos="131:1-131:25">不需要手寫的 XML：</p>
-<pre class="syntax-highlighting" data-sourcepos="133:1-148:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">MyApp</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.myapp</span>
-    <span class="hl-property">version</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;1.0&quot;</span>
-    <span class="hl-property">build_number</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;1&quot;</span>
-    <span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">CFBundleDisplayName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">My App</span>
-      <span class="hl-property">NSCameraUsageDescription</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Take a profile photo</span>
-      <span class="hl-property">UIMainStoryboardFile</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Main</span>
-      <span class="hl-property">UILaunchStoryboardName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">LaunchScreen</span>
-      <span class="hl-property">UIBackgroundModes</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">audio</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">entitlements</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">get-task-allow</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
-      <span class="hl-property">com.apple.security.application-groups</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">&quot;group.com.example.myapp&quot;</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+<pre class="syntax-highlighting" data-sourcepos="133:1-148:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">MyApp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.myapp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">version</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">1.0</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">build_number</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">1</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">My App</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">NSCameraUsageDescription</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Take a profile photo</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">UIMainStoryboardFile</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Main</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">UILaunchStoryboardName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">LaunchScreen</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">UIBackgroundModes</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">audio</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">com.apple.security.application-groups</span>: [<span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">group.com.example.myapp</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>]
 </span></code></pre>
 <p data-sourcepos="150:1-151:120">若使用程式化介面，可省略故事板鍵。若不需要功能，可省略 <code data-sourcepos="150:83-150:96">entitlements</code>；<code data-sourcepos="150:100-150:115">get-task-allow</code> 是選配加入，而非發行預設值。權限支援與 <code data-sourcepos="150:175-150:180">info</code> 相同的 YAML 類型和變數展開。它們是請求，而非配置設定：Apple 功能仍需要適當的簽章身份/設定檔。明確的 <code data-sourcepos="150:325-150:336">info_plist</code> 或字串值的
 <code data-sourcepos="151:1-151:44">entitlements: Support/App.entitlementments</code> 仍然受支援。缺少明確檔案會視為錯誤，不會靜默忽略。</p>
@@ -748,16 +748,16 @@ Swift 的 <code data-sourcepos="173:13-173:19">@main</code>（WidgetKit 的 <cod
 <p data-sourcepos="225:1-225:146">檢查完成後，<code data-sourcepos="225:19-225:26">tests:</code> 中的命令會在目標目錄中執行，並設定 <code data-sourcepos="225:80-225:88">IDL_IPA</code>、<code data-sourcepos="225:92-225:100">IDL_APP</code>、<code data-sourcepos="225:104-225:118">IDL_BUILD_DIR</code>、<code data-sourcepos="225:122-225:133">IDL_TARGET</code> 和 <code data-sourcepos="225:139-225:143">IDL</code>。</p>
 <h4 id="host-test-targets-type-test" data-sourcepos="227:1-227:41">主機測試目標（<code data-sourcepos="227:27-227:38">type: test</code>）<a href="#host-test-targets-type-test" aria-label="Link to heading '主機測試目標（type: test）'" data-heading-content="主機測試目標（type: test）" class="anchor"></a></h4>
 <p data-sourcepos="229:1-229:203">iOS 二進位檔案無法在 Linux 上執行，且 iPhoneOS SDK 沒有 XCTest，因此 <code data-sourcepos="229:88-229:99">type: test</code> 目標會在 Linux 主機上編譯並執行，同時連結其靜態（static）目標（遞迴地）：</p>
-<pre class="syntax-highlighting" data-sourcepos="231:1-242:3"><code class="language-yaml"><span class="hl-source hl-yaml">  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">CalcCore</span>            <span class="hl-comment"># 被測試的程式碼；也會被應用程式連結</span>
-    <span class="hl-property">type</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">static</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Core</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">frameworks</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Foundation</span><span class="hl-punctuation hl-punctuation-bracket">]</span>  <span class="hl-comment"># 被測試的程式碼必須支援主機平台</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">CalcCoreTests</span>
-    <span class="hl-property">type</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">test</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Tests</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>        <span class="hl-comment"># 測試檔案</span>
-    <span class="hl-property">link</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">CalcCore</span><span class="hl-punctuation hl-punctuation-bracket">]</span>          <span class="hl-comment"># 被測試的靜態目標</span>
+<pre class="syntax-highlighting" data-sourcepos="231:1-242:3"><code class="language-yaml"><span class="hl-source hl-yaml">  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">CalcCore</span>            <span class="hl-comment hl-line hl-yaml"># 被測試的程式碼；也會被應用程式連結</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">type</span>: <span class="hl-string hl-quoted hl-double hl-yaml">static</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Core</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Foundation</span>]  <span class="hl-comment hl-line hl-yaml"># 被測試的程式碼必須支援主機平台</span>
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">CalcCoreTests</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">type</span>: <span class="hl-string hl-quoted hl-double hl-yaml">test</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Tests</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]        <span class="hl-comment hl-line hl-yaml"># 測試檔案</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">link</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">CalcCore</span>]          <span class="hl-comment hl-line hl-yaml"># 被測試的靜態目標</span>
 </span></code></pre>
 <ul data-sourcepos="244:1-249:326">
 <li data-sourcepos="244:1-244:905">Swift：idl 會寫入一個 SwiftPM 套件至 <code data-sourcepos="244:49-244:74">&lt;build_dir&gt;/test/&lt;name&gt;/</code>（每個被測試的靜態目標對應一個程式庫目標，名稱與之相同，以及一個測試目標），並執行 <code data-sourcepos="244:199-244:225">swift build --build-tests</code> 和 <code data-sourcepos="244:231-244:242">swift test</code>，其中 <code data-sourcepos="244:253-244:259">swift</code> 位於 <code data-sourcepos="244:268-244:285">toolchain.swiftc</code> 旁邊。SwiftPM 會發現 XCTest 和 swift-testing 測試；<code data-sourcepos="244:348-244:374">@testable import CalcCore</code> 可用。SwiftPM 不接受套件範圍外的目標路徑，且 idl 不會建立符號連結，因此來源檔案會被複製到套件中（僅變更的檔案會被重寫）；編譯器和測試輸出中的路徑會指向原始檔案。每個目標繼承：<code data-sourcepos="244:632-244:646">swift_version</code>（語言模式）、不含 <code data-sourcepos="244:675-244:677">=</code> 的 <code data-sourcepos="244:683-244:691">defines</code>、<code data-sourcepos="244:695-244:708">include_dirs</code>、<code data-sourcepos="244:712-244:731">quote_include_dirs</code>、<code data-sourcepos="244:735-244:746">swiftflags</code>、<code data-sourcepos="244:750-244:760">libraries</code> 和 <code data-sourcepos="244:766-244:774">ldflags</code>。若未指定 <code data-sourcepos="244:791-244:794">-c</code> 或指定 <code data-sourcepos="244:806-244:815">-c debug</code>，SwiftPM 會編譯為 debug；<code data-sourcepos="244:848-244:859">-c release</code> 則以 <code data-sourcepos="244:868-244:884">-enable-testing</code> 編譯為 release。</li>
@@ -822,23 +822,23 @@ FAIL &lt;test target&gt; tests (error)          # 組態或工具遺失；訊息
 <h2 id="configurations" data-sourcepos="288:1-288:9">組態<a href="#configurations" aria-label="Link to heading '組態'" data-heading-content="組態" class="anchor"></a></h2>
 <p data-sourcepos="290:1-291:115">在 <code data-sourcepos="290:5-290:11">build</code>、<code data-sourcepos="290:15-290:23">install</code>、
 <code data-sourcepos="291:1-291:7">check</code>、<code data-sourcepos="291:11-291:15">gen</code>、<code data-sourcepos="291:19-291:29">xcodeproj</code>、<code data-sourcepos="291:33-291:38">list</code> 和 <code data-sourcepos="291:44-291:50">clean</code> 上使用 <code data-sourcepos="291:62-291:71">-c debug</code> / <code data-sourcepos="291:75-291:99">--configuration release</code> 進行選擇：</p>
-<pre class="syntax-highlighting" data-sourcepos="293:1-311:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">configurations</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">debug</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-    <span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">CFBundleDisplayName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">My App Debug</span>
-  <span class="hl-property">release</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-    <span class="hl-property">defines</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">PRODUCTION</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">entitlements</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">get-task-allow</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">false</span>
+<pre class="syntax-highlighting" data-sourcepos="293:1-311:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">configurations</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">debug</span>:
+    <span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">My App Debug</span>
+  <span class="hl-entity hl-name hl-tag hl-yaml">release</span>:
+    <span class="hl-entity hl-name hl-tag hl-yaml">defines</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">PRODUCTION</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">false</span>
 
-<span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">MyApp</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.myapp</span>
-    <span class="hl-property">configurations</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">debug</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-        <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.myapp.debug</span>
-        <span class="hl-property">entitlements</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-          <span class="hl-property">get-task-allow</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">MyApp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.myapp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">configurations</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">debug</span>:
+        <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.myapp.debug</span>
+        <span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span>:
+          <span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 </span></code></pre>
 <p data-sourcepos="313:1-314:259">內建偵錯設定：<code data-sourcepos="313:22-313:31">opt: -O0</code>、<code data-sourcepos="313:35-313:53">swift_opt: -Onone</code>、<code data-sourcepos="313:57-313:77">debug_symbols: true</code>，以及額外的 <code data-sourcepos="313:97-313:103">DEBUG</code> 定義。內建發行設定：<code data-sourcepos="313:135-313:139">-Os</code>、<code data-sourcepos="313:143-313:146">-O</code>，無
 DWARF；繼承的 YAML <code data-sourcepos="314:24-314:39">get-task-allow</code> 設為 false。設定檔覆寫可明確變更這些預設值。若應用程式要求無功能，則不會製造權限檔案。對於舊版權限檔案輸入，如有需要，請在發行設定檔中明確覆寫權限。</p>
@@ -852,43 +852,43 @@ DWARF；繼承的 YAML <code data-sourcepos="314:24-314:39">get-task-allow</code
 <h2 id="defaults" data-sourcepos="326:1-326:12">預設值<a href="#defaults" aria-label="Link to heading '預設值'" data-heading-content="預設值" class="anchor"></a></h2>
 <p data-sourcepos="328:1-328:232"><code data-sourcepos="328:1-328:11">defaults:</code> 接受任何目標鍵，除了 <code data-sourcepos="328:44-328:49">name</code>、<code data-sourcepos="328:53-328:57">dir</code> 和 <code data-sourcepos="328:63-328:73">bundle_id</code>。一個目標會遞迴覆寫預設值的對應（<code data-sourcepos="328:125-328:130">info</code>、<code data-sourcepos="328:134-328:147">entitlements</code> 等）；清單會被取代，不會合併，且 <code data-sourcepos="328:198-328:200">~</code> 會清除可選的對應/值。</p>
 <h2 id="complete-example" data-sourcepos="330:1-330:15">完整範例<a href="#complete-example" aria-label="Link to heading '完整範例'" data-heading-content="完整範例" class="anchor"></a></h2>
-<pre class="syntax-highlighting" data-sourcepos="332:1-370:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">toolchain</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">jobs</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-number">8</span>
+<pre class="syntax-highlighting" data-sourcepos="332:1-370:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">toolchain</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">jobs</span>: <span class="hl-constant hl-numeric hl-yaml">8</span>
 
-<span class="hl-property">defaults</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">min_ios</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;16.0&quot;</span>
-  <span class="hl-property">compile_commands</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">defaults</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">min_ios</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">16.0</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+  <span class="hl-entity hl-name hl-tag hl-yaml">compile_commands</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 
-<span class="hl-property">targets</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">MyApp</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">app</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.myapp</span>
-    <span class="hl-property">version</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;2.1&quot;</span>
-    <span class="hl-property">build_number</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">&quot;37&quot;</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">resources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Resources</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">bridging_header</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Sources/MyApp-Bridging-Header.h</span>
-    <span class="hl-property">defines</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">ENABLE_LOGGING</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">&#39;API_HOST=&quot;api.example.com&quot;&#39;</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">frameworks</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">UIKit</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">Foundation</span><span class="hl-punctuation hl-punctuation-delimiter">,</span> <span class="hl-string">AVFoundation</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">libraries</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">z</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">entitlements</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">get-task-allow</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
-    <span class="hl-property">plist_vars</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">APP_GROUP</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">group.com.example.myapp</span>
-    <span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">CFBundleDisplayName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">My App</span>
-      <span class="hl-property">UIFileSharingEnabled</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
-      <span class="hl-property">UIBackgroundModes</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">audio</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">xcodeproj</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-boolean">true</span>
+<span class="hl-entity hl-name hl-tag hl-yaml">targets</span>:
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">MyApp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">app</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.myapp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">version</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">2.1</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">build_number</span>: <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">37</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">resources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Resources</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">bridging_header</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Sources/MyApp-Bridging-Header.h</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">defines</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">ENABLE_LOGGING</span>, <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">API_HOST=&quot;api.example.com&quot;</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&#39;</span></span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">UIKit</span>, <span class="hl-string hl-quoted hl-double hl-yaml">Foundation</span>, <span class="hl-string hl-quoted hl-double hl-yaml">AVFoundation</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">libraries</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">z</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">entitlements</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">get-task-allow</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">plist_vars</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">APP_GROUP</span>: <span class="hl-string hl-quoted hl-double hl-yaml">group.com.example.myapp</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">My App</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">UIFileSharingEnabled</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">UIBackgroundModes</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">audio</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">xcodeproj</span>: <span class="hl-constant hl-language hl-boolean hl-yaml">true</span>
 
-  <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-property">name</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">Companion</span>
-    <span class="hl-property">builder</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">xtool</span>
-    <span class="hl-property">dir</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">companion</span>
-    <span class="hl-property">bundle_id</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">com.example.companion</span>
-    <span class="hl-property">sources</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">Sources/Companion</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-    <span class="hl-property">info</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-property">CFBundleDisplayName</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">My App</span>
-    <span class="hl-property">frameworks</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-string">UIKit</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
+  - <span class="hl-entity hl-name hl-tag hl-yaml">name</span>: <span class="hl-string hl-quoted hl-double hl-yaml">Companion</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">builder</span>: <span class="hl-string hl-quoted hl-double hl-yaml">xtool</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">dir</span>: <span class="hl-string hl-quoted hl-double hl-yaml">companion</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">bundle_id</span>: <span class="hl-string hl-quoted hl-double hl-yaml">com.example.companion</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">sources</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">Sources/Companion</span>]
+    <span class="hl-entity hl-name hl-tag hl-yaml">info</span>:
+      <span class="hl-entity hl-name hl-tag hl-yaml">CFBundleDisplayName</span>: <span class="hl-string hl-quoted hl-double hl-yaml">My App</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">frameworks</span>: [<span class="hl-string hl-quoted hl-double hl-yaml">UIKit</span>]
 </span></code></pre>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

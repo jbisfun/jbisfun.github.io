@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/elm.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/elm.md">
 
 
       <h1 id="elm" data-sourcepos="6:1-6:5">Elm<a href="#elm" aria-label="Link to heading 'Elm'" data-heading-content="Elm" class="anchor"></a></h1>
@@ -504,23 +504,23 @@
 <ol data-sourcepos="17:1-25:6">
 <li data-sourcepos="17:1-17:99"><a data-sourcepos="17:4-17:61" href="https://guide.elm-lang.org/install/elm.html">Install Elm</a> (or run <code data-sourcepos="17:71-17:88">brew install elm</code> on macOS).</li>
 <li data-sourcepos="18:1-21:6">Install <code data-sourcepos="18:12-18:23">elm-review</code> to support code linting:
-<pre class="syntax-highlighting" data-sourcepos="19:4-21:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">npm</span> install elm-review <span class="hl-constant">--save-dev</span>
+<pre class="syntax-highlighting" data-sourcepos="19:4-21:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">npm</span> install elm-review <span class="hl-variable hl-parameter hl-option hl-shell">--save-dev</span>
 </span></code></pre>
 </li>
 <li data-sourcepos="22:1-25:6">Install <code data-sourcepos="22:12-22:23">elm-format</code> to support automatic formatting
-<pre class="syntax-highlighting" data-sourcepos="23:4-25:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">npm</span> install <span class="hl-constant">-g</span> elm-format
+<pre class="syntax-highlighting" data-sourcepos="23:4-25:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">npm</span> install <span class="hl-variable hl-parameter hl-option hl-shell">-g</span> elm-format
 </span></code></pre>
 </li>
 </ol>
 <h2 id="configuring-elm-language-server" data-sourcepos="27:1-27:36">Configuring <code data-sourcepos="27:16-27:36">elm-language-server</code><a href="#configuring-elm-language-server" aria-label="Link to heading 'Configuring elm-language-server'" data-heading-content="Configuring elm-language-server" class="anchor"></a></h2>
 <p data-sourcepos="29:1-29:68">Elm language server can be configured in your <code data-sourcepos="29:47-29:61">settings.json</code>, e.g.:</p>
 <pre class="syntax-highlighting" data-sourcepos="31:1-43:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;lsp&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;elm-language-server&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;initialization_options&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;disableElmLSDiagnostics&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;onlyUpdateDiagnosticsOnSave&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;elmReviewDiagnostics&quot;</span>: <span class="hl-string">&quot;warning&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">lsp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">elm-language-server</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">initialization_options</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">disableElmLSDiagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">onlyUpdateDiagnosticsOnSave</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">elmReviewDiagnostics</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">warning</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       }
     }
   }

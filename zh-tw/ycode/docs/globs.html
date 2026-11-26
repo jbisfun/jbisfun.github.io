@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -569,9 +569,9 @@
 <p data-sourcepos="72:1-72:514">When using the “Include” / “Exclude” filters on a Project Search each glob is wrapped in implicit wildcards. For example to exclude any files with license in the path or filename from your search just type <code data-sourcepos="72:207-72:215">license</code> in the exclude box. Behind the scenes Zed transforms <code data-sourcepos="72:270-72:278">license</code> to <code data-sourcepos="72:283-72:295">**license**</code>. This means that files named <code data-sourcepos="72:326-72:336">license.*</code>, <code data-sourcepos="72:339-72:349">*.license</code> or inside a <code data-sourcepos="72:363-72:371">license</code> subdirectory will all be filtered out. This enables users to easily filter for <code data-sourcepos="72:452-72:457">*.ts</code> without having to remember to type <code data-sourcepos="72:494-72:502">**/*.ts</code> every time.</p>
 <p data-sourcepos="74:1-74:364">Alternatively, if in your Zed settings you wanted a <a data-sourcepos="74:53-74:106" href="reference/all-settings.html#file-types"><code data-sourcepos="74:54-74:65">file_types</code></a> override which only applied to a certain directory you must explicitly include the wildcard globs. For example, if you had a directory of template files with the <code data-sourcepos="74:270-74:275">html</code> extension that you wanted to recognize as a Jinja2 template you could use the following:</p>
 <pre class="syntax-highlighting" data-sourcepos="76:1-83:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;file_types&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;C++&quot;</span>: [<span class="hl-string">&quot;[cC]&quot;</span>],
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Jinja2&quot;</span>: [<span class="hl-string">&quot;**/templates/*.html&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">file_types</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">C++</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">[cC]</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Jinja2</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">**/templates/*.html</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
   }
 }
 </span></code></pre>

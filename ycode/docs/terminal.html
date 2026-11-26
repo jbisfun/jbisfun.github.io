@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/terminal.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/terminal.md">
 
 
       <h1 id="terminal" data-sourcepos="6:1-6:10">Terminal<a href="#terminal" aria-label="Link to heading 'Terminal'" data-heading-content="Terminal" class="anchor"></a></h1>
@@ -535,20 +535,20 @@
 <h2 id="configuring-the-shell" data-sourcepos="33:1-33:24">Configuring the Shell<a href="#configuring-the-shell" aria-label="Link to heading 'Configuring the Shell'" data-heading-content="Configuring the Shell" class="anchor"></a></h2>
 <p data-sourcepos="35:1-35:112">By default, Zed uses your system’s default shell (from <code data-sourcepos="35:56-35:68">/etc/passwd</code> on Unix systems). To use a different shell:</p>
 <pre class="syntax-highlighting" data-sourcepos="37:1-45:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;shell&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;/bin/zsh&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">shell</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/bin/zsh</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   }
 }
 </span></code></pre>
 <p data-sourcepos="47:1-47:32">To pass arguments to your shell:</p>
 <pre class="syntax-highlighting" data-sourcepos="49:1-60:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;shell&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;with_arguments&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;program&quot;</span>: <span class="hl-string">&quot;/bin/bash&quot;</span>,
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;args&quot;</span>: [<span class="hl-string">&quot;--login&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">shell</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">with_arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">program</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">/bin/bash</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">args</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">--login</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
       }
     }
   }
@@ -587,18 +587,18 @@
 </tbody>
 </table>
 <pre class="syntax-highlighting" data-sourcepos="74:1-80:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;working_directory&quot;</span>: <span class="hl-string">&quot;first_project_directory&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">working_directory</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">first_project_directory</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
 <h2 id="environment-variables" data-sourcepos="82:1-82:24">Environment Variables<a href="#environment-variables" aria-label="Link to heading 'Environment Variables'" data-heading-content="Environment Variables" class="anchor"></a></h2>
 <p data-sourcepos="84:1-84:51">Add environment variables to all terminal sessions:</p>
 <pre class="syntax-highlighting" data-sourcepos="86:1-95:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;env&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;EDITOR&quot;</span>: <span class="hl-string">&quot;zed --wait&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;MY_VAR&quot;</span>: <span class="hl-string">&quot;value&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">env</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">EDITOR</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">zed --wait</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">MY_VAR</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">value</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
     }
   }
 }
@@ -609,11 +609,11 @@
 <h3 id="python-virtual-environment-detection" data-sourcepos="99:1-99:40">Python Virtual Environment Detection<a href="#python-virtual-environment-detection" aria-label="Link to heading 'Python Virtual Environment Detection'" data-heading-content="Python Virtual Environment Detection" class="anchor"></a></h3>
 <p data-sourcepos="101:1-101:159">Zed can automatically activate Python virtual environments when opening a terminal. By default, it searches for <code data-sourcepos="101:113-101:118">.env</code>, <code data-sourcepos="101:121-101:125">env</code>, <code data-sourcepos="101:128-101:134">.venv</code>, and <code data-sourcepos="101:141-101:146">venv</code> directories:</p>
 <pre class="syntax-highlighting" data-sourcepos="103:1-114:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;detect_venv&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;on&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;directories&quot;</span>: [<span class="hl-string">&quot;.venv&quot;</span>, <span class="hl-string">&quot;venv&quot;</span>],
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;activate_script&quot;</span>: <span class="hl-string">&quot;default&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">detect_venv</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">directories</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">.venv</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">venv</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">activate_script</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">default</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
       }
     }
   }
@@ -622,21 +622,21 @@
 <p data-sourcepos="116:1-116:86">The <code data-sourcepos="116:5-116:21">activate_script</code> option supports <code data-sourcepos="116:39-116:49">&quot;default&quot;</code>, <code data-sourcepos="116:52-116:58">&quot;csh&quot;</code>, <code data-sourcepos="116:61-116:68">&quot;fish&quot;</code>, and <code data-sourcepos="116:75-116:85">&quot;nushell&quot;</code>.</p>
 <p data-sourcepos="118:1-118:41">To disable virtual environment detection:</p>
 <pre class="syntax-highlighting" data-sourcepos="120:1-126:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;detect_venv&quot;</span>: <span class="hl-string">&quot;off&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">detect_venv</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">off</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
 <h2 id="fonts-and-appearance" data-sourcepos="128:1-128:23">Fonts and Appearance<a href="#fonts-and-appearance" aria-label="Link to heading 'Fonts and Appearance'" data-heading-content="Fonts and Appearance" class="anchor"></a></h2>
 <p data-sourcepos="130:1-130:53">The terminal can use different fonts from the editor:</p>
 <pre class="syntax-highlighting" data-sourcepos="132:1-143:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;font_family&quot;</span>: <span class="hl-string">&quot;JetBrains Mono&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;font_size&quot;</span>: <span class="hl-number">14</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;font_features&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;calt&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">font_family</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">JetBrains Mono</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">font_size</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">14</span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">font_features</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">calt</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
     },
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;line_height&quot;</span>: <span class="hl-string">&quot;comfortable&quot;</span>
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">line_height</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">comfortable</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -649,9 +649,9 @@
 <h3 id="cursor" data-sourcepos="151:1-151:10">Cursor<a href="#cursor" aria-label="Link to heading 'Cursor'" data-heading-content="Cursor" class="anchor"></a></h3>
 <p data-sourcepos="153:1-153:28">Configure cursor appearance:</p>
 <pre class="syntax-highlighting" data-sourcepos="155:1-162:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;cursor_shape&quot;</span>: <span class="hl-string">&quot;bar&quot;</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;blinking&quot;</span>: <span class="hl-string">&quot;on&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">cursor_shape</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bar</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">blinking</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -660,8 +660,8 @@
 <h3 id="minimum-contrast" data-sourcepos="168:1-168:20">Minimum Contrast<a href="#minimum-contrast" aria-label="Link to heading 'Minimum Contrast'" data-heading-content="Minimum Contrast" class="anchor"></a></h3>
 <p data-sourcepos="170:1-170:178">Zed adjusts terminal colors to maintain readability. The default value of <code data-sourcepos="170:75-170:78">45</code> ensures text remains visible. Set to <code data-sourcepos="170:117-170:119">0</code> to disable contrast adjustment and use exact theme colors:</p>
 <pre class="syntax-highlighting" data-sourcepos="172:1-178:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;minimum_contrast&quot;</span>: <span class="hl-number">0</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">minimum_contrast</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">0</span>
   }
 }
 </span></code></pre>
@@ -710,8 +710,8 @@
 </table>
 <p data-sourcepos="193:1-193:25">Adjust scroll speed with:</p>
 <pre class="syntax-highlighting" data-sourcepos="195:1-201:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;scroll_multiplier&quot;</span>: <span class="hl-number">3.0</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">scroll_multiplier</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">3.0</span>
   }
 }
 </span></code></pre>
@@ -740,16 +740,16 @@
 <h3 id="copy-on-select" data-sourcepos="210:1-210:18">Copy on Select<a href="#copy-on-select" aria-label="Link to heading 'Copy on Select'" data-heading-content="Copy on Select" class="anchor"></a></h3>
 <p data-sourcepos="212:1-212:50">Automatically copy selected text to the clipboard:</p>
 <pre class="syntax-highlighting" data-sourcepos="214:1-220:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;copy_on_select&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">copy_on_select</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
 <h3 id="keep-selection-after-copy" data-sourcepos="222:1-222:29">Keep Selection After Copy<a href="#keep-selection-after-copy" aria-label="Link to heading 'Keep Selection After Copy'" data-heading-content="Keep Selection After Copy" class="anchor"></a></h3>
 <p data-sourcepos="224:1-224:70">By default, text stays selected after copying. To clear the selection:</p>
 <pre class="syntax-highlighting" data-sourcepos="226:1-232:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;keep_selection_on_copy&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">keep_selection_on_copy</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
   }
 }
 </span></code></pre>
@@ -766,8 +766,8 @@
 <h2 id="option-as-meta-macos" data-sourcepos="249:1-249:25">Option as Meta (macOS)<a href="#option-as-meta-macos" aria-label="Link to heading 'Option as Meta (macOS)'" data-heading-content="Option as Meta (macOS)" class="anchor"></a></h2>
 <p data-sourcepos="251:1-251:86">For Emacs users or applications that use Meta key combinations, enable Option as Meta:</p>
 <pre class="syntax-highlighting" data-sourcepos="253:1-259:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;option_as_meta&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">option_as_meta</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
   }
 }
 </span></code></pre>
@@ -775,8 +775,8 @@
 <h2 id="alternate-scroll-mode" data-sourcepos="263:1-263:24">Alternate Scroll Mode<a href="#alternate-scroll-mode" aria-label="Link to heading 'Alternate Scroll Mode'" data-heading-content="Alternate Scroll Mode" class="anchor"></a></h2>
 <p data-sourcepos="265:1-265:106">When enabled, mouse scroll events are converted to arrow key presses in applications like <code data-sourcepos="265:91-265:95">vim</code> or <code data-sourcepos="265:100-265:105">less</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="267:1-273:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;alternate_scroll&quot;</span>: <span class="hl-string">&quot;on&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">alternate_scroll</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">on</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
@@ -790,42 +790,42 @@
 </ul>
 <p data-sourcepos="285:1-285:326">By default, <code data-sourcepos="285:13-285:23">Cmd+Click</code>/<code data-sourcepos="285:25-285:36">Ctrl+Click</code> opens links even when the running application has enabled mouse reporting (e.g. vim with <code data-sourcepos="285:127-285:135">mouse=a</code>, htop). If you prefer those clicks to be forwarded to the application instead, disable <code data-sourcepos="285:224-285:249">open_links_in_mouse_mode</code>; links can then still be opened with <code data-sourcepos="285:288-285:304">Shift+Cmd+Click</code> (<code data-sourcepos="285:307-285:324">Shift+Ctrl+Click</code>):</p>
 <pre class="syntax-highlighting" data-sourcepos="287:1-293:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;open_links_in_mouse_mode&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">open_links_in_mouse_mode</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
   }
 }
 </span></code></pre>
 <h2 id="panel-configuration" data-sourcepos="295:1-295:22">Panel Configuration<a href="#panel-configuration" aria-label="Link to heading 'Panel Configuration'" data-heading-content="Panel Configuration" class="anchor"></a></h2>
 <h3 id="dock-position" data-sourcepos="297:1-297:17">Dock Position<a href="#dock-position" aria-label="Link to heading 'Dock Position'" data-heading-content="Dock Position" class="anchor"></a></h3>
 <pre class="syntax-highlighting" data-sourcepos="299:1-305:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;dock&quot;</span>: <span class="hl-string">&quot;bottom&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">dock</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bottom</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>
 <p data-sourcepos="307:1-307:50">Options: <code data-sourcepos="307:10-307:19">&quot;bottom&quot;</code> (default), <code data-sourcepos="307:32-307:39">&quot;left&quot;</code>, <code data-sourcepos="307:42-307:50">&quot;right&quot;</code></p>
 <h3 id="default-size" data-sourcepos="309:1-309:16">Default Size<a href="#default-size" aria-label="Link to heading 'Default Size'" data-heading-content="Default Size" class="anchor"></a></h3>
 <pre class="syntax-highlighting" data-sourcepos="311:1-318:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;default_width&quot;</span>: <span class="hl-number">640</span>,
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;default_height&quot;</span>: <span class="hl-number">320</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">default_width</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">640</span>,
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">default_height</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">320</span>
   }
 }
 </span></code></pre>
 <h3 id="terminal-button" data-sourcepos="320:1-320:19">Terminal Button<a href="#terminal-button" aria-label="Link to heading 'Terminal Button'" data-heading-content="Terminal Button" class="anchor"></a></h3>
 <p data-sourcepos="322:1-322:43">Hide the terminal button in the status bar:</p>
 <pre class="syntax-highlighting" data-sourcepos="324:1-330:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;button&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">button</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
   }
 }
 </span></code></pre>
 <h3 id="toolbar" data-sourcepos="332:1-332:11">Toolbar<a href="#toolbar" aria-label="Link to heading 'Toolbar'" data-heading-content="Toolbar" class="anchor"></a></h3>
 <p data-sourcepos="334:1-334:48">Show the terminal title in a breadcrumb toolbar:</p>
 <pre class="syntax-highlighting" data-sourcepos="336:1-344:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;terminal&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;toolbar&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;breadcrumbs&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">toolbar</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">breadcrumbs</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
     }
   }
 }
@@ -847,10 +847,10 @@
 <h2 id="sending-text-and-keystrokes" data-sourcepos="364:1-364:30">Sending Text and Keystrokes<a href="#sending-text-and-keystrokes" aria-label="Link to heading 'Sending Text and Keystrokes'" data-heading-content="Sending Text and Keystrokes" class="anchor"></a></h2>
 <p data-sourcepos="366:1-366:91">For advanced keybinding customization, you can send raw text or keystrokes to the terminal:</p>
 <pre class="syntax-highlighting" data-sourcepos="368:1-376:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;context&quot;</span>: <span class="hl-string">&quot;Terminal&quot;</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;bindings&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;alt-left&quot;</span>: [<span class="hl-string">&quot;terminal::SendText&quot;</span>, <span class="hl-string">&quot;</span><span class="hl-escape">\u</span><span class="hl-string">001bb&quot;</span>],
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;ctrl-c&quot;</span>: [<span class="hl-string">&quot;terminal::SendKeystroke&quot;</span>, <span class="hl-string">&quot;ctrl-c&quot;</span>]
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">context</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Terminal</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bindings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">alt-left</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal::SendText</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-constant hl-character hl-escape hl-json">\u</span><span class="hl-string hl-quoted hl-double hl-json">001bb</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>],
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ctrl-c</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">terminal::SendKeystroke</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ctrl-c</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
   }
 }
 </span></code></pre>

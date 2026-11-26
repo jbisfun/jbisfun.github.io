@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/worktree-trust.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/worktree-trust.md">
 
 
       <h1 id="zed-and-trusted-worktrees" data-sourcepos="6:1-6:27">Zed and trusted worktrees<a href="#zed-and-trusted-worktrees" aria-label="Link to heading 'Zed and trusted worktrees'" data-heading-content="Zed and trusted worktrees" class="anchor"></a></h1>
@@ -519,8 +519,8 @@ The title bar icon and the <code data-sourcepos="24:28-24:62">workspace::ToggleW
 </ul>
 <h2 id="configuring-broad-worktree-trust" data-sourcepos="38:1-38:35">Configuring broad worktree trust<a href="#configuring-broad-worktree-trust" aria-label="Link to heading 'Configuring broad worktree trust'" data-heading-content="Configuring broad worktree trust" class="anchor"></a></h2>
 <p data-sourcepos="40:1-40:220">By default, Zed does not trust new worktrees. Users must trust each new worktree individually. Though not recommended, users can trust all worktrees with this setting (<a data-sourcepos="40:169-40:218" href="configuring-zed.html#settings-files">how to edit</a>):</p>
-<pre class="syntax-highlighting" data-sourcepos="42:1-46:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string">&quot;session&quot;</span>: {
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;trust_all_worktrees&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+<pre class="syntax-highlighting" data-sourcepos="42:1-46:3"><code class="language-json"><span class="hl-source hl-json"><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">session</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">trust_all_worktrees</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
 }
 </span></code></pre>
 <p data-sourcepos="48:1-48:184">Auto-trusted worktrees are not persisted between restarts; only manually trusted worktrees are. This ensures users make new trust decisions if they later disable <code data-sourcepos="48:163-48:183">trust_all_worktrees</code>.</p>

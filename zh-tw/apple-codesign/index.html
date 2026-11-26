@@ -207,7 +207,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="apple-codesign">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../apple-codesign/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -226,12 +226,12 @@
 <p data-sourcepos="16:1-16:180">更多資訊請參閱 <a data-sourcepos="16:23-16:75" href="https://docs.rs/apple-codesign/latest/apple_codesign/">https://docs.rs/apple-codesign/latest/apple_codesign/</a> 的 crate 文件，以及 <a data-sourcepos="16:103-16:152" href="https://gregoryszorc.com/docs/apple-codesign/main/">https://gregoryszorc.com/docs/apple-codesign/main/</a> 的終端使用者文件。</p>
 <h1 id="rcodesign-cli" data-sourcepos="18:1-18:17"><code data-sourcepos="18:3-18:13">rcodesign</code> CLI<a href="#rcodesign-cli" aria-label="Link to heading 'rcodesign CLI'" data-heading-content="rcodesign CLI" class="anchor"></a></h1>
 <p data-sourcepos="20:1-20:119">此 crate 定義了一個 <code data-sourcepos="20:27-20:37">rcodesign</code> 執行檔，提供 CLI 介面來使用此 crate 的部分功能。安裝方式：</p>
-<pre class="syntax-highlighting" data-sourcepos="22:1-29:3"><code class="language-bash"><span class="hl-source hl-shell"><span class="hl-comment"># From a Git checkout</span>
-<span class="hl-operator">$</span><span class="hl-function"> </span><span class="hl-property">cargo</span> run <span class="hl-constant">--bin</span> rcodesign <span class="hl-constant">--</span> <span class="hl-constant">--help</span>
-<span class="hl-operator">$</span><span class="hl-function"> </span><span class="hl-property">cargo</span> install <span class="hl-constant">--bin</span> rcodesign
+<pre class="syntax-highlighting" data-sourcepos="22:1-29:3"><code class="language-bash"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-shell"># From a Git checkout</span>
+<span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-function hl-shell"> </span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> rcodesign <span class="hl-variable hl-parameter hl-option hl-shell">--</span> <span class="hl-variable hl-parameter hl-option hl-shell">--help</span>
+<span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-function hl-shell"> </span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">cargo</span> install <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> rcodesign
 
-<span class="hl-comment"># Remote install.</span>
-<span class="hl-operator">$</span><span class="hl-function"> </span><span class="hl-property">cargo</span> install <span class="hl-constant">--git</span> https://github.com/indygreg/apple-platform-rs <span class="hl-constant">--branch</span> main <span class="hl-constant">--bin</span> rcodesign apple-codesign
+<span class="hl-comment hl-line hl-shell"># Remote install.</span>
+<span class="hl-punctuation hl-definition hl-variable hl-shell">$</span><span class="hl-variable hl-function hl-shell"> </span><span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">cargo</span> install <span class="hl-variable hl-parameter hl-option hl-shell">--git</span> https://github.com/indygreg/apple-platform-rs <span class="hl-variable hl-parameter hl-option hl-shell">--branch</span> main <span class="hl-variable hl-parameter hl-option hl-shell">--bin</span> rcodesign apple-codesign
 </span></code></pre>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

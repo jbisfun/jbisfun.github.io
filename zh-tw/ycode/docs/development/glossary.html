@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -548,14 +548,14 @@ Example: <code data-sourcepos="47:12-47:32">file_finder::Toggle</code></li>
 <li data-sourcepos="56:1-56:67"><code data-sourcepos="56:3-56:11">Element</code>: A type that can be laid out and painted to the screen.</li>
 <li data-sourcepos="57:1-57:75"><code data-sourcepos="57:3-57:22">element expression</code>: An expression that builds an element tree, example:</li>
 </ul>
-<pre class="syntax-highlighting" data-sourcepos="59:1-69:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-function">h_flex</span><span class="hl-punctuation hl-punctuation-bracket">()</span>
-    <span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">id</span><span class="hl-punctuation hl-punctuation-bracket">(</span>text<span class="hl-punctuation hl-punctuation-bracket">[</span>i<span class="hl-punctuation hl-punctuation-bracket">])</span>
-    <span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">relative</span><span class="hl-punctuation hl-punctuation-bracket">()</span>
-    <span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">when</span><span class="hl-punctuation hl-punctuation-bracket">(</span>selected<span class="hl-punctuation hl-punctuation-delimiter">,</span> |this| <span class="hl-punctuation hl-punctuation-bracket">{</span>
-        this<span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">child</span><span class="hl-punctuation hl-punctuation-bracket">(</span>
-            <span class="hl-function">div</span><span class="hl-punctuation hl-punctuation-bracket">()</span>
-                <span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">h_4</span><span class="hl-punctuation hl-punctuation-bracket">()</span>
-                <span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-property">absolute</span><span class="hl-punctuation hl-punctuation-bracket">()</span>
+<pre class="syntax-highlighting" data-sourcepos="59:1-69:3"><code class="language-rust"><span class="hl-source hl-rust"><span class="hl-support hl-function hl-rust">h_flex</span>()
+    .<span class="hl-support hl-function hl-rust">id</span>(text[i])
+    .<span class="hl-support hl-function hl-rust">relative</span>()
+    .when(selected, |this| {
+        this.child(
+            <span class="hl-support hl-function hl-rust">div</span>()
+                .<span class="hl-support hl-function hl-rust">h_4</span>()
+                .<span class="hl-support hl-function hl-rust">absolute</span>()
                 etc etc
 </span></code></pre>
 <ul data-sourcepos="71:1-74:97">

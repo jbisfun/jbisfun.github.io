@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/windows-and-projects.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/windows-and-projects.md">
 
 
       <h1 id="windows--projects" data-sourcepos="6:1-6:20">Windows &amp; Projects<a href="#windows--projects" aria-label="Link to heading 'Windows &amp; Projects'" data-heading-content="Windows &amp; Projects" class="anchor"></a></h1>
@@ -543,7 +543,7 @@
 </ul>
 <h3 id="from-the-cli" data-sourcepos="45:1-45:16">From the CLI<a href="#from-the-cli" aria-label="Link to heading 'From the CLI'" data-heading-content="From the CLI" class="anchor"></a></h3>
 <p data-sourcepos="47:1-47:40">Use the <code data-sourcepos="47:9-47:12">-n</code> flag to force a new window:</p>
-<pre class="syntax-highlighting" data-sourcepos="49:1-51:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">zed</span> <span class="hl-constant">-n</span> ~/projects/other-project
+<pre class="syntax-highlighting" data-sourcepos="49:1-51:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zed</span> <span class="hl-variable hl-parameter hl-option hl-shell">-n</span> ~/projects/other-project
 </span></code></pre>
 <p data-sourcepos="53:1-53:50">Other CLI options for controlling window behavior:</p>
 <table data-sourcepos="55:1-59:72" class="table table-sm table-striped">
@@ -573,8 +573,8 @@
 <p data-sourcepos="65:1-65:232">You can change the default behavior by setting <code data-sourcepos="65:48-65:74">cli_default_open_behavior</code>, which controls CLI opens, and <code data-sourcepos="65:107-65:129">default_open_behavior</code>, which controls UI project opens and external open requests, such as macOS Finder’s <code data-sourcepos="65:215-65:231">Open With &gt; Zed</code>.</p>
 <p data-sourcepos="67:1-67:195">To use separate windows, open the Settings Editor and search for <code data-sourcepos="67:66-67:92">CLI Default Open Behavior</code> or <code data-sourcepos="67:97-67:119">Default Open Behavior</code>, setting either or both to <code data-sourcepos="67:148-67:159">new_window</code>. Or add this to your settings.json:</p>
 <pre class="syntax-highlighting" data-sourcepos="69:1-74:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;default_open_behavior&quot;</span>: <span class="hl-string">&quot;new_window&quot;</span>,
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;cli_default_open_behavior&quot;</span>: <span class="hl-string">&quot;new_window&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">default_open_behavior</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">new_window</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">cli_default_open_behavior</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">new_window</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
 }
 </span></code></pre>
 <p data-sourcepos="76:1-76:37">Both settings accept the same values:</p>

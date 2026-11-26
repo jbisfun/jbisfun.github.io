@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/extensions/publishing/publishing-guide.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/extensions/publishing/publishing-guide.md">
 
 
       <h1 id="publishing-your-extension" data-sourcepos="6:1-6:18">Publishing Guide<a href="#publishing-your-extension" aria-label="Link to heading 'Publishing Guide'" data-heading-content="Publishing Guide" class="anchor"></a></h1>
@@ -516,11 +516,11 @@
 <ol data-sourcepos="28:1-28:40" start="2">
 <li data-sourcepos="28:1-28:40">Clone the repo to your local machine.</li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="30:1-36:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-comment"># Substitute the URL of your fork here:</span>
-<span class="hl-function">git</span> clone https://github.com/your-username/extensions
-<span class="hl-function">cd</span> extensions
-<span class="hl-function">git</span> submodule init
-<span class="hl-function">git</span> submodule update
+<pre class="syntax-highlighting" data-sourcepos="30:1-36:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-shell"># Substitute the URL of your fork here:</span>
+<span class="hl-variable hl-function hl-shell">git</span> clone https://github.com/your-username/extensions
+<span class="hl-support hl-function hl-shell">cd</span> extensions
+<span class="hl-variable hl-function hl-shell">git</span> submodule init
+<span class="hl-variable hl-function hl-shell">git</span> submodule update
 </span></code></pre>
 <h2 id="submitting-your-extension" data-sourcepos="38:1-38:28">Submitting your extension<a href="#submitting-your-extension" aria-label="Link to heading 'Submitting your extension'" data-heading-content="Submitting your extension" class="anchor"></a></h2>
 <p data-sourcepos="40:1-40:123">To publish an extension, open a PR to <a data-sourcepos="40:39-40:122" href="https://github.com/zed-industries/extensions">the <code data-sourcepos="40:44-40:70">zed-industries/extensions</code> repo</a>.</p>
@@ -534,8 +534,8 @@
 </ul>
 </li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="49:1-52:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">git</span> submodule add https://github.com/your-username/foobar-zed.git extensions/my-extension
-<span class="hl-function">git</span> add extensions/my-extension
+<pre class="syntax-highlighting" data-sourcepos="49:1-52:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">git</span> submodule add https://github.com/your-username/foobar-zed.git extensions/my-extension
+<span class="hl-variable hl-function hl-shell">git</span> add extensions/my-extension
 </span></code></pre>
 <ol data-sourcepos="54:1-55:94" start="2">
 <li data-sourcepos="54:1-55:94">Add a new entry to the top-level <code data-sourcepos="54:37-54:53">extensions.toml</code> file containing your extension:
@@ -544,15 +544,15 @@
 </ul>
 </li>
 </ol>
-<pre class="syntax-highlighting" data-sourcepos="57:1-61:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">my-extension</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">submodule</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;extensions/my-extension&quot;</span>
-<span class="hl-type">version</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;0.0.1&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="57:1-61:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">my-extension</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">submodule</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">extensions/my-extension</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-entity hl-name hl-tag hl-toml">version</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">0.0.1</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="63:1-63:130">If your extension is in a subdirectory within the submodule, you can use the <code data-sourcepos="63:78-63:83">path</code> field to point to where the extension resides:</p>
-<pre class="syntax-highlighting" data-sourcepos="65:1-70:3"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">my-extension</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">submodule</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;extensions/my-extension&quot;</span>
-<span class="hl-type">path</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;packages/zed&quot;</span>
-<span class="hl-type">version</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;0.0.1&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="65:1-70:3"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">my-extension</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">submodule</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">extensions/my-extension</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-entity hl-name hl-tag hl-toml">path</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">packages/zed</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
+<span class="hl-entity hl-name hl-tag hl-toml">version</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">0.0.1</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <ol data-sourcepos="72:1-72:87" start="3">
 <li data-sourcepos="72:1-72:87">Run <code data-sourcepos="72:8-72:29">pnpm sort-extensions</code> to ensure <code data-sourcepos="72:41-72:57">extensions.toml</code> and <code data-sourcepos="72:63-72:75">.gitmodules</code> are sorted.</li>

@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -553,10 +553,10 @@
 </li>
 <li data-sourcepos="23:1-33:6">
 <p data-sourcepos="23:4-23:111">Start the server in <a data-sourcepos="23:24-23:110" href="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md">router mode</a>:</p>
-<pre class="syntax-highlighting" data-sourcepos="25:4-27:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">llama</span> serve
+<pre class="syntax-highlighting" data-sourcepos="25:4-27:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">llama</span> serve
 </span></code></pre>
 <p data-sourcepos="29:4-29:116">It loads models from the llama.cpp cache on demand. To download and run a specific model in one step, pass <code data-sourcepos="29:111-29:115">-hf</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="31:4-33:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">llama</span> serve <span class="hl-constant">-hf</span> unsloth/gemma-4-26B-A4B-it-GGUF:BF16
+<pre class="syntax-highlighting" data-sourcepos="31:4-33:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">llama</span> serve <span class="hl-variable hl-parameter hl-option hl-shell">-hf</span> unsloth/gemma-4-26B-A4B-it-GGUF:BF16
 </span></code></pre>
 </li>
 <li data-sourcepos="35:1-35:60">
@@ -565,17 +565,17 @@
 </ol>
 <p data-sourcepos="37:1-37:300">Zed automatically discovers the served models with their context length and tool/vision capabilities. In router mode these are refined once a model loads, via the server’s <code data-sourcepos="37:173-37:185">/models/sse</code> stream (which requires a recent llama.cpp build). To list models yourself instead, set <code data-sourcepos="37:274-37:288">auto_discover</code> to <code data-sourcepos="37:293-37:299">false</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="39:1-57:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;language_models&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;llama.cpp&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;api_url&quot;</span>: <span class="hl-string">&quot;http://localhost:8080&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;auto_discover&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;available_models&quot;</span>: [
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">llama.cpp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">api_url</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">http://localhost:8080</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">auto_discover</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">available_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
         {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;name&quot;</span>: <span class="hl-string">&quot;gemma-4-12b-it-GGUF:BF16&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;display_name&quot;</span>: <span class="hl-string">&quot;gemma-4-12b-it-GGUF:BF16&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;max_tokens&quot;</span>: <span class="hl-number">32768</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;supports_tools&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;supports_images&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">gemma-4-12b-it-GGUF:BF16</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">display_name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">gemma-4-12b-it-GGUF:BF16</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">max_tokens</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">32768</span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">supports_tools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">supports_images</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>
         }
       ]
     }
@@ -585,9 +585,9 @@
 <h3 id="llama-cpp-context" data-sourcepos="59:1-59:28">llama.cpp Context Length<a href="#llama-cpp-context" aria-label="Link to heading 'llama.cpp Context Length'" data-heading-content="llama.cpp Context Length" class="anchor"></a></h3>
 <p data-sourcepos="61:1-61:162">Zed uses the context length the server reports (<code data-sourcepos="61:49-61:56">/props</code>). Override it for all models with <code data-sourcepos="61:92-61:107">context_window</code>, or per model with <code data-sourcepos="61:128-61:139">max_tokens</code> in <code data-sourcepos="61:144-61:161">available_models</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="63:1-71:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;language_models&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;llama.cpp&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;context_window&quot;</span>: <span class="hl-number">8192</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">llama.cpp</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">context_window</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">8192</span>
     }
   }
 }
@@ -601,12 +601,12 @@
 </li>
 <li data-sourcepos="80:1-84:6">
 <p data-sourcepos="80:4-80:16">Pull a model:</p>
-<pre class="syntax-highlighting" data-sourcepos="82:4-84:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ollama</span> pull mistral
+<pre class="syntax-highlighting" data-sourcepos="82:4-84:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ollama</span> pull mistral
 </span></code></pre>
 </li>
 <li data-sourcepos="86:1-90:6">
 <p data-sourcepos="86:4-86:100">Make sure the Ollama server is running. On macOS, open Ollama.app. On Linux or from a shell, run:</p>
-<pre class="syntax-highlighting" data-sourcepos="88:4-90:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">ollama</span> serve
+<pre class="syntax-highlighting" data-sourcepos="88:4-90:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">ollama</span> serve
 </span></code></pre>
 </li>
 <li data-sourcepos="92:1-92:58">
@@ -615,18 +615,18 @@
 </ol>
 <p data-sourcepos="94:1-94:136">Zed automatically discovers models that Ollama has pulled. To disable autodiscovery and list models yourself, configure <code data-sourcepos="94:121-94:135">auto_discover</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="96:1-115:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;language_models&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;ollama&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;api_url&quot;</span>: <span class="hl-string">&quot;http://localhost:11434&quot;</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;auto_discover&quot;</span>: <span class="hl-constant hl-constant-builtin">false</span>,
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;available_models&quot;</span>: [
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ollama</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">api_url</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">http://localhost:11434</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">auto_discover</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">false</span>,
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">available_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [
         {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;name&quot;</span>: <span class="hl-string">&quot;qwen2.5-coder&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;display_name&quot;</span>: <span class="hl-string">&quot;qwen 2.5 coder&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;max_tokens&quot;</span>: <span class="hl-number">32768</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;supports_tools&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;supports_thinking&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;supports_images&quot;</span>: <span class="hl-constant hl-constant-builtin">true</span>
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">qwen2.5-coder</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">display_name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">qwen 2.5 coder</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">max_tokens</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">32768</span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">supports_tools</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">supports_thinking</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">supports_images</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-language hl-json">true</span>
         }
       ]
     }
@@ -637,9 +637,9 @@
 <p data-sourcepos="119:1-119:109">Zed requests to Ollama include context length as the <code data-sourcepos="119:54-119:62">num_ctx</code> parameter. By default, Zed uses <code data-sourcepos="119:96-119:101">4096</code> tokens.</p>
 <p data-sourcepos="121:1-121:43">Set a context length for all Ollama models:</p>
 <pre class="syntax-highlighting" data-sourcepos="123:1-131:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;language_models&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;ollama&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;context_window&quot;</span>: <span class="hl-number">8192</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">language_models</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ollama</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">context_window</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-constant hl-numeric hl-json">8192</span>
     }
   }
 }
@@ -654,12 +654,12 @@
 </li>
 <li data-sourcepos="142:1-146:6">
 <p data-sourcepos="142:4-142:70">Download at least one model in LM Studio, or use the LM Studio CLI:</p>
-<pre class="syntax-highlighting" data-sourcepos="144:4-146:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">lms</span> get qwen2.5-coder-7b
+<pre class="syntax-highlighting" data-sourcepos="144:4-146:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">lms</span> get qwen2.5-coder-7b
 </span></code></pre>
 </li>
 <li data-sourcepos="148:1-152:6">
 <p data-sourcepos="148:4-148:34">Start the LM Studio API server:</p>
-<pre class="syntax-highlighting" data-sourcepos="150:4-152:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">lms</span> server start
+<pre class="syntax-highlighting" data-sourcepos="150:4-152:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">lms</span> server start
 </span></code></pre>
 </li>
 <li data-sourcepos="154:1-154:61">

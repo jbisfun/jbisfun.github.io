@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/rego.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/rego.md">
 
 
       <h1 id="rego" data-sourcepos="6:1-6:6">Rego<a href="#rego" aria-label="Link to heading 'Rego'" data-heading-content="Rego" class="anchor"></a></h1>
@@ -503,25 +503,25 @@
 <p data-sourcepos="15:1-15:330">The extension uses the <a data-sourcepos="15:24-15:94" href="https://www.openpolicyagent.org/projects/regal/language-server">Regal</a> language server. If <code data-sourcepos="15:116-15:122">regal</code> is on your PATH, Zed uses it; otherwise the extension downloads it automatically. Read the <a data-sourcepos="15:215-15:295" href="https://www.openpolicyagent.org/projects/regal#getting-started">getting started</a> instructions for more information.</p>
 <h2 id="configuration" data-sourcepos="17:1-17:16">Configuration<a href="#configuration" aria-label="Link to heading 'Configuration'" data-heading-content="Configuration" class="anchor"></a></h2>
 <p data-sourcepos="19:1-19:236">The extension’s behavior is configured in the <code data-sourcepos="19:47-19:66">.regal/config.yaml</code> file. The following is an example configuration which disables the <code data-sourcepos="19:135-19:148">todo-comment</code> rule, customizes the <code data-sourcepos="19:171-19:183">line-length</code> rule, and ignores test files for the <code data-sourcepos="19:222-19:230">opa-fmt</code> rule:</p>
-<pre class="syntax-highlighting" data-sourcepos="21:1-41:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-property">rules</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-  <span class="hl-property">style</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-    <span class="hl-property">todo-comment</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-comment"># don&#39;t report on todo comments</span>
-      <span class="hl-property">level</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">ignore</span>
-    <span class="hl-property">line-length</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-comment"># custom rule configuration</span>
-      <span class="hl-property">max-line-length</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-number">100</span>
-      <span class="hl-comment"># warn on too long lines, but don&#39;t fail</span>
-      <span class="hl-property">level</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">warning</span>
-    <span class="hl-property">opa-fmt</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-      <span class="hl-comment"># not needed as error is the default, but</span>
-      <span class="hl-comment"># being explicit won&#39;t hurt</span>
-      <span class="hl-property">level</span><span class="hl-punctuation hl-punctuation-delimiter">:</span> <span class="hl-string">error</span>
-      <span class="hl-comment"># files can be ignored for any individual rule</span>
-      <span class="hl-comment"># in this example, test files are ignored</span>
-      <span class="hl-property">ignore</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-        <span class="hl-property">files</span><span class="hl-punctuation hl-punctuation-delimiter">:</span>
-          <span class="hl-punctuation hl-punctuation-delimiter">-</span> <span class="hl-string">&quot;*_test.rego&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="21:1-41:3"><code class="language-yaml"><span class="hl-source hl-yaml"><span class="hl-entity hl-name hl-tag hl-yaml">rules</span>:
+  <span class="hl-entity hl-name hl-tag hl-yaml">style</span>:
+    <span class="hl-entity hl-name hl-tag hl-yaml">todo-comment</span>:
+      <span class="hl-comment hl-line hl-yaml"># don&#39;t report on todo comments</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">level</span>: <span class="hl-string hl-quoted hl-double hl-yaml">ignore</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">line-length</span>:
+      <span class="hl-comment hl-line hl-yaml"># custom rule configuration</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">max-line-length</span>: <span class="hl-constant hl-numeric hl-yaml">100</span>
+      <span class="hl-comment hl-line hl-yaml"># warn on too long lines, but don&#39;t fail</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">level</span>: <span class="hl-string hl-quoted hl-double hl-yaml">warning</span>
+    <span class="hl-entity hl-name hl-tag hl-yaml">opa-fmt</span>:
+      <span class="hl-comment hl-line hl-yaml"># not needed as error is the default, but</span>
+      <span class="hl-comment hl-line hl-yaml"># being explicit won&#39;t hurt</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">level</span>: <span class="hl-string hl-quoted hl-double hl-yaml">error</span>
+      <span class="hl-comment hl-line hl-yaml"># files can be ignored for any individual rule</span>
+      <span class="hl-comment hl-line hl-yaml"># in this example, test files are ignored</span>
+      <span class="hl-entity hl-name hl-tag hl-yaml">ignore</span>:
+        <span class="hl-entity hl-name hl-tag hl-yaml">files</span>:
+          - <span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-yaml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-yaml">*_test.rego</span><span class="hl-string hl-quoted hl-double hl-yaml"><span class="hl-punctuation hl-definition hl-string hl-end hl-yaml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="43:1-43:126">Read Regal’s <a data-sourcepos="43:14-43:104" href="https://www.openpolicyagent.org/projects/regal/configuration">configuration documentation</a> for more information.</p>
 

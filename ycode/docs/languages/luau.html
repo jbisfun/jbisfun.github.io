@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/languages/luau.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/languages/luau.md">
 
 
       <h1 id="luau" data-sourcepos="6:1-6:6">Luau<a href="#luau" aria-label="Link to heading 'Luau'" data-heading-content="Luau" class="anchor"></a></h1>
@@ -506,18 +506,18 @@ Report issues to: <a data-sourcepos="11:19-11:104" href="https://github.com/4tea
 <h2 id="formatting" data-sourcepos="20:1-20:13">Formatting<a href="#formatting" aria-label="Link to heading 'Formatting'" data-heading-content="Formatting" class="anchor"></a></h2>
 <p data-sourcepos="22:1-22:145">To support automatically formatting your code, you can use <a data-sourcepos="22:60-22:122" href="https://github.com/JohnnyMorganz/StyLua">JohnnyMorganz/StyLua</a>, a Lua code formatter.</p>
 <p data-sourcepos="24:1-24:13">Install with:</p>
-<pre class="syntax-highlighting" data-sourcepos="26:1-31:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-comment"># macOS via Homebrew</span>
-<span class="hl-function">brew</span> install stylua
-<span class="hl-comment"># Or via Cargo</span>
-<span class="hl-function">cargo</span> install stylua <span class="hl-constant">--features</span> lua52,lua53,lua54,luau
+<pre class="syntax-highlighting" data-sourcepos="26:1-31:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-comment hl-line hl-shell"># macOS via Homebrew</span>
+<span class="hl-variable hl-function hl-shell">brew</span> install stylua
+<span class="hl-comment hl-line hl-shell"># Or via Cargo</span>
+<span class="hl-variable hl-function hl-shell">cargo</span> install stylua <span class="hl-variable hl-parameter hl-option hl-shell">--features</span> lua52,lua53,lua54,luau
 </span></code></pre>
 <p data-sourcepos="33:1-33:108">Configure formatting in Settings (<code data-sourcepos="33:35-33:53">zed::OpenSettings</code>) under Languages &gt; Luau, or add to your settings file:</p>
-<pre class="syntax-highlighting" data-sourcepos="35:1-46:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string">&quot;languages&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;Luau&quot;</span>: {
-      <span class="hl-string hl-string-special hl-string-special-key">&quot;formatter&quot;</span>: {
-        <span class="hl-string hl-string-special hl-string-special-key">&quot;external&quot;</span>: {
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;command&quot;</span>: <span class="hl-string">&quot;stylua&quot;</span>,
-          <span class="hl-string hl-string-special hl-string-special-key">&quot;arguments&quot;</span>: [<span class="hl-string">&quot;-&quot;</span>]
+<pre class="syntax-highlighting" data-sourcepos="35:1-46:3"><code class="language-json"><span class="hl-source hl-json">  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">languages</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Luau</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+      <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">formatter</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+        <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">external</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">command</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">stylua</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>,
+          <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">arguments</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">-</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>]
         }
       }
     }

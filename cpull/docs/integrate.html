@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forge x CI x issues (src/integrate) · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../../zh-tw/cpull/docs/integrate.html">
+
+  <link rel="icon" href="../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="integrate.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../../zh-tw/cpull/docs/integrate.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="integrate.html" class="active" aria-current="page">Forge x CI x issues (src/integrate)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="wiki.html">Wiki (src/wiki)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="cpull" data-radar-repo="cpull" data-radar-file="docs/integrate.md">
+
+
+      <h1 id="forge-x-ci-x-issues-srcintegrate" data-sourcepos="1:1-1:39">Forge x CI x issues (<code data-sourcepos="1:24-1:38">src/integrate</code>)<a href="#forge-x-ci-x-issues-srcintegrate" aria-label="Link to heading 'Forge x CI x issues (src/integrate)'" data-heading-content="Forge x CI x issues (src/integrate)" class="anchor"></a></h1>
+<p data-sourcepos="3:1-6:8">In a pull workspace, cpull’s forge (issues, patches, stacks), its CI (<code data-sourcepos="3:71-3:75">/ci</code>, <a data-sourcepos="3:78-3:91" href="ci.html">ci.md</a>)
+and its issues work together. Everything here needs the workspace server
+(<code data-sourcepos="5:2-5:36">pull cpull open --web-listen ADDR</code>), except the merge gate, which <code data-sourcepos="5:69-5:87">cpull stack merge</code> also
+applies.</p>
+<h2 id="ci-status-everywhere" data-sourcepos="8:1-8:23">CI status everywhere<a href="#ci-status-everywhere" aria-label="Link to heading 'CI status everywhere'" data-heading-content="CI status everywhere" class="anchor"></a></h2>
+<ul data-sourcepos="10:1-17:25">
+<li data-sourcepos="10:1-11:90">The workspace home has a <strong data-sourcepos="10:28-10:33">CI</strong> column: one ball per repo, from the latest workspace job of
+each (idl project, command) in that repo. Grey <code data-sourcepos="11:50-11:54">N/A</code> means no idl project or no job yet.</li>
+<li data-sourcepos="12:1-12:67">A repo’s pages get a <strong data-sourcepos="12:24-12:29">CI</strong> group in the sidebar with those jobs.</li>
+<li data-sourcepos="13:1-15:27">The commit history has a <strong data-sourcepos="13:28-13:33">CI</strong> column: the jobs that ran on each commit (any job whose
+recorded <code data-sourcepos="14:12-14:17">head</code> is that commit: the watcher’s, <code data-sourcepos="14:50-14:65">cpull ci queue</code>, a patch or stack run). The
+commit page lists it too.</li>
+<li data-sourcepos="16:1-17:25"><code data-sourcepos="16:3-16:17">/home/patches</code>, <code data-sourcepos="16:20-16:33">/home/stacks</code>, a stack’s members and a patch page show the patch’s or
+stack’s own CI (below).</li>
+</ul>
+<p data-sourcepos="19:1-20:45">Balls: blue passed, red failed, pulsing running/queued, yellow passed but on older commits than
+the branch holds now, grey cancelled or none.</p>
+<h2 id="ci-for-patches-and-stacks" data-sourcepos="22:1-22:28">CI for patches and stacks<a href="#ci-for-patches-and-stacks" aria-label="Link to heading 'CI for patches and stacks'" data-heading-content="CI for patches and stacks" class="anchor"></a></h2>
+<ul data-sourcepos="24:1-39:58">
+<li data-sourcepos="24:1-26:18"><strong data-sourcepos="24:3-24:12">Run CI</strong> on a patch page (or <code data-sourcepos="24:34-24:65">cpull ci patch REPO PATCH [-w]</code>, MCP <code data-sourcepos="24:72-24:81">ci_patch</code>) queues
+<code data-sourcepos="25:3-25:9">build</code> and <code data-sourcepos="25:15-25:20">test</code> of every idl project in the patch’s repo, with the patch’s source branch
+tip checked out.</li>
+<li data-sourcepos="27:1-28:72"><strong data-sourcepos="27:3-27:12">Run CI</strong> on a stack page (or <code data-sourcepos="27:34-27:60">cpull ci stack STACK [-w]</code>, MCP <code data-sourcepos="27:67-27:76">ci_stack</code>) does it for
+every member repo at once, all members’ branches checked out together.</li>
+<li data-sourcepos="29:1-35:93">The jobs run in a work tree of their own, <code data-sourcepos="29:45-29:76">.pull/cpull/ci/work/&lt;subject&gt;/</code>: a pull-style
+workspace with a linked git worktree of each repo the job needs at the same path as in the
+workspace, and a copy of the pullfile. Those repos are the members (at their source tips)
+and the repos the projects’ targets live in (<code data-sourcepos="32:48-32:57">idl list</code>‘s dirs, e.g. <code data-sourcepos="32:72-32:87">../commons-ios</code>), at
+the workspace’s current commits, since idl projects depend on sibling repos and reject
+symlinks. <code data-sourcepos="34:13-34:23">PULL_ROOT</code> is the work tree. A subject keeps its tree between runs (<code data-sourcepos="34:82-35:19">checkout --detach --force</code> + <code data-sourcepos="35:23-35:37">git clean -fd</code>, so ignored build output stays for incremental builds).</li>
+<li data-sourcepos="36:1-39:58">Each job records its subject (<code data-sourcepos="36:33-36:51">patch:&lt;repo&gt;:&lt;id&gt;</code> / <code data-sourcepos="36:55-36:66">stack:&lt;id&gt;</code>) and the commits it checked
+out (<code data-sourcepos="37:8-37:17">checkout</code>, one <code data-sourcepos="37:24-37:37">&lt;repo&gt; &lt;oid&gt;</code> line each); both are in the job JSON and on the job page.
+Retrying such a job reruns it on the same commits. The CI dashboard’s per-project history,
+health and progress estimates count workspace jobs only.</li>
+</ul>
+<h3 id="the-merge-gate" data-sourcepos="41:1-41:18">The merge gate<a href="#the-merge-gate" aria-label="Link to heading 'The merge gate'" data-heading-content="The merge gate" class="anchor"></a></h3>
+<pre class="syntax-highlighting" data-sourcepos="43:1-49:3"><code class="language-xml"><span class="hl-text hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>cpull<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span><span class="hl-invalid hl-illegal hl-xml">
+</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+    <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>require_ci<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+    <span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">true</span><span class="hl-punctuation hl-definition hl-tag hl-xml">/&gt;</span>
+<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+</span></code></pre>
+<p data-sourcepos="51:1-56:77">With <code data-sourcepos="51:6-51:17">require_ci</code>, a stack merges (stack page, <code data-sourcepos="51:48-51:66">cpull stack merge</code>, <code data-sourcepos="51:69-51:86">pull cpull merge</code>, MCP
+<code data-sourcepos="52:1-52:13">cpull_merge</code>) only when the CI is green for every member repo that has idl projects, at the
+commits their branches hold now: the stack’s own latest run, or else each member patch’s. A
+member without idl projects doesn’t need CI. <code data-sourcepos="54:46-54:54">--force</code> (<code data-sourcepos="54:57-54:82">pull cpull merge --force</code>, MCP
+<code data-sourcepos="55:1-55:7">force</code>, the stack page’s “Merge without green CI”) merges anyway. <code data-sourcepos="55:68-55:91">GET /ci/api/stack/&lt;id&gt;</code>
+returns the stack’s CI and the gate’s verdict; MCP <code data-sourcepos="56:52-56:64">cpull_stack</code> prints them.</p>
+<h2 id="failed-ci---issue" data-sourcepos="58:1-58:21">Failed CI -&gt; issue<a href="#failed-ci---issue" aria-label="Link to heading 'Failed CI -&gt; issue'" data-heading-content="Failed CI -&gt; issue" class="anchor"></a></h2>
+<p data-sourcepos="60:1-61:16">When a workspace job (not a patch or stack job) passes or fails on a repo checked out on its
+pullfile branch:</p>
+<ul data-sourcepos="63:1-67:39">
+<li data-sourcepos="63:1-66:14">a failure files one issue labelled <code data-sourcepos="63:38-63:41">ci</code> in that repo per failing target (project, command,
+targets, configuration), titled <code data-sourcepos="64:35-64:67">CI: `idl build` in core fails</code>, with a link to the job and
+the end of its log; the next failure of the same target comments on it (reopening it if it
+was closed);</li>
+<li data-sourcepos="67:1-67:39">the next pass comments and closes it.</li>
+</ul>
+<p data-sourcepos="69:1-72:16">The issue a target maps to is kept in the CI db (<code data-sourcepos="69:50-69:60">ci_issues</code>), and every job reported on an
+issue is linked to it (<code data-sourcepos="70:24-70:35">issue_jobs</code>), so the issue page lists them. <code data-sourcepos="70:69-70:98">&lt;key&gt;ci_issues&lt;/key&gt;&lt;false/&gt;</code>
+in the <code data-sourcepos="71:8-71:14">cpull</code> section turns this off. The issues are written as pull’s identity, like every
+workspace write.</p>
+<h2 id="commit---issue-links" data-sourcepos="74:1-74:25">Commit &lt;-&gt; issue links<a href="#commit---issue-links" aria-label="Link to heading 'Commit &lt;-&gt; issue links'" data-heading-content="Commit &lt;-&gt; issue links" class="anchor"></a></h2>
+<ul data-sourcepos="76:1-89:92">
+<li data-sourcepos="76:1-79:60"><code data-sourcepos="76:3-76:16">#&lt;id prefix&gt;</code> (6 to 32 hex digits, e.g. <code data-sourcepos="76:44-76:54">#98e371c9</code>) in a commit message, a patch or issue
+description or a stack description names an issue: in the repo’s own issues first, then the
+workspace’s events repo (a stack’s description: any repo). The commit page, the history
+(when the summary line has one), and descriptions link it.</li>
+<li data-sourcepos="80:1-86:96"><code data-sourcepos="80:3-80:13">fixes #id</code>, <code data-sourcepos="80:16-80:27">closes #id</code>, <code data-sourcepos="80:30-80:43">resolves #id</code> (any tense, case, optional colon) close the issue
+once the commit is on the repo’s pullfile branch: the server polls every repo’s branch tip
+(every <code data-sourcepos="82:10-82:30">--ci-watch-interval</code> seconds with <code data-sourcepos="82:45-82:56">--ci-watch</code>, else 30s) and reads the commits that
+arrived since the tip it last saw (<code data-sourcepos="83:38-83:48">link_tips</code> in the CI db; the first look only records the
+tip). It comments “Closed by commit …” and closes the issue if it’s still open, so each
+commit is handled once and a reopened issue stays open. A stack merge lands its commits, so
+merging a stack closes what its commits fix. <code data-sourcepos="86:48-86:80">&lt;key&gt;close_issues&lt;/key&gt;&lt;false/&gt;</code> turns this off.</li>
+<li data-sourcepos="87:1-89:92">An issue page lists its <strong data-sourcepos="87:27-87:40">References</strong>: commits on any local branch of its repo (of every
+repo, for a workspace issue) from the last two years that mention it, with their CI ball and
+whether they close it; patches and stacks that mention it; and the CI jobs reported on it.</li>
+</ul>
+<h2 id="shutdown" data-sourcepos="91:1-91:11">Shutdown<a href="#shutdown" aria-label="Link to heading 'Shutdown'" data-heading-content="Shutdown" class="anchor"></a></h2>
+<p data-sourcepos="93:1-95:52">On SIGTERM, SIGINT or SIGHUP the server stops claiming jobs, SIGTERMs every running job’s process
+group, waits up to 5s (those jobs are recorded as cancelled), SIGKILLs what’s left, then dies of
+the signal as before. A second signal exits at once.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/integrate.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

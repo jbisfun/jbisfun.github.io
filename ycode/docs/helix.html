@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ycode" data-radar-file="docs/src/helix.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode" data-radar-repo="ycode" data-radar-file="docs/src/helix.md">
 
 
       <h1 id="helix-mode" data-sourcepos="6:1-6:12">Helix Mode<a href="#helix-mode" aria-label="Link to heading 'Helix Mode'" data-heading-content="Helix Mode" class="anchor"></a></h1>
@@ -502,8 +502,8 @@
 <h2 id="core-differences" data-sourcepos="18:1-18:19">Core differences<a href="#core-differences" aria-label="Link to heading 'Core differences'" data-heading-content="Core differences" class="anchor"></a></h2>
 <p data-sourcepos="20:1-20:281">By default, Zed’s Helix mode uses the system clipboard for yanking, deleting, and pasting. To match Helix’s behavior and use internal registers instead, set <code data-sourcepos="20:158-20:183">vim.use_system_clipboard</code> to <code data-sourcepos="20:188-20:196">&quot;never&quot;</code>. You can always access the system clipboard by explicitly using <code data-sourcepos="20:262-20:264">+</code> as the register.</p>
 <pre class="syntax-highlighting" data-sourcepos="22:1-28:3"><code class="language-json"><span class="hl-source hl-json">{
-  <span class="hl-string hl-string-special hl-string-special-key">&quot;vim&quot;</span>: {
-    <span class="hl-string hl-string-special hl-string-special-key">&quot;use_system_clipboard&quot;</span>: <span class="hl-string">&quot;never&quot;</span>
+  <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">vim</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: {
+    <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">use_system_clipboard</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">never</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>
   }
 }
 </span></code></pre>

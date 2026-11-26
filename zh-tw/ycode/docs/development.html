@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -543,7 +543,7 @@ development build, run Zed with the following environment variable set:</p>
 <p data-sourcepos="63:1-63:245">Zed includes a frame time measurement system that can be used to profile how long it takes to render each frame. This is particularly useful when comparing rendering performance between different versions or when optimizing frame rendering code.</p>
 <h3 id="using-zed_measurements" data-sourcepos="65:1-65:26">Using ZED_MEASUREMENTS<a href="#using-zed_measurements" aria-label="Link to heading 'Using ZED_MEASUREMENTS'" data-heading-content="Using ZED_MEASUREMENTS" class="anchor"></a></h3>
 <p data-sourcepos="67:1-67:84">To enable performance measurements, set the <code data-sourcepos="67:45-67:62">ZED_MEASUREMENTS</code> environment variable:</p>
-<pre class="syntax-highlighting" data-sourcepos="69:1-71:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-keyword">export</span> <span class="hl-property">ZED_MEASUREMENTS</span>=1
+<pre class="syntax-highlighting" data-sourcepos="69:1-71:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-storage hl-modifier hl-shell">export</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">ZED_MEASUREMENTS</span>=1
 </span></code></pre>
 <p data-sourcepos="73:1-73:119">When enabled, Zed will print frame rendering timing information to stderr, showing how long each frame takes to render.</p>
 <h3 id="performance-comparison-workflow" data-sourcepos="75:1-75:35">Performance Comparison Workflow<a href="#performance-comparison-workflow" aria-label="Link to heading 'Performance Comparison Workflow'" data-heading-content="Performance Comparison Workflow" class="anchor"></a></h3>
@@ -551,7 +551,7 @@ development build, run Zed with the following environment variable set:</p>
 <ol data-sourcepos="79:1-99:6">
 <li data-sourcepos="79:1-83:6">
 <p data-sourcepos="79:4-79:27"><strong data-sourcepos="79:4-79:27">Enable measurements:</strong></p>
-<pre class="syntax-highlighting" data-sourcepos="81:4-83:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-keyword">export</span> <span class="hl-property">ZED_MEASUREMENTS</span>=1
+<pre class="syntax-highlighting" data-sourcepos="81:4-83:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-storage hl-modifier hl-shell">export</span> <span class="hl-variable hl-other hl-readwrite hl-assignment hl-shell">ZED_MEASUREMENTS</span>=1
 </span></code></pre>
 </li>
 <li data-sourcepos="85:1-88:92">
@@ -570,7 +570,7 @@ development build, run Zed with the following environment variable set:</p>
 </li>
 <li data-sourcepos="95:1-99:6">
 <p data-sourcepos="95:4-95:27"><strong data-sourcepos="95:4-95:27">Generate comparison:</strong></p>
-<pre class="syntax-highlighting" data-sourcepos="97:4-99:6"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">script/histogram</span> version-a version-b
+<pre class="syntax-highlighting" data-sourcepos="97:4-99:6"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">script/histogram</span> version-a version-b
 </span></code></pre>
 </li>
 </ol>

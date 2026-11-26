@@ -205,19 +205,19 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="idlci" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="idlci" data-radar-repo="idlci" data-radar-file="README.md">
 
 
       <h1 id="idlci" data-sourcepos="1:1-1:7">idlci<a href="#idlci" aria-label="Link to heading 'idlci'" data-heading-content="idlci" class="anchor"></a></h1>
 <p data-sourcepos="3:1-5:82">Local CI for the <a data-sourcepos="3:18-3:54" href="https://github.com/jbisfun/idl">idl</a> projects of a <a data-sourcepos="3:70-3:108" href="https://github.com/jbisfun/pull">pull</a>
 workspace: a SQLite-backed job queue running <code data-sourcepos="4:46-4:90">idl build|test|lint|fmt --check|check|clean</code>, a
 Jenkins-style web UI, a JSON API, git HEAD watching, and an MCP server for agents.</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-14:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">idlci</span> serve [--root DIR] [--addr 127.0.0.1:8737] [--jobs 1] [--watch]   <span class="hl-comment"># UI at http://127.0.0.1:8737</span>
-<span class="hl-function">idlci</span> mcp                                    <span class="hl-comment"># stdio MCP server; starts `idlci serve` when needed</span>
-<span class="hl-function">idlci</span> queue fossify-ios/calculator-ios build [TARGET...] [-c release] [--strict] [--wait]
-<span class="hl-function">idlci</span> jobs [--status failed] [--project calculator-ios]
-<span class="hl-function">idlci</span> log 12 [-f]
-<span class="hl-function">idlci</span> cancel 12 / idlci retry 12
+<pre class="syntax-highlighting" data-sourcepos="7:1-14:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">idlci</span> serve [--root DIR] [--addr 127.0.0.1:8737] [--jobs 1] [--watch]   <span class="hl-comment hl-line hl-shell"># UI at http://127.0.0.1:8737</span>
+<span class="hl-variable hl-function hl-shell">idlci</span> mcp                                    <span class="hl-comment hl-line hl-shell"># stdio MCP server; starts `idlci serve` when needed</span>
+<span class="hl-variable hl-function hl-shell">idlci</span> queue fossify-ios/calculator-ios build [TARGET...] [-c release] [--strict] [--wait]
+<span class="hl-variable hl-function hl-shell">idlci</span> jobs [--status failed] [--project calculator-ios]
+<span class="hl-variable hl-function hl-shell">idlci</span> log 12 [-f]
+<span class="hl-variable hl-function hl-shell">idlci</span> cancel 12 / idlci retry 12
 </span></code></pre>
 <p data-sourcepos="16:1-18:52">The root is <code data-sourcepos="16:13-16:20">--root</code>, else <code data-sourcepos="16:28-16:39">$PULL_ROOT</code>, else the nearest parent holding <code data-sourcepos="16:74-16:89">pullfile.plist</code>. State lives
 in <code data-sourcepos="17:4-17:23">$ROOT/.pull/idlci/</code> (<code data-sourcepos="17:26-17:35">idlci.db</code>, <code data-sourcepos="17:38-17:52">logs/&lt;id&gt;.log</code>, <code data-sourcepos="17:55-17:66">serve.addr</code>, <code data-sourcepos="17:69-17:79">serve.log</code>). Jobs run <code data-sourcepos="17:92-17:96">idl</code> from

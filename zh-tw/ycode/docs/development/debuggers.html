@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
@@ -512,18 +512,18 @@ In short, <code data-sourcepos="24:11-24:21">&quot;limited&quot;</code> strips t
 <p data-sourcepos="28:1-28:168">However, this data matters when you are actively debugging. Without it, debuggers cannot resolve local variables, inspect values, or format output with pretty-printers.</p>
 <p data-sourcepos="30:1-30:98">To get the full debugger experience on a release build, compile a Zed binary with full debug info.</p>
 <p data-sourcepos="32:1-32:135">The simplest way is to use <code data-sourcepos="32:28-32:37">--config</code> to override the <code data-sourcepos="32:55-32:61">debug</code> field in the root <code data-sourcepos="32:81-32:92">Cargo.toml</code> when running <code data-sourcepos="32:107-32:117">cargo run</code> or <code data-sourcepos="32:122-32:134">cargo build</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="34:1-37:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> run <span class="hl-constant">--config</span> <span class="hl-string">&#39;profile.release.debug=&quot;full&quot;&#39;</span>
-<span class="hl-function">cargo</span> build <span class="hl-constant">--config</span> <span class="hl-string">&#39;profile.release.debug=&quot;full&quot;&#39;</span>
+<pre class="syntax-highlighting" data-sourcepos="34:1-37:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">--config</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-shell">profile.release.debug=&quot;full&quot;</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&#39;</span></span>
+<span class="hl-variable hl-function hl-shell">cargo</span> build <span class="hl-variable hl-parameter hl-option hl-shell">--config</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&#39;</span></span><span class="hl-string hl-quoted hl-double hl-shell">profile.release.debug=&quot;full&quot;</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&#39;</span></span>
 </span></code></pre>
 <blockquote data-sourcepos="39:1-57:43">
 <p data-sourcepos="39:3-39:184">If you do not want to pass <code data-sourcepos="39:30-39:39">--config</code> on every <code data-sourcepos="39:50-39:56">cargo</code> command, you can also change the section in the <a data-sourcepos="39:106-39:184" href="https://github.com/zed-industries/zed/blob/main/Cargo.toml">root <code data-sourcepos="39:112-39:123">Cargo.toml</code></a></p>
 <p data-sourcepos="41:3-41:6">from</p>
-<pre class="syntax-highlighting" data-sourcepos="43:3-46:5"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">profile</span><span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-type">release</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">debug</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;limited&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="43:3-46:5"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">profile</span>.<span class="hl-entity hl-name hl-table hl-toml">release</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">debug</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">limited</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="48:3-48:4">to</p>
-<pre class="syntax-highlighting" data-sourcepos="50:3-53:5"><code class="language-toml"><span class="hl-source hl-toml"><span class="hl-punctuation hl-punctuation-bracket">[</span><span class="hl-type">profile</span><span class="hl-punctuation hl-punctuation-delimiter">.</span><span class="hl-type">release</span><span class="hl-punctuation hl-punctuation-bracket">]</span>
-<span class="hl-type">debug</span><span class="hl-property"> </span><span class="hl-operator">=</span><span class="hl-property"> </span><span class="hl-string">&quot;full&quot;</span>
+<pre class="syntax-highlighting" data-sourcepos="50:3-53:5"><code class="language-toml"><span class="hl-source hl-toml">[<span class="hl-entity hl-name hl-table hl-toml">profile</span>.<span class="hl-entity hl-name hl-table hl-toml">release</span>]
+<span class="hl-entity hl-name hl-tag hl-toml">debug</span> <span class="hl-punctuation hl-definition hl-key-value hl-toml">=</span> <span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-begin hl-toml">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-toml">full</span><span class="hl-string hl-quoted hl-double hl-toml"><span class="hl-punctuation hl-definition hl-string hl-end hl-toml">&quot;</span></span>
 </span></code></pre>
 <p data-sourcepos="55:3-55:110">This makes all invocations of <code data-sourcepos="55:33-55:53">cargo run --release</code> or <code data-sourcepos="55:58-55:80">cargo build --release</code> compile with full debug info.</p>
 <p data-sourcepos="57:3-57:43"><strong data-sourcepos="57:3-57:14">Warning:</strong> Do not commit these changes.</p>

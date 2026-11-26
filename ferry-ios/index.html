@@ -213,7 +213,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="ferry-ios" data-radar-file="README.md">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ferry-ios" data-radar-repo="ferry-ios" data-radar-file="README.md">
 
 
       <h1 id="ferry-for-ios" data-sourcepos="1:1-1:15">Ferry for iOS<a href="#ferry-for-ios" aria-label="Link to heading 'Ferry for iOS'" data-heading-content="Ferry for iOS" class="anchor"></a></h1>
@@ -247,11 +247,11 @@ idlproj.yml
 <p data-sourcepos="35:1-35:49">See <a data-sourcepos="35:5-35:48" href="docs/ARCHITECTURE.html">docs/ARCHITECTURE.md</a>.</p>
 <h2 id="build-linux" data-sourcepos="37:1-37:16">Build (Linux)<a href="#build-linux" aria-label="Link to heading 'Build (Linux)'" data-heading-content="Build (Linux)" class="anchor"></a></h2>
 <p data-sourcepos="39:1-40:42">Needs <code data-sourcepos="39:7-39:19">xtool setup</code> (Darwin SDK), swiftly’s Swift toolchain, <code data-sourcepos="39:62-40:22">rustup target add aarch64-apple-ios</code>, and <a data-sourcepos="40:29-40:41" href="../idl">idl</a>.</p>
-<pre class="syntax-highlighting" data-sourcepos="42:1-48:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">core/build-ios.sh</span>            <span class="hl-comment"># core/out/libferry_core.a + ferry_core.h</span>
-<span class="hl-function">idl</span> build <span class="hl-constant">-c</span> release         <span class="hl-comment"># build/release/Ferry.ipa (ad-hoc signed)</span>
-<span class="hl-function">idl</span> test <span class="hl-constant">-c</span> release          <span class="hl-comment"># bundle checks</span>
-<span class="hl-function">cargo</span> test <span class="hl-constant">--manifest-path</span> core/Cargo.toml
-<span class="hl-function">cargo</span> run <span class="hl-constant">--manifest-path</span> core/Cargo.toml <span class="hl-constant">--example</span> smoke <span class="hl-constant">--</span> App.ipa [tweak.dylib]
+<pre class="syntax-highlighting" data-sourcepos="42:1-48:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">core/build-ios.sh</span>            <span class="hl-comment hl-line hl-shell"># core/out/libferry_core.a + ferry_core.h</span>
+<span class="hl-variable hl-function hl-shell">idl</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-c</span> release         <span class="hl-comment hl-line hl-shell"># build/release/Ferry.ipa (ad-hoc signed)</span>
+<span class="hl-variable hl-function hl-shell">idl</span> test <span class="hl-variable hl-parameter hl-option hl-shell">-c</span> release          <span class="hl-comment hl-line hl-shell"># bundle checks</span>
+<span class="hl-variable hl-function hl-shell">cargo</span> test <span class="hl-variable hl-parameter hl-option hl-shell">--manifest-path</span> core/Cargo.toml
+<span class="hl-variable hl-function hl-shell">cargo</span> run <span class="hl-variable hl-parameter hl-option hl-shell">--manifest-path</span> core/Cargo.toml <span class="hl-variable hl-parameter hl-option hl-shell">--example</span> smoke <span class="hl-variable hl-parameter hl-option hl-shell">--</span> App.ipa [tweak.dylib]
 </span></code></pre>
 <p data-sourcepos="50:1-52:40">The IPA must be re-signed to install (e.g. <code data-sourcepos="50:44-50:69">idl install &lt;udid&gt; Ferry</code> through
 Jimpactor, or desktop Ferry). After that Ferry refreshes itself like any other

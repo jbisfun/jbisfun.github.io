@@ -490,7 +490,7 @@
 
 
     </nav>
-    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ycode">
 
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../ycode/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
@@ -503,10 +503,10 @@ Lua 編寫腳本。它自己的程式碼是一套 hook 系統，即 <a data-sour
 <h2 id="lua-hooks" data-sourcepos="9:1-9:12">Lua hooks<a href="#lua-hooks" aria-label="Link to heading 'Lua hooks'" data-heading-content="Lua hooks" class="anchor"></a></h2>
 <p data-sourcepos="11:1-12:57">Hook 檔案為 <code data-sourcepos="11:16-11:42">~/.config/zed/hooks/*.lua</code> 與 <code data-sourcepos="11:48-11:56">*.x.lua</code>，另外加上一層擴充功能子資料夾（<code data-sourcepos="11:105-11:118">hooks/&lt;ext&gt;/</code>）。<code data-sourcepos="11:125-11:132">.x.lua</code> 檔案使用仿照
 <a data-sourcepos="12:1-12:44" href="https://theos.dev/docs/logos-syntax">Logos</a> 的指令：</p>
-<pre class="syntax-highlighting" data-sourcepos="14:1-21:3"><code class="language-lua"><span class="hl-source hl-lua">%<span class="hl-variable">hook</span> <span class="hl-variable">editor</span>
-- <span class="hl-variable">Copy</span>
-  %<span class="hl-variable">log</span>
-  %<span class="hl-variable">orig</span>
+<pre class="syntax-highlighting" data-sourcepos="14:1-21:3"><code class="language-lua"><span class="hl-source hl-lua">%<span class="hl-variable hl-other hl-lua">hook</span> <span class="hl-variable hl-other hl-lua">editor</span>
+- <span class="hl-variable hl-other hl-lua">Copy</span>
+  %<span class="hl-variable hl-other hl-lua">log</span>
+  %<span class="hl-variable hl-other hl-lua">orig</span>
 end
 %end
 </span></code></pre>
@@ -549,7 +549,7 @@ session 與工作。它取代了只能處理單一儲存庫的 Zed git 面板。
 <h2 id="building" data-sourcepos="60:1-60:9">建置<a href="#building" aria-label="Link to heading '建置'" data-heading-content="建置" class="anchor"></a></h2>
 <p data-sourcepos="62:1-63:89">建置方式與上游 Zed 相同（<a data-sourcepos="62:36-62:73" href="docs/development/linux.html">Linux</a>、
 <a data-sourcepos="63:1-63:38" href="docs/development/macos.html">macOS</a>、<a data-sourcepos="63:42-63:83" href="docs/development/windows.html">Windows</a>）：</p>
-<pre class="syntax-highlighting" data-sourcepos="65:1-67:3"><code class="language-sh"><span class="hl-source hl-shell"><span class="hl-function">cargo</span> build <span class="hl-constant">-p</span> zed        <span class="hl-comment"># target/debug/zed</span>
+<pre class="syntax-highlighting" data-sourcepos="65:1-67:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">cargo</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-p</span> zed        <span class="hl-comment hl-line hl-shell"># target/debug/zed</span>
 </span></code></pre>
 <h2 id="license" data-sourcepos="69:1-69:9">授權<a href="#license" aria-label="Link to heading '授權'" data-heading-content="授權" class="anchor"></a></h2>
 <p data-sourcepos="71:1-71:146">ycode 的授權方式與上游 Zed 相同：GPL-3.0-or-later，標示處則為 Apache-2.0 元件。請參閱 <code data-sourcepos="71:110-71:122">LICENSE-GPL</code> 與 <code data-sourcepos="71:128-71:143">LICENSE-APACHE</code>。</p>
