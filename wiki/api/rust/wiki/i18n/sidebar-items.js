@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["SOURCE"],"struct":["I18n","I18nConfig","Locale","WikiToml"]};

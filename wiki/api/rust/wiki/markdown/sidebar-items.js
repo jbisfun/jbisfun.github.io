@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["HEADINGS","HIGHLIGHT_PREFIX"],"fn":["heading_ids","join_cjk_lines","mark_active","preprocess","rewrite_links","set_heading_ids"],"static":["SCHEME"],"struct":["Markdown"]};
