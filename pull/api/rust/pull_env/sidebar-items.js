@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["ENVRC","SECTION"],"fn":["exports","resolve"],"struct":["Env"]};

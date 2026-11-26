@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI (src/ci) · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../../zh-tw/cpull/docs/ci.html">
+
+  <link rel="icon" href="../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="ci.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../../zh-tw/cpull/docs/ci.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html" class="active" aria-current="page">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="cpull" data-radar-file="docs/ci.md">
+
+
+      <h1 id="ci-srcci" data-sourcepos="1:1-1:15">CI (<code data-sourcepos="1:7-1:14">src/ci</code>)<a href="#ci-srcci" aria-label="Link to heading 'CI (src/ci)'" data-heading-content="CI (src/ci)" class="anchor"></a></h1>
+<p data-sourcepos="3:1-5:75">cpull’s workspace server runs the CI for the <a data-sourcepos="3:46-3:82" href="https://github.com/jbisfun/idl">idl</a> projects
+of its pull workspace (every directory holding an <code data-sourcepos="4:51-4:63">idlproj.yml</code>, up to 5 levels down). It is
+a Zig port of idlci: same job queue, Jenkins-style pages, JSON API and CLI.</p>
+<ul data-sourcepos="7:1-14:44">
+<li data-sourcepos="7:1-9:103"><strong data-sourcepos="7:3-7:12">Server</strong>: <code data-sourcepos="7:15-7:106">cpull --workspace DIR --web-listen ADDR [--ci-jobs N] [--ci-watch [--ci-watch-interval S]]</code>.
+Pages at <code data-sourcepos="8:12-8:16">/ci</code> (dashboard, <code data-sourcepos="8:30-8:50">/ci/projects/&lt;path&gt;</code>, <code data-sourcepos="8:53-8:62">/ci/jobs</code>, <code data-sourcepos="8:65-8:79">/ci/jobs/&lt;id&gt;</code> with a live
+console). <code data-sourcepos="9:13-9:24">--ci-watch</code> queues <code data-sourcepos="9:33-9:39">build</code> and <code data-sourcepos="9:45-9:50">test</code> when a project’s (or a target dir’s) git HEAD moves.</li>
+<li data-sourcepos="10:1-12:97"><strong data-sourcepos="10:3-10:9">API</strong> (idlci’s, under <code data-sourcepos="10:27-10:31">/ci</code>): <code data-sourcepos="10:35-10:54">GET /ci/api/health</code>, <code data-sourcepos="10:57-10:87">GET /ci/api/projects[/&lt;path&gt;]</code>,
+<code data-sourcepos="11:3-11:25">GET|POST /ci/api/jobs</code>, <code data-sourcepos="11:28-11:50">GET /ci/api/jobs/&lt;id&gt;</code>, <code data-sourcepos="11:53-11:95">POST /ci/api/jobs/&lt;id&gt;/cancel|retry[?by=]</code>,
+<code data-sourcepos="12:3-12:43">GET /ci/api/jobs/&lt;id&gt;/log?offset=|tail=</code>, <code data-sourcepos="12:46-12:75">GET /ci/api/jobs/&lt;id&gt;/events</code> (server-sent events).</li>
+<li data-sourcepos="13:1-13:70"><strong data-sourcepos="13:3-13:9">CLI</strong>: <code data-sourcepos="13:12-13:49">cpull ci queue|jobs|log|cancel|retry</code> (<code data-sourcepos="13:52-13:68">cpull ci --help</code>).</li>
+<li data-sourcepos="14:1-14:44"><strong data-sourcepos="14:3-14:9">MCP</strong>: pull’s <code data-sourcepos="14:19-14:24">ci_*</code> tools (<code data-sourcepos="14:33-14:42">pull mcp</code>).</li>
+</ul>
+<p data-sourcepos="16:1-22:88">State lives in <code data-sourcepos="16:16-16:38">$ROOT/.pull/cpull/ci/</code> (<code data-sourcepos="16:41-16:47">ci.db</code> with idlci’s schema, <code data-sourcepos="16:70-16:84">logs/&lt;id&gt;.log</code>,
+<code data-sourcepos="17:1-17:12">serve.lock</code>); the server writes its address to <code data-sourcepos="17:49-17:78">$ROOT/.pull/cpull/serve.addr</code>. On first start an
+existing <code data-sourcepos="18:10-18:31">.pull/idlci/idlci.db</code> is copied in, so the job history carries over. Only the server
+holding <code data-sourcepos="19:9-19:20">serve.lock</code> runs jobs; another one (e.g. a TUI on the same workspace) only queues and shows
+them. Jobs run <code data-sourcepos="20:16-20:20">idl</code> (<code data-sourcepos="20:23-20:34">$CPULL_IDL</code>, <code data-sourcepos="20:37-20:48">$IDLCI_IDL</code>, <code data-sourcepos="20:51-20:55">idl</code> on PATH or <code data-sourcepos="20:68-20:85">~/.local/bin/idl</code>) in their own
+process group with <code data-sourcepos="21:20-21:30">PULL_ROOT</code> set; cancel SIGTERMs the group, then SIGKILLs it after 5s. Jobs a
+previous server left running are marked failed on start and their process groups killed.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/ci.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>workspace · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../../zh-tw/cpull/docs/workspace.html">
+
+  <link rel="icon" href="../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="workspace.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../../zh-tw/cpull/docs/workspace.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html" class="active" aria-current="page">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="cpull" data-radar-file="docs/workspace.md">
+
+
+      <p data-sourcepos="1:1-1:297">A <a data-sourcepos="1:3-1:41" href="https://github.com/jbisfun/pull">pull</a> workspace is a directory with a <code data-sourcepos="1:75-1:90">pullfile.plist</code> listing repos that move together, each cloned under it (nested ones as <code data-sourcepos="1:163-1:174">group/name</code>). Workspace mode is local mode over all of them at once, plus <em data-sourcepos="1:238-1:245">stacks</em>: changes that span several repos and land together.</p>
+<p data-sourcepos="3:1-3:10">Running it</p>
+<ul data-sourcepos="5:1-7:172">
+<li data-sourcepos="5:1-5:190">
+<p data-sourcepos="5:3-5:190">Run <code data-sourcepos="5:7-5:13">cpull</code> anywhere inside a workspace (outside its member repos), or name one with <code data-sourcepos="5:88-5:110">cpull --workspace DIR</code>. Inside a member repo, plain <code data-sourcepos="5:141-5:147">cpull</code> still gives local mode for just that repo.</p>
+</li>
+<li data-sourcepos="7:1-7:172">
+<p data-sourcepos="7:3-7:172"><code data-sourcepos="7:3-7:19">pull cpull open</code> does the same from pull. It first sets every repo’s <code data-sourcepos="7:73-7:83">user.name</code> and <code data-sourcepos="7:89-7:100">user.email</code> to pull’s identity (<code data-sourcepos="7:122-7:134">pull whoami</code>), then runs <code data-sourcepos="7:148-7:171">cpull --workspace ROOT</code>.</p>
+</li>
+</ul>
+<p data-sourcepos="9:1-9:11">No accounts</p>
+<ul data-sourcepos="11:1-15:148">
+<li data-sourcepos="11:1-11:197">
+<p data-sourcepos="11:3-11:197">Like local mode, workspace mode has no accounts. There are no login, signup, user, key, password or settings pages or routes, and no admin database: whoever can reach the port can read and write.</p>
+</li>
+<li data-sourcepos="13:1-13:302">
+<p data-sourcepos="13:3-13:302">Every write is authored by the <code data-sourcepos="13:34-13:44">user.name</code> and <code data-sourcepos="13:50-13:61">user.email</code> in that repo’s own git config, which <code data-sourcepos="13:100-13:116">pull cpull open</code> sets to pull’s identity. Unlike plain local mode, the global git config is never used for this. A repo without them refuses the write, with a message saying to start cpull through pull.</p>
+</li>
+<li data-sourcepos="15:1-15:148">
+<p data-sourcepos="15:3-15:148">The web UI only accepts form posts from its own origin, so other websites can’t write through it. Only bind it to addresses you trust everyone on.</p>
+</li>
+</ul>
+<p data-sourcepos="17:1-17:22">Running it as a server</p>
+<ul data-sourcepos="19:1-52:325">
+<li data-sourcepos="19:1-23:5">
+<p data-sourcepos="19:3-19:215"><code data-sourcepos="19:3-19:21">--web-listen ADDR</code> turns off the TUI. cpull then serves only the web UI on exactly ADDR, and keeps serving until it is killed. It never reads the terminal, so it can run as a background job nobody is attached to:</p>
+<pre class="syntax-highlighting" data-sourcepos="21:3-23:5"><code><span class="hl-text hl-plain">pull cpull open --web-listen 127.0.0.1:8080
+</span></code></pre>
+</li>
+<li data-sourcepos="25:1-47:5">
+<p data-sourcepos="25:3-25:115">As a pull job, add this to the pullfile’s <code data-sourcepos="25:45-25:50">jobs</code> array. Jobs run from the workspace root, with the workspace env:</p>
+<pre class="syntax-highlighting" data-sourcepos="27:3-47:5"><code class="language-xml"><span class="hl-text hl-plain">&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;cpull&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;pull&lt;/string&gt;
+        &lt;string&gt;cpull&lt;/string&gt;
+        &lt;string&gt;open&lt;/string&gt;
+        &lt;string&gt;--web-listen&lt;/string&gt;
+        &lt;string&gt;127.0.0.1:8080&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;SuccessfulExit&lt;/key&gt;
+        &lt;false/&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+</span></code></pre>
+</li>
+<li data-sourcepos="49:1-49:163">
+<p data-sourcepos="49:3-49:163">Running <code data-sourcepos="49:11-49:51">cpull --workspace DIR --web-listen ADDR</code> directly works too, but then nothing sets the repos’ identity. Repos that pull hasn’t set up yet refuse writes.</p>
+</li>
+<li data-sourcepos="51:1-51:113">
+<p data-sourcepos="51:3-51:113">This is not <code data-sourcepos="51:15-51:27">cpull serve</code>. That is the multi-user server with accounts, SSH and pushes; see <a data-sourcepos="51:95-51:112" href="host.html">host.md</a>.</p>
+</li>
+<li data-sourcepos="52:1-52:325">
+<p data-sourcepos="52:3-52:325">Every repo gets an identicon, a GitHub-style 5x5 avatar drawn from the SHA-1 of its cpull name (<code data-sourcepos="52:99-52:109">group/app</code> is <code data-sourcepos="52:114-52:124">group.app</code>). The pages inline it next to repo names, and <code data-sourcepos="52:172-52:201">/&lt;workspace&gt;:&lt;repo&gt;/icon.svg</code> serves it as a file (the repo pages’ favicon). The drawing is a port of identicon.js in <code data-sourcepos="52:291-52:324">src/frontend/theme/identicon.zig</code>.</p>
+</li>
+</ul>
+<p data-sourcepos="54:1-54:15">The events repo</p>
+<ul data-sourcepos="56:1-66:74">
+<li data-sourcepos="56:1-64:5">
+<p data-sourcepos="56:3-56:227">The workspace’s own issues and its stacks live on the <code data-sourcepos="56:57-56:70">cpull/events</code> branch of one repo. If the workspace root is a git repo itself, it’s that repo. Otherwise, name one of the pullfile repos in the pullfile’s <code data-sourcepos="56:212-56:218">cpull</code> section:</p>
+<pre class="syntax-highlighting" data-sourcepos="58:3-64:5"><code class="language-xml"><span class="hl-text hl-plain">&lt;key&gt;cpull&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;events&lt;/key&gt;
+    &lt;string&gt;dotenv&lt;/string&gt;
+&lt;/dict&gt;
+</span></code></pre>
+</li>
+<li data-sourcepos="66:1-66:74">
+<p data-sourcepos="66:3-66:74">Without either, the workspace pages still work, but there are no stacks.</p>
+</li>
+</ul>
+<p data-sourcepos="68:1-68:4">URLs</p>
+<ul data-sourcepos="70:1-74:286">
+<li data-sourcepos="70:1-70:120">
+<p data-sourcepos="70:3-70:120"><code data-sourcepos="70:3-70:5">/</code> is the workspace home: every repo, grouped by its group dir, with its branch, pin and open issue and patch counts.</p>
+</li>
+<li data-sourcepos="72:1-72:178">
+<p data-sourcepos="72:3-72:178"><code data-sourcepos="72:3-72:16">/home/issues</code>, <code data-sourcepos="72:19-72:33">/home/patches</code> and <code data-sourcepos="72:39-72:52">/home/stacks</code> gather those across every repo. <code data-sourcepos="72:86-72:104">/home/stacks/&lt;id&gt;</code> is one stack, with the patch of each member and what merging it would do.</p>
+</li>
+<li data-sourcepos="74:1-74:286">
+<p data-sourcepos="74:3-74:286">Each repo’s own pages are at <code data-sourcepos="74:32-74:56">/&lt;workspace&gt;:&lt;repo&gt;/...</code>, the same as on a server, where <code data-sourcepos="74:90-74:102">&lt;workspace&gt;</code> is the root dir’s name. cpull repo names can’t hold <code data-sourcepos="74:156-74:158">/</code>, so a nested <code data-sourcepos="74:173-74:183">group/app</code> is <code data-sourcepos="74:188-74:198">group.app</code>, here and when the repo is pushed to a cpull server. A root events repo is <code data-sourcepos="74:275-74:285">workspace</code>.</p>
+</li>
+</ul>
+<p data-sourcepos="76:1-76:7">Reports</p>
+<ul data-sourcepos="78:1-78:138">
+<li data-sourcepos="78:1-78:138">Reports are issues pinned to a line of code, filed with <code data-sourcepos="78:59-78:92">pull cpull report REPO FILE LINE</code> (what radar was). See <a data-sourcepos="78:116-78:137" href="report.html">report.md</a>.</li>
+</ul>
+<p data-sourcepos="80:1-80:6">Stacks</p>
+<ul data-sourcepos="82:1-98:154">
+<li data-sourcepos="82:1-82:254">
+<p data-sourcepos="82:3-82:254">A stack names one patch per member repo. Open one from repos that have work on a branch with <code data-sourcepos="82:96-82:113">pull cpull patch</code> (or <code data-sourcepos="82:119-82:176">cpull stack new --title T core:feature group/app:feature</code>). This opens an ordinary patch in each repo and the stack in the events repo.</p>
+</li>
+<li data-sourcepos="84:1-92:210">
+<p data-sourcepos="84:3-84:34">The stack event looks like this:</p>
+<pre class="syntax-highlighting" data-sourcepos="86:3-88:5"><code class="language-json"><span class="hl-source hl-json">{<span class="hl-string hl-string-special hl-string-special-key">&quot;id&quot;</span>:<span class="hl-string">&quot;&lt;32 hex&gt;&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;kind&quot;</span>:<span class="hl-string">&quot;stack&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;data&quot;</span>:{<span class="hl-string hl-string-special hl-string-special-key">&quot;title&quot;</span>:<span class="hl-string">&quot;rename the api&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;description&quot;</span>:<span class="hl-string">&quot;&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;labels&quot;</span>:<span class="hl-string">&quot;api&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;members&quot;</span>:<span class="hl-string">&quot;core &lt;patch id&gt;</span><span class="hl-escape">\n</span><span class="hl-string">group/app &lt;patch id&gt;&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;status&quot;</span>:{<span class="hl-string hl-string-special hl-string-special-key">&quot;open&quot;</span>:{}}}}
+</span></code></pre>
+<ul data-sourcepos="90:3-92:210">
+<li data-sourcepos="90:3-90:84"><code data-sourcepos="90:5-90:13">members</code> holds one <code data-sourcepos="90:25-90:52">&lt;pullfile repo&gt; &lt;patch id&gt;</code> line per repo, 1 to 64 of them.</li>
+<li data-sourcepos="91:3-91:102"><code data-sourcepos="91:5-91:12">status</code> is <code data-sourcepos="91:17-91:29">{&quot;open&quot;:{}}</code>, <code data-sourcepos="91:32-91:46">{&quot;closed&quot;:{}}</code> or <code data-sourcepos="91:51-91:101">{&quot;merged&quot;:{&quot;pins&quot;:&quot;core &lt;oid&gt;\ngroup/app &lt;oid&gt;&quot;}}</code>.</li>
+<li data-sourcepos="92:3-92:210">A merged stack can’t be changed. When two copies are synced, merged wins over open or closed if their members agree. Other differing fields become conflicts, like any other event (see <a data-sourcepos="92:189-92:208" href="event.html">event.md</a>).</li>
+</ul>
+</li>
+<li data-sourcepos="94:1-94:355">
+<p data-sourcepos="94:3-94:355">Merging (<code data-sourcepos="94:12-94:32">pull cpull merge ID</code>, the stack page’s merge button, or <code data-sourcepos="94:69-94:90">cpull stack merge ID</code>) merges every member’s patch into its target branch, or none of them. It never touches a worktree, so it refuses when a target branch is checked out, or when a source has moved past the patch. The stack is then recorded as merged, with the new commits as its pins.</p>
+</li>
+<li data-sourcepos="96:1-96:252">
+<p data-sourcepos="96:3-96:252">cpull doesn’t write the pullfile. After merging, the web UI runs <code data-sourcepos="96:68-96:86">pull cpull pin ID</code>. This writes the pins into the pullfile and commits it the way pull always commits, signed and through its hooks, so <code data-sourcepos="96:205-96:210">pull</code> must be on the PATH of the cpull process.</p>
+</li>
+<li data-sourcepos="98:1-98:154">
+<p data-sourcepos="98:3-98:154">Pushing the events repo to a cpull server carries the stacks along. The server checks each stack event the same way on push, but it doesn’t show stacks.</p>
+</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/workspace.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

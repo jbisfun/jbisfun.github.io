@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tui · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="../../../cpull/docs/tui.html">
+
+  <link rel="icon" href="../../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="../../../cpull/docs/tui.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="tui.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html" class="active" aria-current="page">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <p data-sourcepos="1:1-1:275">cpull has one UI, and it’s a TUI. Rather than build a terminal UI for the nerds and a separate web UI for everyone else, cpull builds a single TUI with <a data-sourcepos="1:153-1:193" href="https://github.com/xit-vcs/xitui">xitui</a> and renders it in three places: your terminal, an SSH session, and a web browser.</p>
+<p data-sourcepos="3:1-3:12">The terminal</p>
+<ul data-sourcepos="5:1-9:150">
+<li data-sourcepos="5:1-5:216">
+<p data-sourcepos="5:3-5:216">In <a data-sourcepos="5:6-5:27" href="local.html">local mode</a>, you just run <code data-sourcepos="5:43-5:49">cpull</code> inside a repo and the TUI is drawn directly in your terminal. While it runs, cpull also serves the web UI for that repo on a local port, which is shown in the footer.</p>
+</li>
+<li data-sourcepos="7:1-7:232">
+<p data-sourcepos="7:3-7:232">A cpull server lets you browse the instance over SSH. When you connect, the server runs the TUI and streams it to you over the SSH channel, so all you need is an SSH client. Each connection gets its own session with its own state.</p>
+</li>
+<li data-sourcepos="9:1-9:150">
+<p data-sourcepos="9:3-9:150">Since SSH already authenticates you with your key, this is also the quickest way to make an account: log in once and your key is associated with it.</p>
+</li>
+</ul>
+<p data-sourcepos="11:1-11:7">The web</p>
+<ul data-sourcepos="13:1-23:225">
+<li data-sourcepos="13:1-13:258">
+<p data-sourcepos="13:3-13:258">The web UI is the same TUI. The server builds the same widgets it would build for a terminal, lays them out on the same grid of characters, and turns that grid into HTML. Each cell is text in a monospace font, so it looks exactly like the terminal version.</p>
+</li>
+<li data-sourcepos="15:1-15:405">
+<p data-sourcepos="15:3-15:405">Rendering a TUI in a browser sounds like a recipe for an inaccessible mess, so cpull doesn’t just paint characters. Anything you can interact with becomes a standard HTML element placed on top of the grid: text fields are <code data-sourcepos="15:225-15:231">input</code> and <code data-sourcepos="15:237-15:246">textarea</code>, buttons are <code data-sourcepos="15:261-15:268">button</code>, choices are radio inputs, file uploads are file inputs, and links are real <code data-sourcepos="15:346-15:348">a</code> tags. Forms are real HTML forms that post to the server.</p>
+</li>
+<li data-sourcepos="17:1-17:276">
+<p data-sourcepos="17:3-17:276">This means browsers, screenreaders, and touchscreen devices all know what each control is. Tapping a text field on a phone brings up the keyboard, autofill and spellcheck work, and scrollable areas are native scrolling divs, so they scroll with a finger like any other page.</p>
+</li>
+<li data-sourcepos="19:1-19:154">
+<p data-sourcepos="19:3-19:154">The page is rendered on the server first, so it works with javascript disabled. Links navigate, forms submit, and search boxes fall back to plain forms.</p>
+</li>
+<li data-sourcepos="21:1-21:376">
+<p data-sourcepos="21:3-21:376">When javascript is enabled, a small webassembly build of cpull takes over. The server embeds the page’s data as JSON, and the wasm uses it to build the same widgets in the browser. Keyboard navigation, focus, and resizing are then handled client-side, without a request for every key press. It only goes back to the server when you navigate to another page or submit a form.</p>
+</li>
+<li data-sourcepos="23:1-23:225">
+<p data-sourcepos="23:3-23:225">The wasm lays the TUI out to the width of the browser window, so responsive layouts work the same way they do in a resized terminal. On a narrow screen, a list and its detail view show one at a time instead of side by side.</p>
+</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/tui.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家/地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

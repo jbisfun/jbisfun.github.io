@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["commit","exclude_from_root_repo","open","print_status","push","repo_statuses","root_repo","stage","staged_repos","sync"],"mod":["git"],"struct":["RepoStatus"]};

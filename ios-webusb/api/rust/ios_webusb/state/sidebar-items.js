@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":["DeviceCommand","Transport","UiEvent"],"struct":["DeviceEntry","Paths","Snapshot","State"]};

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI (src/ci) · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="../../../cpull/docs/ci.html">
+
+  <link rel="icon" href="../../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="../../../cpull/docs/ci.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="ci.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html" class="active" aria-current="page">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../../cpull/docs/ci.html" hreflang="en" lang="en">閱讀英文原文</a></div>
+
+      <h1 id="ci-srcci" data-sourcepos="1:1-1:15">CI (<code data-sourcepos="1:7-1:14">src/ci</code>)<a href="#ci-srcci" aria-label="Link to heading 'CI (src/ci)'" data-heading-content="CI (src/ci)" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:282">cpull 的工作區伺服器會為其拉取工作區中的 <a data-sourcepos="3:59-3:95" href="https://github.com/jbisfun/idl">idl</a> 專案執行 CI（每個包含 <code data-sourcepos="3:128-3:140">idlproj.yml</code> 的目錄，最多向下五層）。它是 idlci 的 Zig 移植版本：相同的作業佇列、Jenkins 風格的頁面、JSON API 和 CLI。</p>
+<ul data-sourcepos="5:1-10:53">
+<li data-sourcepos="5:1-5:322"><strong data-sourcepos="5:3-5:15">伺服器</strong>：<code data-sourcepos="5:19-5:110">cpull --workspace DIR --web-listen ADDR [--ci-jobs N] [--ci-watch [--ci-watch-interval S]]</code>。頁面位於 <code data-sourcepos="5:127-5:131">/ci</code>（儀表板、<code data-sourcepos="5:147-5:167">/ci/projects/&lt;path&gt;</code>、<code data-sourcepos="5:171-5:180">/ci/jobs</code>、<code data-sourcepos="5:184-5:198">/ci/jobs/&lt;id&gt;</code> 帶有即時主控台）。<code data-sourcepos="5:227-5:238">--ci-watch</code> 會在專案（或目標目錄）的 git HEAD 變動時排入 <code data-sourcepos="5:302-5:308">build</code> 和 <code data-sourcepos="5:314-5:319">test</code>。</li>
+<li data-sourcepos="6:1-8:109"><strong data-sourcepos="6:3-6:9">API</strong>（idlci 的，位於 <code data-sourcepos="6:32-6:36">/ci</code> 下）：<code data-sourcepos="6:47-6:66">GET /ci/api/health</code>、<code data-sourcepos="6:70-6:100">GET /ci/api/projects[/&lt;path&gt;]</code>、
+<code data-sourcepos="7:3-7:25">GET|POST /ci/api/jobs</code>、<code data-sourcepos="7:29-7:51">GET /ci/api/jobs/&lt;id&gt;</code>、<code data-sourcepos="7:55-7:97">POST /ci/api/jobs/&lt;id&gt;/cancel|retry[?by=]</code>、
+<code data-sourcepos="8:3-8:43">GET /ci/api/jobs/&lt;id&gt;/log?offset=|tail=</code>、<code data-sourcepos="8:47-8:76">GET /ci/api/jobs/&lt;id&gt;/events</code>（伺服器發送的事件）。</li>
+<li data-sourcepos="9:1-9:76"><strong data-sourcepos="9:3-9:9">CLI</strong>：<code data-sourcepos="9:13-9:50">cpull ci queue|jobs|log|cancel|retry</code>（<code data-sourcepos="9:54-9:70">cpull ci --help</code>）。</li>
+<li data-sourcepos="10:1-10:53"><strong data-sourcepos="10:3-10:9">MCP</strong>：pull 的 <code data-sourcepos="10:22-10:27">ci_*</code> 工具（<code data-sourcepos="10:38-10:47">pull mcp</code>）。</li>
+</ul>
+<p data-sourcepos="12:1-13:644">狀態存放在 <code data-sourcepos="12:17-12:39">$ROOT/.pull/cpull/ci/</code>（<code data-sourcepos="12:43-12:49">ci.db</code> 使用 idlci 的結構，<code data-sourcepos="12:76-12:90">logs/&lt;id&gt;.log</code>、
+<code data-sourcepos="13:1-13:12">serve.lock</code>）；伺服器會將其位址寫入 <code data-sourcepos="13:50-13:79">$ROOT/.pull/cpull/serve.addr</code>。首次啟動時，會複製現有的 <code data-sourcepos="13:120-13:141">.pull/idlci/idlci.db</code>，因此作業歷史記錄會延續。僅持有 <code data-sourcepos="13:191-13:202">serve.lock</code> 的伺服器會執行作業；另一個（例如同一工作區上的 TUI）則僅排入並顯示它們。作業在其自己的程序組中執行 <code data-sourcepos="13:350-13:354">idl</code>（<code data-sourcepos="13:358-13:369">$CPULL_IDL</code>、<code data-sourcepos="13:373-13:384">$IDLCI_IDL</code>、PATH 上的 <code data-sourcepos="13:400-13:404">idl</code> 或 <code data-sourcepos="13:410-13:427">~/.local/bin/idl</code>），並設定 <code data-sourcepos="13:444-13:454">PULL_ROOT</code>；取消時會向整個程序組發送 SIGTERM，並在 5 秒後發送 SIGKILL。前一個伺服器留下的正在執行中的作業會在啟動時標記為失敗，並終止其程序組。</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/ci.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家/地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

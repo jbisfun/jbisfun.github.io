@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["DIR"],"fn":["add","list","path","remove"]};

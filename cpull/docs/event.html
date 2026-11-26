@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>event · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../../zh-tw/cpull/docs/event.html">
+
+  <link rel="icon" href="../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="event.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../../zh-tw/cpull/docs/event.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html" class="active" aria-current="page">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-radar-repo="cpull" data-radar-file="docs/event.md">
+
+
+      <p data-sourcepos="1:1-1:286">Most git forges keep issues, pull requests, and discussions in a database on the server, completely separate from the repo. While it is easy to move your repo to another forge, it’s often a pain to move the rest of this data. Like Hotel California, you can come but you can never leave.</p>
+<p data-sourcepos="3:1-3:374">cpull instead stores all of that in the repo itself, so it moves around with your code. This also means you can view and edit this metadata locally. If you have cpull installed locally, just clone the repo and run <code data-sourcepos="3:215-3:221">cpull</code> inside it. cpull will run in <a data-sourcepos="3:252-3:273" href="local.html">local mode</a>, displaying its UI in your terminal and all your issues and other metadata will be readable offline.</p>
+<p data-sourcepos="5:1-5:17">The events branch</p>
+<ul data-sourcepos="7:1-21:366">
+<li data-sourcepos="7:1-7:142">
+<p data-sourcepos="7:3-7:142">Every cpull repo has a branch called <code data-sourcepos="7:40-7:53">cpull/events</code>. It has nothing to do with your code; it is just a long chain of commits, one per event.</p>
+</li>
+<li data-sourcepos="9:1-9:515">
+<p data-sourcepos="9:3-9:515">Other projects like <a data-sourcepos="9:23-9:67" href="https://github.com/git-bug/git-bug">git-bug</a> and  <a data-sourcepos="9:74-9:104" href="https://radicle.dev/">Radicle</a> (mentioned below) also store issues in the git repo, but they choose to use custom refs. cpull just puts them in a branch, because git retrieves branches with every <code data-sourcepos="9:271-9:277">clone</code> and <code data-sourcepos="9:283-9:289">fetch</code>. This makes it very easy to see your issues offline: just clone a repo and run <code data-sourcepos="9:370-9:376">cpull</code> inside it. Using a branch also means two events branches can be combined with an ordinary merge commit (see the section below on merging).</p>
+</li>
+<li data-sourcepos="11:1-15:5">
+<p data-sourcepos="11:3-11:137">An event is created whenever some piece of metadata is created, updated, or removed. The event is stored as JSON in the commit message:</p>
+<pre class="syntax-highlighting" data-sourcepos="13:3-15:5"><code class="language-json"><span class="hl-source hl-json">{<span class="hl-string hl-string-special hl-string-special-key">&quot;id&quot;</span>:<span class="hl-string">&quot;5f1c...&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;kind&quot;</span>:<span class="hl-string">&quot;issue&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;data&quot;</span>:{<span class="hl-string hl-string-special hl-string-special-key">&quot;title&quot;</span>:<span class="hl-string">&quot;it crashes&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;description&quot;</span>:<span class="hl-string">&quot;...&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;labels&quot;</span>:<span class="hl-string">&quot;bug&quot;</span>,<span class="hl-string hl-string-special hl-string-special-key">&quot;status&quot;</span>:<span class="hl-string">&quot;open&quot;</span>}}
+</span></code></pre>
+</li>
+<li data-sourcepos="17:1-17:211">
+<p data-sourcepos="17:3-17:211">The <code data-sourcepos="17:7-17:10">id</code> names the thing being changed, not the event. Creating an issue makes up a new random id, and editing it later makes another event with the same id and the full new contents. A <code data-sourcepos="17:189-17:194">null</code> data removes it.</p>
+</li>
+<li data-sourcepos="19:1-19:268">
+<p data-sourcepos="19:3-19:268">Anything that a commit already records is not repeated in the JSON. The author line is who made the event, and the timestamp is when. This matters because events travel between cpull instances, and an instance-specific user id would be meaningless on another server.</p>
+</li>
+<li data-sourcepos="21:1-21:366">
+<p data-sourcepos="21:3-21:366">Some events need to carry files. An attachment puts the file in the commit’s tree, and a patch revision puts the trees of the code being proposed there, so the objects travel with the branch like any other git objects. Commits on this branch never inherit the parent commit’s file tree, so these files won’t conflict with any existing files added by other commits.</p>
+</li>
+</ul>
+<p data-sourcepos="23:1-23:16">Consuming events</p>
+<ul data-sourcepos="25:1-31:293">
+<li data-sourcepos="25:1-25:363">
+<p data-sourcepos="25:3-25:363">Reading a chain of commits every time you want to list issues would be painfully slow, so cpull “consumes” the events into a database: essentially, a form of event sourcing. Consuming walks the new commits on the events branch and turns each one into a record, along with the indexes the UI needs (open issues, issues per label, comments per thread, and so on).</p>
+</li>
+<li data-sourcepos="27:1-27:269">
+<p data-sourcepos="27:3-27:269">On the server, repos are stored by xit, so this database is just more data inside the repo’s own <a data-sourcepos="27:100-27:126" href="https://xitdb.net/">xitdb</a> file. A push and the consuming of the events it carries happen in a single transaction, so if an event is invalid, the whole push is rejected.</p>
+</li>
+<li data-sourcepos="29:1-29:264">
+<p data-sourcepos="29:3-29:264">In <a data-sourcepos="29:6-29:27" href="local.html">local mode</a>, a plain git repo has no database to put this in, so cpull keeps a standalone one in a file called <code data-sourcepos="29:128-29:134">cpull</code> inside the <code data-sourcepos="29:147-29:152">.git</code> dir. It’s only a cache; if you delete it, cpull just consumes the events again the next time it opens the repo.</p>
+</li>
+<li data-sourcepos="31:1-31:293">
+<p data-sourcepos="31:3-31:293">xitdb is immutable, so cpull keeps the database state after every event commit. If someone rebases and force-pushes the events branch, cpull finds the last commit that is still in the history, throws away every state after it, and consumes from there. Nothing has to be rebuilt from scratch.</p>
+</li>
+</ul>
+<p data-sourcepos="33:1-33:7">Merging</p>
+<ul data-sourcepos="35:1-39:273">
+<li data-sourcepos="35:1-35:380">
+<p data-sourcepos="35:3-35:380">Since the metadata is in a branch, two people can change it at the same time: one person might edit issues offline using cpull’s local mode, and another person may do so on the server. cpull’s local mode displays a “sync” button in the events tab. This will pull the latest events from the server, combine them with the local changes using a regular merge commit, and then push.</p>
+</li>
+<li data-sourcepos="37:1-37:499">
+<p data-sourcepos="37:3-37:499">A merge commit isn’t an event, so instead of consuming it, cpull does a three-way merge of the records on each side, using their common ancestor as the base. For issues and patches this is done field by field: if only one side changed the title, that change is taken. If both sides changed the same field differently, the record is marked as conflicted and shows up in the UI for someone to resolve. See <a data-sourcepos="37:407-37:454" href="https://youtu.be/kkGUARj5Wdw?t=591">the devlog</a> for a demonstration of resolving a conflict.</p>
+</li>
+<li data-sourcepos="39:1-39:273">
+<p data-sourcepos="39:3-39:273">A merge never fails. A metadata conflict is something for a person to look at later, not a reason to refuse a sync, because a branch that can’t be consumed would be stuck forever. Metadata conflicts are <em data-sourcepos="39:206-39:210">not</em> git conflicts; they are first-class conflicts stored in xitdb.</p>
+</li>
+</ul>
+<p data-sourcepos="41:1-41:17">Where events live</p>
+<ul data-sourcepos="43:1-47:267">
+<li data-sourcepos="43:1-43:117">
+<p data-sourcepos="43:3-43:117">The project metadata (issues, comments, attachments, assignees, discussions, patches) is in the project’s own repo.</p>
+</li>
+<li data-sourcepos="45:1-45:82">
+<p data-sourcepos="45:3-45:82">A fork’s repo carries the patches and patch revisions it proposes to its target.</p>
+</li>
+<li data-sourcepos="47:1-47:267">
+<p data-sourcepos="47:3-47:267">cpull also uses the event system internally to store instance-specific data like user accounts and user roles for each repo. These are stored in internal git repos and cannot currently be moved to a different cpull instance because they reference internal user IDs.</p>
+</li>
+</ul>
+<p data-sourcepos="49:1-49:21">Comparison to Radicle</p>
+<ul data-sourcepos="51:1-53:540">
+<li data-sourcepos="51:1-51:242">
+<p data-sourcepos="51:3-51:242">Radicle also stores issues in the repo, but in a different format. cpull stores all events in a single branch, while Radicle uses custom refs. See the section above on the events branch for an explanation of why cpull went with this design.</p>
+</li>
+<li data-sourcepos="53:1-53:540">
+<p data-sourcepos="53:3-53:540">Unlike Radicle, cpull is not peer-to-peer. I believe p2p architectures lead to a significant amount of complexity and make it difficult to have a consistently good experience. cpull is <em data-sourcepos="53:188-53:198">federated</em> in the sense that anyone can run a cpull instance, and your projects can be easily moved between them. I believe that is pragmatically the kind of decentralization that people want, and it dramatically simplifies the implementation. See my <a data-sourcepos="53:440-53:512" href="https://www.youtube.com/watch?v=P0yxbttcmzw">video on decentralized p2p</a> for an elaboration of this.</p>
+</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/event.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

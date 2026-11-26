@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["changes","checkout_branch","clone","commit","fast_forward","fetch","has_staged","head_oid","is_dirty","push","remote_oid","reset_hard","short","stage","stage_tracked","status_lines","unstage"],"struct":["Change"]};

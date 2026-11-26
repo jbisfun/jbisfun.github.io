@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["SECTION"],"fn":["apply","write_exclude"]};

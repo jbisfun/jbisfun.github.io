@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["commit","init","main","mcp","mcp_servers_json","resolve_command","run","shell_quote","status_json","sync","tool","worktree"],"mod":["cli","launchd","workspace"],"struct":["McpServerConfig"]};

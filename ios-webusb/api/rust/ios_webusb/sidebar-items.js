@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["main","paths","wait_for_socket"],"mod":["devices","state","tray","ui"]};

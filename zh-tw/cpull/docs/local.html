@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>local · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="../../../cpull/docs/local.html">
+
+  <link rel="icon" href="../../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="../../../cpull/docs/local.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="local.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/cpull">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="ci.html">CI (src/ci)</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="event.html">event</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="host.html">host</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="local.html" class="active" aria-current="page">local</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="report.html">report</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="tui.html">tui</a>
+
+
+  </li>
+
+  <li>
+
+    <a href="workspace.html">workspace</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <p data-sourcepos="1:1-1:297">Most git forges only let you see your issues via their website, so you lose access when their server goes down. Since cpull stores issues and other project metadata in the repo itself, there’s nothing stopping you from reading and editing them on your own computer. That is what local mode is for.</p>
+<p data-sourcepos="3:1-3:10">Running it</p>
+<ul data-sourcepos="5:1-17:273">
+<li data-sourcepos="5:1-11:5">
+<p data-sourcepos="5:3-5:66">Install cpull and run it with no subcommand inside any git repo:</p>
+<pre class="syntax-highlighting" data-sourcepos="7:3-11:5"><code><span class="hl-text hl-plain">git clone ssh://cpull.example.com/user:project
+cd project
+cpull
+</span></code></pre>
+</li>
+<li data-sourcepos="13:1-13:221">
+<p data-sourcepos="13:3-13:221">The TUI opens in your terminal, showing the repo’s files, commits, refs, issues, patches, and discussions. cpull also serves the same UI on a local port, which is shown in the footer, in case you’d rather use a browser.</p>
+</li>
+<li data-sourcepos="15:1-15:229">
+<p data-sourcepos="15:3-15:229">To skip the TUI, run <code data-sourcepos="15:24-15:58">cpull --web-listen 127.0.0.1:8080</code>. cpull then serves only the web UI, on exactly that address, until it’s killed. Inside a pull workspace this covers the whole workspace; see <a data-sourcepos="15:201-15:228" href="workspace.html">workspace.md</a>.</p>
+</li>
+<li data-sourcepos="17:1-17:273">
+<p data-sourcepos="17:3-17:273">If you cloned the repo from a cpull server, its <code data-sourcepos="17:51-17:64">cpull/events</code> branch came along with it, so all of the project’s metadata is already there. cpull reads it straight from the remote-tracking branch, so you don’t need to check anything out. It all works completely offline.</p>
+</li>
+</ul>
+<p data-sourcepos="19:1-19:7">Editing</p>
+<ul data-sourcepos="21:1-25:176">
+<li data-sourcepos="21:1-21:153">
+<p data-sourcepos="21:3-21:153">You can create and edit issues, discussions, and comments just like you would on the server. You can also open a patch from one of your local branches.</p>
+</li>
+<li data-sourcepos="23:1-23:219">
+<p data-sourcepos="23:3-23:219">Each change is committed as an event on your local <code data-sourcepos="23:54-23:67">cpull/events</code> branch. There is no account in local mode, so the commit author comes from your <code data-sourcepos="23:149-23:159">user.name</code> and <code data-sourcepos="23:165-23:176">user.email</code> git config, just like your normal commits.</p>
+</li>
+<li data-sourcepos="25:1-25:176">
+<p data-sourcepos="25:3-25:176">None of this touches your working tree, index, or <code data-sourcepos="25:53-25:58">HEAD</code>. The events branch is updated in the background, so you can keep working on your code while you file issues about it.</p>
+</li>
+</ul>
+<p data-sourcepos="27:1-27:7">Syncing</p>
+<ul data-sourcepos="29:1-35:110">
+<li data-sourcepos="29:1-29:140">
+<p data-sourcepos="29:3-29:140">When you’re ready, go to the events tab and press the sync button. It says “sync needed!” when your local events differ from the server’s.</p>
+</li>
+<li data-sourcepos="31:1-31:286">
+<p data-sourcepos="31:3-31:286">Sync pulls in everyone else’s changes and pushes yours. If you both changed the same issue, the changes are merged via the <a data-sourcepos="31:126-31:149" href="event.html">event system</a>. A field that both of you changed differently is marked as a conflict for someone to resolve; the sync itself never fails because of it.</p>
+</li>
+<li data-sourcepos="33:1-33:217">
+<p data-sourcepos="33:3-33:217">Pushing requires that you have push access to the repo on the server. The server consumes your events as part of the push, so if any of them are invalid, the whole push is rejected and nothing changes on the server.</p>
+</li>
+<li data-sourcepos="35:1-35:110">
+<p data-sourcepos="35:3-35:110">Sync goes over SSH and never prompts for anything, so your SSH key must already be registered on the server.</p>
+</li>
+</ul>
+<p data-sourcepos="37:1-37:22">Making your own client</p>
+<ul data-sourcepos="39:1-49:49">
+<li data-sourcepos="39:1-39:219">
+<p data-sourcepos="39:3-39:219">cpull’s TUI is not the only way to use this data. The events branch is just a bunch of commits, so any program that can read a git repo can build its own UI for it, whether that’s an editor plugin, a GUI, or a script.</p>
+</li>
+<li data-sourcepos="41:1-41:185">
+<p data-sourcepos="41:3-41:185">Such a client reads the events on the <code data-sourcepos="41:41-41:54">cpull/events</code> branch, shows them however it likes, and makes edits by committing new events to it. Read more about the <a data-sourcepos="41:161-41:184" href="event.html">event system</a>.</p>
+</li>
+<li data-sourcepos="43:1-49:49">
+<p data-sourcepos="43:3-43:44">To sync, do what cpull’s sync button does:</p>
+<ol data-sourcepos="45:3-49:49">
+<li data-sourcepos="45:3-45:120">
+<p data-sourcepos="45:6-45:120">Fetch the server’s events branch with <code data-sourcepos="45:44-45:119">git fetch origin +refs/heads/cpull/events:refs/remotes/origin/cpull/events</code>.</p>
+</li>
+<li data-sourcepos="47:3-47:232">
+<p data-sourcepos="47:6-47:232">Combine it with your local <code data-sourcepos="47:33-47:46">cpull/events</code>. If one is an ancestor of the other, just move your local branch to the newer one. Otherwise, make a merge commit with an empty tree whose parents are your local tip and the remote tip.</p>
+</li>
+<li data-sourcepos="49:3-49:49">
+<p data-sourcepos="49:6-49:49">Push it with <code data-sourcepos="49:19-49:48">git push origin cpull/events</code>.</p>
+</li>
+</ol>
+</li>
+</ul>
+<p data-sourcepos="51:1-51:20">Browsing an instance</p>
+<ul data-sourcepos="53:1-57:467">
+<li data-sourcepos="53:1-53:272">
+<p data-sourcepos="53:3-53:272">A client doesn’t even need a clone. Any page on a cpull server returns JSON instead of HTML if the request has an <code data-sourcepos="53:117-53:142">Accept: application/json</code> header. It’s the same data cpull’s own web UI renders from, so a client can use it to browse an instance in whatever UI it likes.</p>
+</li>
+<li data-sourcepos="55:1-55:138">
+<p data-sourcepos="55:3-55:138">Pages that don’t need a login can be fetched from any origin, so a web page hosted somewhere else can build a read-only client this way.</p>
+</li>
+<li data-sourcepos="57:1-57:467">
+<p data-sourcepos="57:3-57:467">A native client can also make changes. It logs in by posting to <code data-sourcepos="57:67-57:74">/login</code> at the end of any page’s url, and keeps the session cookie it gets back. After that it can post the same forms cpull’s web UI does, such as <code data-sourcepos="57:216-57:221">/new</code>, <code data-sourcepos="57:224-57:230">/edit</code>, or <code data-sourcepos="57:236-57:243">/close</code> at the end of an issue’s url. Each one answers with a redirect, and following it with the JSON header returns the updated page, including the error if the form failed. That’s everything needed for a fully-functional client.</p>
+</li>
+</ul>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/cpull/blob/master/docs/local.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家/地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

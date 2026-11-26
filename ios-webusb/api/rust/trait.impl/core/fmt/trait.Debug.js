@@ -1,9 +1,0 @@
-(function() {
-    const implementors = Object.fromEntries([["ios_webusb",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"struct\" href=\"ios_webusb/state/struct.DeviceEntry.html\" title=\"struct ios_webusb::state::DeviceEntry\">DeviceEntry</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.99.1/core/fmt/trait.Debug.html\" title=\"trait core::fmt::Debug\">Debug</a> for <a class=\"enum\" href=\"ios_webusb/state/enum.Transport.html\" title=\"enum ios_webusb::state::Transport\">Transport</a>",0]]]]);
-    if (window.register_implementors) {
-        window.register_implementors(implementors);
-    } else {
-        window.pending_implementors = implementors;
-    }
-})()
-//{"start":59,"fragment_lengths":[562]}

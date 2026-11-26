@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["absolutize","ensure_ignored","repo_name_from_url","route"]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["daemon","launchctl","pullfile_jobs","session"]};
