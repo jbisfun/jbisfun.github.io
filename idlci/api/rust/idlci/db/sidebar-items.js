@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["COLS"],"enum":["Command","Configuration","RequestedBy","Status"],"fn":["data_dir","name","now","parse","row"],"struct":["Enqueued","GitInfo","Job","JobFilter","NewJob","Store"]};

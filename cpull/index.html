@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item active" href="index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -297,18 +301,19 @@
 <p data-sourcepos="37:1-37:39"><a data-sourcepos="37:1-37:24" href="docs/tui.html">Read more</a> about the TUI.</p>
 <h2 id="how-to-fire-this-puppy-up-and-get-er-done" data-sourcepos="39:1-39:45">How to fire this puppy up and get ’er done<a href="#how-to-fire-this-puppy-up-and-get-er-done" aria-label="Link to heading 'How to fire this puppy up and get ’er done'" data-heading-content="How to fire this puppy up and get ’er done" class="anchor"></a></h2>
 <p data-sourcepos="41:1-41:98">To build, install zig 0.17.0 and do <code data-sourcepos="41:37-41:47">zig build</code> and you’ll find the binary at <code data-sourcepos="41:79-41:97">zig-out/bin/cpull</code>.</p>
-<p data-sourcepos="43:1-43:123">On a production server you would run this binary with the <code data-sourcepos="43:59-43:65">serve</code> subcommand. <a data-sourcepos="43:79-43:103" href="docs/host.html">Read more</a> about self-hosting.</p>
-<p data-sourcepos="45:1-45:180">To run it in local mode, just run it with no subcommand in any git repo. It will show a completely offline cpull UI just for that repo. <a data-sourcepos="45:137-45:162" href="docs/local.html">Read more</a> about local mode.</p>
-<p data-sourcepos="47:1-47:304">Run it inside a <a data-sourcepos="47:17-47:55" href="https://github.com/jbisfun/pull">pull</a> workspace and it covers every repo in the workspace, plus stacks: changes across repos that land together. <code data-sourcepos="47:164-47:192">--web-listen 127.0.0.1:8080</code> serves just that account-less web UI, as a background job. <a data-sourcepos="47:253-47:282" href="docs/workspace.html">Read more</a> about workspace mode.</p>
-<p data-sourcepos="49:1-49:46">The easiest way to try cpull out is like this:</p>
-<pre class="syntax-highlighting" data-sourcepos="51:1-53:3"><code><span class="hl-text hl-plain">zig build try
+<p data-sourcepos="43:1-43:289">The web UI’s theme, identicons and code highlighter come from <a data-sourcepos="43:63-43:111" href="https://github.com/jbisfun/theme">jbisfun/theme</a>, a path dependency on <code data-sourcepos="43:135-43:144">../theme</code> (build.zig.zon). In a <a data-sourcepos="43:168-43:206" href="https://github.com/jbisfun/pull">pull</a> workspace it is the sibling checkout. Anywhere else, clone it next to cpull first.</p>
+<p data-sourcepos="45:1-45:123">On a production server you would run this binary with the <code data-sourcepos="45:59-45:65">serve</code> subcommand. <a data-sourcepos="45:79-45:103" href="docs/host.html">Read more</a> about self-hosting.</p>
+<p data-sourcepos="47:1-47:180">To run it in local mode, just run it with no subcommand in any git repo. It will show a completely offline cpull UI just for that repo. <a data-sourcepos="47:137-47:162" href="docs/local.html">Read more</a> about local mode.</p>
+<p data-sourcepos="49:1-49:304">Run it inside a <a data-sourcepos="49:17-49:55" href="https://github.com/jbisfun/pull">pull</a> workspace and it covers every repo in the workspace, plus stacks: changes across repos that land together. <code data-sourcepos="49:164-49:192">--web-listen 127.0.0.1:8080</code> serves just that account-less web UI, as a background job. <a data-sourcepos="49:253-49:282" href="docs/workspace.html">Read more</a> about workspace mode.</p>
+<p data-sourcepos="51:1-51:46">The easiest way to try cpull out is like this:</p>
+<pre class="syntax-highlighting" data-sourcepos="53:1-55:3"><code><span class="hl-text hl-plain">zig build try
 </span></code></pre>
-<p data-sourcepos="55:1-55:237">This will launch a server with fake data that it stores in the <code data-sourcepos="55:64-55:73">temp-try</code> directory. It will then launch the TUI directly in your terminal (you can exit by pressing escape). Additionally, you can view the web UI at <a data-sourcepos="55:216-55:236" href="http://localhost:8080">http://localhost:8080</a>.</p>
-<p data-sourcepos="57:1-57:143">A fun test is to push cpull itself to the server. You can do that by running the following command, which will push it to the server using SSH:</p>
-<pre class="syntax-highlighting" data-sourcepos="59:1-61:3"><code><span class="hl-text hl-plain">GIT_SSH_COMMAND=&#39;ssh -p 8022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i temp-try/key&#39; git push localhost:admin:cpull HEAD:master
+<p data-sourcepos="57:1-57:237">This will launch a server with fake data that it stores in the <code data-sourcepos="57:64-57:73">temp-try</code> directory. It will then launch the TUI directly in your terminal (you can exit by pressing escape). Additionally, you can view the web UI at <a data-sourcepos="57:216-57:236" href="http://localhost:8080">http://localhost:8080</a>.</p>
+<p data-sourcepos="59:1-59:143">A fun test is to push cpull itself to the server. You can do that by running the following command, which will push it to the server using SSH:</p>
+<pre class="syntax-highlighting" data-sourcepos="61:1-63:3"><code><span class="hl-text hl-plain">GIT_SSH_COMMAND=&#39;ssh -p 8022 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i temp-try/key&#39; git push localhost:admin:cpull HEAD:master
 </span></code></pre>
-<p data-sourcepos="63:1-63:130">After that, go to the admin user in the UI and you’ll see cpull’s repo page: <a data-sourcepos="63:78-63:130" href="http://localhost:8080/admin:cpull/files/branch:master">http://localhost:8080/admin:cpull/files/branch:master</a></p>
-<p data-sourcepos="65:1-65:116"><em data-sourcepos="65:1-65:116">“C’mon Alex! You always dreamt about going on a big adventure! Let this be our first!” – Lunar: Silver Star Story</em></p>
+<p data-sourcepos="65:1-65:130">After that, go to the admin user in the UI and you’ll see cpull’s repo page: <a data-sourcepos="65:78-65:130" href="http://localhost:8080/admin:cpull/files/branch:master">http://localhost:8080/admin:cpull/files/branch:master</a></p>
+<p data-sourcepos="67:1-67:116"><em data-sourcepos="67:1-67:116">“C’mon Alex! You always dreamt about going on a big adventure! Let this be our first!” – Lunar: Silver Star Story</em></p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

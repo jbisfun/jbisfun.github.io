@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>theme · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../zh-tw/theme/index.html">
+
+  <link rel="icon" href="../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../_assets/style.css">
+  <script type="module" src="../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../index.html"><img src="../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
+            <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../cpull/index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item active" href="index.html">theme</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="index.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../zh-tw/theme/index.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="index.html" class="active" aria-current="page">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/theme">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="docs/workspace-tools.html">Workspace tools: the contract</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="theme" data-radar-repo="theme" data-radar-file="README.md">
+
+
+      <h1 id="theme" data-sourcepos="1:1-1:7">theme<a href="#theme" aria-label="Link to heading 'theme'" data-heading-content="theme" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:389">The look shared by the pull workspace’s Zig tools (cpull, idlci, wiki, radar): the jbisfun wiki theme in a Jenkins layout, identicons, the workspace tool bar, serve.addr discovery, and tree-sitter code highlighting. Tools use it as a workspace sibling path dependency; see build.zig for the modules and <a data-sourcepos="3:304-3:353" href="docs/workspace-tools.html">docs/workspace-tools.md</a> for the contract between the tools.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/theme/blob/main/README.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

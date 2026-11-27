@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item" href="../cpull/index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -202,13 +206,13 @@
 
 
       <h1 id="ycode-radar" data-sourcepos="1:1-1:13">ycode-radar<a href="#ycode-radar" aria-label="Link to heading 'ycode-radar'" data-heading-content="ycode-radar" class="anchor"></a></h1>
-<p data-sourcepos="3:1-3:198">Line-anchored reports (what <a data-sourcepos="3:29-3:69" href="https://github.com/jbisfun/radar">radar</a> was, now <a data-sourcepos="3:80-3:120" href="https://github.com/jbisfun/cpull">cpull</a> issues) inside <a data-sourcepos="3:137-3:177" href="https://github.com/jbisfun/ycode">ycode</a>, as a Lua extension.</p>
+<p data-sourcepos="3:1-3:194">Line-anchored <a data-sourcepos="3:15-3:55" href="https://github.com/jbisfun/radar">radar</a> reports (stored as <a data-sourcepos="3:76-3:116" href="https://github.com/jbisfun/cpull">cpull</a> issues) inside <a data-sourcepos="3:133-3:173" href="https://github.com/jbisfun/ycode">ycode</a>, as a Lua extension.</p>
 <ul data-sourcepos="5:1-7:178">
 <li data-sourcepos="5:1-5:357"><strong data-sourcepos="5:3-5:18">radar: panel</strong> opens a right-dock panel with the open reports in the pull workspace, grouped by repo. Click a report to open its file at that line (found again by its text if the code moved). Hover it to close it or to open its cpull issue page in the browser. The reports on the active editor’s file head the list, the one under the cursor highlighted.</li>
 <li data-sourcepos="6:1-6:176"><strong data-sourcepos="6:3-6:24">radar: next report</strong> / <strong data-sourcepos="6:28-6:53">radar: previous report</strong> jump to the next/previous report from the cursor, in the file and then on to the next file, like next/previous diagnostic.</li>
 <li data-sourcepos="7:1-7:178"><strong data-sourcepos="7:3-7:19">radar: report</strong> files the current editor selection. A small window shows where it points and the selected text, with a box for a note. Ctrl-Enter files it and Escape cancels.</li>
 </ul>
-<p data-sourcepos="9:1-9:248">Each report is a cpull issue anchored to a line, filed in the repo it points at; the extension runs <code data-sourcepos="9:101-9:119">pull cpull report</code> (add, <code data-sourcepos="9:127-9:139">list --json</code>, <code data-sourcepos="9:142-9:148">close</code>). The workspace is <code data-sourcepos="9:169-9:180">$PULL_ROOT</code>, or else the nearest <code data-sourcepos="9:203-9:218">pullfile.plist</code> above a folder open in ycode.</p>
+<p data-sourcepos="9:1-9:279">Each report is a cpull issue anchored to a line, filed in the repo it points at; the extension runs the <code data-sourcepos="9:105-9:111">radar</code> CLI (add, <code data-sourcepos="9:123-9:135">list --json</code>, <code data-sourcepos="9:138-9:144">close</code>), which needs the cpull job running. The workspace is <code data-sourcepos="9:200-9:211">$PULL_ROOT</code>, or else the nearest <code data-sourcepos="9:234-9:249">pullfile.plist</code> above a folder open in ycode.</p>
 <p data-sourcepos="11:1-11:49">Bind the report action to a key in <code data-sourcepos="11:36-11:48">keymap.json</code>:</p>
 <pre class="syntax-highlighting" data-sourcepos="13:1-15:3"><code class="language-json"><span class="hl-source hl-json">{ <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">context</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">Editor</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">bindings</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: { <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ctrl-alt-r</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: [<span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">ycode::Run</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>, { <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">name</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span>: <span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-begin hl-json">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-json">radar::Report</span><span class="hl-string hl-quoted hl-double hl-json"><span class="hl-punctuation hl-definition hl-string hl-end hl-json">&quot;</span></span> }] } }
 </span></code></pre>

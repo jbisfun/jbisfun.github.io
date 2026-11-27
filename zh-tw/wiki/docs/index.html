@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item" href="../../cpull/index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -220,14 +224,14 @@
 
       <div class="alert alert-secondary small py-2" role="note">本頁由英文機器翻譯而成。 <a href="../../../wiki/docs/index.html" hreflang="en" lang="en">閱讀英文原文</a></div>
 
-      <h1 id="overview" data-sourcepos="1:1-1:8">概覽<a href="#overview" aria-label="Link to heading '概覽'" data-heading-content="概覽" class="anchor"></a></h1>
+      <h1 id="概覽" data-sourcepos="1:1-1:8">概覽<a href="#概覽" aria-label="Link to heading '概覽'" data-heading-content="概覽" class="anchor"></a></h1>
 <p data-sourcepos="3:1-3:187"><code data-sourcepos="3:1-3:6">wiki</code> 會將 <a data-sourcepos="3:15-3:53" href="https://github.com/jbisfun/pull">pull</a> 工作區中的每個儲存庫轉換為單一靜態網站，並發布至 <a data-sourcepos="3:128-3:154" href="https://jbisfun.github.io">https://jbisfun.github.io</a>。每個儲存庫都會獲得：</p>
 <ul data-sourcepos="5:1-7:81">
 <li data-sourcepos="5:1-5:58">其 <code data-sourcepos="5:7-5:17">README.md</code> 作為首頁（<code data-sourcepos="5:34-5:52">&lt;repo&gt;/index.html</code>），</li>
 <li data-sourcepos="6:1-6:61">其 <code data-sourcepos="6:7-6:13">docs/</code> 資料夾中的頁面（<code data-sourcepos="6:39-6:55">&lt;repo&gt;/docs/...</code>），</li>
 <li data-sourcepos="7:1-7:81">由該語言自有工具產生的程式碼參考文件（<code data-sourcepos="7:60-7:75">&lt;repo&gt;/api/...</code>）。</li>
 </ul>
-<h2 id="how-it-works" data-sourcepos="9:1-9:15">運作方式<a href="#how-it-works" aria-label="Link to heading '運作方式'" data-heading-content="運作方式" class="anchor"></a></h2>
+<h2 id="運作方式" data-sourcepos="9:1-9:15">運作方式<a href="#運作方式" aria-label="Link to heading '運作方式'" data-heading-content="運作方式" class="anchor"></a></h2>
 <p data-sourcepos="11:1-11:85"><code data-sourcepos="11:1-11:12">wiki build</code>（一個 Rust 二進位檔案，位於 <code data-sourcepos="11:53-11:58">src/</code>）會執行以下步驟：</p>
 <ol data-sourcepos="13:1-25:112">
 <li data-sourcepos="13:1-13:192"><strong data-sourcepos="13:4-13:13">收集</strong>（<code data-sourcepos="13:17-13:28">collect.rs</code>）：執行 <code data-sourcepos="13:42-13:61">pull status --json</code> 並保留每個已複製的儲存庫，包含其 README、GitHub URL（來自 <code data-sourcepos="13:141-13:148">origin</code> 遠端）以及 <code data-sourcepos="13:166-13:176">wiki.toml</code> 中的表格。</li>
@@ -250,7 +254,7 @@
 <li data-sourcepos="24:1-24:154"><strong data-sourcepos="24:4-24:13">語言</strong>（<code data-sourcepos="24:17-24:25">i18n.rs</code>、<code data-sourcepos="24:29-24:42">translate.rs</code>）：步驟 4 會針對 <code data-sourcepos="24:68-24:78">wiki.toml</code> <code data-sourcepos="24:80-24:87">[i18n]</code> 中的每種語言執行一次；請參閱 <a data-sourcepos="24:132-24:151" href="#languages">語言</a>。</li>
 <li data-sourcepos="25:1-25:112"><strong data-sourcepos="25:4-25:13">發布</strong>（<code data-sourcepos="25:17-25:30">wiki publish</code>）：使用 rsync 將 <code data-sourcepos="25:54-25:60">dist/</code> 鏡像至 <code data-sourcepos="25:72-25:90">jbisfun.github.io</code> 儲存庫並暫存。</li>
 </ol>
-<h2 id="what-gets-regenerated" data-sourcepos="27:1-27:30">哪些項目會重新生成<a href="#what-gets-regenerated" aria-label="Link to heading '哪些項目會重新生成'" data-heading-content="哪些項目會重新生成" class="anchor"></a></h2>
+<h2 id="哪些項目會重新生成" data-sourcepos="27:1-27:30">哪些項目會重新生成<a href="#哪些項目會重新生成" aria-label="Link to heading '哪些項目會重新生成'" data-heading-content="哪些項目會重新生成" class="anchor"></a></h2>
 <p data-sourcepos="29:1-29:138">輸入內容的識別方式與 git 相同（<code data-sourcepos="29:45-29:54">state.rs</code>），而 <code data-sourcepos="29:65-29:83">.build/state.json</code> 會保留每個組件上次建置時使用的金鑰：</p>
 <table data-sourcepos="31:1-37:87" class="table table-sm table-striped">
 <thead>
@@ -297,7 +301,7 @@
 <span class="hl-comment hl-line hl-toml"># lua = { files = [&quot;lib&quot;] }  /  js = { files = [&quot;src&quot;] }  /  rust = false</span>
 </span></code></pre>
 <p data-sourcepos="58:1-58:241">位於拉取群組內的儲存庫（<code data-sourcepos="58:37-58:59">fossify-ios/notes-ios</code>）會以其自身名稱（<code data-sourcepos="58:87-58:97">notes-ios</code>）列於該群組的分類下，除非它們設定了 <code data-sourcepos="58:153-58:159">title</code>/<code data-sourcepos="58:161-58:170">category</code>。長 README 句子會在其第一個逗號處截斷以用於首頁。</p>
-<h2 id="languages" data-sourcepos="60:1-60:9">語言<a href="#languages" aria-label="Link to heading '語言'" data-heading-content="語言" class="anchor"></a></h2>
+<h2 id="語言" data-sourcepos="60:1-60:9">語言<a href="#語言" aria-label="Link to heading '語言'" data-heading-content="語言" class="anchor"></a></h2>
 <p data-sourcepos="62:1-62:288">英文是原始語言，位於網站根目錄。<code data-sourcepos="62:49-62:64">[i18n] locales</code>（目前為 <code data-sourcepos="62:78-62:84">zh-TW</code>）中的每個區域設定都是其小寫標籤下的完整網站副本（<code data-sourcepos="62:160-62:171">/zh-tw/...</code>），標頭中包含語言選單，且各副本之間有 <code data-sourcepos="62:230-62:239">hreflang</code> 連結。程式碼參考保持英文並共用。</p>
 <ul data-sourcepos="64:1-68:184">
 <li data-sourcepos="64:1-64:325"><strong data-sourcepos="64:3-64:12">Chrome</strong>（導航列、側邊欄、頁尾、首頁）：<code data-sourcepos="64:61-64:84">locales/&lt;tag&gt;/main.ftl</code> 中的 <a data-sourcepos="64:93-64:127" href="https://projectfluent.org">Fluent</a> 訊息，使用 fluent-templates 載入。模板呼叫 <code data-sourcepos="64:184-64:205">t('key', name=value)</code>。新的區域設定需要一個 <code data-sourcepos="64:240-64:263">locales/&lt;tag&gt;/main.ftl</code>，其中包含 <code data-sourcepos="64:280-64:300">locales/en/main.ftl</code> 中的所有索引鍵。</li>
@@ -306,7 +310,7 @@
 <li data-sourcepos="67:1-67:240"><code data-sourcepos="67:3-67:20">WIKI_TRANSLATE=0</code>，或無法連線的翻譯器，會單獨從快取建置：沒有翻譯的頁面會以英文顯示並附帶通知。已翻譯的頁面帶有「機器翻譯」通知，連結至英文原文，且 Radar 僅支援英文。</li>
 <li data-sourcepos="68:1-68:184">儲存庫表格中的 <code data-sourcepos="68:25-68:43">translate = false</code> 或 <code data-sourcepos="68:49-68:87">translate = { files = [&quot;README.md&quot;] }</code> 限制翻譯範圍（ycode 的上游 Zed 文件與 <code data-sourcepos="68:140-68:147">issues</code> 中的雷達報告保持英文）。</li>
 </ul>
-<h2 id="commands" data-sourcepos="70:1-70:9">命令<a href="#commands" aria-label="Link to heading '命令'" data-heading-content="命令" class="anchor"></a></h2>
+<h2 id="命令" data-sourcepos="70:1-70:9">命令<a href="#命令" aria-label="Link to heading '命令'" data-heading-content="命令" class="anchor"></a></h2>
 <pre class="syntax-highlighting" data-sourcepos="72:1-78:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">just</span> build     <span class="hl-comment hl-line hl-shell"># pnpm install，然後將 wiki 建置至 dist/</span>
 <span class="hl-variable hl-function hl-shell">just</span> rebuild   <span class="hl-comment hl-line hl-shell"># 相同操作，忽略 .build/state.json</span>
 <span class="hl-variable hl-function hl-shell">just</span> publish   <span class="hl-comment hl-line hl-shell"># 建置，然後複製到 ../jbisfun.github.io 並 git add</span>

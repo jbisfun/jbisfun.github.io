@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item active" href="../index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -295,7 +299,7 @@
 </li>
 </ul>
 <p data-sourcepos="17:1-17:22">Running it as a server</p>
-<ul data-sourcepos="19:1-54:325">
+<ul data-sourcepos="19:1-54:372">
 <li data-sourcepos="19:1-25:128">
 <p data-sourcepos="19:3-19:215"><code data-sourcepos="19:3-19:21">--web-listen ADDR</code> turns off the TUI. cpull then serves only the web UI on exactly ADDR, and keeps serving until it is killed. It never reads the terminal, so it can run as a background job nobody is attached to:</p>
 <pre class="syntax-highlighting" data-sourcepos="21:3-23:5"><code><span class="hl-text hl-plain">pull cpull open --web-listen 127.0.0.1:8080
@@ -331,8 +335,8 @@
 <li data-sourcepos="53:1-53:113">
 <p data-sourcepos="53:3-53:113">This is not <code data-sourcepos="53:15-53:27">cpull serve</code>. That is the multi-user server with accounts, SSH and pushes; see <a data-sourcepos="53:95-53:112" href="host.html">host.md</a>.</p>
 </li>
-<li data-sourcepos="54:1-54:325">
-<p data-sourcepos="54:3-54:325">Every repo gets an identicon, a GitHub-style 5x5 avatar drawn from the SHA-1 of its cpull name (<code data-sourcepos="54:99-54:109">group/app</code> is <code data-sourcepos="54:114-54:124">group.app</code>). The pages inline it next to repo names, and <code data-sourcepos="54:172-54:201">/&lt;workspace&gt;:&lt;repo&gt;/icon.svg</code> serves it as a file (the repo pages’ favicon). The drawing is a port of identicon.js in <code data-sourcepos="54:291-54:324">src/frontend/theme/identicon.zig</code>.</p>
+<li data-sourcepos="54:1-54:372">
+<p data-sourcepos="54:3-54:372">Every repo gets an identicon, a GitHub-style 5x5 avatar drawn from the SHA-1 of its cpull name (<code data-sourcepos="54:99-54:109">group/app</code> is <code data-sourcepos="54:114-54:124">group.app</code>). The pages inline it next to repo names, and <code data-sourcepos="54:172-54:201">/&lt;workspace&gt;:&lt;repo&gt;/icon.svg</code> serves it as a file (the repo pages’ favicon). The drawing is a port of identicon.js in the <a data-sourcepos="54:295-54:335" href="https://github.com/jbisfun/theme">theme</a> package (<code data-sourcepos="54:346-54:370">src/theme/identicon.zig</code>).</p>
 </li>
 </ul>
 <p data-sourcepos="56:1-56:15">The events repo</p>

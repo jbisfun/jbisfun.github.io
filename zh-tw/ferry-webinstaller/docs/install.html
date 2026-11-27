@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Installing Ferry (web installer) · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="en" href="../../../ferry-webinstaller/docs/install.html">
+
+  <link rel="icon" href="../../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../../_assets/style.css">
+  <script type="module" src="../../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">頁面</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="切換導覽列">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple 平台</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item active" href="../index.html">Ferry Web Installer</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">其他</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../cpull/index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../../theme/index.html">theme</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">工作區工具</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="語言">繁體中文</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item" href="../../../ferry-webinstaller/docs/install.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item active" href="install.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/ferry-webinstaller">GitHub 原始碼</a></li>
+
+</ul>
+
+
+<h1>文件</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="install.html" class="active" aria-current="page">Installing Ferry (web installer)</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="ferry-webinstaller">
+
+
+      <div class="alert alert-secondary small py-2" role="note">本頁尚未翻譯，以下為英文原文。</div>
+
+      <h1 id="installing-ferry-web-installer" data-sourcepos="1:1-1:34">Installing Ferry (web installer)<a href="#installing-ferry-web-installer" aria-label="Link to heading 'Installing Ferry (web installer)'" data-heading-content="Installing Ferry (web installer)" class="anchor"></a></h1>
+<p data-sourcepos="3:1-6:11">Ferry’s web installer signs and installs <code data-sourcepos="3:42-3:47">.ipa</code> files on an iPhone or iPad from a desktop
+Chromium browser. The phone connects over a USB cable through WebUSB. Your Apple ID signs
+the app in the browser, and nothing is installed on the computer apart from the browser
+app itself.</p>
+<p data-sourcepos="8:1-10:45">It comes as an <strong data-sourcepos="8:16-8:35">Isolated Web App</strong> (IWA), an installable, signed web app with access to
+Direct Sockets. In that form it talks to Apple and the anisette server directly, with no
+relay or server in between. It installs from:</p>
+<pre class="syntax-highlighting" data-sourcepos="12:1-14:3"><code><span class="hl-text hl-plain">https://jbisfun.github.io/ferry-webinstaller/docs/iwa/update.json
+</span></code></pre>
+<h2 id="what-you-need" data-sourcepos="16:1-16:16">What you need<a href="#what-you-need" aria-label="Link to heading 'What you need'" data-heading-content="What you need" class="anchor"></a></h2>
+<ul data-sourcepos="18:1-23:74">
+<li data-sourcepos="18:1-19:65">A desktop Chromium browser: Chrome, Chromium, Edge, Brave or Helium, on Linux, Windows or
+macOS, version 131 or later. Firefox and Safari have no WebUSB.</li>
+<li data-sourcepos="20:1-21:9">An iPhone or iPad and a USB cable. Data cables only: a charge-only cable won’t show the
+device.</li>
+<li data-sourcepos="22:1-23:74">Optional: an Apple ID. A free account works, and signed apps then run for 7 days. Without
+an Apple ID, Ferry can only install IPAs already signed for your device.</li>
+</ul>
+<h2 id="1-turn-on-isolated-web-apps" data-sourcepos="25:1-25:31">1. Turn on Isolated Web Apps<a href="#1-turn-on-isolated-web-apps" aria-label="Link to heading '1. Turn on Isolated Web Apps'" data-heading-content="1. Turn on Isolated Web Apps" class="anchor"></a></h2>
+<p data-sourcepos="27:1-27:88">Outside ChromeOS, browsers only install IWAs in developer mode, so two flags are needed:</p>
+<ol data-sourcepos="29:1-32:22">
+<li data-sourcepos="29:1-29:51">Open <code data-sourcepos="29:9-29:24">chrome://flags</code> (in Edge, <code data-sourcepos="29:36-29:49">edge://flags</code>).</li>
+<li data-sourcepos="30:1-30:72">Set <strong data-sourcepos="30:8-30:28">Isolated Web Apps</strong> (<code data-sourcepos="30:31-30:57">#enable-isolated-web-apps</code>) to <em data-sourcepos="30:63-30:71">Enabled</em>.</li>
+<li data-sourcepos="31:1-31:94">Set <strong data-sourcepos="31:8-31:42">Isolated Web App Developer Mode</strong> (<code data-sourcepos="31:45-31:79">#enable-isolated-web-app-dev-mode</code>) to <em data-sourcepos="31:85-31:93">Enabled</em>.</li>
+<li data-sourcepos="32:1-32:22">Click <strong data-sourcepos="32:10-32:21">Relaunch</strong>.</li>
+</ol>
+<p data-sourcepos="34:1-35:6">Developer mode lets you install IWAs from any source you choose. Only install bundles you
+trust.</p>
+<h2 id="2-install-ferry" data-sourcepos="37:1-37:19">2. Install Ferry<a href="#2-install-ferry" aria-label="Link to heading '2. Install Ferry'" data-heading-content="2. Install Ferry" class="anchor"></a></h2>
+<ol data-sourcepos="39:1-44:74">
+<li data-sourcepos="39:1-40:23">Open <code data-sourcepos="39:9-39:26">chrome://iwa-dev</code>. On older versions, use <code data-sourcepos="39:52-39:79">chrome://web-app-internals</code> and scroll to
+<em data-sourcepos="40:4-40:22">Isolated Web Apps</em>.</li>
+<li data-sourcepos="41:1-41:87">Choose <strong data-sourcepos="41:11-41:25">Install IWA</strong> → <strong data-sourcepos="41:31-41:62">Install from update manifest</strong> (<em data-sourcepos="41:65-41:85">Update manifest URL</em>).</li>
+<li data-sourcepos="42:1-43:24">Paste <code data-sourcepos="42:10-42:76">https://jbisfun.github.io/ferry-webinstaller/docs/iwa/update.json</code>, pick the newest
+version, and install.</li>
+<li data-sourcepos="44:1-44:74">Open <strong data-sourcepos="44:9-44:17">Ferry</strong> from <code data-sourcepos="44:24-44:38">chrome://apps</code> or from your system’s app launcher.</li>
+</ol>
+<p data-sourcepos="46:1-47:51">The app checks the same manifest for new versions and updates itself. To update right away,
+use <strong data-sourcepos="47:5-47:14">Update</strong> next to Ferry in <code data-sourcepos="47:33-47:50">chrome://iwa-dev</code>.</p>
+<h2 id="3-install-an-app-on-your-iphone" data-sourcepos="49:1-49:35">3. Install an app on your iPhone<a href="#3-install-an-app-on-your-iphone" aria-label="Link to heading '3. Install an app on your iPhone'" data-heading-content="3. Install an app on your iPhone" class="anchor"></a></h2>
+<ol data-sourcepos="51:1-67:97">
+<li data-sourcepos="51:1-55:63"><strong data-sourcepos="51:4-51:26">Sign in (optional).</strong> Enter your Apple ID and press Enter.
+<ul data-sourcepos="52:4-55:63">
+<li data-sourcepos="52:4-52:80">If two-factor authentication is on, a code appears on your trusted devices.</li>
+<li data-sourcepos="53:4-54:27">If no code comes, open <strong data-sourcepos="53:29-54:11">Settings → [your name] → Sign-In &amp; Security → Get Verification
+Code</strong> on your iPhone.</li>
+<li data-sourcepos="55:4-55:63">Your password goes only to Apple: TLS runs inside the app.</li>
+</ul>
+</li>
+<li data-sourcepos="56:1-58:8"><strong data-sourcepos="56:4-56:26">Connect the device.</strong> Plug in the iPhone, click <strong data-sourcepos="56:54-56:71">Connect Device</strong>, pick it in the
+browser’s USB prompt, unlock the phone and tap <strong data-sourcepos="57:51-57:59">Trust</strong>. Ferry remembers the device after
+that.</li>
+<li data-sourcepos="59:1-63:66"><strong data-sourcepos="59:4-59:21">Choose the IPA</strong>, then click <strong data-sourcepos="59:35-59:54">Sign and Install</strong> (or <strong data-sourcepos="59:60-59:70">Install</strong> without an Apple ID).
+<ul data-sourcepos="60:4-63:66">
+<li data-sourcepos="60:4-61:19">The first install registers the device and an App ID with your team, which takes a
+little longer.</li>
+<li data-sourcepos="62:4-63:66">Free accounts can have a limited number of active certificates. If Apple refuses a new
+one, turn on <strong data-sourcepos="63:19-63:47">Revoke an old certificate</strong> before signing in.</li>
+</ul>
+</li>
+<li data-sourcepos="64:1-67:97"><strong data-sourcepos="64:4-64:20">On the iPhone</strong>, the first time only:
+<ul data-sourcepos="65:4-67:97">
+<li data-sourcepos="65:4-66:24">On iOS 16 and later, turn on <strong data-sourcepos="65:35-65:88">Settings → Privacy &amp; Security → Developer Mode</strong> and
+restart when asked.</li>
+<li data-sourcepos="67:4-67:97">Trust your developer certificate under <strong data-sourcepos="67:45-67:96">Settings → General → VPN &amp; Device Management</strong>.</li>
+</ul>
+</li>
+</ol>
+<h2 id="troubleshooting" data-sourcepos="69:1-69:18">Troubleshooting<a href="#troubleshooting" aria-label="Link to heading 'Troubleshooting'" data-heading-content="Troubleshooting" class="anchor"></a></h2>
+<ul data-sourcepos="71:1-81:25">
+<li data-sourcepos="71:1-72:21"><strong data-sourcepos="71:3-71:46"><code data-sourcepos="71:5-71:22">chrome://iwa-dev</code> says to enable flags.</strong> Both flags from step 1 must be on, and the
+browser relaunched.</li>
+<li data-sourcepos="73:1-76:60"><strong data-sourcepos="73:3-73:50">The phone doesn’t show up in the USB prompt.</strong> Check the cable, unlock the phone, and close
+other programs that hold the device: iTunes or Apple Devices on Windows, Finder on macOS,
+<code data-sourcepos="75:3-75:11">usbmuxd</code> on Linux. On Linux, your user also needs access to the device node (the udev rules
+most distributions ship for usbmuxd and libimobiledevice).</li>
+<li data-sourcepos="77:1-78:29"><strong data-sourcepos="77:3-77:26">“Auth error -22410”.</strong> Ferry retries automatically with a different device identity. If it
+still fails, sign in again.</li>
+<li data-sourcepos="79:1-79:93"><strong data-sourcepos="79:3-79:35">No verification code arrives.</strong> Use <strong data-sourcepos="79:41-79:65">Get Verification Code</strong> on the iPhone (see step 3).</li>
+<li data-sourcepos="80:1-81:25"><strong data-sourcepos="80:3-80:41">The app stops opening after 7 days.</strong> Free-account signatures expire. Install it again
+from Ferry to renew it.</li>
+</ul>
+<h2 id="without-installing-anything" data-sourcepos="83:1-83:30">Without installing anything<a href="#without-installing-anything" aria-label="Link to heading 'Without installing anything'" data-heading-content="Without installing anything" class="anchor"></a></h2>
+<p data-sourcepos="85:1-87:70">The same installer also runs as an ordinary web page, which needs a small relay server
+for Apple’s traffic because browsers block reading Apple’s responses from a normal page. See the
+<a data-sourcepos="87:1-87:45" href="../index.html#anisette-and-the-relay">README</a> for running it that way.</p>
+<h2 id="uninstalling" data-sourcepos="89:1-89:15">Uninstalling<a href="#uninstalling" aria-label="Link to heading 'Uninstalling'" data-heading-content="Uninstalling" class="anchor"></a></h2>
+<p data-sourcepos="91:1-92:92">Remove Ferry in <code data-sourcepos="91:17-91:34">chrome://iwa-dev</code>, or from <code data-sourcepos="91:45-91:59">chrome://apps</code> by right-clicking it and choosing
+<strong data-sourcepos="92:1-92:13">Uninstall</strong>. This also deletes its stored certificate, anisette identity and pair records.</p>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/ferry-webinstaller/blob/main/docs/install.md">在 GitHub 上檢視原始碼</a> ·
+
+  建置工具 <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  版權所有 2026 <a href="https://github.com/jbisfun">jbisfun</a> 貢獻者 ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">本站與 Apple Inc. 無任何關聯，亦未經其授權或認可。Apple、iPhone、iPad、iOS、macOS 及 Xcode 是 Apple Inc. 在美國及其他國家/地區的註冊商標。</p>
+</footer>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>

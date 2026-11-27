@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item" href="../cpull/index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -286,7 +290,7 @@ there with the same message.</p>
 already committed; <code data-sourcepos="98:20-98:36">git rm --cached</code> those.</p>
 <h2 id="mcp-server" data-sourcepos="100:1-100:13">MCP server<a href="#mcp-server" aria-label="Link to heading 'MCP server'" data-heading-content="MCP server" class="anchor"></a></h2>
 <p data-sourcepos="102:1-102:72"><code data-sourcepos="102:1-102:23">pull mcp [--root DIR]</code> serves the workspace to agents over MCP (stdio):</p>
-<pre class="syntax-highlighting" data-sourcepos="104:5-115:56"><code><span class="hl-text hl-plain">workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
+<pre class="syntax-highlighting" data-sourcepos="104:5-116:61"><code><span class="hl-text hl-plain">workspace                      repos, branches, pins, ahead/behind, changes, env, jobs
 status / diff / log            per repo or across all repos
 grep / list_files / read_file  ripgrep&#39;s engine, .gitignore-aware, confined to the root
 exec                           run a command to completion with the workspace env
@@ -297,58 +301,70 @@ job                            start/stop/restart/unload pullfile jobs
 cpull_issues / cpull_issue / cpull_new_issue / cpull_comment / cpull_close /
 cpull_reopen / cpull_sync        cpull issues (below)
 cpull_stacks / cpull_stack / cpull_patch /
-cpull_merge                     cpull stacks (below)
+cpull_merge                     cpull stacks (below); cpull_stack adds the stack&#39;s
+                               CI from idlci when it runs
 </span></code></pre>
-<p data-sourcepos="117:1-117:39">Register it with an agent, e.g. Hermes:</p>
-<pre class="syntax-highlighting" data-sourcepos="119:5-119:75"><code><span class="hl-text hl-plain">hermes mcp add pull --command pull --args mcp --root /path/to/workspace
+<p data-sourcepos="118:1-120:46">The workspace’s other tools serve their own MCP tools: <code data-sourcepos="118:56-118:66">idlci mcp</code> the CI (<code data-sourcepos="118:76-118:81">ci_*</code>),
+<code data-sourcepos="119:1-119:11">radar mcp</code> line-anchored reports (<code data-sourcepos="119:36-119:50">radar_report*</code>), <code data-sourcepos="119:54-119:63">wiki mcp</code> the wiki. Register them
+in the pullfile <code data-sourcepos="120:17-120:29">mcp_servers</code> section (below).</p>
+<p data-sourcepos="122:1-122:39">Register it with an agent, e.g. Hermes:</p>
+<pre class="syntax-highlighting" data-sourcepos="124:5-124:75"><code><span class="hl-text hl-plain">hermes mcp add pull --command pull --args mcp --root /path/to/workspace
 </span></code></pre>
-<p data-sourcepos="121:1-124:33"><code data-sourcepos="121:1-121:18">pull mcp-servers</code> prints <code data-sourcepos="121:27-121:32">pull</code> itself plus every pullfile <code data-sourcepos="121:61-121:73">mcp_servers</code> entry as JSON
-(<code data-sourcepos="122:2-122:31">{name: {command, args, env}}</code>, command resolved on <code data-sourcepos="122:54-122:60">$PATH</code>, <code data-sourcepos="122:63-122:73">PULL_ROOT</code> set), for an
-editor/agent to register the whole set at once. A pullfile entry needs only a <code data-sourcepos="123:79-123:87">command</code>
-(defaults to the key) and <code data-sourcepos="124:27-124:32">args</code>:</p>
-<pre class="syntax-highlighting" data-sourcepos="126:5-130:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
+<p data-sourcepos="126:1-129:33"><code data-sourcepos="126:1-126:18">pull mcp-servers</code> prints <code data-sourcepos="126:27-126:32">pull</code> itself plus every pullfile <code data-sourcepos="126:61-126:73">mcp_servers</code> entry as JSON
+(<code data-sourcepos="127:2-127:31">{name: {command, args, env}}</code>, command resolved on <code data-sourcepos="127:54-127:60">$PATH</code>, <code data-sourcepos="127:63-127:73">PULL_ROOT</code> set), for an
+editor/agent to register the whole set at once. A pullfile entry needs only a <code data-sourcepos="128:79-128:87">command</code>
+(defaults to the key) and <code data-sourcepos="129:27-129:32">args</code>:</p>
+<pre class="syntax-highlighting" data-sourcepos="131:5-139:11"><code><span class="hl-text hl-plain">&lt;key&gt;mcp_servers&lt;/key&gt;
 &lt;dict&gt;
+    &lt;key&gt;idlci&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
     &lt;key&gt;radar&lt;/key&gt;
+    &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
+    &lt;key&gt;wiki&lt;/key&gt;
     &lt;dict&gt;&lt;key&gt;args&lt;/key&gt;&lt;array&gt;&lt;string&gt;mcp&lt;/string&gt;&lt;/array&gt;&lt;/dict&gt;
 &lt;/dict&gt;
 </span></code></pre>
-<p data-sourcepos="132:1-132:70">ycode-pull reads <code data-sourcepos="132:18-132:35">pull mcp-servers</code> to register all of them in one go.</p>
-<h2 id="cpull-issues" data-sourcepos="134:1-134:15">cpull issues<a href="#cpull-issues" aria-label="Link to heading 'cpull issues'" data-heading-content="cpull issues" class="anchor"></a></h2>
-<p data-sourcepos="136:1-138:88"><a data-sourcepos="136:1-136:41" href="https://github.com/jbisfun/cpull">cpull</a> (our fork of <a data-sourcepos="136:56-136:94" href="https://github.com/xit-vcs/haxy">haxy</a>)
-keeps a repo’s issues as JSON event commits on a <code data-sourcepos="137:50-137:63">cpull/events</code> branch. <code data-sourcepos="137:73-137:83">pull sync</code> fetches
-that branch too (to <code data-sourcepos="138:21-138:41">origin/cpull/events</code>), <code data-sourcepos="138:45-138:55">pull push</code> pushes it when it is ahead, and:</p>
-<pre class="syntax-highlighting" data-sourcepos="140:5-148:90"><code><span class="hl-text hl-plain">pull cpull issues [REPO] [--all] [--json]   open (--all: every) issue per repo
+<p data-sourcepos="141:1-141:70">ycode-pull reads <code data-sourcepos="141:18-141:35">pull mcp-servers</code> to register all of them in one go.</p>
+<h2 id="cpull-issues" data-sourcepos="143:1-143:15">cpull issues<a href="#cpull-issues" aria-label="Link to heading 'cpull issues'" data-heading-content="cpull issues" class="anchor"></a></h2>
+<p data-sourcepos="145:1-147:88"><a data-sourcepos="145:1-145:41" href="https://github.com/jbisfun/cpull">cpull</a> (our fork of <a data-sourcepos="145:56-145:94" href="https://github.com/xit-vcs/haxy">haxy</a>)
+keeps a repo’s issues as JSON event commits on a <code data-sourcepos="146:50-146:63">cpull/events</code> branch. <code data-sourcepos="146:73-146:83">pull sync</code> fetches
+that branch too (to <code data-sourcepos="147:21-147:41">origin/cpull/events</code>), <code data-sourcepos="147:45-147:55">pull push</code> pushes it when it is ahead, and:</p>
+<pre class="syntax-highlighting" data-sourcepos="149:5-158:82"><code><span class="hl-text hl-plain">pull cpull issues [REPO] [--all] [--json]   open (--all: every) issue per repo
 pull cpull show REPO ISSUE                  description and comments
 pull cpull new REPO -t TITLE [-b BODY] [-l LABELS]
 pull cpull comment REPO ISSUE TEXT  |  close REPO ISSUE  |  reopen REPO ISSUE
 pull cpull sync [REPO...]                   fetch, fast-forward or merge, push
 pull cpull open [REPO]                      run `cpull` (TUI + local web UI) there,
                                            or over the whole workspace
-    [--web-listen ADDR] [--ci-jobs N] [--ci-watch] [--ci-watch-interval S]
-    [-- CPULL_ARGS...]                     no TUI / CI options / any other cpull flags
+    [--web-listen ADDR] [-- CPULL_ARGS...] no TUI / any other cpull flags
+pull cpull report ARGS...                  runs `radar ARGS...` (line-anchored
+                                           reports, filed through cpull&#39;s API)
 </span></code></pre>
-<p data-sourcepos="150:1-156:51">ISSUE is an id or a unique prefix of one. Events are written as cpull’s local mode writes
-them, with pull’s identity (and GPG signature), so <code data-sourcepos="151:52-151:58">cpull</code> reads them; sync is cpull’s own
+<p data-sourcepos="160:1-162:90">The workspace server (<code data-sourcepos="160:23-160:57">pull cpull open --web-listen ADDR</code>, the <code data-sourcepos="160:64-160:70">cpull</code> job) also serves
+cpull’s JSON API at <code data-sourcepos="161:21-161:26">/api</code> for the workspace’s other tools: idlci (CI, its own job and
+port), the wiki and radar. Its CI options moved to idlci (<code data-sourcepos="162:59-162:88">idlci serve --jobs N --watch</code>).</p>
+<p data-sourcepos="164:1-170:51">ISSUE is an id or a unique prefix of one. Events are written as cpull’s local mode writes
+them, with pull’s identity (and GPG signature), so <code data-sourcepos="165:52-165:58">cpull</code> reads them; sync is cpull’s own
 (an empty-tree merge commit when both sides moved). Listing replays the events (local
-branch, else origin’s) for authors and times, and takes the values from <code data-sourcepos="153:73-153:87">cpull records</code>:
+branch, else origin’s) for authors and times, and takes the values from <code data-sourcepos="167:73-167:87">cpull records</code>:
 cpull merges concurrent edits of one issue or stack field by field (and flags the
-conflict), so pull shows what cpull shows. Without a <code data-sourcepos="155:54-155:60">cpull</code> on PATH that has <code data-sourcepos="155:79-155:87">records</code>,
+conflict), so pull shows what cpull shows. Without a <code data-sourcepos="169:54-169:60">cpull</code> on PATH that has <code data-sourcepos="169:79-169:87">records</code>,
 the replay alone decides (causal order, then time).</p>
-<p data-sourcepos="158:1-162:84">Before the rename the feature was <code data-sourcepos="158:35-158:40">haxy</code> (<code data-sourcepos="158:43-158:57">pull haxy ...</code> still works, hidden). Migration
-is automatic and one-time: a repo with a <code data-sourcepos="159:42-159:54">haxy/events</code> branch (local or origin’s) and no
-<code data-sourcepos="160:1-160:14">cpull/events</code> gets a local <code data-sourcepos="160:29-160:42">cpull/events</code> at the same commit on <code data-sourcepos="160:66-160:76">pull sync</code>, <code data-sourcepos="160:79-160:89">pull push</code>
-or any <code data-sourcepos="161:8-161:19">pull cpull</code> command (<code data-sourcepos="161:30-161:40">pull push</code> / <code data-sourcepos="161:44-161:60">pull cpull sync</code> then push it; the old branch
-stays), and a pullfile <code data-sourcepos="162:24-162:29">haxy</code> section is renamed to <code data-sourcepos="162:53-162:59">cpull</code> the next time pull runs.</p>
-<h2 id="cpull-stacks" data-sourcepos="164:1-164:15">cpull stacks<a href="#cpull-stacks" aria-label="Link to heading 'cpull stacks'" data-heading-content="cpull stacks" class="anchor"></a></h2>
-<p data-sourcepos="166:1-169:35">A stack is one change across several repos: a cpull patch per repo, merged together and
-pinned in one pullfile commit. It is a <code data-sourcepos="167:40-167:46">stack</code> event naming the member patches, kept in
+<p data-sourcepos="172:1-176:84">Before the rename the feature was <code data-sourcepos="172:35-172:40">haxy</code> (<code data-sourcepos="172:43-172:57">pull haxy ...</code> still works, hidden). Migration
+is automatic and one-time: a repo with a <code data-sourcepos="173:42-173:54">haxy/events</code> branch (local or origin’s) and no
+<code data-sourcepos="174:1-174:14">cpull/events</code> gets a local <code data-sourcepos="174:29-174:42">cpull/events</code> at the same commit on <code data-sourcepos="174:66-174:76">pull sync</code>, <code data-sourcepos="174:79-174:89">pull push</code>
+or any <code data-sourcepos="175:8-175:19">pull cpull</code> command (<code data-sourcepos="175:30-175:40">pull push</code> / <code data-sourcepos="175:44-175:60">pull cpull sync</code> then push it; the old branch
+stays), and a pullfile <code data-sourcepos="176:24-176:29">haxy</code> section is renamed to <code data-sourcepos="176:53-176:59">cpull</code> the next time pull runs.</p>
+<h2 id="cpull-stacks" data-sourcepos="178:1-178:15">cpull stacks<a href="#cpull-stacks" aria-label="Link to heading 'cpull stacks'" data-heading-content="cpull stacks" class="anchor"></a></h2>
+<p data-sourcepos="180:1-183:35">A stack is one change across several repos: a cpull patch per repo, merged together and
+pinned in one pullfile commit. It is a <code data-sourcepos="181:40-181:46">stack</code> event naming the member patches, kept in
 the workspace’s events repo: the root repo when the root is a git repo, else the repo
-the pullfile <code data-sourcepos="169:14-169:20">cpull</code> section names:</p>
-<pre class="syntax-highlighting" data-sourcepos="171:5-172:57"><code><span class="hl-text hl-plain">&lt;key&gt;cpull&lt;/key&gt;
+the pullfile <code data-sourcepos="183:14-183:20">cpull</code> section names:</p>
+<pre class="syntax-highlighting" data-sourcepos="185:5-186:57"><code><span class="hl-text hl-plain">&lt;key&gt;cpull&lt;/key&gt;
 &lt;dict&gt;&lt;key&gt;events&lt;/key&gt;&lt;string&gt;dotenv&lt;/string&gt;&lt;/dict&gt;
 </span></code></pre>
-<p data-sourcepos="174:1-174:13">The commands:</p>
-<pre class="syntax-highlighting" data-sourcepos="176:5-187:48"><code><span class="hl-text hl-plain">pull cpull patch [-t TITLE] [-b BODY] [-l LABELS] [--branch NAME]
+<p data-sourcepos="188:1-188:13">The commands:</p>
+<pre class="syntax-highlighting" data-sourcepos="190:5-201:48"><code><span class="hl-text hl-plain">pull cpull patch [-t TITLE] [-b BODY] [-l LABELS] [--branch NAME]
                               a patch per repo with unmerged work on a branch other
                               than its pullfile one (or on NAME), and the stack
 pull cpull stacks [--json]     every stack, newest first
@@ -361,35 +377,35 @@ pull cpull pin [-m MSG] ID     pin an already merged stack
 pull cpull checkout ID [NAME]  a worktree (.worktrees/NAME) with each member on its
                               patch&#39;s branch
 </span></code></pre>
-<p data-sourcepos="189:1-198:7">pull runs cpull to create and merge stacks (<code data-sourcepos="189:45-189:67">cpull stack new|merge</code>), so <code data-sourcepos="189:74-189:80">cpull</code> must be on
-<code data-sourcepos="190:1-190:6">PATH</code>. cpull merges the members into their target branches without touching the work
+<p data-sourcepos="203:1-212:7">pull runs cpull to create and merge stacks (<code data-sourcepos="203:45-203:67">cpull stack new|merge</code>), so <code data-sourcepos="203:74-203:80">cpull</code> must be on
+<code data-sourcepos="204:1-204:6">PATH</code>. cpull merges the members into their target branches without touching the work
 trees, and records the merged commits on the stack. pull then pins those commits and
-commits the pullfile the way <code data-sourcepos="192:30-192:42">pull commit</code> does: precommit hook, signed commit, postcommit
-hook. The message is the stack title, or <code data-sourcepos="193:42-193:57">pin stack &lt;id&gt;</code> if lint rejects the title.
+commits the pullfile the way <code data-sourcepos="206:30-206:42">pull commit</code> does: precommit hook, signed commit, postcommit
+hook. The message is the stack title, or <code data-sourcepos="207:42-207:57">pin stack &lt;id&gt;</code> if lint rejects the title.
 Pinning refuses when repos already have staged changes, so the commit holds only the pins.
-A merged stack can’t change. <code data-sourcepos="195:30-195:46">pull cpull open</code> (no repo) shows the workspace in cpull’s
-web UI, with stack pages under <code data-sourcepos="196:32-196:45">/home/stacks</code> and a merge button that runs
-<code data-sourcepos="197:1-197:16">pull cpull pin</code>. <code data-sourcepos="197:19-197:35">pull cpull sync</code> also syncs the root repo’s events when it holds the
+A merged stack can’t change. <code data-sourcepos="209:30-209:46">pull cpull open</code> (no repo) shows the workspace in cpull’s
+web UI, with stack pages under <code data-sourcepos="210:32-210:45">/home/stacks</code> and a merge button that runs
+<code data-sourcepos="211:1-211:16">pull cpull pin</code>. <code data-sourcepos="211:19-211:35">pull cpull sync</code> also syncs the root repo’s events when it holds the
 stacks.</p>
-<h2 id="jobs-and-sessions-launchd" data-sourcepos="200:1-200:30">Jobs and sessions (launchd)<a href="#jobs-and-sessions-launchd" aria-label="Link to heading 'Jobs and sessions (launchd)'" data-heading-content="Jobs and sessions (launchd)" class="anchor"></a></h2>
-<p data-sourcepos="202:1-204:15">pull ports launchd’s job model (Apple’s launchd, <code data-sourcepos="202:50-202:69">liblaunch/launch.h</code>) to the workspace.
-Jobs use launchd plist keys, either in the pullfile’s <code data-sourcepos="203:55-203:60">jobs</code> array or in standalone
-<code data-sourcepos="204:1-204:8">.plist</code> files:</p>
-<pre class="syntax-highlighting" data-sourcepos="206:5-208:45"><code><span class="hl-text hl-plain">Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
+<h2 id="jobs-and-sessions-launchd" data-sourcepos="214:1-214:30">Jobs and sessions (launchd)<a href="#jobs-and-sessions-launchd" aria-label="Link to heading 'Jobs and sessions (launchd)'" data-heading-content="Jobs and sessions (launchd)" class="anchor"></a></h2>
+<p data-sourcepos="216:1-218:15">pull ports launchd’s job model (Apple’s launchd, <code data-sourcepos="216:50-216:69">liblaunch/launch.h</code>) to the workspace.
+Jobs use launchd plist keys, either in the pullfile’s <code data-sourcepos="217:55-217:60">jobs</code> array or in standalone
+<code data-sourcepos="218:1-218:8">.plist</code> files:</p>
+<pre class="syntax-highlighting" data-sourcepos="220:5-222:45"><code><span class="hl-text hl-plain">Label, Program, ProgramArguments, EnvironmentVariables, WorkingDirectory, RunAtLoad,
 KeepAlive (bool or {SuccessfulExit}), StartInterval, ThrottleInterval,
 StandardOutPath, Disabled, LaunchOnlyOnce
 </span></code></pre>
-<p data-sourcepos="210:1-212:81">A per-workspace daemon (<code data-sourcepos="210:25-210:38">pull launchd</code>, started automatically, socket <code data-sourcepos="210:71-210:90">.pull/launchd.sock</code>)
-supervises them. Every job runs in a pseudo-terminal with the workspace env (<code data-sourcepos="211:78-211:87">pull env</code>)
-plus its own EnvironmentVariables and <code data-sourcepos="212:39-212:48">PULL_JOB</code>, so every job is also a session.</p>
-<pre class="syntax-highlighting" data-sourcepos="214:5-218:70"><code><span class="hl-text hl-plain">pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
+<p data-sourcepos="224:1-226:81">A per-workspace daemon (<code data-sourcepos="224:25-224:38">pull launchd</code>, started automatically, socket <code data-sourcepos="224:71-224:90">.pull/launchd.sock</code>)
+supervises them. Every job runs in a pseudo-terminal with the workspace env (<code data-sourcepos="225:78-225:87">pull env</code>)
+plus its own EnvironmentVariables and <code data-sourcepos="226:39-226:48">PULL_JOB</code>, so every job is also a session.</p>
+<pre class="syntax-highlighting" data-sourcepos="228:5-232:70"><code><span class="hl-text hl-plain">pull launchctl load [FILE.plist...]   load pullfile jobs, or launchd plists
 pull launchctl list | print LABEL     (--json for agents)
 pull launchctl start|stop|unload LABEL
 pull launchctl kickstart [-k] LABEL   start, or kill and restart
 pull launchctl shutdown               stop all jobs and the daemon
 </span></code></pre>
-<p data-sourcepos="220:1-220:43">tmux-style sessions, for humans and agents:</p>
-<pre class="syntax-highlighting" data-sourcepos="222:5-229:26"><code><span class="hl-text hl-plain">pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
+<p data-sourcepos="234:1-234:43">tmux-style sessions, for humans and agents:</p>
+<pre class="syntax-highlighting" data-sourcepos="236:5-243:26"><code><span class="hl-text hl-plain">pull session new NAME [-d] [-c DIR] [--keep-alive] [CMD...]   default CMD: $SHELL
 pull session attach NAME              detach with ctrl-\
 pull session ls [--json]              running program + its directory per session
 pull session send NAME [-e] TEXT      type into it (-e: press enter)
@@ -398,7 +414,7 @@ pull session run NAME CMD...          agents: type CMD, wait for output to settl
                                       print the screen
 pull session kill NAME
 </span></code></pre>
-<p data-sourcepos="231:1-232:16">StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
+<p data-sourcepos="245:1-246:16">StandardErrorPath is accepted, but a terminal merges stderr into stdout, so both go to
 StandardOutPath.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">

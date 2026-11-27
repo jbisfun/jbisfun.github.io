@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item" href="../cpull/index.html">cpull</a></li>
 
             <li><a class="dropdown-item active" href="index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -196,35 +200,38 @@
 
 </ul>
 
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="api/rust/idlci/index.html">idlci</a> <span class="badge text-bg-secondary">Rust</span></li>
-
-</ul>
-
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="idlci" data-radar-repo="idlci" data-radar-file="README.md">
 
 
       <h1 id="idlci" data-sourcepos="1:1-1:7">idlci<a href="#idlci" aria-label="Link to heading 'idlci'" data-heading-content="idlci" class="anchor"></a></h1>
-<p data-sourcepos="3:1-5:82">Local CI for the <a data-sourcepos="3:18-3:54" href="https://github.com/jbisfun/idl">idl</a> projects of a <a data-sourcepos="3:70-3:108" href="https://github.com/jbisfun/pull">pull</a>
-workspace: a SQLite-backed job queue running <code data-sourcepos="4:46-4:90">idl build|test|lint|fmt --check|check|clean</code>, a
-Jenkins-style web UI, a JSON API, git HEAD watching, and an MCP server for agents.</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-14:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">idlci</span> serve [--root DIR] [--addr 127.0.0.1:8737] [--jobs 1] [--watch]   <span class="hl-comment hl-line hl-shell"># UI at http://127.0.0.1:8737</span>
-<span class="hl-variable hl-function hl-shell">idlci</span> mcp                                    <span class="hl-comment hl-line hl-shell"># stdio MCP server; starts `idlci serve` when needed</span>
+<p data-sourcepos="3:1-7:22">Local CI for the <a data-sourcepos="3:18-3:54" href="https://github.com/jbisfun/idl">idl</a> projects of a <a data-sourcepos="3:70-3:108" href="https://github.com/jbisfun/pull">pull</a>
+workspace: a SQLite job queue running <code data-sourcepos="4:39-4:83">idl build|test|lint|fmt --check|check|clean</code>, Jenkins-style pages
+on the workspace’s shared theme (<a data-sourcepos="5:34-5:82" href="https://github.com/jbisfun/theme">jbisfun/theme</a>), a JSON API, git HEAD
+watching, patch and stack runs for <a data-sourcepos="6:36-6:76" href="https://github.com/jbisfun/cpull">cpull</a>, and an MCP server for agents.
+Written in Zig 0.17.1.</p>
+<pre class="syntax-highlighting" data-sourcepos="9:1-18:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">idlci</span> serve [--listen 127.0.0.1:8737] [--jobs 1] [--watch [--watch-interval 15]] [--work-days 7]
+<span class="hl-variable hl-function hl-shell">idlci</span> mcp                                    <span class="hl-comment hl-line hl-shell"># stdio MCP server (ci_* tools)</span>
 <span class="hl-variable hl-function hl-shell">idlci</span> queue fossify-ios/calculator-ios build [TARGET...] [-c release] [--strict] [--wait]
-<span class="hl-variable hl-function hl-shell">idlci</span> jobs [--status failed] [--project calculator-ios]
+<span class="hl-variable hl-function hl-shell">idlci</span> jobs [--status failed] [--project calculator-ios] [--limit 20]
 <span class="hl-variable hl-function hl-shell">idlci</span> log 12 [-f]
 <span class="hl-variable hl-function hl-shell">idlci</span> cancel 12 / idlci retry 12
+<span class="hl-variable hl-function hl-shell">idlci</span> patch REPO PATCH [-w] / idlci stack STACK [-w]   <span class="hl-comment hl-line hl-shell"># resolved through cpull&#39;s API</span>
+<span class="hl-variable hl-function hl-shell">idlci</span> cleanup [--days 7] [--dry-run]         <span class="hl-comment hl-line hl-shell"># remove idle patch/stack work trees</span>
 </span></code></pre>
-<p data-sourcepos="16:1-18:52">The root is <code data-sourcepos="16:13-16:20">--root</code>, else <code data-sourcepos="16:28-16:39">$PULL_ROOT</code>, else the nearest parent holding <code data-sourcepos="16:74-16:89">pullfile.plist</code>. State lives
-in <code data-sourcepos="17:4-17:23">$ROOT/.pull/idlci/</code> (<code data-sourcepos="17:26-17:35">idlci.db</code>, <code data-sourcepos="17:38-17:52">logs/&lt;id&gt;.log</code>, <code data-sourcepos="17:55-17:66">serve.addr</code>, <code data-sourcepos="17:69-17:79">serve.log</code>). Jobs run <code data-sourcepos="17:92-17:96">idl</code> from
-the project directory with the server’s environment.</p>
-<p data-sourcepos="20:1-22:80">API: <code data-sourcepos="20:6-20:33">GET /api/projects[/{path}]</code>, <code data-sourcepos="20:36-20:55">GET|POST /api/jobs</code>, <code data-sourcepos="20:58-20:77">GET /api/jobs/{id}</code>,
-<code data-sourcepos="21:1-21:34">POST /api/jobs/{id}/cancel|retry</code>, <code data-sourcepos="21:37-21:74">GET /api/jobs/{id}/log?offset=|tail=</code>, <code data-sourcepos="21:77-21:103">GET /api/jobs/{id}/events</code> (SSE).
-MCP tools: <code data-sourcepos="22:12-22:21">projects</code>, <code data-sourcepos="22:24-22:30">queue</code>, <code data-sourcepos="22:33-22:38">jobs</code>, <code data-sourcepos="22:41-22:45">job</code>, <code data-sourcepos="22:48-22:52">log</code>, <code data-sourcepos="22:55-22:60">wait</code>, <code data-sourcepos="22:63-22:70">cancel</code>, <code data-sourcepos="22:73-22:79">retry</code>.</p>
+<p data-sourcepos="20:1-25:57">The root is <code data-sourcepos="20:13-20:20">--root</code>, else <code data-sourcepos="20:28-20:39">$PULL_ROOT</code>, else the nearest parent holding <code data-sourcepos="20:74-20:89">pullfile.plist</code>. State lives in
+<code data-sourcepos="21:1-21:20">$ROOT/.pull/idlci/</code>: <code data-sourcepos="21:23-21:32">idlci.db</code>, <code data-sourcepos="21:35-21:49">logs/&lt;id&gt;.log</code>, <code data-sourcepos="21:52-21:68">work/&lt;subject&gt;/</code> (patch/stack work trees) and
+<code data-sourcepos="22:1-22:12">serve.addr</code>/<code data-sourcepos="22:14-22:25">serve.lock</code>. Clients find the server through <code data-sourcepos="22:60-22:67">--addr</code>, <code data-sourcepos="22:70-22:82">$IDLCI_ADDR</code>, <code data-sourcepos="22:85-22:96">serve.addr</code>, then
+127.0.0.1:8737. Jobs run <code data-sourcepos="23:26-23:30">idl</code> (<code data-sourcepos="23:33-23:44">$IDLCI_IDL</code>, else <code data-sourcepos="23:52-23:56">idl</code> on PATH) from the project directory. On start,
+<code data-sourcepos="24:1-24:13">idlci serve</code> adopts cpull’s <code data-sourcepos="24:30-24:51">.pull/cpull/ci/ci.db</code> (with its logs and work trees) when that is newer
+than <code data-sourcepos="25:6-25:15">idlci.db</code>, keeping the older one as <code data-sourcepos="25:43-25:56">idlci.db.bak</code>.</p>
+<p data-sourcepos="27:1-30:42">Run it as a pullfile job (<code data-sourcepos="27:27-27:63">idlci serve --listen 127.0.0.1:8737</code>) and register <code data-sourcepos="27:79-27:89">idlci mcp</code> under
+<code data-sourcepos="28:1-28:13">mcp_servers</code>; the MCP tools start the job through <code data-sourcepos="28:52-28:79">pull launchctl start idlci</code> when it isn’t running.
+The API (<code data-sourcepos="29:10-29:24">/api/projects</code>, <code data-sourcepos="29:27-29:37">/api/jobs</code>, <code data-sourcepos="29:40-29:50">/api/runs</code>, <code data-sourcepos="29:53-29:69">/api/status/...</code>, <code data-sourcepos="29:72-29:82">/api/feed</code>) is specified in the
+theme package’s <code data-sourcepos="30:17-30:41">docs/workspace-tools.md</code>.</p>
+<p data-sourcepos="32:1-33:27">Build with <code data-sourcepos="32:12-32:28">~/jbisfun/theme</code> checked out beside this repo: <code data-sourcepos="32:60-32:111">zig build -Doptimize=ReleaseSafe --prefix ~/.local</code>;
+test with <code data-sourcepos="33:11-33:26">zig build test</code>.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 

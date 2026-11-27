@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workspace tools: the contract · jbisfun wiki</title>
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Follow the system light/dark preference; inline so the page never flashes the wrong theme.
+    const scheme = matchMedia("(prefers-color-scheme: dark)");
+    const applyScheme = () => (document.documentElement.dataset.bsTheme = scheme.matches ? "dark" : "light");
+    applyScheme();
+    scheme.addEventListener("change", applyScheme);
+  </script>
+
+  <link rel="alternate" hreflang="zh-TW" href="../../zh-tw/theme/docs/workspace-tools.html">
+
+  <link rel="icon" href="../../_assets/icons/favicon.ico" sizes="32x32">
+  <link rel="icon" href="../../_assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../_assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../../_assets/style.css">
+  <script type="module" src="../../_assets/main.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg wiki-globalnav sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="../../index.html"><img src="../../_assets/icons/icon-64.png" alt="" width="24" height="24" class="wiki-logo">jbisfun wiki</a>
+    <div class="d-flex align-items-center gap-2 d-lg-none">
+
+      <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-controls="sidebar" aria-expanded="false">Pages</button>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="site-nav">
+      <ul class="navbar-nav ms-lg-3 me-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Apple platform</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../apple-codesign/index.html">apple-codesign</a></li>
+
+            <li><a class="dropdown-item" href="../../AppStoreAuth/index.html">AppStoreAuth</a></li>
+
+            <li><a class="dropdown-item" href="../../FairplayedKit/index.html">FairplayedKit</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry/index.html">ferry</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-ios/index.html">Ferry for iOS</a></li>
+
+            <li><a class="dropdown-item" href="../../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
+            <li><a class="dropdown-item" href="../../idl/index.html">idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ios-webusb/index.html">ios-webusb</a></li>
+
+            <li><a class="dropdown-item" href="../../MacADICore/index.html">MacADICore</a></li>
+
+            <li><a class="dropdown-item" href="../../omnisette/index.html">omnisette</a></li>
+
+            <li><a class="dropdown-item" href="../../xkit/index.html">xkit</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">FossiOS</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../fossify-ios/browser-ios/index.html">Browser</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calculator-ios/index.html">Calculator</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/calendar-ios/index.html">Calendar</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/camera-ios/index.html">Camera</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/clock-ios/index.html">Clock</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/commons-ios/index.html">Commons</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/contacts-ios/index.html">Contacts</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/documents-ios/index.html">Documents</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/file-manager-ios/index.html">File Manager</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/gallery-ios/index.html">Gallery</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/keyboard-ios/index.html">Keyboard</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/launcher-ios/index.html">Launcher</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/messages-ios/index.html">Messages</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/music-player-ios/index.html">Music Player</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/notes-ios/index.html">Notes</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/paint-ios/index.html">Paint</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/phone-ios/index.html">Phone</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/settings-ios/index.html">Settings</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/thank-you-ios/index.html">Thank You</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/voice-recorder-ios/index.html">Voice Recorder</a></li>
+
+            <li><a class="dropdown-item" href="../../fossify-ios/widgets-ios/index.html">Widgets</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Other</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../cpull/index.html">cpull</a></li>
+
+            <li><a class="dropdown-item" href="../../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item active" href="../index.html">theme</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-tweaks/index.html">ycode-tweaks</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Workspace tools</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../dotenv/index.html">dotenv</a></li>
+
+            <li><a class="dropdown-item" href="../../issues/index.html">issues</a></li>
+
+            <li><a class="dropdown-item" href="../../pull/index.html">pull</a></li>
+
+            <li><a class="dropdown-item" href="../../radar/index.html">radar</a></li>
+
+            <li><a class="dropdown-item" href="../../tool/index.html">tool</a></li>
+
+            <li><a class="dropdown-item" href="../../wiki/index.html">wiki</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ycode</a>
+          <ul class="dropdown-menu">
+
+            <li><a class="dropdown-item" href="../../ycode/index.html">ycode</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-hermes/index.html">ycode-hermes</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-idl/index.html">ycode-idl</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-manager/index.html">ycode-manager</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-offline/index.html">ycode-offline</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-pull/index.html">ycode-pull</a></li>
+
+            <li><a class="dropdown-item" href="../../ycode-radar/index.html">ycode-radar</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language">English</a>
+          <ul class="dropdown-menu dropdown-menu-lg-end">
+
+            <li><a class="dropdown-item active" href="workspace-tools.html" hreflang="en" lang="en">English</a></li>
+
+            <li><a class="dropdown-item" href="../../zh-tw/theme/docs/workspace-tools.html" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-lg-3 col-xl-2 wiki-sidebar collapse d-lg-block border-end py-3" id="sidebar">
+      <ul class="list-unstyled">
+
+  <li><a href="../index.html">README</a></li>
+
+
+  <li><a href="https://github.com/jbisfun/theme">Source on GitHub</a></li>
+
+</ul>
+
+
+<h1>Docs</h1>
+
+
+<ul class="list-unstyled wiki-tree">
+
+  <li>
+
+    <a href="workspace-tools.html" class="active" aria-current="page">Workspace tools: the contract</a>
+
+
+  </li>
+
+</ul>
+
+
+    </nav>
+    <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="theme" data-radar-repo="theme" data-radar-file="docs/workspace-tools.md">
+
+
+      <h1 id="workspace-tools-the-contract" data-sourcepos="1:1-1:31">Workspace tools: the contract<a href="#workspace-tools-the-contract" aria-label="Link to heading 'Workspace tools: the contract'" data-heading-content="Workspace tools: the contract" class="anchor"></a></h1>
+<p data-sourcepos="3:1-3:223">The pull workspace (<code data-sourcepos="3:21-3:31">~/jbisfun</code>) runs four Zig programs. Each one lives in its own repo and is its own pull job, with its own web server, CLI and MCP server. They share this package and reach each other over HTTP/JSON only.</p>
+<table data-sourcepos="5:1-10:135" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="5:1-5:51">
+<th data-sourcepos="5:2-5:7">tool</th>
+<th data-sourcepos="5:9-5:14">repo</th>
+<th data-sourcepos="5:16-5:26">job label</th>
+<th data-sourcepos="5:28-5:43">default listen</th>
+<th data-sourcepos="5:45-5:50">does</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="7:1-7:143">
+<td data-sourcepos="7:2-7:8">cpull</td>
+<td data-sourcepos="7:10-7:18"><code data-sourcepos="7:11-7:17">cpull</code></td>
+<td data-sourcepos="7:20-7:28"><code data-sourcepos="7:21-7:27">cpull</code></td>
+<td data-sourcepos="7:30-7:47"><code data-sourcepos="7:31-7:46">127.0.0.1:8080</code></td>
+<td data-sourcepos="7:49-7:142">forge: repos, issues (incl. anchored reports), patches, stacks, the merge gate, commit links</td>
+</tr>
+<tr data-sourcepos="8:1-8:111">
+<td data-sourcepos="8:2-8:8">idlci</td>
+<td data-sourcepos="8:10-8:18"><code data-sourcepos="8:11-8:17">idlci</code></td>
+<td data-sourcepos="8:20-8:28"><code data-sourcepos="8:21-8:27">idlci</code></td>
+<td data-sourcepos="8:30-8:47"><code data-sourcepos="8:31-8:46">127.0.0.1:8737</code></td>
+<td data-sourcepos="8:49-8:110">CI: idl projects, job queue, runners, logs, patch/stack runs</td>
+</tr>
+<tr data-sourcepos="9:1-9:116">
+<td data-sourcepos="9:2-9:7">wiki</td>
+<td data-sourcepos="9:9-9:16"><code data-sourcepos="9:10-9:15">wiki</code></td>
+<td data-sourcepos="9:18-9:25"><code data-sourcepos="9:19-9:24">wiki</code></td>
+<td data-sourcepos="9:27-9:44"><code data-sourcepos="9:28-9:43">127.0.0.1:8090</code></td>
+<td data-sourcepos="9:46-9:115">the static site generator (<code data-sourcepos="9:74-9:93">wiki build/publish</code>) and its live server</td>
+</tr>
+<tr data-sourcepos="10:1-10:135">
+<td data-sourcepos="10:2-10:8">radar</td>
+<td data-sourcepos="10:10-10:18"><code data-sourcepos="10:11-10:17">radar</code></td>
+<td data-sourcepos="10:20-10:28"><code data-sourcepos="10:21-10:27">radar</code></td>
+<td data-sourcepos="10:30-10:47"><code data-sourcepos="10:31-10:46">127.0.0.1:8746</code></td>
+<td data-sourcepos="10:49-10:134">capturing and tracking line-anchored reports. The reports are stored as cpull issues</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="12:1-12:145">Nothing links another tool’s code. The shared pieces live in this package (<code data-sourcepos="12:76-12:90">jbisfun/theme</code>), which every tool takes as a sibling path dependency:</p>
+<pre class="syntax-highlighting" data-sourcepos="14:1-22:3"><code class="language-zig"><span class="hl-source hl-zig"><span class="hl-comment hl-line hl-zig">// build.zig.zon</span>
+.<span class="hl-constant hl-other hl-zig">theme</span> <span class="hl-keyword hl-operator hl-zig">=</span> .{ .<span class="hl-variable hl-other hl-member hl-zig">path</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">../theme</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span> },
+<span class="hl-comment hl-line hl-zig">// build.zig</span>
+<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">theme_dep</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">b</span>.<span class="hl-variable hl-function hl-zig">dependency</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">theme</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, .{ .<span class="hl-variable hl-other hl-member hl-zig">target</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">target</span>, .<span class="hl-variable hl-other hl-member hl-zig">optimize</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">optimize</span>, .<span class="hl-variable hl-other hl-member hl-zig">highlight</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-constant hl-language hl-zig">true</span> });
+<span class="hl-variable hl-other hl-zig">mod</span>.<span class="hl-variable hl-function hl-zig">addImport</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">theme</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, <span class="hl-variable hl-other hl-zig">theme_dep</span>.<span class="hl-variable hl-function hl-zig">module</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">theme</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>));
+mod.<span class="hl-variable hl-function hl-zig">addImport</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">discovery</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, <span class="hl-variable hl-other hl-zig">theme_dep</span>.<span class="hl-variable hl-function hl-zig">module</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">discovery</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>));
+mod.<span class="hl-variable hl-function hl-zig">addImport</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">highlight</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, <span class="hl-variable hl-other hl-zig">theme_dep</span>.<span class="hl-variable hl-function hl-zig">module</span>(<span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">highlight</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>)); <span class="hl-comment hl-line hl-zig">// only with .highlight = true</span>
+</span></code></pre>
+<p data-sourcepos="24:1-24:466"><code data-sourcepos="24:1-24:10">../theme</code> is the workspace checkout at <code data-sourcepos="24:41-24:57">~/jbisfun/theme</code>. Any tool built outside the workspace needs that checkout beside it. <code data-sourcepos="24:128-24:139">.highlight</code> defaults to false for dependents, and the tree-sitter grammars are lazy dependencies, so a tool that doesn’t highlight never fetches them. Asking for <code data-sourcepos="24:291-24:311">module(&quot;highlight&quot;)</code> without <code data-sourcepos="24:321-24:339">.highlight = true</code> panics at configure time. Who highlights: cpull (file view), wiki (code blocks) and radar (excerpts, optional). idlci doesn’t.</p>
+<h2 id="1-finding-each-other-pulltool" data-sourcepos="26:1-26:41">1. Finding each other: <code data-sourcepos="26:27-26:41">.pull/&lt;tool&gt;/</code><a href="#1-finding-each-other-pulltool" aria-label="Link to heading '1. Finding each other: .pull/&lt;tool&gt;/'" data-heading-content="1. Finding each other: .pull/&lt;tool&gt;/" class="anchor"></a></h2>
+<ul data-sourcepos="28:1-33:155">
+<li data-sourcepos="28:1-28:194"><strong data-sourcepos="28:3-28:11">Root.</strong> A tool finds the workspace from <code data-sourcepos="28:45-28:56">--root DIR</code>, else <code data-sourcepos="28:64-28:75">$PULL_ROOT</code>, else the nearest ancestor of the cwd that holds <code data-sourcepos="28:126-28:141">pullfile.plist</code>. pull jobs run from the root with the workspace env.</li>
+<li data-sourcepos="29:1-29:315"><strong data-sourcepos="29:3-29:12">State.</strong> Everything a tool keeps goes under <code data-sourcepos="29:49-29:70">&lt;root&gt;/.pull/&lt;tool&gt;/</code>: <code data-sourcepos="29:73-29:85">.pull/cpull</code>, <code data-sourcepos="29:88-29:100">.pull/idlci</code>, <code data-sourcepos="29:103-29:114">.pull/wiki</code>, <code data-sourcepos="29:117-29:129">.pull/radar</code>. idlci keeps idlci’s existing <code data-sourcepos="29:161-29:182">.pull/idlci/idlci.db</code>. The CI port inside cpull migrated it into <code data-sourcepos="29:227-29:248">.pull/cpull/ci/ci.db</code>, and phase 2 moves that file back, along with <code data-sourcepos="29:296-29:302">logs/</code> and <code data-sourcepos="29:308-29:314">work/</code>.</li>
+<li data-sourcepos="30:1-30:484"><strong data-sourcepos="30:3-30:14">Serving.</strong> After binding its socket, a server calls <code data-sourcepos="30:57-30:103">discovery.announce(io, gpa, root, tool, addr)</code>. That takes an exclusive lock on <code data-sourcepos="30:138-30:162">.pull/&lt;tool&gt;/serve.lock</code> for the life of the process (<code data-sourcepos="30:193-30:214">error.AlreadyServing</code> if another server holds it) and writes <code data-sourcepos="30:255-30:279">.pull/&lt;tool&gt;/serve.addr</code> = the bound <code data-sourcepos="30:293-30:303">host:port</code>, with no scheme and no newline. On a clean stop the server calls <code data-sourcepos="30:370-30:386">Serving.release</code>. A crash leaves <code data-sourcepos="30:404-30:415">serve.addr</code> behind, but the kernel drops the lock, so readers treat it as stale.</li>
+<li data-sourcepos="31:1-31:377"><strong data-sourcepos="31:3-31:14">Reading.</strong> <code data-sourcepos="31:16-31:50">discovery.read(io, a, root, tool)</code> returns the address while a server holds the lock (or when there is no <code data-sourcepos="31:123-31:134">serve.lock</code> at all), otherwise null. Clients pick the address with <code data-sourcepos="31:191-31:242">discovery.connectAddr(io, a, root, tool, explicit)</code>: the <code data-sourcepos="31:249-31:256">--addr</code> flag or env var (<code data-sourcepos="31:275-31:286">CPULL_ADDR</code>, <code data-sourcepos="31:289-31:300">IDLCI_ADDR</code>, <code data-sourcepos="31:303-31:313">WIKI_ADDR</code>, <code data-sourcepos="31:316-31:327">RADAR_ADDR</code>) first, then <code data-sourcepos="31:342-31:353">serve.addr</code>, then the default port.</li>
+<li data-sourcepos="32:1-32:243"><strong data-sourcepos="32:3-32:13">Health.</strong> Every server answers <code data-sourcepos="32:36-32:52">GET /api/health</code> with <code data-sourcepos="32:59-32:123">{&quot;ok&quot;:true,&quot;tool&quot;:&quot;&lt;tool&gt;&quot;,&quot;root&quot;:&quot;&lt;abs root&gt;&quot;,&quot;version&quot;:&quot;...&quot;}</code>. A client must check that <code data-sourcepos="32:151-32:156">root</code> is its own workspace before trusting an address. cpull’s <code data-sourcepos="32:215-32:224">cpull ci</code> already does this.</li>
+<li data-sourcepos="33:1-33:155">cpull currently writes <code data-sourcepos="33:26-33:49">.pull/cpull/serve.addr</code> itself (src/ci/app.zig) and locks <code data-sourcepos="33:85-33:111">.pull/cpull/ci/serve.lock</code>. Phase 2 switches it to <code data-sourcepos="33:137-33:154">announce(.cpull)</code>.</li>
+</ul>
+<h2 id="2-the-shared-global-bar" data-sourcepos="35:1-35:27">2. The shared global bar<a href="#2-the-shared-global-bar" aria-label="Link to heading '2. The shared global bar'" data-heading-content="2. The shared global bar" class="anchor"></a></h2>
+<p data-sourcepos="37:1-37:493">Every tool page extends <code data-sourcepos="37:25-37:43">theme/layout.html</code> and sets <code data-sourcepos="37:54-37:126">Layout.tools = try theme.workspaceTools(io, arena, root, .&lt;self&gt;, &amp;.{})</code>. The bar lists Forge · CI · Wiki · Radar right after the brand. The current tool is highlighted. A tool that is running links to <code data-sourcepos="37:260-37:285">http://&lt;its serve.addr&gt;/</code>. A tool that isn’t running is dimmed and has no link. Discovery runs once per page render (two small file reads and a lock probe per tool). The tool’s own items (<code data-sourcepos="37:449-37:460">Layout.nav</code>) follow after an etched divider.</p>
+<ul data-sourcepos="39:1-41:300">
+<li data-sourcepos="39:1-39:167"><code data-sourcepos="39:3-39:11">mounted</code> overrides entries. Pass <code data-sourcepos="39:37-39:72">.{ .tool = .idlci, .base = &quot;/ci&quot; }</code> while a tool is still served in-process; cpull does this for <code data-sourcepos="39:135-39:139">/ci</code> and <code data-sourcepos="39:145-39:152">/wiki/</code> until phase 2.</li>
+<li data-sourcepos="40:1-40:293">The wiki’s own templates (<code data-sourcepos="40:29-40:65">wiki/templates/partials/navbar.html</code>) call the same macro: <code data-sourcepos="40:89-40:149">{% import &quot;theme/macros.html&quot; as ui %}{{ ui.tools(tools) }}</code>. The live server passes <code data-sourcepos="40:175-40:181">tools</code>. The static <code data-sourcepos="40:195-40:201">dist/</code> that <code data-sourcepos="40:208-40:221">wiki publish</code> produces passes an empty list, so the published site shows no tool bar.</li>
+<li data-sourcepos="41:1-41:300">Links between tools are absolute (<code data-sourcepos="41:37-41:67">http://127.0.0.1:8737/jobs/42</code>). A JSON API that returns a link returns a <strong data-sourcepos="41:112-41:137">path on its own server</strong> (<code data-sourcepos="41:140-41:149">/jobs/42</code>, <code data-sourcepos="41:152-41:176">/&lt;identity&gt;/issues/&lt;id&gt;</code>), and the caller prefixes the base URL it used to reach that server. Pages that show another tool’s links do the prefixing.</li>
+</ul>
+<h2 id="3-conventions-for-every-json-api" data-sourcepos="43:1-43:36">3. Conventions for every JSON API<a href="#3-conventions-for-every-json-api" aria-label="Link to heading '3. Conventions for every JSON API'" data-heading-content="3. Conventions for every JSON API" class="anchor"></a></h2>
+<ul data-sourcepos="45:1-49:159">
+<li data-sourcepos="45:1-45:224">JSON in and out (<code data-sourcepos="45:20-45:51">content-type: application/json</code>). Errors are <code data-sourcepos="45:66-45:86">{&quot;error&quot;:&quot;message&quot;}</code> with a 4xx/5xx status. Ids are cpull’s 32-hex event ids, and any unique prefix of at least 6 hex digits is accepted where an id is input.</li>
+<li data-sourcepos="46:1-46:171">No CORS. Browser pages never call another tool directly. A tool’s own page script calls its own server, and that server calls the other tool (the wiki proxies, see §6).</li>
+<li data-sourcepos="47:1-47:174">Writes are <code data-sourcepos="47:14-47:19">POST</code>. A server rejects a request whose <code data-sourcepos="47:55-47:62">Origin</code> header names a different origin (403), so another site can’t drive it. Server-to-server calls send no <code data-sourcepos="47:166-47:173">Origin</code>.</li>
+<li data-sourcepos="48:1-48:220">The servers bind 127.0.0.1 and have no accounts. Every forge write is made by cpull and authored as pull’s identity, which <code data-sourcepos="48:126-48:142">pull cpull open</code> pins per repo. The other tools never write events themselves; they ask cpull.</li>
+<li data-sourcepos="49:1-49:159"><code data-sourcepos="49:3-49:8">repo</code> is a pullfile repo name (<code data-sourcepos="49:35-49:46">group/name</code> for nested ones). <code data-sourcepos="49:66-49:68">.</code> (or <code data-sourcepos="49:74-49:77">&quot;&quot;</code>) is the workspace’s events repo, which is pullfile <code data-sourcepos="49:130-49:143">cpull.events</code>, <code data-sourcepos="49:146-49:153">dotenv</code> here.</li>
+</ul>
+<h2 id="4-cpull-1270018080-api" data-sourcepos="51:1-51:38">4. cpull (<code data-sourcepos="51:14-51:29">127.0.0.1:8080</code>, <code data-sourcepos="51:32-51:37">/api</code>)<a href="#4-cpull-1270018080-api" aria-label="Link to heading '4. cpull (127.0.0.1:8080, /api)'" data-heading-content="4. cpull (127.0.0.1:8080, /api)" class="anchor"></a></h2>
+<p data-sourcepos="53:1-53:208">These routes are new in phase 2. They expose what <code data-sourcepos="53:51-53:75">src/integrate/forge.zig</code>, <code data-sourcepos="53:78-53:100">src/report/report.zig</code>, <code data-sourcepos="53:103-53:122">src/wiki/forge.zig</code> and <code data-sourcepos="53:128-53:142">cpull records</code> do in-process today. HTML pages and form routes stay as they are.</p>
+<pre class="syntax-highlighting" data-sourcepos="55:1-71:3"><code><span class="hl-text hl-plain">GET  /api/health
+GET  /api/repos                         -&gt; [Repo]
+GET  /api/issues?repo=R&amp;status=open|closed|all&amp;label=L&amp;anchored=1&amp;file=F
+                                        -&gt; [Issue]        (default status=open; repo omitted = every repo)
+GET  /api/issues/&lt;repo&gt;/&lt;id&gt;            -&gt; Issue + &quot;comments&quot;: [Comment]
+POST /api/issues                        {repo, title, description, labels?, anchor?}  -&gt; 201 Issue
+POST /api/issues/&lt;repo&gt;/&lt;id&gt;/comment    {body, status?: &quot;open&quot;|&quot;closed&quot;}               -&gt; Issue
+POST /api/issues/&lt;repo&gt;/&lt;id&gt;/close      {comment?}                                     -&gt; Issue
+POST /api/issues/&lt;repo&gt;/&lt;id&gt;/reopen     {comment?}                                     -&gt; Issue
+GET  /api/reports?status=open|closed|all&amp;repo=R&amp;file=F     -&gt; [Report]    (issues labelled `report` with an anchor)
+GET  /api/reports/&lt;id&gt;                  -&gt; Report + &quot;excerpt&quot;: Excerpt|null
+GET  /api/patches?repo=R                -&gt; [Patch]
+GET  /api/patches/&lt;repo&gt;/&lt;id&gt;           -&gt; Patch
+GET  /api/stacks/&lt;id&gt;                   -&gt; Stack
+GET  /api/records?repo=R[&amp;repo=R2...]   -&gt; exactly `cpull records PATH...`&#39;s JSON, for those repos
+</span></code></pre>
+<ul data-sourcepos="73:1-80:174">
+<li data-sourcepos="73:1-73:242"><code data-sourcepos="73:3-73:8">Repo</code> = <code data-sourcepos="73:12-73:95">{name, identity, path, branch, url, issues_url, cloned, open_issues, open_reports}</code>. <code data-sourcepos="73:98-73:102">url</code>/<code data-sourcepos="73:104-73:115">issues_url</code> are cpull page paths. These are the wiki forge’s <code data-sourcepos="73:166-73:175">RepoInfo</code> fields plus <code data-sourcepos="73:189-73:198">identity</code>, <code data-sourcepos="73:201-73:206">path</code> and <code data-sourcepos="73:212-73:219">branch</code> (the pullfile branch).</li>
+<li data-sourcepos="74:1-74:321"><code data-sourcepos="74:3-74:9">Issue</code> = <code data-sourcepos="74:13-74:91">{id, repo, title, description, labels, status, author, created, url, anchor?}</code>. <code data-sourcepos="74:94-74:101">labels</code> is the space-separated string the event carries. <code data-sourcepos="74:152-74:160">created</code> is RFC 3339 UTC. <code data-sourcepos="74:179-74:186">anchor</code> = <code data-sourcepos="74:190-74:240">{file, line, line_text, quote?, commit?, source?}</code> exactly as in the event (docs/report.md in cpull), and is present only when set.</li>
+<li data-sourcepos="75:1-75:55"><code data-sourcepos="75:3-75:11">Comment</code> = <code data-sourcepos="75:15-75:54">{id, parent_id, body, author, created}</code>.</li>
+<li data-sourcepos="76:1-76:167"><code data-sourcepos="76:3-76:10">Report</code> = the object <code data-sourcepos="76:25-76:50">cpull report list --json</code> prints today: <code data-sourcepos="76:66-76:166">{id, repo, file, line, line_text, quote, note, title, status, source, commit, created, author, url}</code>.</li>
+<li data-sourcepos="77:1-77:124"><code data-sourcepos="77:3-77:11">Excerpt</code> = cpull report/anchor.zig <code data-sourcepos="77:39-77:47">Excerpt</code>: <code data-sourcepos="77:50-77:123">{file, line, filed_line, first, lines, commit, at_filed_commit, changed}</code>.</li>
+<li data-sourcepos="78:1-78:178"><code data-sourcepos="78:3-78:9">Patch</code> = <code data-sourcepos="78:13-78:77">{id, repo, title, description, status, source_branch, tip, url}</code>. <code data-sourcepos="78:80-78:94">source_branch</code> is null for a patch from a fork. <code data-sourcepos="78:129-78:133">tip</code> is the source branch’s current oid, or null.</li>
+<li data-sourcepos="79:1-79:171"><code data-sourcepos="79:3-79:9">Stack</code> = <code data-sourcepos="79:13-79:93">{id, title, description, status, url, members: [{repo, patch_id, branch, oid}]}</code>. Only members whose source branch exists are listed (<code data-sourcepos="79:148-79:169">patchci.stackMembers</code>).</li>
+<li data-sourcepos="80:1-80:174"><code data-sourcepos="80:3-80:20">POST /api/issues</code> with an <code data-sourcepos="80:30-80:37">anchor</code> stores it verbatim. The caller (radar) has already read <code data-sourcepos="80:95-80:105">line_text</code> and <code data-sourcepos="80:111-80:118">commit</code>. cpull adds the <code data-sourcepos="80:136-80:143">report</code> label when an anchor is given.</li>
+</ul>
+<p data-sourcepos="82:1-82:475">cpull keeps in-process: anchored issue pages and excerpts, file-view report flags and its “report this line” form (<code data-sourcepos="82:116-82:131">/&lt;repo&gt;/report</code>), <code data-sourcepos="82:135-82:139">#id</code> links, the <code data-sourcepos="82:152-82:162">fixes #id</code> scanner, and the merge gate. Phase 2 moves the scanner’s <code data-sourcepos="82:221-82:231">link_tips</code> and the CI issue maps (<code data-sourcepos="82:256-82:266">ci_issues</code>, <code data-sourcepos="82:269-82:280">issue_jobs</code>) out of the CI db into cpull’s own state file, <code data-sourcepos="82:329-82:356">.pull/cpull/integrate.json</code>: <code data-sourcepos="82:359-82:474">{&quot;link_tips&quot;:{repo:oid}, &quot;ci_issues&quot;:{key:{repo,issue}}, &quot;issue_jobs&quot;:{&quot;repo issue&quot;:[job ids]}, &quot;ci_cursor&quot;:&quot;...&quot;}</code>.</p>
+<h2 id="5-idlci-1270018737-api" data-sourcepos="84:1-84:38">5. idlci (<code data-sourcepos="84:14-84:29">127.0.0.1:8737</code>, <code data-sourcepos="84:32-84:37">/api</code>)<a href="#5-idlci-1270018737-api" aria-label="Link to heading '5. idlci (127.0.0.1:8737, /api)'" data-heading-content="5. idlci (127.0.0.1:8737, /api)" class="anchor"></a></h2>
+<p data-sourcepos="86:1-86:319">These are today’s <code data-sourcepos="86:19-86:27">/ci/api</code> routes, served at the root, plus the routes cpull needs for its balls and its CI issues. The JSON shapes are those of cpull <code data-sourcepos="86:153-86:167">src/ci/db.zig</code> and <code data-sourcepos="86:173-86:181">app.zig</code> (<code data-sourcepos="86:184-86:188">Job</code>, <code data-sourcepos="86:191-86:200">Enqueued</code>, <code data-sourcepos="86:203-86:215">ProjectView</code>, <code data-sourcepos="86:218-86:227">LogChunk</code>) and <code data-sourcepos="86:234-86:259">src/integrate/status.zig</code> (<code data-sourcepos="86:262-86:270">Summary</code>, <code data-sourcepos="86:273-86:280">JobRef</code>). Pages move from <code data-sourcepos="86:300-86:308">/ci/...</code> to <code data-sourcepos="86:313-86:318">/...</code>.</p>
+<pre class="syntax-highlighting" data-sourcepos="88:1-106:3"><code><span class="hl-text hl-plain">GET  /api/health
+GET  /api/projects                      -&gt; [ProjectView]   (includes git.repo: the pullfile repo holding the project)
+GET  /api/projects/&lt;path&gt;               -&gt; ProjectView
+GET  /api/jobs?status=&amp;project=&amp;limit=  -&gt; [Job]   newest first
+POST /api/jobs                          NewJob -&gt; Enqueued
+GET  /api/jobs/&lt;id&gt;                     -&gt; Job
+GET  /api/jobs/&lt;id&gt;/log?offset=N | ?tail=N  -&gt; LogChunk {id, status, size, next_offset, text}
+GET  /api/jobs/&lt;id&gt;/events              SSE: `log` (id = byte offset), `status`, final `done`
+POST /api/jobs/&lt;id&gt;/cancel              -&gt; Job
+POST /api/jobs/&lt;id&gt;/retry?by=web|mcp|cli|watch  -&gt; Enqueued
+POST /api/runs                          {subject, members:[{repo, patch_id, branch, oid}], requested_by?}
+                                        -&gt; {subject, checkout, jobs:[Enqueued]}
+GET  /api/status/repos                  -&gt; {&quot;&lt;repo&gt;&quot;: Summary|null, ...}   every pullfile repo
+GET  /api/status/repo/&lt;repo&gt;            -&gt; Summary|null
+GET  /api/status/commits?repo=R         -&gt; {&quot;&lt;oid[0..7]&gt;&quot;: Summary}     status.commitIndex
+GET  /api/status/subject?subject=S&amp;tips=T -&gt; Summary|null               status.forSubject; T = &quot;&lt;repo&gt; &lt;oid&gt;&quot; lines, url-encoded
+GET  /api/feed?cursor=C&amp;wait=S&amp;limit=N  -&gt; {cursor, jobs:[FeedJob]}
+</span></code></pre>
+<ul data-sourcepos="108:1-112:169">
+<li data-sourcepos="108:1-108:716"><strong data-sourcepos="108:3-108:11">Runs.</strong> <code data-sourcepos="108:13-108:28">POST /api/runs</code> replaces <code data-sourcepos="108:39-108:53">/ci/api/patch</code> and <code data-sourcepos="108:59-108:73">/ci/api/stack</code> (integrate/patchci.zig <code data-sourcepos="108:98-108:104">queue</code>). <code data-sourcepos="108:108-108:116">subject</code> is <code data-sourcepos="108:121-108:145">patch:&lt;repo&gt;:&lt;patch id&gt;</code> or <code data-sourcepos="108:150-108:167">stack:&lt;stack id&gt;</code>, and cpull resolves the members (<code data-sourcepos="108:202-108:226">GET /api/patches|stacks</code> above). idlci picks the idl projects in the member repos, adds the repos their targets live in at the workspace’s current HEADs, and checks it all out in <code data-sourcepos="108:382-108:410">.pull/idlci/work/&lt;subject&gt;/</code>, a pull-style tree of linked worktrees plus a pullfile copy, as ci/work.zig does now. It queues <code data-sourcepos="108:508-108:514">build</code> and <code data-sourcepos="108:520-108:525">test</code> per project, with <code data-sourcepos="108:545-108:553">subject</code>/<code data-sourcepos="108:555-108:564">checkout</code> recorded on each job. <code data-sourcepos="108:588-108:608">idlci patch REPO ID</code>, <code data-sourcepos="108:611-108:626">idlci stack ID</code> and MCP <code data-sourcepos="108:636-108:645">ci_patch</code>/<code data-sourcepos="108:647-108:656">ci_stack</code> resolve the members through cpull’s API and then post here.</li>
+<li data-sourcepos="109:1-109:388"><strong data-sourcepos="109:3-109:12">Balls.</strong> <code data-sourcepos="109:14-109:22">Summary</code> = <code data-sourcepos="109:26-109:121">{ball: &quot;passed&quot;|&quot;failed&quot;|&quot;running&quot;|&quot;warning&quot;|&quot;none&quot;, label, href, jobs:[JobRef], green, stale}</code>. <code data-sourcepos="109:124-109:131">JobRef</code> = <code data-sourcepos="109:135-109:179">{id, label, status, ball, href, when, head}</code>. <code data-sourcepos="109:182-109:187">href</code> values are idlci paths (<code data-sourcepos="109:213-109:222">/jobs/42</code>, <code data-sourcepos="109:225-109:239">/projects/&lt;p&gt;</code>); cpull prefixes idlci’s base URL. When idlci isn’t running, cpull shows no CI column or group, which is today’s “no CI” path in integrate/view.zig.</li>
+<li data-sourcepos="110:1-110:331"><strong data-sourcepos="110:3-110:11">Gate.</strong> cpull keeps <code data-sourcepos="110:25-110:42">cpull.require_ci</code> and the gate’s logic (integrate/gate.zig). It reads <code data-sourcepos="110:96-110:114">GET /api/projects</code> for the repos that have projects and <code data-sourcepos="110:153-110:177">GET /api/status/subject</code> for the stack and member subjects. If idlci is down and the gate is required, cpull refuses to merge, with a “CI not reachable” reason, unless <code data-sourcepos="110:322-110:330">--force</code>.</li>
+<li data-sourcepos="111:1-111:774"><strong data-sourcepos="111:3-111:10">Feed</strong> (replaces the runner’s <code data-sourcepos="111:35-111:45">on_finish</code> hook, integrate/ciissue.zig). The feed lists jobs that reached a final status (<code data-sourcepos="111:126-111:133">passed</code>, <code data-sourcepos="111:136-111:143">failed</code>, <code data-sourcepos="111:146-111:156">cancelled</code>) after <code data-sourcepos="111:165-111:172">cursor</code>, oldest first. <code data-sourcepos="111:189-111:196">cursor</code> is opaque (idlci uses <code data-sourcepos="111:220-111:238">&quot;&lt;finished&gt;.&lt;id&gt;&quot;</code>). The first call without a cursor returns the current cursor and no jobs. <code data-sourcepos="111:314-111:321">wait=S</code> (≤60) long-polls until something finishes. <code data-sourcepos="111:368-111:376">FeedJob</code> = <code data-sourcepos="111:380-111:384">Job</code> + <code data-sourcepos="111:388-111:461">{&quot;idl&quot;: &quot;idl build -c release&quot;, &quot;log_tail&quot;: &quot;&lt;last 30 lines, ≤6 KiB&gt;&quot;}</code> (<code data-sourcepos="111:464-111:481">ciissue.describe</code>/<code data-sourcepos="111:483-111:488">tail</code>). cpull polls the feed every few seconds, applies ciissue.zig’s rules (a workspace job, not a subject job, on a repo checked out on its pullfile branch; file, comment, reopen or close the <code data-sourcepos="111:678-111:681">ci</code> issue), and stores <code data-sourcepos="111:702-111:712">ci_cursor</code>. The job links it writes into issues are absolute idlci URLs.</li>
+<li data-sourcepos="112:1-112:169"><strong data-sourcepos="112:3-112:15">pullfile.</strong> idlci reads the pullfile itself, for the repo list and branches (<code data-sourcepos="112:82-112:89">repoOf</code>), and keeps <code data-sourcepos="112:103-112:114">require_ci</code>/<code data-sourcepos="112:116-112:126">ci_issues</code> out of its own config (those are cpull’s).</li>
+</ul>
+<h2 id="6-wiki-1270018090" data-sourcepos="114:1-114:29">6. wiki (<code data-sourcepos="114:13-114:28">127.0.0.1:8090</code>)<a href="#6-wiki-1270018090" aria-label="Link to heading '6. wiki (127.0.0.1:8090)'" data-heading-content="6. wiki (127.0.0.1:8090)" class="anchor"></a></h2>
+<p data-sourcepos="116:1-116:298">The wiki server serves <code data-sourcepos="116:24-116:40">.pull/wiki/dist</code>. It rebuilds at most every few seconds as pages are requested (today’s src/wiki/serve.zig, at <code data-sourcepos="116:136-116:138">/</code> instead of <code data-sourcepos="116:151-116:158">/wiki/</code>). It injects <code data-sourcepos="116:173-116:216">&lt;meta name=&quot;cpull-wiki&quot; content=&quot;/_forge&quot;&gt;</code> into served pages only. Its forge features talk to its own server, which proxies:</p>
+<pre class="syntax-highlighting" data-sourcepos="118:1-125:3"><code><span class="hl-text hl-plain">GET  /api/health
+GET  /api/pages?repo=R                  -&gt; {repo, url, docs: [{file, url}]}   (lets cpull/radar link &quot;open in wiki&quot;)
+GET  /_forge/page?repo=R&amp;file=F         -&gt; today&#39;s PageInfo: cpull GET /api/repos + radar GET /api/reports?repo=R&amp;file=F
+GET  /_forge/repos                      -&gt; today&#39;s [RepoInfo] from cpull GET /api/repos (urls made absolute to cpull)
+GET  /_forge/ci/projects                -&gt; idlci GET /api/projects (hrefs made absolute)
+POST /_forge/report                     {repo, file, line, quote?, note?, title?} -&gt; radar POST /api/reports (source &quot;wiki&quot;)
+</span></code></pre>
+<p data-sourcepos="127:1-127:515"><code data-sourcepos="127:1-127:17">assets/forge.js</code> and <code data-sourcepos="127:23-127:39">assets/radar.js</code> in the wiki repo change their URLs from <code data-sourcepos="127:81-127:98">/wiki/_cpull/...</code> and <code data-sourcepos="127:104-127:121">/ci/api/projects</code> to these. Any <code data-sourcepos="127:137-127:145">/_forge</code> call whose target tool isn’t running answers 503 <code data-sourcepos="127:196-127:229">{&quot;error&quot;:&quot;&lt;tool&gt; isn't running&quot;}</code>, and the scripts already treat failure as “no forge”. <code data-sourcepos="127:285-127:310">wiki build|publish|clean</code> keep today’s <code data-sourcepos="127:325-127:340">cpull wiki ...</code> behaviour. Output moves to <code data-sourcepos="127:369-127:393">.pull/wiki/{dist,build}</code>, <code data-sourcepos="127:396-127:412">$WIKI_TRANSLATE</code>/<code data-sourcepos="127:414-127:432">$WIKI_PUBLISH_DIR</code>/<code data-sourcepos="127:434-127:448">$WIKI_ESBUILD</code> keep their meaning, and the precommit hook becomes <code data-sourcepos="127:501-127:514">wiki publish</code>.</p>
+<h2 id="7-radar-1270018746" data-sourcepos="129:1-129:30">7. radar (<code data-sourcepos="129:14-129:29">127.0.0.1:8746</code>)<a href="#7-radar-1270018746" aria-label="Link to heading '7. radar (127.0.0.1:8746)'" data-heading-content="7. radar (127.0.0.1:8746)" class="anchor"></a></h2>
+<p data-sourcepos="131:1-131:330">radar owns capture and tracking: the CLI, MCP, editor and wiki capture, anchor creation (reading <code data-sourcepos="131:98-131:108">line_text</code> from the work tree, <code data-sourcepos="131:130-131:137">commit</code> = HEAD when HEAD has the same text on that line, as report.zig <code data-sourcepos="131:202-131:206">add</code> does now), relocation, and its own small web UI that lists reports. Reports are stored as cpull issues through cpull’s API.</p>
+<pre class="syntax-highlighting" data-sourcepos="133:1-141:3"><code><span class="hl-text hl-plain">GET  /api/health
+GET  /api/reports?status=open|closed|all&amp;repo=R&amp;file=F  -&gt; [RadarReport]
+GET  /api/reports/&lt;id&gt;                  -&gt; RadarReport + &quot;excerpt&quot;: Excerpt|null
+POST /api/reports                       {repo, file, line, quote?, note?, title?, labels?, source?, ref?} -&gt; 201 RadarReport
+POST /api/reports/&lt;id&gt;/close            -&gt; RadarReport
+POST /api/reports/&lt;id&gt;/reopen           -&gt; RadarReport
+POST /api/relocate                      {repo, file, line, line_text} -&gt; {line|null, changed}
+</span></code></pre>
+<ul data-sourcepos="143:1-146:174">
+<li data-sourcepos="143:1-143:305"><code data-sourcepos="143:3-143:15">RadarReport</code> = cpull’s <code data-sourcepos="143:27-143:34">Report</code> plus <code data-sourcepos="143:41-143:72">{current_line, moved, changed}</code>. <code data-sourcepos="143:75-143:88">current_line</code> is the line holding <code data-sourcepos="143:110-143:120">line_text</code> nearest the filed line in the work tree’s file (report/anchor.zig <code data-sourcepos="143:188-143:197">relocate</code>), or null when it’s gone. <code data-sourcepos="143:225-143:233">changed</code> means the text no longer appears. <code data-sourcepos="143:269-143:275">moved</code> means <code data-sourcepos="143:283-143:304">current_line != line</code>.</li>
+<li data-sourcepos="144:1-144:358"><code data-sourcepos="144:3-144:21">POST /api/reports</code> builds the anchor (with <code data-sourcepos="144:47-144:51">ref</code> set, the line is read at that commit instead of the work tree, as cpull’s web form does), then calls cpull <code data-sourcepos="144:160-144:177">POST /api/issues</code> with <code data-sourcepos="144:184-144:191">labels</code> + <code data-sourcepos="144:195-144:202">report</code> and the anchor, and returns the new issue as a report. close/reopen go to cpull’s close/reopen. Listing reads cpull <code data-sourcepos="144:320-144:337">GET /api/reports</code> and adds relocation.</li>
+<li data-sourcepos="145:1-145:478">CLI, compatible with the old Rust radar and <code data-sourcepos="145:47-145:60">cpull report</code>: <code data-sourcepos="145:63-145:149">radar [add] REPO FILE LINE [-q QUOTE] [-n NOTE] [--title T] [--labels L] [--source S]</code>, <code data-sourcepos="145:152-145:180">radar list [--all] [--json]</code>, <code data-sourcepos="145:183-145:210">radar show|close|reopen ID</code>, <code data-sourcepos="145:213-145:232">radar migrate FILE</code> (the radar.db JSON import from report.zig), <code data-sourcepos="145:278-145:306">radar serve [--listen ADDR]</code>, <code data-sourcepos="145:309-145:319">radar mcp</code>. The CLI talks to cpull’s API directly and doesn’t need radar’s own server. If cpull isn’t running, it fails with “cpull isn’t running (start the cpull job)”.</li>
+<li data-sourcepos="146:1-146:174">ycode-radar (radar.x.lua) and ycode-pull switch from <code data-sourcepos="146:56-146:78">pull cpull report ...</code> to <code data-sourcepos="146:83-146:93">radar ...</code>. <code data-sourcepos="146:96-146:114">pull cpull report</code> goes away in phase 2, or becomes a pass-through to <code data-sourcepos="146:167-146:173">radar</code>.</li>
+</ul>
+<h2 id="8-mcp" data-sourcepos="148:1-148:9">8. MCP<a href="#8-mcp" aria-label="Link to heading '8. MCP'" data-heading-content="8. MCP" class="anchor"></a></h2>
+<p data-sourcepos="150:1-150:256">Each tool has <code data-sourcepos="150:15-150:26">&lt;tool&gt; mcp</code> (stdio, parley, as in pull’s pkgs/mcp). It finds the workspace like the CLI does and talks to the servers over HTTP. Registered in the pullfile <code data-sourcepos="150:172-150:184">mcp_servers</code> section (before <code data-sourcepos="150:202-150:208">repos</code>), which <code data-sourcepos="150:218-150:235">pull mcp-servers</code> and ycode-pull read:</p>
+<pre class="syntax-highlighting" data-sourcepos="152:1-177:3"><code class="language-xml"><span class="hl-text hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>mcp_servers<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span><span class="hl-invalid hl-illegal hl-xml">
+</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>idlci<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>args<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+			<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>mcp<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>radar<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>args<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+			<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>mcp<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>wiki<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>args<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+			<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>mcp<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+</span></code></pre>
+<table data-sourcepos="179:1-184:369" class="table table-sm table-striped">
+<thead>
+<tr data-sourcepos="179:1-179:18">
+<th data-sourcepos="179:2-179:9">server</th>
+<th data-sourcepos="179:11-179:17">tools</th>
+</tr>
+</thead>
+<tbody>
+<tr data-sourcepos="181:1-181:238">
+<td data-sourcepos="181:2-181:14"><code data-sourcepos="181:3-181:13">idlci mcp</code></td>
+<td data-sourcepos="181:16-181:237"><code data-sourcepos="181:17-181:29">ci_projects</code>, <code data-sourcepos="181:32-181:41">ci_queue</code>, <code data-sourcepos="181:44-181:52">ci_jobs</code>, <code data-sourcepos="181:55-181:62">ci_job</code>, <code data-sourcepos="181:65-181:72">ci_log</code>, <code data-sourcepos="181:75-181:83">ci_wait</code>, <code data-sourcepos="181:86-181:96">ci_cancel</code>, <code data-sourcepos="181:99-181:108">ci_retry</code>, <code data-sourcepos="181:111-181:120">ci_patch</code>, <code data-sourcepos="181:123-181:132">ci_stack</code>: same names and input schemas as pull’s pkgs/mcp/src/ci.zig today, with the description prefix <code data-sourcepos="181:229-181:236">idlci:</code></td>
+</tr>
+<tr data-sourcepos="182:1-182:180">
+<td data-sourcepos="182:2-182:14"><code data-sourcepos="182:3-182:13">radar mcp</code></td>
+<td data-sourcepos="182:16-182:179"><code data-sourcepos="182:17-182:30">radar_report</code> (file), <code data-sourcepos="182:40-182:54">radar_reports</code> (list), <code data-sourcepos="182:64-182:82">radar_report_show</code>, <code data-sourcepos="182:85-182:104">radar_report_close</code>, <code data-sourcepos="182:107-182:127">radar_report_reopen</code>: the schemas of pull’s <code data-sourcepos="182:152-182:166">cpull_report*</code> tools today</td>
+</tr>
+<tr data-sourcepos="183:1-183:133">
+<td data-sourcepos="183:2-183:13"><code data-sourcepos="183:3-183:12">wiki mcp</code></td>
+<td data-sourcepos="183:15-183:132"><code data-sourcepos="183:16-183:27">wiki_build</code> (incremental build, returns what changed), <code data-sourcepos="183:72-183:83">wiki_pages</code> (a repo’s page and doc urls on the live server)</td>
+</tr>
+<tr data-sourcepos="184:1-184:369">
+<td data-sourcepos="184:2-184:13"><code data-sourcepos="184:3-184:12">pull mcp</code></td>
+<td data-sourcepos="184:15-184:368">keeps <code data-sourcepos="184:22-184:30">cpull_*</code> for issues, patches and stacks (<code data-sourcepos="184:64-184:77">cpull_issues</code>, <code data-sourcepos="184:80-184:92">cpull_issue</code>, <code data-sourcepos="184:95-184:111">cpull_new_issue</code>, <code data-sourcepos="184:114-184:128">cpull_comment</code>, <code data-sourcepos="184:131-184:143">cpull_close</code>, <code data-sourcepos="184:146-184:159">cpull_reopen</code>, <code data-sourcepos="184:162-184:173">cpull_sync</code>, <code data-sourcepos="184:176-184:188">cpull_patch</code>, <code data-sourcepos="184:191-184:204">cpull_stacks</code>, <code data-sourcepos="184:207-184:219">cpull_stack</code>, <code data-sourcepos="184:222-184:234">cpull_merge</code>). It drops <code data-sourcepos="184:247-184:252">ci_*</code> and <code data-sourcepos="184:258-184:272">cpull_report*</code>. <code data-sourcepos="184:275-184:287">cpull_stack</code> prints the CI and gate from idlci’s <code data-sourcepos="184:325-184:345">/api/status/subject</code> when idlci is running</td>
+</tr>
+</tbody>
+</table>
+<p data-sourcepos="186:1-186:174">idlci’s MCP (and the old Rust one) may start the server when it isn’t running only through pull: <code data-sourcepos="186:98-186:125">pull launchctl start idlci</code>, never by spawning a detached server of its own.</p>
+<h2 id="9-pull-jobs" data-sourcepos="188:1-188:15">9. pull jobs<a href="#9-pull-jobs" aria-label="Link to heading '9. pull jobs'" data-heading-content="9. pull jobs" class="anchor"></a></h2>
+<p data-sourcepos="190:1-190:53">Each server is a pullfile <code data-sourcepos="190:27-190:32">jobs</code> entry, like cpull’s:</p>
+<pre class="syntax-highlighting" data-sourcepos="192:1-211:3"><code class="language-xml"><span class="hl-text hl-xml"><span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>Label<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>idlci<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>ProgramArguments<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>idlci<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>serve<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>--listen<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>127.0.0.1:8737<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">string</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">array</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>RunAtLoad<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">true</span><span class="hl-punctuation hl-definition hl-tag hl-xml">/&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>KeepAlive<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>SuccessfulExit<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">key</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+		<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">false</span><span class="hl-punctuation hl-definition hl-tag hl-xml">/&gt;</span>
+	<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+<span class="hl-punctuation hl-definition hl-tag hl-xml">&lt;/</span><span class="hl-entity hl-name hl-tag hl-localname hl-xml">dict</span><span class="hl-punctuation hl-definition hl-tag hl-xml">&gt;</span>
+</span></code></pre>
+<p data-sourcepos="213:1-213:391">wiki and radar use <code data-sourcepos="213:20-213:55">wiki serve --listen 127.0.0.1:8090</code> and <code data-sourcepos="213:61-213:97">radar serve --listen 127.0.0.1:8746</code>. cpull keeps <code data-sourcepos="213:112-213:156">pull cpull open --web-listen 127.0.0.1:8080</code>. In phase 2, cpull drops <code data-sourcepos="213:183-213:193">--ci-jobs</code>, <code data-sourcepos="213:196-213:207">--ci-watch</code> and <code data-sourcepos="213:213-213:233">--ci-watch-interval</code>, which become <code data-sourcepos="213:249-213:299">idlci serve --jobs N --watch [--watch-interval S]</code>. Binaries install to <code data-sourcepos="213:322-213:335">~/.local/bin</code> (<code data-sourcepos="213:338-213:389">zig build -Doptimize=ReleaseSafe --prefix ~/.local</code>).</p>
+<h2 id="10-this-packages-api-for-the-tools" data-sourcepos="215:1-215:41">10. This package’s API (for the tools)<a href="#10-this-packages-api-for-the-tools" aria-label="Link to heading '10. This package’s API (for the tools)'" data-heading-content="10. This package’s API (for the tools)" class="anchor"></a></h2>
+<p data-sourcepos="217:1-217:39"><code data-sourcepos="217:1-217:7">theme</code> module (<code data-sourcepos="217:17-217:37">src/theme/theme.zig</code>):</p>
+<pre class="syntax-highlighting" data-sourcepos="219:1-239:3"><code class="language-zig"><span class="hl-source hl-zig"><span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">vin</span>;                 <span class="hl-comment hl-line hl-zig">// zig-vin, the template engine (vin.Str, vin.valueFrom, ...)</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">identicon</span>;           <span class="hl-comment hl-line hl-zig">// identicon.zig: tileFor(a, name, Tile{.class}) ![]u8, hashName, standalone_style</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">discovery</span>;           <span class="hl-comment hl-line hl-zig">// the discovery module below</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Tool</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">discovery</span>.<span class="hl-variable hl-other hl-member hl-zig">Tool</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">assets</span>: [<span class="hl-variable hl-language hl-zig">_</span>]<span class="hl-entity hl-name hl-type hl-zig">Asset</span>;    <span class="hl-comment hl-line hl-zig">// {path &quot;assets/...&quot;, content_type, body}: serve each at &quot;/&quot; ++ path</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">templates</span>: [<span class="hl-variable hl-language hl-zig">_</span>]<span class="hl-entity hl-name hl-type hl-zig">Template</span>; <span class="hl-comment hl-line hl-zig">// &quot;theme/layout.html&quot;, &quot;theme/macros.html&quot;</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Template</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">vin</span>.<span class="hl-variable hl-other hl-member hl-zig">MapLoader</span>.<span class="hl-variable hl-other hl-member hl-zig">Entry</span>; <span class="hl-comment hl-line hl-zig">// {name, source}</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Layout</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-storage hl-type hl-zig">struct</span> { <span class="hl-variable hl-other hl-member hl-zig">title</span>, <span class="hl-variable hl-other hl-member hl-zig">site</span>, <span class="hl-variable hl-other hl-member hl-zig">brand_href</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">/</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, <span class="hl-variable hl-other hl-member hl-zig">assets</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">/assets</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>, <span class="hl-variable hl-other hl-member hl-zig">tools</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">ToolLink</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-keyword hl-operator hl-zig">&amp;</span>.{},
+    <span class="hl-variable hl-other hl-member hl-zig">nav</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Link</span>, <span class="hl-variable hl-other hl-member hl-zig">badges</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Badge</span>, <span class="hl-variable hl-other hl-member hl-zig">search</span>: <span class="hl-keyword hl-operator hl-zig">?</span><span class="hl-entity hl-name hl-type hl-zig">Search</span>, <span class="hl-variable hl-other hl-member hl-zig">crumbs</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Link</span>, <span class="hl-variable hl-other hl-member hl-zig">tasks</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Link</span>,
+    <span class="hl-variable hl-other hl-member hl-zig">groups</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Group</span>, <span class="hl-variable hl-other hl-member hl-zig">flashes</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Flash</span>, <span class="hl-variable hl-other hl-member hl-zig">footer</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Link</span>, <span class="hl-variable hl-other hl-member hl-zig">stylesheets</span>: []<span class="hl-keyword hl-control hl-zig">const</span> []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>, <span class="hl-variable hl-other hl-member hl-zig">icon</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span> };
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Link</span>, <span class="hl-variable hl-other hl-member hl-zig">Row</span>, <span class="hl-variable hl-other hl-member hl-zig">Group</span>, <span class="hl-variable hl-other hl-member hl-zig">Badge</span>, <span class="hl-variable hl-other hl-member hl-zig">Search</span>, <span class="hl-variable hl-other hl-member hl-zig">Flash</span>, <span class="hl-variable hl-other hl-member hl-zig">Time</span>, <span class="hl-variable hl-other hl-member hl-zig">ToolLink</span>, <span class="hl-entity hl-name hl-type hl-zig">Mount</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">render</span>(<span class="hl-storage hl-modifier hl-zig">comptime</span> <span class="hl-variable hl-parameter hl-zig">app</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Template</span>, <span class="hl-variable hl-parameter hl-zig">gpa</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">name</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>, <span class="hl-variable hl-parameter hl-zig">context</span>: <span class="hl-storage hl-type hl-zig">anytype</span>, <span class="hl-variable hl-parameter hl-zig">writer</span>: <span class="hl-keyword hl-operator hl-zig">*</span><span class="hl-variable hl-other hl-zig">std</span>.<span class="hl-variable hl-other hl-member hl-zig">Io</span>.<span class="hl-variable hl-other hl-member hl-zig">Writer</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-storage hl-type hl-zig">void</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">parseAll</span>(<span class="hl-storage hl-modifier hl-zig">comptime</span> <span class="hl-variable hl-parameter hl-zig">app</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Template</span>, <span class="hl-variable hl-parameter hl-zig">gpa</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-storage hl-type hl-zig">void</span>;   <span class="hl-comment hl-line hl-zig">// for a tool&#39;s &quot;templates parse&quot; test</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">markup</span>(<span class="hl-variable hl-parameter hl-zig">html</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>) <span class="hl-variable hl-other hl-zig">vin</span>.<span class="hl-variable hl-other hl-member hl-zig">Str</span>;                                  <span class="hl-comment hl-line hl-zig">// unescaped html</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">avatar</span>(<span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">name</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>, <span class="hl-variable hl-parameter hl-zig">class</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-variable hl-other hl-zig">vin</span>.<span class="hl-variable hl-other hl-member hl-zig">Str</span>; <span class="hl-comment hl-line hl-zig">// &quot;cpull-identicon-sm|md|lg&quot;</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">toolNav</span>(<span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">found</span>: <span class="hl-variable hl-other hl-zig">discovery</span>.<span class="hl-variable hl-other hl-member hl-zig">Found</span>, <span class="hl-variable hl-parameter hl-zig">active</span>: <span class="hl-entity hl-name hl-type hl-zig">Tool</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">ToolLink</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">workspaceTools</span>(<span class="hl-variable hl-parameter hl-zig">io</span>: <span class="hl-variable hl-other hl-zig">std</span>.<span class="hl-variable hl-other hl-member hl-zig">Io</span>, <span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">root</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>, <span class="hl-variable hl-parameter hl-zig">active</span>: <span class="hl-entity hl-name hl-type hl-zig">Tool</span>, <span class="hl-variable hl-parameter hl-zig">mounted</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Mount</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">ToolLink</span>;
+<span class="hl-comment hl-line hl-zig">// Mount = struct { tool: Tool, base: ?[]const u8 }</span>
+<span class="hl-comment hl-line hl-zig">// ToolLink = struct { tool, label, href = &quot;&quot;, active = false, running = false, title = &quot;&quot; }</span>
+</span></code></pre>
+<p data-sourcepos="241:1-241:308">Templates: <code data-sourcepos="241:12-241:46">{% extends &quot;theme/layout.html&quot; %}</code> with blocks <code data-sourcepos="241:60-241:65">head</code>, <code data-sourcepos="241:68-241:81">tasks_before</code>, <code data-sourcepos="241:84-241:92">sidebar</code>, <code data-sourcepos="241:95-241:103">content</code>, <code data-sourcepos="241:106-241:114">scripts</code>. Macros in <code data-sourcepos="241:127-241:145">theme/macros.html</code> (import them in every template that uses them): <code data-sourcepos="241:195-241:221">ball(status, size, title)</code>, <code data-sourcepos="241:224-241:232">task(t)</code>, <code data-sourcepos="241:235-241:243">time(t)</code>, <code data-sourcepos="241:246-241:265">tabs(items, class)</code>, <code data-sourcepos="241:268-241:291">pager(prev, next, ...)</code>, <code data-sourcepos="241:294-241:307">tools(items)</code>.</p>
+<p data-sourcepos="243:1-243:51"><code data-sourcepos="243:1-243:11">discovery</code> module (<code data-sourcepos="243:21-243:39">src/discovery.zig</code>, std only):</p>
+<pre class="syntax-highlighting" data-sourcepos="245:1-257:3"><code class="language-zig"><span class="hl-source hl-zig"><span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Tool</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-storage hl-type hl-zig">enum</span> { <span class="hl-variable hl-other hl-member hl-zig">cpull</span>, <span class="hl-variable hl-other hl-member hl-zig">idlci</span>, <span class="hl-variable hl-other hl-member hl-zig">wiki</span>, <span class="hl-variable hl-other hl-member hl-zig">radar</span> };  <span class="hl-comment hl-line hl-zig">// .label(), .defaultAddr(), .envVar(), .dirName()</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">all</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Tool</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">stateDir</span>(<span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-storage hl-type hl-zig">u8</span>;          <span class="hl-comment hl-line hl-zig">// &lt;root&gt;/.pull/&lt;tool&gt;</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">addrPath</span>(<span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-storage hl-type hl-zig">u8</span>;          <span class="hl-comment hl-line hl-zig">// .../serve.addr</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">lockPath</span>(<span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-storage hl-type hl-zig">u8</span>;          <span class="hl-comment hl-line hl-zig">// .../serve.lock</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">announce</span>(<span class="hl-entity hl-name hl-type hl-zig">io</span>, <span class="hl-entity hl-name hl-type hl-zig">gpa</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>, <span class="hl-entity hl-name hl-type hl-zig">addr</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-entity hl-name hl-type hl-zig">Serving</span>;  <span class="hl-comment hl-line hl-zig">// error.AlreadyServing; Serving.release(io, gpa)</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">read</span>(<span class="hl-entity hl-name hl-type hl-zig">io</span>, <span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>) <span class="hl-keyword hl-operator hl-zig">!?</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>;   <span class="hl-comment hl-line hl-zig">// addr of a running server (caller frees)</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">connectAddr</span>(<span class="hl-entity hl-name hl-type hl-zig">io</span>, <span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>, <span class="hl-entity hl-name hl-type hl-zig">tool</span>, <span class="hl-variable hl-parameter hl-zig">explicit</span>: <span class="hl-keyword hl-operator hl-zig">?</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">baseUrl</span>(<span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">addr</span>) <span class="hl-keyword hl-operator hl-zig">!</span>[]<span class="hl-storage hl-type hl-zig">u8</span>;                 <span class="hl-comment hl-line hl-zig">// &quot;http://&quot; ++ addr</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-entity hl-name hl-type hl-zig">Found</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-variable hl-other hl-zig">std</span>.<span class="hl-variable hl-function hl-zig">EnumArray</span>(<span class="hl-entity hl-name hl-type hl-zig">Tool</span>, <span class="hl-keyword hl-operator hl-zig">?</span>[]<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>);
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">discover</span>(<span class="hl-entity hl-name hl-type hl-zig">io</span>, <span class="hl-entity hl-name hl-type hl-zig">a</span>, <span class="hl-entity hl-name hl-type hl-zig">root</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-entity hl-name hl-type hl-zig">Found</span>;           <span class="hl-comment hl-line hl-zig">// base urls of the running tools</span>
+</span></code></pre>
+<p data-sourcepos="259:1-259:77"><code data-sourcepos="259:1-259:11">highlight</code> module (<code data-sourcepos="259:21-259:49">src/highlight/highlight.zig</code>, with <code data-sourcepos="259:57-259:75">.highlight = true</code>):</p>
+<pre class="syntax-highlighting" data-sourcepos="261:1-266:3"><code class="language-zig"><span class="hl-source hl-zig"><span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">write</span>(<span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">out</span>: <span class="hl-keyword hl-operator hl-zig">*</span><span class="hl-variable hl-other hl-zig">std</span>.<span class="hl-variable hl-function hl-zig">ArrayList</span>(<span class="hl-storage hl-type hl-zig">u8</span>), <span class="hl-variable hl-parameter hl-zig">lang</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>, <span class="hl-variable hl-parameter hl-zig">code</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-storage hl-type hl-zig">void</span>; <span class="hl-comment hl-line hl-zig">// spans with hl-* classes</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-storage hl-type hl-function hl-zig">fn</span> <span class="hl-entity hl-name hl-function hl-zig">escape</span>(<span class="hl-variable hl-parameter hl-zig">arena</span>: <span class="hl-entity hl-name hl-type hl-zig">Allocator</span>, <span class="hl-variable hl-parameter hl-zig">out</span>: <span class="hl-keyword hl-operator hl-zig">*</span><span class="hl-variable hl-other hl-zig">std</span>.<span class="hl-variable hl-function hl-zig">ArrayList</span>(<span class="hl-storage hl-type hl-zig">u8</span>), <span class="hl-variable hl-parameter hl-zig">s</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>) <span class="hl-keyword hl-operator hl-zig">!</span><span class="hl-storage hl-type hl-zig">void</span>;
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">css</span>: []<span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-storage hl-type hl-zig">u8</span>;     <span class="hl-comment hl-line hl-zig">// syntect&#39;s InspiredGitHub + base16-ocean.dark rules; append to the tool&#39;s stylesheet</span>
+<span class="hl-storage hl-modifier hl-zig">pub</span> <span class="hl-keyword hl-control hl-zig">const</span> <span class="hl-variable hl-other hl-zig">prefix</span> <span class="hl-keyword hl-operator hl-zig">=</span> <span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-begin hl-zig">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-zig">hl-</span><span class="hl-string hl-quoted hl-double hl-zig"><span class="hl-punctuation hl-definition hl-string hl-end hl-zig">&quot;</span></span>;
+</span></code></pre>
+
+<footer class="border-top mt-5 pt-3 small text-body-secondary">
+
+  <a href="https://github.com/jbisfun/theme/blob/main/docs/workspace-tools.md">View source on GitHub</a> ·
+
+  Built by <a href="https://github.com/jbisfun/wiki">jbisfun/wiki</a> ·
+  Copyright 2026 <a href="https://github.com/jbisfun">jbisfun</a> contributors ·
+  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+  <p class="mt-1 mb-0">Not affiliated with, authorized or endorsed by Apple Inc. Apple, iPhone, iPad, iOS, macOS and Xcode are trademarks of Apple Inc., registered in the U.S. and other countries.</p>
+</footer>
+    </main>
+  </div>
+</div>
+<div class="dropdown" id="radar-menu">
+  <button type="button" hidden data-bs-toggle="dropdown" aria-expanded="false"></button>
+  <div class="dropdown-menu shadow" style="max-width: 32rem">
+    <h6 class="dropdown-header">Report this line</h6>
+    <code class="d-block px-3 pb-2 small text-break" data-radar-command></code>
+    <button type="button" class="dropdown-item" data-radar-copy>Copy command</button>
+    <button type="button" class="dropdown-item" data-radar-copy="note">Copy command with note</button>
+  </div>
+</div>
+</body>
+</html>

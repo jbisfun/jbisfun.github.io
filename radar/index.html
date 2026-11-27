@@ -50,6 +50,8 @@
 
             <li><a class="dropdown-item" href="../ferry-ios/index.html">Ferry for iOS</a></li>
 
+            <li><a class="dropdown-item" href="../ferry-webinstaller/index.html">Ferry Web Installer</a></li>
+
             <li><a class="dropdown-item" href="../idl/index.html">idl</a></li>
 
             <li><a class="dropdown-item" href="../ios-webusb/index.html">ios-webusb</a></li>
@@ -119,6 +121,8 @@
             <li><a class="dropdown-item" href="../cpull/index.html">cpull</a></li>
 
             <li><a class="dropdown-item" href="../idlci/index.html">idlci</a></li>
+
+            <li><a class="dropdown-item" href="../theme/index.html">theme</a></li>
 
             <li><a class="dropdown-item" href="../ycode-tweaks/index.html">ycode-tweaks</a></li>
 
@@ -196,39 +200,47 @@
 
 </ul>
 
-<h1>Code reference</h1>
-<ul class="list-unstyled">
-
-  <li><a href="api/rust/radar/index.html">radar</a> <span class="badge text-bg-secondary">Rust</span></li>
-
-</ul>
-
 
     </nav>
     <main class="col-lg-9 col-xl-8 py-4 px-lg-5 wiki-content" data-wiki-repo="radar" data-radar-repo="radar" data-radar-file="README.md">
 
 
       <h1 id="radar" data-sourcepos="1:1-1:7">radar<a href="#radar" aria-label="Link to heading 'radar'" data-heading-content="radar" class="anchor"></a></h1>
-<blockquote data-sourcepos="3:1-3:195">
-<p data-sourcepos="3:3-3:195">Superseded by <code data-sourcepos="3:17-3:30">cpull report</code> (line-anchored cpull issues; see cpull’s docs/report.md). Move the reports over with <code data-sourcepos="3:117-3:194">radar list --all --json &gt; radar.json &amp;&amp; pull cpull report migrate radar.json</code>.</p>
-</blockquote>
-<p data-sourcepos="5:1-5:302">Reports for agents. Each report points at a line of code in the pull workspace and records the repo, the file, the line number, the line’s text, an optional note, and when it was filed. The CLI is stateless: every run opens the PoloDB database at <code data-sourcepos="5:248-5:276">&lt;workspace&gt;/issues/radar.db</code>, does its work and exits.</p>
-<pre class="syntax-highlighting" data-sourcepos="7:1-13:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">radar</span> add pull src/main.rs 42 <span class="hl-variable hl-parameter hl-option hl-shell">--note</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">panics on an empty pullfile</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-shell"># the line text is read from the file</span>
-<span class="hl-variable hl-function hl-shell">radar</span> list [--all] [--json]
-<span class="hl-variable hl-function hl-shell">radar</span> close 3 / radar reopen 3 / radar rm 3
-<span class="hl-variable hl-function hl-shell">radar</span> export        <span class="hl-comment hl-line hl-shell"># issues/docs/NNNN.md per open report + issues/docs/index.md</span>
-<span class="hl-variable hl-function hl-shell">radar</span> mcp [--root DIR]   <span class="hl-comment hl-line hl-shell"># MCP server (stdio): add/list/close/reopen/rm/export</span>
+<p data-sourcepos="3:1-3:541">Line-anchored reports for a pull workspace. A report is a note about one line of code: the repo, the file, the line, that line’s text, the narrower text selected (the quote) and where it was filed from. radar stores each report as a <a data-sourcepos="3:234-3:274" href="https://github.com/jbisfun/cpull">cpull</a> issue in the repo it points at, labelled <code data-sourcepos="3:317-3:324">report</code> and carrying an <code data-sourcepos="3:342-3:349">anchor</code>. It files them through cpull’s HTTP API, so they sync, merge and show in the forge like any other issue. radar reads the line’s text when filing and finds the line again after the code moves.</p>
+<p data-sourcepos="5:1-5:222">It is one Zig program with a CLI, a small web UI with a JSON API, and an MCP server. The workspace’s tool contract is <a data-sourcepos="5:119-5:217" href="https://github.com/jbisfun/theme/blob/main/docs/workspace-tools.md">theme docs/workspace-tools.md</a> §7.</p>
+<pre class="syntax-highlighting" data-sourcepos="7:1-15:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">radar</span> pull src/main.zig 42 <span class="hl-variable hl-parameter hl-option hl-shell">-q</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">unwrap()</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span> <span class="hl-variable hl-parameter hl-option hl-shell">-n</span> <span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-begin hl-shell">&quot;</span></span><span class="hl-string hl-quoted hl-double hl-shell">panics on an empty pullfile</span><span class="hl-string hl-quoted hl-double hl-shell"><span class="hl-punctuation hl-definition hl-string hl-end hl-shell">&quot;</span></span>   <span class="hl-comment hl-line hl-shell"># = radar add ...</span>
+<span class="hl-variable hl-function hl-shell">radar</span> list [--all] [--json]       <span class="hl-comment hl-line hl-shell"># open reports, and where each line is now</span>
+<span class="hl-variable hl-function hl-shell">radar</span> show ID [--json]            <span class="hl-comment hl-line hl-shell"># one report and the code around it</span>
+<span class="hl-variable hl-function hl-shell">radar</span> close ID / radar reopen ID  <span class="hl-comment hl-line hl-shell"># ID: a report (issue) id, or a unique prefix</span>
+<span class="hl-variable hl-function hl-shell">radar</span> migrate radar.json          <span class="hl-comment hl-line hl-shell"># the old Rust radar&#39;s `radar list --all --json`</span>
+<span class="hl-variable hl-function hl-shell">radar</span> serve [--listen 127.0.0.1:8746]
+<span class="hl-variable hl-function hl-shell">radar</span> mcp
 </span></code></pre>
-<p data-sourcepos="15:1-15:114">The workspace root is <code data-sourcepos="15:23-15:34">$PULL_ROOT</code>, or the nearest directory above the current one that contains <code data-sourcepos="15:98-15:113">pullfile.plist</code>.</p>
-<p data-sourcepos="17:1-21:60">Only one process can have <code data-sourcepos="17:27-17:36">radar.db</code> open at a time, so every command opens it for a
-single operation and waits briefly if another one has it. That includes <code data-sourcepos="18:73-18:83">radar mcp</code>,
-which opens it per tool call, so the CLI keeps working while an agent is attached. The
-pullfile’s <code data-sourcepos="20:12-20:24">mcp_servers</code> section registers <code data-sourcepos="20:44-20:54">radar mcp</code> alongside <code data-sourcepos="20:66-20:75">pull mcp</code> in editors
-and agents that read <code data-sourcepos="21:22-21:39">pull mcp-servers</code>, such as ycode-pull.</p>
-<ul data-sourcepos="23:1-24:195">
-<li data-sourcepos="23:1-23:151"><strong data-sourcepos="23:3-23:11">Pull:</strong> the precommit hook runs <code data-sourcepos="23:37-23:50">radar export</code> and stages <code data-sourcepos="23:63-23:79">issues/radar.db</code>. <code data-sourcepos="23:82-23:94">issues/docs</code> is gitignored, and the wiki publishes it under <code data-sourcepos="23:143-23:150">issues</code>.</li>
-<li data-sourcepos="24:1-24:195"><strong data-sourcepos="24:3-24:11">Wiki:</strong> select text on a docs page and right-click. The “Add to Radar” menu copies the matching <code data-sourcepos="24:101-24:115">radar add …</code> command, with the repo, file, source line and your selection already filled in.</li>
+<ul data-sourcepos="17:1-21:437">
+<li data-sourcepos="17:1-17:417">REPO is a pullfile repo, or <code data-sourcepos="17:31-17:33">.</code> for the workspace’s events repo (pullfile <code data-sourcepos="17:77-17:90">cpull.events</code>). FILE is relative to the repo. <code data-sourcepos="17:124-17:127">-n</code>/<code data-sourcepos="17:129-17:136">--note</code> becomes the issue description, and its first line becomes the title unless <code data-sourcepos="17:213-17:221">--title</code> gives one. <code data-sourcepos="17:234-17:243">--labels</code> adds labels to <code data-sourcepos="17:260-17:267">report</code>. <code data-sourcepos="17:270-17:279">--source</code> defaults to <code data-sourcepos="17:293-17:297">cli</code>; ycode, the wiki and MCP set their own. <code data-sourcepos="17:339-17:349">--ref REV</code> reads the line at a commit, branch or tag instead of the work tree.</li>
+<li data-sourcepos="18:1-18:131">The anchor records <code data-sourcepos="18:22-18:29">commit</code> = HEAD when HEAD has the same text on that line. A line filed against uncommitted work has no commit.</li>
+<li data-sourcepos="19:1-19:275">Every command talks to cpull directly and needs the cpull job running. The address comes from <code data-sourcepos="19:97-19:104">--addr</code>, else <code data-sourcepos="19:112-19:124">$CPULL_ADDR</code>, else <code data-sourcepos="19:132-19:155">.pull/cpull/serve.addr</code>, else <code data-sourcepos="19:163-19:178">127.0.0.1:8080</code>. The workspace is <code data-sourcepos="19:198-19:205">--root</code>, else <code data-sourcepos="19:213-19:224">$PULL_ROOT</code>, else the nearest parent holding <code data-sourcepos="19:259-19:274">pullfile.plist</code>.</li>
+<li data-sourcepos="20:1-20:178"><code data-sourcepos="20:3-20:21">radar list --json</code> prints cpull’s report objects plus <code data-sourcepos="20:58-20:71">current_line</code> (the line in the work tree holding the filed text nearest the filed line, or null), <code data-sourcepos="20:157-20:163">moved</code> and <code data-sourcepos="20:169-20:177">changed</code>.</li>
+<li data-sourcepos="21:1-21:437"><code data-sourcepos="21:3-21:17">radar migrate</code> files the reports of the old radar.db (the Rust radar’s <code data-sourcepos="21:75-21:99">radar list --all --json</code>; <code data-sourcepos="21:102-21:104">-</code> reads stdin) with the <code data-sourcepos="21:128-21:134">radar</code> label, keeping each one’s status, note, quote and source. It finds the commit by walking the repo’s history back to the filing time. A report that is already filed (same repo, file, line, text and note) is skipped, so the migration can run again. cpull stamps the issues with the time of the migration.</li>
 </ul>
+<h2 id="web-ui-and-api" data-sourcepos="23:1-23:17">Web UI and API<a href="#web-ui-and-api" aria-label="Link to heading 'Web UI and API'" data-heading-content="Web UI and API" class="anchor"></a></h2>
+<p data-sourcepos="25:1-25:296"><code data-sourcepos="25:1-25:13">radar serve</code> lists reports by status and repo, shows each report with its code (read at the commit it was filed against, highlighted), and has a form for filing one. The server writes <code data-sourcepos="25:186-25:209">.pull/radar/serve.addr</code> while it runs, so the workspace’s tool bar (Forge · CI · Wiki · Radar) links to it.</p>
+<pre class="syntax-highlighting" data-sourcepos="27:1-34:3"><code><span class="hl-text hl-plain">GET  /api/health
+GET  /api/reports?status=open|closed|all&amp;repo=R&amp;file=F   -&gt; [RadarReport]
+GET  /api/reports/&lt;id&gt;                                   -&gt; RadarReport + &quot;excerpt&quot;
+POST /api/reports        {repo, file, line, quote?, note?, title?, labels?, source?, ref?} -&gt; 201 RadarReport
+POST /api/reports/&lt;id&gt;/close | /reopen                   -&gt; RadarReport
+POST /api/relocate       {repo, file, line, line_text}   -&gt; {line, changed}
+</span></code></pre>
+<p data-sourcepos="36:1-36:130">A write whose <code data-sourcepos="36:15-36:22">Origin</code> names another site is refused with 403. When cpull isn’t running, the API answers 503 and the pages say so.</p>
+<h2 id="mcp" data-sourcepos="38:1-38:6">MCP<a href="#mcp" aria-label="Link to heading 'MCP'" data-heading-content="MCP" class="anchor"></a></h2>
+<p data-sourcepos="40:1-40:205"><code data-sourcepos="40:1-40:11">radar mcp</code> serves <code data-sourcepos="40:20-40:33">radar_report</code>, <code data-sourcepos="40:36-40:50">radar_reports</code>, <code data-sourcepos="40:53-40:71">radar_report_show</code>, <code data-sourcepos="40:74-40:93">radar_report_close</code> and <code data-sourcepos="40:99-40:119">radar_report_reopen</code> on stdio. Register it in the pullfile’s <code data-sourcepos="40:161-40:173">mcp_servers</code> as <code data-sourcepos="40:178-40:184">radar</code> with args <code data-sourcepos="40:196-40:204">[&quot;mcp&quot;]</code>.</p>
+<h2 id="build" data-sourcepos="42:1-42:8">Build<a href="#build" aria-label="Link to heading 'Build'" data-heading-content="Build" class="anchor"></a></h2>
+<p data-sourcepos="44:1-44:114">Zig 0.17.1, with the workspace’s <a data-sourcepos="44:34-44:74" href="https://github.com/jbisfun/theme">theme</a> checkout beside this repo (<code data-sourcepos="44:103-44:112">../theme</code>):</p>
+<pre class="syntax-highlighting" data-sourcepos="46:1-49:3"><code class="language-sh"><span class="hl-source hl-shell hl-bash"><span class="hl-variable hl-function hl-shell">zig</span> build test
+<span class="hl-variable hl-function hl-shell">zig</span> build <span class="hl-variable hl-parameter hl-option hl-shell">-Doptimize=ReleaseSafe</span> <span class="hl-variable hl-parameter hl-option hl-shell">--prefix</span> ~/.local
+</span></code></pre>
+<p data-sourcepos="51:1-51:38">radar reads git through the <code data-sourcepos="51:29-51:33">git</code> CLI.</p>
 
 <footer class="border-top mt-5 pt-3 small text-body-secondary">
 
